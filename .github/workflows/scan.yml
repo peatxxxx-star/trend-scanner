@@ -1,0 +1,42 @@
+name: Trend-Scan
+
+on:
+  schedule:
+    # Alle 2 Stunden, 04:00–20:00 UTC = 06:00–22:00 deutscher Sommerzeit.
+    # Hinweis: Im Winter (UTC+1) verschiebt sich das auf 05:00–21:00 lokal;
+    # bei Bedarf dann auf "0 5-21/2 * * *" ändern.
+    - cron: "0 4-20/2 * * *"
+  workflow_dispatch: {}   # manueller Start über den "Run workflow"-Knopf
+
+concurrency:
+  group: trend-scan
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Scan ausführen
+        env:
+          BETSAPI_TOKEN: ${{ secrets.BETSAPI_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scan.py
+
+      - name: Cache und Lauf-Protokoll sichern
+        run: |
+          git config user.name "trend-scanner"
+          git config user.email "actions@users.noreply.github.com"
+          git add cache/ runs/
+          git diff --cached --quiet || git commit -m "Scan $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git push
