@@ -84,6 +84,17 @@ HISTORY_DEPTH = 50         # wie viele beendete Spiele pro Team geladen werden
                            # (muss genug Heim-/Auswärtsspiele für die
                            #  15er-Serie enthalten; 50 reicht praktisch immer)
 
+# Trivial-Filter: bildet die Mindestquote (~1,30) statistisch nach.
+# Eine Linie zählt nur, wenn sie über die GESAMTE Historie beider Teams
+# in höchstens diesem Anteil der Spiele getroffen hätte — fast-immer-wahre
+# Linien (z.B. unter 12,5 Ecken) bekommen beim Buchmacher nur Miniquoten
+# und fliegen hier raus.
+TRIVIAL_MAX_RATE = 0.80
+
+# Liga-Landkarte: nur (Liga, Metrik)-Paare, für die bet365 nachweislich
+# Märkte anbietet, erzeugen Meldungen (Datei league_markets.json).
+LEAGUE_MARKETS_FILE = Path(__file__).parent / "league_markets.json"
+
 # Anfragen-Wächter: BetsAPI erlaubt 3.600 Anfragen/Stunde. Wir bremsen
 # rechtzeitig, statt in Fehler zu laufen.
 HOURLY_BUDGET = 3300
@@ -373,10 +384,43 @@ def team_qualifies(history, metric, line, direction, role):
     return anchor, other, valid_all
 
 
+_league_markets = None
+
+
+def allowed_metrics(league: str):
+    """Metriken, für die es in dieser Liga nachweislich bet365-Märkte gibt."""
+    global _league_markets
+    if _league_markets is None:
+        try:
+            data = json.loads(LEAGUE_MARKETS_FILE.read_text())
+            _league_markets = {k.lower(): set(v) for k, v in data.items()
+                               if not k.startswith("_") and isinstance(v, list)}
+        except Exception:
+            _league_markets = {}
+    key = league.lower().strip()
+    if key in _league_markets:
+        return _league_markets[key]
+    for name, metrics in _league_markets.items():   # tolerante Teilstring-Suche
+        if name in key or key in name:
+            return metrics
+    return set()
+
+
+def base_rate(history, metric, line, direction):
+    """Langfrist-Trefferquote der Linie über die gesamte Historie eines Teams."""
+    seq, valid = hit_sequence(history, metric, line, direction)
+    if not valid:
+        return None
+    return sum(1 for h in seq if h) / valid
+
+
 def evaluate_match(match, hist_home, hist_away):
     """Regelwerk V2. Liefert Liste sauberer Signale."""
     signals = []
+    playable = allowed_metrics(match.get("league", ""))
     for metric, (label, lines) in METRICS.items():
+        if metric not in playable:
+            continue
         for direction in ("über", "unter"):
             best = None
             for line in lines:
@@ -388,6 +432,14 @@ def evaluate_match(match, hist_home, hist_away):
                 if not (home_part and away_part):
                     continue
                 if not (a_home or a_away):
+                    continue
+                # Trivial-Filter: Linie muss langfristig "unsicher" genug
+                # sein, sonst gäbe es dafür keine Quote >= 1,30
+                rh = base_rate(hist_home, metric, line, direction)
+                ra = base_rate(hist_away, metric, line, direction)
+                if rh is None or ra is None:
+                    continue
+                if (rh + ra) / 2 > TRIVIAL_MAX_RATE:
                     continue
                 cand = {
                     "metric": label, "line": line, "direction": direction,
@@ -488,13 +540,25 @@ def run():
         json.dumps(log, ensure_ascii=False, indent=1))
 
     if all_hits:
-        text = "\n\n".join(build_message(m, s) for m, s in all_hits)
         header = (f"📊 Trend-Scan {now_berlin().strftime('%d.%m. %H:%M')} – "
-                  f"{len(all_hits)} Treffer (⚓ = Anker-Serie)\n\n")
-        if send_telegram(header + text):
-            print("Telegram-Meldung verschickt")
+                  f"{len(all_hits)} Treffer (⚓ = Anker-Serie)")
+        # Telegram erlaubt max. 4096 Zeichen pro Nachricht -> stückeln
+        chunks, current = [], header
+        for m, s in all_hits:
+            block = build_message(m, s)
+            if len(current) + len(block) + 2 > 3500:
+                chunks.append(current)
+                current = block
+            else:
+                current += "\n\n" + block
+        chunks.append(current)
+        sent = all(send_telegram(c) for c in chunks)
+        if sent:
+            print(f"Telegram: {len(chunks)} Nachricht(en) verschickt")
         else:
-            print(header + text)
+            print(header)
+            for c in chunks:
+                print(c)
     else:
         print("Keine Treffer in diesem Lauf")
     print(f"Anfragen gesamt: {_request_count}")
@@ -515,6 +579,9 @@ def _mk(corner_pairs, homes):
 
 
 def selftest():
+    global _league_markets
+    _league_markets = {"test": {"corners", "yellowcards", "on_target",
+                                "offsides", "fouls"}}
     ok = True
     H, A = True, False
 
