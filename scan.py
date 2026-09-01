@@ -431,26 +431,103 @@ def s24_slug(name: str) -> str:
     return s
 
 
-def s24_fetch_page(match):
-    """Holt die scores24-Spielseite (HTML) oder None.
+_s24_links = None
+_s24_links_lock = threading.Lock()
+_s24_stats = {"ok": 0, "no_link": 0, "fetch_fail": 0, "last_error": ""}
 
-    Die URL wird aus den Teamnamen geraten; das Datum im Slug entspricht
-    nicht immer dem Anstosstag, daher werden zwei Datumsvarianten probiert.
-    """
+
+def _s24_get(url):
+    req = urllib.request.Request(url, headers={"User-Agent": S24_UA,
+                                               "Accept-Language": "de"})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        return r.read().decode("utf-8", "ignore")
+
+
+def s24_day_links():
+    """Alle anstehenden Spiel-Slugs aus der scores24-Sitemap (dafuer ist
+    sie da), einmal pro Lauf geladen. Liefert Slugs wie
+    'm-01-09-2026-sheffield-united-bolton-wanderers'."""
+    global _s24_links
+    with _s24_links_lock:
+        if _s24_links is not None:
+            return _s24_links
+        links = []
+        for i in range(5):
+            url = (f"https://scores24.live/sitemaps/"
+                   f"sitemap-de-soccer-upcoming-matches-{i}.xml")
+            try:
+                xml = _s24_get(url)
+            except Exception as exc:
+                if i == 0:
+                    _s24_stats["last_error"] = f"{url} -> {exc}"[:160]
+                break
+            found = re.findall(r"/de/soccer/(m-[^<\"?#]+)", xml)
+            if not found:
+                break
+            links += found
+        _s24_links = sorted(set(links))
+        return _s24_links
+
+
+_TOKEN_ALIASES = {"utd": "united", "cnty": "county", "wed": "wednesday",
+                  "ath": "athletic", "intl": "international"}
+
+
+def _name_matches_slug(name, slug_part):
+    """Wieviele Tokens (>=3 Zeichen) des Teamnamens im Slug vorkommen
+    (auch als Prefix, damit 'sheff' auf 'sheffield' passt)."""
+    slug_tokens = slug_part.split("-")
+    score = 0
+    for tok in s24_slug(name).split("-"):
+        if len(tok) < 3:
+            continue
+        tok = _TOKEN_ALIASES.get(tok, tok)
+        if any(st == tok or st.startswith(tok) or tok.startswith(st)
+               or (len(tok) >= 4 and tok in st) or (len(st) >= 4 and st in tok)
+               for st in slug_tokens if len(st) >= 3):
+            score += 1
+    return score
+
+
+def s24_fetch_page(match):
+    """Findet die scores24-Spielseite ueber die Tagesuebersicht (Namens-
+    aehnlichkeit) mit Fallback auf die geratene URL. Liefert HTML oder None."""
+    candidates = []
+    for link in s24_day_links():
+        body = re.sub(r"^m-\d{2}-\d{2}-\d{4}-", "", link)
+        h = _name_matches_slug(match["home"], body)
+        a = _name_matches_slug(match["away"], body)
+        if h >= 1 and a >= 1:
+            candidates.append((h + a, link))
+    urls = [f"{S24_BASE}/{link}" for _, link in
+            sorted(candidates, reverse=True)[:2]]
+    # Fallback: direkt geratene URL (zwei Datumsvarianten)
     from zoneinfo import ZoneInfo
     kick = datetime.fromtimestamp(match["kickoff_ts"], tz=ZoneInfo("Europe/Berlin"))
-    dates = [kick.strftime("%d-%m-%Y"),
-             (kick - timedelta(days=1)).strftime("%d-%m-%Y")]
     home, away = s24_slug(match["home"]), s24_slug(match["away"])
-    for d in dates:
-        url = f"{S24_BASE}/m-{d}-{home}-{away}"
+    for d in (kick, kick - timedelta(days=1)):
+        urls.append(f"{S24_BASE}/m-{d.strftime('%d-%m-%Y')}-{home}-{away}")
+    for url in urls:
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": S24_UA})
-            with urllib.request.urlopen(req, timeout=15) as r:
-                if r.status == 200:
-                    return r.read().decode("utf-8", "ignore")
-        except Exception:
+            html = _s24_get(url)
+        except Exception as exc:
+            _s24_stats["last_error"] = f"{url} -> {exc}"[:160]
             continue
+        # Verifikation: beide Teamnamen muessen auf der Seite auftauchen,
+        # sonst war die Zuordnung falsch -> naechsten Kandidaten probieren
+        text = re.sub(r"<[^>]+>", " ", html).lower()
+        def on_page(name):
+            toks = [_TOKEN_ALIASES.get(t, t)
+                    for t in s24_slug(name).split("-") if len(t) >= 4]
+            return (not toks) or any(t in text for t in toks)
+        if on_page(match["home"]) and on_page(match["away"]):
+            _s24_stats["ok"] += 1
+            return html
+        _s24_stats["last_error"] = f"{url} -> Teamnamen nicht auf Seite"[:160]
+    if candidates:
+        _s24_stats["fetch_fail"] += 1
+    else:
+        _s24_stats["no_link"] += 1
     return None
 
 
@@ -677,6 +754,12 @@ def run():
                 print(c)
     else:
         print("Keine Treffer in diesem Lauf")
+    if GATE_ENABLED:
+        print(f"scores24: {_s24_stats['ok']} Seiten geladen, "
+              f"{_s24_stats['no_link']} ohne Zuordnung, "
+              f"{_s24_stats['fetch_fail']} Abruf-Fehler"
+              + (f" | letzter Fehler: {_s24_stats['last_error']}"
+                 if _s24_stats['last_error'] else ""))
     print(f"Anfragen gesamt: {_request_count}")
 
 
@@ -818,6 +901,15 @@ def selftest():
         ok = False
     if s24_slug("VfL 1899 Osnabrück") != "vfl-1899-osnabruck" or s24_slug("Sheff Utd") != "sheff-utd":
         print("FEHLER Fall 7d: Slug-Bildung:", s24_slug("VfL 1899 Osnabrück"))
+        ok = False
+    # --- Fall 7e: Namens-Zuordnung ueber die Tagesuebersicht
+    slug_body = "sheffield-united-bolton-wanderers"
+    if _name_matches_slug("Sheff Utd", slug_body) < 2 or \
+       _name_matches_slug("Bolton", slug_body) < 1:
+        print("FEHLER Fall 7e: Fuzzy-Zuordnung greift nicht")
+        ok = False
+    if _name_matches_slug("Preston", "crystal-palace-brighton") != 0:
+        print("FEHLER Fall 7f: Fuzzy-Zuordnung matcht falsches Spiel")
         ok = False
 
     print("Selbsttest OK" if ok else "Selbsttest FEHLGESCHLAGEN")
