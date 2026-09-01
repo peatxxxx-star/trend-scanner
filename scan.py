@@ -91,22 +91,27 @@ HISTORY_DEPTH = 50         # wie viele beendete Spiele pro Team geladen werden
 # in höchstens diesem Anteil der Spiele getroffen hätte — fast-immer-wahre
 # Linien (z.B. unter 12,5 Ecken) bekommen beim Buchmacher nur Miniquoten
 # und fliegen hier raus.
-# QUOTEN-GATE (ersetzt jede statistische Kalibrierung, Lucios Entscheidung):
-# Ein Signal wird nur gemeldet, wenn bet365 fuer die Linie einen echten
-# Vorspiel-Markt mit Quote >= MIN_ODDS stellt. Die Liniensuche und die
-# Quotenpruefung sind verzahnt: gemeldet wird die Schnittmenge aus
-# "Regelwerk erfuellt" und "Markt existiert mit Quote >= 1,30".
+# QUOTEN-CHECK ueber scores24 (Multi-Buchmacher-Aggregator, kostenlos):
+# Fuer jedes statistische Signal wird die scores24-Spielseite geoeffnet und
+# geprueft, ob es fuer die Metrik ueberhaupt einen Quoten-Reiter gibt
+# (locker, nicht linien-genau — Lucios Vorgabe). Reiter vorhanden ->
+# Signal bleibt, Quoten-Spanne kommt mit in die Meldung. Reiter fehlt ->
+# Signal faellt weg (kein Buchmacher kennt den Markt). Ganze Spanne unter
+# MIN_ODDS -> ebenfalls weg. Spielseite nicht zuordenbar/erreichbar ->
+# Signal bleibt mit Markierung, nichts geht verloren.
 GATE_ENABLED = True
 MIN_ODDS = 1.30
+S24_BASE = "https://scores24.live/de/soccer"
+S24_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+          "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36")
 
-# Welche bet365-Marktgruppen zu welcher Metrik gehoeren
-METRIC_MARKETS = {
-    "corners": ["corners_2_way", "alternative_corners", "corners",
-                 "asian_total_corners"],
-    "yellowcards": ["number_of_cards_in_match", "asian_total_cards"],
-    "on_target": ["match_shots_on_target"],
-    "offsides": [],
-    "fouls": [],
+# scores24-Reiternamen je Metrik
+S24_GROUPS = {
+    "corners": "Eckstoß",
+    "yellowcards": "Karten",
+    "on_target": "Schüsse",
+    "offsides": "Abseits",
+    "fouls": "Fouls",
 }
 
 # Anfragen-Wächter: BetsAPI erlaubt 3.600 Anfragen/Stunde. Wir bremsen
@@ -413,64 +418,87 @@ def team_qualifies(history, metric, line, direction, role):
     return anchor, other, valid_all
 
 
-def fetch_market_odds(match):
-    """Holt die bet365-Vorspielquoten eines Spiels und normalisiert sie zu
-    {metrik: {linie: {"über": quote, "unter": quote}}}.
+import re
+import unicodedata
 
-    Liefert None, wenn keine bet365-Zuordnung existiert oder der Abruf
-    scheitert (z.B. Quoten-Abo abgelaufen) — der Aufrufer entscheidet dann.
+
+def s24_slug(name: str) -> str:
+    """Teamname -> URL-Baustein im scores24-Stil."""
+    s = unicodedata.normalize("NFKD", name)
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    s = s.lower().replace("ß", "ss")
+    s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
+    return s
+
+
+def s24_fetch_page(match):
+    """Holt die scores24-Spielseite (HTML) oder None.
+
+    Die URL wird aus den Teamnamen geraten; das Datum im Slug entspricht
+    nicht immer dem Anstosstag, daher werden zwei Datumsvarianten probiert.
     """
-    fi = match.get("bet365_id")
-    if not fi:
-        return None
-    try:
-        data = api_get("/v3/bet365/prematch", FI=fi)
-    except Exception:
-        return None
-    ev = (data.get("results") or [{}])[0] or {}
-    out = {m: {} for m in METRICS}
-    for metric, market_keys in METRIC_MARKETS.items():
-        for sec in ev.values():
-            sp = sec.get("sp") if isinstance(sec, dict) else None
-            if not sp:
-                continue
-            for mkey, market in sp.items():
-                if mkey not in market_keys:
-                    continue
-                entries = market.get("odds") or []
-                three_way = any((e.get("header") or "").lower() == "exactly"
-                                for e in entries)
-                for o in entries:
-                    hdr = (o.get("header") or "").strip().lower()
-                    if hdr == "exactly":
-                        continue
-                    raw = str(o.get("handicap") or o.get("name") or "").strip()
-                    direction = None
-                    if hdr == "over":
-                        direction = "über"
-                    elif hdr == "under":
-                        direction = "unter"
-                    elif raw.lower().startswith("over"):
-                        direction, raw = "über", raw[4:].strip()
-                    elif raw.lower().startswith("under"):
-                        direction, raw = "unter", raw[5:].strip()
-                    if direction is None:
-                        continue
-                    try:
-                        line = float(raw.replace(",", "."))
-                        odds = float(o.get("odds"))
-                    except (TypeError, ValueError):
-                        continue
-                    if odds <= 1.01:
-                        continue
-                    if line == int(line):
-                        if three_way:   # "Über 9 (genau 9 = eigener Ausgang)"
-                            line = line + 0.5 if direction == "über" else line - 0.5
-                        else:
-                            continue    # ganze Linien ohne 3-Weg: mehrdeutig
-                    slot = out[metric].setdefault(line, {})
-                    slot[direction] = max(slot.get(direction, 0.0), odds)
-    return out
+    from zoneinfo import ZoneInfo
+    kick = datetime.fromtimestamp(match["kickoff_ts"], tz=ZoneInfo("Europe/Berlin"))
+    dates = [kick.strftime("%d-%m-%Y"),
+             (kick - timedelta(days=1)).strftime("%d-%m-%Y")]
+    home, away = s24_slug(match["home"]), s24_slug(match["away"])
+    for d in dates:
+        url = f"{S24_BASE}/m-{d}-{home}-{away}"
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": S24_UA})
+            with urllib.request.urlopen(req, timeout=15) as r:
+                if r.status == 200:
+                    return r.read().decode("utf-8", "ignore")
+        except Exception:
+            continue
+    return None
+
+
+def s24_market_groups(html: str):
+    """Extrahiert die Quoten-Reiter der Spielseite:
+    {metrik: (anzahl, quote_min, quote_max)}"""
+    text = re.sub(r"<[^>]+>", " ", html)
+    text = re.sub(r"\s+", " ", text)
+    groups = {}
+    for metric, label in S24_GROUPS.items():
+        m = re.search(
+            re.escape(label) +
+            r"(?:\s+Vorhersagen)?\s*\(\s*(\d+)\s*\)\s*([\d]+[.,]\d+)"
+            r"(?:\s*-\s*([\d]+[.,]\d+))?",
+            text)
+        if not m:
+            continue
+        count = int(m.group(1))
+        lo = float(m.group(2).replace(",", "."))
+        hi = float(m.group(3).replace(",", ".")) if m.group(3) else lo
+        if count > 0:
+            groups[metric] = (count, lo, hi)
+    return groups
+
+
+def apply_s24_gate(signals, groups):
+    """Wendet den lockeren Quoten-Check an.
+
+    groups None  -> Seite nicht zuordenbar: alles behalten, markieren.
+    Reiter fehlt -> Signal verwerfen (kein Buchmacher kennt den Markt).
+    Spanne komplett unter MIN_ODDS -> verwerfen.
+    Sonst behalten und Quoten-Spanne anhaengen.
+    """
+    if groups is None:
+        for s in signals:
+            s["unchecked"] = True
+        return signals
+    kept = []
+    for s in signals:
+        g = groups.get(s["metric_key"])
+        if not g:
+            continue
+        count, lo, hi = g
+        if hi < MIN_ODDS:
+            continue
+        s["range"] = (lo, hi)
+        kept.append(s)
+    return kept
 
 
 def evaluate_match(match, hist_home, hist_away, market_odds=None):
@@ -541,10 +569,13 @@ def build_message(match, signals):
     lines = [f"⚽ {match['home']} – {match['away']}",
              f"🕒 {match['kickoff']} · {match['league']}"]
     for s in signals:
-        if s.get("quote"):
+        if s.get("range"):
+            lo, hi = s["range"]
+            tail = f" · Quoten {lo:.2f}–{hi:.2f}" if hi > lo else f" · Quote {lo:.2f}"
+        elif s.get("quote"):
             tail = f" @ {s['quote']:.2f}"
         elif s.get("unchecked"):
-            tail = " ❓Quote nicht prüfbar"
+            tail = " ❓scores24-Seite nicht gefunden, selbst prüfen"
         else:
             tail = ""
         lines.append(
@@ -586,14 +617,9 @@ def run():
         hist_away = fetch_team_history(match["away_id"], cache)
         signals = evaluate_match(match, hist_home, hist_away)
         if signals and GATE_ENABLED:
-            odds = fetch_market_odds(match)
-            if odds is None:
-                # keine bet365-Zuordnung oder Quoten-Abruf gescheitert:
-                # Signale bleiben, aber sichtbar als ungeprueft markiert
-                for s in signals:
-                    s["unchecked"] = True
-            else:
-                signals = evaluate_match(match, hist_home, hist_away, odds)
+            html = s24_fetch_page(match)
+            groups = s24_market_groups(html) if html else None
+            signals = apply_s24_gate(signals, groups)
         return signals
 
     done = 0
@@ -767,6 +793,31 @@ def selftest():
              if s["metric"] == "Ecken" and s["direction"] == "über"]
     if any(s["line"] == 9.5 for s in sig6c):
         print("FEHLER Fall 6c: 9.5 qualifiziert statistisch nicht, darf nicht gemeldet werden")
+        ok = False
+
+    # --- Fall 7: scores24-Parser + lockeres Gate
+    fake_html = ("<div>Eckstoß Vorhersagen</div><span>(4)</span><b>1.54</b> - "
+                 "<b>1.92</b> <div>Karten</div> (2) 1.12 - 1.25 "
+                 "<div>Abseits Vorhersagen (3) 1.34 - 1.75</div>")
+    g = s24_market_groups(fake_html)
+    if g.get("corners") != (4, 1.54, 1.92) or g.get("yellowcards") != (2, 1.12, 1.25):
+        print("FEHLER Fall 7a: scores24-Parser:", g)
+        ok = False
+    sigs = [
+        {"metric": "Ecken", "metric_key": "corners"},
+        {"metric": "Gelbe Karten", "metric_key": "yellowcards"},   # Spanne < 1.30
+        {"metric": "Fouls", "metric_key": "fouls"},                # kein Reiter
+    ]
+    kept = apply_s24_gate([dict(s) for s in sigs], g)
+    if [s["metric_key"] for s in kept] != ["corners"] or kept[0].get("range") != (1.54, 1.92):
+        print("FEHLER Fall 7b: Gate-Anwendung:", kept)
+        ok = False
+    unmatched = apply_s24_gate([dict(s) for s in sigs], None)
+    if len(unmatched) != 3 or not all(s.get("unchecked") for s in unmatched):
+        print("FEHLER Fall 7c: unzuordenbare Seite muss markieren, nicht verwerfen")
+        ok = False
+    if s24_slug("VfL 1899 Osnabrück") != "vfl-1899-osnabruck" or s24_slug("Sheff Utd") != "sheff-utd":
+        print("FEHLER Fall 7d: Slug-Bildung:", s24_slug("VfL 1899 Osnabrück"))
         ok = False
 
     print("Selbsttest OK" if ok else "Selbsttest FEHLGESCHLAGEN")
