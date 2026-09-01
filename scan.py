@@ -91,11 +91,23 @@ HISTORY_DEPTH = 50         # wie viele beendete Spiele pro Team geladen werden
 # in höchstens diesem Anteil der Spiele getroffen hätte — fast-immer-wahre
 # Linien (z.B. unter 12,5 Ecken) bekommen beim Buchmacher nur Miniquoten
 # und fliegen hier raus.
-TRIVIAL_MAX_RATE = 0.80
+# QUOTEN-GATE (ersetzt jede statistische Kalibrierung, Lucios Entscheidung):
+# Ein Signal wird nur gemeldet, wenn bet365 fuer die Linie einen echten
+# Vorspiel-Markt mit Quote >= MIN_ODDS stellt. Die Liniensuche und die
+# Quotenpruefung sind verzahnt: gemeldet wird die Schnittmenge aus
+# "Regelwerk erfuellt" und "Markt existiert mit Quote >= 1,30".
+GATE_ENABLED = True
+MIN_ODDS = 1.30
 
-# Liga-Landkarte: nur (Liga, Metrik)-Paare, für die bet365 nachweislich
-# Märkte anbietet, erzeugen Meldungen (Datei league_markets.json).
-LEAGUE_MARKETS_FILE = Path(__file__).parent / "league_markets.json"
+# Welche bet365-Marktgruppen zu welcher Metrik gehoeren
+METRIC_MARKETS = {
+    "corners": ["corners_2_way", "alternative_corners", "corners",
+                 "asian_total_corners"],
+    "yellowcards": ["number_of_cards_in_match", "asian_total_cards"],
+    "on_target": ["match_shots_on_target"],
+    "offsides": [],
+    "fouls": [],
+}
 
 # Anfragen-Wächter: BetsAPI erlaubt 3.600 Anfragen/Stunde. Wir bremsen
 # rechtzeitig, statt in Fehler zu laufen.
@@ -238,6 +250,8 @@ def fetch_matches_in_window():
                     "home_id": str((e.get("home") or {}).get("id")),
                     "away_id": str((e.get("away") or {}).get("id")),
                     "kickoff": kickoff_local.strftime("%a %H:%M"),
+                    "kickoff_ts": int(e["time"]),
+                    "bet365_id": e.get("bet365_id"),
                 }
             total = int((data.get("pager") or {}).get("total", 0))
             if page * 100 >= total:
@@ -399,83 +413,117 @@ def team_qualifies(history, metric, line, direction, role):
     return anchor, other, valid_all
 
 
-_league_markets = None
+def fetch_market_odds(match):
+    """Holt die bet365-Vorspielquoten eines Spiels und normalisiert sie zu
+    {metrik: {linie: {"über": quote, "unter": quote}}}.
 
-
-def allowed_metrics(league: str):
-    """Metriken, für die es in dieser Liga nachweislich bet365-Märkte gibt."""
-    global _league_markets
-    if _league_markets is None:
-        try:
-            data = json.loads(LEAGUE_MARKETS_FILE.read_text())
-            _league_markets = {k.lower(): set(v) for k, v in data.items()
-                               if not k.startswith("_") and isinstance(v, list)}
-        except Exception:
-            _league_markets = {}
-    key = league.lower().strip()
-    if key in _league_markets:
-        return _league_markets[key]
-    for name, metrics in _league_markets.items():   # tolerante Teilstring-Suche
-        if name in key or key in name:
-            return metrics
-    return set()
-
-
-def base_rate(history, metric, line, direction):
-    """Langfrist-Trefferquote der Linie über die gesamte Historie eines Teams."""
-    seq, valid = hit_sequence(history, metric, line, direction)
-    if not valid:
+    Liefert None, wenn keine bet365-Zuordnung existiert oder der Abruf
+    scheitert (z.B. Quoten-Abo abgelaufen) — der Aufrufer entscheidet dann.
+    """
+    fi = match.get("bet365_id")
+    if not fi:
         return None
-    return sum(1 for h in seq if h) / valid
+    try:
+        data = api_get("/v3/bet365/prematch", FI=fi)
+    except Exception:
+        return None
+    ev = (data.get("results") or [{}])[0] or {}
+    out = {m: {} for m in METRICS}
+    for metric, market_keys in METRIC_MARKETS.items():
+        for sec in ev.values():
+            sp = sec.get("sp") if isinstance(sec, dict) else None
+            if not sp:
+                continue
+            for mkey, market in sp.items():
+                if mkey not in market_keys:
+                    continue
+                entries = market.get("odds") or []
+                three_way = any((e.get("header") or "").lower() == "exactly"
+                                for e in entries)
+                for o in entries:
+                    hdr = (o.get("header") or "").strip().lower()
+                    if hdr == "exactly":
+                        continue
+                    raw = str(o.get("handicap") or o.get("name") or "").strip()
+                    direction = None
+                    if hdr == "over":
+                        direction = "über"
+                    elif hdr == "under":
+                        direction = "unter"
+                    elif raw.lower().startswith("over"):
+                        direction, raw = "über", raw[4:].strip()
+                    elif raw.lower().startswith("under"):
+                        direction, raw = "unter", raw[5:].strip()
+                    if direction is None:
+                        continue
+                    try:
+                        line = float(raw.replace(",", "."))
+                        odds = float(o.get("odds"))
+                    except (TypeError, ValueError):
+                        continue
+                    if odds <= 1.01:
+                        continue
+                    if line == int(line):
+                        if three_way:   # "Über 9 (genau 9 = eigener Ausgang)"
+                            line = line + 0.5 if direction == "über" else line - 0.5
+                        else:
+                            continue    # ganze Linien ohne 3-Weg: mehrdeutig
+                    slot = out[metric].setdefault(line, {})
+                    slot[direction] = max(slot.get(direction, 0.0), odds)
+    return out
 
 
-def evaluate_match(match, hist_home, hist_away):
-    """Regelwerk V2. Liefert Liste sauberer Signale."""
-    signals = []
-    playable = allowed_metrics(match.get("league", ""))
+def evaluate_match(match, hist_home, hist_away, market_odds=None):
+    """Regelwerk + optionales Quoten-Gate.
+
+    market_odds:
+      None  -> reine Statistik (Gate aus): strengste qualifizierende Linie.
+      dict  -> Gate an: nur Linien, die das Regelwerk erfuellen UND fuer
+               die bet365 eine Quote >= MIN_ODDS stellt; Quote wird ans
+               Signal geschrieben.
+    """
+    candidates = {}
     for metric, (label, lines) in METRICS.items():
         for direction in ("über", "unter"):
-            best = None
             for line in lines:
                 a_home, o_home, v_home = team_qualifies(hist_home, metric, line, direction, "home")
                 a_away, o_away, v_away = team_qualifies(hist_away, metric, line, direction, "away")
-                # beide Teams müssen die Richtung zeigen, mind. ein Anker
-                home_part = a_home or o_home
-                away_part = a_away or o_away
-                if not (home_part and away_part):
+                if not ((a_home or o_home) and (a_away or o_away)):
                     continue
                 if not (a_home or a_away):
                     continue
-                # Trivial-Filter: Linie muss langfristig "unsicher" genug
-                # sein, sonst gäbe es dafür keine Quote >= 1,30
-                rh = base_rate(hist_home, metric, line, direction)
-                ra = base_rate(hist_away, metric, line, direction)
-                if rh is None or ra is None:
-                    continue
-                if (rh + ra) / 2 > TRIVIAL_MAX_RATE:
-                    continue
-                cand = {
-                    "metric": label, "line": line, "direction": direction,
+                candidates.setdefault((metric, direction), []).append({
+                    "metric": label, "metric_key": metric,
+                    "line": line, "direction": direction,
                     "home_series": a_home or o_home,
                     "away_series": a_away or o_away,
                     "home_is_anchor": bool(a_home),
                     "away_is_anchor": bool(a_away),
                     "valid": (v_home, v_away),
-                    "market_known": metric in playable,
-                }
-                if best is None:
-                    best = cand
-                elif direction == "über" and line > best["line"]:
-                    best = cand
-                elif direction == "unter" and line < best["line"]:
-                    best = cand
-            if best:
-                signals.append(best)
+                })
     # Gegenläufigkeits-Filter: Metrik mit Trends in beide Richtungen fliegt raus
-    by_metric = {}
-    for s in signals:
-        by_metric.setdefault(s["metric"], set()).add(s["direction"])
-    return [s for s in signals if len(by_metric[s["metric"]]) == 1]
+    directions_per_metric = {}
+    for (metric, direction) in candidates:
+        directions_per_metric.setdefault(metric, set()).add(direction)
+    signals = []
+    for (metric, direction), cands in candidates.items():
+        if len(directions_per_metric[metric]) > 1:
+            continue
+        if market_odds is not None:
+            lines_odds = market_odds.get(metric, {})
+            gated = []
+            for c in cands:
+                quote = lines_odds.get(c["line"], {}).get(direction)
+                if quote and quote >= MIN_ODDS:
+                    c = dict(c, quote=quote)
+                    gated.append(c)
+            cands = gated
+        if not cands:
+            continue
+        best = max(cands, key=lambda c: c["line"]) if direction == "über" \
+            else min(cands, key=lambda c: c["line"])
+        signals.append(best)
+    return signals
 
 
 # ----------------------------------------------------------------------------
@@ -493,12 +541,17 @@ def build_message(match, signals):
     lines = [f"⚽ {match['home']} – {match['away']}",
              f"🕒 {match['kickoff']} · {match['league']}"]
     for s in signals:
-        hint = "" if s.get("market_known") else " ⚑Markt prüfen"
+        if s.get("quote"):
+            tail = f" @ {s['quote']:.2f}"
+        elif s.get("unchecked"):
+            tail = " ❓Quote nicht prüfbar"
+        else:
+            tail = ""
         lines.append(
             f"• Gesamt-{s['metric']} {s['direction']} {s['line']}: "
             f"{match['home']} {fmt_series(s['home_series'], s['home_is_anchor'])}, "
             f"{match['away']} {fmt_series(s['away_series'], s['away_is_anchor'])} "
-            f"[Datenbasis {s['valid'][0]}/{s['valid'][1]}]{hint}"
+            f"[Datenbasis {s['valid'][0]}/{s['valid'][1]}]{tail}"
         )
     return "\n".join(lines)
 
@@ -531,7 +584,17 @@ def run():
     def check(match):
         hist_home = fetch_team_history(match["home_id"], cache)
         hist_away = fetch_team_history(match["away_id"], cache)
-        return evaluate_match(match, hist_home, hist_away)
+        signals = evaluate_match(match, hist_home, hist_away)
+        if signals and GATE_ENABLED:
+            odds = fetch_market_odds(match)
+            if odds is None:
+                # keine bet365-Zuordnung oder Quoten-Abruf gescheitert:
+                # Signale bleiben, aber sichtbar als ungeprueft markiert
+                for s in signals:
+                    s["unchecked"] = True
+            else:
+                signals = evaluate_match(match, hist_home, hist_away, odds)
+        return signals
 
     done = 0
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
@@ -552,6 +615,8 @@ def run():
                     save_cache(cache)
                 print(f"  ... {done}/{len(matches)} geprüft, {_request_count} Anfragen", flush=True)
     save_cache(cache)
+    # feste Sortierung nach Anstoßzeit (Parallelverarbeitung mischt sonst)
+    all_hits.sort(key=lambda h: h[0].get("kickoff_ts", 0))
 
     RUNS_DIR.mkdir(parents=True, exist_ok=True)
     now = datetime.now(timezone.utc)
@@ -604,9 +669,6 @@ def _mk(corner_pairs, homes):
 
 
 def selftest():
-    global _league_markets
-    _league_markets = {"test": {"corners", "yellowcards", "on_target",
-                                "offsides", "fouls"}}
     ok = True
     H, A = True, False
 
@@ -682,10 +744,30 @@ def selftest():
         print("FEHLER Fall 5: Signal trotz fehlendem Trend beim zweiten Team")
         ok = False
 
-    # --- Fall 6: Zeitfenster-Logik
-    class FakeDT:
-        pass
-    # (nur indirekt testbar; Fensterlogik ist bewusst simpel gehalten)
+    # --- Fall 6: Quoten-Gate
+    #  a) Markt existiert nur bei 8.5 mit Quote 1.85 -> Signal mit Quote
+    odds_ok = {"corners": {8.5: {"über": 1.85}}, "yellowcards": {},
+               "on_target": {}, "offsides": {}, "fouls": {}}
+    sig6 = [s for s in evaluate_match(match, a, b, odds_ok)
+            if s["metric"] == "Ecken" and s["direction"] == "über"]
+    if not sig6 or sig6[0]["line"] != 8.5 or sig6[0].get("quote") != 1.85:
+        print("FEHLER Fall 6a: Gate liefert kein Quoten-Signal:", sig6)
+        ok = False
+    #  b) Quote unter 1.30 -> kein Signal
+    odds_low = {"corners": {8.5: {"über": 1.20}}, "yellowcards": {},
+                "on_target": {}, "offsides": {}, "fouls": {}}
+    if any(s["metric"] == "Ecken" for s in evaluate_match(match, a, b, odds_low)):
+        print("FEHLER Fall 6b: Quote 1.20 darf nicht durchs Gate")
+        ok = False
+    #  c) Regelwerk qualifiziert bei 8.5, Markt nur bei 9.5 -> kein Signal
+    #     (die Schnittmenge ist leer, egal wie gut die Quote ist)
+    odds_wrong_line = {"corners": {9.5: {"über": 2.10}}, "yellowcards": {},
+                       "on_target": {}, "offsides": {}, "fouls": {}}
+    sig6c = [s for s in evaluate_match(match, a, b, odds_wrong_line)
+             if s["metric"] == "Ecken" and s["direction"] == "über"]
+    if any(s["line"] == 9.5 for s in sig6c):
+        print("FEHLER Fall 6c: 9.5 qualifiziert statistisch nicht, darf nicht gemeldet werden")
+        ok = False
 
     print("Selbsttest OK" if ok else "Selbsttest FEHLGESCHLAGEN")
     sys.exit(0 if ok else 1)
