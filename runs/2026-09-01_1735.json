@@ -1,0 +1,167 @@
+{
+ "run_utc": "2026-09-01T17:35:42+00:00",
+ "matches_checked": 95,
+ "requests": 271,
+ "hits": [
+  {
+   "match": {
+    "id": "12101779",
+    "league": "Russia Cup",
+    "home": "Rostov",
+    "away": "CSKA Moscow",
+    "home_id": "997",
+    "away_id": "26113",
+    "kickoff": "Tue 19:45",
+    "kickoff_ts": 1788284700,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 10.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      44
+     ],
+     "unchecked": true
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      42,
+      37
+     ],
+     "unchecked": true
+    },
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 20.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      40
+     ],
+     "unchecked": true
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12101743",
+    "league": "England Championship",
+    "home": "Sheff Utd",
+    "away": "Bolton",
+    "home_id": "3013",
+    "away_id": "2966",
+    "kickoff": "Tue 20:45",
+    "kickoff_ts": 1788288300,
+    "bet365_id": "199415444"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      47
+     ],
+     "quote": 1.615
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12101744",
+    "league": "England Championship",
+    "home": "Preston",
+    "away": "Bristol City",
+    "home_id": "17194",
+    "away_id": "17354",
+    "kickoff": "Tue 20:45",
+    "kickoff_ts": 1788288300,
+    "bet365_id": "199415440"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      45
+     ],
+     "quote": 1.666
+    }
+   ]
+  }
+ ]
+}
