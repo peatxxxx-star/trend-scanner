@@ -1,0 +1,1034 @@
+{
+ "run_utc": "2026-09-01T20:13:54+00:00",
+ "matches_checked": 24,
+ "requests": 224,
+ "hits": [
+  {
+   "match": {
+    "id": "13001339",
+    "league": "Uruguay Cup",
+    "home": "Montevideo Wanderers",
+    "away": "Cerro",
+    "home_id": "4100",
+    "away_id": "2989",
+    "kickoff": "Tue 23:00",
+    "kickoff_ts": 1788296400,
+    "bet365_id": "200480086"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      46,
+      46
+     ],
+     "range": [
+      1.291,
+      1.429
+     ]
+    },
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 11.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      46,
+      46
+     ],
+     "range": [
+      1.291,
+      1.429
+     ]
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11400143",
+    "league": "Ecuador LigaPro Serie A",
+    "home": "Delfin SC",
+    "away": "Tecnico Universitario",
+    "home_id": "7216",
+    "away_id": "1083",
+    "kickoff": "Tue 23:30",
+    "kickoff_ts": 1788298200,
+    "bet365_id": "199749753"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      48
+     ],
+     "range": [
+      1.41,
+      1.825
+     ]
+    },
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 11.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      45,
+      48
+     ],
+     "range": [
+      1.41,
+      1.825
+     ]
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13045935",
+    "league": "Paraguay Division Profesional",
+    "home": "2 de Mayo",
+    "away": "Sportivo Luqueno",
+    "home_id": "201221",
+    "away_id": "2108",
+    "kickoff": "Tue 23:30",
+    "kickoff_ts": 1788298200,
+    "bet365_id": "200164559"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 12.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      50
+     ],
+     "range": [
+      1.455,
+      1.64
+     ]
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13021877",
+    "league": "Brazil Campeonato Gaucho 2",
+    "home": "GE Gloria",
+    "away": "CE Bento Goncalves",
+    "home_id": "165174",
+    "away_id": "1155053",
+    "kickoff": "Wed 00:00",
+    "kickoff_ts": 1788300000,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      30,
+      39
+     ],
+     "unchecked": true
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      30,
+      39
+     ],
+     "unchecked": true
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 9.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      30,
+      39
+     ],
+     "unchecked": true
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13009896",
+    "league": "Brazil Campeonato Gaucho 2",
+    "home": "Aimore RS",
+    "away": "Gramadense",
+    "home_id": "7293",
+    "away_id": "734573",
+    "kickoff": "Wed 00:00",
+    "kickoff_ts": 1788300000,
+    "bet365_id": "200488003"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      40,
+      38
+     ],
+     "range": [
+      1.219,
+      1.432
+     ]
+    },
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 11.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      40,
+      38
+     ],
+     "range": [
+      1.219,
+      1.432
+     ]
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13049427",
+    "league": "Chile Segunda",
+    "home": "Colchagua CD",
+    "away": "Brujas de Salamanca",
+    "home_id": "28892",
+    "away_id": "272918",
+    "kickoff": "Wed 00:00",
+    "kickoff_ts": 1788300000,
+    "bet365_id": "200220740"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 12.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      44
+     ],
+     "range": [
+      1.77,
+      1.77
+     ]
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11417112",
+    "league": "Brazil Serie B",
+    "home": "Londrina",
+    "away": "EC Juventude",
+    "home_id": "3160",
+    "away_id": "1427",
+    "kickoff": "Wed 00:30",
+    "kickoff_ts": 1788301800,
+    "bet365_id": "200485112"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      50
+     ],
+     "range": [
+      1.48,
+      2.16
+     ]
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12059158",
+    "league": "Brazil Campeonato Goiano 2",
+    "home": "Rio Verde GO",
+    "away": "Trindade",
+    "home_id": "7333",
+    "away_id": "173988",
+    "kickoff": "Wed 00:30",
+    "kickoff_ts": 1788301800,
+    "bet365_id": "200485108"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 11.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      41,
+      43
+     ],
+     "unchecked": true
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      41,
+      43
+     ],
+     "unchecked": true
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      41,
+      43
+     ],
+     "unchecked": true
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 9.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      40,
+      42
+     ],
+     "unchecked": true
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13009900",
+    "league": "Brazil Campeonato Gaucho 2",
+    "home": "Guarani de Venancio Aires",
+    "away": "Lajeadense",
+    "home_id": "771788",
+    "away_id": "165173",
+    "kickoff": "Wed 01:00",
+    "kickoff_ts": 1788303600,
+    "bet365_id": "200492853"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 12.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      35,
+      38
+     ],
+     "unchecked": true
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      35,
+      38
+     ],
+     "unchecked": true
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      35,
+      38
+     ],
+     "unchecked": true
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12385238",
+    "league": "Bolivia Copa Division Profesional",
+    "home": "Universitario De Vinto",
+    "away": "Club Aurora",
+    "home_id": "184943",
+    "away_id": "74774",
+    "kickoff": "Wed 01:00",
+    "kickoff_ts": 1788303600,
+    "bet365_id": "200486479"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 12.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      42
+     ],
+     "range": [
+      1.357,
+      2.1
+     ]
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13001343",
+    "league": "Uruguay Cup",
+    "home": "Torque",
+    "away": "Danubio",
+    "home_id": "28749",
+    "away_id": "3914",
+    "kickoff": "Wed 01:15",
+    "kickoff_ts": 1788304500,
+    "bet365_id": "200480089"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      44,
+      46
+     ],
+     "range": [
+      1.357,
+      1.359
+     ]
+    },
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 11.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      44,
+      46
+     ],
+     "range": [
+      1.357,
+      1.359
+     ]
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13054235",
+    "league": "Paraguay Reserve League",
+    "home": "2 de Mayo Reserves",
+    "away": "Sportivo Luqueno Reserves",
+    "home_id": "1026620",
+    "away_id": "2528",
+    "kickoff": "Wed 01:45",
+    "kickoff_ts": 1788306300,
+    "bet365_id": "200484245"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      47,
+      47
+     ],
+     "range": [
+      1.455,
+      1.64
+     ]
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12407720",
+    "league": "Copa do Brasil",
+    "home": "Atletico Mineiro",
+    "away": "Cruzeiro",
+    "home_id": "1313",
+    "away_id": "577",
+    "kickoff": "Wed 02:00",
+    "kickoff_ts": 1788307200,
+    "bet365_id": "199413719"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      48
+     ],
+     "range": [
+      1.44,
+      1.79
+     ]
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      48
+     ],
+     "range": [
+      1.5,
+      2.22
+     ]
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      47,
+      48
+     ],
+     "range": [
+      1.57,
+      1.62
+     ]
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 11.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      47,
+      48
+     ],
+     "range": [
+      1.57,
+      1.62
+     ]
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 3.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      49
+     ],
+     "range": [
+      1.47,
+      1.47
+     ]
+    },
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 18.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      49
+     ],
+     "range": [
+      1.91,
+      1.91
+     ]
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11399136",
+    "league": "Ecuador LigaPro Serie A",
+    "home": "LDU Quito",
+    "away": "Mushuc Runa",
+    "home_id": "25177",
+    "away_id": "7215",
+    "kickoff": "Wed 02:00",
+    "kickoff_ts": 1788307200,
+    "bet365_id": "199749757"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 11.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      47
+     ],
+     "range": [
+      1.3,
+      2.28
+     ]
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12100007",
+    "league": "Colombia Primera A",
+    "home": "Fortaleza CEIF",
+    "away": "Once Caldas",
+    "home_id": "275423",
+    "away_id": "44691",
+    "kickoff": "Wed 03:00",
+    "kickoff_ts": 1788310800,
+    "bet365_id": "199412577"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      44
+     ],
+     "range": [
+      1.32,
+      1.93
+     ]
+    },
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 11.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      47,
+      44
+     ],
+     "range": [
+      1.32,
+      1.93
+     ]
+    }
+   ]
+  }
+ ]
+}
