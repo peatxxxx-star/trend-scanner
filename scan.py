@@ -105,14 +105,20 @@ S24_BASE = "https://scores24.live/de/soccer"
 S24_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
           "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36")
 
-# scores24-Reiternamen je Metrik
+# scores24-Gruppennamen (rapi-JSON) je Metrik
 S24_GROUPS = {
-    "corners": "Eckstoß",
-    "yellowcards": "Karten",
-    "on_target": "Schüsse",
-    "offsides": "Abseits",
-    "fouls": "Fouls",
+    "corners": "corners",
+    "yellowcards": "cards",
+    "on_target": "shots",
+    "offsides": "offsides",
+    "fouls": "fouls",
 }
+
+# Gegenläufigkeits-Regel: Über- und Unter-Trends derselben Metrik sind nur
+# dann ein Widerspruch, wenn ihr Korridor eng ist (z.B. über 8,5 UND
+# unter 10,5). Breite Korridore (über 6,5 + unter 12,5) sind legitim —
+# bewiesen durch Lucios Wycombe-Wettschein vom 01.09.
+CONTRA_GAP = 2.0
 
 # Anfragen-Wächter: BetsAPI erlaubt 3.600 Anfragen/Stunde. Wir bremsen
 # rechtzeitig, statt in Fehler zu laufen.
@@ -489,9 +495,13 @@ def _name_matches_slug(name, slug_part):
     return score
 
 
-def s24_fetch_page(match):
-    """Findet die scores24-Spielseite ueber die Tagesuebersicht (Namens-
-    aehnlichkeit) mit Fallback auf die geratene URL. Liefert HTML oder None."""
+def s24_fetch_groups(match):
+    """Holt die Trend-Gruppen samt Quoten-Spannen eines Spiels aus der
+    scores24-JSON-Schnittstelle (dieselbe, die der Browser der Seite nutzt).
+
+    Liefert {metrik: (anzahl, quote_min, quote_max)} oder None, wenn das
+    Spiel nicht zuzuordnen/erreichbar ist.
+    """
     candidates = []
     for link in s24_day_links():
         body = re.sub(r"^m-\d{2}-\d{2}-\d{4}-", "", link)
@@ -499,31 +509,44 @@ def s24_fetch_page(match):
         a = _name_matches_slug(match["away"], body)
         if h >= 1 and a >= 1:
             candidates.append((h + a, link))
-    urls = [f"{S24_BASE}/{link}" for _, link in
-            sorted(candidates, reverse=True)[:2]]
-    # Fallback: direkt geratene URL (zwei Datumsvarianten)
+    slugs = [link[2:] for _, link in sorted(candidates, reverse=True)[:2]]
+    # Fallback: direkt geratener Slug (zwei Datumsvarianten)
     from zoneinfo import ZoneInfo
     kick = datetime.fromtimestamp(match["kickoff_ts"], tz=ZoneInfo("Europe/Berlin"))
     home, away = s24_slug(match["home"]), s24_slug(match["away"])
     for d in (kick, kick - timedelta(days=1)):
-        urls.append(f"{S24_BASE}/m-{d.strftime('%d-%m-%Y')}-{home}-{away}")
-    for url in urls:
+        slugs.append(f"{d.strftime('%d-%m-%Y')}-{home}-{away}")
+    api_to_metric = {v: k for k, v in S24_GROUPS.items()}
+    for slug in slugs:
+        url = (f"https://scores24.live/rapi/localized/matches/soccer/"
+               f"{slug}/trends?lang=de&audience=de")
         try:
-            html = _s24_get(url)
+            raw = _s24_get(url)
+            data = json.loads(raw).get("data") or []
         except Exception as exc:
             _s24_stats["last_error"] = f"{url} -> {exc}"[:160]
             continue
-        # Verifikation: beide Teamnamen muessen auf der Seite auftauchen,
-        # sonst war die Zuordnung falsch -> naechsten Kandidaten probieren
-        text = re.sub(r"<[^>]+>", " ", html).lower()
-        def on_page(name):
+        # Verifikation: mindestens ein Token jedes Teamnamens im JSON
+        low = raw.lower()
+        def in_json(name):
             toks = [_TOKEN_ALIASES.get(t, t)
                     for t in s24_slug(name).split("-") if len(t) >= 4]
-            return (not toks) or any(t in text for t in toks)
-        if on_page(match["home"]) and on_page(match["away"]):
-            _s24_stats["ok"] += 1
-            return html
-        _s24_stats["last_error"] = f"{url} -> Teamnamen nicht auf Seite"[:160]
+            return (not toks) or any(t in low for t in toks)
+        if not (in_json(match["home"]) and in_json(match["away"])):
+            _s24_stats["last_error"] = f"{url} -> Teamnamen nicht im JSON"[:160]
+            continue
+        groups = {}
+        for g in data:
+            metric = api_to_metric.get(g.get("name"))
+            if not metric:
+                continue
+            count = int(g.get("count") or 0)
+            lo = float(g.get("min_odd") or 0)
+            hi = float(g.get("max_odd") or lo)
+            if count > 0:
+                groups[metric] = (count, lo, hi)
+        _s24_stats["ok"] += 1
+        return groups
     if candidates:
         _s24_stats["fetch_fail"] += 1
     else:
@@ -606,13 +629,18 @@ def evaluate_match(match, hist_home, hist_away, market_odds=None):
                     "away_is_anchor": bool(a_away),
                     "valid": (v_home, v_away),
                 })
-    # Gegenläufigkeits-Filter: Metrik mit Trends in beide Richtungen fliegt raus
-    directions_per_metric = {}
-    for (metric, direction) in candidates:
-        directions_per_metric.setdefault(metric, set()).add(direction)
+    # Gegenläufigkeits-Filter: nur ENGE Korridore sind ein Widerspruch.
+    # (über 8,5 + unter 10,5 -> Metrik raus; über 6,5 + unter 12,5 -> ok)
+    contradicted = set()
+    for metric in {m for (m, _) in candidates}:
+        over_lines = [c["line"] for c in candidates.get((metric, "über"), [])]
+        under_lines = [c["line"] for c in candidates.get((metric, "unter"), [])]
+        if over_lines and under_lines and \
+           min(under_lines) - max(over_lines) <= CONTRA_GAP:
+            contradicted.add(metric)
     signals = []
     for (metric, direction), cands in candidates.items():
-        if len(directions_per_metric[metric]) > 1:
+        if metric in contradicted:
             continue
         if market_odds is not None:
             lines_odds = market_odds.get(metric, {})
@@ -694,8 +722,7 @@ def run():
         hist_away = fetch_team_history(match["away_id"], cache)
         signals = evaluate_match(match, hist_home, hist_away)
         if signals and GATE_ENABLED:
-            html = s24_fetch_page(match)
-            groups = s24_market_groups(html) if html else None
+            groups = s24_fetch_groups(match)
             signals = apply_s24_gate(signals, groups)
         return signals
 
@@ -878,14 +905,8 @@ def selftest():
         print("FEHLER Fall 6c: 9.5 qualifiziert statistisch nicht, darf nicht gemeldet werden")
         ok = False
 
-    # --- Fall 7: scores24-Parser + lockeres Gate
-    fake_html = ("<div>Eckstoß Vorhersagen</div><span>(4)</span><b>1.54</b> - "
-                 "<b>1.92</b> <div>Karten</div> (2) 1.12 - 1.25 "
-                 "<div>Abseits Vorhersagen (3) 1.34 - 1.75</div>")
-    g = s24_market_groups(fake_html)
-    if g.get("corners") != (4, 1.54, 1.92) or g.get("yellowcards") != (2, 1.12, 1.25):
-        print("FEHLER Fall 7a: scores24-Parser:", g)
-        ok = False
+    # --- Fall 7: lockeres scores24-Gate
+    g = {"corners": (4, 1.54, 1.92), "yellowcards": (2, 1.12, 1.25)}
     sigs = [
         {"metric": "Ecken", "metric_key": "corners"},
         {"metric": "Gelbe Karten", "metric_key": "yellowcards"},   # Spanne < 1.30
@@ -910,6 +931,22 @@ def selftest():
         ok = False
     if _name_matches_slug("Preston", "crystal-palace-brighton") != 0:
         print("FEHLER Fall 7f: Fuzzy-Zuordnung matcht falsches Spiel")
+        ok = False
+
+    # --- Fall 8: Gegenläufigkeit nur bei ENGEM Korridor
+    #  a) breiter Korridor (über 6,5 + unter 12,5) -> beide Richtungen bleiben
+    wide = _mk([[6, 5], [4, 3], [6, 6], [4, 4]] * 4, [H, A] * 8)[:15]
+    wsig = evaluate_match(match, wide, [dict(x) for x in wide])
+    dirs = {s["direction"] for s in wsig if s["metric"] == "Ecken"}
+    if dirs != {"über", "unter"}:
+        print("FEHLER Fall 8a: breiter Korridor wurde verworfen:", dirs)
+        ok = False
+    #  b) enger Korridor (über 8,5 + unter 10,5 bei konstant 9/10 Ecken) -> raus
+    tight = _mk([[5, 4], [5, 5]] * 8, [H, A] * 8)[:15]
+    tsig = [s for s in evaluate_match(match, tight, [dict(x) for x in tight])
+            if s["metric"] == "Ecken"]
+    if tsig:
+        print("FEHLER Fall 8b: enger Korridor muss verworfen werden:", tsig)
         ok = False
 
     print("Selbsttest OK" if ok else "Selbsttest FEHLGESCHLAGEN")
