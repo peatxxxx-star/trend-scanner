@@ -57,9 +57,11 @@ Aufruf:
 import json
 import os
 import sys
+import threading
 import time
 import urllib.parse
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -99,6 +101,12 @@ LEAGUE_MARKETS_FILE = Path(__file__).parent / "league_markets.json"
 # rechtzeitig, statt in Fehler zu laufen.
 HOURLY_BUDGET = 3300
 
+# Parallele Verarbeitung: so viele Spiele werden gleichzeitig geprüft.
+# 16 ist das sinnvolle Maximum: mehr bringt kaum Tempo, erhöht aber das
+# Risiko, dass die API einzelne Anfragen abweist. Der Anfragen-Wächter
+# bremst vor dem Stundenlimit (3.600/h) automatisch.
+WORKERS = 16
+
 # Metriken: BetsAPI-Feldname -> (Anzeigename, Linienbereich)
 METRICS = {
     "corners":  ("Ecken",             [6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5]),
@@ -119,21 +127,24 @@ RUNS_DIR = Path(__file__).parent / "runs"
 _request_count = 0
 _hour_started = time.time()
 _hour_requests = 0
+_counter_lock = threading.Lock()
+_cache_lock = threading.Lock()
 
 
 def _budget_guard():
     """Bleibt unter dem Stundenlimit: notfalls bis zur nächsten Stunde warten."""
     global _hour_started, _hour_requests
-    now = time.time()
-    if now - _hour_started >= 3600:
-        _hour_started = now
-        _hour_requests = 0
-    if _hour_requests >= HOURLY_BUDGET:
-        wait = 3600 - (now - _hour_started) + 5
+    while True:
+        with _counter_lock:
+            now = time.time()
+            if now - _hour_started >= 3600:
+                _hour_started = now
+                _hour_requests = 0
+            if _hour_requests < HOURLY_BUDGET:
+                return
+            wait = 3600 - (now - _hour_started) + 5
         print(f"Stundenbudget erreicht – warte {int(wait)}s", flush=True)
-        time.sleep(max(wait, 0))
-        _hour_started = time.time()
-        _hour_requests = 0
+        time.sleep(max(min(wait, 300), 1))
 
 
 def api_get(path: str, **params) -> dict:
@@ -145,8 +156,9 @@ def api_get(path: str, **params) -> dict:
         try:
             with urllib.request.urlopen(url, timeout=30) as r:
                 data = json.loads(r.read().decode("utf-8"))
-            _request_count += 1
-            _hour_requests += 1
+            with _counter_lock:
+                _request_count += 1
+                _hour_requests += 1
             if data.get("success") != 1:
                 raise RuntimeError(f"API-Fehler {data.get('error')} bei {path}")
             return data
@@ -256,7 +268,8 @@ def fetch_team_history(team_id: str, cache: dict):
         page += 1
     events = events[:HISTORY_DEPTH]
 
-    need = [e["id"] for e in events if e["id"] not in cache]
+    with _cache_lock:
+        need = [e["id"] for e in events if e["id"] not in cache]
     for i in range(0, len(need), 10):
         chunk = need[i:i + 10]
         view = api_get("/v1/event/view", event_id=",".join(chunk))
@@ -269,15 +282,17 @@ def fetch_team_history(team_id: str, cache: dict):
                     slim[key] = [int(pair[0]), int(pair[1])]
                 except (TypeError, ValueError, IndexError):
                     slim[key] = None
-            cache[ev["id"]] = slim
+            with _cache_lock:
+                cache[ev["id"]] = slim
 
     history = []
-    for e in events:
-        history.append({
-            "stats": cache.get(e["id"], {}),
-            "is_home": str((e.get("home") or {}).get("id")) == str(team_id),
-            "label": f'{(e.get("home") or {}).get("name","?")} - {(e.get("away") or {}).get("name","?")}',
-        })
+    with _cache_lock:
+        for e in events:
+            history.append({
+                "stats": cache.get(e["id"], {}),
+                "is_home": str((e.get("home") or {}).get("id")) == str(team_id),
+                "label": f'{(e.get("home") or {}).get("name","?")} - {(e.get("away") or {}).get("name","?")}',
+            })
     return history
 
 
@@ -419,8 +434,6 @@ def evaluate_match(match, hist_home, hist_away):
     signals = []
     playable = allowed_metrics(match.get("league", ""))
     for metric, (label, lines) in METRICS.items():
-        if metric not in playable:
-            continue
         for direction in ("über", "unter"):
             best = None
             for line in lines:
@@ -448,6 +461,7 @@ def evaluate_match(match, hist_home, hist_away):
                     "home_is_anchor": bool(a_home),
                     "away_is_anchor": bool(a_away),
                     "valid": (v_home, v_away),
+                    "market_known": metric in playable,
                 }
                 if best is None:
                     best = cand
@@ -479,11 +493,12 @@ def build_message(match, signals):
     lines = [f"⚽ {match['home']} – {match['away']}",
              f"🕒 {match['kickoff']} · {match['league']}"]
     for s in signals:
+        hint = "" if s.get("market_known") else " ⚑Markt prüfen"
         lines.append(
             f"• Gesamt-{s['metric']} {s['direction']} {s['line']}: "
             f"{match['home']} {fmt_series(s['home_series'], s['home_is_anchor'])}, "
             f"{match['away']} {fmt_series(s['away_series'], s['away_is_anchor'])} "
-            f"[Datenbasis {s['valid'][0]}/{s['valid'][1]}]"
+            f"[Datenbasis {s['valid'][0]}/{s['valid'][1]}]{hint}"
         )
     return "\n".join(lines)
 
@@ -510,22 +525,32 @@ def run():
         sys.exit("BETSAPI_TOKEN fehlt")
     cache = load_cache()
     matches = fetch_matches_in_window()
-    print(f"{len(matches)} Spiele im Prüffenster")
+    print(f"{len(matches)} Spiele im Prüffenster ({WORKERS} parallel)")
     all_hits = []
-    for i, match in enumerate(matches, 1):
-        try:
-            hist_home = fetch_team_history(match["home_id"], cache)
-            hist_away = fetch_team_history(match["away_id"], cache)
-        except Exception as exc:
-            print(f"  überspringe {match['home']}–{match['away']}: {exc}")
-            continue
-        signals = evaluate_match(match, hist_home, hist_away)
-        if signals:
-            all_hits.append((match, signals))
-            print(f"  TREFFER: {match['home']} – {match['away']} ({len(signals)})")
-        if i % 25 == 0:
-            save_cache(cache)
-            print(f"  ... {i}/{len(matches)} geprüft, {_request_count} Anfragen", flush=True)
+
+    def check(match):
+        hist_home = fetch_team_history(match["home_id"], cache)
+        hist_away = fetch_team_history(match["away_id"], cache)
+        return evaluate_match(match, hist_home, hist_away)
+
+    done = 0
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futures = {pool.submit(check, m): m for m in matches}
+        for fut in as_completed(futures):
+            match = futures[fut]
+            done += 1
+            try:
+                signals = fut.result()
+            except Exception as exc:
+                print(f"  überspringe {match['home']}–{match['away']}: {exc}")
+                continue
+            if signals:
+                all_hits.append((match, signals))
+                print(f"  TREFFER: {match['home']} – {match['away']} ({len(signals)})")
+            if done % 25 == 0:
+                with _cache_lock:
+                    save_cache(cache)
+                print(f"  ... {done}/{len(matches)} geprüft, {_request_count} Anfragen", flush=True)
     save_cache(cache)
 
     RUNS_DIR.mkdir(parents=True, exist_ok=True)
