@@ -60,7 +60,8 @@ Benötigte Umgebungsvariablen:
   TELEGRAM_CHAT_ID   – Telegram-Chat-ID  (optional; ohne = nur Konsole)
 
 Aufruf:
-  python scan.py               # normaler Lauf
+  python scan.py               # normaler Lauf (vor 6 Uhr: Vorwärm-Lauf)
+  PREWARM=1 python scan.py     # Vorwärm-Lauf erzwingen
   python scan.py --selftest    # Regelwerk-Test ohne API-Zugriff
 """
 
@@ -152,6 +153,20 @@ METRICS = {
 CACHE_FILE = Path(__file__).parent / "cache" / "stats.json"
 RUNS_DIR = Path(__file__).parent / "runs"
 
+# Tages-Cache für die Spiellisten der Teams ("welche Spiele zuletzt?").
+# Ein Team spielt höchstens einmal am Tag — die Liste, die der Morgenlauf
+# holt, gilt für alle Läufe des Tages. Spart 1-2 Anfragen pro Team und Lauf.
+HISTORY_CACHE_FILE = Path(__file__).parent / "cache" / "history.json"
+HISTORY_TTL = 12 * 3600      # Sekunden, danach wird die Liste neu geholt
+
+# Vorwärm-Lauf (Cron 05:17): lädt nur Statistiken für den Tag in den Cache,
+# wertet nichts aus, meldet nichts, und hört ohne zu warten auf, sobald das
+# Stundenlimit erreicht ist. Der 06:17-Lauf startet dann mit frischem
+# Limit und warmem Cache, statt bis zu einer Stunde am Limit zu hängen
+# (GitHub zählt Wartezeit als Laufzeit). Aktiv, wenn die Berliner Stunde
+# < PREWARM_BEFORE_HOUR ist oder PREWARM=1 gesetzt wurde.
+PREWARM_BEFORE_HOUR = 6
+
 # Lauf-Gedächtnis: welche Signale wurden schon gemeldet (mit Linie und
 # Quoten-Spanne des ERSTEN Laufs)? Damit trennt die Telegram-Nachricht
 # sauber nach 🆕 neu / 🔄 geändert / 🔁 unverändert / ❌ weggefallen.
@@ -176,11 +191,18 @@ _hour_started = time.time()
 _hour_requests = 0
 _counter_lock = threading.Lock()
 _cache_lock = threading.Lock()
+_no_wait = False             # Vorwärm-Modus: am Limit abbrechen statt warten
+_budget_exhausted = False
+
+
+class BudgetExhausted(Exception):
+    """Stundenlimit erreicht und Warten nicht erlaubt (Vorwärm-Lauf)."""
 
 
 def _budget_guard():
-    """Bleibt unter dem Stundenlimit: notfalls bis zur nächsten Stunde warten."""
-    global _hour_started, _hour_requests
+    """Bleibt unter dem Stundenlimit: notfalls bis zur nächsten Stunde warten
+    — außer im Vorwärm-Modus, dort wird sauber abgebrochen."""
+    global _hour_started, _hour_requests, _budget_exhausted
     while True:
         with _counter_lock:
             now = time.time()
@@ -190,6 +212,9 @@ def _budget_guard():
             if _hour_requests < HOURLY_BUDGET:
                 return
             wait = 3600 - (now - _hour_started) + 5
+            if _no_wait:
+                _budget_exhausted = True
+                raise BudgetExhausted()
         print(f"Stundenbudget erreicht – warte {int(wait)}s", flush=True)
         time.sleep(max(min(wait, 300), 1))
 
@@ -228,6 +253,24 @@ def load_cache() -> dict:
 def save_cache(cache: dict) -> None:
     CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
     CACHE_FILE.write_text(json.dumps(cache, separators=(",", ":")))
+
+
+def load_history_cache() -> dict:
+    if HISTORY_CACHE_FILE.exists():
+        try:
+            return json.loads(HISTORY_CACHE_FILE.read_text())
+        except Exception:
+            return {}
+    return {}
+
+
+def save_history_cache(hcache: dict) -> None:
+    """Speichert die Spiellisten; abgelaufene Einträge fliegen raus, damit
+    die Datei im Repo klein bleibt."""
+    cutoff = time.time() - HISTORY_TTL
+    slim = {k: v for k, v in hcache.items() if v.get("ts", 0) >= cutoff}
+    HISTORY_CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    HISTORY_CACHE_FILE.write_text(json.dumps(slim, separators=(",", ":")))
 
 
 def load_state() -> dict:
@@ -309,14 +352,9 @@ def fetch_matches_in_window():
     return list(matches.values())
 
 
-def fetch_team_history(team_id: str, cache: dict):
-    """Letzte HISTORY_DEPTH beendete Spiele eines Teams inkl. Statistiken.
-
-    Liefert Liste (jüngstes zuerst) von:
-      {"stats": {...}, "is_home": bool, "label": str}
-    Statistiken beendeter Spiele sind unveränderlich und werden dauerhaft
-    gecacht — nur neue Spiele kosten Anfragen.
-    """
+def _fetch_ended_list(team_id: str):
+    """Die letzten HISTORY_DEPTH beendeten Spiele eines Teams (nur die
+    Liste, kompakt) — kostet 1-2 Anfragen."""
     events = []
     page = 1
     while len(events) < HISTORY_DEPTH and page <= 3:
@@ -329,7 +367,35 @@ def fetch_team_history(team_id: str, cache: dict):
         if page * 50 >= total or not results:
             break
         page += 1
-    events = events[:HISTORY_DEPTH]
+    slim = []
+    for e in events[:HISTORY_DEPTH]:
+        home, away = e.get("home") or {}, e.get("away") or {}
+        slim.append({"id": e["id"], "h": str(home.get("id")) == str(team_id),
+                     "l": f'{home.get("name", "?")} - {away.get("name", "?")}'})
+    return slim
+
+
+def fetch_team_history(team_id: str, cache: dict, hcache: dict = None):
+    """Letzte HISTORY_DEPTH beendete Spiele eines Teams inkl. Statistiken.
+
+    Liefert Liste (jüngstes zuerst) von:
+      {"stats": {...}, "is_home": bool, "label": str}
+    Statistiken beendeter Spiele sind unveränderlich und werden dauerhaft
+    gecacht — nur neue Spiele kosten Anfragen. Die Spielliste selbst wird
+    für HISTORY_TTL Sekunden zwischengespeichert (ein Team spielt höchstens
+    einmal am Tag).
+    """
+    events = None
+    if hcache is not None:
+        with _cache_lock:
+            entry = hcache.get(str(team_id))
+            if entry and time.time() - entry.get("ts", 0) < HISTORY_TTL:
+                events = entry["events"]
+    if events is None:
+        events = _fetch_ended_list(team_id)
+        if hcache is not None:
+            with _cache_lock:
+                hcache[str(team_id)] = {"ts": int(time.time()), "events": events}
 
     with _cache_lock:
         need = [e["id"] for e in events if e["id"] not in cache]
@@ -351,11 +417,8 @@ def fetch_team_history(team_id: str, cache: dict):
     history = []
     with _cache_lock:
         for e in events:
-            history.append({
-                "stats": cache.get(e["id"], {}),
-                "is_home": str((e.get("home") or {}).get("id")) == str(team_id),
-                "label": f'{(e.get("home") or {}).get("name","?")} - {(e.get("away") or {}).get("name","?")}',
-            })
+            history.append({"stats": cache.get(e["id"], {}),
+                            "is_home": e["h"], "label": e["l"]})
     return history
 
 
@@ -922,22 +985,83 @@ def send_telegram(text: str) -> bool:
 # Hauptlauf
 # ----------------------------------------------------------------------------
 
+def is_prewarm_run() -> bool:
+    if os.environ.get("PREWARM") == "1":
+        return True
+    # Nur im Fenster 02–06 Uhr: ein stark verspäteter 22-Uhr-Lauf (nach
+    # Mitternacht) soll trotzdem ein normaler Lauf mit Bericht bleiben.
+    return 2 <= now_berlin().hour < PREWARM_BEFORE_HOUR
+
+
+def prewarm(cache, hcache):
+    """Vorwärm-Lauf: nur Statistiken für die Spiele des Tages laden.
+    Bricht am Stundenlimit sofort ab (kein Warten), speichert den Cache."""
+    global _no_wait
+    _no_wait = True
+    now, end = scan_window()
+    matches = fetch_matches_in_window()
+    print(f"VORWÄRMEN: {len(matches)} Spiele bis {end:%H:%M}, "
+          f"{len(cache)} Spiele im Statistik-Cache")
+    teams = []
+    seen = set()
+    for m in matches:                       # in Anstoß-Reihenfolge, damit die
+        for tid in (m["home_id"], m["away_id"]):   # frühen Spiele zuerst warm sind
+            if tid not in seen:
+                seen.add(tid)
+                teams.append(tid)
+    done = 0
+
+    def warm(tid):
+        fetch_team_history(tid, cache, hcache)
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futures = [pool.submit(warm, tid) for tid in teams]
+        for fut in as_completed(futures):
+            done += 1
+            try:
+                fut.result()
+            except BudgetExhausted:
+                pass
+            except Exception as exc:
+                print(f"  Team übersprungen: {exc}")
+            if done % 100 == 0:
+                with _cache_lock:
+                    save_cache(cache)
+                    save_history_cache(hcache)
+                print(f"  ... {done}/{len(teams)} Teams, {_request_count} Anfragen", flush=True)
+    save_cache(cache)
+    save_history_cache(hcache)
+    RUNS_DIR.mkdir(parents=True, exist_ok=True)
+    now_utc = datetime.now(timezone.utc)
+    (RUNS_DIR / f"{now_utc:%Y-%m-%d_%H%M}_prewarm.json").write_text(json.dumps({
+        "run_utc": now_utc.isoformat(timespec="seconds"), "prewarm": True,
+        "matches": len(matches), "teams": len(teams), "requests": _request_count,
+        "budget_exhausted": _budget_exhausted}, indent=1))
+    print(f"Vorwärmen fertig: {len(teams)} Teams, {_request_count} Anfragen"
+          + (" — Stundenlimit erreicht, Rest holt der nächste Lauf" if _budget_exhausted else ""))
+
+
 def run():
     if not TOKEN:
         sys.exit("BETSAPI_TOKEN fehlt")
     cache = load_cache()
+    hcache = load_history_cache()
+    if is_prewarm_run():
+        prewarm(cache, hcache)
+        return
     state = load_state()
     matches = fetch_matches_in_window()
     print(f"{len(matches)} Spiele im Prüffenster ({WORKERS} parallel), "
-          f"{len(state)} Signale im Lauf-Gedächtnis")
+          f"{len(state)} Signale im Lauf-Gedächtnis, "
+          f"{len(hcache)} Team-Spiellisten im Tages-Cache")
     all_hits = []
     checked_ids = set()
     gate_dropped = set()     # Signale, die statistisch noch stehen, deren
                              # Quoten-Markt bei scores24 aber weg ist
 
     def check(match):
-        hist_home = fetch_team_history(match["home_id"], cache)
-        hist_away = fetch_team_history(match["away_id"], cache)
+        hist_home = fetch_team_history(match["home_id"], cache, hcache)
+        hist_away = fetch_team_history(match["away_id"], cache, hcache)
         signals = evaluate_match(match, hist_home, hist_away)
         gated_out = []
         if signals and GATE_ENABLED:
@@ -966,8 +1090,10 @@ def run():
             if done % 25 == 0:
                 with _cache_lock:
                     save_cache(cache)
+                    save_history_cache(hcache)
                 print(f"  ... {done}/{len(matches)} geprüft, {_request_count} Anfragen", flush=True)
     save_cache(cache)
+    save_history_cache(hcache)
     # feste Sortierung nach Anstoßzeit (Parallelverarbeitung mischt sonst)
     all_hits.sort(key=lambda h: h[0].get("kickoff_ts", 0))
 
@@ -1274,6 +1400,60 @@ def selftest():
         ok = False
     if "--show" in sys.argv:
         print("\n".join(report))
+
+    # --- Fall 10: Tages-Cache für Spiellisten + Vorwärm-Abbruch am Limit
+    global api_get, _no_wait, _hour_requests, _budget_exhausted
+    real_api_get = api_get
+    calls = []
+
+    def fake_api_get(path, **params):
+        calls.append(path)
+        if path == "/v3/events/ended":
+            return {"success": 1, "pager": {"total": 2}, "results": [
+                {"id": "e1", "home": {"id": "7", "name": "X"}, "away": {"id": "8", "name": "Y"},
+                 "league": {"name": "L"}},
+                {"id": "e2", "home": {"id": "9", "name": "Z"}, "away": {"id": "7", "name": "X"},
+                 "league": {"name": "L"}}]}
+        if path == "/v1/event/view":
+            return {"success": 1, "results": [
+                {"id": i, "stats": {"corners": ["5", "4"], "fouls": ["10", "9"]}}
+                for i in params["event_id"].split(",")]}
+        raise AssertionError(path)
+    api_get = fake_api_get
+    try:
+        c10, h10 = {}, {}
+        hist = fetch_team_history("7", c10, h10)
+        first = list(calls)
+        hist_b = fetch_team_history("7", c10, h10)
+        if first != ["/v3/events/ended", "/v1/event/view"] or len(calls) != 2:
+            print("FEHLER Fall 10a: zweiter Abruf muss komplett aus dem Cache kommen:", calls)
+            ok = False
+        if [m["is_home"] for m in hist] != [True, False] or hist != hist_b or \
+           hist[0]["stats"]["corners"] != [5, 4]:
+            print("FEHLER Fall 10b: Historie aus Cache falsch:", hist)
+            ok = False
+        h10["7"]["ts"] -= HISTORY_TTL + 1              # abgelaufen -> neu holen
+        fetch_team_history("7", c10, h10)
+        if len(calls) != 3 or calls[-1] != "/v3/events/ended":
+            print("FEHLER Fall 10c: abgelaufene Spielliste muss neu geholt werden:", calls)
+            ok = False
+        # Vorwärm-Modus: am Limit sofort abbrechen statt warten
+        _no_wait = True
+        _hour_requests = HOURLY_BUDGET
+        try:
+            _budget_guard()
+            print("FEHLER Fall 10d: Vorwärm-Lauf muss am Limit abbrechen")
+            ok = False
+        except BudgetExhausted:
+            pass
+        if not _budget_exhausted:
+            print("FEHLER Fall 10e: Limit-Flag nicht gesetzt")
+            ok = False
+    finally:
+        api_get = real_api_get
+        _no_wait = False
+        _hour_requests = 0
+        _budget_exhausted = False
 
     print("Selbsttest OK" if ok else "Selbsttest FEHLGESCHLAGEN")
     sys.exit(0 if ok else 1)
