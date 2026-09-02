@@ -898,14 +898,30 @@ BANNER = "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩"   # Nachrichten-
 FOOTER = "🔻🔻🔻"                        # Nachrichten-Ende
 
 
-def build_message(match, signals):
-    """Ein Spiel mit seinen Signalen — für Handy-Lesbarkeit kurze Zeilen,
-    Wichtiges fett, jede Info auf eigener Zeile."""
+STATUS_ICON = {"new": "🆕", "changed": "🔄", "same": "🔁", "dropped": "❌"}
+
+
+def build_match_block(match, entries):
+    """Ein Spiel mit allen Signalen (jedes mit Status-Symbol) — für
+    Handy-Lesbarkeit kurze Zeilen, Wichtiges fett, jede Info auf eigener
+    Zeile. entries: [(status, signal_oder_eintrag, grund), ...]"""
     lines = [f"⚽ <b>{esc(match['home'])} – {esc(match['away'])}</b>",
-             f"🕒 {match['kickoff']} · {esc(match['league'])}"]
-    for s in signals:
+             f"🕒 {match['kickoff']} · {esc(match.get('league', ''))}"]
+    for status, s, reason in entries:
+        icon = STATUS_ICON[status]
         lines.append("")
-        lines.append(f"▸ <b>{esc(s['metric'])} {s['direction']} {s['line']}</b>")
+        if status == "same":
+            odds = f" · 💰 {fmt_range(s['range'])}" if s.get("range") else ""
+            lines.append(f"{icon} {esc(s['metric'])} {s['direction']} {s['line']}{odds}"
+                         f" · seit {s.get('first_run', '?')}")
+            continue
+        if status == "dropped":
+            odds = f" · 💰 {fmt_range(s['range'])}" if s.get("range") else ""
+            lines.append(f"{icon} <s>{esc(s['metric'])} {s['direction']} {s['line']}</s>{odds}"
+                         f" · gemeldet {s.get('first_run', '?')}")
+            lines.append(f"   <i>{esc(reason)}</i>")
+            continue
+        lines.append(f"{icon} <b>{esc(s['metric'])} {s['direction']} {s['line']}</b>")
         lines.append(f"   {esc(match['home'])}: {fmt_series(s['home_series'], s['home_is_anchor'])}")
         lines.append(f"   {esc(match['away'])}: {fmt_series(s['away_series'], s['away_is_anchor'])}")
         tail = fmt_odds_tail(s)
@@ -917,31 +933,32 @@ def build_message(match, signals):
     return "\n".join(lines)
 
 
-def build_compact(match, signals):
-    """Kurzform für bereits gemeldete, unveränderte Signale."""
-    lines = [f"⚽ <b>{esc(match['home'])} – {esc(match['away'])}</b> · {match['kickoff']}"]
-    for s in signals:
-        odds = f" · 💰 {fmt_range(s['range'])}" if s.get("range") else ""
-        lines.append(f"   {esc(s['metric'])} {s['direction']} {s['line']}{odds}"
-                     f" · seit {s.get('first_run', '?')}")
-    return "\n".join(lines)
-
-
-def build_dropped(entry, reason):
-    odds = f" · 💰 {fmt_range(entry['range'])}" if entry.get("range") else ""
-    return (f"⚽ <b>{esc(entry['home'])} – {esc(entry['away'])}</b> · {entry['kickoff']}\n"
-            f"   {esc(entry['metric'])} {entry['direction']} {entry['line']}{odds}"
-            f" · gemeldet {entry.get('first_run', '?')}\n"
-            f"   <i>{esc(reason)}</i>")
-
-
-def section(title) -> str:
-    return f"{SEP}\n<b>{title}</b>\n{SEP}"
+def merge_by_kickoff(buckets):
+    """Alle vier Blöcke zu EINER Liste je Spiel zusammenführen, strikt nach
+    Anstoßzeit sortiert (Lucios Vorgabe: keine Extra-Sektionen)."""
+    per_match = {}
+    for status in ("new", "changed", "same"):
+        for match, sigs in buckets[status]:
+            slot = per_match.setdefault(match["id"], {"match": match, "entries": []})
+            slot["entries"] += [(status, s, "") for s in sigs]
+    for entry, reason in buckets["dropped"]:
+        pseudo = {"id": entry["match_id"], "home": entry["home"], "away": entry["away"],
+                  "kickoff": entry.get("kickoff", "?"), "league": entry.get("league", ""),
+                  "kickoff_ts": entry.get("kickoff_ts", 0)}
+        slot = per_match.setdefault(entry["match_id"], {"match": pseudo, "entries": []})
+        slot["entries"].append(("dropped", entry, reason))
+    order = {"new": 0, "changed": 1, "same": 2, "dropped": 3}
+    result = []
+    for slot in sorted(per_match.values(),
+                       key=lambda x: (x["match"].get("kickoff_ts", 0), x["match"]["home"])):
+        slot["entries"].sort(key=lambda e: (order[e[0]], e[1].get("metric", "")))
+        result.append((slot["match"], slot["entries"]))
+    return result
 
 
 def assemble_report(buckets, run_label):
-    """Baut die Telegram-Nachricht(en) aus den vier Blöcken; None = nichts
-    zu melden. Liefert Liste von HTML-Text-Stücken (<= 3500 Zeichen)."""
+    """Baut die Telegram-Nachricht(en); None = nichts zu melden.
+    Liefert Liste von HTML-Text-Stücken (<= ~3500 Zeichen)."""
     n = {k: sum(len(sigs) for _, sigs in v) for k, v in buckets.items() if k != "dropped"}
     n["dropped"] = len(buckets["dropped"])
     total = n["new"] + n["changed"] + n["same"]
@@ -964,19 +981,8 @@ def assemble_report(buckets, run_label):
                 f"🔁 nichts Neues — {n['same']} Signal(e) unverändert"]
 
     blocks = [f"📊 {total} Signale · {summary}\n"
-              f"<i>⚓ Anker-Serie · 📊 Datenbasis Heim/Gast · 💰 Quotenspanne</i>"]
-    if buckets["new"]:
-        blocks.append(section(f"🆕 NEU ({n['new']})"))
-        blocks += [build_message(m, s) for m, s in buckets["new"]]
-    if buckets["changed"]:
-        blocks.append(section(f"🔄 GEÄNDERT seit erstem Lauf ({n['changed']})"))
-        blocks += [build_message(m, s) for m, s in buckets["changed"]]
-    if buckets["same"]:
-        blocks.append(section(f"🔁 BEREITS GEMELDET ({n['same']})"))
-        blocks += [build_compact(m, s) for m, s in buckets["same"]]
-    if buckets["dropped"]:
-        blocks.append(section(f"❌ WEGGEFALLEN ({n['dropped']})"))
-        blocks += [build_dropped(e, r) for e, r in buckets["dropped"]]
+              f"<i>⚓ Anker · 📊 Datenbasis Heim/Gast · 💰 Quoten</i>"]
+    blocks += [build_match_block(m, e) for m, e in merge_by_kickoff(buckets)]
 
     # Telegram erlaubt max. 4096 Zeichen pro Nachricht -> stückeln
     chunks, current = [], blocks[0]
@@ -988,7 +994,7 @@ def assemble_report(buckets, run_label):
             current += "\n\n" + block
     chunks.append(current)
     # Auffälliger Kopf und Fuß je Nachricht, damit man beim Scrollen sofort
-    # sieht, wo eine Nachricht beginnt und endet (Lucios Wunsch).
+    # sieht, wo eine Nachricht beginnt und endet.
     total_parts = len(chunks)
     out = []
     for i, c in enumerate(chunks, 1):
@@ -1422,12 +1428,20 @@ def selftest():
         ok = False
     report = assemble_report(b2, "Di 08:17")
     txt = "\n".join(report)
-    for needle in ("🆕 NEU (1)", "🔄 GEÄNDERT", "🔁 BEREITS GEMELDET", "❌ WEGGEFALLEN (1)",
-                   "vorher 1.30–1.80", "seit Di 06:17", "<b>",
-                   "Teil 1/1", "Ende Teil 1/1"):
+    for needle in ("🆕 1 neu", "🔄 2 geändert", "🔁 1 unverändert", "❌ 1 weggefallen",
+                   "🆕 <b>Ecken unter 11.5</b>", "🔄 <b>Ecken über 8.5</b>",
+                   "🔁 Fouls über 22.5", "❌ <s>Abseits unter 4.5</s>",
+                   "vorher 1.30–1.80", "seit Di 06:17", "Teil 1/1", "Ende Teil 1/1"):
         if needle not in txt:
             print("FEHLER Fall 9i: Nachricht unvollständig, fehlt:", needle)
             ok = False
+    early = dict(m3, id="9", home="Y", away="Z", kickoff="Di 12:00", kickoff_ts=1_900_010_000)
+    b_sorted = {"new": [(early, [sig("corners", "über", 7.5, (1.5, 1.6))])],
+                "changed": [], "same": [(m2, hits2[1][1][:1])], "dropped": []}
+    txt_sorted = "\n".join(assemble_report(b_sorted, "Di 08:17"))
+    if txt_sorted.index("Y – Z") > txt_sorted.index("C – D"):
+        print("FEHLER Fall 9l: Meldung nicht nach Anstoßzeit sortiert")
+        ok = False
     quiet = assemble_report({"new": [], "changed": [], "same": [(m2, hits2[1][1][:1])],
                              "dropped": []}, "Di 10:17")
     if not quiet or "nichts Neues" not in quiet[0] or len(quiet[0]) > 120:
