@@ -870,90 +870,110 @@ def classify_signals(state, all_hits, checked_ids, window_ids, now_ts, run_label
 # Ausgabe
 # ----------------------------------------------------------------------------
 
+def esc(text) -> str:
+    """HTML-Sonderzeichen für Telegram (parse_mode=HTML) entschärfen."""
+    return (str(text).replace("&", "&amp;").replace("<", "&lt;")
+            .replace(">", "&gt;"))
+
+
 def fmt_series(s, is_anchor):
     base = f'{s["hits"]}/{s["window"]}' if s["window"] > s["hits"] else f'{s["hits"]} in Folge'
-    scope = "" if s["kind"] == "gesamt" else f' ({s["kind"]})'
-    star = "⚓" if is_anchor else ""
+    scope = "" if s["kind"] == "gesamt" else f' {s["kind"]}'
+    star = " ⚓" if is_anchor else ""
     return f"{base}{scope}{star}"
 
 
+def fmt_odds_tail(s) -> str:
+    if s.get("range"):
+        return f"💰 {fmt_range(s['range'])}"
+    if s.get("quote"):
+        return f"💰 {s['quote']:.2f}"
+    if s.get("unchecked"):
+        return "❓ Quoten nicht prüfbar, selbst nachsehen"
+    return ""
+
+
+SEP = "─────────────────"
+
+
 def build_message(match, signals):
-    lines = [f"⚽ {match['home']} – {match['away']}",
-             f"🕒 {match['kickoff']} · {match['league']}"]
+    """Ein Spiel mit seinen Signalen — für Handy-Lesbarkeit kurze Zeilen,
+    Wichtiges fett, jede Info auf eigener Zeile."""
+    lines = [f"⚽ <b>{esc(match['home'])} – {esc(match['away'])}</b>",
+             f"🕒 {match['kickoff']} · {esc(match['league'])}"]
     for s in signals:
-        if s.get("range"):
-            lo, hi = s["range"]
-            tail = f" · Quoten {lo:.2f}–{hi:.2f}" if hi > lo else f" · Quote {lo:.2f}"
-        elif s.get("quote"):
-            tail = f" @ {s['quote']:.2f}"
-        elif s.get("unchecked"):
-            tail = " ❓scores24-Seite nicht gefunden, selbst prüfen"
-        else:
-            tail = ""
+        lines.append("")
+        lines.append(f"▸ <b>{esc(s['metric'])} {s['direction']} {s['line']}</b>")
+        lines.append(f"   {esc(match['home'])}: {fmt_series(s['home_series'], s['home_is_anchor'])}")
+        lines.append(f"   {esc(match['away'])}: {fmt_series(s['away_series'], s['away_is_anchor'])}")
+        tail = fmt_odds_tail(s)
+        base = f"📊 {s['valid'][0]}/{s['valid'][1]}"
+        lines.append(f"   {tail} · {base}" if tail else f"   {base}")
         if s.get("change_note"):
-            tail += f"\n   🔄 {s['change_note']} (erster Lauf {s.get('first_run', '?')})"
-        lines.append(
-            f"• Gesamt-{s['metric']} {s['direction']} {s['line']}: "
-            f"{match['home']} {fmt_series(s['home_series'], s['home_is_anchor'])}, "
-            f"{match['away']} {fmt_series(s['away_series'], s['away_is_anchor'])} "
-            f"[Datenbasis {s['valid'][0]}/{s['valid'][1]}]{tail}"
-        )
+            lines.append(f"   🔄 <i>{esc(s['change_note'])}</i>"
+                         f" · erster Lauf {s.get('first_run', '?')}")
     return "\n".join(lines)
 
 
 def build_compact(match, signals):
     """Kurzform für bereits gemeldete, unveränderte Signale."""
-    lines = [f"⚽ {match['home']} – {match['away']} · {match['kickoff']}"]
+    lines = [f"⚽ <b>{esc(match['home'])} – {esc(match['away'])}</b> · {match['kickoff']}"]
     for s in signals:
-        odds = f" · {fmt_range(s['range'])}" if s.get("range") else ""
-        lines.append(f"  {s['metric']} {s['direction']} {s['line']}{odds}"
-                     f" (seit {s.get('first_run', '?')})")
+        odds = f" · 💰 {fmt_range(s['range'])}" if s.get("range") else ""
+        lines.append(f"   {esc(s['metric'])} {s['direction']} {s['line']}{odds}"
+                     f" · seit {s.get('first_run', '?')}")
     return "\n".join(lines)
 
 
 def build_dropped(entry, reason):
-    odds = f" · {fmt_range(entry['range'])}" if entry.get("range") else ""
-    return (f"⚽ {entry['home']} – {entry['away']} · {entry['kickoff']}\n"
-            f"  {entry['metric']} {entry['direction']} {entry['line']}{odds}"
-            f" (gemeldet {entry.get('first_run', '?')}) — {reason}")
+    odds = f" · 💰 {fmt_range(entry['range'])}" if entry.get("range") else ""
+    return (f"⚽ <b>{esc(entry['home'])} – {esc(entry['away'])}</b> · {entry['kickoff']}\n"
+            f"   {esc(entry['metric'])} {entry['direction']} {entry['line']}{odds}"
+            f" · gemeldet {entry.get('first_run', '?')}\n"
+            f"   <i>{esc(reason)}</i>")
+
+
+def section(title) -> str:
+    return f"{SEP}\n<b>{title}</b>\n{SEP}"
 
 
 def assemble_report(buckets, run_label):
     """Baut die Telegram-Nachricht(en) aus den vier Blöcken; None = nichts
-    zu melden. Liefert Liste von Text-Stücken (<= 3500 Zeichen)."""
+    zu melden. Liefert Liste von HTML-Text-Stücken (<= 3500 Zeichen)."""
     n = {k: sum(len(sigs) for _, sigs in v) for k, v in buckets.items() if k != "dropped"}
     n["dropped"] = len(buckets["dropped"])
     total = n["new"] + n["changed"] + n["same"]
     parts_summary = []
     if n["new"]:
-        parts_summary.append(f"{n['new']} neu")
+        parts_summary.append(f"🆕 {n['new']} neu")
     if n["changed"]:
-        parts_summary.append(f"{n['changed']} geändert")
+        parts_summary.append(f"🔄 {n['changed']} geändert")
     if n["same"]:
-        parts_summary.append(f"{n['same']} unverändert")
+        parts_summary.append(f"🔁 {n['same']} unverändert")
     if n["dropped"]:
-        parts_summary.append(f"{n['dropped']} weggefallen")
-    summary = ", ".join(parts_summary) or "keine"
+        parts_summary.append(f"❌ {n['dropped']} weggefallen")
+    summary = " · ".join(parts_summary) or "keine"
 
     if not (n["new"] or n["changed"] or n["dropped"]):
         if not n["same"]:
             return None
         # nichts Neues: nur ein Einzeiler, damit klar ist, dass der Lauf lief
-        return [f"🔁 Trend-Scan {run_label}: nichts Neues — "
+        return [f"🔁 <b>Trend-Scan {run_label}</b>: nichts Neues — "
                 f"{n['same']} Signal(e) unverändert"]
 
-    blocks = [f"📊 Trend-Scan {run_label} – {total} Signale ({summary}) · ⚓ = Anker"]
+    blocks = [f"📊 <b>Trend-Scan {run_label}</b>\n{total} Signale · {summary}\n"
+              f"<i>⚓ Anker-Serie · 📊 Datenbasis Heim/Gast · 💰 Quotenspanne</i>"]
     if buckets["new"]:
-        blocks.append(f"🆕 NEU ({n['new']})")
+        blocks.append(section(f"🆕 NEU ({n['new']})"))
         blocks += [build_message(m, s) for m, s in buckets["new"]]
     if buckets["changed"]:
-        blocks.append(f"🔄 GEÄNDERT seit erstem Lauf ({n['changed']})")
+        blocks.append(section(f"🔄 GEÄNDERT seit erstem Lauf ({n['changed']})"))
         blocks += [build_message(m, s) for m, s in buckets["changed"]]
     if buckets["same"]:
-        blocks.append(f"🔁 BEREITS GEMELDET, unverändert ({n['same']})")
+        blocks.append(section(f"🔁 BEREITS GEMELDET ({n['same']})"))
         blocks += [build_compact(m, s) for m, s in buckets["same"]]
     if buckets["dropped"]:
-        blocks.append(f"❌ WEGGEFALLEN ({n['dropped']})")
+        blocks.append(section(f"❌ WEGGEFALLEN ({n['dropped']})"))
         blocks += [build_dropped(e, r) for e, r in buckets["dropped"]]
 
     # Telegram erlaubt max. 4096 Zeichen pro Nachricht -> stückeln
@@ -972,7 +992,9 @@ def send_telegram(text: str) -> bool:
     if not (TG_TOKEN and TG_CHAT):
         return False
     url = f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage"
-    body = urllib.parse.urlencode({"chat_id": TG_CHAT, "text": text}).encode()
+    body = urllib.parse.urlencode({"chat_id": TG_CHAT, "text": text,
+                                   "parse_mode": "HTML",
+                                   "disable_web_page_preview": "true"}).encode()
     try:
         with urllib.request.urlopen(urllib.request.Request(url, data=body), timeout=30) as r:
             return json.loads(r.read().decode()).get("ok", False)
@@ -1389,7 +1411,7 @@ def selftest():
     report = assemble_report(b2, "Di 08:17")
     txt = "\n".join(report)
     for needle in ("🆕 NEU (1)", "🔄 GEÄNDERT", "🔁 BEREITS GEMELDET", "❌ WEGGEFALLEN (1)",
-                   "vorher 1.30–1.80", "(seit Di 06:17)"):
+                   "vorher 1.30–1.80", "seit Di 06:17", "<b>"):
         if needle not in txt:
             print("FEHLER Fall 9i: Nachricht unvollständig, fehlt:", needle)
             ok = False
