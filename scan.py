@@ -894,6 +894,8 @@ def fmt_odds_tail(s) -> str:
 
 
 SEP = "─────────────────"
+BANNER = "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩"   # Nachrichten-Anfang, weithin sichtbar
+FOOTER = "🔻🔻🔻"                        # Nachrichten-Ende
 
 
 def build_message(match, signals):
@@ -958,10 +960,10 @@ def assemble_report(buckets, run_label):
         if not n["same"]:
             return None
         # nichts Neues: nur ein Einzeiler, damit klar ist, dass der Lauf lief
-        return [f"🔁 <b>Trend-Scan {run_label}</b>: nichts Neues — "
-                f"{n['same']} Signal(e) unverändert"]
+        return [f"🟨🟨🟨 <b>TREND-SCAN {run_label}</b> 🟨🟨🟨\n"
+                f"🔁 nichts Neues — {n['same']} Signal(e) unverändert"]
 
-    blocks = [f"📊 <b>Trend-Scan {run_label}</b>\n{total} Signale · {summary}\n"
+    blocks = [f"📊 {total} Signale · {summary}\n"
               f"<i>⚓ Anker-Serie · 📊 Datenbasis Heim/Gast · 💰 Quotenspanne</i>"]
     if buckets["new"]:
         blocks.append(section(f"🆕 NEU ({n['new']})"))
@@ -979,13 +981,23 @@ def assemble_report(buckets, run_label):
     # Telegram erlaubt max. 4096 Zeichen pro Nachricht -> stückeln
     chunks, current = [], blocks[0]
     for block in blocks[1:]:
-        if len(current) + len(block) + 2 > 3500:
+        if len(current) + len(block) + 2 > 3300:
             chunks.append(current)
             current = block
         else:
             current += "\n\n" + block
     chunks.append(current)
-    return chunks
+    # Auffälliger Kopf und Fuß je Nachricht, damit man beim Scrollen sofort
+    # sieht, wo eine Nachricht beginnt und endet (Lucios Wunsch).
+    total_parts = len(chunks)
+    out = []
+    for i, c in enumerate(chunks, 1):
+        head = (f"{BANNER}\n"
+                f"🟩 <b>TREND-SCAN {run_label}</b> · Teil {i}/{total_parts}\n"
+                f"{BANNER}")
+        foot = f"{FOOTER} Ende Teil {i}/{total_parts} {FOOTER}"
+        out.append(f"{head}\n\n{c}\n\n{foot}")
+    return out
 
 
 def send_telegram(text: str) -> bool:
@@ -1411,7 +1423,8 @@ def selftest():
     report = assemble_report(b2, "Di 08:17")
     txt = "\n".join(report)
     for needle in ("🆕 NEU (1)", "🔄 GEÄNDERT", "🔁 BEREITS GEMELDET", "❌ WEGGEFALLEN (1)",
-                   "vorher 1.30–1.80", "seit Di 06:17", "<b>"):
+                   "vorher 1.30–1.80", "seit Di 06:17", "<b>",
+                   "Teil 1/1", "Ende Teil 1/1"):
         if needle not in txt:
             print("FEHLER Fall 9i: Nachricht unvollständig, fehlt:", needle)
             ok = False
