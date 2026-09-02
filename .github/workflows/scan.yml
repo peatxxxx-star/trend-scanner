@@ -2,12 +2,15 @@ name: Trend-Scan
 
 on:
   schedule:
-    # Alle 2 Stunden, 04:17–20:17 UTC = 06:17–22:17 deutscher Sommerzeit.
+    # Alle 2 Stunden, 04:17–18:17 UTC = 06:17–20:17 deutscher Sommerzeit.
     # Minute 17 statt 0: GitHub startet Cron-Jobs zur vollen Stunde oft mit
     # großer Verspätung (Warteschlange) — schräge Minuten laufen pünktlicher.
-    # Hinweis: Im Winter (UTC+1) verschiebt sich das auf 05:17–21:17 lokal;
-    # bei Bedarf dann auf "17 5-21/2 * * *" ändern.
-    - cron: "17 4-20/2 * * *"
+    # Hinweis: Im Winter (UTC+1) verschiebt sich das um eine Stunde;
+    # bei Bedarf dann auf "17 5-19/2 * * *" bzw. "11 20 * * *" ändern.
+    - cron: "17 4-18/2 * * *"
+    # Letzter Lauf des Tages: 19:11 UTC = 21:11 deutscher Sommerzeit,
+    # deckt alle Anstöße bis 06:00 früh ab (Nachtspiele).
+    - cron: "11 19 * * *"
     # Vorwärm-Lauf 03:17 UTC = 05:17 deutscher Sommerzeit: lädt nur die
     # Statistiken des Tages in den Cache (kein Bericht), damit der 06:17-Lauf
     # nicht eine Stunde am API-Limit wartet. (Winter: "17 4 * * *")
