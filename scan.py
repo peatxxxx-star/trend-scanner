@@ -44,6 +44,16 @@ REGELWERK (vollständig):
   MIN_VALID_MATCHES saubere Spiele in der Gesamt-Historie, sonst gibt
   es für die Metrik kein Signal. Meldungen zeigen immer die Datenbasis.
 
+  Lauf-Vergleich (state/reported.json): Jede Meldung ist in vier Blöcke
+  geteilt — 🆕 NEU (noch nie gemeldet), 🔄 GEÄNDERT (schon gemeldet, aber
+  Linie oder Quoten-Spanne weichen vom ERSTEN Lauf ab; die alten Werte
+  stehen dabei), 🔁 BEREITS GEMELDET (unverändert, Kurzform mit "seit
+  HH:MM"), ❌ WEGGEFALLEN (früher gemeldet, jetzt nicht mehr erfüllt oder
+  Spiel aus dem Spielplan verschwunden). Gibt es weder Neues noch
+  Änderungen noch Wegfälle, kommt nur ein Einzeiler "nichts Neues".
+  Angepfiffene Spiele werden automatisch vergessen. Das Gedächtnis wird
+  nur nach erfolgreicher Zustellung gespeichert.
+
 Benötigte Umgebungsvariablen:
   BETSAPI_TOKEN      – BetsAPI-Token (Soccer API)
   TELEGRAM_BOT_TOKEN – Telegram-Bot-Token (optional; ohne = nur Konsole)
@@ -142,6 +152,20 @@ METRICS = {
 CACHE_FILE = Path(__file__).parent / "cache" / "stats.json"
 RUNS_DIR = Path(__file__).parent / "runs"
 
+# Lauf-Gedächtnis: welche Signale wurden schon gemeldet (mit Linie und
+# Quoten-Spanne des ERSTEN Laufs)? Damit trennt die Telegram-Nachricht
+# sauber nach 🆕 neu / 🔄 geändert / 🔁 unverändert / ❌ weggefallen.
+# Einträge verschwinden automatisch, sobald das Spiel angepfiffen ist.
+STATE_FILE = Path(__file__).parent / "state" / "reported.json"
+
+_DE_DAYS = {"Mon": "Mo", "Tue": "Di", "Wed": "Mi", "Thu": "Do",
+            "Fri": "Fr", "Sat": "Sa", "Sun": "So"}
+
+
+def fmt_day_time(dt) -> str:
+    """'Di 18:30' — Wochentag deutsch, unabhängig von der System-Sprache."""
+    return f"{_DE_DAYS.get(dt.strftime('%a'), dt.strftime('%a'))} {dt:%H:%M}"
+
 
 # ----------------------------------------------------------------------------
 # HTTP + Anfragen-Wächter + Cache
@@ -206,6 +230,20 @@ def save_cache(cache: dict) -> None:
     CACHE_FILE.write_text(json.dumps(cache, separators=(",", ":")))
 
 
+def load_state() -> dict:
+    if STATE_FILE.exists():
+        try:
+            return json.loads(STATE_FILE.read_text())
+        except Exception:
+            return {}
+    return {}
+
+
+def save_state(state: dict) -> None:
+    STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=1))
+
+
 # ----------------------------------------------------------------------------
 # Datenbeschaffung
 # ----------------------------------------------------------------------------
@@ -260,7 +298,7 @@ def fetch_matches_in_window():
                     "away": (e.get("away") or {}).get("name", "?"),
                     "home_id": str((e.get("home") or {}).get("id")),
                     "away_id": str((e.get("away") or {}).get("id")),
-                    "kickoff": kickoff_local.strftime("%a %H:%M"),
+                    "kickoff": fmt_day_time(kickoff_local),
                     "kickoff_ts": int(e["time"]),
                     "bet365_id": e.get("bet365_id"),
                 }
@@ -660,6 +698,112 @@ def evaluate_match(match, hist_home, hist_away, market_odds=None):
 
 
 # ----------------------------------------------------------------------------
+# Lauf-Vergleich: neu / geändert / unverändert / weggefallen
+# ----------------------------------------------------------------------------
+
+def signal_key(match, s) -> str:
+    """Identität eines Signals: Spiel + Markt + Richtung (die Linie darf
+    sich verschieben — das wird dann als Änderung gemeldet)."""
+    return f"{match['id']}|{s['metric_key']}|{s['direction']}"
+
+
+def fmt_range(rng) -> str:
+    if not rng:
+        return "❓"
+    lo, hi = rng
+    return f"{lo:.2f}–{hi:.2f}" if hi > lo else f"{lo:.2f}"
+
+
+def _cur_range(s):
+    return list(s["range"]) if s.get("range") else None
+
+
+def classify_signals(state, all_hits, checked_ids, window_ids, now_ts, run_label,
+                     gate_dropped=frozenset()):
+    """Vergleicht die Signale dieses Laufs mit dem Lauf-Gedächtnis.
+
+    state       : {key: eintrag} aus state/reported.json
+    all_hits    : [(match, [signal, ...]), ...] dieses Laufs
+    checked_ids : Spiel-IDs, die in diesem Lauf fehlerfrei geprüft wurden
+    window_ids  : Spiel-IDs, die im Prüffenster lagen (Spielplan)
+    now_ts      : Unix-Zeit jetzt (Einträge angepfiffener Spiele fliegen raus)
+    gate_dropped: Signal-Keys, die statistisch noch stehen, aber am
+                  Quoten-Gate gescheitert sind (Markt bei scores24 weg)
+
+    Liefert (buckets, new_state) mit buckets = {"new","changed","same","dropped"};
+    new/changed/same enthalten [(match, [signal, ...])], jedes Signal trägt
+    ggf. s["change_note"]; dropped enthält [(eintrag, grund)].
+    """
+    new_state = {}
+    seen_keys = set()
+    buckets = {"new": [], "changed": [], "same": [], "dropped": []}
+
+    for match, signals in all_hits:
+        per = {"new": [], "changed": [], "same": []}
+        for s in signals:
+            key = signal_key(match, s)
+            seen_keys.add(key)
+            prev = state.get(key)
+            cur_range = _cur_range(s)
+            if prev is None:
+                entry = {
+                    "match_id": match["id"], "home": match["home"],
+                    "away": match["away"], "kickoff": match["kickoff"],
+                    "kickoff_ts": match.get("kickoff_ts", 0),
+                    "league": match.get("league", ""),
+                    "metric": s["metric"], "metric_key": s["metric_key"],
+                    "direction": s["direction"],
+                    "first_run": run_label, "first_line": s["line"],
+                    "first_range": cur_range,
+                    "last_run": run_label, "line": s["line"], "range": cur_range,
+                }
+                per["new"].append(s)
+            else:
+                entry = dict(prev, last_run=run_label, line=s["line"],
+                             range=cur_range, kickoff=match["kickoff"],
+                             kickoff_ts=match.get("kickoff_ts", prev.get("kickoff_ts", 0)))
+                notes = []
+                if prev.get("first_line") != s["line"]:
+                    notes.append(f"Linie vorher {prev.get('first_line')}")
+                first_range = prev.get("first_range")
+                if first_range != cur_range:
+                    if cur_range and not first_range:
+                        notes.append("Quoten jetzt da, vorher keine")
+                    elif first_range and not cur_range:
+                        notes.append(f"Quoten vorher {fmt_range(first_range)}, jetzt nicht prüfbar")
+                    else:
+                        notes.append(f"Quoten vorher {fmt_range(first_range)}")
+                s["first_run"] = prev.get("first_run", "?")
+                if notes:
+                    s["change_note"] = "; ".join(notes)
+                    per["changed"].append(s)
+                else:
+                    per["same"].append(s)
+            new_state[key] = entry
+        for bucket, sigs in per.items():
+            if sigs:
+                buckets[bucket].append((match, sigs))
+
+    for key, prev in state.items():
+        if key in seen_keys:
+            continue
+        if int(prev.get("kickoff_ts", 0)) <= now_ts:
+            continue                                   # angepfiffen -> vergessen
+        mid = prev.get("match_id")
+        if mid in checked_ids:
+            if key in gate_dropped:
+                reason = "Quote rausgenommen — kein Quoten-Markt mehr bei scores24"
+            else:
+                reason = "Serie erfüllt das Regelwerk nicht mehr"
+            buckets["dropped"].append((prev, reason))
+        elif mid not in window_ids and int(prev.get("kickoff_ts", 0)) < now_ts + 36 * 3600:
+            buckets["dropped"].append((prev, "Spiel nicht mehr im Spielplan (verschoben/abgesagt?)"))
+        else:
+            new_state[key] = prev                      # nicht geprüft -> unverändert merken
+    return buckets, new_state
+
+
+# ----------------------------------------------------------------------------
 # Ausgabe
 # ----------------------------------------------------------------------------
 
@@ -683,6 +827,8 @@ def build_message(match, signals):
             tail = " ❓scores24-Seite nicht gefunden, selbst prüfen"
         else:
             tail = ""
+        if s.get("change_note"):
+            tail += f"\n   🔄 {s['change_note']} (erster Lauf {s.get('first_run', '?')})"
         lines.append(
             f"• Gesamt-{s['metric']} {s['direction']} {s['line']}: "
             f"{match['home']} {fmt_series(s['home_series'], s['home_is_anchor'])}, "
@@ -690,6 +836,73 @@ def build_message(match, signals):
             f"[Datenbasis {s['valid'][0]}/{s['valid'][1]}]{tail}"
         )
     return "\n".join(lines)
+
+
+def build_compact(match, signals):
+    """Kurzform für bereits gemeldete, unveränderte Signale."""
+    lines = [f"⚽ {match['home']} – {match['away']} · {match['kickoff']}"]
+    for s in signals:
+        odds = f" · {fmt_range(s['range'])}" if s.get("range") else ""
+        lines.append(f"  {s['metric']} {s['direction']} {s['line']}{odds}"
+                     f" (seit {s.get('first_run', '?')})")
+    return "\n".join(lines)
+
+
+def build_dropped(entry, reason):
+    odds = f" · {fmt_range(entry['range'])}" if entry.get("range") else ""
+    return (f"⚽ {entry['home']} – {entry['away']} · {entry['kickoff']}\n"
+            f"  {entry['metric']} {entry['direction']} {entry['line']}{odds}"
+            f" (gemeldet {entry.get('first_run', '?')}) — {reason}")
+
+
+def assemble_report(buckets, run_label):
+    """Baut die Telegram-Nachricht(en) aus den vier Blöcken; None = nichts
+    zu melden. Liefert Liste von Text-Stücken (<= 3500 Zeichen)."""
+    n = {k: sum(len(sigs) for _, sigs in v) for k, v in buckets.items() if k != "dropped"}
+    n["dropped"] = len(buckets["dropped"])
+    total = n["new"] + n["changed"] + n["same"]
+    parts_summary = []
+    if n["new"]:
+        parts_summary.append(f"{n['new']} neu")
+    if n["changed"]:
+        parts_summary.append(f"{n['changed']} geändert")
+    if n["same"]:
+        parts_summary.append(f"{n['same']} unverändert")
+    if n["dropped"]:
+        parts_summary.append(f"{n['dropped']} weggefallen")
+    summary = ", ".join(parts_summary) or "keine"
+
+    if not (n["new"] or n["changed"] or n["dropped"]):
+        if not n["same"]:
+            return None
+        # nichts Neues: nur ein Einzeiler, damit klar ist, dass der Lauf lief
+        return [f"🔁 Trend-Scan {run_label}: nichts Neues — "
+                f"{n['same']} Signal(e) unverändert"]
+
+    blocks = [f"📊 Trend-Scan {run_label} – {total} Signale ({summary}) · ⚓ = Anker"]
+    if buckets["new"]:
+        blocks.append(f"🆕 NEU ({n['new']})")
+        blocks += [build_message(m, s) for m, s in buckets["new"]]
+    if buckets["changed"]:
+        blocks.append(f"🔄 GEÄNDERT seit erstem Lauf ({n['changed']})")
+        blocks += [build_message(m, s) for m, s in buckets["changed"]]
+    if buckets["same"]:
+        blocks.append(f"🔁 BEREITS GEMELDET, unverändert ({n['same']})")
+        blocks += [build_compact(m, s) for m, s in buckets["same"]]
+    if buckets["dropped"]:
+        blocks.append(f"❌ WEGGEFALLEN ({n['dropped']})")
+        blocks += [build_dropped(e, r) for e, r in buckets["dropped"]]
+
+    # Telegram erlaubt max. 4096 Zeichen pro Nachricht -> stückeln
+    chunks, current = [], blocks[0]
+    for block in blocks[1:]:
+        if len(current) + len(block) + 2 > 3500:
+            chunks.append(current)
+            current = block
+        else:
+            current += "\n\n" + block
+    chunks.append(current)
+    return chunks
 
 
 def send_telegram(text: str) -> bool:
@@ -713,18 +926,26 @@ def run():
     if not TOKEN:
         sys.exit("BETSAPI_TOKEN fehlt")
     cache = load_cache()
+    state = load_state()
     matches = fetch_matches_in_window()
-    print(f"{len(matches)} Spiele im Prüffenster ({WORKERS} parallel)")
+    print(f"{len(matches)} Spiele im Prüffenster ({WORKERS} parallel), "
+          f"{len(state)} Signale im Lauf-Gedächtnis")
     all_hits = []
+    checked_ids = set()
+    gate_dropped = set()     # Signale, die statistisch noch stehen, deren
+                             # Quoten-Markt bei scores24 aber weg ist
 
     def check(match):
         hist_home = fetch_team_history(match["home_id"], cache)
         hist_away = fetch_team_history(match["away_id"], cache)
         signals = evaluate_match(match, hist_home, hist_away)
+        gated_out = []
         if signals and GATE_ENABLED:
             groups = s24_fetch_groups(match)
+            before = {signal_key(match, s) for s in signals}
             signals = apply_s24_gate(signals, groups)
-        return signals
+            gated_out = sorted(before - {signal_key(match, s) for s in signals})
+        return signals, gated_out
 
     done = 0
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
@@ -733,10 +954,12 @@ def run():
             match = futures[fut]
             done += 1
             try:
-                signals = fut.result()
+                signals, gated_out = fut.result()
             except Exception as exc:
                 print(f"  überspringe {match['home']}–{match['away']}: {exc}")
                 continue
+            checked_ids.add(match["id"])
+            gate_dropped.update(gated_out)
             if signals:
                 all_hits.append((match, signals))
                 print(f"  TREFFER: {match['home']} – {match['away']} ({len(signals)})")
@@ -748,39 +971,51 @@ def run():
     # feste Sortierung nach Anstoßzeit (Parallelverarbeitung mischt sonst)
     all_hits.sort(key=lambda h: h[0].get("kickoff_ts", 0))
 
-    RUNS_DIR.mkdir(parents=True, exist_ok=True)
+    # Lauf-Vergleich mit dem Gedächtnis des Vortags/Vorlaufs
     now = datetime.now(timezone.utc)
+    run_label = fmt_day_time(now_berlin())
+    buckets, new_state = classify_signals(
+        state, all_hits, checked_ids, {m["id"] for m in matches},
+        int(now.timestamp()), run_label, gate_dropped)
+
+    RUNS_DIR.mkdir(parents=True, exist_ok=True)
     log = {
         "run_utc": now.isoformat(timespec="seconds"),
         "matches_checked": len(matches),
         "requests": _request_count,
         "hits": [{"match": m, "signals": s} for m, s in all_hits],
+        "new": [signal_key(m, s) for m, sigs in buckets["new"] for s in sigs],
+        "changed": [signal_key(m, s) for m, sigs in buckets["changed"] for s in sigs],
+        "dropped": [f"{e['match_id']}|{e['metric_key']}|{e['direction']}"
+                    for e, _ in buckets["dropped"]],
     }
     (RUNS_DIR / f"{now:%Y-%m-%d_%H%M}.json").write_text(
         json.dumps(log, ensure_ascii=False, indent=1))
 
-    if all_hits:
-        header = (f"📊 Trend-Scan {now_berlin().strftime('%d.%m. %H:%M')} – "
-                  f"{len(all_hits)} Treffer (⚓ = Anker-Serie)")
-        # Telegram erlaubt max. 4096 Zeichen pro Nachricht -> stückeln
-        chunks, current = [], header
-        for m, s in all_hits:
-            block = build_message(m, s)
-            if len(current) + len(block) + 2 > 3500:
-                chunks.append(current)
-                current = block
-            else:
-                current += "\n\n" + block
-        chunks.append(current)
-        sent = all(send_telegram(c) for c in chunks)
-        if sent:
+    chunks = assemble_report(buckets, run_label)
+    delivered = True
+    if chunks:
+        if TG_TOKEN and TG_CHAT:
+            delivered = all(send_telegram(c) for c in chunks)
+        else:
+            delivered = False
+        if delivered:
             print(f"Telegram: {len(chunks)} Nachricht(en) verschickt")
         else:
-            print(header)
             for c in chunks:
                 print(c)
     else:
         print("Keine Treffer in diesem Lauf")
+    # Gedächtnis erst ganz am Ende sichern — ein abgebrochener Lauf lässt den
+    # alten Stand unangetastet (sonst wäre beim nächsten Mal alles "neu").
+    # Kam die Nachricht nicht an, bleibt der alte Stand ebenfalls stehen,
+    # damit die Signale beim nächsten Lauf erneut als neu erscheinen.
+    if delivered or not (TG_TOKEN and TG_CHAT):
+        save_state(new_state)
+        print(f"Lauf-Gedächtnis: {len(new_state)} Signale gemerkt "
+              f"({len(buckets['dropped'])} weggefallen)")
+    else:
+        print("Telegram-Zustellung fehlgeschlagen — Lauf-Gedächtnis nicht aktualisiert")
     if GATE_ENABLED:
         print(f"scores24: {_s24_stats['ok']} Seiten geladen, "
               f"{_s24_stats['no_link']} ohne Zuordnung, "
@@ -948,6 +1183,97 @@ def selftest():
     if tsig:
         print("FEHLER Fall 8b: enger Korridor muss verworfen werden:", tsig)
         ok = False
+
+    # --- Fall 9: Lauf-Vergleich (neu / geändert / unverändert / weggefallen)
+    def sig(metric_key, direction, line, rng=None, unchecked=False):
+        s = {"metric": METRICS[metric_key][0], "metric_key": metric_key,
+             "direction": direction, "line": line,
+             "home_series": {"kind": "gesamt", "hits": 10, "window": 11},
+             "away_series": {"kind": "gesamt", "hits": 6, "window": 6},
+             "home_is_anchor": True, "away_is_anchor": False, "valid": (40, 38)}
+        if rng:
+            s["range"] = rng
+        if unchecked:
+            s["unchecked"] = True
+        return s
+    m1 = {"id": "1", "home": "A", "away": "B", "kickoff": "Di 20:00",
+          "kickoff_ts": 1_900_050_000, "league": "L"}
+    m2 = dict(m1, id="2", home="C", away="D")
+    m3 = dict(m1, id="3", home="E", away="F")
+    m4 = dict(m1, id="4", home="G", away="H", kickoff_ts=1_000)      # längst angepfiffen
+    # erster Lauf: alles neu
+    hits1 = [(m1, [sig("corners", "über", 8.5, (1.30, 1.80)),
+                   sig("yellowcards", "unter", 4.5, unchecked=True)]),
+             (m2, [sig("fouls", "über", 22.5, (1.50, 1.90))]),
+             (m3, [sig("offsides", "unter", 4.5, (1.40, 1.60))])]
+    b1, st1 = classify_signals({}, hits1, {"1", "2", "3"}, {"1", "2", "3"},
+                               1_900_000_000, "Di 06:17")
+    if len(b1["new"]) != 3 or b1["changed"] or b1["same"] or b1["dropped"] or len(st1) != 4:
+        print("FEHLER Fall 9a: erster Lauf muss alles als neu melden")
+        ok = False
+    # zweiter Lauf: Quoten geändert, Quoten neu da, unverändert, weggefallen,
+    # Spiel aus dem Spielplan verschwunden, altes Spiel angepfiffen
+    st1["4|corners|über"] = {"match_id": "4", "home": "G", "away": "H",
+                             "kickoff": "Mo 20:00", "kickoff_ts": 1_000,
+                             "metric": "Ecken", "metric_key": "corners",
+                             "direction": "über", "first_run": "Mo 18:17",
+                             "first_line": 8.5, "first_range": None,
+                             "line": 8.5, "range": None, "last_run": "Mo 18:17"}
+    hits2 = [(m1, [sig("corners", "über", 8.5, (1.45, 2.10)),
+                   sig("yellowcards", "unter", 4.5, (1.35, 1.50))]),
+             (m2, [sig("fouls", "über", 22.5, (1.50, 1.90)),
+                   sig("corners", "unter", 11.5, (1.40, 1.70))])]
+    b2, st2 = classify_signals(st1, hits2, {"1", "2"}, {"1", "2"},
+                               1_900_000_100, "Di 08:17")
+    new_keys = [signal_key(m, s) for m, sigs in b2["new"] for s in sigs]
+    chg = {signal_key(m, s): s["change_note"] for m, sigs in b2["changed"] for s in sigs}
+    same_keys = [signal_key(m, s) for m, sigs in b2["same"] for s in sigs]
+    dropped = {e["match_id"]: r for e, r in b2["dropped"]}
+    if new_keys != ["2|corners|unter"]:
+        print("FEHLER Fall 9b: neues Signal nicht erkannt:", new_keys)
+        ok = False
+    if "vorher 1.30–1.80" not in chg.get("1|corners|über", "") or \
+       "jetzt da" not in chg.get("1|yellowcards|unter", ""):
+        print("FEHLER Fall 9c: Quoten-Änderung nicht markiert:", chg)
+        ok = False
+    if same_keys != ["2|fouls|über"]:
+        print("FEHLER Fall 9d: unverändertes Signal falsch einsortiert:", same_keys)
+        ok = False
+    if "3" not in dropped or "Spielplan" not in dropped["3"]:
+        print("FEHLER Fall 9e: verschwundenes Spiel nicht als weggefallen markiert:", dropped)
+        ok = False
+    if "4" in dropped or any(k.startswith("4|") for k in st2):
+        print("FEHLER Fall 9f: angepfiffenes Spiel muss stillschweigend vergessen werden")
+        ok = False
+    if st2["1|corners|über"]["first_range"] != [1.30, 1.80] or \
+       st2["1|corners|über"]["range"] != [1.45, 2.10]:
+        print("FEHLER Fall 9g: Gedächtnis muss ersten Lauf UND aktuellen Stand kennen")
+        ok = False
+    # dritter Lauf: Signal von Spiel 1 fällt weg (Spiel geprüft, kein Signal)
+    b3, st3 = classify_signals(st2, [(m2, hits2[1][1])], {"1", "2"}, {"1", "2"},
+                               1_900_000_200, "Di 10:17", {"1|corners|über"})
+    reasons = {f"{e['metric_key']}": r for e, r in b3["dropped"] if e["match_id"] == "1"}
+    if set(reasons) != {"corners", "yellowcards"} or any(k.startswith("1|") for k in st3):
+        print("FEHLER Fall 9h: weggefallene Serie nicht erkannt:", b3["dropped"])
+        ok = False
+    if "Quote rausgenommen" not in reasons.get("corners", "") or \
+       "Regelwerk" not in reasons.get("yellowcards", ""):
+        print("FEHLER Fall 9k: Wegfall-Grund (Quote vs. Serie) falsch:", reasons)
+        ok = False
+    report = assemble_report(b2, "Di 08:17")
+    txt = "\n".join(report)
+    for needle in ("🆕 NEU (1)", "🔄 GEÄNDERT", "🔁 BEREITS GEMELDET", "❌ WEGGEFALLEN (1)",
+                   "vorher 1.30–1.80", "(seit Di 06:17)"):
+        if needle not in txt:
+            print("FEHLER Fall 9i: Nachricht unvollständig, fehlt:", needle)
+            ok = False
+    quiet = assemble_report({"new": [], "changed": [], "same": [(m2, hits2[1][1][:1])],
+                             "dropped": []}, "Di 10:17")
+    if not quiet or "nichts Neues" not in quiet[0] or len(quiet[0]) > 120:
+        print("FEHLER Fall 9j: Ruhe-Meldung falsch:", quiet)
+        ok = False
+    if "--show" in sys.argv:
+        print("\n".join(report))
 
     print("Selbsttest OK" if ok else "Selbsttest FEHLGESCHLAGEN")
     sys.exit(0 if ok else 1)
