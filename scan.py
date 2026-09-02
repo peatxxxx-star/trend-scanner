@@ -49,7 +49,9 @@ REGELWERK (vollständig):
   Linie oder Quoten-Spanne weichen vom ERSTEN Lauf ab; die alten Werte
   stehen dabei), 🔁 BEREITS GEMELDET (unverändert, Kurzform mit "seit
   HH:MM"), ❌ WEGGEFALLEN (früher gemeldet, jetzt nicht mehr erfüllt oder
-  Spiel aus dem Spielplan verschwunden). Gibt es weder Neues noch
+  Spiel aus dem Spielplan verschwunden). Gemeldet wird NUR, was zum
+  Scan-Zeitpunkt eine echte Quoten-Spanne bei scores24 hat; nicht
+  zuordenbare Seiten werden nicht gezeigt. Gibt es weder Neues noch
   Änderungen noch Wegfälle, kommt nur ein Einzeiler "nichts Neues".
   Angepfiffene Spiele werden automatisch vergessen. Das Gedächtnis wird
   nur nach erfolgreicher Zustellung gespeichert.
@@ -782,7 +784,7 @@ def _cur_range(s):
 
 
 def classify_signals(state, all_hits, checked_ids, window_ids, now_ts, run_label,
-                     gate_dropped=frozenset()):
+                     gate_dropped=frozenset(), unverifiable=frozenset()):
     """Vergleicht die Signale dieses Laufs mit dem Lauf-Gedächtnis.
 
     state       : {key: eintrag} aus state/reported.json
@@ -792,6 +794,8 @@ def classify_signals(state, all_hits, checked_ids, window_ids, now_ts, run_label
     now_ts      : Unix-Zeit jetzt (Einträge angepfiffener Spiele fliegen raus)
     gate_dropped: Signal-Keys, die statistisch noch stehen, aber am
                   Quoten-Gate gescheitert sind (Markt bei scores24 weg)
+    unverifiable: Signal-Keys, deren scores24-Seite nicht zuordenbar war
+                  (nur relevant, wenn sie früher schon gemeldet wurden)
 
     Liefert (buckets, new_state) mit buckets = {"new","changed","same","dropped"};
     new/changed/same enthalten [(match, [signal, ...])], jedes Signal trägt
@@ -856,6 +860,8 @@ def classify_signals(state, all_hits, checked_ids, window_ids, now_ts, run_label
         if mid in checked_ids:
             if key in gate_dropped:
                 reason = "Quote rausgenommen — kein Quoten-Markt mehr bei scores24"
+            elif key in unverifiable:
+                reason = "Quoten nicht mehr prüfbar (scores24-Seite nicht zuordenbar)"
             else:
                 reason = "Serie erfüllt das Regelwerk nicht mehr"
             buckets["dropped"].append((prev, reason))
@@ -911,7 +917,8 @@ def build_match_block(match, entries):
         icon = STATUS_ICON[status]
         lines.append("")
         if status == "same":
-            odds = f" · 💰 {fmt_range(s['range'])}" if s.get("range") else ""
+            odds = (f" · 💰 {fmt_range(s['range'])}" if s.get("range")
+                    else " · ❓ Quoten nicht prüfbar")
             lines.append(f"{icon} {esc(s['metric'])} {s['direction']} {s['line']}{odds}"
                          f" · seit {s.get('first_run', '?')}")
             continue
@@ -1098,18 +1105,24 @@ def run():
     checked_ids = set()
     gate_dropped = set()     # Signale, die statistisch noch stehen, deren
                              # Quoten-Markt bei scores24 aber weg ist
+    unverifiable = set()     # Signale, deren scores24-Seite nicht zuordenbar war
 
     def check(match):
         hist_home = fetch_team_history(match["home_id"], cache, hcache)
         hist_away = fetch_team_history(match["away_id"], cache, hcache)
         signals = evaluate_match(match, hist_home, hist_away)
-        gated_out = []
+        gated_out, unverifiable = [], []
         if signals and GATE_ENABLED:
             groups = s24_fetch_groups(match)
             before = {signal_key(match, s) for s in signals}
             signals = apply_s24_gate(signals, groups)
-            gated_out = sorted(before - {signal_key(match, s) for s in signals})
-        return signals, gated_out
+            # Lucios Vorgabe: nur melden, was JETZT eine echte Quoten-Spanne
+            # hat. Nicht zuordenbare Seiten (❓) werden nicht gezeigt.
+            unverifiable = [signal_key(match, s) for s in signals if not s.get("range")]
+            signals = [s for s in signals if s.get("range")]
+            gated_out = sorted(before - {signal_key(match, s) for s in signals}
+                               - set(unverifiable))
+        return signals, gated_out, unverifiable
 
     done = 0
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
@@ -1118,12 +1131,13 @@ def run():
             match = futures[fut]
             done += 1
             try:
-                signals, gated_out = fut.result()
+                signals, gated_out, unverif = fut.result()
             except Exception as exc:
                 print(f"  überspringe {match['home']}–{match['away']}: {exc}")
                 continue
             checked_ids.add(match["id"])
             gate_dropped.update(gated_out)
+            unverifiable.update(unverif)
             if signals:
                 all_hits.append((match, signals))
                 print(f"  TREFFER: {match['home']} – {match['away']} ({len(signals)})")
@@ -1142,7 +1156,7 @@ def run():
     run_label = fmt_day_time(now_berlin())
     buckets, new_state = classify_signals(
         state, all_hits, checked_ids, {m["id"] for m in matches},
-        int(now.timestamp()), run_label, gate_dropped)
+        int(now.timestamp()), run_label, gate_dropped, unverifiable)
 
     RUNS_DIR.mkdir(parents=True, exist_ok=True)
     log = {
@@ -1425,6 +1439,12 @@ def selftest():
     if "Quote rausgenommen" not in reasons.get("corners", "") or \
        "Regelwerk" not in reasons.get("yellowcards", ""):
         print("FEHLER Fall 9k: Wegfall-Grund (Quote vs. Serie) falsch:", reasons)
+        ok = False
+    b3u, _ = classify_signals(st2, [(m2, hits2[1][1])], {"1", "2"}, {"1", "2"},
+                              1_900_000_200, "Di 10:17", set(), {"1|corners|über"})
+    r_u = {e["metric_key"]: r for e, r in b3u["dropped"] if e["match_id"] == "1"}
+    if "nicht mehr prüfbar" not in r_u.get("corners", ""):
+        print("FEHLER Fall 9m: Grund 'nicht prüfbar' fehlt:", r_u)
         ok = False
     report = assemble_report(b2, "Di 08:17")
     txt = "\n".join(report)
