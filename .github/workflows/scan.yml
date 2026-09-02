@@ -2,8 +2,17 @@ name: Trend-Scan
 
 on:
   schedule:
-    - cron: "0 4-20/2 * * *"   # alle 2h, 06–22 Uhr deutscher Sommerzeit
-  workflow_dispatch: {}
+    # Alle 2 Stunden, 04:17–20:17 UTC = 06:17–22:17 deutscher Sommerzeit.
+    # Minute 17 statt 0: GitHub startet Cron-Jobs zur vollen Stunde oft mit
+    # großer Verspätung (Warteschlange) — schräge Minuten laufen pünktlicher.
+    # Hinweis: Im Winter (UTC+1) verschiebt sich das auf 05:17–21:17 lokal;
+    # bei Bedarf dann auf "17 5-21/2 * * *" ändern.
+    - cron: "17 4-20/2 * * *"
+    # Vorwärm-Lauf 03:17 UTC = 05:17 deutscher Sommerzeit: lädt nur die
+    # Statistiken des Tages in den Cache (kein Bericht), damit der 06:17-Lauf
+    # nicht eine Stunde am API-Limit wartet. (Winter: "17 4 * * *")
+    - cron: "17 3 * * *"
+  workflow_dispatch: {}   # manueller Start über den "Run workflow"-Knopf
 
 concurrency:
   group: trend-scan
@@ -31,11 +40,12 @@ jobs:
           PYTHONUNBUFFERED: "1"
         run: python scan.py
 
-      - name: Cache und Lauf-Protokoll sichern
+      - name: Cache, Lauf-Gedächtnis und Protokoll sichern
         if: always()
         run: |
           git config user.name "trend-scanner"
           git config user.email "actions@users.noreply.github.com"
-          git add cache/ runs/
+          for d in cache runs state; do [ -d "$d" ] && git add "$d"; done; true
           git diff --cached --quiet || git commit -m "Scan $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git pull --rebase origin main || true
           git push
