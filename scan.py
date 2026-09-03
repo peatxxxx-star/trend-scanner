@@ -44,17 +44,16 @@ REGELWERK (vollständig):
   MIN_VALID_MATCHES saubere Spiele in der Gesamt-Historie, sonst gibt
   es für die Metrik kein Signal. Meldungen zeigen immer die Datenbasis.
 
-  Lauf-Vergleich (state/reported.json): Jede Meldung ist in vier Blöcke
-  geteilt — 🆕 NEU (noch nie gemeldet), 🔄 GEÄNDERT (schon gemeldet, aber
-  Linie oder Quoten-Spanne weichen vom ERSTEN Lauf ab; die alten Werte
-  stehen dabei), 🔁 BEREITS GEMELDET (unverändert, Kurzform mit "seit
-  HH:MM"), ❌ WEGGEFALLEN (früher gemeldet, jetzt nicht mehr erfüllt oder
-  Spiel aus dem Spielplan verschwunden). Gemeldet wird NUR, was zum
-  Scan-Zeitpunkt eine echte Quoten-Spanne bei scores24 hat; nicht
-  zuordenbare Seiten werden nicht gezeigt. Gibt es weder Neues noch
-  Änderungen noch Wegfälle, kommt nur ein Einzeiler "nichts Neues".
-  Angepfiffene Spiele werden automatisch vergessen. Das Gedächtnis wird
-  nur nach erfolgreicher Zustellung gespeichert.
+  Lauf-Vergleich (state/reported.json): Die Telegram-Nachricht enthält
+  NUR komplett neue Signale (noch nie an diesem Tag gemeldet), strikt
+  nach Anstoßzeit. Gemeldet wird nur, was zum Scan-Zeitpunkt eine echte
+  Quoten-Spanne bei scores24 hat. Einmal gemeldet = bis zum Anpfiff
+  gemerkt, auch wenn ein späterer Lauf keine Quoten mehr findet oder die
+  Serie kippt (es taucht nie wieder als neu auf). Geändert/unverändert/
+  weggefallen werden nur im Lauf-Protokoll (runs/) festgehalten. Gibt es
+  nichts Neues, kommt ein Einzeiler. Angepfiffene Spiele werden
+  automatisch vergessen. Das Gedächtnis wird nur nach erfolgreicher
+  Zustellung gespeichert.
 
 Benötigte Umgebungsvariablen:
   BETSAPI_TOKEN      – BetsAPI-Token (Soccer API)
@@ -704,6 +703,60 @@ def apply_s24_gate(signals, groups):
     return kept
 
 
+def _seq_summary(seq, fresh_required):
+    """Kurzbeschreibung einer Treffer/Aussetzer-Folge: Treffer bis zur
+    3. Lücke, plus Hinweis auf die Frische-Regel."""
+    hits = misses = 0
+    for h in seq:
+        if h:
+            hits += 1
+        else:
+            misses += 1
+            if misses > ANCHOR_MAX_MISSES:
+                break
+    window = hits + min(misses, ANCHOR_MAX_MISSES)
+    txt = f"{hits}/{window}" if window > hits else f"{hits} in Folge"
+    if misses > ANCHOR_MAX_MISSES:
+        txt += " (3. Lücke)"
+    elif fresh_required and any(not h for h in seq[:FRESH_GAMES]):
+        txt += " (Aussetzer in den letzten 2)"
+    return txt
+
+
+def team_diag(history, metric, line, direction, role):
+    """Warum erfüllt ein Team eine Linie (nicht)? Liefert (anchor, other, text)."""
+    anchor, other, valid = team_qualifies(history, metric, line, direction, role)
+    if valid < MIN_VALID_MATCHES:
+        return anchor, other, f"nur {valid} Spiele mit Daten"
+    seq_all, _ = hit_sequence(history, metric, line, direction)
+    seq_ven, _ = hit_sequence(history, metric, line, direction, venue=role)
+    txt = _seq_summary(seq_all, fresh_required=True)
+    ven = _seq_summary(seq_ven, fresh_required=True)
+    role_de = "heim" if role == "home" else "auswärts"
+    return anchor, other, f"{txt} gesamt, {ven} {role_de}"
+
+
+def next_line_note(match, hist_home, hist_away, metric, direction, line):
+    """Erklärt, warum die nächststrengere Linie NICHT gemeldet wurde —
+    damit Lucio sieht, wo die Serie abreißt (z.B. scores24 zeigt 7.5,
+    wir melden 6.5)."""
+    lines = METRICS[metric][1]
+    stricter = [l for l in lines if (l > line if direction == "über" else l < line)]
+    if not stricter:
+        return None
+    nxt = min(stricter) if direction == "über" else max(stricter)
+    a_h, o_h, txt_h = team_diag(hist_home, metric, nxt, direction, "home")
+    a_a, o_a, txt_a = team_diag(hist_away, metric, nxt, direction, "away")
+    parts = []
+    if not (a_h or o_h):
+        parts.append(f"{match['home']} {txt_h}")
+    if not (a_a or o_a):
+        parts.append(f"{match['away']} {txt_a}")
+    if not parts:                       # beide haben Serien, aber kein Anker
+        parts.append(f"kein Anker — {match['home']} {txt_h}; {match['away']} {txt_a}")
+    return nxt, "; ".join(parts)
+
+
 def evaluate_match(match, hist_home, hist_away, market_odds=None):
     """Regelwerk + optionales Quoten-Gate.
 
@@ -758,6 +811,10 @@ def evaluate_match(match, hist_home, hist_away, market_odds=None):
             continue
         best = max(cands, key=lambda c: c["line"]) if direction == "über" \
             else min(cands, key=lambda c: c["line"])
+        note = next_line_note(match, hist_home, hist_away, metric, direction, best["line"])
+        if note:
+            best["next_line"] = note[0]
+            best["next_note"] = note[1]
         signals.append(best)
     return signals
 
@@ -867,8 +924,11 @@ def classify_signals(state, all_hits, checked_ids, window_ids, now_ts, run_label
             buckets["dropped"].append((prev, reason))
         elif mid not in window_ids and int(prev.get("kickoff_ts", 0)) < now_ts + 36 * 3600:
             buckets["dropped"].append((prev, "Spiel nicht mehr im Spielplan (verschoben/abgesagt?)"))
-        else:
-            new_state[key] = prev                      # nicht geprüft -> unverändert merken
+        # Lucios Vorgabe: Was an dem Tag einmal mit Quoten gemeldet wurde,
+        # bleibt bis zum Anpfiff gemerkt — auch wenn ein späterer Lauf keine
+        # Quoten mehr findet oder die Serie kippt. So taucht es nie wieder
+        # als "neu" auf. (Der Wegfall steht nur im Lauf-Protokoll.)
+        new_state[key] = prev
     return buckets, new_state
 
 
@@ -934,6 +994,8 @@ def build_match_block(match, entries):
         tail = fmt_odds_tail(s)
         base = f"📊 {s['valid'][0]}/{s['valid'][1]}"
         lines.append(f"   {tail} · {base}" if tail else f"   {base}")
+        if s.get("next_line") is not None:
+            lines.append(f"   ↳ {s['next_line']} nicht: <i>{esc(s['next_note'])}</i>")
         if s.get("change_note"):
             lines.append(f"   🔄 <i>{esc(s['change_note'])}</i>"
                          f" · erster Lauf {s.get('first_run', '?')}")
@@ -980,16 +1042,21 @@ def assemble_report(buckets, run_label):
         parts_summary.append(f"❌ {n['dropped']} weggefallen")
     summary = " · ".join(parts_summary) or "keine"
 
-    if not (n["new"] or n["changed"] or n["dropped"]):
-        if not n["same"]:
+    if not n["new"]:
+        if not (n["same"] or n["changed"]):
             return None
         # nichts Neues: nur ein Einzeiler, damit klar ist, dass der Lauf lief
         return [f"🟨🟨🟨 <b>TREND-SCAN {run_label}</b> 🟨🟨🟨\n"
-                f"🔁 nichts Neues — {n['same']} Signal(e) unverändert"]
+                f"🔁 nichts Neues — {n['same'] + n['changed']} Signal(e) bereits gemeldet"]
 
-    blocks = [f"📊 {total} Signale · {summary}\n"
-              f"<i>⚓ Anker · 📊 Datenbasis Heim/Gast · 💰 Quoten</i>"]
-    blocks += [build_match_block(m, e) for m, e in merge_by_kickoff(buckets)]
+    # Lucios Vorgabe: nur komplett neue Signale melden. Geändert/unverändert/
+    # weggefallen stehen im Lauf-Protokoll (runs/), nicht in der Nachricht.
+    only_new = {"new": buckets["new"], "changed": [], "same": [], "dropped": []}
+    known = n["same"] + n["changed"]
+    blocks = [f"🆕 {n['new']} neue Signale seit dem letzten Lauf"
+              + (f" · {known} bereits gemeldet" if known else "")
+              + "\n<i>⚓ Anker · 📊 Datenbasis Heim/Gast · 💰 Quoten</i>"]
+    blocks += [build_match_block(m, e) for m, e in merge_by_kickoff(only_new)]
 
     # Telegram erlaubt max. 4096 Zeichen pro Nachricht -> stückeln
     chunks, current = [], blocks[0]
@@ -1236,6 +1303,9 @@ def selftest():
     if not sig or sig[0]["line"] != 8.5:
         print("FEHLER Fall 1: Ecken-über-Signal fehlt/falsche Linie:", sig)
         ok = False
+    elif sig[0].get("next_line") != 9.5 or "B" not in sig[0].get("next_note", ""):
+        print("FEHLER Fall 1b: Hinweis zur nächststrengeren Linie fehlt:", sig[0].get("next_note"))
+        ok = False
 
     # --- Fall 2: Frische-Regel — Aussetzer im jüngsten Spiel bricht Anker
     a2 = _mk([[1, 1]] + [[6, 5]] * 14, [H, A] * 7 + [H])   # jüngstes Spiel Lücke
@@ -1422,6 +1492,9 @@ def selftest():
     if "3" not in dropped or "Spielplan" not in dropped["3"]:
         print("FEHLER Fall 9e: verschwundenes Spiel nicht als weggefallen markiert:", dropped)
         ok = False
+    if "3|offsides|unter" not in st2:
+        print("FEHLER Fall 9e2: einmal gemeldetes Signal muss bis Anpfiff gemerkt bleiben")
+        ok = False
     if "4" in dropped or any(k.startswith("4|") for k in st2):
         print("FEHLER Fall 9f: angepfiffenes Spiel muss stillschweigend vergessen werden")
         ok = False
@@ -1433,8 +1506,8 @@ def selftest():
     b3, st3 = classify_signals(st2, [(m2, hits2[1][1])], {"1", "2"}, {"1", "2"},
                                1_900_000_200, "Di 10:17", {"1|corners|über"})
     reasons = {f"{e['metric_key']}": r for e, r in b3["dropped"] if e["match_id"] == "1"}
-    if set(reasons) != {"corners", "yellowcards"} or any(k.startswith("1|") for k in st3):
-        print("FEHLER Fall 9h: weggefallene Serie nicht erkannt:", b3["dropped"])
+    if set(reasons) != {"corners", "yellowcards"} or not any(k.startswith("1|") for k in st3):
+        print("FEHLER Fall 9h: weggefallene Serie nicht erkannt / nicht gemerkt:", b3["dropped"])
         ok = False
     if "Quote rausgenommen" not in reasons.get("corners", "") or \
        "Regelwerk" not in reasons.get("yellowcards", ""):
@@ -1448,23 +1521,25 @@ def selftest():
         ok = False
     report = assemble_report(b2, "Di 08:17")
     txt = "\n".join(report)
-    for needle in ("🆕 1 neu", "🔄 2 geändert", "🔁 1 unverändert", "❌ 1 weggefallen",
-                   "🆕 <b>Ecken unter 11.5</b>", "🔄 <b>Ecken über 8.5</b>",
-                   "🔁 Fouls über 22.5", "❌ <s>Abseits unter 4.5</s>",
-                   "vorher 1.30–1.80", "seit Di 06:17", "Teil 1/1", "Ende Teil 1/1"):
+    for needle in ("🆕 1 neue Signale", "3 bereits gemeldet",
+                   "🆕 <b>Ecken unter 11.5</b>", "Teil 1/1", "Ende Teil 1/1"):
         if needle not in txt:
             print("FEHLER Fall 9i: Nachricht unvollständig, fehlt:", needle)
             ok = False
+    for forbidden in ("A – B", "E – F", "Fouls über 22.5", "vorher 1.30"):
+        if forbidden in txt:
+            print("FEHLER Fall 9i2: Nachricht darf nur Neues enthalten, enthält:", forbidden)
+            ok = False
     early = dict(m3, id="9", home="Y", away="Z", kickoff="Di 12:00", kickoff_ts=1_900_010_000)
-    b_sorted = {"new": [(early, [sig("corners", "über", 7.5, (1.5, 1.6))])],
-                "changed": [], "same": [(m2, hits2[1][1][:1])], "dropped": []}
+    b_sorted = {"new": [(m2, hits2[1][1][:1]), (early, [sig("corners", "über", 7.5, (1.5, 1.6))])],
+                "changed": [], "same": [], "dropped": []}
     txt_sorted = "\n".join(assemble_report(b_sorted, "Di 08:17"))
     if txt_sorted.index("Y – Z") > txt_sorted.index("C – D"):
         print("FEHLER Fall 9l: Meldung nicht nach Anstoßzeit sortiert")
         ok = False
     quiet = assemble_report({"new": [], "changed": [], "same": [(m2, hits2[1][1][:1])],
                              "dropped": []}, "Di 10:17")
-    if not quiet or "nichts Neues" not in quiet[0] or len(quiet[0]) > 120:
+    if not quiet or "nichts Neues" not in quiet[0] or len(quiet[0]) > 140:
         print("FEHLER Fall 9j: Ruhe-Meldung falsch:", quiet)
         ok = False
     if "--show" in sys.argv:
