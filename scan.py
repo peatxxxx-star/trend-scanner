@@ -52,7 +52,11 @@ REGELWERK (vollständig):
   Nachbarlinien (zur Grundrate aller gecachten Spiele hin gedämpft,
   PRIOR_WEIGHT), 🎯 erwartete Spielsumme (gewichteter Ø Heimspiele des
   Heimteams + Auswärtsspiele des Gastteams) mit Puffer zur Linie,
-  ↔ eigene/Gegner-Durchschnitte.
+  ↔ eigene/Gegner-Durchschnitte. Zusätzlich (je 1 Anfrage, nur bei
+  Signalen): 🏷 bet365-Hauptlinie mit Quote bei Ecken-Signalen,
+  🧑‍⚖️ angesetzter Schiedsrichter mit Karten-/Foul-Schnitt aus dem Cache bei
+  Karten-/Foul-Signalen. Spiele mit Verlängerung (120 Min.) zählen in den
+  Kennzahlen halb. BACKFILL=1 lädt Zusatzdaten für alte Cache-Einträge nach.
 
   Lauf-Vergleich (state/reported.json): JEDE Telegram-Nachricht zeigt
   ALLE Signale des Tages (noch nicht angepfiffen), strikt nach
@@ -397,6 +401,28 @@ def _fetch_ended_list(team_id: str):
     return slim
 
 
+def slim_event(ev: dict) -> dict:
+    """Kompakte Cache-Form eines Spiels: Statistiken + Schiedsrichter +
+    Spieldauer (90/120 -> Verlängerung erkennbar)."""
+    stats = ev.get("stats") or {}
+    slim = {}
+    for key in list(METRICS) + list(EXTRA_STAT_FIELDS):
+        pair = stats.get(key)
+        try:
+            slim[key] = [int(pair[0]), int(pair[1])]
+        except (TypeError, ValueError, IndexError):
+            slim[key] = None
+    extra = ev.get("extra") or {}
+    ref = extra.get("referee") or {}
+    slim["ref"] = [str(ref["id"]), ref.get("name", "?")] if ref.get("id") else None
+    try:
+        slim["len"] = int(extra.get("length")) if extra.get("length") else None
+    except (TypeError, ValueError):
+        slim["len"] = None
+    slim["x"] = 1                      # Zusatzdaten (Schiri/Dauer) wurden geholt
+    return slim
+
+
 def fetch_team_history(team_id: str, cache: dict, hcache: dict = None):
     """Letzte HISTORY_DEPTH beendete Spiele eines Teams inkl. Statistiken.
 
@@ -425,14 +451,7 @@ def fetch_team_history(team_id: str, cache: dict, hcache: dict = None):
         chunk = need[i:i + 10]
         view = api_get("/v1/event/view", event_id=",".join(chunk))
         for ev in view.get("results", []):
-            stats = ev.get("stats") or {}
-            slim = {}
-            for key in list(METRICS) + list(EXTRA_STAT_FIELDS):
-                pair = stats.get(key)
-                try:
-                    slim[key] = [int(pair[0]), int(pair[1])]
-                except (TypeError, ValueError, IndexError):
-                    slim[key] = None
+            slim = slim_event(ev)
             with _cache_lock:
                 cache[ev["id"]] = slim
 
@@ -839,10 +858,48 @@ def compute_base_rates(cache):
 
 def game_weight(i, m):
     w = 1.0 if i < RECENT_FULL else 0.5 ** ((i - RECENT_FULL + 1) / DECAY_HALF)
-    reds = (m.get("stats") or {}).get("redcards")
+    st = m.get("stats") or {}
+    reds = st.get("redcards")
     if reds and (reds[0] + reds[1]) > 0:
         w *= RED_CARD_WEIGHT
+    if st.get("len") and st["len"] > 100:          # Verlängerung: Totals aus 120 Min.
+        w *= RED_CARD_WEIGHT
     return w
+
+
+# --- Schiedsrichter-Profil aus dem Cache (Karten/Fouls je Schiri) ---------
+_ref_stats = {}
+
+
+def compute_referee_stats(cache):
+    """{ref_id: {"name", "cards": [..], "fouls": [..]}} über alle gecachten
+    Spiele mit bekanntem Schiedsrichter."""
+    out = {}
+    for slim in cache.values():
+        ref = slim.get("ref")
+        if not ref:
+            continue
+        d = out.setdefault(ref[0], {"name": ref[1], "cards": [], "fouls": []})
+        m = {"stats": slim}
+        c = metric_total(m, "yellowcards")
+        f = metric_total(m, "fouls")
+        if c is not None:
+            d["cards"].append(c)
+        if f is not None:
+            d["fouls"].append(f)
+    return out
+
+
+def referee_note(ref_id, ref_name):
+    d = _ref_stats.get(str(ref_id))
+    if not d or not (d["cards"] or d["fouls"]):
+        return f"{ref_name} (noch keine Daten)"
+    parts = []
+    if d["cards"]:
+        parts.append(f"Ø {sum(d['cards'])/len(d['cards']):.1f} Karten ({len(d['cards'])} Sp.)")
+    if d["fouls"]:
+        parts.append(f"Ø {sum(d['fouls'])/len(d['fouls']):.1f} Fouls ({len(d['fouls'])} Sp.)")
+    return f"{ref_name}: " + " · ".join(parts)
 
 
 def weighted_stats(history, metric, line, direction, venue=None):
@@ -1033,7 +1090,7 @@ def _cur_range(s):
 _SNAPSHOT_KEYS = ("metric", "metric_key", "direction", "line", "home_series",
                   "away_series", "home_is_anchor", "away_is_anchor", "valid",
                   "next_line", "next_note", "longterm", "fair", "ladder", "avg",
-                  "expect", "buffer", "fa")
+                  "expect", "buffer", "fa", "referee", "b365")
 
 
 def signal_snapshot(s):
@@ -1225,6 +1282,11 @@ def build_match_block(match, entries):
         if s.get("fa"):
             (h1, h2), (a1, a2) = s["fa"]
             lines.append(f"   ↔ {esc(match['home'])} {h1}/{h2} · {esc(match['away'])} {a1}/{a2}")
+        if s.get("b365"):
+            hc, ov, un = s["b365"]
+            lines.append(f"   🏷 bet365 Hauptlinie {hc}: über {ov} / unter {un}")
+        if s.get("referee"):
+            lines.append(f"   🧑‍⚖️ Schiri {esc(s['referee'])}")
         if s.get("next_line") is not None:
             lines.append(f"   ↳ {s['next_line']} nicht: <i>{esc(s['next_note'])}</i>")
         # Änderungs-Hinweise (change_note) bewusst nicht angezeigt — Lucio
@@ -1362,6 +1424,80 @@ def send_telegram(text: str) -> bool:
 # Hauptlauf
 # ----------------------------------------------------------------------------
 
+def attach_extras(match, signals):
+    """Zusatzinfos, die nur für Spiele mit Signalen Anfragen kosten:
+    - Ecken-Signale: bet365-Hauptlinie mit Quote (Markt 1_4 "Asian Corners")
+    - Karten/Fouls-Signale: angesetzter Schiedsrichter + sein Profil aus dem Cache
+    Fehler hier dürfen den Lauf nie stoppen."""
+    keys = {s["metric_key"] for s in signals}
+    if "corners" in keys:
+        try:
+            odds = api_get("/v2/event/odds", event_id=match["id"])
+            rows = ((odds.get("results") or {}).get("odds") or {}).get("1_4") or []
+            if rows:
+                r = rows[0]
+                b = (r.get("handicap"), r.get("over_od"), r.get("under_od"))
+                for s in signals:
+                    if s["metric_key"] == "corners":
+                        s["b365"] = b
+        except Exception as exc:
+            print(f"  Quoten-Abfrage {match['home']}–{match['away']}: {exc}")
+    if keys & {"yellowcards", "fouls"}:
+        try:
+            view = api_get("/v1/event/view", event_id=match["id"])
+            res = (view.get("results") or [{}])[0]
+            ref = ((res.get("extra") or {}).get("referee")) or {}
+            if ref.get("id"):
+                note = referee_note(ref["id"], ref.get("name", "?"))
+                for s in signals:
+                    if s["metric_key"] in ("yellowcards", "fouls"):
+                        s["referee"] = note
+        except Exception as exc:
+            print(f"  Schiri-Abfrage {match['home']}–{match['away']}: {exc}")
+
+
+def backfill(cache):
+    """Einmaliger Nachlade-Lauf: holt für gecachte Spiele ohne Zusatzdaten
+    (Schiedsrichter, Spieldauer, rote Karten) den Datensatz neu. Bricht am
+    Stundenlimit ab — einfach erneut starten, bis nichts mehr fehlt."""
+    global _no_wait
+    _no_wait = True
+    need = [eid for eid, slim in cache.items() if not slim.get("x")]
+    print(f"NACHLADEN: {len(need)} von {len(cache)} Spielen ohne Zusatzdaten")
+    chunks = [need[i:i + 10] for i in range(0, len(need), 10)]
+    done = 0
+
+    def work(chunk):
+        view = api_get("/v1/event/view", event_id=",".join(chunk))
+        got = set()
+        for ev in view.get("results", []):
+            with _cache_lock:
+                cache[ev["id"]] = slim_event(ev)
+            got.add(ev["id"])
+        for eid in chunk:                     # nicht mehr abrufbar -> nicht ewig neu versuchen
+            if eid not in got:
+                with _cache_lock:
+                    cache[eid]["x"] = 1
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futures = [pool.submit(work, c) for c in chunks]
+        for fut in as_completed(futures):
+            done += 1
+            try:
+                fut.result()
+            except BudgetExhausted:
+                pass
+            except Exception as exc:
+                print(f"  Fehler: {exc}")
+            if done % 50 == 0:
+                with _cache_lock:
+                    save_cache(cache)
+                print(f"  ... {done}/{len(chunks)} Pakete, {_request_count} Anfragen", flush=True)
+    save_cache(cache)
+    rest = sum(1 for slim in cache.values() if not slim.get("x"))
+    print(f"Nachladen fertig: {_request_count} Anfragen, noch {rest} Spiele ohne Zusatzdaten"
+          + (" — Stundenlimit erreicht, bitte später erneut starten" if _budget_exhausted else ""))
+
+
 def is_prewarm_run() -> bool:
     if os.environ.get("PREWARM") == "1":
         return True
@@ -1424,6 +1560,10 @@ def run():
     cache = load_cache()
     hcache = load_history_cache()
     _base_rates.update(compute_base_rates(cache))
+    _ref_stats.update(compute_referee_stats(cache))
+    if os.environ.get("BACKFILL") == "1":
+        backfill(cache)
+        return
     if is_prewarm_run():
         prewarm(cache, hcache)
         return
@@ -1442,6 +1582,8 @@ def run():
         hist_home = fetch_team_history(match["home_id"], cache, hcache)
         hist_away = fetch_team_history(match["away_id"], cache, hcache)
         signals = evaluate_match(match, hist_home, hist_away)
+        if signals:
+            attach_extras(match, signals)
         gated_out, unverifiable = [], []
         if signals and GATE_ENABLED:
             groups = s24_fetch_groups(match)
@@ -1872,6 +2014,24 @@ def selftest():
               if s["metric"] == "Abseits" and s["direction"] == "unter"]
     if not sig11c or sig11c[0]["line"] != 5.5:
         print("FEHLER Fall 11c: marktabhängiger Korridor (Abseits=1) greift nicht:", sig11c)
+        ok = False
+
+    # --- Fall 12: Schiedsrichter/Spieldauer im Cache + Profil
+    ev = {"id": "e9", "stats": {"corners": ["5", "4"], "yellowcards": ["3", "2"],
+                                "fouls": ["12", "11"], "redcards": ["0", "1"]},
+          "extra": {"referee": {"id": 77, "name": "Max Muster"}, "length": 120}}
+    sl = slim_event(ev)
+    if sl.get("ref") != ["77", "Max Muster"] or sl.get("len") != 120 or sl.get("x") != 1 \
+       or sl.get("redcards") != [0, 1]:
+        print("FEHLER Fall 12a: slim_event unvollständig:", sl)
+        ok = False
+    _ref_stats.update(compute_referee_stats({"e9": sl, "e8": dict(sl, yellowcards=[1, 1])}))
+    note = referee_note("77", "Max Muster")
+    if "Ø 3.5 Karten (2 Sp.)" not in note or "23.0 Fouls" not in note:
+        print("FEHLER Fall 12b: Schiri-Profil falsch:", note)
+        ok = False
+    if game_weight(0, {"stats": sl}) != RED_CARD_WEIGHT * RED_CARD_WEIGHT:
+        print("FEHLER Fall 12c: Verlängerung + Platzverweis müssen beide halbieren")
         ok = False
 
     # --- Fall 10: Tages-Cache für Spiellisten + Vorwärm-Abbruch am Limit
