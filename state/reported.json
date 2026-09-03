@@ -1,667 +1,4 @@
 {
- "12373687|corners|über": {
-  "match_id": "12373687",
-  "home": "GKS Tychy 71",
-  "away": "LKS Lodz",
-  "kickoff": "Do 17:30",
-  "kickoff_ts": 1788449400,
-  "league": "Poland Cup",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.71,
-   1.71
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.71,
-   1.71
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    44
-   ],
-   "next_line": 7.5,
-   "next_note": "GKS Tychy 71 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
-   "range": [
-    1.71,
-    1.71
-   ]
-  }
- },
- "12026503|corners|über": {
-  "match_id": "12026503",
-  "home": "Rakow Czestochowa",
-  "away": "Gornik Zabrze",
-  "kickoff": "Do 18:00",
-  "kickoff_ts": 1788451200,
-  "league": "Poland Ekstraklasa",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.19,
-   1.62
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.19,
-   1.63
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    43,
-    42
-   ],
-   "next_line": 7.5,
-   "next_note": "Gornik Zabrze 5/7 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "range": [
-    1.19,
-    1.63
-   ]
-  }
- },
- "12026503|corners|unter": {
-  "match_id": "12026503",
-  "home": "Rakow Czestochowa",
-  "away": "Gornik Zabrze",
-  "kickoff": "Do 18:00",
-  "kickoff_ts": 1788451200,
-  "league": "Poland Ekstraklasa",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 11.5,
-  "first_range": [
-   1.19,
-   1.62
-  ],
-  "last_run": "Do 16:30",
-  "line": 11.5,
-  "range": [
-   1.19,
-   1.63
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 11.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    43,
-    42
-   ],
-   "next_line": 10.5,
-   "next_note": "Rakow Czestochowa 6/8 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Gornik Zabrze 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "range": [
-    1.19,
-    1.63
-   ]
-  }
- },
- "12026503|yellowcards|unter": {
-  "match_id": "12026503",
-  "home": "Rakow Czestochowa",
-  "away": "Gornik Zabrze",
-  "kickoff": "Do 18:00",
-  "kickoff_ts": 1788451200,
-  "league": "Poland Ekstraklasa",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 12:12",
-  "first_line": 4.5,
-  "first_range": [
-   1.27,
-   2.17
-  ],
-  "last_run": "Do 16:30",
-  "line": 4.5,
-  "range": [
-   1.27,
-   2.17
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 4.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    43,
-    42
-   ],
-   "next_line": 3.5,
-   "next_note": "Rakow Czestochowa 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Gornik Zabrze 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "range": [
-    1.27,
-    2.17
-   ]
-  }
- },
- "12421225|corners|über": {
-  "match_id": "12421225",
-  "home": "Al-Baqa'a",
-  "away": "Doqarah FC",
-  "kickoff": "Do 18:00",
-  "kickoff_ts": 1788451200,
-  "league": "Jordan League",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 7.5,
-  "first_range": [
-   1.397,
-   1.592
-  ],
-  "last_run": "Do 16:30",
-  "line": 7.5,
-  "range": [
-   1.397,
-   1.592
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    46,
-    29
-   ],
-   "next_line": 8.5,
-   "next_note": "Al-Baqa'a 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
-   "range": [
-    1.397,
-    1.592
-   ]
-  }
- },
- "12276821|corners|über": {
-  "match_id": "12276821",
-  "home": "Banga Gargzdai",
-  "away": "Panevezys",
-  "kickoff": "Do 18:00",
-  "kickoff_ts": 1788451200,
-  "league": "Lithuania A Lyga",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 7.5,
-  "first_range": [
-   1.214,
-   1.559
-  ],
-  "last_run": "Do 16:30",
-  "line": 7.5,
-  "range": [
-   1.214,
-   1.559
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    45
-   ],
-   "next_line": 8.5,
-   "next_note": "Banga Gargzdai 6/8 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
-   "range": [
-    1.214,
-    1.559
-   ]
-  }
- },
- "12276821|corners|unter": {
-  "match_id": "12276821",
-  "home": "Banga Gargzdai",
-  "away": "Panevezys",
-  "kickoff": "Do 18:00",
-  "kickoff_ts": 1788451200,
-  "league": "Lithuania A Lyga",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 12.5,
-  "first_range": [
-   1.214,
-   1.559
-  ],
-  "last_run": "Do 16:30",
-  "line": 12.5,
-  "range": [
-   1.214,
-   1.559
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 12.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    45
-   ],
-   "next_line": 11.5,
-   "next_note": "kein Anker — Banga Gargzdai 2/4 (3. Lücke) gesamt, 9/11 (3. Lücke) heim; Panevezys 4/6 (3. Lücke) gesamt, 12/14 (3. Lücke) auswärts",
-   "range": [
-    1.214,
-    1.559
-   ]
-  }
- },
- "13002335|corners|über": {
-  "match_id": "13002335",
-  "home": "Palermo",
-  "away": "Mantova",
-  "kickoff": "Do 18:00",
-  "kickoff_ts": 1788451200,
-  "league": "Coppa Italia",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.85,
-   2.04
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.85,
-   2.05
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    48,
-    49
-   ],
-   "next_line": 7.5,
-   "next_note": "Mantova 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
-   "range": [
-    1.85,
-    2.05
-   ]
-  }
- },
- "13002335|corners|unter": {
-  "match_id": "13002335",
-  "home": "Palermo",
-  "away": "Mantova",
-  "kickoff": "Do 18:00",
-  "kickoff_ts": 1788451200,
-  "league": "Coppa Italia",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 12.5,
-  "first_range": [
-   1.85,
-   2.04
-  ],
-  "last_run": "Do 16:30",
-  "line": 12.5,
-  "range": [
-   1.85,
-   2.05
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 12.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    49
-   ],
-   "next_line": 11.5,
-   "next_note": "Palermo 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
-   "range": [
-    1.85,
-    2.05
-   ]
-  }
- },
- "13002335|yellowcards|unter": {
-  "match_id": "13002335",
-  "home": "Palermo",
-  "away": "Mantova",
-  "kickoff": "Do 18:00",
-  "kickoff_ts": 1788451200,
-  "league": "Coppa Italia",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 10:31",
-  "first_line": 5.5,
-  "first_range": [
-   1.42,
-   2.12
-  ],
-  "last_run": "Do 16:30",
-  "line": 5.5,
-  "range": [
-   1.42,
-   2.12
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    48,
-    49
-   ],
-   "next_line": 4.5,
-   "next_note": "kein Anker — Palermo 12/14 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; Mantova 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "range": [
-    1.42,
-    2.12
-   ]
-  }
- },
- "13002335|on_target|über": {
-  "match_id": "13002335",
-  "home": "Palermo",
-  "away": "Mantova",
-  "kickoff": "Do 18:00",
-  "kickoff_ts": 1788451200,
-  "league": "Coppa Italia",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.34,
-   1.34
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.41,
-   1.87
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    48,
-    49
-   ],
-   "next_line": 7.5,
-   "next_note": "Palermo 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Mantova 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "range": [
-    1.41,
-    1.87
-   ]
-  }
- },
- "13002335|offsides|unter": {
-  "match_id": "13002335",
-  "home": "Palermo",
-  "away": "Mantova",
-  "kickoff": "Do 18:00",
-  "kickoff_ts": 1788451200,
-  "league": "Coppa Italia",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "Do 10:31",
-  "first_line": 5.5,
-  "first_range": [
-   1.39,
-   1.85
-  ],
-  "last_run": "Do 16:30",
-  "line": 5.5,
-  "range": [
-   1.29,
-   1.85
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    39,
-    36
-   ],
-   "next_line": 4.5,
-   "next_note": "Palermo 1/3 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Mantova 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "range": [
-    1.29,
-    1.85
-   ]
-  }
- },
- "13002335|fouls|über": {
-  "match_id": "13002335",
-  "home": "Palermo",
-  "away": "Mantova",
-  "kickoff": "Do 18:00",
-  "kickoff_ts": 1788451200,
-  "league": "Coppa Italia",
-  "metric": "Fouls",
-  "metric_key": "fouls",
-  "direction": "über",
-  "first_run": "Do 10:31",
-  "first_line": 20.5,
-  "first_range": [
-   1.547,
-   2.09
-  ],
-  "last_run": "Do 16:30",
-  "line": 20.5,
-  "range": [
-   2.0,
-   2.0
-  ],
-  "signal": {
-   "metric": "Fouls",
-   "metric_key": "fouls",
-   "direction": "über",
-   "line": 20.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    41,
-    41
-   ],
-   "next_line": 22.5,
-   "next_note": "Palermo 1/3 (3. Lücke) gesamt, 8/10 (3. Lücke) heim",
-   "range": [
-    2.0,
-    2.0
-   ]
-  }
- },
  "12101803|corners|über": {
   "match_id": "12101803",
   "home": "Dinamo Moscow",
@@ -678,11 +15,11 @@
    1.52,
    1.84
   ],
-  "last_run": "Do 16:30",
+  "last_run": "Do 18:29",
   "line": 6.5,
   "range": [
-   1.52,
-   1.76
+   1.53,
+   1.77
   ],
   "signal": {
    "metric": "Ecken",
@@ -708,8 +45,8 @@
    "next_line": 7.5,
    "next_note": "Dinamo Moscow 2/4 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; FC Akhmat Grozny 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
    "range": [
-    1.52,
-    1.76
+    1.53,
+    1.77
    ]
   }
  },
@@ -729,7 +66,7 @@
    1.19,
    1.69
   ],
-  "last_run": "Do 16:30",
+  "last_run": "Do 18:29",
   "line": 6.5,
   "range": [
    1.44,
@@ -780,11 +117,11 @@
    1.55,
    1.9
   ],
-  "last_run": "Do 16:30",
+  "last_run": "Do 18:29",
   "line": 6.5,
   "range": [
-   1.51,
-   1.85
+   1.45,
+   1.98
   ],
   "signal": {
    "metric": "Schüsse aufs Tor",
@@ -810,8 +147,8 @@
    "next_line": 7.5,
    "next_note": "FC Akhmat Grozny 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
    "range": [
-    1.51,
-    1.85
+    1.45,
+    1.98
    ]
   }
  },
@@ -831,7 +168,7 @@
    1.22,
    1.9
   ],
-  "last_run": "Do 16:30",
+  "last_run": "Do 18:29",
   "line": 4.5,
   "range": [
    1.21,
@@ -882,11 +219,11 @@
    1.51,
    2.4
   ],
-  "last_run": "Do 16:30",
+  "last_run": "Do 18:29",
   "line": 18.5,
   "range": [
-   1.45,
-   2.13
+   1.47,
+   2.08
   ],
   "signal": {
    "metric": "Fouls",
@@ -912,8 +249,3221 @@
    "next_line": 20.5,
    "next_note": "FC Akhmat Grozny 6/8 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
    "range": [
-    1.45,
-    2.13
+    1.47,
+    2.08
+   ]
+  }
+ },
+ "12375355|corners|über": {
+  "match_id": "12375355",
+  "home": "Al Ahly Cairo",
+  "away": "Smouha",
+  "kickoff": "Do 19:00",
+  "kickoff_ts": 1788454800,
+  "league": "Egypt Division 1",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 6.5,
+  "first_range": [
+   1.44,
+   1.74
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.44,
+   1.74
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    41,
+    45
+   ],
+   "next_line": 7.5,
+   "next_note": "kein Anker — Al Ahly Cairo 10/12 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; Smouha 6/8 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "range": [
+    1.44,
+    1.74
+   ]
+  }
+ },
+ "12375355|corners|unter": {
+  "match_id": "12375355",
+  "home": "Al Ahly Cairo",
+  "away": "Smouha",
+  "kickoff": "Do 19:00",
+  "kickoff_ts": 1788454800,
+  "league": "Egypt Division 1",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 12.5,
+  "first_range": [
+   1.44,
+   1.74
+  ],
+  "last_run": "Do 18:29",
+  "line": 12.5,
+  "range": [
+   1.44,
+   1.74
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 12.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    41,
+    45
+   ],
+   "next_line": 11.5,
+   "next_note": "kein Anker — Al Ahly Cairo 9/11 (3. Lücke) gesamt, 10/12 (3. Lücke) heim; Smouha 11/13 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+   "range": [
+    1.44,
+    1.74
+   ]
+  }
+ },
+ "11971063|corners|über": {
+  "match_id": "11971063",
+  "home": "Mjällby AIF",
+  "away": "Djurgarden",
+  "kickoff": "Do 19:00",
+  "kickoff_ts": 1788454800,
+  "league": "Sweden Allsvenskan",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 6.5,
+  "first_range": [
+   1.23,
+   1.89
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.22,
+   2.029
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    46
+   ],
+   "next_line": 7.5,
+   "next_note": "Mjällby AIF 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+   "range": [
+    1.22,
+    2.029
+   ]
+  }
+ },
+ "12206551|corners|über": {
+  "match_id": "12206551",
+  "home": "Bodrum FK",
+  "away": "Esenler Erokspor",
+  "kickoff": "Do 19:00",
+  "kickoff_ts": 1788454800,
+  "league": "Türkiye 1 Lig",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 6.5,
+  "first_range": [
+   1.29,
+   1.69
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.29,
+   1.69
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    47
+   ],
+   "next_line": 7.5,
+   "next_note": "Bodrum FK 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+   "range": [
+    1.29,
+    1.69
+   ]
+  }
+ },
+ "12206551|corners|unter": {
+  "match_id": "12206551",
+  "home": "Bodrum FK",
+  "away": "Esenler Erokspor",
+  "kickoff": "Do 19:00",
+  "kickoff_ts": 1788454800,
+  "league": "Türkiye 1 Lig",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 11.5,
+  "first_range": [
+   1.29,
+   1.69
+  ],
+  "last_run": "Do 18:29",
+  "line": 11.5,
+  "range": [
+   1.29,
+   1.69
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 11.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 15
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    47
+   ],
+   "next_line": 10.5,
+   "next_note": "Esenler Erokspor 6/8 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "range": [
+    1.29,
+    1.69
+   ]
+  }
+ },
+ "12206557|corners|unter": {
+  "match_id": "12206557",
+  "home": "Bursaspor",
+  "away": "Istanbulspor",
+  "kickoff": "Do 19:00",
+  "kickoff_ts": 1788454800,
+  "league": "Türkiye 1 Lig",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 11.5,
+  "first_range": [
+   1.54,
+   1.61
+  ],
+  "last_run": "Do 18:29",
+  "line": 11.5,
+  "range": [
+   1.56,
+   1.65
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 11.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    29,
+    47
+   ],
+   "next_line": 10.5,
+   "next_note": "Istanbulspor 5/7 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "range": [
+    1.56,
+    1.65
+   ]
+  }
+ },
+ "13003758|corners|unter": {
+  "match_id": "13003758",
+  "home": "Gyori ETO",
+  "away": "Ferencvarosi TC",
+  "kickoff": "Do 19:30",
+  "kickoff_ts": 1788456600,
+  "league": "Hungary NB I",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 11.5,
+  "first_range": [
+   1.328,
+   2.007
+  ],
+  "last_run": "Do 18:29",
+  "line": 11.5,
+  "range": [
+   1.328,
+   2.007
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 11.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    49,
+    43
+   ],
+   "next_line": 10.5,
+   "next_note": "kein Anker — Gyori ETO 1/3 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Ferencvarosi TC 6/8 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "range": [
+    1.328,
+    2.007
+   ]
+  }
+ },
+ "13003758|yellowcards|unter": {
+  "match_id": "13003758",
+  "home": "Gyori ETO",
+  "away": "Ferencvarosi TC",
+  "kickoff": "Do 19:30",
+  "kickoff_ts": 1788456600,
+  "league": "Hungary NB I",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 12:12",
+  "first_line": 6.5,
+  "first_range": [
+   1.7,
+   1.95
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.7,
+   1.96
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    43
+   ],
+   "next_line": 5.5,
+   "next_note": "Gyori ETO 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+   "range": [
+    1.7,
+    1.96
+   ]
+  }
+ },
+ "13003758|fouls|über": {
+  "match_id": "13003758",
+  "home": "Gyori ETO",
+  "away": "Ferencvarosi TC",
+  "kickoff": "Do 19:30",
+  "kickoff_ts": 1788456600,
+  "league": "Hungary NB I",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "über",
+  "first_run": "Do 14:36",
+  "first_line": 18.5,
+  "first_range": [
+   1.75,
+   1.75
+  ],
+  "last_run": "Do 18:29",
+  "line": 18.5,
+  "range": [
+   1.75,
+   1.75
+  ],
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "über",
+   "line": 18.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    14,
+    20
+   ],
+   "next_line": 20.5,
+   "next_note": "Gyori ETO 6/8 (3. Lücke) gesamt, 4/6 (Aussetzer in den letzten 2) heim",
+   "range": [
+    1.75,
+    1.75
+   ]
+  }
+ },
+ "13003758|fouls|unter": {
+  "match_id": "13003758",
+  "home": "Gyori ETO",
+  "away": "Ferencvarosi TC",
+  "kickoff": "Do 19:30",
+  "kickoff_ts": 1788456600,
+  "league": "Hungary NB I",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "unter",
+  "first_run": "Do 14:36",
+  "first_line": 28.5,
+  "first_range": [
+   1.75,
+   1.75
+  ],
+  "last_run": "Do 18:29",
+  "line": 28.5,
+  "range": [
+   1.75,
+   1.75
+  ],
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "unter",
+   "line": 28.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    14,
+    20
+   ],
+   "next_line": 26.5,
+   "next_note": "Ferencvarosi TC 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "range": [
+    1.75,
+    1.75
+   ]
+  }
+ },
+ "12471159|corners|über": {
+  "match_id": "12471159",
+  "home": "Stiinta Poli Timisoara",
+  "away": "Rapid Bucuresti",
+  "kickoff": "Do 19:30",
+  "kickoff_ts": 1788456600,
+  "league": "Romania Cup",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 6.5,
+  "first_range": [
+   1.41,
+   1.57
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.19,
+   1.54
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    31,
+    48
+   ],
+   "next_line": 7.5,
+   "next_note": "kein Anker — Stiinta Poli Timisoara 2/4 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Rapid Bucuresti 6/8 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
+   "range": [
+    1.19,
+    1.54
+   ]
+  }
+ },
+ "12471159|corners|unter": {
+  "match_id": "12471159",
+  "home": "Stiinta Poli Timisoara",
+  "away": "Rapid Bucuresti",
+  "kickoff": "Do 19:30",
+  "kickoff_ts": 1788456600,
+  "league": "Romania Cup",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 12.5,
+  "first_range": [
+   1.41,
+   1.57
+  ],
+  "last_run": "Do 18:29",
+  "line": 12.5,
+  "range": [
+   1.19,
+   1.54
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 12.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    31,
+    48
+   ],
+   "next_line": 11.5,
+   "next_note": "kein Anker — Stiinta Poli Timisoara 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Rapid Bucuresti 4/6 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "range": [
+    1.19,
+    1.54
+   ]
+  }
+ },
+ "12076773|corners|unter": {
+  "match_id": "12076773",
+  "home": "Hapoel Tel Aviv",
+  "away": "Beitar Jerusalem",
+  "kickoff": "Do 19:30",
+  "kickoff_ts": 1788456600,
+  "league": "Israel Premier League",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 11.5,
+  "first_range": [
+   1.35,
+   1.7
+  ],
+  "last_run": "Do 18:29",
+  "line": 11.5,
+  "range": [
+   1.37,
+   1.74
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 11.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    41
+   ],
+   "next_line": 10.5,
+   "next_note": "kein Anker — Hapoel Tel Aviv 11/13 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Beitar Jerusalem 9/11 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "range": [
+    1.37,
+    1.74
+   ]
+  }
+ },
+ "12076773|yellowcards|über": {
+  "match_id": "12076773",
+  "home": "Hapoel Tel Aviv",
+  "away": "Beitar Jerusalem",
+  "kickoff": "Do 19:30",
+  "kickoff_ts": 1788456600,
+  "league": "Israel Premier League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Do 12:12",
+  "first_line": 2.5,
+  "first_range": [
+   1.28,
+   1.67
+  ],
+  "last_run": "Do 18:29",
+  "line": 2.5,
+  "range": [
+   1.28,
+   1.64
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    41
+   ],
+   "next_line": 3.5,
+   "next_note": "Hapoel Tel Aviv 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "range": [
+    1.28,
+    1.64
+   ]
+  }
+ },
+ "12076773|yellowcards|unter": {
+  "match_id": "12076773",
+  "home": "Hapoel Tel Aviv",
+  "away": "Beitar Jerusalem",
+  "kickoff": "Do 19:30",
+  "kickoff_ts": 1788456600,
+  "league": "Israel Premier League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 12:12",
+  "first_line": 6.5,
+  "first_range": [
+   1.28,
+   1.67
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.28,
+   1.64
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    42,
+    41
+   ],
+   "next_line": 5.5,
+   "next_note": "Beitar Jerusalem 1/3 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "range": [
+    1.28,
+    1.64
+   ]
+  }
+ },
+ "11991435|corners|über": {
+  "match_id": "11991435",
+  "home": "FC Copenhagen",
+  "away": "FC Nordsjaelland",
+  "kickoff": "Do 20:00",
+  "kickoff_ts": 1788458400,
+  "league": "Denmark Superligaen",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 8.5,
+  "first_range": [
+   1.34,
+   1.45
+  ],
+  "last_run": "Do 18:29",
+  "line": 8.5,
+  "range": [
+   1.33,
+   1.53
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 17
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    48,
+    45
+   ],
+   "next_line": 9.5,
+   "next_note": "FC Copenhagen 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; FC Nordsjaelland 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "range": [
+    1.33,
+    1.53
+   ]
+  }
+ },
+ "11991435|corners|unter": {
+  "match_id": "11991435",
+  "home": "FC Copenhagen",
+  "away": "FC Nordsjaelland",
+  "kickoff": "Do 20:00",
+  "kickoff_ts": 1788458400,
+  "league": "Denmark Superligaen",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 12.5,
+  "first_range": [
+   1.34,
+   1.45
+  ],
+  "last_run": "Do 18:29",
+  "line": 12.5,
+  "range": [
+   1.33,
+   1.53
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 12.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    45
+   ],
+   "next_line": 11.5,
+   "next_note": "FC Nordsjaelland 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "range": [
+    1.33,
+    1.53
+   ]
+  }
+ },
+ "11991435|yellowcards|unter": {
+  "match_id": "11991435",
+  "home": "FC Copenhagen",
+  "away": "FC Nordsjaelland",
+  "kickoff": "Do 20:00",
+  "kickoff_ts": 1788458400,
+  "league": "Denmark Superligaen",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 10:31",
+  "first_line": 4.5,
+  "first_range": [
+   1.34,
+   1.85
+  ],
+  "last_run": "Do 18:29",
+  "line": 4.5,
+  "range": [
+   1.24,
+   1.85
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    48,
+    45
+   ],
+   "next_line": 3.5,
+   "next_note": "FC Nordsjaelland 0/2 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "range": [
+    1.24,
+    1.85
+   ]
+  }
+ },
+ "12303421|yellowcards|unter": {
+  "match_id": "12303421",
+  "home": "Al Draih",
+  "away": "Al Qadisiya Al Khubar",
+  "kickoff": "Do 20:00",
+  "kickoff_ts": 1788458400,
+  "league": "Saudi Arabia Pro League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 12:12",
+  "first_line": 4.5,
+  "first_range": [
+   1.3,
+   1.62
+  ],
+  "last_run": "Do 18:29",
+  "line": 4.5,
+  "range": [
+   1.28,
+   1.44
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    49
+   ],
+   "next_line": 3.5,
+   "next_note": "Al Draih 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+   "range": [
+    1.28,
+    1.44
+   ]
+  }
+ },
+ "13059460|corners|unter": {
+  "match_id": "13059460",
+  "home": "Novara",
+  "away": "Livorno",
+  "kickoff": "Do 20:00",
+  "kickoff_ts": 1788458400,
+  "league": "Italy Serie C Cup",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 12.5,
+  "first_range": [
+   1.214,
+   1.502
+  ],
+  "last_run": "Do 18:29",
+  "line": 12.5,
+  "range": [
+   1.214,
+   1.502
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 12.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    45
+   ],
+   "next_line": 11.5,
+   "next_note": "kein Anker — Novara 12/14 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Livorno 38/40 (3. Lücke) gesamt, 19/21 (3. Lücke) auswärts",
+   "range": [
+    1.214,
+    1.502
+   ]
+  }
+ },
+ "13065241|corners|über": {
+  "match_id": "13065241",
+  "home": "Lillehammer U19",
+  "away": "Ullensaker/Kisa U19",
+  "kickoff": "Do 20:15",
+  "kickoff_ts": 1788459300,
+  "league": "Norway Interkretsserie U19",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 8.5,
+  "first_range": [
+   1.247,
+   1.899
+  ],
+  "last_run": "Do 18:29",
+  "line": 8.5,
+  "range": [
+   1.247,
+   1.899
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    50,
+    50
+   ],
+   "next_line": 9.5,
+   "next_note": "kein Anker — Lillehammer U19 8/10 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Ullensaker/Kisa U19 4/6 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "range": [
+    1.247,
+    1.899
+   ]
+  }
+ },
+ "13065241|corners|unter": {
+  "match_id": "13065241",
+  "home": "Lillehammer U19",
+  "away": "Ullensaker/Kisa U19",
+  "kickoff": "Do 20:15",
+  "kickoff_ts": 1788459300,
+  "league": "Norway Interkretsserie U19",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 12.5,
+  "first_range": [
+   1.247,
+   1.899
+  ],
+  "last_run": "Do 18:29",
+  "line": 12.5,
+  "range": [
+   1.247,
+   1.899
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 12.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    50,
+    50
+   ],
+   "next_line": 11.5,
+   "next_note": "Lillehammer U19 6/8 (3. Lücke) gesamt, 9/11 (3. Lücke) heim; Ullensaker/Kisa U19 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "range": [
+    1.247,
+    1.899
+   ]
+  }
+ },
+ "12355523|corners|über": {
+  "match_id": "12355523",
+  "home": "Anderlecht",
+  "away": "KV Kortrijk",
+  "kickoff": "Do 20:30",
+  "kickoff_ts": 1788460200,
+  "league": "Belgium First Division A",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 6.5,
+  "first_range": [
+   1.29,
+   1.95
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.26,
+   1.35
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    42
+   ],
+   "next_line": 7.5,
+   "next_note": "Anderlecht 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "range": [
+    1.26,
+    1.35
+   ]
+  }
+ },
+ "12355523|corners|unter": {
+  "match_id": "12355523",
+  "home": "Anderlecht",
+  "away": "KV Kortrijk",
+  "kickoff": "Do 20:30",
+  "kickoff_ts": 1788460200,
+  "league": "Belgium First Division A",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 11.5,
+  "first_range": [
+   1.29,
+   1.95
+  ],
+  "last_run": "Do 18:29",
+  "line": 11.5,
+  "range": [
+   1.26,
+   1.35
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 11.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    45,
+    42
+   ],
+   "next_line": 10.5,
+   "next_note": "Anderlecht 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "range": [
+    1.26,
+    1.35
+   ]
+  }
+ },
+ "12355523|yellowcards|unter": {
+  "match_id": "12355523",
+  "home": "Anderlecht",
+  "away": "KV Kortrijk",
+  "kickoff": "Do 20:30",
+  "kickoff_ts": 1788460200,
+  "league": "Belgium First Division A",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 12:12",
+  "first_line": 5.5,
+  "first_range": [
+   1.29,
+   2.16
+  ],
+  "last_run": "Do 18:29",
+  "line": 5.5,
+  "range": [
+   1.25,
+   2.43
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    42
+   ],
+   "next_line": 4.5,
+   "next_note": "Anderlecht 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "range": [
+    1.25,
+    2.43
+   ]
+  }
+ },
+ "12355523|on_target|über": {
+  "match_id": "12355523",
+  "home": "Anderlecht",
+  "away": "KV Kortrijk",
+  "kickoff": "Do 20:30",
+  "kickoff_ts": 1788460200,
+  "league": "Belgium First Division A",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Do 12:12",
+  "first_line": 7.5,
+  "first_range": [
+   1.48,
+   2.32
+  ],
+  "last_run": "Do 18:29",
+  "line": 7.5,
+  "range": [
+   1.48,
+   2.32
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    39,
+    39
+   ],
+   "next_line": 8.5,
+   "next_note": "KV Kortrijk 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "range": [
+    1.48,
+    2.32
+   ]
+  }
+ },
+ "12355523|on_target|unter": {
+  "match_id": "12355523",
+  "home": "Anderlecht",
+  "away": "KV Kortrijk",
+  "kickoff": "Do 20:30",
+  "kickoff_ts": 1788460200,
+  "league": "Belgium First Division A",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "unter",
+  "first_run": "Do 12:12",
+  "first_line": 11.5,
+  "first_range": [
+   1.48,
+   2.32
+  ],
+  "last_run": "Do 18:29",
+  "line": 11.5,
+  "range": [
+   1.48,
+   2.32
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "unter",
+   "line": 11.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    39,
+    39
+   ],
+   "next_line": 10.5,
+   "next_note": "kein Anker — Anderlecht 9/11 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; KV Kortrijk 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "range": [
+    1.48,
+    2.32
+   ]
+  }
+ },
+ "12355523|offsides|unter": {
+  "match_id": "12355523",
+  "home": "Anderlecht",
+  "away": "KV Kortrijk",
+  "kickoff": "Do 20:30",
+  "kickoff_ts": 1788460200,
+  "league": "Belgium First Division A",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Do 12:12",
+  "first_line": 5.5,
+  "first_range": [
+   1.31,
+   2.07
+  ],
+  "last_run": "Do 18:29",
+  "line": 5.5,
+  "range": [
+   1.31,
+   2.07
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 16
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    33,
+    33
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — Anderlecht 8/10 (3. Lücke) gesamt, 10/12 (3. Lücke) heim; KV Kortrijk 6/8 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "range": [
+    1.31,
+    2.07
+   ]
+  }
+ },
+ "12355523|fouls|über": {
+  "match_id": "12355523",
+  "home": "Anderlecht",
+  "away": "KV Kortrijk",
+  "kickoff": "Do 20:30",
+  "kickoff_ts": 1788460200,
+  "league": "Belgium First Division A",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "über",
+  "first_run": "Do 12:12",
+  "first_line": 22.5,
+  "first_range": [
+   1.242,
+   2.13
+  ],
+  "last_run": "Do 18:29",
+  "line": 22.5,
+  "range": [
+   1.254,
+   2.08
+  ],
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "über",
+   "line": 22.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    35,
+    35
+   ],
+   "next_line": 24.5,
+   "next_note": "Anderlecht 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; KV Kortrijk 0/2 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "range": [
+    1.254,
+    2.08
+   ]
+  }
+ },
+ "12355523|fouls|unter": {
+  "match_id": "12355523",
+  "home": "Anderlecht",
+  "away": "KV Kortrijk",
+  "kickoff": "Do 20:30",
+  "kickoff_ts": 1788460200,
+  "league": "Belgium First Division A",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "unter",
+  "first_run": "Do 12:12",
+  "first_line": 26.5,
+  "first_range": [
+   1.242,
+   2.13
+  ],
+  "last_run": "Do 18:29",
+  "line": 26.5,
+  "range": [
+   1.254,
+   2.08
+  ],
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "unter",
+   "line": 26.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    35,
+    35
+   ],
+   "next_line": 24.5,
+   "next_note": "Anderlecht 2/4 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+   "range": [
+    1.254,
+    2.08
+   ]
+  }
+ },
+ "12374108|corners|unter": {
+  "match_id": "12374108",
+  "home": "Slask Wroclaw",
+  "away": "Pogon Szczecin",
+  "kickoff": "Do 20:30",
+  "kickoff_ts": 1788460200,
+  "league": "Poland Cup",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 10.5,
+  "first_range": [
+   1.99,
+   1.99
+  ],
+  "last_run": "Do 18:29",
+  "line": 10.5,
+  "range": [
+   1.99,
+   1.99
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 10.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    47
+   ],
+   "next_line": 9.5,
+   "next_note": "kein Anker — Slask Wroclaw 9/11 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Pogon Szczecin 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "range": [
+    1.99,
+    1.99
+   ]
+  }
+ },
+ "12424875|corners|über": {
+  "match_id": "12424875",
+  "home": "Lech Poznan",
+  "away": "Jagiellonia Bialystok",
+  "kickoff": "Do 20:30",
+  "kickoff_ts": 1788460200,
+  "league": "Poland Ekstraklasa",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 6.5,
+  "first_range": [
+   1.22,
+   1.48
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.19,
+   1.48
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    48,
+    44
+   ],
+   "next_line": 7.5,
+   "next_note": "kein Anker — Lech Poznan 8/10 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Jagiellonia Bialystok 4/6 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
+   "range": [
+    1.19,
+    1.48
+   ]
+  }
+ },
+ "12057944|corners|unter": {
+  "match_id": "12057944",
+  "home": "Lugano",
+  "away": "Servette",
+  "kickoff": "Do 20:30",
+  "kickoff_ts": 1788460200,
+  "league": "Switzerland Super League",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 12.5,
+  "first_range": [
+   1.35,
+   2.3
+  ],
+  "last_run": "Do 18:29",
+  "line": 12.5,
+  "range": [
+   1.35,
+   2.3
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 12.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    45,
+    45
+   ],
+   "next_line": 11.5,
+   "next_note": "Servette 1/3 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "range": [
+    1.35,
+    2.3
+   ]
+  }
+ },
+ "12057943|corners|über": {
+  "match_id": "12057943",
+  "home": "Basel",
+  "away": "FC Sion",
+  "kickoff": "Do 20:30",
+  "kickoff_ts": 1788460200,
+  "league": "Switzerland Super League",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 6.5,
+  "first_range": [
+   1.32,
+   1.975
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.3,
+   1.825
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    45
+   ],
+   "next_line": 7.5,
+   "next_note": "FC Sion 3/5 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "range": [
+    1.3,
+    1.825
+   ]
+  }
+ },
+ "12057943|corners|unter": {
+  "match_id": "12057943",
+  "home": "Basel",
+  "away": "FC Sion",
+  "kickoff": "Do 20:30",
+  "kickoff_ts": 1788460200,
+  "league": "Switzerland Super League",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 12.5,
+  "first_range": [
+   1.32,
+   1.975
+  ],
+  "last_run": "Do 18:29",
+  "line": 12.5,
+  "range": [
+   1.3,
+   1.825
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 12.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    45
+   ],
+   "next_line": 11.5,
+   "next_note": "kein Anker — Basel 7/9 (3. Lücke) gesamt, 9/11 (3. Lücke) heim; FC Sion 9/11 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+   "range": [
+    1.3,
+    1.825
+   ]
+  }
+ },
+ "12031693|corners|unter": {
+  "match_id": "12031693",
+  "home": "Toulouse",
+  "away": "Lille",
+  "kickoff": "Do 20:45",
+  "kickoff_ts": 1788461100,
+  "league": "France Ligue 1",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 11.5,
+  "first_range": [
+   1.45,
+   1.67
+  ],
+  "last_run": "Do 18:29",
+  "line": 11.5,
+  "range": [
+   1.19,
+   1.66
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 11.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    47
+   ],
+   "next_line": 10.5,
+   "next_note": "Toulouse 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Lille 3/5 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "range": [
+    1.19,
+    1.66
+   ]
+  }
+ },
+ "12031693|yellowcards|unter": {
+  "match_id": "12031693",
+  "home": "Toulouse",
+  "away": "Lille",
+  "kickoff": "Do 20:45",
+  "kickoff_ts": 1788461100,
+  "league": "France Ligue 1",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 5.5,
+  "first_range": [
+   1.4,
+   1.46
+  ],
+  "last_run": "Do 18:29",
+  "line": 5.5,
+  "range": [
+   1.38,
+   1.54
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    47
+   ],
+   "next_line": 4.5,
+   "next_note": "Toulouse 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+   "range": [
+    1.38,
+    1.54
+   ]
+  }
+ },
+ "12031693|offsides|unter": {
+  "match_id": "12031693",
+  "home": "Toulouse",
+  "away": "Lille",
+  "kickoff": "Do 20:45",
+  "kickoff_ts": 1788461100,
+  "league": "France Ligue 1",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 4.5,
+  "first_range": [
+   1.63,
+   1.63
+  ],
+  "last_run": "Do 18:29",
+  "line": 4.5,
+  "range": [
+   1.65,
+   1.65
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 15
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    37,
+    43
+   ],
+   "next_line": 3.5,
+   "next_note": "Lille 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "range": [
+    1.65,
+    1.65
+   ]
+  }
+ },
+ "12150116|corners|über": {
+  "match_id": "12150116",
+  "home": "Rouen",
+  "away": "Valenciennes",
+  "kickoff": "Do 20:45",
+  "kickoff_ts": 1788461100,
+  "league": "France Ligue 3",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 6.5,
+  "first_range": [
+   1.192,
+   1.8
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.192,
+   1.8
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    42,
+    45
+   ],
+   "next_line": 7.5,
+   "next_note": "Rouen 4/6 (3. Lücke) gesamt, 7/9 (3. Lücke) heim",
+   "range": [
+    1.192,
+    1.8
+   ]
+  }
+ },
+ "12150116|corners|unter": {
+  "match_id": "12150116",
+  "home": "Rouen",
+  "away": "Valenciennes",
+  "kickoff": "Do 20:45",
+  "kickoff_ts": 1788461100,
+  "league": "France Ligue 3",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 11.5,
+  "first_range": [
+   1.192,
+   1.8
+  ],
+  "last_run": "Do 18:29",
+  "line": 11.5,
+  "range": [
+   1.192,
+   1.8
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 11.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    45
+   ],
+   "next_line": 10.5,
+   "next_note": "Rouen 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "range": [
+    1.192,
+    1.8
+   ]
+  }
+ },
+ "12480835|corners|über": {
+  "match_id": "12480835",
+  "home": "Hibernian",
+  "away": "Hearts",
+  "kickoff": "Do 20:45",
+  "kickoff_ts": 1788461100,
+  "league": "Scotland Premiership",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 8.5,
+  "first_range": [
+   1.29,
+   2.12
+  ],
+  "last_run": "Do 18:29",
+  "line": 8.5,
+  "range": [
+   1.3,
+   2.14
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    46
+   ],
+   "next_line": 9.5,
+   "next_note": "Hibernian 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "range": [
+    1.3,
+    2.14
+   ]
+  }
+ },
+ "12480835|corners|unter": {
+  "match_id": "12480835",
+  "home": "Hibernian",
+  "away": "Hearts",
+  "kickoff": "Do 20:45",
+  "kickoff_ts": 1788461100,
+  "league": "Scotland Premiership",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 12.5,
+  "first_range": [
+   1.29,
+   2.12
+  ],
+  "last_run": "Do 18:29",
+  "line": 12.5,
+  "range": [
+   1.3,
+   2.14
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 12.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    45,
+    46
+   ],
+   "next_line": 11.5,
+   "next_note": "Hearts 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "range": [
+    1.3,
+    2.14
+   ]
+  }
+ },
+ "12480835|on_target|über": {
+  "match_id": "12480835",
+  "home": "Hibernian",
+  "away": "Hearts",
+  "kickoff": "Do 20:45",
+  "kickoff_ts": 1788461100,
+  "league": "Scotland Premiership",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 6.5,
+  "first_range": [
+   1.833,
+   2.0
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.833,
+   2.0
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    40,
+    42
+   ],
+   "next_line": 7.5,
+   "next_note": "Hibernian 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Hearts 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "range": [
+    1.833,
+    2.0
+   ]
+  }
+ },
+ "11396588|corners|über": {
+  "match_id": "11396588",
+  "home": "Universidad Catolica del Ecuador",
+  "away": "SD Aucas",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1788462000,
+  "league": "Ecuador LigaPro Serie A",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 6.5,
+  "first_range": [
+   1.44,
+   1.46
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.43,
+   1.775
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    45,
+    46
+   ],
+   "next_line": 7.5,
+   "next_note": "SD Aucas 0/2 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "range": [
+    1.43,
+    1.775
+   ]
+  }
+ },
+ "11396588|corners|unter": {
+  "match_id": "11396588",
+  "home": "Universidad Catolica del Ecuador",
+  "away": "SD Aucas",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1788462000,
+  "league": "Ecuador LigaPro Serie A",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 10.5,
+  "first_range": [
+   1.44,
+   1.46
+  ],
+  "last_run": "Do 18:29",
+  "line": 10.5,
+  "range": [
+   1.43,
+   1.775
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 10.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    46
+   ],
+   "next_line": 9.5,
+   "next_note": "Universidad Catolica del Ecuador 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "range": [
+    1.43,
+    1.775
+   ]
+  }
+ },
+ "12131015|corners|unter": {
+  "match_id": "12131015",
+  "home": "Real Sociedad",
+  "away": "Celta Vigo",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1788462000,
+  "league": "Spain La Liga",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 10:31",
+  "first_line": 10.5,
+  "first_range": [
+   1.89,
+   1.89
+  ],
+  "last_run": "Do 18:29",
+  "line": 10.5,
+  "range": [
+   1.19,
+   1.89
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 10.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    49
+   ],
+   "next_line": 9.5,
+   "next_note": "Real Sociedad 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+   "range": [
+    1.19,
+    1.89
+   ]
+  }
+ },
+ "12131015|yellowcards|unter": {
+  "match_id": "12131015",
+  "home": "Real Sociedad",
+  "away": "Celta Vigo",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1788462000,
+  "league": "Spain La Liga",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 10:31",
+  "first_line": 6.5,
+  "first_range": [
+   1.36,
+   1.78
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.46,
+   1.55
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    49
+   ],
+   "next_line": 5.5,
+   "next_note": "Real Sociedad 0/2 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+   "range": [
+    1.46,
+    1.55
+   ]
+  }
+ },
+ "12131015|fouls|über": {
+  "match_id": "12131015",
+  "home": "Real Sociedad",
+  "away": "Celta Vigo",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1788462000,
+  "league": "Spain La Liga",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "über",
+  "first_run": "Do 10:31",
+  "first_line": 20.5,
+  "first_range": [
+   1.7,
+   1.91
+  ],
+  "last_run": "Do 18:29",
+  "line": 20.5,
+  "range": [
+   1.37,
+   1.52
+  ],
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "über",
+   "line": 20.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 16
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    46,
+    48
+   ],
+   "next_line": 22.5,
+   "next_note": "Celta Vigo 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "range": [
+    1.37,
+    1.52
+   ]
+  }
+ },
+ "12131015|fouls|unter": {
+  "match_id": "12131015",
+  "home": "Real Sociedad",
+  "away": "Celta Vigo",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1788462000,
+  "league": "Spain La Liga",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "unter",
+  "first_run": "Do 10:31",
+  "first_line": 28.5,
+  "first_range": [
+   1.7,
+   1.91
+  ],
+  "last_run": "Do 18:29",
+  "line": 28.5,
+  "range": [
+   1.37,
+   1.52
+  ],
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "unter",
+   "line": 28.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    48
+   ],
+   "next_line": 26.5,
+   "next_note": "kein Anker — Real Sociedad 8/10 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Celta Vigo 9/11 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "range": [
+    1.37,
+    1.52
+   ]
+  }
+ },
+ "12449665|yellowcards|unter": {
+  "match_id": "12449665",
+  "home": "Cagliari",
+  "away": "Verona",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1788462000,
+  "league": "Coppa Italia",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 10:31",
+  "first_line": 5.5,
+  "first_range": [
+   1.54,
+   1.93
+  ],
+  "last_run": "Do 18:29",
+  "line": 5.5,
+  "range": [
+   1.54,
+   1.91
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    46
+   ],
+   "next_line": 4.5,
+   "next_note": "Verona 6/8 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "range": [
+    1.54,
+    1.91
+   ]
+  }
+ },
+ "12449665|on_target|unter": {
+  "match_id": "12449665",
+  "home": "Cagliari",
+  "away": "Verona",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1788462000,
+  "league": "Coppa Italia",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "unter",
+  "first_run": "Do 12:12",
+  "first_line": 10.5,
+  "first_range": [
+   1.42,
+   1.44
+  ],
+  "last_run": "Do 18:29",
+  "line": 10.5,
+  "range": [
+   1.42,
+   1.44
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "unter",
+   "line": 10.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    46
+   ],
+   "next_line": 9.5,
+   "next_note": "Verona 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "range": [
+    1.42,
+    1.44
+   ]
+  }
+ },
+ "12449665|offsides|unter": {
+  "match_id": "12449665",
+  "home": "Cagliari",
+  "away": "Verona",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1788462000,
+  "league": "Coppa Italia",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Do 10:31",
+  "first_line": 5.5,
+  "first_range": [
+   1.8,
+   1.8
+  ],
+  "last_run": "Do 18:29",
+  "line": 5.5,
+  "range": [
+   1.3,
+   2.38
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    41
+   ],
+   "next_line": 4.5,
+   "next_note": "Cagliari 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "range": [
+    1.3,
+    2.38
+   ]
+  }
+ },
+ "12449665|fouls|unter": {
+  "match_id": "12449665",
+  "home": "Cagliari",
+  "away": "Verona",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1788462000,
+  "league": "Coppa Italia",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "unter",
+  "first_run": "Do 10:31",
+  "first_line": 28.5,
+  "first_range": [
+   1.96,
+   1.96
+  ],
+  "last_run": "Do 18:29",
+  "line": 28.5,
+  "range": [
+   1.5,
+   2.24
+  ],
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "unter",
+   "line": 28.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    46,
+    41
+   ],
+   "next_line": 26.5,
+   "next_note": "Verona 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "range": [
+    1.5,
+    2.24
+   ]
+  }
+ },
+ "13002744|corners|unter": {
+  "match_id": "13002744",
+  "home": "Trento",
+  "away": "Desenzano",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1788462000,
+  "league": "Italy Serie C Cup",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 10.5,
+  "first_range": [
+   1.227,
+   1.48
+  ],
+  "last_run": "Do 18:29",
+  "line": 10.5,
+  "range": [
+   1.227,
+   1.48
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 10.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    24
+   ],
+   "next_line": 9.5,
+   "next_note": "Trento 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+   "range": [
+    1.227,
+    1.48
+   ]
+  }
+ },
+ "12391629|corners|über": {
+  "match_id": "12391629",
+  "home": "Deportivo Rayo Zuliano",
+  "away": "Carabobo",
+  "kickoff": "Do 21:30",
+  "kickoff_ts": 1788463800,
+  "league": "Venezuela Primera Division",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 6.5,
+  "first_range": [
+   1.357,
+   1.357
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.357,
+   1.357
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    40,
+    48
+   ],
+   "next_line": 7.5,
+   "next_note": "Deportivo Rayo Zuliano 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+   "range": [
+    1.357,
+    1.357
+   ]
+  }
+ },
+ "12391629|corners|unter": {
+  "match_id": "12391629",
+  "home": "Deportivo Rayo Zuliano",
+  "away": "Carabobo",
+  "kickoff": "Do 21:30",
+  "kickoff_ts": 1788463800,
+  "league": "Venezuela Primera Division",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 12.5,
+  "first_range": [
+   1.357,
+   1.357
+  ],
+  "last_run": "Do 18:29",
+  "line": 12.5,
+  "range": [
+   1.357,
+   1.357
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 12.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    40,
+    48
+   ],
+   "next_line": 11.5,
+   "next_note": "Carabobo 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+   "range": [
+    1.357,
+    1.357
+   ]
+  }
+ },
+ "11750116|corners|über": {
+  "match_id": "11750116",
+  "home": "IH Hafnarfjordur",
+  "away": "KFR Hvolsvöllur",
+  "kickoff": "Do 22:00",
+  "kickoff_ts": 1788465600,
+  "league": "Iceland 4 Deild",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 7.5,
+  "first_range": [
+   1.439,
+   1.75
+  ],
+  "last_run": "Do 18:29",
+  "line": 7.5,
+  "range": [
+   1.439,
+   1.75
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    35,
+    37
+   ],
+   "next_line": 8.5,
+   "next_note": "IH Hafnarfjordur 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "range": [
+    1.439,
+    1.75
+   ]
+  }
+ },
+ "12391586|corners|über": {
+  "match_id": "12391586",
+  "home": "Academia Anzoategui FC",
+  "away": "Monagas",
+  "kickoff": "Do 22:00",
+  "kickoff_ts": 1788465600,
+  "league": "Venezuela Primera Division",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 6.5,
+  "first_range": [
+   1.254,
+   1.776
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.246,
+   1.792
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 17
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    39,
+    40
+   ],
+   "next_line": 7.5,
+   "next_note": "Monagas 0/2 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "range": [
+    1.246,
+    1.792
+   ]
+  }
+ },
+ "12391586|corners|unter": {
+  "match_id": "12391586",
+  "home": "Academia Anzoategui FC",
+  "away": "Monagas",
+  "kickoff": "Do 22:00",
+  "kickoff_ts": 1788465600,
+  "league": "Venezuela Primera Division",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 9.5,
+  "first_range": [
+   1.254,
+   1.776
+  ],
+  "last_run": "Do 18:29",
+  "line": 9.5,
+  "range": [
+   1.246,
+   1.792
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 9.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    39,
+    40
+   ],
+   "next_line": 8.5,
+   "next_note": "Academia Anzoategui FC 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+   "range": [
+    1.246,
+    1.792
+   ]
+  }
+ },
+ "12100005|corners|unter": {
+  "match_id": "12100005",
+  "home": "America de Cali",
+  "away": "Alianza",
+  "kickoff": "Do 23:00",
+  "kickoff_ts": 1788469200,
+  "league": "Colombia Primera A",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 12.5,
+  "first_range": [
+   1.238,
+   2.444
+  ],
+  "last_run": "Do 18:29",
+  "line": 12.5,
+  "range": [
+   1.258,
+   2.494
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 12.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    43
+   ],
+   "next_line": 11.5,
+   "next_note": "America de Cali 1/3 (3. Lücke) gesamt, 9/11 (3. Lücke) heim",
+   "range": [
+    1.258,
+    2.494
+   ]
+  }
+ },
+ "11400142|corners|über": {
+  "match_id": "11400142",
+  "home": "Leones FC",
+  "away": "Orense",
+  "kickoff": "Do 23:30",
+  "kickoff_ts": 1788471000,
+  "league": "Ecuador LigaPro Serie A",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 6.5,
+  "first_range": [
+   1.26,
+   1.64
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.37,
+   1.61
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    45
+   ],
+   "next_line": 7.5,
+   "next_note": "Orense 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "range": [
+    1.37,
+    1.61
+   ]
+  }
+ },
+ "11400142|corners|unter": {
+  "match_id": "11400142",
+  "home": "Leones FC",
+  "away": "Orense",
+  "kickoff": "Do 23:30",
+  "kickoff_ts": 1788471000,
+  "league": "Ecuador LigaPro Serie A",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "unter",
+  "first_run": "Do 07:32",
+  "first_line": 11.5,
+  "first_range": [
+   1.26,
+   1.64
+  ],
+  "last_run": "Do 18:29",
+  "line": 11.5,
+  "range": [
+   1.37,
+   1.61
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "unter",
+   "line": 11.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    45
+   ],
+   "next_line": 10.5,
+   "next_note": "kein Anker — Leones FC 8/10 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; Orense 8/10 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
+   "range": [
+    1.37,
+    1.61
+   ]
+  }
+ },
+ "12276191|corners|über": {
+  "match_id": "12276191",
+  "home": "Deportivo Recoleta",
+  "away": "Cerro Porteno",
+  "kickoff": "Do 23:30",
+  "kickoff_ts": 1788471000,
+  "league": "Paraguay Division Profesional",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 07:32",
+  "first_line": 6.5,
+  "first_range": [
+   1.95,
+   1.95
+  ],
+  "last_run": "Do 18:29",
+  "line": 6.5,
+  "range": [
+   1.95,
+   1.95
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    48
+   ],
+   "next_line": 7.5,
+   "next_note": "kein Anker — Deportivo Recoleta 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Cerro Porteno 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "range": [
+    1.95,
+    1.95
    ]
   }
  },
@@ -1169,3219 +3719,6 @@
    "range": [
     2.1,
     2.1
-   ]
-  }
- },
- "11971063|corners|über": {
-  "match_id": "11971063",
-  "home": "Mjällby AIF",
-  "away": "Djurgarden",
-  "kickoff": "Do 19:00",
-  "kickoff_ts": 1788454800,
-  "league": "Sweden Allsvenskan",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.23,
-   1.89
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.19,
-   2.009
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    46
-   ],
-   "next_line": 7.5,
-   "next_note": "Mjällby AIF 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
-   "range": [
-    1.19,
-    2.009
-   ]
-  }
- },
- "12206551|corners|über": {
-  "match_id": "12206551",
-  "home": "Bodrum FK",
-  "away": "Esenler Erokspor",
-  "kickoff": "Do 19:00",
-  "kickoff_ts": 1788454800,
-  "league": "Türkiye 1 Lig",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.29,
-   1.69
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.29,
-   1.69
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    46,
-    47
-   ],
-   "next_line": 7.5,
-   "next_note": "Bodrum FK 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
-   "range": [
-    1.29,
-    1.69
-   ]
-  }
- },
- "12206551|corners|unter": {
-  "match_id": "12206551",
-  "home": "Bodrum FK",
-  "away": "Esenler Erokspor",
-  "kickoff": "Do 19:00",
-  "kickoff_ts": 1788454800,
-  "league": "Türkiye 1 Lig",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 11.5,
-  "first_range": [
-   1.29,
-   1.69
-  ],
-  "last_run": "Do 16:30",
-  "line": 11.5,
-  "range": [
-   1.29,
-   1.69
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 11.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 15
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 16
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    46,
-    47
-   ],
-   "next_line": 10.5,
-   "next_note": "Esenler Erokspor 6/8 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
-   "range": [
-    1.29,
-    1.69
-   ]
-  }
- },
- "12375355|corners|über": {
-  "match_id": "12375355",
-  "home": "Al Ahly Cairo",
-  "away": "Smouha",
-  "kickoff": "Do 19:00",
-  "kickoff_ts": 1788454800,
-  "league": "Egypt Division 1",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.44,
-   1.74
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.44,
-   1.74
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    41,
-    45
-   ],
-   "next_line": 7.5,
-   "next_note": "kein Anker — Al Ahly Cairo 10/12 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; Smouha 6/8 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
-   "range": [
-    1.44,
-    1.74
-   ]
-  }
- },
- "12375355|corners|unter": {
-  "match_id": "12375355",
-  "home": "Al Ahly Cairo",
-  "away": "Smouha",
-  "kickoff": "Do 19:00",
-  "kickoff_ts": 1788454800,
-  "league": "Egypt Division 1",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 12.5,
-  "first_range": [
-   1.44,
-   1.74
-  ],
-  "last_run": "Do 16:30",
-  "line": 12.5,
-  "range": [
-   1.44,
-   1.74
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 12.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    41,
-    45
-   ],
-   "next_line": 11.5,
-   "next_note": "kein Anker — Al Ahly Cairo 9/11 (3. Lücke) gesamt, 10/12 (3. Lücke) heim; Smouha 11/13 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
-   "range": [
-    1.44,
-    1.74
-   ]
-  }
- },
- "12206557|corners|unter": {
-  "match_id": "12206557",
-  "home": "Bursaspor",
-  "away": "Istanbulspor",
-  "kickoff": "Do 19:00",
-  "kickoff_ts": 1788454800,
-  "league": "Türkiye 1 Lig",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 11.5,
-  "first_range": [
-   1.54,
-   1.61
-  ],
-  "last_run": "Do 16:30",
-  "line": 11.5,
-  "range": [
-   1.54,
-   1.64
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 11.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    29,
-    47
-   ],
-   "next_line": 10.5,
-   "next_note": "Istanbulspor 5/7 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "range": [
-    1.54,
-    1.64
-   ]
-  }
- },
- "12076773|corners|unter": {
-  "match_id": "12076773",
-  "home": "Hapoel Tel Aviv",
-  "away": "Beitar Jerusalem",
-  "kickoff": "Do 19:30",
-  "kickoff_ts": 1788456600,
-  "league": "Israel Premier League",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 11.5,
-  "first_range": [
-   1.35,
-   1.7
-  ],
-  "last_run": "Do 16:30",
-  "line": 11.5,
-  "range": [
-   1.35,
-   1.7
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 11.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    42,
-    41
-   ],
-   "next_line": 10.5,
-   "next_note": "kein Anker — Hapoel Tel Aviv 11/13 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Beitar Jerusalem 9/11 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "range": [
-    1.35,
-    1.7
-   ]
-  }
- },
- "12076773|yellowcards|über": {
-  "match_id": "12076773",
-  "home": "Hapoel Tel Aviv",
-  "away": "Beitar Jerusalem",
-  "kickoff": "Do 19:30",
-  "kickoff_ts": 1788456600,
-  "league": "Israel Premier League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "Do 12:12",
-  "first_line": 2.5,
-  "first_range": [
-   1.28,
-   1.67
-  ],
-  "last_run": "Do 16:30",
-  "line": 2.5,
-  "range": [
-   1.28,
-   1.67
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    42,
-    41
-   ],
-   "next_line": 3.5,
-   "next_note": "Hapoel Tel Aviv 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
-   "range": [
-    1.28,
-    1.67
-   ]
-  }
- },
- "12076773|yellowcards|unter": {
-  "match_id": "12076773",
-  "home": "Hapoel Tel Aviv",
-  "away": "Beitar Jerusalem",
-  "kickoff": "Do 19:30",
-  "kickoff_ts": 1788456600,
-  "league": "Israel Premier League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 12:12",
-  "first_line": 6.5,
-  "first_range": [
-   1.28,
-   1.67
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.28,
-   1.67
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    42,
-    41
-   ],
-   "next_line": 5.5,
-   "next_note": "Beitar Jerusalem 1/3 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "range": [
-    1.28,
-    1.67
-   ]
-  }
- },
- "13003758|corners|unter": {
-  "match_id": "13003758",
-  "home": "Gyori ETO",
-  "away": "Ferencvarosi TC",
-  "kickoff": "Do 19:30",
-  "kickoff_ts": 1788456600,
-  "league": "Hungary NB I",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 11.5,
-  "first_range": [
-   1.328,
-   2.007
-  ],
-  "last_run": "Do 16:30",
-  "line": 11.5,
-  "range": [
-   1.328,
-   2.007
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 11.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    49,
-    43
-   ],
-   "next_line": 10.5,
-   "next_note": "kein Anker — Gyori ETO 1/3 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Ferencvarosi TC 6/8 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "range": [
-    1.328,
-    2.007
-   ]
-  }
- },
- "13003758|yellowcards|unter": {
-  "match_id": "13003758",
-  "home": "Gyori ETO",
-  "away": "Ferencvarosi TC",
-  "kickoff": "Do 19:30",
-  "kickoff_ts": 1788456600,
-  "league": "Hungary NB I",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 12:12",
-  "first_line": 6.5,
-  "first_range": [
-   1.7,
-   1.95
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.7,
-   1.96
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    43
-   ],
-   "next_line": 5.5,
-   "next_note": "Gyori ETO 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
-   "range": [
-    1.7,
-    1.96
-   ]
-  }
- },
- "13003758|fouls|über": {
-  "match_id": "13003758",
-  "home": "Gyori ETO",
-  "away": "Ferencvarosi TC",
-  "kickoff": "Do 19:30",
-  "kickoff_ts": 1788456600,
-  "league": "Hungary NB I",
-  "metric": "Fouls",
-  "metric_key": "fouls",
-  "direction": "über",
-  "first_run": "Do 14:36",
-  "first_line": 18.5,
-  "first_range": [
-   1.75,
-   1.75
-  ],
-  "last_run": "Do 16:30",
-  "line": 18.5,
-  "range": [
-   1.75,
-   1.75
-  ],
-  "signal": {
-   "metric": "Fouls",
-   "metric_key": "fouls",
-   "direction": "über",
-   "line": 18.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    14,
-    20
-   ],
-   "next_line": 20.5,
-   "next_note": "Gyori ETO 6/8 (3. Lücke) gesamt, 4/6 (Aussetzer in den letzten 2) heim",
-   "range": [
-    1.75,
-    1.75
-   ]
-  }
- },
- "13003758|fouls|unter": {
-  "match_id": "13003758",
-  "home": "Gyori ETO",
-  "away": "Ferencvarosi TC",
-  "kickoff": "Do 19:30",
-  "kickoff_ts": 1788456600,
-  "league": "Hungary NB I",
-  "metric": "Fouls",
-  "metric_key": "fouls",
-  "direction": "unter",
-  "first_run": "Do 14:36",
-  "first_line": 28.5,
-  "first_range": [
-   1.75,
-   1.75
-  ],
-  "last_run": "Do 16:30",
-  "line": 28.5,
-  "range": [
-   1.75,
-   1.75
-  ],
-  "signal": {
-   "metric": "Fouls",
-   "metric_key": "fouls",
-   "direction": "unter",
-   "line": 28.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    14,
-    20
-   ],
-   "next_line": 26.5,
-   "next_note": "Ferencvarosi TC 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "range": [
-    1.75,
-    1.75
-   ]
-  }
- },
- "12471159|corners|über": {
-  "match_id": "12471159",
-  "home": "Stiinta Poli Timisoara",
-  "away": "Rapid Bucuresti",
-  "kickoff": "Do 19:30",
-  "kickoff_ts": 1788456600,
-  "league": "Romania Cup",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.41,
-   1.57
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.21,
-   1.53
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    31,
-    48
-   ],
-   "next_line": 7.5,
-   "next_note": "kein Anker — Stiinta Poli Timisoara 2/4 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Rapid Bucuresti 6/8 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
-   "range": [
-    1.21,
-    1.53
-   ]
-  }
- },
- "12471159|corners|unter": {
-  "match_id": "12471159",
-  "home": "Stiinta Poli Timisoara",
-  "away": "Rapid Bucuresti",
-  "kickoff": "Do 19:30",
-  "kickoff_ts": 1788456600,
-  "league": "Romania Cup",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 12.5,
-  "first_range": [
-   1.41,
-   1.57
-  ],
-  "last_run": "Do 16:30",
-  "line": 12.5,
-  "range": [
-   1.21,
-   1.53
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 12.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    31,
-    48
-   ],
-   "next_line": 11.5,
-   "next_note": "kein Anker — Stiinta Poli Timisoara 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Rapid Bucuresti 4/6 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
-   "range": [
-    1.21,
-    1.53
-   ]
-  }
- },
- "11991435|corners|über": {
-  "match_id": "11991435",
-  "home": "FC Copenhagen",
-  "away": "FC Nordsjaelland",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1788458400,
-  "league": "Denmark Superligaen",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 8.5,
-  "first_range": [
-   1.34,
-   1.45
-  ],
-  "last_run": "Do 16:30",
-  "line": 8.5,
-  "range": [
-   1.33,
-   1.53
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 8.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 17
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    48,
-    45
-   ],
-   "next_line": 9.5,
-   "next_note": "FC Copenhagen 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; FC Nordsjaelland 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "range": [
-    1.33,
-    1.53
-   ]
-  }
- },
- "11991435|corners|unter": {
-  "match_id": "11991435",
-  "home": "FC Copenhagen",
-  "away": "FC Nordsjaelland",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1788458400,
-  "league": "Denmark Superligaen",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 12.5,
-  "first_range": [
-   1.34,
-   1.45
-  ],
-  "last_run": "Do 16:30",
-  "line": 12.5,
-  "range": [
-   1.33,
-   1.53
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 12.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    45
-   ],
-   "next_line": 11.5,
-   "next_note": "FC Nordsjaelland 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "range": [
-    1.33,
-    1.53
-   ]
-  }
- },
- "11991435|yellowcards|unter": {
-  "match_id": "11991435",
-  "home": "FC Copenhagen",
-  "away": "FC Nordsjaelland",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1788458400,
-  "league": "Denmark Superligaen",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 10:31",
-  "first_line": 4.5,
-  "first_range": [
-   1.34,
-   1.85
-  ],
-  "last_run": "Do 16:30",
-  "line": 4.5,
-  "range": [
-   1.24,
-   1.85
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 4.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    48,
-    45
-   ],
-   "next_line": 3.5,
-   "next_note": "FC Nordsjaelland 0/2 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "range": [
-    1.24,
-    1.85
-   ]
-  }
- },
- "12303421|yellowcards|unter": {
-  "match_id": "12303421",
-  "home": "Al Draih",
-  "away": "Al Qadisiya Al Khubar",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1788458400,
-  "league": "Saudi Arabia Pro League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 12:12",
-  "first_line": 4.5,
-  "first_range": [
-   1.3,
-   1.62
-  ],
-  "last_run": "Do 16:30",
-  "line": 4.5,
-  "range": [
-   1.28,
-   1.44
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 4.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    49
-   ],
-   "next_line": 3.5,
-   "next_note": "Al Draih 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
-   "range": [
-    1.28,
-    1.44
-   ]
-  }
- },
- "13059460|corners|unter": {
-  "match_id": "13059460",
-  "home": "Novara",
-  "away": "Livorno",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1788458400,
-  "league": "Italy Serie C Cup",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 12.5,
-  "first_range": [
-   1.214,
-   1.502
-  ],
-  "last_run": "Do 16:30",
-  "line": 12.5,
-  "range": [
-   1.214,
-   1.502
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 12.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    45
-   ],
-   "next_line": 11.5,
-   "next_note": "kein Anker — Novara 12/14 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Livorno 38/40 (3. Lücke) gesamt, 19/21 (3. Lücke) auswärts",
-   "range": [
-    1.214,
-    1.502
-   ]
-  }
- },
- "13065241|corners|über": {
-  "match_id": "13065241",
-  "home": "Lillehammer U19",
-  "away": "Ullensaker/Kisa U19",
-  "kickoff": "Do 20:15",
-  "kickoff_ts": 1788459300,
-  "league": "Norway Interkretsserie U19",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 8.5,
-  "first_range": [
-   1.247,
-   1.899
-  ],
-  "last_run": "Do 16:30",
-  "line": 8.5,
-  "range": [
-   1.247,
-   1.899
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 8.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    50,
-    50
-   ],
-   "next_line": 9.5,
-   "next_note": "kein Anker — Lillehammer U19 8/10 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Ullensaker/Kisa U19 4/6 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
-   "range": [
-    1.247,
-    1.899
-   ]
-  }
- },
- "13065241|corners|unter": {
-  "match_id": "13065241",
-  "home": "Lillehammer U19",
-  "away": "Ullensaker/Kisa U19",
-  "kickoff": "Do 20:15",
-  "kickoff_ts": 1788459300,
-  "league": "Norway Interkretsserie U19",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 12.5,
-  "first_range": [
-   1.247,
-   1.899
-  ],
-  "last_run": "Do 16:30",
-  "line": 12.5,
-  "range": [
-   1.247,
-   1.899
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 12.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    50,
-    50
-   ],
-   "next_line": 11.5,
-   "next_note": "Lillehammer U19 6/8 (3. Lücke) gesamt, 9/11 (3. Lücke) heim; Ullensaker/Kisa U19 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "range": [
-    1.247,
-    1.899
-   ]
-  }
- },
- "12057943|corners|über": {
-  "match_id": "12057943",
-  "home": "Basel",
-  "away": "FC Sion",
-  "kickoff": "Do 20:30",
-  "kickoff_ts": 1788460200,
-  "league": "Switzerland Super League",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.32,
-   1.975
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.3,
-   1.825
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    45
-   ],
-   "next_line": 7.5,
-   "next_note": "FC Sion 3/5 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
-   "range": [
-    1.3,
-    1.825
-   ]
-  }
- },
- "12057943|corners|unter": {
-  "match_id": "12057943",
-  "home": "Basel",
-  "away": "FC Sion",
-  "kickoff": "Do 20:30",
-  "kickoff_ts": 1788460200,
-  "league": "Switzerland Super League",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 12.5,
-  "first_range": [
-   1.32,
-   1.975
-  ],
-  "last_run": "Do 16:30",
-  "line": 12.5,
-  "range": [
-   1.3,
-   1.825
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 12.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    45
-   ],
-   "next_line": 11.5,
-   "next_note": "kein Anker — Basel 7/9 (3. Lücke) gesamt, 9/11 (3. Lücke) heim; FC Sion 9/11 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
-   "range": [
-    1.3,
-    1.825
-   ]
-  }
- },
- "12057944|corners|unter": {
-  "match_id": "12057944",
-  "home": "Lugano",
-  "away": "Servette",
-  "kickoff": "Do 20:30",
-  "kickoff_ts": 1788460200,
-  "league": "Switzerland Super League",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 12.5,
-  "first_range": [
-   1.35,
-   2.3
-  ],
-  "last_run": "Do 16:30",
-  "line": 12.5,
-  "range": [
-   1.35,
-   2.3
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 12.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    45,
-    45
-   ],
-   "next_line": 11.5,
-   "next_note": "Servette 1/3 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
-   "range": [
-    1.35,
-    2.3
-   ]
-  }
- },
- "12355523|corners|über": {
-  "match_id": "12355523",
-  "home": "Anderlecht",
-  "away": "KV Kortrijk",
-  "kickoff": "Do 20:30",
-  "kickoff_ts": 1788460200,
-  "league": "Belgium First Division A",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.29,
-   1.95
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.26,
-   1.35
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    42
-   ],
-   "next_line": 7.5,
-   "next_note": "Anderlecht 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
-   "range": [
-    1.26,
-    1.35
-   ]
-  }
- },
- "12355523|corners|unter": {
-  "match_id": "12355523",
-  "home": "Anderlecht",
-  "away": "KV Kortrijk",
-  "kickoff": "Do 20:30",
-  "kickoff_ts": 1788460200,
-  "league": "Belgium First Division A",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 11.5,
-  "first_range": [
-   1.29,
-   1.95
-  ],
-  "last_run": "Do 16:30",
-  "line": 11.5,
-  "range": [
-   1.26,
-   1.35
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 11.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    45,
-    42
-   ],
-   "next_line": 10.5,
-   "next_note": "Anderlecht 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
-   "range": [
-    1.26,
-    1.35
-   ]
-  }
- },
- "12355523|yellowcards|unter": {
-  "match_id": "12355523",
-  "home": "Anderlecht",
-  "away": "KV Kortrijk",
-  "kickoff": "Do 20:30",
-  "kickoff_ts": 1788460200,
-  "league": "Belgium First Division A",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 12:12",
-  "first_line": 5.5,
-  "first_range": [
-   1.29,
-   2.16
-  ],
-  "last_run": "Do 16:30",
-  "line": 5.5,
-  "range": [
-   1.25,
-   2.43
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    42
-   ],
-   "next_line": 4.5,
-   "next_note": "Anderlecht 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
-   "range": [
-    1.25,
-    2.43
-   ]
-  }
- },
- "12355523|on_target|über": {
-  "match_id": "12355523",
-  "home": "Anderlecht",
-  "away": "KV Kortrijk",
-  "kickoff": "Do 20:30",
-  "kickoff_ts": 1788460200,
-  "league": "Belgium First Division A",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "über",
-  "first_run": "Do 12:12",
-  "first_line": 7.5,
-  "first_range": [
-   1.48,
-   2.32
-  ],
-  "last_run": "Do 16:30",
-  "line": 7.5,
-  "range": [
-   1.48,
-   2.32
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    39,
-    39
-   ],
-   "next_line": 8.5,
-   "next_note": "KV Kortrijk 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "range": [
-    1.48,
-    2.32
-   ]
-  }
- },
- "12355523|on_target|unter": {
-  "match_id": "12355523",
-  "home": "Anderlecht",
-  "away": "KV Kortrijk",
-  "kickoff": "Do 20:30",
-  "kickoff_ts": 1788460200,
-  "league": "Belgium First Division A",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "unter",
-  "first_run": "Do 12:12",
-  "first_line": 11.5,
-  "first_range": [
-   1.48,
-   2.32
-  ],
-  "last_run": "Do 16:30",
-  "line": 11.5,
-  "range": [
-   1.48,
-   2.32
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "unter",
-   "line": 11.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    39,
-    39
-   ],
-   "next_line": 10.5,
-   "next_note": "kein Anker — Anderlecht 9/11 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; KV Kortrijk 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "range": [
-    1.48,
-    2.32
-   ]
-  }
- },
- "12355523|offsides|unter": {
-  "match_id": "12355523",
-  "home": "Anderlecht",
-  "away": "KV Kortrijk",
-  "kickoff": "Do 20:30",
-  "kickoff_ts": 1788460200,
-  "league": "Belgium First Division A",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "Do 12:12",
-  "first_line": 5.5,
-  "first_range": [
-   1.31,
-   2.07
-  ],
-  "last_run": "Do 16:30",
-  "line": 5.5,
-  "range": [
-   1.31,
-   2.07
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 16
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    33,
-    33
-   ],
-   "next_line": 4.5,
-   "next_note": "kein Anker — Anderlecht 8/10 (3. Lücke) gesamt, 10/12 (3. Lücke) heim; KV Kortrijk 6/8 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "range": [
-    1.31,
-    2.07
-   ]
-  }
- },
- "12355523|fouls|über": {
-  "match_id": "12355523",
-  "home": "Anderlecht",
-  "away": "KV Kortrijk",
-  "kickoff": "Do 20:30",
-  "kickoff_ts": 1788460200,
-  "league": "Belgium First Division A",
-  "metric": "Fouls",
-  "metric_key": "fouls",
-  "direction": "über",
-  "first_run": "Do 12:12",
-  "first_line": 22.5,
-  "first_range": [
-   1.242,
-   2.13
-  ],
-  "last_run": "Do 16:30",
-  "line": 22.5,
-  "range": [
-   1.254,
-   2.08
-  ],
-  "signal": {
-   "metric": "Fouls",
-   "metric_key": "fouls",
-   "direction": "über",
-   "line": 22.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    35,
-    35
-   ],
-   "next_line": 24.5,
-   "next_note": "Anderlecht 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; KV Kortrijk 0/2 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
-   "range": [
-    1.254,
-    2.08
-   ]
-  }
- },
- "12355523|fouls|unter": {
-  "match_id": "12355523",
-  "home": "Anderlecht",
-  "away": "KV Kortrijk",
-  "kickoff": "Do 20:30",
-  "kickoff_ts": 1788460200,
-  "league": "Belgium First Division A",
-  "metric": "Fouls",
-  "metric_key": "fouls",
-  "direction": "unter",
-  "first_run": "Do 12:12",
-  "first_line": 26.5,
-  "first_range": [
-   1.242,
-   2.13
-  ],
-  "last_run": "Do 16:30",
-  "line": 26.5,
-  "range": [
-   1.254,
-   2.08
-  ],
-  "signal": {
-   "metric": "Fouls",
-   "metric_key": "fouls",
-   "direction": "unter",
-   "line": 26.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    35,
-    35
-   ],
-   "next_line": 24.5,
-   "next_note": "Anderlecht 2/4 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
-   "range": [
-    1.254,
-    2.08
-   ]
-  }
- },
- "12374108|corners|unter": {
-  "match_id": "12374108",
-  "home": "Slask Wroclaw",
-  "away": "Pogon Szczecin",
-  "kickoff": "Do 20:30",
-  "kickoff_ts": 1788460200,
-  "league": "Poland Cup",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 10.5,
-  "first_range": [
-   1.99,
-   1.99
-  ],
-  "last_run": "Do 16:30",
-  "line": 10.5,
-  "range": [
-   1.99,
-   1.99
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 10.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 5,
-    "window": 5
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    43,
-    47
-   ],
-   "next_line": 9.5,
-   "next_note": "kein Anker — Slask Wroclaw 9/11 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Pogon Szczecin 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "range": [
-    1.99,
-    1.99
-   ]
-  }
- },
- "12424875|corners|über": {
-  "match_id": "12424875",
-  "home": "Lech Poznan",
-  "away": "Jagiellonia Bialystok",
-  "kickoff": "Do 20:30",
-  "kickoff_ts": 1788460200,
-  "league": "Poland Ekstraklasa",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.22,
-   1.48
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.21,
-   1.48
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    48,
-    44
-   ],
-   "next_line": 7.5,
-   "next_note": "kein Anker — Lech Poznan 8/10 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Jagiellonia Bialystok 4/6 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
-   "range": [
-    1.21,
-    1.48
-   ]
-  }
- },
- "12031693|corners|unter": {
-  "match_id": "12031693",
-  "home": "Toulouse",
-  "away": "Lille",
-  "kickoff": "Do 20:45",
-  "kickoff_ts": 1788461100,
-  "league": "France Ligue 1",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 11.5,
-  "first_range": [
-   1.45,
-   1.67
-  ],
-  "last_run": "Do 16:30",
-  "line": 11.5,
-  "range": [
-   1.19,
-   1.66
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 11.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    46,
-    47
-   ],
-   "next_line": 10.5,
-   "next_note": "Toulouse 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Lille 3/5 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "range": [
-    1.19,
-    1.66
-   ]
-  }
- },
- "12031693|yellowcards|unter": {
-  "match_id": "12031693",
-  "home": "Toulouse",
-  "away": "Lille",
-  "kickoff": "Do 20:45",
-  "kickoff_ts": 1788461100,
-  "league": "France Ligue 1",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 5.5,
-  "first_range": [
-   1.4,
-   1.46
-  ],
-  "last_run": "Do 16:30",
-  "line": 5.5,
-  "range": [
-   1.4,
-   1.53
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    46,
-    47
-   ],
-   "next_line": 4.5,
-   "next_note": "Toulouse 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
-   "range": [
-    1.4,
-    1.53
-   ]
-  }
- },
- "12031693|offsides|unter": {
-  "match_id": "12031693",
-  "home": "Toulouse",
-  "away": "Lille",
-  "kickoff": "Do 20:45",
-  "kickoff_ts": 1788461100,
-  "league": "France Ligue 1",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 4.5,
-  "first_range": [
-   1.63,
-   1.63
-  ],
-  "last_run": "Do 16:30",
-  "line": 4.5,
-  "range": [
-   1.65,
-   1.65
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 4.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 15
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    37,
-    43
-   ],
-   "next_line": 3.5,
-   "next_note": "Lille 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "range": [
-    1.65,
-    1.65
-   ]
-  }
- },
- "12150116|corners|über": {
-  "match_id": "12150116",
-  "home": "Rouen",
-  "away": "Valenciennes",
-  "kickoff": "Do 20:45",
-  "kickoff_ts": 1788461100,
-  "league": "France Ligue 3",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.192,
-   1.8
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.192,
-   1.8
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    42,
-    45
-   ],
-   "next_line": 7.5,
-   "next_note": "Rouen 4/6 (3. Lücke) gesamt, 7/9 (3. Lücke) heim",
-   "range": [
-    1.192,
-    1.8
-   ]
-  }
- },
- "12150116|corners|unter": {
-  "match_id": "12150116",
-  "home": "Rouen",
-  "away": "Valenciennes",
-  "kickoff": "Do 20:45",
-  "kickoff_ts": 1788461100,
-  "league": "France Ligue 3",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 11.5,
-  "first_range": [
-   1.192,
-   1.8
-  ],
-  "last_run": "Do 16:30",
-  "line": 11.5,
-  "range": [
-   1.192,
-   1.8
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 11.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    42,
-    45
-   ],
-   "next_line": 10.5,
-   "next_note": "Rouen 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
-   "range": [
-    1.192,
-    1.8
-   ]
-  }
- },
- "12480835|corners|über": {
-  "match_id": "12480835",
-  "home": "Hibernian",
-  "away": "Hearts",
-  "kickoff": "Do 20:45",
-  "kickoff_ts": 1788461100,
-  "league": "Scotland Premiership",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 8.5,
-  "first_range": [
-   1.29,
-   2.12
-  ],
-  "last_run": "Do 16:30",
-  "line": 8.5,
-  "range": [
-   1.29,
-   2.07
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 8.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    46
-   ],
-   "next_line": 9.5,
-   "next_note": "Hibernian 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
-   "range": [
-    1.29,
-    2.07
-   ]
-  }
- },
- "12480835|corners|unter": {
-  "match_id": "12480835",
-  "home": "Hibernian",
-  "away": "Hearts",
-  "kickoff": "Do 20:45",
-  "kickoff_ts": 1788461100,
-  "league": "Scotland Premiership",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 12.5,
-  "first_range": [
-   1.29,
-   2.12
-  ],
-  "last_run": "Do 16:30",
-  "line": 12.5,
-  "range": [
-   1.29,
-   2.07
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 12.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    45,
-    46
-   ],
-   "next_line": 11.5,
-   "next_note": "Hearts 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "range": [
-    1.29,
-    2.07
-   ]
-  }
- },
- "12480835|on_target|über": {
-  "match_id": "12480835",
-  "home": "Hibernian",
-  "away": "Hearts",
-  "kickoff": "Do 20:45",
-  "kickoff_ts": 1788461100,
-  "league": "Scotland Premiership",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.833,
-   2.0
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   2.0,
-   2.0
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    40,
-    42
-   ],
-   "next_line": 7.5,
-   "next_note": "Hibernian 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Hearts 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "range": [
-    2.0,
-    2.0
-   ]
-  }
- },
- "11396588|corners|über": {
-  "match_id": "11396588",
-  "home": "Universidad Catolica del Ecuador",
-  "away": "SD Aucas",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1788462000,
-  "league": "Ecuador LigaPro Serie A",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.44,
-   1.46
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.41,
-   2.025
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    45,
-    46
-   ],
-   "next_line": 7.5,
-   "next_note": "SD Aucas 0/2 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "range": [
-    1.41,
-    2.025
-   ]
-  }
- },
- "11396588|corners|unter": {
-  "match_id": "11396588",
-  "home": "Universidad Catolica del Ecuador",
-  "away": "SD Aucas",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1788462000,
-  "league": "Ecuador LigaPro Serie A",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 10.5,
-  "first_range": [
-   1.44,
-   1.46
-  ],
-  "last_run": "Do 16:30",
-  "line": 10.5,
-  "range": [
-   1.41,
-   2.025
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 10.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    46
-   ],
-   "next_line": 9.5,
-   "next_note": "Universidad Catolica del Ecuador 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
-   "range": [
-    1.41,
-    2.025
-   ]
-  }
- },
- "13002744|corners|unter": {
-  "match_id": "13002744",
-  "home": "Trento",
-  "away": "Desenzano",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1788462000,
-  "league": "Italy Serie C Cup",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 10.5,
-  "first_range": [
-   1.227,
-   1.48
-  ],
-  "last_run": "Do 16:30",
-  "line": 10.5,
-  "range": [
-   1.227,
-   1.48
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 10.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    46,
-    24
-   ],
-   "next_line": 9.5,
-   "next_note": "Trento 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
-   "range": [
-    1.227,
-    1.48
-   ]
-  }
- },
- "12131015|corners|unter": {
-  "match_id": "12131015",
-  "home": "Real Sociedad",
-  "away": "Celta Vigo",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1788462000,
-  "league": "Spain La Liga",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 10:31",
-  "first_line": 10.5,
-  "first_range": [
-   1.89,
-   1.89
-  ],
-  "last_run": "Do 16:30",
-  "line": 10.5,
-  "range": [
-   1.19,
-   1.89
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 10.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    49
-   ],
-   "next_line": 9.5,
-   "next_note": "Real Sociedad 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
-   "range": [
-    1.19,
-    1.89
-   ]
-  }
- },
- "12131015|yellowcards|unter": {
-  "match_id": "12131015",
-  "home": "Real Sociedad",
-  "away": "Celta Vigo",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1788462000,
-  "league": "Spain La Liga",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 10:31",
-  "first_line": 6.5,
-  "first_range": [
-   1.36,
-   1.78
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.38,
-   1.71
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    49
-   ],
-   "next_line": 5.5,
-   "next_note": "Real Sociedad 0/2 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
-   "range": [
-    1.38,
-    1.71
-   ]
-  }
- },
- "12131015|fouls|über": {
-  "match_id": "12131015",
-  "home": "Real Sociedad",
-  "away": "Celta Vigo",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1788462000,
-  "league": "Spain La Liga",
-  "metric": "Fouls",
-  "metric_key": "fouls",
-  "direction": "über",
-  "first_run": "Do 10:31",
-  "first_line": 20.5,
-  "first_range": [
-   1.7,
-   1.91
-  ],
-  "last_run": "Do 16:30",
-  "line": 20.5,
-  "range": [
-   1.37,
-   1.52
-  ],
-  "signal": {
-   "metric": "Fouls",
-   "metric_key": "fouls",
-   "direction": "über",
-   "line": 20.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 16
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    46,
-    48
-   ],
-   "next_line": 22.5,
-   "next_note": "Celta Vigo 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "range": [
-    1.37,
-    1.52
-   ]
-  }
- },
- "12131015|fouls|unter": {
-  "match_id": "12131015",
-  "home": "Real Sociedad",
-  "away": "Celta Vigo",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1788462000,
-  "league": "Spain La Liga",
-  "metric": "Fouls",
-  "metric_key": "fouls",
-  "direction": "unter",
-  "first_run": "Do 10:31",
-  "first_line": 28.5,
-  "first_range": [
-   1.7,
-   1.91
-  ],
-  "last_run": "Do 16:30",
-  "line": 28.5,
-  "range": [
-   1.37,
-   1.52
-  ],
-  "signal": {
-   "metric": "Fouls",
-   "metric_key": "fouls",
-   "direction": "unter",
-   "line": 28.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    46,
-    48
-   ],
-   "next_line": 26.5,
-   "next_note": "kein Anker — Real Sociedad 8/10 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Celta Vigo 9/11 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
-   "range": [
-    1.37,
-    1.52
-   ]
-  }
- },
- "12449665|yellowcards|unter": {
-  "match_id": "12449665",
-  "home": "Cagliari",
-  "away": "Verona",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1788462000,
-  "league": "Coppa Italia",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 10:31",
-  "first_line": 5.5,
-  "first_range": [
-   1.54,
-   1.93
-  ],
-  "last_run": "Do 16:30",
-  "line": 5.5,
-  "range": [
-   1.54,
-   1.91
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 16
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    46
-   ],
-   "next_line": 4.5,
-   "next_note": "Verona 6/8 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "range": [
-    1.54,
-    1.91
-   ]
-  }
- },
- "12449665|on_target|unter": {
-  "match_id": "12449665",
-  "home": "Cagliari",
-  "away": "Verona",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1788462000,
-  "league": "Coppa Italia",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "unter",
-  "first_run": "Do 12:12",
-  "first_line": 10.5,
-  "first_range": [
-   1.42,
-   1.44
-  ],
-  "last_run": "Do 16:30",
-  "line": 10.5,
-  "range": [
-   1.42,
-   1.44
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "unter",
-   "line": 10.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    46
-   ],
-   "next_line": 9.5,
-   "next_note": "Verona 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "range": [
-    1.42,
-    1.44
-   ]
-  }
- },
- "12449665|offsides|unter": {
-  "match_id": "12449665",
-  "home": "Cagliari",
-  "away": "Verona",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1788462000,
-  "league": "Coppa Italia",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "Do 10:31",
-  "first_line": 5.5,
-  "first_range": [
-   1.8,
-   1.8
-  ],
-  "last_run": "Do 16:30",
-  "line": 5.5,
-  "range": [
-   1.3,
-   2.38
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    43,
-    41
-   ],
-   "next_line": 4.5,
-   "next_note": "Cagliari 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
-   "range": [
-    1.3,
-    2.38
-   ]
-  }
- },
- "12449665|fouls|unter": {
-  "match_id": "12449665",
-  "home": "Cagliari",
-  "away": "Verona",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1788462000,
-  "league": "Coppa Italia",
-  "metric": "Fouls",
-  "metric_key": "fouls",
-  "direction": "unter",
-  "first_run": "Do 10:31",
-  "first_line": 28.5,
-  "first_range": [
-   1.96,
-   1.96
-  ],
-  "last_run": "Do 16:30",
-  "line": 28.5,
-  "range": [
-   1.5,
-   2.24
-  ],
-  "signal": {
-   "metric": "Fouls",
-   "metric_key": "fouls",
-   "direction": "unter",
-   "line": 28.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    46,
-    41
-   ],
-   "next_line": 26.5,
-   "next_note": "Verona 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "range": [
-    1.5,
-    2.24
-   ]
-  }
- },
- "12391629|corners|über": {
-  "match_id": "12391629",
-  "home": "Deportivo Rayo Zuliano",
-  "away": "Carabobo",
-  "kickoff": "Do 21:30",
-  "kickoff_ts": 1788463800,
-  "league": "Venezuela Primera Division",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.357,
-   1.357
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.357,
-   1.357
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    40,
-    48
-   ],
-   "next_line": 7.5,
-   "next_note": "Deportivo Rayo Zuliano 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
-   "range": [
-    1.357,
-    1.357
-   ]
-  }
- },
- "12391629|corners|unter": {
-  "match_id": "12391629",
-  "home": "Deportivo Rayo Zuliano",
-  "away": "Carabobo",
-  "kickoff": "Do 21:30",
-  "kickoff_ts": 1788463800,
-  "league": "Venezuela Primera Division",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 12.5,
-  "first_range": [
-   1.357,
-   1.357
-  ],
-  "last_run": "Do 16:30",
-  "line": 12.5,
-  "range": [
-   1.357,
-   1.357
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 12.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    40,
-    48
-   ],
-   "next_line": 11.5,
-   "next_note": "Carabobo 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
-   "range": [
-    1.357,
-    1.357
-   ]
-  }
- },
- "11750116|corners|über": {
-  "match_id": "11750116",
-  "home": "IH Hafnarfjordur",
-  "away": "KFR Hvolsvöllur",
-  "kickoff": "Do 22:00",
-  "kickoff_ts": 1788465600,
-  "league": "Iceland 4 Deild",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 7.5,
-  "first_range": [
-   1.439,
-   1.75
-  ],
-  "last_run": "Do 16:30",
-  "line": 7.5,
-  "range": [
-   1.439,
-   1.75
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    35,
-    37
-   ],
-   "next_line": 8.5,
-   "next_note": "IH Hafnarfjordur 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
-   "range": [
-    1.439,
-    1.75
-   ]
-  }
- },
- "12391586|corners|über": {
-  "match_id": "12391586",
-  "home": "Academia Anzoategui FC",
-  "away": "Monagas",
-  "kickoff": "Do 22:00",
-  "kickoff_ts": 1788465600,
-  "league": "Venezuela Primera Division",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.254,
-   1.776
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.246,
-   1.792
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 17
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    39,
-    40
-   ],
-   "next_line": 7.5,
-   "next_note": "Monagas 0/2 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "range": [
-    1.246,
-    1.792
-   ]
-  }
- },
- "12391586|corners|unter": {
-  "match_id": "12391586",
-  "home": "Academia Anzoategui FC",
-  "away": "Monagas",
-  "kickoff": "Do 22:00",
-  "kickoff_ts": 1788465600,
-  "league": "Venezuela Primera Division",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 9.5,
-  "first_range": [
-   1.254,
-   1.776
-  ],
-  "last_run": "Do 16:30",
-  "line": 9.5,
-  "range": [
-   1.246,
-   1.792
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 9.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 16
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    39,
-    40
-   ],
-   "next_line": 8.5,
-   "next_note": "Academia Anzoategui FC 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
-   "range": [
-    1.246,
-    1.792
-   ]
-  }
- },
- "12100005|corners|unter": {
-  "match_id": "12100005",
-  "home": "America de Cali",
-  "away": "Alianza",
-  "kickoff": "Do 23:00",
-  "kickoff_ts": 1788469200,
-  "league": "Colombia Primera A",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 12.5,
-  "first_range": [
-   1.238,
-   2.444
-  ],
-  "last_run": "Do 16:30",
-  "line": 12.5,
-  "range": [
-   1.251,
-   1.95
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 12.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    46,
-    43
-   ],
-   "next_line": 11.5,
-   "next_note": "America de Cali 1/3 (3. Lücke) gesamt, 9/11 (3. Lücke) heim",
-   "range": [
-    1.251,
-    1.95
-   ]
-  }
- },
- "11400142|corners|über": {
-  "match_id": "11400142",
-  "home": "Leones FC",
-  "away": "Orense",
-  "kickoff": "Do 23:30",
-  "kickoff_ts": 1788471000,
-  "league": "Ecuador LigaPro Serie A",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.26,
-   1.64
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.31,
-   1.63
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    42,
-    45
-   ],
-   "next_line": 7.5,
-   "next_note": "Orense 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "range": [
-    1.31,
-    1.63
-   ]
-  }
- },
- "11400142|corners|unter": {
-  "match_id": "11400142",
-  "home": "Leones FC",
-  "away": "Orense",
-  "kickoff": "Do 23:30",
-  "kickoff_ts": 1788471000,
-  "league": "Ecuador LigaPro Serie A",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "unter",
-  "first_run": "Do 07:32",
-  "first_line": 11.5,
-  "first_range": [
-   1.26,
-   1.64
-  ],
-  "last_run": "Do 16:30",
-  "line": 11.5,
-  "range": [
-   1.31,
-   1.63
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "unter",
-   "line": 11.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    42,
-    45
-   ],
-   "next_line": 10.5,
-   "next_note": "kein Anker — Leones FC 8/10 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; Orense 8/10 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
-   "range": [
-    1.31,
-    1.63
-   ]
-  }
- },
- "12276191|corners|über": {
-  "match_id": "12276191",
-  "home": "Deportivo Recoleta",
-  "away": "Cerro Porteno",
-  "kickoff": "Do 23:30",
-  "kickoff_ts": 1788471000,
-  "league": "Paraguay Division Profesional",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 07:32",
-  "first_line": 6.5,
-  "first_range": [
-   1.95,
-   1.95
-  ],
-  "last_run": "Do 16:30",
-  "line": 6.5,
-  "range": [
-   1.95,
-   1.95
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    48
-   ],
-   "next_line": 7.5,
-   "next_note": "kein Anker — Deportivo Recoleta 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Cerro Porteno 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "range": [
-    1.95,
-    1.95
    ]
   }
  },
