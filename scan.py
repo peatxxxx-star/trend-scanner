@@ -34,8 +34,10 @@ REGELWERK (vollständig):
   Je Metrik/Richtung wird nur die strengste qualifizierende Linie
   gemeldet (über: höchste, unter: niedrigste).
 
-  Gegenläufigkeits-Filter: zeigt eine Metrik qualifizierte Trends in
-  BEIDE Richtungen, wird die Metrik komplett verworfen.
+  Gegenläufigkeits-Filter: hat auch nur EINES der beiden Teams in der
+  Gegenrichtung eine Serie (kleine Serie reicht) an einer Linie im engen
+  Korridor (Abstand <= CONTRA_GAP), wird das Signal verworfen. Breite
+  Korridore (z.B. über 6,5 + unter 12,5) sind legitim.
 
   Datenqualität: fehlende Statistik -> Spiel zählt für die Metrik nicht
   (weder Treffer noch Aussetzer). Fouls 0:0 gilt als "nicht erfasst"
@@ -43,6 +45,14 @@ REGELWERK (vollständig):
   ebenso für diese Metrik. Ein Team braucht je Metrik mindestens
   MIN_VALID_MATCHES saubere Spiele in der Gesamt-Historie, sonst gibt
   es für die Metrik kein Signal. Meldungen zeigen immer die Datenbasis.
+
+  Kennzahlen je Signal (keine zusätzlichen Anfragen): 📈 Trefferquote der
+  Linie über die Historie beider Teams (jüngere Spiele stärker gewichtet,
+  Spiele mit Platzverweis halb), 🪜 faire Quote für die Linie und ihre
+  Nachbarlinien (zur Grundrate aller gecachten Spiele hin gedämpft,
+  PRIOR_WEIGHT), 🎯 erwartete Spielsumme (gewichteter Ø Heimspiele des
+  Heimteams + Auswärtsspiele des Gastteams) mit Puffer zur Linie,
+  ↔ eigene/Gegner-Durchschnitte.
 
   Lauf-Vergleich (state/reported.json): JEDE Telegram-Nachricht zeigt
   ALLE Signale des Tages (noch nicht angepfiffen), strikt nach
@@ -130,7 +140,15 @@ S24_GROUPS = {
 # dann ein Widerspruch, wenn ihr Korridor eng ist (z.B. über 8,5 UND
 # unter 10,5). Breite Korridore (über 6,5 + unter 12,5) sind legitim —
 # bewiesen durch Lucios Wycombe-Wettschein vom 01.09.
-CONTRA_GAP = 2.0
+CONTRA_GAP = 2.0                      # Standard (Ecken, Schüsse)
+# Marktabhängig: enge Linienraster (Karten, Abseits) -> nur die direkt
+# benachbarte Linie ist ein Widerspruch; Fouls (Raster 2) -> 4.
+CONTRA_GAP_BY_METRIC = {"corners": 2.0, "on_target": 2.0,
+                        "yellowcards": 1.0, "offsides": 1.0, "fouls": 4.0}
+
+
+def contra_gap(metric):
+    return CONTRA_GAP_BY_METRIC.get(metric, CONTRA_GAP)
 
 # Anfragen-Wächter: BetsAPI erlaubt 3.600 Anfragen/Stunde. Wir bremsen
 # rechtzeitig, statt in Fehler zu laufen.
@@ -150,6 +168,9 @@ METRICS = {
     "offsides": ("Abseits",           [2.5, 3.5, 4.5, 5.5]),
     "fouls":    ("Fouls",             [18.5, 20.5, 22.5, 24.5, 26.5, 28.5]),
 }
+
+# Zusätzlich gecachte Felder (nicht als Markt, nur für die Gewichtung)
+EXTRA_STAT_FIELDS = ("redcards",)
 
 CACHE_FILE = Path(__file__).parent / "cache" / "stats.json"
 RUNS_DIR = Path(__file__).parent / "runs"
@@ -406,7 +427,7 @@ def fetch_team_history(team_id: str, cache: dict, hcache: dict = None):
         for ev in view.get("results", []):
             stats = ev.get("stats") or {}
             slim = {}
-            for key in METRICS:
+            for key in list(METRICS) + list(EXTRA_STAT_FIELDS):
                 pair = stats.get(key)
                 try:
                     slim[key] = [int(pair[0]), int(pair[1])]
@@ -757,6 +778,169 @@ def next_line_note(match, hist_home, hist_away, metric, direction, line):
     return nxt, "; ".join(parts)
 
 
+def counter_trend(match, hist_home, hist_away, metric, direction, line):
+    """Gegenbewegung: Hat EINES der beiden Teams in der Gegenrichtung eine
+    Serie (kleine Serie reicht) an einer Linie im engen Korridor
+    (Abstand <= CONTRA_GAP)? Dann widerspricht sich der Markt und wird
+    verworfen — Lucios Vorgabe (Beispiel Palermo: unter 5,5 Abseits für
+    beide, aber Palermo über 4,5 in 7 der letzten 8 -> raus).
+    Liefert Beschreibung der Gegen-Serie oder None."""
+    opp = "unter" if direction == "über" else "über"
+    for L in METRICS[metric][1]:
+        gap = (L - line) if direction == "über" else (line - L)
+        if gap > contra_gap(metric):
+            continue
+        for hist, role, name in ((hist_home, "home", match["home"]),
+                                 (hist_away, "away", match["away"])):
+            a, o, _ = team_qualifies(hist, metric, L, opp, role)
+            s = a or o
+            if s:
+                return f"{name} {opp} {L}: {fmt_series(s, bool(a))}"
+    return None
+
+
+# ----------------------------------------------------------------------------
+# Kennzahlen je Signal (Optimierungsphase 1): Langzeitquote, faire Quote,
+# Erwartung/Puffer, Für/Gegen-Profil — alles aus den ohnehin geladenen
+# 50 Spielen je Team, keine zusätzlichen API-Anfragen.
+# ----------------------------------------------------------------------------
+
+PRIOR_WEIGHT = 20            # wie stark die faire Quote zur Grundrate gezogen wird
+                             # (dämpft die Selbstüberschätzung ausgewählter Serien)
+# Gewichtung der Historie für die Kennzahlen (NICHT für die Serienregeln):
+# die jüngsten RECENT_FULL Spiele zählen voll, danach halbiert sich das
+# Gewicht alle DECAY_HALF Spiele (Saisonwechsel, Trainerwechsel, Umbruch).
+# Spiele mit Platzverweis zählen nur RED_CARD_WEIGHT (verzerrte Totals).
+RECENT_FULL = 10
+DECAY_HALF = 15
+RED_CARD_WEIGHT = 0.5
+_base_rates = {}             # {(metric, line, direction): p} aus dem Statistik-Cache
+
+
+def compute_base_rates(cache):
+    """Grundraten je Markt/Linie/Richtung über ALLE gecachten Spiele —
+    der neutrale Vergleichsmaßstab für die faire Quote."""
+    rates = {}
+    for metric, (_, lines) in METRICS.items():
+        totals = []
+        for slim in cache.values():
+            tot = metric_total({"stats": slim}, metric)
+            if tot is not None:
+                totals.append(tot)
+        for line in lines:
+            if totals:
+                over = sum(1 for x in totals if x > line) / len(totals)
+            else:
+                over = 0.5
+            rates[(metric, line, "über")] = over
+            rates[(metric, line, "unter")] = 1 - over
+    return rates
+
+
+def game_weight(i, m):
+    w = 1.0 if i < RECENT_FULL else 0.5 ** ((i - RECENT_FULL + 1) / DECAY_HALF)
+    reds = (m.get("stats") or {}).get("redcards")
+    if reds and (reds[0] + reds[1]) > 0:
+        w *= RED_CARD_WEIGHT
+    return w
+
+
+def weighted_stats(history, metric, line, direction, venue=None):
+    """Gewichtete Treffer, Gewichtssumme und gewichteter Ø der Spielsumme."""
+    wh = ww = wt = 0.0
+    for i, m in enumerate(history):
+        if venue == "home" and not m["is_home"]:
+            continue
+        if venue == "away" and m["is_home"]:
+            continue
+        tot = metric_total(m, metric)
+        if tot is None:
+            continue
+        w = game_weight(i, m)
+        hit = (tot > line) if direction == "über" else (tot < line)
+        wh += w * hit
+        ww += w
+        wt += w * tot
+    return wh, ww, (wt / ww if ww else None)
+
+
+def fair_odds(hist_home, hist_away, metric, line, direction):
+    wh_h, ww_h, _ = weighted_stats(hist_home, metric, line, direction)
+    wh_a, ww_a, _ = weighted_stats(hist_away, metric, line, direction)
+    p0 = _base_rates.get((metric, line, direction), 0.5)
+    p = (wh_h + wh_a + PRIOR_WEIGHT * p0) / max(ww_h + ww_a + PRIOR_WEIGHT, 1e-9)
+    return round(1 / p, 2) if p > 0.02 else None
+
+
+def team_totals(history, metric, venue=None):
+    out = []
+    for m in history:
+        if venue == "home" and not m["is_home"]:
+            continue
+        if venue == "away" and m["is_home"]:
+            continue
+        tot = metric_total(m, metric)
+        if tot is not None:
+            out.append(tot)
+    return out
+
+
+def team_for_against(history, metric):
+    """Ø eigene Werte / Ø Werte des Gegners (aus [Heim, Gast] + Rolle)."""
+    own, opp = [], []
+    for m in history:
+        if metric_total(m, metric) is None:
+            continue
+        pair = (m.get("stats") or {}).get(metric)
+        if not pair:
+            continue
+        a, b = (pair[0], pair[1]) if m["is_home"] else (pair[1], pair[0])
+        own.append(a)
+        opp.append(b)
+    if not own:
+        return None
+    return sum(own) / len(own), sum(opp) / len(opp)
+
+
+def _mean(xs):
+    return sum(xs) / len(xs) if xs else None
+
+
+def enrich_signal(s, hist_home, hist_away, metric, direction, line):
+    """Hängt Kennzahlen ans Signal: longterm (Quote je Team über die ganze
+    Historie), fair (faire Quote), expect/buffer (Erwartung, Puffer),
+    fa (Für/Gegen je Team)."""
+    wh_h, ww_h, _ = weighted_stats(hist_home, metric, line, direction)
+    wh_a, ww_a, _ = weighted_stats(hist_away, metric, line, direction)
+    s["longterm"] = (wh_h / ww_h if ww_h else None, wh_a / ww_a if ww_a else None)
+    s["fair"] = fair_odds(hist_home, hist_away, metric, line, direction)
+    # Fair-Leiter: Nachbarlinien gleich mit (Bookie-Leiter vergleichen)
+    lines = METRICS[metric][1]
+    idx = lines.index(line) if line in lines else None
+    ladder = []
+    if idx is not None:
+        for j in (idx - 1, idx, idx + 1):
+            if 0 <= j < len(lines):
+                ladder.append([lines[j], fair_odds(hist_home, hist_away, metric, lines[j], direction)])
+    s["ladder"] = ladder
+    _, _, avg_h = weighted_stats(hist_home, metric, line, direction, "home")
+    if avg_h is None:
+        _, _, avg_h = weighted_stats(hist_home, metric, line, direction)
+    _, _, avg_a = weighted_stats(hist_away, metric, line, direction, "away")
+    if avg_a is None:
+        _, _, avg_a = weighted_stats(hist_away, metric, line, direction)
+    if avg_h is not None and avg_a is not None:
+        expect = (avg_h + avg_a) / 2
+        s["avg"] = (round(avg_h, 1), round(avg_a, 1))
+        s["expect"] = round(expect, 1)
+        s["buffer"] = round(expect - line if direction == "über" else line - expect, 1)
+    fa_h = team_for_against(hist_home, metric)
+    fa_a = team_for_against(hist_away, metric)
+    if fa_h and fa_a:
+        s["fa"] = ([round(fa_h[0], 1), round(fa_h[1], 1)], [round(fa_a[0], 1), round(fa_a[1], 1)])
+    return s
+
+
 def evaluate_match(match, hist_home, hist_away, market_odds=None):
     """Regelwerk + optionales Quoten-Gate.
 
@@ -792,7 +976,7 @@ def evaluate_match(match, hist_home, hist_away, market_odds=None):
         over_lines = [c["line"] for c in candidates.get((metric, "über"), [])]
         under_lines = [c["line"] for c in candidates.get((metric, "unter"), [])]
         if over_lines and under_lines and \
-           min(under_lines) - max(over_lines) <= CONTRA_GAP:
+           min(under_lines) - max(over_lines) <= contra_gap(metric):
             contradicted.add(metric)
     signals = []
     for (metric, direction), cands in candidates.items():
@@ -811,10 +995,16 @@ def evaluate_match(match, hist_home, hist_away, market_odds=None):
             continue
         best = max(cands, key=lambda c: c["line"]) if direction == "über" \
             else min(cands, key=lambda c: c["line"])
+        contra = counter_trend(match, hist_home, hist_away, metric, direction, best["line"])
+        if contra:
+            match.setdefault("_contra", []).append(
+                f"{METRICS[metric][0]} {direction} {best['line']} verworfen — Gegenbewegung {contra}")
+            continue
         note = next_line_note(match, hist_home, hist_away, metric, direction, best["line"])
         if note:
             best["next_line"] = note[0]
             best["next_note"] = note[1]
+        enrich_signal(best, hist_home, hist_away, metric, direction, best["line"])
         signals.append(best)
     return signals
 
@@ -842,7 +1032,8 @@ def _cur_range(s):
 
 _SNAPSHOT_KEYS = ("metric", "metric_key", "direction", "line", "home_series",
                   "away_series", "home_is_anchor", "away_is_anchor", "valid",
-                  "next_line", "next_note")
+                  "next_line", "next_note", "longterm", "fair", "ladder", "avg",
+                  "expect", "buffer", "fa")
 
 
 def signal_snapshot(s):
@@ -1016,6 +1207,24 @@ def build_match_block(match, entries):
         tail = fmt_odds_tail(s)
         base = f"📊 {s['valid'][0]}/{s['valid'][1]}" if s.get("valid") else ""
         lines.append(f"   {tail} · {base}" if (tail and base) else f"   {tail or base}")
+        lt = s.get("longterm")
+        if lt and lt[0] is not None and lt[1] is not None:
+            lines.append(f"   📈 Langzeit {lt[0]*100:.0f} % / {lt[1]*100:.0f} %")
+        if s.get("ladder"):
+            steps = []
+            for L, f in s["ladder"]:
+                txt = f"{L} {f:.2f}" if f else f"{L} –"
+                steps.append(f"<b>{txt}</b>" if L == s["line"] else txt)
+            lines.append("   🪜 Fair " + " · ".join(steps))
+        elif s.get("fair"):
+            lines.append(f"   🪜 Fair ≈ {s['fair']:.2f}")
+        if s.get("expect") is not None:
+            buf = s["buffer"]
+            lines.append(f"   🎯 Erwartung {s['expect']} (Ø {s['avg'][0]} / {s['avg'][1]})"
+                         f" · Puffer {buf:+.1f}")
+        if s.get("fa"):
+            (h1, h2), (a1, a2) = s["fa"]
+            lines.append(f"   ↔ {esc(match['home'])} {h1}/{h2} · {esc(match['away'])} {a1}/{a2}")
         if s.get("next_line") is not None:
             lines.append(f"   ↳ {s['next_line']} nicht: <i>{esc(s['next_note'])}</i>")
         # Änderungs-Hinweise (change_note) bewusst nicht angezeigt — Lucio
@@ -1107,7 +1316,9 @@ def assemble_report(buckets, run_label, new_state=None):
     if not total_day:
         return None
     blocks = [f"📊 {total_day} Signale heute · 🆕 {n['new']} neu seit letztem Lauf\n"
-              f"<i>⚓ Anker · 📊 Datenbasis Heim/Gast · 💰 Quoten</i>"]
+              f"<i>⚓ Anker · 📊 Datenbasis · 💰 Quoten · 📈 Trefferquote Historie (jüngere "
+              f"Spiele stärker) · 🪜 faire Quote je Linie · 🎯 erwartete Spielsumme · "
+              f"↔ eigene/Gegner Ø</i>"]
     blocks += [build_match_block(m, e) for m, e in items]
 
     # Telegram erlaubt max. 4096 Zeichen pro Nachricht -> stückeln
@@ -1212,6 +1423,7 @@ def run():
         sys.exit("BETSAPI_TOKEN fehlt")
     cache = load_cache()
     hcache = load_history_cache()
+    _base_rates.update(compute_base_rates(cache))
     if is_prewarm_run():
         prewarm(cache, hcache)
         return
@@ -1257,6 +1469,8 @@ def run():
             checked_ids.add(match["id"])
             gate_dropped.update(gated_out)
             unverifiable.update(unverif)
+            for line in match.pop("_contra", []):
+                print(f"  {match['home']} – {match['away']}: {line}")
             if signals:
                 all_hits.append((match, signals))
                 print(f"  TREFFER: {match['home']} – {match['away']} ({len(signals)})")
@@ -1358,6 +1572,28 @@ def selftest():
     elif sig[0].get("next_line") != 9.5 or "B" not in sig[0].get("next_note", ""):
         print("FEHLER Fall 1b: Hinweis zur nächststrengeren Linie fehlt:", sig[0].get("next_note"))
         ok = False
+    else:
+        s1 = sig[0]
+        lt = s1.get("longterm")
+        if not lt or not (0.8 <= lt[0] <= 1.0) or not (0.2 <= lt[1] <= 0.5):
+            print("FEHLER Fall 1c: Langzeitquote unplausibel:", lt)
+            ok = False
+        if not s1.get("fair") or not (1.2 <= s1["fair"] <= 2.5):
+            print("FEHLER Fall 1d: faire Quote unplausibel:", s1.get("fair"))
+            ok = False
+        if s1.get("expect") is None or s1.get("fa") is None:
+            print("FEHLER Fall 1e: Erwartung/Für-Gegen fehlt:", s1.get("expect"), s1.get("fa"))
+            ok = False
+        lad = s1.get("ladder") or []
+        fairs = [f for _, f in lad]
+        if [L for L, _ in lad] != [7.5, 8.5, 9.5] or fairs != sorted(fairs):
+            print("FEHLER Fall 1f: Fair-Leiter fehlt/unsortiert:", lad)
+            ok = False
+        # Gewichtung: Platzverweis-Spiel und altes Spiel zählen weniger
+        if game_weight(0, {"stats": {}}) != 1.0 or game_weight(40, {"stats": {}}) >= 0.5 or \
+           game_weight(0, {"stats": {"redcards": [1, 0]}}) != RED_CARD_WEIGHT:
+            print("FEHLER Fall 1g: Gewichtung falsch")
+            ok = False
 
     # --- Fall 2: Frische-Regel — Aussetzer im jüngsten Spiel bricht Anker
     a2 = _mk([[1, 1]] + [[6, 5]] * 14, [H, A] * 7 + [H])   # jüngstes Spiel Lücke
@@ -1472,7 +1708,8 @@ def selftest():
 
     # --- Fall 8: Gegenläufigkeit nur bei ENGEM Korridor
     #  a) breiter Korridor (über 6,5 + unter 12,5) -> beide Richtungen bleiben
-    wide = _mk([[6, 5], [4, 3], [6, 6], [4, 4]] * 4, [H, A] * 8)[:15]
+    #  (Heim/Auswärts so gemischt, dass keine Rollen-Gegen-Serie entsteht)
+    wide = _mk([[6, 5], [4, 3], [6, 6], [4, 4]] * 4, [H, H, A, A] * 4)[:15]
     wsig = evaluate_match(match, wide, [dict(x) for x in wide])
     dirs = {s["direction"] for s in wsig if s["metric"] == "Ecken"}
     if dirs != {"über", "unter"}:
@@ -1604,6 +1841,38 @@ def selftest():
         ok = False
     if "--show" in sys.argv:
         print("\n".join(report))
+
+    # --- Fall 11: Gegenbewegung eines EINZELNEN Teams im engen Korridor
+    #  Abseits: beide Teams unter 5.5 (immer 3-5), aber Heimteam zusätzlich
+    #  über 4.5 in 7 der letzten 8 (genau 5 Abseits) -> Markt raus
+    def _off(vals, homes):
+        h = _mk([[5, 5]] * len(vals), homes)
+        for m, v in zip(h, vals):
+            m["stats"]["offsides"] = [v, 0]
+        return h
+    pal = _off([5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5], [H, A] * 7 + [H])
+    man = _off([3] * 15, [A, H] * 7 + [A])
+    sig11 = [s for s in evaluate_match(dict(match), pal, man) if s["metric"] == "Abseits"]
+    if sig11:
+        print("FEHLER Fall 11a: Gegenbewegung (über 4.5 bei einem Team) muss unter 5.5 kippen:", sig11)
+        ok = False
+    #  ohne die Gegen-Serie (Heimteam 2-3 Abseits) bleibt unter 5.5 bestehen
+    pal2 = _off([3, 2, 3, 3, 2, 3, 3, 2, 3, 3, 2, 3, 3, 2, 3], [H, A] * 7 + [H])
+    man2 = _off([3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2], [A, H] * 7 + [A])
+    sig11b = [s for s in evaluate_match(dict(match), pal2, man2)
+              if s["metric"] == "Abseits" and s["direction"] == "unter"]
+    if not sig11b:
+        print("FEHLER Fall 11b: ohne Gegenbewegung muss das Signal bleiben")
+        ok = False
+
+    #  Abseits: Gegenteam immer genau 3 -> über 2.5 UND unter 3.5 gleichzeitig;
+    #  Signal unter 5.5 (Heim 4-5) darf davon nicht kippen (Abstand 3 > 1)
+    pal3 = _off([5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5], [H, H, A, A] * 4)
+    sig11c = [s for s in evaluate_match(dict(match), pal3, man)
+              if s["metric"] == "Abseits" and s["direction"] == "unter"]
+    if not sig11c or sig11c[0]["line"] != 5.5:
+        print("FEHLER Fall 11c: marktabhängiger Korridor (Abseits=1) greift nicht:", sig11c)
+        ok = False
 
     # --- Fall 10: Tages-Cache für Spiellisten + Vorwärm-Abbruch am Limit
     global api_get, _no_wait, _hour_requests, _budget_exhausted
