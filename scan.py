@@ -55,7 +55,8 @@ REGELWERK (vollständig):
   ↔ eigene/Gegner-Durchschnitte. Zusätzlich (je 1 Anfrage, nur bei
   Signalen): 🏷 bet365-Hauptlinie mit Quote bei Ecken-Signalen,
   🧑‍⚖️ angesetzter Schiedsrichter mit Karten-/Foul-Schnitt aus dem Cache bei
-  Karten-/Foul-Signalen. Spiele mit Verlängerung (120 Min.) zählen in den
+  Karten-/Foul-Signalen; die Erwartung wird dort zusätzlich mit dem
+  Schiri-Faktor (sein Schnitt / Schnitt aller Spiele, gedämpft) skaliert. Spiele mit Verlängerung (120 Min.) zählen in den
   Kennzahlen halb. BACKFILL=1 lädt Zusatzdaten für alte Cache-Einträge nach.
 
   Lauf-Vergleich (state/reported.json): JEDE Telegram-Nachricht zeigt
@@ -890,6 +891,34 @@ def compute_referee_stats(cache):
     return out
 
 
+REF_PRIOR_GAMES = 8          # so viele "neutrale" Spiele werden dem Schiri-Schnitt beigemischt
+_base_means = {}             # {metric: Ø Spielsumme über alle gecachten Spiele}
+
+
+def compute_base_means(cache):
+    out = {}
+    for metric in METRICS:
+        vals = [metric_total({"stats": s}, metric) for s in cache.values()]
+        vals = [v for v in vals if v is not None]
+        if vals:
+            out[metric] = sum(vals) / len(vals)
+    return out
+
+
+def referee_factor(ref_id, metric):
+    """Faktor > 1 = dieser Schiri liegt über dem Schnitt aller Spiele.
+    Bei wenigen Spielen zum Faktor 1 hin gedämpft. None = keine Daten."""
+    d = _ref_stats.get(str(ref_id))
+    key = "cards" if metric == "yellowcards" else "fouls" if metric == "fouls" else None
+    base = _base_means.get(metric)
+    if not d or not key or not d[key] or not base:
+        return None
+    n = len(d[key])
+    mean = sum(d[key]) / n
+    shrunk = (mean * n + base * REF_PRIOR_GAMES) / (n + REF_PRIOR_GAMES)
+    return shrunk / base
+
+
 def referee_note(ref_id, ref_name):
     d = _ref_stats.get(str(ref_id))
     if not d or not (d["cards"] or d["fouls"]):
@@ -1090,7 +1119,7 @@ def _cur_range(s):
 _SNAPSHOT_KEYS = ("metric", "metric_key", "direction", "line", "home_series",
                   "away_series", "home_is_anchor", "away_is_anchor", "valid",
                   "next_line", "next_note", "longterm", "fair", "ladder", "avg",
-                  "expect", "buffer", "fa", "referee", "b365")
+                  "expect", "buffer", "fa", "referee", "b365", "expect_ref", "buffer_ref")
 
 
 def signal_snapshot(s):
@@ -1277,8 +1306,12 @@ def build_match_block(match, entries):
             lines.append(f"   🪜 Fair ≈ {s['fair']:.2f}")
         if s.get("expect") is not None:
             buf = s["buffer"]
-            lines.append(f"   🎯 Erwartung {s['expect']} (Ø {s['avg'][0]} / {s['avg'][1]})"
-                         f" · Puffer {buf:+.1f}")
+            if s.get("expect_ref") is not None:
+                lines.append(f"   🎯 Erwartung {s['expect']} (Ø {s['avg'][0]} / {s['avg'][1]})"
+                             f" · mit Schiri <b>{s['expect_ref']}</b> · Puffer {s['buffer_ref']:+.1f}")
+            else:
+                lines.append(f"   🎯 Erwartung {s['expect']} (Ø {s['avg'][0]} / {s['avg'][1]})"
+                             f" · Puffer {buf:+.1f}")
         if s.get("fa"):
             (h1, h2), (a1, a2) = s["fa"]
             lines.append(f"   ↔ {esc(match['home'])} {h1}/{h2} · {esc(match['away'])} {a1}/{a2}")
@@ -1452,6 +1485,12 @@ def attach_extras(match, signals):
                 for s in signals:
                     if s["metric_key"] in ("yellowcards", "fouls"):
                         s["referee"] = note
+                        f = referee_factor(ref["id"], s["metric_key"])
+                        if f and s.get("expect") is not None:
+                            adj = round(s["expect"] * f, 1)
+                            s["expect_ref"] = adj
+                            s["buffer_ref"] = round(adj - s["line"] if s["direction"] == "über"
+                                                    else s["line"] - adj, 1)
         except Exception as exc:
             print(f"  Schiri-Abfrage {match['home']}–{match['away']}: {exc}")
 
@@ -1561,6 +1600,7 @@ def run():
     hcache = load_history_cache()
     _base_rates.update(compute_base_rates(cache))
     _ref_stats.update(compute_referee_stats(cache))
+    _base_means.update(compute_base_means(cache))
     if os.environ.get("BACKFILL") == "1":
         backfill(cache)
         return
@@ -2032,6 +2072,11 @@ def selftest():
         ok = False
     if game_weight(0, {"stats": sl}) != RED_CARD_WEIGHT * RED_CARD_WEIGHT:
         print("FEHLER Fall 12c: Verlängerung + Platzverweis müssen beide halbieren")
+        ok = False
+    _base_means.update({"yellowcards": 3.0, "fouls": 23.0})
+    f = referee_factor("77", "yellowcards")     # Schiri Ø 3.5 bei Basis 3.0, 2 Spiele -> leicht > 1
+    if not f or not (1.0 < f < 1.17):
+        print("FEHLER Fall 12d: Schiri-Faktor unplausibel:", f)
         ok = False
 
     # --- Fall 10: Tages-Cache für Spiellisten + Vorwärm-Abbruch am Limit
