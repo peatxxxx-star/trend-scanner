@@ -44,15 +44,15 @@ REGELWERK (vollständig):
   MIN_VALID_MATCHES saubere Spiele in der Gesamt-Historie, sonst gibt
   es für die Metrik kein Signal. Meldungen zeigen immer die Datenbasis.
 
-  Lauf-Vergleich (state/reported.json): Die Telegram-Nachricht enthält
-  NUR komplett neue Signale (noch nie an diesem Tag gemeldet), strikt
-  nach Anstoßzeit. Gemeldet wird nur, was zum Scan-Zeitpunkt eine echte
-  Quoten-Spanne bei scores24 hat. Einmal gemeldet = bis zum Anpfiff
-  gemerkt, auch wenn ein späterer Lauf keine Quoten mehr findet oder die
-  Serie kippt (es taucht nie wieder als neu auf). Geändert/unverändert/
-  weggefallen werden nur im Lauf-Protokoll (runs/) festgehalten. Gibt es
-  nichts Neues, kommt ein Einzeiler. Angepfiffene Spiele werden
-  automatisch vergessen. Das Gedächtnis wird nur nach erfolgreicher
+  Lauf-Vergleich (state/reported.json): JEDE Telegram-Nachricht zeigt
+  ALLE Signale des Tages (noch nicht angepfiffen), strikt nach
+  Anstoßzeit; Signale, die seit dem letzten Lauf neu sind, tragen 🆕,
+  alle anderen ▸. Aufgenommen wird nur, was zum Scan-Zeitpunkt eine echte
+  Quoten-Spanne bei scores24 hat; einmal aufgenommen bleibt es bis zum
+  Anpfiff in der Liste, auch wenn ein späterer Lauf keine Quoten mehr
+  findet oder die Serie kippt. Geändert/weggefallen wird nur im
+  Lauf-Protokoll (runs/) festgehalten. Angepfiffene Spiele fallen
+  automatisch raus. Das Gedächtnis wird nur nach erfolgreicher
   Zustellung gespeichert.
 
 Benötigte Umgebungsvariablen:
@@ -840,6 +840,21 @@ def _cur_range(s):
     return list(s["range"]) if s.get("range") else None
 
 
+_SNAPSHOT_KEYS = ("metric", "metric_key", "direction", "line", "home_series",
+                  "away_series", "home_is_anchor", "away_is_anchor", "valid",
+                  "next_line", "next_note")
+
+
+def signal_snapshot(s):
+    """Alles, was nötig ist, um ein Signal später erneut darzustellen —
+    auch wenn ein späterer Lauf es nicht mehr liefert."""
+    snap = {k: s.get(k) for k in _SNAPSHOT_KEYS}
+    if snap.get("valid") is not None:
+        snap["valid"] = list(snap["valid"])
+    snap["range"] = _cur_range(s)
+    return snap
+
+
 def classify_signals(state, all_hits, checked_ids, window_ids, now_ts, run_label,
                      gate_dropped=frozenset(), unverifiable=frozenset()):
     """Vergleicht die Signale dieses Laufs mit dem Lauf-Gedächtnis.
@@ -880,12 +895,14 @@ def classify_signals(state, all_hits, checked_ids, window_ids, now_ts, run_label
                     "first_run": run_label, "first_line": s["line"],
                     "first_range": cur_range,
                     "last_run": run_label, "line": s["line"], "range": cur_range,
+                    "signal": signal_snapshot(s),
                 }
                 per["new"].append(s)
             else:
                 entry = dict(prev, last_run=run_label, line=s["line"],
                              range=cur_range, kickoff=match["kickoff"],
-                             kickoff_ts=match.get("kickoff_ts", prev.get("kickoff_ts", 0)))
+                             kickoff_ts=match.get("kickoff_ts", prev.get("kickoff_ts", 0)),
+                             signal=signal_snapshot(s))
                 notes = []
                 if prev.get("first_line") != s["line"]:
                     notes.append(f"Linie vorher {prev.get('first_line')}")
@@ -964,7 +981,7 @@ BANNER = "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩"   # Nachrichten-
 FOOTER = "🔻🔻🔻"                        # Nachrichten-Ende
 
 
-STATUS_ICON = {"new": "🆕", "changed": "🔄", "same": "🔁", "dropped": "❌"}
+STATUS_ICON = {"new": "🆕", "known": "▸", "changed": "🔄", "same": "🔁", "dropped": "❌"}
 
 
 def build_match_block(match, entries):
@@ -989,16 +1006,20 @@ def build_match_block(match, entries):
             lines.append(f"   <i>{esc(reason)}</i>")
             continue
         lines.append(f"{icon} <b>{esc(s['metric'])} {s['direction']} {s['line']}</b>")
+        if not s.get("home_series"):            # alter Eintrag ohne Details
+            tail = fmt_odds_tail(s)
+            if tail:
+                lines.append(f"   {tail}")
+            continue
         lines.append(f"   {esc(match['home'])}: {fmt_series(s['home_series'], s['home_is_anchor'])}")
         lines.append(f"   {esc(match['away'])}: {fmt_series(s['away_series'], s['away_is_anchor'])}")
         tail = fmt_odds_tail(s)
-        base = f"📊 {s['valid'][0]}/{s['valid'][1]}"
-        lines.append(f"   {tail} · {base}" if tail else f"   {base}")
+        base = f"📊 {s['valid'][0]}/{s['valid'][1]}" if s.get("valid") else ""
+        lines.append(f"   {tail} · {base}" if (tail and base) else f"   {tail or base}")
         if s.get("next_line") is not None:
             lines.append(f"   ↳ {s['next_line']} nicht: <i>{esc(s['next_note'])}</i>")
-        if s.get("change_note"):
-            lines.append(f"   🔄 <i>{esc(s['change_note'])}</i>"
-                         f" · erster Lauf {s.get('first_run', '?')}")
+        # Änderungs-Hinweise (change_note) bewusst nicht angezeigt — Lucio
+        # will nur die Tagesliste mit 🆕-Markierung; Details stehen in runs/.
     return "\n".join(lines)
 
 
@@ -1025,7 +1046,43 @@ def merge_by_kickoff(buckets):
     return result
 
 
-def assemble_report(buckets, run_label):
+def day_list(buckets, new_state):
+    """Alle Signale des Tages (aus dem Gedächtnis) als
+    [(match, [(status, signal, ""), ...])] — neue zuerst markiert, strikt
+    nach Anstoßzeit. Aktuelle Daten haben Vorrang vor gespeicherten."""
+    current = {}
+    for status in ("new", "changed", "same"):
+        for match, sigs in buckets[status]:
+            for s in sigs:
+                current[signal_key(match, s)] = (status, match, s)
+    per_match = {}
+    for key, entry in new_state.items():
+        if key in current:
+            status, match, s = current[key]
+            status = "new" if status == "new" else "known"
+        else:
+            match = {"id": entry["match_id"], "home": entry["home"], "away": entry["away"],
+                     "kickoff": entry.get("kickoff", "?"), "league": entry.get("league", ""),
+                     "kickoff_ts": entry.get("kickoff_ts", 0)}
+            s = dict(entry.get("signal") or {})
+            s.setdefault("metric", entry.get("metric", "?"))
+            s.setdefault("direction", entry.get("direction", "?"))
+            s.setdefault("line", entry.get("line", "?"))
+            if s.get("range") is None and entry.get("range"):
+                s["range"] = entry["range"]
+            status = "known"
+        slot = per_match.setdefault(match["id"], {"match": match, "entries": []})
+        slot["entries"].append((status, s, ""))
+    order = {"new": 0, "known": 1}
+    result = []
+    for slot in sorted(per_match.values(),
+                       key=lambda x: (x["match"].get("kickoff_ts", 0), x["match"]["home"])):
+        slot["entries"].sort(key=lambda e: (order[e[0]], e[1].get("metric", "")))
+        result.append((slot["match"], slot["entries"]))
+    return result
+
+
+def assemble_report(buckets, run_label, new_state=None):
     """Baut die Telegram-Nachricht(en); None = nichts zu melden.
     Liefert Liste von HTML-Text-Stücken (<= ~3500 Zeichen)."""
     n = {k: sum(len(sigs) for _, sigs in v) for k, v in buckets.items() if k != "dropped"}
@@ -1042,21 +1099,16 @@ def assemble_report(buckets, run_label):
         parts_summary.append(f"❌ {n['dropped']} weggefallen")
     summary = " · ".join(parts_summary) or "keine"
 
-    if not n["new"]:
-        if not (n["same"] or n["changed"]):
-            return None
-        # nichts Neues: nur ein Einzeiler, damit klar ist, dass der Lauf lief
-        return [f"🟨🟨🟨 <b>TREND-SCAN {run_label}</b> 🟨🟨🟨\n"
-                f"🔁 nichts Neues — {n['same'] + n['changed']} Signal(e) bereits gemeldet"]
-
-    # Lucios Vorgabe: nur komplett neue Signale melden. Geändert/unverändert/
-    # weggefallen stehen im Lauf-Protokoll (runs/), nicht in der Nachricht.
-    only_new = {"new": buckets["new"], "changed": [], "same": [], "dropped": []}
-    known = n["same"] + n["changed"]
-    blocks = [f"🆕 {n['new']} neue Signale seit dem letzten Lauf"
-              + (f" · {known} bereits gemeldet" if known else "")
-              + "\n<i>⚓ Anker · 📊 Datenbasis Heim/Gast · 💰 Quoten</i>"]
-    blocks += [build_match_block(m, e) for m, e in merge_by_kickoff(only_new)]
+    # Lucios Vorgabe: JEDE Nachricht zeigt ALLE Signale des Tages (bis
+    # Anpfiff), strikt nach Anstoßzeit; neue seit dem letzten Lauf tragen
+    # 🆕, der Rest ▸. Geändert/weggefallen wird nicht extra ausgewiesen.
+    items = day_list(buckets, new_state or {})
+    total_day = sum(len(e) for _, e in items)
+    if not total_day:
+        return None
+    blocks = [f"📊 {total_day} Signale heute · 🆕 {n['new']} neu seit letztem Lauf\n"
+              f"<i>⚓ Anker · 📊 Datenbasis Heim/Gast · 💰 Quoten</i>"]
+    blocks += [build_match_block(m, e) for m, e in items]
 
     # Telegram erlaubt max. 4096 Zeichen pro Nachricht -> stückeln
     chunks, current = [], blocks[0]
@@ -1239,7 +1291,7 @@ def run():
     (RUNS_DIR / f"{now:%Y-%m-%d_%H%M}.json").write_text(
         json.dumps(log, ensure_ascii=False, indent=1))
 
-    chunks = assemble_report(buckets, run_label)
+    chunks = assemble_report(buckets, run_label, new_state)
     delivered = True
     if chunks:
         if TG_TOKEN and TG_CHAT:
@@ -1519,28 +1571,36 @@ def selftest():
     if "nicht mehr prüfbar" not in r_u.get("corners", ""):
         print("FEHLER Fall 9m: Grund 'nicht prüfbar' fehlt:", r_u)
         ok = False
-    report = assemble_report(b2, "Di 08:17")
+    report = assemble_report(b2, "Di 08:17", st2)
     txt = "\n".join(report)
-    for needle in ("🆕 1 neue Signale", "3 bereits gemeldet",
-                   "🆕 <b>Ecken unter 11.5</b>", "Teil 1/1", "Ende Teil 1/1"):
+    for needle in ("5 Signale heute", "🆕 1 neu", "🆕 <b>Ecken unter 11.5</b>",
+                   "▸ <b>Ecken über 8.5</b>", "▸ <b>Fouls über 22.5</b>",
+                   "▸ <b>Abseits unter 4.5</b>", "💰 1.40–1.60",
+                   "Teil 1/1", "Ende Teil 1/1"):
         if needle not in txt:
             print("FEHLER Fall 9i: Nachricht unvollständig, fehlt:", needle)
             ok = False
-    for forbidden in ("A – B", "E – F", "Fouls über 22.5", "vorher 1.30"):
+    for forbidden in ("vorher 1.30", "seit Di", "weggefallen", "<s>"):
         if forbidden in txt:
-            print("FEHLER Fall 9i2: Nachricht darf nur Neues enthalten, enthält:", forbidden)
+            print("FEHLER Fall 9i2: keine Änderungs-/Wegfall-Hinweise erwünscht, enthält:", forbidden)
             ok = False
+    # Reihenfolge: E–F (ts 1_900_050_000) und die anderen gleich -> Name sortiert; ok
     early = dict(m3, id="9", home="Y", away="Z", kickoff="Di 12:00", kickoff_ts=1_900_010_000)
     b_sorted = {"new": [(m2, hits2[1][1][:1]), (early, [sig("corners", "über", 7.5, (1.5, 1.6))])],
                 "changed": [], "same": [], "dropped": []}
-    txt_sorted = "\n".join(assemble_report(b_sorted, "Di 08:17"))
+    _, st_sorted = classify_signals({}, b_sorted["new"], {"2", "9"}, {"2", "9"},
+                                    1_900_000_000, "Di 08:17")
+    txt_sorted = "\n".join(assemble_report(b_sorted, "Di 08:17", st_sorted))
     if txt_sorted.index("Y – Z") > txt_sorted.index("C – D"):
         print("FEHLER Fall 9l: Meldung nicht nach Anstoßzeit sortiert")
         ok = False
     quiet = assemble_report({"new": [], "changed": [], "same": [(m2, hits2[1][1][:1])],
-                             "dropped": []}, "Di 10:17")
-    if not quiet or "nichts Neues" not in quiet[0] or len(quiet[0]) > 140:
-        print("FEHLER Fall 9j: Ruhe-Meldung falsch:", quiet)
+                             "dropped": []}, "Di 10:17", st2)
+    if not quiet or "🆕 0 neu" not in quiet[0] or "▸ <b>Fouls über 22.5</b>" not in quiet[0]:
+        print("FEHLER Fall 9j: auch ohne Neues muss die ganze Tagesliste kommen:", quiet)
+        ok = False
+    if assemble_report({"new": [], "changed": [], "same": [], "dropped": []}, "Di 10:17", {}):
+        print("FEHLER Fall 9j2: ohne Signale keine Nachricht")
         ok = False
     if "--show" in sys.argv:
         print("\n".join(report))
