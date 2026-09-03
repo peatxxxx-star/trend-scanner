@@ -52,7 +52,14 @@ REGELWERK (vollständig):
   Nachbarlinien (zur Grundrate aller gecachten Spiele hin gedämpft,
   PRIOR_WEIGHT), 🎯 erwartete Spielsumme (gewichteter Ø Heimspiele des
   Heimteams + Auswärtsspiele des Gastteams) mit Puffer zur Linie,
-  ↔ eigene/Gegner-Durchschnitte. Zusätzlich (je 1 Anfrage, nur bei
+  ↔ eigene/Gegner-Durchschnitte. AMPEL (eine durchgehende Rechnung):
+  p_hist aus gewichteten Treffern, p_modell aus Erwartung (mit Schiri) und
+  Streuung (Normalverteilung), p = Mittel beider -> faire Quote je Linie;
+  Markt = bet365 exakt / über die Leiter umgerechnet / scores24-Spanne;
+  EV = p x Markt - 1. 🟢 p>=68 %, Historie/Modell einig, Puffer>=0, EV>=+3 %;
+  🔴 p<58 % oder Erwartung klar auf der falschen Seite oder Historie/Modell
+  widersprechen sich oder exakter Markt deutlich unter fair; sonst 🟡 mit
+  Grund. Zusätzlich (je 1 Anfrage, nur bei
   Signalen): 🏷 bet365-Hauptlinie mit Quote bei Ecken-Signalen,
   🧑‍⚖️ angesetzter Schiedsrichter mit Karten-/Foul-Schnitt aus dem Cache bei
   Karten-/Foul-Signalen; die Erwartung wird dort zusätzlich mit dem
@@ -82,6 +89,7 @@ Aufruf:
 """
 
 import json
+import math
 import os
 import sys
 import threading
@@ -1024,6 +1032,125 @@ def enrich_signal(s, hist_home, hist_away, metric, direction, line):
     fa_a = team_for_against(hist_away, metric)
     if fa_h and fa_a:
         s["fa"] = ([round(fa_h[0], 1), round(fa_h[1], 1)], [round(fa_a[0], 1), round(fa_a[1], 1)])
+    # Streuung der Spielsummen (gewichtet, beide Teams gepoolt) fürs Modell
+    s["sd"] = round(pooled_sd(hist_home, hist_away, metric), 2)
+    # empirische Wahrscheinlichkeiten je Leiter-Linie (aus den fairen Quoten)
+    s["p_emp"] = {str(L): (1 / f if f else None) for L, f in ladder}
+    return s
+
+
+def pooled_sd(hist_home, hist_away, metric):
+    xs, ws = [], []
+    for hist in (hist_home, hist_away):
+        for i, m in enumerate(hist):
+            tot = metric_total(m, metric)
+            if tot is None:
+                continue
+            xs.append(tot)
+            ws.append(game_weight(i, m))
+    if len(xs) < 5:
+        return SD_FALLBACK.get(metric, 3.0)
+    W = sum(ws)
+    mean = sum(w * x for w, x in zip(ws, xs)) / W
+    var = sum(w * (x - mean) ** 2 for w, x in zip(ws, xs)) / W
+    return max(math.sqrt(var), 0.8)
+
+
+SD_FALLBACK = {"corners": 3.0, "yellowcards": 1.9, "on_target": 2.6,
+               "offsides": 1.8, "fouls": 5.0}
+
+
+def _norm_cdf(z):
+    return 0.5 * (1 + math.erf(z / math.sqrt(2)))
+
+
+def model_prob(mean, sd, line, direction):
+    """P(Spielsumme > line) bzw. < line aus Normalverteilung (Linie ist x.5)."""
+    p_over = 1 - _norm_cdf((line - mean) / sd)
+    return p_over if direction == "über" else 1 - p_over
+
+
+# --- Die eine schlüssige Rechnung: Historie + Modell -> Fair -> Markt -> Ampel
+GREEN_MIN_P = 0.68        # Mindest-Wahrscheinlichkeit (kombiniert) für Grün
+RED_MAX_P = 0.58          # darunter Rot
+AGREE_OK = 0.12           # max. Abstand Historie/Modell für Grün
+AGREE_BAD = 0.25          # darüber Rot ("Zahlen tragen die Serie nicht")
+EV_GREEN = 0.03           # Erwartungswert (Markt x p - 1) ab dem es Grün gibt
+EV_RED = -0.05            # darunter Rot (nur bei exakter/umgerechneter Quote)
+
+
+def assess_signal(s):
+    """Kombiniert alles zu EINER Bewertung. Setzt: p_mod, p_fin, fair_fin,
+    ladder_fin, market, market_src, ev, light, reason."""
+    line, direction, metric = s["line"], s["direction"], s["metric_key"]
+    mean = s.get("expect_ref") if s.get("expect_ref") is not None else s.get("expect")
+    sd = s.get("sd") or SD_FALLBACK.get(metric, 3.0)
+    p_emp_map = s.get("p_emp") or {}
+    p_emp = p_emp_map.get(str(line)) or (1 / s["fair"] if s.get("fair") else None)
+    if mean is None or p_emp is None:
+        s["light"], s["reason"] = "🟡", "zu wenig Daten für die Rechnung"
+        return s
+    p_mod = model_prob(mean, sd, line, direction)
+    p_fin = 0.5 * p_emp + 0.5 * p_mod
+    s["p_mod"], s["p_fin"] = round(p_mod, 3), round(p_fin, 3)
+    s["fair_fin"] = round(1 / p_fin, 2) if p_fin > 0.02 else None
+    # kombinierte Leiter
+    lad = []
+    for L, _ in (s.get("ladder") or []):
+        pe = p_emp_map.get(str(L))
+        pm = model_prob(mean, sd, L, direction)
+        pf = 0.5 * pe + 0.5 * pm if pe else pm
+        lad.append([L, round(1 / pf, 2) if pf > 0.02 else None])
+    s["ladder_fin"] = lad
+    # Markt-Referenz
+    market, src = None, None
+    if s.get("b365"):
+        try:
+            hc = float(s["b365"][0])
+            od = float(s["b365"][1] if direction == "über" else s["b365"][2])
+            if abs(hc - line) < 0.01:
+                market, src = od, "bet365"
+            else:
+                f_line = dict((L, f) for L, f in lad).get(line)
+                f_b = None
+                for L, f in lad:
+                    if abs(L - hc) < 0.01:
+                        f_b = f
+                if f_line and f_b:
+                    market, src = round(od * f_line / f_b, 2), f"bet365 {hc:g} umgerechnet"
+        except (TypeError, ValueError):
+            pass
+    # scores24-Spanne wird NICHT gerechnet (Lucio: nur Existenz-Check)
+    s["market"], s["market_src"] = market, src
+    ev = (p_fin * market - 1) if market else None
+    s["ev"] = round(ev, 3) if ev is not None else None
+    exact = src is not None and src.startswith("bet365")
+    agree = abs(p_emp - p_mod)
+    buf = s.get("buffer_ref") if s.get("buffer_ref") is not None else s.get("buffer", 0)
+    # Ampel
+    if p_fin < RED_MAX_P:
+        light, reason = "🔴", f"nur {p_fin*100:.0f} % Wahrscheinlichkeit"
+    elif buf is not None and buf < -0.5 * sd:
+        light, reason = "🔴", "Erwartung auf der falschen Seite der Linie"
+    elif agree > AGREE_BAD:
+        light, reason = "🔴", f"Historie {p_emp*100:.0f} % und Modell {p_mod*100:.0f} % widersprechen sich"
+    elif exact and ev is not None and ev < EV_RED:
+        light, reason = "🔴", "Marktquote deutlich unter fair — Modell passt hier nicht"
+    elif p_fin >= GREEN_MIN_P and agree <= AGREE_OK and (buf or 0) >= 0 and \
+            (ev is None or ev >= EV_GREEN):
+        light, reason = "🟢", f"fair {s['fair_fin']:.2f}"
+    else:
+        bits = []
+        if p_fin < GREEN_MIN_P:
+            bits.append(f"{p_fin*100:.0f} % knapp")
+        if agree > AGREE_OK:
+            bits.append(f"Historie {p_emp*100:.0f} % vs. Modell {p_mod*100:.0f} %")
+        if (buf or 0) < 0:
+            bits.append("Puffer negativ")
+        if ev is not None and ev < EV_GREEN:
+            bits.append("Marktquote nicht über fair")
+        light, reason = "🟡", "; ".join(bits) or "prüfen"
+    s["light"], s["reason"] = light, reason
     return s
 
 
@@ -1119,7 +1246,9 @@ def _cur_range(s):
 _SNAPSHOT_KEYS = ("metric", "metric_key", "direction", "line", "home_series",
                   "away_series", "home_is_anchor", "away_is_anchor", "valid",
                   "next_line", "next_note", "longterm", "fair", "ladder", "avg",
-                  "expect", "buffer", "fa", "referee", "b365", "expect_ref", "buffer_ref")
+                  "expect", "buffer", "fa", "referee", "b365", "expect_ref", "buffer_ref",
+                  "sd", "p_emp", "p_mod", "p_fin", "fair_fin", "ladder_fin", "market",
+                  "market_src", "ev", "light", "reason")
 
 
 def signal_snapshot(s):
@@ -1260,6 +1389,12 @@ FOOTER = "🔻🔻🔻"                        # Nachrichten-Ende
 
 STATUS_ICON = {"new": "🆕", "known": "▸", "changed": "🔄", "same": "🔁", "dropped": "❌"}
 
+# Kompakte Darstellung (Lucios Vorgabe: schnell entscheiden, nur das
+# Relevante): Serien, Quoten, Fair-Leiter, Erwartung/Puffer. Langzeitquote,
+# eigene/Gegner, Datenbasis und "nächste Linie" stehen nur im Protokoll
+# (runs/). COMPACT=0 in der Umgebung zeigt wieder alles.
+COMPACT = os.environ.get("COMPACT", "1") != "0"
+
 
 def build_match_block(match, entries):
     """Ein Spiel mit allen Signalen (jedes mit Status-Symbol) — für
@@ -1287,6 +1422,28 @@ def build_match_block(match, entries):
             tail = fmt_odds_tail(s)
             if tail:
                 lines.append(f"   {tail}")
+            continue
+        if COMPACT:
+            lines.pop()                       # Kopfzeile neu mit Entscheidung aufbauen
+            light = s.get("light") or "⚪"
+            new_tag = " 🆕" if status == "new" else ""
+            play = light == "🟢"
+            mark = "✅" if play else ("❌" if light in ("🟡", "🔴") else "⚪")
+            head = f"{mark} <b>{esc(s['metric'])} {s['direction']} {s['line']}</b>{new_tag}"
+            if not play and light != "⚪":
+                lines.append(head + f" — <i>{esc(s.get('reason', ''))}</i>")
+                continue
+            fair = s.get("fair_fin") or s.get("fair")
+            lines.append(head + (f" · Fair {fair:.2f}" if fair else ""))
+            lines.append(f"   {esc(match['home'])} {fmt_series(s['home_series'], s['home_is_anchor'])}"
+                         f" · {esc(match['away'])} {fmt_series(s['away_series'], s['away_is_anchor'])}")
+            lad = s.get("ladder_fin") or s.get("ladder")
+            if lad:
+                steps = []
+                for L, f in lad:
+                    txt = f"{L} {f:.2f}" if f else f"{L} –"
+                    steps.append(f"<b>{txt}</b>" if L == s["line"] else txt)
+                lines.append("   🪜 Fair " + " · ".join(steps))
             continue
         lines.append(f"   {esc(match['home'])}: {fmt_series(s['home_series'], s['home_is_anchor'])}")
         lines.append(f"   {esc(match['away'])}: {fmt_series(s['away_series'], s['away_is_anchor'])}")
@@ -1378,12 +1535,30 @@ def day_list(buckets, new_state):
         slot = per_match.setdefault(match["id"], {"match": match, "entries": []})
         slot["entries"].append((status, s, ""))
     order = {"new": 0, "known": 1}
+    lorder = {"🟢": 0, "🟡": 1, "🔴": 2}
     result = []
     for slot in sorted(per_match.values(),
                        key=lambda x: (x["match"].get("kickoff_ts", 0), x["match"]["home"])):
-        slot["entries"].sort(key=lambda e: (order[e[0]], e[1].get("metric", "")))
+        slot["entries"].sort(key=lambda e: (lorder.get(e[1].get("light"), 1),
+                                            order[e[0]], e[1].get("metric", "")))
         result.append((slot["match"], slot["entries"]))
     return result
+
+
+def build_recommendations(items):
+    """Abschlussliste: nur die 🟢-Märkte, nach Anstoßzeit."""
+    rows = []
+    for match, entries in items:
+        for status, s, _ in entries:
+            if s.get("light") != "🟢":
+                continue
+            fair = s.get("fair_fin") or s.get("fair")
+            tail = f" · Fair {fair:.2f}" if fair else ""
+            new_tag = " 🆕" if status == "new" else ""
+            rows.append(f"• {match['kickoff']} {esc(match['home'])} – {esc(match['away'])}: "
+                        f"<b>{esc(s['metric'])} {s['direction']} {s['line']}</b>{tail}{new_tag}")
+    head = f"{SEP}\n<b>✅ SPIELEN ({len(rows)})</b>\n{SEP}"
+    return head + "\n" + ("\n".join(rows) if rows else "<i>heute nichts</i>")
 
 
 def assemble_report(buckets, run_label, new_state=None):
@@ -1410,11 +1585,22 @@ def assemble_report(buckets, run_label, new_state=None):
     total_day = sum(len(e) for _, e in items)
     if not total_day:
         return None
-    blocks = [f"📊 {total_day} Signale heute · 🆕 {n['new']} neu seit letztem Lauf\n"
-              f"<i>⚓ Anker · 📊 Datenbasis · 💰 Quoten · 📈 Trefferquote Historie (jüngere "
-              f"Spiele stärker) · 🪜 faire Quote je Linie · 🎯 erwartete Spielsumme · "
-              f"↔ eigene/Gegner Ø</i>"]
+    legend = ("<i>⚓ Anker · 💰 Quoten · 🪜 faire Quote je Linie · 🎯 erwartete Spielsumme</i>"
+              if COMPACT else
+              "<i>⚓ Anker · 📊 Datenbasis · 💰 Quoten · 📈 Trefferquote Historie (jüngere "
+              "Spiele stärker) · 🪜 faire Quote je Linie · 🎯 erwartete Spielsumme · "
+              "↔ eigene/Gegner Ø</i>")
+    lights = {"🟢": 0, "🟡": 0, "🔴": 0}
+    for _, entries in items:
+        for _, s, _ in entries:
+            if s.get("light") in lights:
+                lights[s["light"]] += 1
+    lcount = f"✅ {lights['🟢']} spielen · ❌ {lights['🟡'] + lights['🔴']} nicht"
+    legend = ("<i>✅ spielen · ❌ nicht spielen · 🪜 faire Quote je Linie, "
+              "gegen deinen Bookie halten</i>") if COMPACT else legend
+    blocks = [f"📊 {total_day} Signale heute · 🆕 {n['new']} neu · {lcount}\n{legend}"]
     blocks += [build_match_block(m, e) for m, e in items]
+    blocks.append(build_recommendations(items))
 
     # Telegram erlaubt max. 4096 Zeichen pro Nachricht -> stückeln
     chunks, current = [], blocks[0]
@@ -1624,6 +1810,8 @@ def run():
         signals = evaluate_match(match, hist_home, hist_away)
         if signals:
             attach_extras(match, signals)
+            for s in signals:
+                assess_signal(s)
         gated_out, unverifiable = [], []
         if signals and GATE_ENABLED:
             groups = s24_fetch_groups(match)
@@ -1992,9 +2180,9 @@ def selftest():
         ok = False
     report = assemble_report(b2, "Di 08:17", st2)
     txt = "\n".join(report)
-    for needle in ("5 Signale heute", "🆕 1 neu", "🆕 <b>Ecken unter 11.5</b>",
-                   "▸ <b>Ecken über 8.5</b>", "▸ <b>Fouls über 22.5</b>",
-                   "▸ <b>Abseits unter 4.5</b>", "💰 1.40–1.60",
+    for needle in ("5 Signale heute", "🆕 1 neu", "<b>Ecken unter 11.5</b> 🆕",
+                   "<b>Ecken über 8.5</b>", "<b>Fouls über 22.5</b>",
+                   "<b>Abseits unter 4.5</b>", "✅ SPIELEN",
                    "Teil 1/1", "Ende Teil 1/1"):
         if needle not in txt:
             print("FEHLER Fall 9i: Nachricht unvollständig, fehlt:", needle)
@@ -2015,7 +2203,7 @@ def selftest():
         ok = False
     quiet = assemble_report({"new": [], "changed": [], "same": [(m2, hits2[1][1][:1])],
                              "dropped": []}, "Di 10:17", st2)
-    if not quiet or "🆕 0 neu" not in quiet[0] or "▸ <b>Fouls über 22.5</b>" not in quiet[0]:
+    if not quiet or "🆕 0 neu" not in quiet[0] or "<b>Fouls über 22.5</b>" not in quiet[0]:
         print("FEHLER Fall 9j: auch ohne Neues muss die ganze Tagesliste kommen:", quiet)
         ok = False
     if assemble_report({"new": [], "changed": [], "same": [], "dropped": []}, "Di 10:17", {}):
@@ -2054,6 +2242,46 @@ def selftest():
               if s["metric"] == "Abseits" and s["direction"] == "unter"]
     if not sig11c or sig11c[0]["line"] != 5.5:
         print("FEHLER Fall 11c: marktabhängiger Korridor (Abseits=1) greift nicht:", sig11c)
+        ok = False
+
+    # --- Fall 13: Ampel-Rechnung
+    sA = sig("corners", "über", 8.5, (1.4, 1.7))
+    sA.update({"expect": 11.0, "buffer": 2.5, "sd": 2.8, "fair": 1.25,
+               "ladder": [[7.5, 1.15], [8.5, 1.25], [9.5, 1.45]],
+               "p_emp": {"7.5": 1/1.15, "8.5": 1/1.25, "9.5": 1/1.45},
+               "b365": ("8.5", "1.50", "2.50")})
+    assess_signal(sA)
+    if sA["light"] != "🟢" or sA["market_src"] != "bet365" or not (0.75 < sA["p_fin"] < 0.9):
+        print("FEHLER Fall 13a: klarer Fall muss grün sein:", sA["light"], sA["reason"], sA["p_fin"])
+        ok = False
+    sB = dict(sA, expect=7.0, buffer=-1.5, b365=None)
+    assess_signal(sB)
+    if sB["light"] != "🔴":
+        print("FEHLER Fall 13b: Erwartung unter Linie muss rot sein:", sB["light"], sB["reason"])
+        ok = False
+    sC = dict(sA, b365=("9.5", "1.90", "1.90"))          # Nachbarlinie -> umrechnen
+    assess_signal(sC)
+    if not str(sC["market_src"]).startswith("bet365 9.5") or not sC["market"]:
+        print("FEHLER Fall 13c: Umrechnung über die Leiter fehlt:", sC["market_src"], sC["market"])
+        ok = False
+    sD = dict(sA, b365=("8.5", "1.10", "3.00"))          # exakter Markt weit unter fair
+    assess_signal(sD)
+    if sD["light"] != "🔴":
+        print("FEHLER Fall 13d: Markt unter fair muss rot sein:", sD["light"], sD["reason"])
+        ok = False
+    lad = [f for _, f in sA["ladder_fin"]]
+    if len(lad) != 3 or lad != sorted(lad):
+        print("FEHLER Fall 13e: kombinierte Leiter unsortiert:", sA["ladder_fin"])
+        ok = False
+    sE = dict(sA, b365=None)                             # nur scores24-Spanne vorhanden
+    assess_signal(sE)
+    if sE["light"] != "🟢" or sE.get("market") is not None or "fair" not in sE["reason"]:
+        print("FEHLER Fall 13f: ohne bet365 darf die Spanne nicht gerechnet werden:", sE["light"], sE.get("market"), sE["reason"])
+        ok = False
+    rec = build_recommendations([({"kickoff": "Mi 20:30", "home": "P", "away": "M"},
+                                  [("new", sE, ""), ("known", sB, "")])])
+    if "SPIELEN (1)" not in rec or "über 8.5" not in rec:
+        print("FEHLER Fall 13g: Empfehlungsliste falsch:", rec)
         ok = False
 
     # --- Fall 12: Schiedsrichter/Spieldauer im Cache + Profil
