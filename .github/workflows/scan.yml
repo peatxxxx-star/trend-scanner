@@ -18,7 +18,7 @@ on:
   workflow_dispatch:      # manueller Start über den "Run workflow"-Knopf
     inputs:
       modus:
-        description: "scan = normaler Lauf · nachladen = Zusatzdaten (Schiri/Dauer) für alte Cache-Einträge holen"
+        description: "scan = normaler Lauf · nachladen = Zusatzdaten (Schiri/Dauer/Halbzeit) für alte Cache-Einträge holen"
         type: choice
         default: scan
         options: [scan, nachladen]
