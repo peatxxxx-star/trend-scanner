@@ -55,8 +55,9 @@ REGELWERK (vollständig):
   ↔ eigene/Gegner-Durchschnitte. AMPEL (eine durchgehende Rechnung):
   p_hist aus gewichteten Treffern, p_modell aus Erwartung (mit Schiri) und
   Streuung (Normalverteilung), p = Mittel beider -> faire Quote je Linie;
-  Markt = bet365 exakt / über die Leiter umgerechnet / scores24-Spanne;
-  EV = p x Markt - 1. 🟢 p>=68 %, Historie/Modell einig, Puffer>=0, EV>=+3 %;
+  Markt = bet365 exakt / über die Leiter umgerechnet (scores24-Spanne wird
+  nie gerechnet); EV = p x Markt - 1. Gemeldet werden nur Märkte mit
+  fairer Quote >= MIN_FAIR (1,30). 🟢 p>=68 %, Historie/Modell einig, Puffer>=0, EV>=+3 %;
   🔴 p<58 % oder Erwartung klar auf der falschen Seite oder Historie/Modell
   widersprechen sich oder exakter Markt deutlich unter fair; sonst 🟡 mit
   Grund. Zusätzlich (je 1 Anfrage, nur bei
@@ -1009,13 +1010,19 @@ def enrich_signal(s, hist_home, hist_away, metric, direction, line):
     s["longterm"] = (wh_h / ww_h if ww_h else None, wh_a / ww_a if ww_a else None)
     s["fair"] = fair_odds(hist_home, hist_away, metric, line, direction)
     # Fair-Leiter: Nachbarlinien gleich mit (Bookie-Leiter vergleichen)
+    # Leiter: nur Linien, die das Regelwerk erfüllen — die gemeldete
+    # (strengste qualifizierende) und die nächste LOCKERERE (die ist
+    # automatisch erfüllt: jeder Treffer über 8,5 ist auch einer über 7,5).
+    # Die strengere Nachbarlinie erfüllt das Regelwerk NICHT (sonst wäre sie
+    # gemeldet worden) und wird deshalb nicht angezeigt — Lucios Vorgabe.
     lines = METRICS[metric][1]
-    idx = lines.index(line) if line in lines else None
+    step = (lines[1] - lines[0]) if len(lines) > 1 else 1.0
+    looser = line - step if direction == "über" else line + step
     ladder = []
-    if idx is not None:
-        for j in (idx - 1, idx, idx + 1):
-            if 0 <= j < len(lines):
-                ladder.append([lines[j], fair_odds(hist_home, hist_away, metric, lines[j], direction)])
+    for L in sorted([looser, line]):
+        if L < 0.5:
+            continue
+        ladder.append([round(L, 1), fair_odds(hist_home, hist_away, metric, L, direction)])
     s["ladder"] = ladder
     _, _, avg_h = weighted_stats(hist_home, metric, line, direction, "home")
     if avg_h is None:
@@ -1071,6 +1078,9 @@ def model_prob(mean, sd, line, direction):
 
 
 # --- Die eine schlüssige Rechnung: Historie + Modell -> Fair -> Markt -> Ampel
+MIN_FAIR = 1.30           # Märkte mit fairer Quote darunter werden gar nicht gemeldet
+                          # (Lucio: "den Rest möchte ich nicht sehen"); steigt die faire
+                          # Quote später darüber, kommt der Markt als 🆕 dazu.
 GREEN_MIN_P = 0.68        # Mindest-Wahrscheinlichkeit (kombiniert) für Grün
 RED_MAX_P = 0.58          # darunter Rot
 AGREE_OK = 0.12           # max. Abstand Historie/Modell für Grün
@@ -1812,6 +1822,10 @@ def run():
             attach_extras(match, signals)
             for s in signals:
                 assess_signal(s)
+            # Nur Märkte mit fairer Quote >= MIN_FAIR — der Rest wird weder
+            # gezeigt noch gemerkt (kann später als 🆕 nachrücken).
+            signals = [s for s in signals
+                       if (s.get("fair_fin") or s.get("fair") or 0) >= MIN_FAIR]
         gated_out, unverifiable = [], []
         if signals and GATE_ENABLED:
             groups = s24_fetch_groups(match)
@@ -1956,7 +1970,7 @@ def selftest():
             ok = False
         lad = s1.get("ladder") or []
         fairs = [f for _, f in lad]
-        if [L for L, _ in lad] != [7.5, 8.5, 9.5] or fairs != sorted(fairs):
+        if [L for L, _ in lad] != [7.5, 8.5] or fairs != sorted(fairs):
             print("FEHLER Fall 1f: Fair-Leiter fehlt/unsortiert:", lad)
             ok = False
         # Gewichtung: Platzverweis-Spiel und altes Spiel zählen weniger
@@ -2247,8 +2261,8 @@ def selftest():
     # --- Fall 13: Ampel-Rechnung
     sA = sig("corners", "über", 8.5, (1.4, 1.7))
     sA.update({"expect": 11.0, "buffer": 2.5, "sd": 2.8, "fair": 1.25,
-               "ladder": [[7.5, 1.15], [8.5, 1.25], [9.5, 1.45]],
-               "p_emp": {"7.5": 1/1.15, "8.5": 1/1.25, "9.5": 1/1.45},
+               "ladder": [[7.5, 1.15], [8.5, 1.25]],
+               "p_emp": {"7.5": 1/1.15, "8.5": 1/1.25},
                "b365": ("8.5", "1.50", "2.50")})
     assess_signal(sA)
     if sA["light"] != "🟢" or sA["market_src"] != "bet365" or not (0.75 < sA["p_fin"] < 0.9):
@@ -2259,9 +2273,9 @@ def selftest():
     if sB["light"] != "🔴":
         print("FEHLER Fall 13b: Erwartung unter Linie muss rot sein:", sB["light"], sB["reason"])
         ok = False
-    sC = dict(sA, b365=("9.5", "1.90", "1.90"))          # Nachbarlinie -> umrechnen
+    sC = dict(sA, b365=("7.5", "1.30", "3.20"))          # Nachbarlinie -> umrechnen
     assess_signal(sC)
-    if not str(sC["market_src"]).startswith("bet365 9.5") or not sC["market"]:
+    if not str(sC["market_src"]).startswith("bet365 7.5") or not sC["market"]:
         print("FEHLER Fall 13c: Umrechnung über die Leiter fehlt:", sC["market_src"], sC["market"])
         ok = False
     sD = dict(sA, b365=("8.5", "1.10", "3.00"))          # exakter Markt weit unter fair
@@ -2270,7 +2284,7 @@ def selftest():
         print("FEHLER Fall 13d: Markt unter fair muss rot sein:", sD["light"], sD["reason"])
         ok = False
     lad = [f for _, f in sA["ladder_fin"]]
-    if len(lad) != 3 or lad != sorted(lad):
+    if len(lad) != 2 or lad != sorted(lad):
         print("FEHLER Fall 13e: kombinierte Leiter unsortiert:", sA["ladder_fin"])
         ok = False
     sE = dict(sA, b365=None)                             # nur scores24-Spanne vorhanden
