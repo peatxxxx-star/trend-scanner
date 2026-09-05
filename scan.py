@@ -174,6 +174,8 @@ CACHE_VERSION = 2
 CONTRA_GAP = 2.0                      # Standard (Ecken, Schüsse)
 # Marktabhängig: enge Linienraster (Karten, Abseits) -> nur die direkt
 # benachbarte Linie ist ein Widerspruch; Fouls (Raster 2) -> 4.
+# Halbzeit-Märkte: Korridor 1 wie bei Karten/Abseits — Lucio will keine
+# Halbzeit-Signale "auf Krampf"; die Gegenbewegungs-Regel gilt dort voll.
 CONTRA_GAP_BY_METRIC = {"corners": 2.0, "on_target": 2.0, "ht_corners": 1.0, "ht_yellowcards": 1.0,
                         "yellowcards": 1.0, "offsides": 1.0, "fouls": 4.0}
 
@@ -1500,14 +1502,7 @@ def build_match_block(match, entries):
             lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + check)
             lines.append(f"   {esc(match['home'])} {fmt_series(s['home_series'], s['home_is_anchor'])}"
                          f" · {esc(match['away'])} {fmt_series(s['away_series'], s['away_is_anchor'])}")
-            lad = s.get("ladder_fin") or s.get("ladder")
-            if lad:
-                steps = []
-                for L, f in lad:
-                    txt = f"{L} {f:.2f}" if f else f"{L} –"
-                    steps.append(f"<b>{txt}</b>" if L == s["line"] else txt)
-                lines.append("   🪜 Fair " + " · ".join(steps))
-            continue
+            continue                          # keine Leiter mehr (Lucio, 05.09.)
         lines.append(f"   {esc(match['home'])}: {fmt_series(s['home_series'], s['home_is_anchor'])}")
         lines.append(f"   {esc(match['away'])}: {fmt_series(s['away_series'], s['away_is_anchor'])}")
         tail = fmt_odds_tail(s)
@@ -1661,9 +1656,21 @@ def assemble_report(buckets, run_label, new_state=None):
     lcount = f"✅ {lights['🟢']} spielen · ❌ {lights['🟡'] + lights['🔴']} nicht"
     legend = ("<i>✅ spielen · ❌ nicht spielen · 🪜 faire Quote je Linie, "
               "gegen deinen Bookie halten</i>") if COMPACT else legend
-    blocks = [f"📊 {total_day} Signale heute · 🆕 {n['new']} neu · {lcount}\n{legend}"]
-    blocks += [build_match_block(m, e) for m, e in items]
-    blocks.append(build_recommendations(items))
+    if COMPACT:
+        # Lucios Vorgabe (05.09.): nur ✅-Märkte, keine ❌, keine Leiter,
+        # keine Abschlussliste. Spiele ohne grünen Markt entfallen.
+        items = [(m, [e for e in entries if e[1].get("light") == "🟢"]) for m, entries in items]
+        items = [(m, entries) for m, entries in items if entries]
+        n_new_green = sum(1 for _, entries in items for st, _, _ in entries if st == "new")
+        if not items:
+            return [f"🟨🟨🟨 <b>TREND-SCAN {run_label}</b> 🟨🟨🟨\n"
+                    f"✅ heute nichts Spielbares"]
+        blocks = [f"✅ {lights['🟢']} spielbar heute · 🆕 {n_new_green} neu seit letztem Lauf"]
+        blocks += [build_match_block(m, e) for m, e in items]
+    else:
+        blocks = [f"📊 {total_day} Signale heute · 🆕 {n['new']} neu · {lcount}\n{legend}"]
+        blocks += [build_match_block(m, e) for m, e in items]
+        blocks.append(build_recommendations(items))
 
     # Telegram erlaubt max. 4096 Zeichen pro Nachricht -> stückeln
     chunks, current = [], blocks[0]
@@ -1868,9 +1875,12 @@ def run():
     state = {k: v for k, v in state.items()
              if (v.get("metric_key"), v.get("direction")) not in EXCLUDED_MARKETS}
     matches = fetch_matches_in_window()
+    n_ht = sum(1 for s in cache.values() if s.get("ht_corners") is not None)
+    n_htc = sum(1 for s in cache.values() if s.get("ht_yellowcards") is not None)
     print(f"{len(matches)} Spiele im Prüffenster ({WORKERS} parallel), "
           f"{len(state)} Signale im Lauf-Gedächtnis, "
-          f"{len(hcache)} Team-Spiellisten im Tages-Cache")
+          f"{len(hcache)} Team-Spiellisten im Tages-Cache, "
+          f"Cache: {len(cache)} Spiele, davon {n_ht} mit HZ-Ecken, {n_htc} mit HZ-Karten")
     all_hits = []
     checked_ids = set()
     gate_dropped = set()     # Signale, die statistisch noch stehen, deren
@@ -2268,12 +2278,22 @@ def selftest():
         ok = False
     report = assemble_report(b2, "Di 08:17", st2)
     txt = "\n".join(report)
-    for needle in ("5 Signale heute", "🆕 1 neu", "<b>Ecken unter 11.5</b> 🆕",
-                   "<b>Ecken über 8.5</b>", "<b>Fouls über 22.5</b>",
-                   "<b>Abseits unter 4.5</b>", "✅ SPIELEN",
-                   "Teil 1/1", "Ende Teil 1/1"):
+    # ohne Bewertung (alte Einträge) gibt es keine Grünen -> Ruhe-Meldung
+    if not report or "nichts Spielbares" not in txt:
+        print("FEHLER Fall 9i: ohne grüne Märkte muss die Ruhe-Meldung kommen:", txt[:200])
+        ok = False
+    for s_ in hits2[0][1] + hits2[1][1]:
+        s_["light"] = "🟢"
+    b2g, st2g = classify_signals(st1, hits2, {"1", "2"}, {"1", "2"}, 1_900_000_100, "Di 08:17")
+    txt = "\n".join(assemble_report(b2g, "Di 08:17", st2g))
+    for needle in ("spielbar heute", "<b>Ecken unter 11.5</b> 🆕", "<b>Ecken über 8.5</b>",
+                   "<b>Fouls über 22.5</b>", "Teil 1/1", "Ende Teil 1/1"):
         if needle not in txt:
             print("FEHLER Fall 9i: Nachricht unvollständig, fehlt:", needle)
+            ok = False
+    for forbidden in ("Abseits unter 4.5", "🪜", "SPIELEN", "❌"):
+        if forbidden in txt:
+            print("FEHLER Fall 9i3: darf nicht mehr enthalten sein:", forbidden)
             ok = False
     for forbidden in ("vorher 1.30", "seit Di", "weggefallen", "<s>"):
         if forbidden in txt:
@@ -2281,7 +2301,9 @@ def selftest():
             ok = False
     # Reihenfolge: E–F (ts 1_900_050_000) und die anderen gleich -> Name sortiert; ok
     early = dict(m3, id="9", home="Y", away="Z", kickoff="Di 12:00", kickoff_ts=1_900_010_000)
-    b_sorted = {"new": [(m2, hits2[1][1][:1]), (early, [sig("corners", "über", 7.5, (1.5, 1.6))])],
+    s_early = sig("corners", "über", 7.5, (1.5, 1.6))
+    s_early["light"] = "🟢"
+    b_sorted = {"new": [(m2, hits2[1][1][:1]), (early, [s_early])],
                 "changed": [], "same": [], "dropped": []}
     _, st_sorted = classify_signals({}, b_sorted["new"], {"2", "9"}, {"2", "9"},
                                     1_900_000_000, "Di 08:17")
@@ -2292,7 +2314,7 @@ def selftest():
     quiet = assemble_report({"new": [], "changed": [], "same": [(m2, hits2[1][1][:1])],
                              "dropped": []}, "Di 10:17", st2)
     if not quiet or "🆕 0 neu" not in quiet[0] or "<b>Fouls über 22.5</b>" not in quiet[0]:
-        print("FEHLER Fall 9j: auch ohne Neues muss die ganze Tagesliste kommen:", quiet)
+        print("FEHLER Fall 9j: auch ohne Neues muss die Tagesliste der Grünen kommen:", quiet)
         ok = False
     if assemble_report({"new": [], "changed": [], "same": [], "dropped": []}, "Di 10:17", {}):
         print("FEHLER Fall 9j2: ohne Signale keine Nachricht")
