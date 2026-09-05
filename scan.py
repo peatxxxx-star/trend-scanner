@@ -14,7 +14,10 @@ REGELWERK (vollständig):
     * 22-Uhr-Lauf:    alle Spiele mit Anpfiff ab JETZT bis 06:00 Uhr früh
 
   Märkte: nur Gesamtmärkte (Summe beider Teams), nie teambezogen.
-  Head-to-Head spielt keine Rolle.
+  Head-to-Head spielt keine Rolle. Seit 05.09. zusätzlich Halbzeit-Märkte:
+  1. HZ Ecken (API-Feld corner_h) und 1. HZ Gelbe Karten (aus dem
+  Ereignis-Verlauf); beide ohne Quoten-Nachweis (Bookie führt die Märkte).
+  "unter Ecken" ist in beiden Varianten ausgeschlossen.
 
   Serien-Definition (vom jüngsten Spiel rückwärts gezählt, maximal
   2 Aussetzer — bei 3 Lücken ist die Serie gebrochen und zählt nicht):
@@ -154,10 +157,24 @@ S24_GROUPS = {
 # dann ein Widerspruch, wenn ihr Korridor eng ist (z.B. über 8,5 UND
 # unter 10,5). Breite Korridore (über 6,5 + unter 12,5) sind legitim —
 # bewiesen durch Lucios Wycombe-Wettschein vom 01.09.
+# Märkte, die grundsätzlich NICHT gemeldet werden (Lucios Vorgabe 05.09.:
+# "alle unter-Ecken-Märkte raus"). Für die Gegenbewegungs-Prüfung zählen
+# sie trotzdem weiter.
+EXCLUDED_MARKETS = {("corners", "unter"), ("ht_corners", "unter")}
+
+# Halbzeit-Märkte (05.09.): 1. HZ Ecken aus dem API-Feld corner_h, 1. HZ Gelbe
+# Karten aus dem Ereignis-Verlauf (Minute + "Score After First Half"-Marker).
+# scores24 kennt dafür keine Quoten-Gruppen; ein Quoten-Nachweis entfällt
+# für beide (Lucios Bookie führt die Märkte). Die bet365-Halbzeit-Ecken-
+# Linie (Markt 1_7) fließt nur intern in die Rechnung ein. Cache-Version 2
+# nötig (einmal "nachladen").
+HT_METRICS = {"ht_corners", "ht_yellowcards"}
+CACHE_VERSION = 2
+
 CONTRA_GAP = 2.0                      # Standard (Ecken, Schüsse)
 # Marktabhängig: enge Linienraster (Karten, Abseits) -> nur die direkt
 # benachbarte Linie ist ein Widerspruch; Fouls (Raster 2) -> 4.
-CONTRA_GAP_BY_METRIC = {"corners": 2.0, "on_target": 2.0,
+CONTRA_GAP_BY_METRIC = {"corners": 2.0, "on_target": 2.0, "ht_corners": 1.0, "ht_yellowcards": 1.0,
                         "yellowcards": 1.0, "offsides": 1.0, "fouls": 4.0}
 
 
@@ -181,6 +198,8 @@ METRICS = {
     "on_target": ("Schüsse aufs Tor", [6.5, 7.5, 8.5, 9.5, 10.5, 11.5]),
     "offsides": ("Abseits",           [2.5, 3.5, 4.5, 5.5]),
     "fouls":    ("Fouls",             [18.5, 20.5, 22.5, 24.5, 26.5, 28.5]),
+    "ht_corners": ("1. HZ Ecken",     [3.5, 4.5, 5.5, 6.5]),
+    "ht_yellowcards": ("1. HZ Gelbe Karten", [0.5, 1.5, 2.5]),
 }
 
 # Zusätzlich gecachte Felder (nicht als Markt, nur für die Gewichtung)
@@ -411,17 +430,43 @@ def _fetch_ended_list(team_id: str):
     return slim
 
 
+def parse_ht_cards(ev: dict):
+    """Gelbe Karten der 1. Halbzeit [Heim, Gast] aus dem Ereignis-Verlauf;
+    None, wenn kein Verlauf oder kein Halbzeit-Marker vorhanden."""
+    evs = ev.get("events") or []
+    if not evs:
+        return None
+    away = ((ev.get("away") or {}).get("name") or "").strip().lower()
+    h = a = 0
+    seen = False
+    for x in evs:
+        txt = (x.get("text") or "")
+        if "Score After First Half" in txt:
+            seen = True
+            break
+        if "Yellow Card" in txt:
+            m = re.search(r"\(([^()]*)\)\s*$", txt)
+            team = (m.group(1) if m else "").strip().lower()
+            if team and team == away:
+                a += 1
+            else:
+                h += 1
+    return [h, a] if seen else None
+
+
 def slim_event(ev: dict) -> dict:
     """Kompakte Cache-Form eines Spiels: Statistiken + Schiedsrichter +
     Spieldauer (90/120 -> Verlängerung erkennbar)."""
     stats = ev.get("stats") or {}
     slim = {}
     for key in list(METRICS) + list(EXTRA_STAT_FIELDS):
-        pair = stats.get(key)
+        src = "corner_h" if key == "ht_corners" else key
+        pair = stats.get(src)
         try:
             slim[key] = [int(pair[0]), int(pair[1])]
         except (TypeError, ValueError, IndexError):
             slim[key] = None
+    slim["ht_yellowcards"] = parse_ht_cards(ev)
     extra = ev.get("extra") or {}
     ref = extra.get("referee") or {}
     slim["ref"] = [str(ref["id"]), ref.get("name", "?")] if ref.get("id") else None
@@ -429,7 +474,7 @@ def slim_event(ev: dict) -> dict:
         slim["len"] = int(extra.get("length")) if extra.get("length") else None
     except (TypeError, ValueError):
         slim["len"] = None
-    slim["x"] = 1                      # Zusatzdaten (Schiri/Dauer) wurden geholt
+    slim["x"] = CACHE_VERSION          # Zusatzdaten (Schiri/Dauer/Halbzeit) geholt
     return slim
 
 
@@ -738,10 +783,14 @@ def apply_s24_gate(signals, groups):
     """
     if groups is None:
         for s in signals:
-            s["unchecked"] = True
+            if s["metric_key"] not in HT_METRICS:
+                s["unchecked"] = True
         return signals
     kept = []
     for s in signals:
+        if s["metric_key"] in HT_METRICS:     # kein scores24-Reiter -> später prüfen
+            kept.append(s)
+            continue
         g = groups.get(s["metric_key"])
         if not g:
             continue
@@ -918,7 +967,8 @@ def referee_factor(ref_id, metric):
     """Faktor > 1 = dieser Schiri liegt über dem Schnitt aller Spiele.
     Bei wenigen Spielen zum Faktor 1 hin gedämpft. None = keine Daten."""
     d = _ref_stats.get(str(ref_id))
-    key = "cards" if metric == "yellowcards" else "fouls" if metric == "fouls" else None
+    key = ("cards" if metric in ("yellowcards", "ht_yellowcards")
+           else "fouls" if metric == "fouls" else None)
     base = _base_means.get(metric)
     if not d or not key or not d[key] or not base:
         return None
@@ -1063,7 +1113,7 @@ def pooled_sd(hist_home, hist_away, metric):
     return max(math.sqrt(var), 0.8)
 
 
-SD_FALLBACK = {"corners": 3.0, "yellowcards": 1.9, "on_target": 2.6,
+SD_FALLBACK = {"corners": 3.0, "yellowcards": 1.9, "on_target": 2.6, "ht_corners": 1.8, "ht_yellowcards": 1.1,
                "offsides": 1.8, "fouls": 5.0}
 
 
@@ -1176,6 +1226,8 @@ def evaluate_match(match, hist_home, hist_away, market_odds=None):
     candidates = {}
     for metric, (label, lines) in METRICS.items():
         for direction in ("über", "unter"):
+            if (metric, direction) in EXCLUDED_MARKETS:
+                continue
             for line in lines:
                 a_home, o_home, v_home = team_qualifies(hist_home, metric, line, direction, "home")
                 a_away, o_away, v_away = team_qualifies(hist_away, metric, line, direction, "away")
@@ -1444,7 +1496,8 @@ def build_match_block(match, entries):
                 lines.append(head + f" — <i>{esc(s.get('reason', ''))}</i>")
                 continue
             fair = s.get("fair_fin") or s.get("fair")
-            lines.append(head + (f" · Fair {fair:.2f}" if fair else ""))
+            check = " · <i>Quote selbst prüfen</i>" if s.get("no_odds_check") else ""
+            lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + check)
             lines.append(f"   {esc(match['home'])} {fmt_series(s['home_series'], s['home_is_anchor'])}"
                          f" · {esc(match['away'])} {fmt_series(s['away_series'], s['away_is_anchor'])}")
             lad = s.get("ladder_fin") or s.get("ladder")
@@ -1659,19 +1712,26 @@ def attach_extras(match, signals):
     - Karten/Fouls-Signale: angesetzter Schiedsrichter + sein Profil aus dem Cache
     Fehler hier dürfen den Lauf nie stoppen."""
     keys = {s["metric_key"] for s in signals}
-    if "corners" in keys:
+    if keys & {"corners", "ht_corners"}:
         try:
             odds = api_get("/v2/event/odds", event_id=match["id"])
-            rows = ((odds.get("results") or {}).get("odds") or {}).get("1_4") or []
-            if rows:
-                r = rows[0]
-                b = (r.get("handicap"), r.get("over_od"), r.get("under_od"))
-                for s in signals:
-                    if s["metric_key"] == "corners":
-                        s["b365"] = b
+            allodds = (odds.get("results") or {}).get("odds") or {}
+            for mkey, mk in (("corners", "1_4"), ("ht_corners", "1_7")):
+                rows = allodds.get(mk) or []
+                if rows:
+                    r = rows[0]
+                    b = (r.get("handicap"), r.get("over_od"), r.get("under_od"))
+                    for s in signals:
+                        if s["metric_key"] == mkey:
+                            s["b365"] = b
+                            if mkey == "ht_corners":      # Quoten-Nachweis für HZ-Ecken
+                                try:
+                                    s["range"] = (float(r.get("over_od")), float(r.get("under_od")))
+                                except (TypeError, ValueError):
+                                    pass
         except Exception as exc:
             print(f"  Quoten-Abfrage {match['home']}–{match['away']}: {exc}")
-    if keys & {"yellowcards", "fouls"}:
+    if keys & {"yellowcards", "fouls", "ht_yellowcards"}:
         try:
             view = api_get("/v1/event/view", event_id=match["id"])
             res = (view.get("results") or [{}])[0]
@@ -1679,7 +1739,7 @@ def attach_extras(match, signals):
             if ref.get("id"):
                 note = referee_note(ref["id"], ref.get("name", "?"))
                 for s in signals:
-                    if s["metric_key"] in ("yellowcards", "fouls"):
+                    if s["metric_key"] in ("yellowcards", "fouls", "ht_yellowcards"):
                         s["referee"] = note
                         f = referee_factor(ref["id"], s["metric_key"])
                         if f and s.get("expect") is not None:
@@ -1697,7 +1757,7 @@ def backfill(cache):
     Stundenlimit ab — einfach erneut starten, bis nichts mehr fehlt."""
     global _no_wait
     _no_wait = True
-    need = [eid for eid, slim in cache.items() if not slim.get("x")]
+    need = [eid for eid, slim in cache.items() if slim.get("x") != CACHE_VERSION]
     print(f"NACHLADEN: {len(need)} von {len(cache)} Spielen ohne Zusatzdaten")
     chunks = [need[i:i + 10] for i in range(0, len(need), 10)]
     done = 0
@@ -1712,7 +1772,7 @@ def backfill(cache):
         for eid in chunk:                     # nicht mehr abrufbar -> nicht ewig neu versuchen
             if eid not in got:
                 with _cache_lock:
-                    cache[eid]["x"] = 1
+                    cache[eid]["x"] = CACHE_VERSION
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
         futures = [pool.submit(work, c) for c in chunks]
         for fut in as_completed(futures):
@@ -1728,7 +1788,7 @@ def backfill(cache):
                     save_cache(cache)
                 print(f"  ... {done}/{len(chunks)} Pakete, {_request_count} Anfragen", flush=True)
     save_cache(cache)
-    rest = sum(1 for slim in cache.values() if not slim.get("x"))
+    rest = sum(1 for slim in cache.values() if slim.get("x") != CACHE_VERSION)
     print(f"Nachladen fertig: {_request_count} Anfragen, noch {rest} Spiele ohne Zusatzdaten"
           + (" — Stundenlimit erreicht, bitte später erneut starten" if _budget_exhausted else ""))
 
@@ -1804,6 +1864,9 @@ def run():
         prewarm(cache, hcache)
         return
     state = load_state()
+    # ausgeschlossene Märkte auch aus dem Tagesgedächtnis werfen
+    state = {k: v for k, v in state.items()
+             if (v.get("metric_key"), v.get("direction")) not in EXCLUDED_MARKETS}
     matches = fetch_matches_in_window()
     print(f"{len(matches)} Spiele im Prüffenster ({WORKERS} parallel), "
           f"{len(state)} Signale im Lauf-Gedächtnis, "
@@ -1820,6 +1883,8 @@ def run():
         signals = evaluate_match(match, hist_home, hist_away)
         if signals:
             attach_extras(match, signals)
+            # Halbzeit-Märkte: kein Quoten-Nachweis nötig — Lucios Bookie führt
+            # sie (05.09.); bet365-Halbzeitlinie dient nur intern der Rechnung.
             for s in signals:
                 assess_signal(s)
             # Nur Märkte mit fairer Quote >= MIN_FAIR — der Rest wird weder
@@ -1833,8 +1898,9 @@ def run():
             signals = apply_s24_gate(signals, groups)
             # Lucios Vorgabe: nur melden, was JETZT eine echte Quoten-Spanne
             # hat. Nicht zuordenbare Seiten (❓) werden nicht gezeigt.
-            unverifiable = [signal_key(match, s) for s in signals if not s.get("range")]
-            signals = [s for s in signals if s.get("range")]
+            unverifiable = [signal_key(match, s) for s in signals
+                            if not s.get("range") and s["metric_key"] not in HT_METRICS]
+            signals = [s for s in signals if s.get("range") or s["metric_key"] in HT_METRICS]
             gated_out = sorted(before - {signal_key(match, s) for s in signals}
                                - set(unverifiable))
         return signals, gated_out, unverifiable
@@ -2094,10 +2160,18 @@ def selftest():
     #  a) breiter Korridor (über 6,5 + unter 12,5) -> beide Richtungen bleiben
     #  (Heim/Auswärts so gemischt, dass keine Rollen-Gegen-Serie entsteht)
     wide = _mk([[6, 5], [4, 3], [6, 6], [4, 4]] * 4, [H, H, A, A] * 4)[:15]
+    saved_excl = set(EXCLUDED_MARKETS)
+    EXCLUDED_MARKETS.clear()
     wsig = evaluate_match(match, wide, [dict(x) for x in wide])
+    EXCLUDED_MARKETS.update(saved_excl)
     dirs = {s["direction"] for s in wsig if s["metric"] == "Ecken"}
     if dirs != {"über", "unter"}:
         print("FEHLER Fall 8a: breiter Korridor wurde verworfen:", dirs)
+        ok = False
+    #  c) mit Standard-Konfiguration: unter-Ecken werden nie gemeldet
+    wsig2 = evaluate_match(match, wide, [dict(x) for x in wide])
+    if any(s["metric"] == "Ecken" and s["direction"] == "unter" for s in wsig2):
+        print("FEHLER Fall 8c: unter-Ecken müssen ausgeschlossen sein")
         ok = False
     #  b) enger Korridor (über 8,5 + unter 10,5 bei konstant 9/10 Ecken) -> raus
     tight = _mk([[5, 4], [5, 5]] * 8, [H, A] * 8)[:15]
@@ -2298,12 +2372,53 @@ def selftest():
         print("FEHLER Fall 13g: Empfehlungsliste falsch:", rec)
         ok = False
 
+    # --- Fall 14: Halbzeit-Daten aus dem Spieldatensatz
+    ev14 = {"id": "h1", "home": {"name": "Navua FC"}, "away": {"name": "Nasinu FC"},
+            "stats": {"corners": ["6", "2"], "corner_h": ["2", "0"], "yellowcards": ["3", "2"]},
+            "events": [{"text": "15' - 1st Goal -   (Nasinu FC) -"},
+                       {"text": "35' - 1st Corner - Navua FC"},
+                       {"text": "45+5' ~ 1st Yellow Card ~  ~(Nasinu FC)"},
+                       {"text": "45+7' - 2nd Corner - Navua FC"},
+                       {"text": "Score After First Half - 0-1"},
+                       {"text": "47' ~ 2nd Yellow Card ~  ~(Navua FC)"}]}
+    sl14 = slim_event(ev14)
+    if sl14.get("ht_corners") != [2, 0] or sl14.get("ht_yellowcards") != [0, 1] \
+       or sl14.get("x") != CACHE_VERSION:
+        print("FEHLER Fall 14a: Halbzeit-Felder falsch:", sl14)
+        ok = False
+    if parse_ht_cards({"events": [{"text": "12' ~ 1st Yellow Card ~ X ~(A)"}]}) is not None:
+        print("FEHLER Fall 14b: ohne Halbzeit-Marker darf es keine HZ-Karten geben")
+        ok = False
+    #  HZ-Ecken-Signal: beide Teams über 3.5 in der 1. HZ
+    def _ht(vals, homes):
+        h = _mk([[5, 5]] * len(vals), homes)
+        for m, v in zip(h, vals):
+            m["stats"]["ht_corners"] = [v, 0]
+            m["stats"]["ht_yellowcards"] = [1, 1]
+        return h
+    hA = _ht([5, 4, 6, 5, 4, 5, 6, 4, 5, 5, 4, 6, 5, 4, 5], [H, H, A, A] * 4)
+    hB = _ht([4, 5, 4, 6, 5, 4, 5, 4, 6, 5, 4, 5, 4, 5, 6], [A, A, H, H] * 4)
+    sig14 = [s for s in evaluate_match(dict(match), hA, hB) if s["metric_key"] == "ht_corners"]
+    if not sig14 or sig14[0]["direction"] != "über" or sig14[0]["line"] != 3.5:
+        print("FEHLER Fall 14c: HZ-Ecken-Signal fehlt/falsch:", [(s["direction"], s["line"]) for s in sig14])
+        ok = False
+    if any(s["metric_key"] == "ht_corners" and s["direction"] == "unter"
+           for s in evaluate_match(dict(match), hA, hB)):
+        print("FEHLER Fall 14d: unter-HZ-Ecken müssen ausgeschlossen sein")
+        ok = False
+    #  Gate lässt HZ-Märkte durch, HZ-Karten bekommen "Quote selbst prüfen"
+    g14 = apply_s24_gate([{"metric_key": "ht_corners"}, {"metric_key": "ht_yellowcards"},
+                          {"metric_key": "fouls"}], {"corners": (2, 1.5, 1.9)})
+    if [s["metric_key"] for s in g14] != ["ht_corners", "ht_yellowcards"]:
+        print("FEHLER Fall 14e: Gate muss HZ-Märkte durchlassen:", g14)
+        ok = False
+
     # --- Fall 12: Schiedsrichter/Spieldauer im Cache + Profil
     ev = {"id": "e9", "stats": {"corners": ["5", "4"], "yellowcards": ["3", "2"],
                                 "fouls": ["12", "11"], "redcards": ["0", "1"]},
           "extra": {"referee": {"id": 77, "name": "Max Muster"}, "length": 120}}
     sl = slim_event(ev)
-    if sl.get("ref") != ["77", "Max Muster"] or sl.get("len") != 120 or sl.get("x") != 1 \
+    if sl.get("ref") != ["77", "Max Muster"] or sl.get("len") != 120 or sl.get("x") != CACHE_VERSION \
        or sl.get("redcards") != [0, 1]:
         print("FEHLER Fall 12a: slim_event unvollständig:", sl)
         ok = False
