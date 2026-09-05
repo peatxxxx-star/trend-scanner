@@ -49,6 +49,12 @@ REGELWERK (vollständig):
   MIN_VALID_MATCHES saubere Spiele in der Gesamt-Historie, sonst gibt
   es für die Metrik kein Signal. Meldungen zeigen immer die Datenbasis.
 
+  Beitrags-Modell (05.09.): Erwartung = Mittel aus Summen-Modell (Ø der
+  Spielsummen beider Teams) und Angriff-x-Abwehr-Modell (Heim holt x Gast
+  lässt zu + Gast holt x Heim lässt zu, bezogen auf den Ligaschnitt je
+  Team) — erkennt, ob die Serien beider Teams vom selben "Erzeuger"
+  stammen (z.B. beide lassen viel zu, holen selbst wenig).
+
   Kennzahlen je Signal (keine zusätzlichen Anfragen): 📈 Trefferquote der
   Linie über die Historie beider Teams (jüngere Spiele stärker gewichtet,
   Spiele mit Platzverweis halb), 🪜 faire Quote für die Linie und ihre
@@ -1032,21 +1038,54 @@ def team_totals(history, metric, venue=None):
     return out
 
 
-def team_for_against(history, metric):
-    """Ø eigene Werte / Ø Werte des Gegners (aus [Heim, Gast] + Rolle)."""
-    own, opp = [], []
-    for m in history:
+def team_for_against(history, metric, venue=None, weighted=False):
+    """Ø eigene Werte / Ø Werte des Gegners (aus [Heim, Gast] + Rolle);
+    optional nur Heim-/Auswärtsspiele und mit Zeit-/Platzverweis-Gewichtung."""
+    own = opp = ww = 0.0
+    n = 0
+    for i, m in enumerate(history):
+        if venue == "home" and not m["is_home"]:
+            continue
+        if venue == "away" and m["is_home"]:
+            continue
         if metric_total(m, metric) is None:
             continue
         pair = (m.get("stats") or {}).get(metric)
         if not pair:
             continue
         a, b = (pair[0], pair[1]) if m["is_home"] else (pair[1], pair[0])
-        own.append(a)
-        opp.append(b)
-    if not own:
+        w = game_weight(i, m) if weighted else 1.0
+        own += w * a
+        opp += w * b
+        ww += w
+        n += 1
+    if n < 3 or ww <= 0:
         return None
-    return sum(own) / len(own), sum(opp) / len(opp)
+    return own / ww, opp / ww
+
+
+def matchup_expectation(hist_home, hist_away, metric):
+    """Beitrags-Modell (Angriff x Abwehr): Erwartung für HEUTE aus dem, was
+    jedes Team selbst produziert und dem Gegner zugesteht — Heim-Rolle für
+    das Heimteam, Auswärts-Rolle für das Gastteam (Fallback: alle Spiele),
+    gewichtet, bezogen auf den Schnitt aller gecachten Spiele (je Team).
+    Liefert (erwartung_gesamt, beitrag_heim, beitrag_gast) oder None."""
+    fa_h = (team_for_against(hist_home, metric, "home", True)
+            or team_for_against(hist_home, metric, None, True))
+    fa_a = (team_for_against(hist_away, metric, "away", True)
+            or team_for_against(hist_away, metric, None, True))
+    if not fa_h or not fa_a:
+        return None
+    base = _base_means.get(metric)
+    if not base:
+        base = fa_h[0] + fa_h[1] + fa_a[0] + fa_a[1]     # Notbehelf ohne Cache
+        base = base / 2
+    per_team = base / 2                                  # Ligaschnitt je Team
+    if per_team <= 0:
+        return None
+    home_today = fa_h[0] * fa_a[1] / per_team            # Heim holt x Gast lässt zu
+    away_today = fa_a[0] * fa_h[1] / per_team            # Gast holt x Heim lässt zu
+    return home_today + away_today, home_today, away_today
 
 
 def _mean(xs):
@@ -1083,8 +1122,16 @@ def enrich_signal(s, hist_home, hist_away, metric, direction, line):
     if avg_a is None:
         _, _, avg_a = weighted_stats(hist_away, metric, line, direction)
     if avg_h is not None and avg_a is not None:
-        expect = (avg_h + avg_a) / 2
+        expect_sum = (avg_h + avg_a) / 2                 # Summen-Modell (bisher)
         s["avg"] = (round(avg_h, 1), round(avg_a, 1))
+        s["expect_sum"] = round(expect_sum, 1)
+        mu = matchup_expectation(hist_home, hist_away, metric)
+        if mu:
+            s["expect_matchup"] = round(mu[0], 1)
+            s["contrib"] = (round(mu[1], 1), round(mu[2], 1))
+            expect = (expect_sum + mu[0]) / 2            # 50/50 mit Beitrags-Modell
+        else:
+            expect = expect_sum
         s["expect"] = round(expect, 1)
         s["buffer"] = round(expect - line if direction == "über" else line - expect, 1)
     fa_h = team_for_against(hist_home, metric)
@@ -1310,7 +1357,8 @@ def _cur_range(s):
 _SNAPSHOT_KEYS = ("metric", "metric_key", "direction", "line", "home_series",
                   "away_series", "home_is_anchor", "away_is_anchor", "valid",
                   "next_line", "next_note", "longterm", "fair", "ladder", "avg",
-                  "expect", "buffer", "fa", "referee", "b365", "expect_ref", "buffer_ref",
+                  "expect", "expect_sum", "expect_matchup", "contrib", "buffer", "fa",
+                  "referee", "b365", "expect_ref", "buffer_ref",
                   "sd", "p_emp", "p_mod", "p_fin", "fair_fin", "ladder_fin", "market",
                   "market_src", "ev", "light", "reason")
 
@@ -2434,6 +2482,23 @@ def selftest():
     if [s["metric_key"] for s in g14] != ["ht_corners", "ht_yellowcards"]:
         print("FEHLER Fall 14e: Gate muss HZ-Märkte durchlassen:", g14)
         ok = False
+
+    # --- Fall 15: Beitrags-Modell (Angriff x Abwehr)
+    #  Heim holt viel (7) und lässt wenig zu (3); Gast holt wenig (3), lässt viel zu (7)
+    #  -> Summen-Modell: beide Ø 10 -> 10; Beitrag: 7*7/5 + 3*3/5 = 9.8+1.8 = 11.6
+    _base_means["corners"] = 10.0
+    hh = _mk([[7, 3]] * 15, [H, A] * 7 + [H])
+    ha = _mk([[7, 3]] * 15, [A, H] * 7 + [A])      # als Gast: pair[1]=3 eigene, 7 zugelassen
+    mu15 = matchup_expectation(hh, ha, "corners")
+    if not mu15 or abs(mu15[0] - 11.6) > 0.05:
+        print("FEHLER Fall 15a: Beitrags-Modell falsch:", mu15)
+        ok = False
+    s15 = sig("corners", "über", 8.5)
+    enrich_signal(s15, hh, ha, "corners", "über", 8.5)
+    if abs(s15["expect"] - 10.8) > 0.05 or s15.get("contrib") != (9.8, 1.8):
+        print("FEHLER Fall 15b: Mischung Summen/Beitrag falsch:", s15.get("expect"), s15.get("contrib"))
+        ok = False
+    _base_means.pop("corners", None)
 
     # --- Fall 12: Schiedsrichter/Spieldauer im Cache + Profil
     ev = {"id": "e9", "stats": {"corners": ["5", "4"], "yellowcards": ["3", "2"],
