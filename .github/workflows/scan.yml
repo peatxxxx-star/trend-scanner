@@ -11,11 +11,12 @@ on:
     # Letzter Lauf des Tages: 19:11 UTC = 21:11 deutscher Sommerzeit,
     # deckt alle Anstöße bis 06:00 früh ab (Nachtspiele).
     - cron: "11 19 * * *"
-    # Vorwärm-Läufe 01:17 + 03:17 UTC = 03:17 + 05:17 deutscher Sommerzeit:
-    # laden nur Statistiken des Tages in den Cache (kein Bericht) — zwei
-    # volle Stundenlimits vor dem 06:17-Bericht, damit große Spieltage
-    # (Sa/So) nicht am API-Limit hängen. (Winter: "17 2,4 * * *")
-    - cron: "17 1,3 * * *"
+    # Vorwärm-Läufe 21:17/23:17/01:17/03:17 UTC = 23:17, 01:17, 03:17, 05:17
+    # deutscher Sommerzeit: laden ab 23:17 die Spiele des NÄCHSTEN Tages
+    # Stück für Stück in den Cache (kein Bericht), jeder hört am Stundenlimit
+    # auf. So verteilt sich die Last über die Nacht statt auf den 06:17-Lauf.
+    # (Winter: "17 22,0,2,4 * * *")
+    - cron: "17 21,23,1,3 * * *"
   workflow_dispatch:      # manueller Start über den "Run workflow"-Knopf
     inputs:
       modus:
