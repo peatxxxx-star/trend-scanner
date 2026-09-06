@@ -170,13 +170,17 @@ EXCLUDED_MARKETS = {("corners", "unter"), ("ht_corners", "unter")}
 
 # Halbzeit-Märkte (05.09.): 1. HZ Ecken aus dem API-Feld corner_h, 1. HZ Gelbe
 # Karten aus dem Ereignis-Verlauf (Minute + "Score After First Half"-Marker).
-# Quoten-Nachweis (Oder-Regel, Lucio 06.09.): ein Markt bleibt, wenn
-# scores24 die Marktfamilie des Spiels kennt (HZ-Ecken -> Ecken-Reiter,
-# HZ-Karten -> Karten-Reiter; reine Verfügbarkeits-Näherung, keine Werte)
-# ODER die bet365-API für genau diesen Markt eine Linie stellt (Ecken 1_4,
-# HZ-Ecken 1_7). Fehlt beides -> raus. Cache-Version 2 nötig ("nachladen").
+# Quoten-Nachweis: ein Markt bleibt, wenn scores24 die Marktfamilie des
+# Spiels kennt (HZ-Ecken -> Ecken-Reiter, HZ-Karten -> Karten-Reiter; reine
+# Verfügbarkeits-Näherung, keine Werte). Der bet365-Zweig (B365_AS_PROOF)
+# ist aus. Cache-Version 2 nötig ("nachladen").
 HT_METRICS = {"ht_corners", "ht_yellowcards"}
 CACHE_VERSION = 2
+
+# Quoten-Nachweis über die bet365-Linie (Oder-Regel). Hinweis: bet365 führt
+# Ecken bis in Randligen, die Lucios Bookie nicht hat — der Zweig kann
+# unspielbare Signale bringen; auf False schalten, wenn das stört.
+B365_AS_PROOF = True     # Lucio (06.09.): "kann ruhig drin bleiben"
 
 CONTRA_GAP = 2.0                      # Standard (Ecken, Schüsse)
 # Marktabhängig: enge Linienraster (Karten, Abseits) -> nur die direkt
@@ -850,7 +854,7 @@ def apply_s24_gate(signals, groups):
             s["metric_key"], s["metric_key"])
         g = groups.get(lookup)
         if not g:
-            if s["metric_key"] in ("corners", "ht_corners"):
+            if B365_AS_PROOF and s["metric_key"] in ("corners", "ht_corners"):
                 s["unchecked"] = True          # zweite Chance: bet365-Linie
                 kept.append(s)
             continue
@@ -1229,9 +1233,10 @@ def model_prob(mean, sd, line, direction):
 
 
 # --- Die eine schlüssige Rechnung: Historie + Modell -> Fair -> Markt -> Ampel
-MIN_FAIR = 1.30           # Märkte mit fairer Quote darunter werden gar nicht gemeldet
-                          # (Lucio: "den Rest möchte ich nicht sehen"); steigt die faire
-                          # Quote später darüber, kommt der Markt als 🆕 dazu.
+MIN_FAIR = 1.0            # Mindest-Fair-Filter AUS (06.09., Lucio: "einmal alle wieder
+                          # rein, ich checke es") — alle ✅-Märkte werden gemeldet, er
+                          # spielt nur, wo der Bookie über fair UND >= 1,30 liegt.
+                          # Zum Reaktivieren z.B. 1.20 setzen.
 GREEN_MIN_P = 0.68        # Mindest-Wahrscheinlichkeit (kombiniert) für Grün
 RED_MAX_P = 0.58          # darunter Rot
 AGREE_OK = 0.12           # max. Abstand Historie/Modell für Grün
@@ -1837,7 +1842,7 @@ def attach_extras(match, signals):
                     for s in signals:
                         if s["metric_key"] == mkey:
                             s["b365"] = b
-                            if not s.get("range"):        # Nachweis über bet365 (Oder-Regel)
+                            if B365_AS_PROOF and not s.get("range"):   # Oder-Regel (aus)
                                 try:
                                     s["range"] = (float(r.get("over_od")), float(r.get("under_od")))
                                     s.pop("unchecked", None)
@@ -2572,14 +2577,15 @@ def selftest():
     if [s["metric_key"] for s in g14] != ["ht_corners"] or not g14[0].get("range"):
         print("FEHLER Fall 14e: HZ-Ecken nur mit Ecken-Reiter, HZ-Karten nur mit Karten-Reiter:", g14)
         ok = False
-    g14b = apply_s24_gate([{"metric_key": "ht_corners"}, {"metric_key": "corners"}], None)
-    if len(g14b) != 2 or not all(s.get("unchecked") for s in g14b):
-        print("FEHLER Fall 14f: ohne Seite bleiben Ecken-Märkte markiert für die bet365-Prüfung:", g14b)
-        ok = False
-    g14c = apply_s24_gate([{"metric_key": "ht_corners"}, {"metric_key": "ht_yellowcards"}],
-                          {"fouls": (1, 1.5, 1.6)})
-    if [s["metric_key"] for s in g14c] != ["ht_corners"] or not g14c[0].get("unchecked"):
-        print("FEHLER Fall 14g: HZ-Karten ohne Karten-Reiter raus, HZ-Ecken zur bet365-Prüfung:", g14c)
+    g14c = apply_s24_gate([{"metric_key": "ht_corners"}, {"metric_key": "ht_yellowcards"},
+                           {"metric_key": "corners"}], {"fouls": (1, 1.5, 1.6)})
+    kept_keys = [s["metric_key"] for s in g14c]
+    if B365_AS_PROOF:
+        if kept_keys != ["ht_corners", "corners"] or not all(s.get("unchecked") for s in g14c):
+            print("FEHLER Fall 14g: Ecken-Märkte ohne Reiter bleiben für die bet365-Prüfung markiert:", g14c)
+            ok = False
+    elif g14c:
+        print("FEHLER Fall 14g: ohne passenden Reiter fliegen alle Märkte (bet365-Zweig aus):", g14c)
         ok = False
 
     # --- Fall 15: Beitrags-Modell (Angriff x Abwehr)
