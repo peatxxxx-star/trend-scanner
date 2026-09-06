@@ -170,10 +170,11 @@ EXCLUDED_MARKETS = {("corners", "unter"), ("ht_corners", "unter")}
 
 # Halbzeit-Märkte (05.09.): 1. HZ Ecken aus dem API-Feld corner_h, 1. HZ Gelbe
 # Karten aus dem Ereignis-Verlauf (Minute + "Score After First Half"-Marker).
-# scores24 kennt dafür keine Quoten-Gruppen; ein Quoten-Nachweis entfällt
-# für beide (Lucios Bookie führt die Märkte). Die bet365-Halbzeit-Ecken-
-# Linie (Markt 1_7) fließt nur intern in die Rechnung ein. Cache-Version 2
-# nötig (einmal "nachladen").
+# Quoten-Nachweis (Oder-Regel, Lucio 06.09.): ein Markt bleibt, wenn
+# scores24 die Marktfamilie des Spiels kennt (HZ-Ecken -> Ecken-Reiter,
+# HZ-Karten -> Karten-Reiter; reine Verfügbarkeits-Näherung, keine Werte)
+# ODER die bet365-API für genau diesen Markt eine Linie stellt (Ecken 1_4,
+# HZ-Ecken 1_7). Fehlt beides -> raus. Cache-Version 2 nötig ("nachladen").
 HT_METRICS = {"ht_corners", "ht_yellowcards"}
 CACHE_VERSION = 2
 
@@ -683,6 +684,30 @@ def s24_day_links():
 _TOKEN_ALIASES = {"utd": "united", "cnty": "county", "wed": "wednesday",
                   "ath": "athletic", "intl": "international"}
 
+# Mannschafts-Zusätze, die bei der Seiten-Zuordnung ZWINGEND übereinstimmen
+# müssen (06.09.: "FK Jablonec B" war auf die Seite von FK Jablonec gelandet
+# und hat deren Ecken-Quoten als Nachweis bekommen). Gruppen: Reserve
+# (B/II/2/Reserves), dritte Mannschaft, U-Teams, Frauen, Jugend.
+_VARIANT_TAGS = {
+    "b": "res", "ii": "res", "2": "res", "reserves": "res", "reserve": "res",
+    "res": "res", "amateure": "res", "amateur": "res",
+    "iii": "res3", "3": "res3",
+    "u17": "u", "u18": "u", "u19": "u", "u20": "u", "u21": "u", "u23": "u",
+    "w": "w", "women": "w", "frauen": "w", "ladies": "w", "femenino": "w",
+    "feminino": "w", "feminin": "w",
+    "youth": "y", "jugend": "y", "academy": "y",
+}
+
+
+def variant_tags(text: str) -> set:
+    """Zusätze eines Teamnamens oder Slugs als Menge, z.B. {'res'}, {'w'}."""
+    tags = set()
+    for tok in s24_slug(text).split("-"):
+        tag = _VARIANT_TAGS.get(tok)
+        if tag:
+            tags.add(tag)
+    return tags
+
 
 def _name_matches_slug(name, slug_part):
     """Wieviele Tokens (>=3 Zeichen) des Teamnamens im Slug vorkommen
@@ -708,11 +733,12 @@ def s24_fetch_groups(match):
     Spiel nicht zuzuordnen/erreichbar ist.
     """
     candidates = []
+    want_tags = variant_tags(match["home"]) | variant_tags(match["away"])
     for link in s24_day_links():
         body = re.sub(r"^m-\d{2}-\d{2}-\d{4}-", "", link)
         h = _name_matches_slug(match["home"], body)
         a = _name_matches_slug(match["away"], body)
-        if h >= 1 and a >= 1:
+        if h >= 1 and a >= 1 and variant_tags(body) == want_tags:
             candidates.append((h + a, link))
     slugs = [link[2:] for _, link in sorted(candidates, reverse=True)[:2]]
     # Fallback: direkt geratener Slug (zwei Datumsvarianten)
@@ -739,6 +765,9 @@ def s24_fetch_groups(match):
             return (not toks) or any(t in low for t in toks)
         if not (in_json(match["home"]) and in_json(match["away"])):
             _s24_stats["last_error"] = f"{url} -> Teamnamen nicht im JSON"[:160]
+            continue
+        if variant_tags(slug) != want_tags:
+            _s24_stats["last_error"] = f"{url} -> Mannschafts-Zusatz passt nicht"[:160]
             continue
         groups = {}
         for g in data:
@@ -790,17 +819,25 @@ def apply_s24_gate(signals, groups):
     Sonst behalten und Quoten-Spanne anhaengen.
     """
     if groups is None:
+        # Seite nicht zuordenbar: alles als "scores24 fehlt" markieren.
+        # Ecken/HZ-Ecken können noch über die bet365-Linie bestehen
+        # (Oder-Regel, Lucio 06.09.), der Rest fliegt danach.
         for s in signals:
-            if s["metric_key"] not in HT_METRICS:
-                s["unchecked"] = True
+            s["unchecked"] = True
         return signals
     kept = []
     for s in signals:
-        if s["metric_key"] in HT_METRICS:     # kein scores24-Reiter -> später prüfen
-            kept.append(s)
-            continue
-        g = groups.get(s["metric_key"])
+        # Halbzeit-Märkte: scores24 kennt keine HZ-Reiter. Nachweis = der
+        # zugehörige Vollzeit-Reiter (Ecken bzw. Karten) muss Quoten haben —
+        # wer Ecken anbietet, hat i.d.R. auch HZ-Ecken; wer keine Karten
+        # anbietet, hat sicher keine HZ-Karten.
+        lookup = {"ht_corners": "corners", "ht_yellowcards": "yellowcards"}.get(
+            s["metric_key"], s["metric_key"])
+        g = groups.get(lookup)
         if not g:
+            if s["metric_key"] in ("corners", "ht_corners"):
+                s["unchecked"] = True          # zweite Chance: bet365-Linie
+                kept.append(s)
             continue
         count, lo, hi = g
         if hi < MIN_ODDS:
@@ -1667,7 +1704,7 @@ def build_recommendations(items):
     return head + "\n" + ("\n".join(rows) if rows else "<i>heute nichts</i>")
 
 
-def assemble_report(buckets, run_label, new_state=None):
+def assemble_report(buckets, run_label, new_state=None, deferred_note=None):
     """Baut die Telegram-Nachricht(en); None = nichts zu melden.
     Liefert Liste von HTML-Text-Stücken (<= ~3500 Zeichen)."""
     n = {k: sum(len(sigs) for _, sigs in v) for k, v in buckets.items() if k != "dropped"}
@@ -1711,9 +1748,15 @@ def assemble_report(buckets, run_label, new_state=None):
         items = [(m, entries) for m, entries in items if entries]
         n_new_green = sum(1 for _, entries in items for st, _, _ in entries if st == "new")
         if not items:
+            extra = (f"\n⏳ {deferred_note[0]} Spiele wegen API-Limit auf den nächsten Lauf verschoben"
+                     if deferred_note else "")
             return [f"🟨🟨🟨 <b>TREND-SCAN {run_label}</b> 🟨🟨🟨\n"
-                    f"✅ heute nichts Spielbares"]
-        blocks = [f"✅ {lights['🟢']} spielbar heute · 🆕 {n_new_green} neu seit letztem Lauf"]
+                    f"✅ heute nichts Spielbares{extra}"]
+        head = f"✅ {lights['🟢']} spielbar heute · 🆕 {n_new_green} neu seit letztem Lauf"
+        if deferred_note:
+            head += (f"\n⏳ {deferred_note[0]} Spiele wegen API-Limit auf den nächsten Lauf "
+                     f"verschoben (ab {deferred_note[1]})")
+        blocks = [head]
         blocks += [build_match_block(m, e) for m, e in items]
     else:
         blocks = [f"📊 {total_day} Signale heute · 🆕 {n['new']} neu · {lcount}\n{legend}"]
@@ -1779,9 +1822,10 @@ def attach_extras(match, signals):
                     for s in signals:
                         if s["metric_key"] == mkey:
                             s["b365"] = b
-                            if mkey == "ht_corners":      # Quoten-Nachweis für HZ-Ecken
+                            if not s.get("range"):        # Nachweis über bet365 (Oder-Regel)
                                 try:
                                     s["range"] = (float(r.get("over_od")), float(r.get("under_od")))
+                                    s.pop("unchecked", None)
                                 except (TypeError, ValueError):
                                     pass
         except Exception as exc:
@@ -1918,11 +1962,18 @@ def run():
     if is_prewarm_run():
         prewarm(cache, hcache)
         return
+    global _no_wait
     state = load_state()
     # ausgeschlossene Märkte auch aus dem Tagesgedächtnis werfen
     state = {k: v for k, v in state.items()
              if (v.get("metric_key"), v.get("direction")) not in EXCLUDED_MARKETS}
     matches = fetch_matches_in_window()
+    # Anstoß-Reihenfolge: frühe Spiele zuerst. Am API-Limit wird NICHT
+    # gewartet (kostet nur GitHub-Minuten) — der Rest wandert in den
+    # nächsten Lauf (06.09.: 2-Stunden-Lauf am Sonntagmorgen).
+    matches.sort(key=lambda m: m.get("kickoff_ts", 0))
+    _no_wait = True
+    deferred = []
     n_ht = sum(1 for s in cache.values() if s.get("ht_corners") is not None)
     n_htc = sum(1 for s in cache.values() if s.get("ht_yellowcards") is not None)
     print(f"{len(matches)} Spiele im Prüffenster ({WORKERS} parallel), "
@@ -1939,28 +1990,28 @@ def run():
         hist_home = fetch_team_history(match["home_id"], cache, hcache)
         hist_away = fetch_team_history(match["away_id"], cache, hcache)
         signals = evaluate_match(match, hist_home, hist_away)
-        if signals:
-            attach_extras(match, signals)
-            # Halbzeit-Märkte: kein Quoten-Nachweis nötig — Lucios Bookie führt
-            # sie (05.09.); bet365-Halbzeitlinie dient nur intern der Rechnung.
-            for s in signals:
-                assess_signal(s)
-            # Nur Märkte mit fairer Quote >= MIN_FAIR — der Rest wird weder
-            # gezeigt noch gemerkt (kann später als 🆕 nachrücken).
-            signals = [s for s in signals
-                       if (s.get("fair_fin") or s.get("fair") or 0) >= MIN_FAIR]
         gated_out, unverifiable = [], []
+        before = {signal_key(match, s) for s in signals}
+        # 1) scores24: Verfügbarkeits-Näherung je Marktfamilie (keine Werte).
+        #    Ecken/HZ-Ecken ohne Reiter bleiben markiert (zweite Chance bet365).
         if signals and GATE_ENABLED:
             groups = s24_fetch_groups(match)
-            before = {signal_key(match, s) for s in signals}
             signals = apply_s24_gate(signals, groups)
-            # Lucios Vorgabe: nur melden, was JETZT eine echte Quoten-Spanne
-            # hat. Nicht zuordenbare Seiten (❓) werden nicht gezeigt.
-            unverifiable = [signal_key(match, s) for s in signals
-                            if not s.get("range") and s["metric_key"] not in HT_METRICS]
-            signals = [s for s in signals if s.get("range") or s["metric_key"] in HT_METRICS]
-            gated_out = sorted(before - {signal_key(match, s) for s in signals}
-                               - set(unverifiable))
+        if signals:
+            # 2) Zusatzabfragen: bet365-Linie (kann den Nachweis liefern),
+            #    Schiedsrichter-Profil
+            attach_extras(match, signals)
+            # 3) Oder-Regel: weder scores24 noch bet365 -> raus
+            if GATE_ENABLED:
+                unverifiable = [signal_key(match, s) for s in signals if not s.get("range")]
+                signals = [s for s in signals if s.get("range")]
+                gated_out = sorted(before - {signal_key(match, s) for s in signals}
+                                   - set(unverifiable))
+            # 4) Bewertung + Mindest-Fair
+            for s in signals:
+                assess_signal(s)
+            signals = [s for s in signals
+                       if (s.get("fair_fin") or s.get("fair") or 0) >= MIN_FAIR]
         return signals, gated_out, unverifiable
 
     done = 0
@@ -1971,6 +2022,9 @@ def run():
             done += 1
             try:
                 signals, gated_out, unverif = fut.result()
+            except BudgetExhausted:
+                deferred.append(match)
+                continue
             except Exception as exc:
                 print(f"  überspringe {match['home']}–{match['away']}: {exc}")
                 continue
@@ -2013,7 +2067,11 @@ def run():
     (RUNS_DIR / f"{now:%Y-%m-%d_%H%M}.json").write_text(
         json.dumps(log, ensure_ascii=False, indent=1))
 
-    chunks = assemble_report(buckets, run_label, new_state)
+    if deferred:
+        print(f"API-Limit erreicht: {len(deferred)} Spiele auf den nächsten Lauf verschoben "
+              f"(frühester Anstoß {deferred[0]['kickoff']})")
+    chunks = assemble_report(buckets, run_label, new_state,
+                             deferred_note=(len(deferred), deferred[0]["kickoff"]) if deferred else None)
     delivered = True
     if chunks:
         if TG_TOKEN and TG_CHAT:
@@ -2212,6 +2270,20 @@ def selftest():
         ok = False
     if _name_matches_slug("Preston", "crystal-palace-brighton") != 0:
         print("FEHLER Fall 7f: Fuzzy-Zuordnung matcht falsches Spiel")
+        ok = False
+    # --- Fall 7g: Mannschafts-Zusätze müssen übereinstimmen
+    if variant_tags("FK Jablonec B") != {"res"} or variant_tags("Legia Warsaw II") != {"res"} \
+       or variant_tags("SEISA OSA Rheia FC (W)") != {"w"} or variant_tags("Roma U20") != {"u"} \
+       or variant_tags("Sheffield United") != set():
+        print("FEHLER Fall 7g: Zusatz-Erkennung falsch:",
+              variant_tags("FK Jablonec B"), variant_tags("SEISA OSA Rheia FC (W)"))
+        ok = False
+    want = variant_tags("FK Jablonec B") | variant_tags("Slovan Liberec B")
+    if variant_tags("fk-jablonec-slovan-liberec") == want:
+        print("FEHLER Fall 7h: B-Team darf nicht auf die Seite der ersten Mannschaft passen")
+        ok = False
+    if variant_tags("fk-jablonec-b-slovan-liberec-b") != want:
+        print("FEHLER Fall 7i: B-Team muss auf die B-Seite passen")
         ok = False
 
     # --- Fall 8: Gegenläufigkeit nur bei ENGEM Korridor
@@ -2479,8 +2551,17 @@ def selftest():
     #  Gate lässt HZ-Märkte durch, HZ-Karten bekommen "Quote selbst prüfen"
     g14 = apply_s24_gate([{"metric_key": "ht_corners"}, {"metric_key": "ht_yellowcards"},
                           {"metric_key": "fouls"}], {"corners": (2, 1.5, 1.9)})
-    if [s["metric_key"] for s in g14] != ["ht_corners", "ht_yellowcards"]:
-        print("FEHLER Fall 14e: Gate muss HZ-Märkte durchlassen:", g14)
+    if [s["metric_key"] for s in g14] != ["ht_corners"] or not g14[0].get("range"):
+        print("FEHLER Fall 14e: HZ-Ecken nur mit Ecken-Reiter, HZ-Karten nur mit Karten-Reiter:", g14)
+        ok = False
+    g14b = apply_s24_gate([{"metric_key": "ht_corners"}, {"metric_key": "corners"}], None)
+    if len(g14b) != 2 or not all(s.get("unchecked") for s in g14b):
+        print("FEHLER Fall 14f: ohne Seite bleiben Ecken-Märkte markiert für die bet365-Prüfung:", g14b)
+        ok = False
+    g14c = apply_s24_gate([{"metric_key": "ht_corners"}, {"metric_key": "ht_yellowcards"}],
+                          {"fouls": (1, 1.5, 1.6)})
+    if [s["metric_key"] for s in g14c] != ["ht_corners"] or not g14c[0].get("unchecked"):
+        print("FEHLER Fall 14g: HZ-Karten ohne Karten-Reiter raus, HZ-Ecken zur bet365-Prüfung:", g14c)
         ok = False
 
     # --- Fall 15: Beitrags-Modell (Angriff x Abwehr)
