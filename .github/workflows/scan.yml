@@ -20,10 +20,10 @@ on:
   workflow_dispatch:      # manueller Start über den "Run workflow"-Knopf
     inputs:
       modus:
-        description: "scan = normaler Lauf · nachladen = Zusatzdaten (Schiri/Dauer/Halbzeit) für alte Cache-Einträge holen"
+        description: "scan = normaler Lauf · nachladen = Historien der Teams von heute/morgen neu laden · inventar = welche Märkte/Daten liefert die API pre-match?"
         type: choice
         default: scan
-        options: [scan, nachladen]
+        options: [scan, nachladen, inventar]
 
 concurrency:
   group: trend-scan
@@ -50,6 +50,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           PYTHONUNBUFFERED: "1"
           BACKFILL: ${{ inputs.modus == 'nachladen' && '1' || '0' }}
+          INVENTORY: ${{ inputs.modus == 'inventar' && '1' || '0' }}
         run: python scan.py
 
       - name: Cache, Lauf-Gedächtnis und Protokoll sichern
