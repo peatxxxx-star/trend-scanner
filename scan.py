@@ -98,6 +98,7 @@ Aufruf:
   python scan.py --selftest    # Regelwerk-Test ohne API-Zugriff
 """
 
+import gzip
 import json
 import math
 import os
@@ -238,7 +239,10 @@ def metric_allowed_for_league(metric: str, league: str) -> bool:
 # Zusätzlich gecachte Felder (nicht als Markt, nur für die Gewichtung)
 EXTRA_STAT_FIELDS = ("redcards",)
 
-CACHE_FILE = Path(__file__).parent / "cache" / "stats.json"
+CACHE_FILE = Path(__file__).parent / "cache" / "stats.json.gz"    # komprimiert (06.09.)
+CACHE_FILE_LEGACY = Path(__file__).parent / "cache" / "stats.json"
+CACHE_KEEP_DAYS = 3      # Tagesspeicher (Lucio, 06.09.): nur was in den letzten 3 Tagen
+                         # gebraucht wurde — die Nachtläufe laden den nächsten Tag frisch
 RUNS_DIR = Path(__file__).parent / "runs"
 
 # Tages-Cache für die Spiellisten der Teams ("welche Spiele zuletzt?").
@@ -333,18 +337,43 @@ def api_get(path: str, **params) -> dict:
     raise RuntimeError("unreachable")
 
 
+def _today_num() -> int:
+    return int(time.time() // 86400)
+
+
 def load_cache() -> dict:
-    if CACHE_FILE.exists():
-        try:
-            return json.loads(CACHE_FILE.read_text())
-        except Exception:
-            return {}
+    try:
+        if CACHE_FILE.exists():
+            with gzip.open(CACHE_FILE, "rt", encoding="utf-8") as f:
+                return json.load(f)
+        if CACHE_FILE_LEGACY.exists():                      # einmalige Migration
+            return json.loads(CACHE_FILE_LEGACY.read_text())
+    except Exception:
+        pass
     return {}
 
 
 def save_cache(cache: dict) -> None:
+    """Speichert komprimiert und wirft Spiele raus, die CACHE_KEEP_DAYS lang
+    nicht mehr gebraucht wurden ("t" = Tag der letzten Nutzung)."""
     CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
-    CACHE_FILE.write_text(json.dumps(cache, separators=(",", ":")))
+    cutoff = _today_num() - CACHE_KEEP_DAYS
+    today = _today_num()
+    slim = {}
+    for k, v in cache.items():
+        t_used = v.get("t")
+        if t_used is None:                 # alte Einträge: heute als Nutzung setzen
+            v["t"] = today
+        elif t_used < cutoff:
+            continue
+        slim[k] = v
+    with gzip.open(CACHE_FILE, "wt", encoding="utf-8", compresslevel=6) as f:
+        json.dump(slim, f, separators=(",", ":"))
+    if CACHE_FILE_LEGACY.exists():
+        try:
+            CACHE_FILE_LEGACY.unlink()
+        except OSError:
+            pass
 
 
 def load_history_cache() -> dict:
@@ -569,21 +598,33 @@ def fetch_team_history(team_id: str, cache: dict, hcache: dict = None):
             with _cache_lock:
                 hcache[str(team_id)] = {"ts": int(time.time()), "events": events}
 
+    # fehlende UND veraltete (ältere Cache-Version) Spiele holen — so werden
+    # neue Felder genau dort aufgefrischt, wo sie gebraucht werden
     with _cache_lock:
-        need = [e["id"] for e in events if e["id"] not in cache]
+        need = [e["id"] for e in events
+                if e["id"] not in cache or cache[e["id"]].get("x") != CACHE_VERSION]
     for i in range(0, len(need), 10):
         chunk = need[i:i + 10]
         view = api_get("/v1/event/view", event_id=",".join(chunk))
+        got = set()
         for ev in view.get("results", []):
             slim = slim_event(ev)
             with _cache_lock:
                 cache[ev["id"]] = slim
+            got.add(ev["id"])
+        with _cache_lock:                  # nicht mehr abrufbar: nicht ewig neu versuchen
+            for eid in chunk:
+                if eid not in got and eid in cache:
+                    cache[eid]["x"] = CACHE_VERSION
 
+    today = _today_num()
     history = []
     with _cache_lock:
         for e in events:
-            history.append({"stats": cache.get(e["id"], {}),
-                            "is_home": e["h"], "label": e["l"]})
+            slim = cache.get(e["id"], {})
+            if slim:
+                slim["t"] = today              # Nutzung vermerken (Cache-Pflege)
+            history.append({"stats": slim, "is_home": e["h"], "label": e["l"]})
     return history
 
 
@@ -1911,14 +1952,35 @@ def attach_extras(match, signals):
             print(f"  Schiri-Abfrage {match['home']}–{match['away']}: {exc}")
 
 
-def backfill(cache):
-    """Einmaliger Nachlade-Lauf: holt für gecachte Spiele ohne Zusatzdaten
-    (Schiedsrichter, Spieldauer, rote Karten) den Datensatz neu. Bricht am
-    Stundenlimit ab — einfach erneut starten, bis nichts mehr fehlt."""
+def backfill(cache, hcache=None):
+    """Nachlade-Lauf: frischt veraltete Cache-Einträge NUR für die Teams auf,
+    die heute oder morgen spielen (alles andere wird nie gebraucht — der
+    Cache hält weit über 100.000 Spiele). Bricht am Stundenlimit ab."""
     global _no_wait
     _no_wait = True
-    need = [eid for eid, slim in cache.items() if slim.get("x") != CACHE_VERSION]
-    print(f"NACHLADEN: {len(need)} von {len(cache)} Spielen ohne Zusatzdaten")
+    now = now_berlin()
+    end = (now + timedelta(days=2)).replace(hour=0, minute=0, second=0, microsecond=0)
+    matches = fetch_matches_in_window(now, end)
+    teams = []
+    seen = set()
+    for m in matches:
+        for tid in (m["home_id"], m["away_id"]):
+            if tid not in seen:
+                seen.add(tid)
+                teams.append(tid)
+    need_set = set()
+    hc = hcache if hcache is not None else {}
+    for tid in teams:
+        entry = hc.get(str(tid))
+        if not entry:
+            continue                       # Liste unbekannt -> holt der normale Lauf
+        for e in entry["events"]:
+            slim = cache.get(e["id"])
+            if slim is not None and slim.get("x") != CACHE_VERSION:
+                need_set.add(e["id"])
+    need = sorted(need_set)
+    print(f"NACHLADEN: {len(need)} veraltete Spiele für {len(teams)} Teams (heute+morgen), "
+          f"Cache gesamt {len(cache)}")
     chunks = [need[i:i + 10] for i in range(0, len(need), 10)]
     done = 0
 
@@ -1948,8 +2010,8 @@ def backfill(cache):
                     save_cache(cache)
                 print(f"  ... {done}/{len(chunks)} Pakete, {_request_count} Anfragen", flush=True)
     save_cache(cache)
-    rest = sum(1 for slim in cache.values() if slim.get("x") != CACHE_VERSION)
-    print(f"Nachladen fertig: {_request_count} Anfragen, noch {rest} Spiele ohne Zusatzdaten"
+    rest = sum(1 for eid in need if cache.get(eid, {}).get("x") != CACHE_VERSION)
+    print(f"Nachladen fertig: {_request_count} Anfragen, noch {rest} relevante Spiele veraltet"
           + (" — Stundenlimit erreicht, bitte später erneut starten" if _budget_exhausted else ""))
 
 
@@ -2020,7 +2082,7 @@ def run():
     _ref_stats.update(compute_referee_stats(cache))
     _base_means.update(compute_base_means(cache))
     if os.environ.get("BACKFILL") == "1":
-        backfill(cache)
+        backfill(cache, hcache)
         return
     if is_prewarm_run():
         prewarm(cache, hcache)
@@ -2028,9 +2090,12 @@ def run():
     global _no_wait
     state = load_state()
     # ausgeschlossene Märkte und Einträge alter Gedächtnis-Versionen werfen
+    def _line_ok(v):
+        lines = METRICS.get(v.get("metric_key"), (None, []))[1]
+        return v.get("line") in lines            # gestrichene Linien (z.B. Ecken 6,5) raus
     state = {k: v for k, v in state.items()
              if (v.get("metric_key"), v.get("direction")) not in EXCLUDED_MARKETS
-             and v.get("v") == STATE_VERSION}
+             and v.get("v") == STATE_VERSION and _line_ok(v)}
     matches = fetch_matches_in_window()
     # Anstoß-Reihenfolge: frühe Spiele zuerst. Am API-Limit wird NICHT
     # gewartet (kostet nur GitHub-Minuten) — der Rest wandert in den
