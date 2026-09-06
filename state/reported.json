@@ -1,31 +1,486 @@
 {
- "13002909|yellowcards|unter": {
-  "match_id": "13002909",
-  "home": "Juventus",
-  "away": "AC Milan",
-  "kickoff": "So 20:45",
-  "kickoff_ts": 1788720300,
-  "league": "Italy Serie A",
+ "12321245|yellowcards|über": {
+  "match_id": "12321245",
+  "home": "Lanus",
+  "away": "Defensa y Justicia",
+  "kickoff": "So 22:00",
+  "kickoff_ts": 1788724800,
+  "league": "Argentina Liga Profesional",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "So 18:45",
+  "first_line": 2.5,
+  "first_range": [
+   1.26,
+   1.61
+  ],
+  "last_run": "So 21:21",
+  "line": 2.5,
+  "range": [
+   1.28,
+   1.65
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    46
+   ],
+   "next_line": 3.5,
+   "next_note": "Lanus 6/8 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "longterm": [
+    0.8933585669257426,
+    0.8702231104714077
+   ],
+   "fair": 1.18,
+   "ladder": [
+    [
+     1.5,
+     1.23
+    ],
+    [
+     2.5,
+     1.18
+    ]
+   ],
+   "avg": [
+    4.1,
+    4.2
+   ],
+   "expect": 4.1,
+   "expect_sum": 4.2,
+   "expect_matchup": 4.0,
+   "contrib": [
+    2.1,
+    1.9
+   ],
+   "buffer": 1.6,
+   "fa": [
+    [
+     2.2,
+     2.2
+    ],
+    [
+     1.8,
+     2.2
+    ]
+   ],
+   "referee": "Andres Merlos: Ø 4.5 Karten (11 Sp.) · Ø 22.0 Fouls (8 Sp.)",
+   "b365": null,
+   "expect_ref": 4.2,
+   "buffer_ref": 1.7,
+   "sd": 1.62,
+   "p_emp": {
+    "1.5": 0.8130081300813008,
+    "2.5": 0.8474576271186441
+   },
+   "p_mod": 0.853,
+   "p_fin": 0.85,
+   "fair_fin": 1.18,
+   "ladder_fin": [
+    [
+     1.5,
+     1.13
+    ],
+    [
+     2.5,
+     1.18
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.18",
+   "range": [
+    1.28,
+    1.65
+   ]
+  },
+  "v": 2
+ },
+ "12321245|yellowcards|unter": {
+  "match_id": "12321245",
+  "home": "Lanus",
+  "away": "Defensa y Justicia",
+  "kickoff": "So 22:00",
+  "kickoff_ts": 1788724800,
+  "league": "Argentina Liga Profesional",
   "metric": "Gelbe Karten",
   "metric_key": "yellowcards",
   "direction": "unter",
-  "first_run": "So 15:22",
-  "first_line": 5.5,
+  "first_run": "So 18:45",
+  "first_line": 6.5,
   "first_range": [
-   1.39,
-   1.89
+   1.26,
+   1.61
   ],
-  "last_run": "So 20:30",
-  "line": 5.5,
+  "last_run": "So 21:21",
+  "line": 6.5,
   "range": [
-   1.39,
-   1.89
+   1.28,
+   1.65
   ],
   "signal": {
    "metric": "Gelbe Karten",
    "metric_key": "yellowcards",
    "direction": "unter",
-   "line": 5.5,
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    46
+   ],
+   "next_line": 5.5,
+   "next_note": "kein Anker — Lanus 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Defensa y Justicia 19/21 (3. Lücke) gesamt, 16/18 (3. Lücke) auswärts",
+   "longterm": [
+    0.8820983850649952,
+    0.9051802438935828
+   ],
+   "fair": 1.15,
+   "ladder": [
+    [
+     6.5,
+     1.15
+    ],
+    [
+     7.5,
+     1.21
+    ]
+   ],
+   "avg": [
+    4.1,
+    4.2
+   ],
+   "expect": 4.1,
+   "expect_sum": 4.2,
+   "expect_matchup": 4.0,
+   "contrib": [
+    2.1,
+    1.9
+   ],
+   "buffer": 2.4,
+   "fa": [
+    [
+     2.2,
+     2.2
+    ],
+    [
+     1.8,
+     2.2
+    ]
+   ],
+   "referee": "Andres Merlos: Ø 4.5 Karten (11 Sp.) · Ø 22.0 Fouls (8 Sp.)",
+   "b365": null,
+   "expect_ref": 4.2,
+   "buffer_ref": 2.3,
+   "sd": 1.62,
+   "p_emp": {
+    "6.5": 0.8695652173913044,
+    "7.5": 0.8264462809917356
+   },
+   "p_mod": 0.922,
+   "p_fin": 0.896,
+   "fair_fin": 1.12,
+   "ladder_fin": [
+    [
+     6.5,
+     1.12
+    ],
+    [
+     7.5,
+     1.11
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.12",
+   "range": [
+    1.28,
+    1.65
+   ]
+  },
+  "v": 2
+ },
+ "12321245|ht_yellowcards|über": {
+  "match_id": "12321245",
+  "home": "Lanus",
+  "away": "Defensa y Justicia",
+  "kickoff": "So 22:00",
+  "kickoff_ts": 1788724800,
+  "league": "Argentina Liga Profesional",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "über",
+  "first_run": "So 18:45",
+  "first_line": 0.5,
+  "first_range": [
+   1.26,
+   1.61
+  ],
+  "last_run": "So 21:21",
+  "line": 0.5,
+  "range": [
+   1.28,
+   1.65
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "über",
+   "line": 0.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    48
+   ],
+   "next_line": 1.5,
+   "next_note": "Lanus 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Defensa y Justicia 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.7291995191325868,
+    0.7626702604386326
+   ],
+   "fair": 1.34,
+   "ladder": [
+    [
+     0.5,
+     1.34
+    ]
+   ],
+   "avg": [
+    1.4,
+    1.6
+   ],
+   "expect": 1.5,
+   "expect_sum": 1.5,
+   "expect_matchup": 1.6,
+   "contrib": [
+    1.2,
+    0.4
+   ],
+   "buffer": 1.0,
+   "fa": [
+    [
+     0.8,
+     0.7
+    ],
+    [
+     0.6,
+     1.0
+    ]
+   ],
+   "referee": "Andres Merlos: Ø 4.5 Karten (11 Sp.) · Ø 22.0 Fouls (8 Sp.)",
+   "b365": null,
+   "expect_ref": 3.2,
+   "buffer_ref": 2.7,
+   "sd": 1.27,
+   "p_emp": {
+    "0.5": 0.7462686567164178
+   },
+   "p_mod": 0.983,
+   "p_fin": 0.865,
+   "fair_fin": 1.16,
+   "ladder_fin": [
+    [
+     0.5,
+     1.16
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 75 % vs. Modell 98 %",
+   "range": [
+    1.28,
+    1.65
+   ]
+  },
+  "v": 2
+ },
+ "12322479|yellowcards|über": {
+  "match_id": "12322479",
+  "home": "Central Cordoba",
+  "away": "CA Independiente",
+  "kickoff": "So 22:00",
+  "kickoff_ts": 1788724800,
+  "league": "Argentina Liga Profesional",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "So 18:45",
+  "first_line": 2.5,
+  "first_range": [
+   1.22,
+   1.5
+  ],
+  "last_run": "So 21:21",
+  "line": 2.5,
+  "range": [
+   1.44,
+   1.5
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    47,
+    45
+   ],
+   "next_line": 3.5,
+   "next_note": "Central Cordoba 2/4 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; CA Independiente 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.858842638520126,
+    0.7830499229539195
+   ],
+   "fair": 1.24,
+   "ladder": [
+    [
+     1.5,
+     1.22
+    ],
+    [
+     2.5,
+     1.24
+    ]
+   ],
+   "avg": [
+    4.7,
+    5.0
+   ],
+   "expect": 5.1,
+   "expect_sum": 4.9,
+   "expect_matchup": 5.4,
+   "contrib": [
+    2.6,
+    2.8
+   ],
+   "buffer": 2.6,
+   "fa": [
+    [
+     2.6,
+     2.3
+    ],
+    [
+     2.6,
+     2.3
+    ]
+   ],
+   "referee": "Andres Gariano: Ø 4.2 Karten (11 Sp.) · Ø 25.9 Fouls (8 Sp.)",
+   "b365": null,
+   "expect_ref": 5.0,
+   "buffer_ref": 2.5,
+   "sd": 2.05,
+   "p_emp": {
+    "1.5": 0.819672131147541,
+    "2.5": 0.8064516129032259
+   },
+   "p_mod": 0.889,
+   "p_fin": 0.848,
+   "fair_fin": 1.18,
+   "ladder_fin": [
+    [
+     1.5,
+     1.13
+    ],
+    [
+     2.5,
+     1.18
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.18",
+   "range": [
+    1.44,
+    1.5
+   ]
+  },
+  "v": 2
+ },
+ "12322479|yellowcards|unter": {
+  "match_id": "12322479",
+  "home": "Central Cordoba",
+  "away": "CA Independiente",
+  "kickoff": "So 22:00",
+  "kickoff_ts": 1788724800,
+  "league": "Argentina Liga Profesional",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "So 18:45",
+  "first_line": 6.5,
+  "first_range": [
+   1.22,
+   1.5
+  ],
+  "last_run": "So 21:21",
+  "line": 6.5,
+  "range": [
+   1.44,
+   1.5
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
    "home_series": {
     "kind": "gesamt",
     "hits": 10,
@@ -39,184 +494,68 @@
    "home_is_anchor": true,
    "away_is_anchor": true,
    "valid": [
-    48,
-    47
+    47,
+    45
    ],
-   "next_line": 4.5,
-   "next_note": "Juventus 8/10 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+   "next_line": 5.5,
+   "next_note": "Central Cordoba 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
    "longterm": [
-    0.9721043879416742,
-    0.9114641055847933
+    0.850339103654671,
+    0.8251620310528397
    ],
-   "fair": 1.15,
+   "fair": 1.2,
    "ladder": [
     [
-     5.5,
-     1.15
+     6.5,
+     1.2
     ],
     [
-     6.5,
-     1.06
+     7.5,
+     1.28
     ]
    ],
    "avg": [
-    3.2,
+    4.7,
+    5.0
+   ],
+   "expect": 5.1,
+   "expect_sum": 4.9,
+   "expect_matchup": 5.4,
+   "contrib": [
+    2.6,
     2.8
    ],
-   "expect": 2.5,
-   "expect_sum": 3.0,
-   "expect_matchup": 2.0,
-   "contrib": [
-    0.9,
-    1.1
-   ],
-   "buffer": 3.0,
+   "buffer": 1.4,
    "fa": [
     [
-     1.4,
-     1.7
+     2.6,
+     2.3
     ],
     [
-     1.6,
-     1.8
+     2.6,
+     2.3
     ]
    ],
-   "referee": "Maurizio Mariani: Ø 3.8 Karten (9 Sp.) · Ø 19.8 Fouls (9 Sp.)",
+   "referee": "Andres Gariano: Ø 4.2 Karten (11 Sp.) · Ø 25.9 Fouls (8 Sp.)",
    "b365": null,
-   "expect_ref": 2.3,
-   "buffer_ref": 3.2,
-   "sd": 1.67,
+   "expect_ref": 5.0,
+   "buffer_ref": 1.5,
+   "sd": 2.05,
    "p_emp": {
-    "5.5": 0.8695652173913044,
-    "6.5": 0.9433962264150942
+    "6.5": 0.8333333333333334,
+    "7.5": 0.78125
    },
-   "p_mod": 0.972,
-   "p_fin": 0.921,
-   "fair_fin": 1.09,
-   "ladder_fin": [
-    [
-     5.5,
-     1.09
-    ],
-    [
-     6.5,
-     1.03
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.09",
-   "range": [
-    1.39,
-    1.89
-   ]
-  },
-  "v": 2
- },
- "13002909|on_target|unter": {
-  "match_id": "13002909",
-  "home": "Juventus",
-  "away": "AC Milan",
-  "kickoff": "So 20:45",
-  "kickoff_ts": 1788720300,
-  "league": "Italy Serie A",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "unter",
-  "first_run": "So 15:22",
-  "first_line": 10.5,
-  "first_range": [
-   1.38,
-   1.73
-  ],
-  "last_run": "So 20:30",
-  "line": 10.5,
-  "range": [
-   1.38,
-   1.73
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "unter",
-   "line": 10.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    47,
-    47
-   ],
-   "next_line": 9.5,
-   "next_note": "kein Anker — Juventus 8/10 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; AC Milan 4/6 (3. Lücke) gesamt, 12/14 (3. Lücke) auswärts",
-   "longterm": [
-    0.858356269049823,
-    0.7794917838206995
-   ],
-   "fair": 1.26,
-   "ladder": [
-    [
-     10.5,
-     1.26
-    ],
-    [
-     11.5,
-     1.19
-    ]
-   ],
-   "avg": [
-    8.6,
-    7.5
-   ],
-   "expect": 7.9,
-   "expect_sum": 8.1,
-   "expect_matchup": 7.7,
-   "contrib": [
-    5.4,
-    2.2
-   ],
-   "buffer": 2.6,
-   "fa": [
-    [
-     5.7,
-     3.1
-    ],
-    [
-     4.4,
-     3.7
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.93,
-   "p_emp": {
-    "10.5": 0.7936507936507936,
-    "11.5": 0.8403361344537815
-   },
-   "p_mod": 0.813,
-   "p_fin": 0.803,
+   "p_mod": 0.768,
+   "p_fin": 0.801,
    "fair_fin": 1.25,
    "ladder_fin": [
     [
-     10.5,
+     6.5,
      1.25
     ],
     [
-     11.5,
-     1.16
+     7.5,
+     1.2
     ]
    ],
    "market": null,
@@ -225,497 +564,149 @@
    "light": "🟢",
    "reason": "fair 1.25",
    "range": [
-    1.38,
-    1.73
+    1.44,
+    1.5
    ]
   },
   "v": 2
  },
- "13002909|offsides|unter": {
-  "match_id": "13002909",
-  "home": "Juventus",
-  "away": "AC Milan",
-  "kickoff": "So 20:45",
-  "kickoff_ts": 1788720300,
-  "league": "Italy Serie A",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "So 15:22",
-  "first_line": 5.5,
-  "first_range": [
-   1.58,
-   2.34
-  ],
-  "last_run": "So 20:30",
-  "line": 5.5,
-  "range": [
-   1.58,
-   2.27
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    46,
-    41
-   ],
-   "next_line": 4.5,
-   "next_note": "AC Milan 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.9400465143265714,
-    0.8706908392590613
-   ],
-   "fair": 1.13,
-   "ladder": [
-    [
-     5.5,
-     1.13
-    ],
-    [
-     6.5,
-     1.25
-    ]
-   ],
-   "avg": [
-    2.4,
-    3.1
-   ],
-   "expect": 2.4,
-   "expect_sum": 2.7,
-   "expect_matchup": 2.1,
-   "contrib": [
-    1.4,
-    0.6
-   ],
-   "buffer": 3.1,
-   "fa": [
-    [
-     1.9,
-     0.8
-    ],
-    [
-     1.8,
-     1.3
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.94,
-   "p_emp": {
-    "5.5": 0.8849557522123894,
-    "6.5": 0.8
-   },
-   "p_mod": 0.945,
-   "p_fin": 0.915,
-   "fair_fin": 1.09,
-   "ladder_fin": [
-    [
-     5.5,
-     1.09
-    ],
-    [
-     6.5,
-     1.12
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.09",
-   "range": [
-    1.58,
-    2.27
-   ]
-  },
-  "v": 2
- },
- "13002909|fouls|unter": {
-  "match_id": "13002909",
-  "home": "Juventus",
-  "away": "AC Milan",
-  "kickoff": "So 20:45",
-  "kickoff_ts": 1788720300,
-  "league": "Italy Serie A",
-  "metric": "Fouls",
-  "metric_key": "fouls",
-  "direction": "unter",
-  "first_run": "So 15:22",
-  "first_line": 28.5,
-  "first_range": [
-   1.29,
-   1.54
-  ],
-  "last_run": "So 20:30",
-  "line": 28.5,
-  "range": [
-   1.29,
-   1.54
-  ],
-  "signal": {
-   "metric": "Fouls",
-   "metric_key": "fouls",
-   "direction": "unter",
-   "line": 28.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 17
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    41
-   ],
-   "next_line": 26.5,
-   "next_note": "Juventus 5/7 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
-   "longterm": [
-    0.8821833532871617,
-    0.968006798250231
-   ],
-   "fair": 1.17,
-   "ladder": [
-    [
-     28.5,
-     1.17
-    ],
-    [
-     30.5,
-     1.25
-    ]
-   ],
-   "avg": [
-    20.7,
-    20.8
-   ],
-   "expect": 19.0,
-   "expect_sum": 20.7,
-   "expect_matchup": 17.3,
-   "contrib": [
-    9.3,
-    8.0
-   ],
-   "buffer": 9.5,
-   "fa": [
-    [
-     12.2,
-     9.5
-    ],
-    [
-     9.6,
-     11.3
-    ]
-   ],
-   "referee": "Maurizio Mariani: Ø 3.8 Karten (9 Sp.) · Ø 19.8 Fouls (9 Sp.)",
-   "b365": null,
-   "expect_ref": 16.9,
-   "buffer_ref": 11.6,
-   "sd": 5.59,
-   "p_emp": {
-    "28.5": 0.8547008547008548,
-    "30.5": 0.8
-   },
-   "p_mod": 0.981,
-   "p_fin": 0.918,
-   "fair_fin": 1.09,
-   "ladder_fin": [
-    [
-     28.5,
-     1.09
-    ],
-    [
-     30.5,
-     1.12
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 85 % vs. Modell 98 %",
-   "range": [
-    1.29,
-    1.54
-   ]
-  },
-  "v": 2
- },
- "13002909|ht_yellowcards|unter": {
-  "match_id": "13002909",
-  "home": "Juventus",
-  "away": "AC Milan",
-  "kickoff": "So 20:45",
-  "kickoff_ts": 1788720300,
-  "league": "Italy Serie A",
+ "12322479|ht_yellowcards|unter": {
+  "match_id": "12322479",
+  "home": "Central Cordoba",
+  "away": "CA Independiente",
+  "kickoff": "So 22:00",
+  "kickoff_ts": 1788724800,
+  "league": "Argentina Liga Profesional",
   "metric": "1. HZ Gelbe Karten",
   "metric_key": "ht_yellowcards",
   "direction": "unter",
-  "first_run": "So 13:21",
-  "first_line": 1.5,
+  "first_run": "So 18:45",
+  "first_line": 2.5,
   "first_range": [
-   1.41,
-   1.93
+   1.22,
+   1.5
   ],
-  "last_run": "So 20:30",
-  "line": 1.5,
+  "last_run": "So 21:21",
+  "line": 2.5,
   "range": [
-   1.39,
-   1.89
+   1.44,
+   1.5
   ],
   "signal": {
    "metric": "1. HZ Gelbe Karten",
    "metric_key": "ht_yellowcards",
    "direction": "unter",
-   "line": 1.5,
+   "line": 2.5,
    "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
     "kind": "gesamt",
     "hits": 10,
     "window": 12
    },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
    "home_is_anchor": true,
-   "away_is_anchor": true,
+   "away_is_anchor": false,
    "valid": [
     49,
-    46
+    47
    ],
-   "next_line": 0.5,
-   "next_note": "Juventus 0/2 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; AC Milan 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "next_line": 1.5,
+   "next_note": "CA Independiente 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
    "longterm": [
-    0.772490700990395,
-    0.9256988255489046
+    0.85193480096883,
+    0.7270245233094734
    ],
-   "fair": 1.31,
+   "fair": 1.26,
    "ladder": [
     [
-     1.5,
-     1.31
+     2.5,
+     1.26
     ],
     [
-     2.5,
-     1.09
+     3.5,
+     1.24
     ]
    ],
    "avg": [
-    1.0,
-    0.5
+    1.3,
+    2.0
    ],
-   "expect": 0.5,
-   "expect_sum": 0.8,
-   "expect_matchup": 0.3,
+   "expect": 1.8,
+   "expect_sum": 1.7,
+   "expect_matchup": 2.0,
    "contrib": [
-    0.1,
-    0.2
+    2.0,
+    0.0
    ],
-   "buffer": 1.0,
+   "buffer": 0.7,
    "fa": [
     [
-     0.5,
-     0.5
+     0.3,
+     1.2
     ],
     [
      0.4,
-     0.3
+     1.6
     ]
    ],
-   "referee": "Maurizio Mariani: Ø 3.8 Karten (9 Sp.) · Ø 19.8 Fouls (9 Sp.)",
+   "referee": "Andres Gariano: Ø 4.2 Karten (11 Sp.) · Ø 25.9 Fouls (8 Sp.)",
    "b365": null,
-   "expect_ref": 0.9,
-   "buffer_ref": 0.6,
-   "sd": 0.8,
+   "expect_ref": 3.6,
+   "buffer_ref": -1.1,
+   "sd": 1.19,
    "p_emp": {
-    "1.5": 0.7633587786259541,
-    "2.5": 0.9174311926605504
+    "2.5": 0.7936507936507936,
+    "3.5": 0.8064516129032259
    },
-   "p_mod": 0.773,
-   "p_fin": 0.768,
-   "fair_fin": 1.3,
+   "p_mod": 0.178,
+   "p_fin": 0.486,
+   "fair_fin": 2.06,
    "ladder_fin": [
-    [
-     1.5,
-     1.3
-    ],
     [
      2.5,
-     1.06
+     2.06
+    ],
+    [
+     3.5,
+     1.57
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.30",
+   "light": "🔴",
+   "reason": "nur 49 % Wahrscheinlichkeit",
    "range": [
-    1.39,
-    1.89
+    1.44,
+    1.5
    ]
   },
   "v": 2
  },
- "13002909|shots_total|unter": {
-  "match_id": "13002909",
-  "home": "Juventus",
-  "away": "AC Milan",
-  "kickoff": "So 20:45",
-  "kickoff_ts": 1788720300,
-  "league": "Italy Serie A",
-  "metric": "Schüsse gesamt",
-  "metric_key": "shots_total",
-  "direction": "unter",
-  "first_run": "So 18:45",
-  "first_line": 22.5,
-  "first_range": [
-   1.38,
-   1.73
-  ],
-  "last_run": "So 20:30",
-  "line": 22.5,
-  "range": [
-   1.38,
-   1.73
-  ],
-  "signal": {
-   "metric": "Schüsse gesamt",
-   "metric_key": "shots_total",
-   "direction": "unter",
-   "line": 22.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    43
-   ],
-   "next_line": 20.5,
-   "next_note": "kein Anker — Juventus 16/18 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; AC Milan 9/11 (3. Lücke) gesamt, 10/12 (3. Lücke) auswärts",
-   "longterm": [
-    0.8878595555292665,
-    0.9227900812741254
-   ],
-   "fair": 1.12,
-   "ladder": [
-    [
-     22.5,
-     1.12
-    ],
-    [
-     24.5,
-     1.05
-    ]
-   ],
-   "avg": [
-    17.8,
-    15.6
-   ],
-   "expect": 17.1,
-   "expect_sum": 16.7,
-   "expect_matchup": 17.6,
-   "contrib": [
-    12.8,
-    4.8
-   ],
-   "buffer": 5.4,
-   "fa": [
-    [
-     10.8,
-     6.7
-    ],
-    [
-     8.7,
-     7.9
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 4.71,
-   "p_emp": {
-    "22.5": 0.8928571428571428,
-    "24.5": 0.9523809523809523
-   },
-   "p_mod": 0.874,
-   "p_fin": 0.884,
-   "fair_fin": 1.13,
-   "ladder_fin": [
-    [
-     22.5,
-     1.13
-    ],
-    [
-     24.5,
-     1.06
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.13",
-   "range": [
-    1.38,
-    1.73
-   ]
-  },
-  "v": 2
- },
- "12030920|corners|über": {
-  "match_id": "12030920",
-  "home": "Marseille",
-  "away": "Paris FC",
-  "kickoff": "So 20:45",
-  "kickoff_ts": 1788720300,
-  "league": "France Ligue 1",
+ "12177648|corners|über": {
+  "match_id": "12177648",
+  "home": "Boca Juniors De Cali",
+  "away": "Envigado FC",
+  "kickoff": "So 22:30",
+  "kickoff_ts": 1788726600,
+  "league": "Colombia Primera B",
   "metric": "Ecken",
   "metric_key": "corners",
   "direction": "über",
   "first_run": "So 13:21",
   "first_line": 7.5,
   "first_range": [
-   1.875,
-   1.875
+   1.82,
+   2.04
   ],
-  "last_run": "So 20:30",
+  "last_run": "So 21:21",
   "line": 7.5,
   "range": [
-   1.875,
-   1.875
+   1.79,
+   1.79
   ],
   "signal": {
    "metric": "Ecken",
@@ -723,316 +714,316 @@
    "direction": "über",
    "line": 7.5,
    "home_series": {
-    "kind": "heim",
+    "kind": "gesamt",
     "hits": 10,
     "window": 12
    },
    "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
    },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
+   "home_is_anchor": true,
+   "away_is_anchor": false,
    "valid": [
     46,
-    45
+    42
    ],
    "next_line": 8.5,
-   "next_note": "Marseille 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Paris FC 1/3 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "next_note": "Boca Juniors De Cali 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
    "longterm": [
-    0.7367396790713302,
-    0.7305844364849113
+    0.6813080778119931,
+    0.7196205804355489
    ],
-   "fair": 1.41,
+   "fair": 1.46,
    "ladder": [
     [
      6.5,
-     1.41
+     1.47
     ],
     [
      7.5,
-     1.41
+     1.46
     ]
    ],
    "avg": [
     9.6,
-    9.5
+    9.7
    ],
-   "expect": 10.3,
+   "expect": 9.9,
    "expect_sum": 9.6,
-   "expect_matchup": 11.0,
+   "expect_matchup": 10.1,
    "contrib": [
-    8.6,
-    2.4
+    6.0,
+    4.1
    ],
-   "buffer": 2.8,
+   "buffer": 2.4,
    "fa": [
     [
-     5.4,
-     3.5
+     3.8,
+     5.1
     ],
     [
-     4.2,
-     5.2
+     3.6,
+     5.8
     ]
    ],
    "referee": null,
    "b365": [
-    "9.5",
-    "1.875",
-    "1.925"
+    "8.5",
+    "1.850",
+    "1.950"
    ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.32,
+   "sd": 3.59,
    "p_emp": {
-    "6.5": 0.7092198581560284,
-    "7.5": 0.7092198581560284
+    "6.5": 0.6802721088435374,
+    "7.5": 0.684931506849315
    },
-   "p_mod": 0.8,
-   "p_fin": 0.755,
-   "fair_fin": 1.32,
+   "p_mod": 0.748,
+   "p_fin": 0.717,
+   "fair_fin": 1.4,
    "ladder_fin": [
     [
      6.5,
-     1.26
+     1.33
     ],
     [
      7.5,
-     1.32
+     1.4
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "reason": "fair 1.32",
+   "reason": "fair 1.40",
    "range": [
-    1.875,
-    1.875
+    1.79,
+    1.79
    ]
   },
   "v": 2
  },
- "12030920|yellowcards|unter": {
-  "match_id": "12030920",
-  "home": "Marseille",
-  "away": "Paris FC",
-  "kickoff": "So 20:45",
-  "kickoff_ts": 1788720300,
-  "league": "France Ligue 1",
+ "13013137|yellowcards|über": {
+  "match_id": "13013137",
+  "home": "Botafogo",
+  "away": "Palmeiras",
+  "kickoff": "So 23:30",
+  "kickoff_ts": 1788730200,
+  "league": "Brazil Serie A",
   "metric": "Gelbe Karten",
   "metric_key": "yellowcards",
-  "direction": "unter",
+  "direction": "über",
   "first_run": "So 15:22",
-  "first_line": 4.5,
+  "first_line": 2.5,
   "first_range": [
-   1.44,
-   2.08
+   1.24,
+   1.73
   ],
-  "last_run": "So 20:30",
-  "line": 4.5,
+  "last_run": "So 21:21",
+  "line": 2.5,
   "range": [
-   1.48,
-   2.16
+   1.24,
+   1.73
   ],
   "signal": {
    "metric": "Gelbe Karten",
    "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 4.5,
+   "direction": "über",
+   "line": 2.5,
    "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    46,
-    45
-   ],
-   "next_line": 3.5,
-   "next_note": "Marseille 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
-   "longterm": [
-    0.6468352885980329,
-    0.776369778260211
-   ],
-   "fair": 1.51,
-   "ladder": [
-    [
-     4.5,
-     1.51
-    ],
-    [
-     5.5,
-     1.22
-    ]
-   ],
-   "avg": [
-    3.4,
-    2.8
-   ],
-   "expect": 2.6,
-   "expect_sum": 3.1,
-   "expect_matchup": 2.1,
-   "contrib": [
-    1.1,
-    1.0
-   ],
-   "buffer": 1.9,
-   "fa": [
-    [
-     2.0,
-     1.6
-    ],
-    [
-     1.7,
-     1.5
-    ]
-   ],
-   "referee": "Clement Turpin: Ø 2.9 Karten (8 Sp.) · Ø 22.4 Fouls (8 Sp.)",
-   "b365": null,
-   "expect_ref": 2.2,
-   "buffer_ref": 2.3,
-   "sd": 1.98,
-   "p_emp": {
-    "4.5": 0.6622516556291391,
-    "5.5": 0.819672131147541
-   },
-   "p_mod": 0.877,
-   "p_fin": 0.77,
-   "fair_fin": 1.3,
-   "ladder_fin": [
-    [
-     4.5,
-     1.3
-    ],
-    [
-     5.5,
-     1.13
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 66 % vs. Modell 88 %",
-   "range": [
-    1.48,
-    2.16
-   ]
-  },
-  "v": 2
- },
- "12030920|offsides|unter": {
-  "match_id": "12030920",
-  "home": "Marseille",
-  "away": "Paris FC",
-  "kickoff": "So 20:45",
-  "kickoff_ts": 1788720300,
-  "league": "France Ligue 1",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "So 15:22",
-  "first_line": 4.5,
-  "first_range": [
-   1.65,
-   1.8
-  ],
-  "last_run": "So 20:30",
-  "line": 4.5,
-  "range": [
-   1.65,
-   1.8
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 4.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
+    "kind": "heim",
+    "hits": 15,
+    "window": 16
    },
    "away_series": {
     "kind": "gesamt",
     "hits": 10,
     "window": 12
    },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
+   "home_is_anchor": true,
+   "away_is_anchor": false,
    "valid": [
-    43,
-    38
+    48,
+    49
    ],
    "next_line": 3.5,
-   "next_note": "Marseille 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "next_note": "Botafogo 2/4 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
    "longterm": [
-    0.7097237821991205,
-    0.8004798198633577
+    0.795701267921318,
+    0.8311298090414424
    ],
-   "fair": 1.35,
+   "fair": 1.25,
    "ladder": [
     [
-     4.5,
-     1.35
+     1.5,
+     1.22
     ],
     [
-     5.5,
-     1.2
+     2.5,
+     1.25
     ]
    ],
    "avg": [
-    3.1,
-    2.3
+    4.8,
+    4.3
    ],
-   "expect": 2.4,
-   "expect_sum": 2.7,
-   "expect_matchup": 2.2,
+   "expect": 4.7,
+   "expect_sum": 4.6,
+   "expect_matchup": 4.8,
    "contrib": [
-    0.8,
-    1.4
+    2.6,
+    2.2
    ],
-   "buffer": 2.1,
+   "buffer": 2.2,
    "fa": [
     [
-     1.3,
-     2.5
+     2.4,
+     2.2
     ],
     [
-     2.1,
-     1.5
+     1.7,
+     2.7
+    ]
+   ],
+   "referee": "Rodrigo Jose Pereira de Lima: Ø 3.9 Karten (18 Sp.) · Ø 25.2 Fouls (18 Sp.)",
+   "b365": null,
+   "expect_ref": 4.4,
+   "buffer_ref": 1.9,
+   "sd": 2.1,
+   "p_emp": {
+    "1.5": 0.819672131147541,
+    "2.5": 0.8
+   },
+   "p_mod": 0.817,
+   "p_fin": 0.809,
+   "fair_fin": 1.24,
+   "ladder_fin": [
+    [
+     1.5,
+     1.15
+    ],
+    [
+     2.5,
+     1.24
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.24",
+   "range": [
+    1.24,
+    1.73
+   ]
+  },
+  "v": 2
+ },
+ "13013137|on_target|über": {
+  "match_id": "13013137",
+  "home": "Botafogo",
+  "away": "Palmeiras",
+  "kickoff": "So 23:30",
+  "kickoff_ts": 1788730200,
+  "league": "Brazil Serie A",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "So 15:22",
+  "first_line": 6.5,
+  "first_range": [
+   1.26,
+   2.19
+  ],
+  "last_run": "So 21:21",
+  "line": 6.5,
+  "range": [
+   1.26,
+   2.19
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    48,
+    49
+   ],
+   "next_line": 7.5,
+   "next_note": "Botafogo 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+   "longterm": [
+    0.8548637274352665,
+    0.7714595608968192
+   ],
+   "fair": 1.29,
+   "ladder": [
+    [
+     5.5,
+     1.3
+    ],
+    [
+     6.5,
+     1.29
+    ]
+   ],
+   "avg": [
+    9.5,
+    8.7
+   ],
+   "expect": 9.4,
+   "expect_sum": 9.1,
+   "expect_matchup": 9.7,
+   "contrib": [
+    5.7,
+    4.0
+   ],
+   "buffer": 2.9,
+   "fa": [
+    [
+     5.2,
+     4.4
+    ],
+    [
+     4.8,
+     3.3
     ]
    ],
    "referee": null,
    "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 2.08,
+   "sd": 3.19,
    "p_emp": {
-    "4.5": 0.7407407407407407,
-    "5.5": 0.8333333333333334
+    "5.5": 0.7692307692307692,
+    "6.5": 0.7751937984496123
    },
-   "p_mod": 0.844,
-   "p_fin": 0.792,
+   "p_mod": 0.818,
+   "p_fin": 0.797,
    "fair_fin": 1.26,
    "ladder_fin": [
     [
-     4.5,
-     1.26
+     5.5,
+     1.21
     ],
     [
-     5.5,
-     1.13
+     6.5,
+     1.26
     ]
    ],
    "market": null,
@@ -1041,735 +1032,48 @@
    "light": "🟢",
    "reason": "fair 1.26",
    "range": [
-    1.65,
-    1.8
+    1.26,
+    2.19
    ]
   },
   "v": 2
  },
- "12030920|fouls|unter": {
-  "match_id": "12030920",
-  "home": "Marseille",
-  "away": "Paris FC",
-  "kickoff": "So 20:45",
-  "kickoff_ts": 1788720300,
-  "league": "France Ligue 1",
+ "13013137|fouls|über": {
+  "match_id": "13013137",
+  "home": "Botafogo",
+  "away": "Palmeiras",
+  "kickoff": "So 23:30",
+  "kickoff_ts": 1788730200,
+  "league": "Brazil Serie A",
   "metric": "Fouls",
   "metric_key": "fouls",
-  "direction": "unter",
+  "direction": "über",
   "first_run": "So 15:22",
-  "first_line": 26.5,
+  "first_line": 18.5,
   "first_range": [
-   1.28,
-   2.009
+   1.53,
+   1.99
   ],
-  "last_run": "So 20:30",
-  "line": 26.5,
+  "last_run": "So 21:21",
+  "line": 18.5,
   "range": [
-   1.28,
+   1.53,
    1.99
   ],
   "signal": {
    "metric": "Fouls",
    "metric_key": "fouls",
-   "direction": "unter",
-   "line": 26.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    43,
-    38
-   ],
-   "next_line": 24.5,
-   "next_note": "Marseille 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
-   "longterm": [
-    0.7552785761913662,
-    0.9348697137308478
-   ],
-   "fair": 1.3,
-   "ladder": [
-    [
-     26.5,
-     1.3
-    ],
-    [
-     28.5,
-     1.2
-    ]
-   ],
-   "avg": [
-    22.0,
-    18.4
-   ],
-   "expect": 18.3,
-   "expect_sum": 20.2,
-   "expect_matchup": 16.3,
-   "contrib": [
-    8.1,
-    8.2
-   ],
-   "buffer": 8.2,
-   "fa": [
-    [
-     11.2,
-     10.7
-    ],
-    [
-     9.8,
-     9.6
-    ]
-   ],
-   "referee": "Clement Turpin: Ø 2.9 Karten (8 Sp.) · Ø 22.4 Fouls (8 Sp.)",
-   "b365": null,
-   "expect_ref": 17.4,
-   "buffer_ref": 9.1,
-   "sd": 6.07,
-   "p_emp": {
-    "26.5": 0.7692307692307692,
-    "28.5": 0.8333333333333334
-   },
-   "p_mod": 0.933,
-   "p_fin": 0.851,
-   "fair_fin": 1.17,
-   "ladder_fin": [
-    [
-     26.5,
-     1.17
-    ],
-    [
-     28.5,
-     1.11
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 77 % vs. Modell 93 %",
-   "range": [
-    1.28,
-    1.99
-   ]
-  },
-  "v": 2
- },
- "12030920|shots_total|unter": {
-  "match_id": "12030920",
-  "home": "Marseille",
-  "away": "Paris FC",
-  "kickoff": "So 20:45",
-  "kickoff_ts": 1788720300,
-  "league": "France Ligue 1",
-  "metric": "Schüsse gesamt",
-  "metric_key": "shots_total",
-  "direction": "unter",
-  "first_run": "So 18:45",
-  "first_line": 22.5,
-  "first_range": [
-   1.61,
-   1.61
-  ],
-  "last_run": "So 20:30",
-  "line": 22.5,
-  "range": [
-   1.61,
-   1.61
-  ],
-  "signal": {
-   "metric": "Schüsse gesamt",
-   "metric_key": "shots_total",
-   "direction": "unter",
-   "line": 22.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    40
-   ],
-   "next_line": 20.5,
-   "next_note": "Marseille 7/9 (3. Lücke) gesamt, 8/10 (3. Lücke) heim",
-   "longterm": [
-    0.8213251922534845,
-    0.9757168812822365
-   ],
-   "fair": 1.12,
-   "ladder": [
-    [
-     22.5,
-     1.12
-    ],
-    [
-     24.5,
-     1.05
-    ]
-   ],
-   "avg": [
-    19.0,
-    15.0
-   ],
-   "expect": 17.5,
-   "expect_sum": 17.0,
-   "expect_matchup": 18.1,
-   "contrib": [
-    12.5,
-    5.6
-   ],
-   "buffer": 5.0,
-   "fa": [
-    [
-     10.5,
-     7.3
-    ],
-    [
-     7.4,
-     8.2
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 4.86,
-   "p_emp": {
-    "22.5": 0.8928571428571428,
-    "24.5": 0.9523809523809523
-   },
-   "p_mod": 0.848,
-   "p_fin": 0.871,
-   "fair_fin": 1.15,
-   "ladder_fin": [
-    [
-     22.5,
-     1.15
-    ],
-    [
-     24.5,
-     1.07
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.15",
-   "range": [
-    1.61,
-    1.61
-   ]
-  },
-  "v": 2
- },
- "12131037|yellowcards|über": {
-  "match_id": "12131037",
-  "home": "Espanyol",
-  "away": "Sevilla",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1788721200,
-  "league": "Spain La Liga",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "So 13:21",
-  "first_line": 2.5,
-  "first_range": [
-   1.53,
-   1.53
-  ],
-  "last_run": "So 20:30",
-  "line": 2.5,
-  "range": [
-   1.52,
-   1.52
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
    "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    50,
-    50
-   ],
-   "next_line": 3.5,
-   "next_note": "Espanyol 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
-   "longterm": [
-    0.7298668926634746,
-    0.852201091077429
-   ],
-   "fair": 1.27,
-   "ladder": [
-    [
-     1.5,
-     1.35
-    ],
-    [
-     2.5,
-     1.27
-    ]
-   ],
-   "avg": [
-    4.1,
-    4.5
-   ],
-   "expect": 4.2,
-   "expect_sum": 4.3,
-   "expect_matchup": 4.2,
-   "contrib": [
-    1.9,
-    2.3
-   ],
-   "buffer": 1.7,
-   "fa": [
-    [
-     2.2,
-     2.0
-    ],
-    [
-     2.6,
-     2.1
-    ]
-   ],
-   "referee": "Miguel Sesma Espinosa: Ø 3.0 Karten (3 Sp.) · Ø 26.7 Fouls (3 Sp.)",
-   "b365": null,
-   "expect_ref": 3.8,
-   "buffer_ref": 1.3,
-   "sd": 2.46,
-   "p_emp": {
-    "1.5": 0.7407407407407407,
-    "2.5": 0.7874015748031495
-   },
-   "p_mod": 0.701,
-   "p_fin": 0.744,
-   "fair_fin": 1.34,
-   "ladder_fin": [
-    [
-     1.5,
-     1.28
-    ],
-    [
-     2.5,
-     1.34
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.34",
-   "range": [
-    1.52,
-    1.52
-   ]
-  },
-  "v": 2
- },
- "12131037|offsides|unter": {
-  "match_id": "12131037",
-  "home": "Espanyol",
-  "away": "Sevilla",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1788721200,
-  "league": "Spain La Liga",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "So 15:22",
-  "first_line": 5.5,
-  "first_range": [
-   1.55,
-   1.79
-  ],
-  "last_run": "So 20:30",
-  "line": 5.5,
-  "range": [
-   1.55,
-   1.79
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    49
-   ],
-   "next_line": 4.5,
-   "next_note": "Espanyol 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
-   "longterm": [
-    0.8332664166483331,
-    0.8954405148351101
-   ],
-   "fair": 1.17,
-   "ladder": [
-    [
-     5.5,
-     1.17
-    ],
-    [
-     6.5,
-     1.23
-    ]
-   ],
-   "avg": [
-    3.5,
-    3.0
-   ],
-   "expect": 3.1,
-   "expect_sum": 3.3,
-   "expect_matchup": 3.0,
-   "contrib": [
-    1.0,
-    2.0
-   ],
-   "buffer": 2.4,
-   "fa": [
-    [
-     1.8,
-     1.6
-    ],
-    [
-     2.4,
-     0.8
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.98,
-   "p_emp": {
-    "5.5": 0.8547008547008548,
-    "6.5": 0.8130081300813008
-   },
-   "p_mod": 0.887,
-   "p_fin": 0.871,
-   "fair_fin": 1.15,
-   "ladder_fin": [
-    [
-     5.5,
-     1.15
-    ],
-    [
-     6.5,
-     1.13
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.15",
-   "range": [
-    1.55,
-    1.79
-   ]
-  },
-  "v": 2
- },
- "12131037|ht_yellowcards|über": {
-  "match_id": "12131037",
-  "home": "Espanyol",
-  "away": "Sevilla",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1788721200,
-  "league": "Spain La Liga",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "über",
-  "first_run": "So 18:45",
-  "first_line": 0.5,
-  "first_range": [
-   1.53,
-   1.53
-  ],
-  "last_run": "So 20:30",
-  "line": 0.5,
-  "range": [
-   1.52,
-   1.52
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "über",
-   "line": 0.5,
+   "line": 18.5,
    "home_series": {
     "kind": "heim",
     "hits": 5,
-    "window": 5
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    50,
-    50
-   ],
-   "next_line": 1.5,
-   "next_note": "Espanyol 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Sevilla 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.6860010029010701,
-    0.8641628938410101
-   ],
-   "fair": 1.31,
-   "ladder": [
-    [
-     0.5,
-     1.31
-    ]
-   ],
-   "avg": [
-    1.3,
-    1.4
-   ],
-   "expect": 1.3,
-   "expect_sum": 1.3,
-   "expect_matchup": 1.2,
-   "contrib": [
-    0.4,
-    0.8
-   ],
-   "buffer": 0.8,
-   "fa": [
-    [
-     0.7,
-     0.6
-    ],
-    [
-     0.7,
-     0.7
-    ]
-   ],
-   "referee": "Miguel Sesma Espinosa: Ø 3.0 Karten (3 Sp.) · Ø 26.7 Fouls (3 Sp.)",
-   "b365": null,
-   "expect_ref": 1.6,
-   "buffer_ref": 1.1,
-   "sd": 1.11,
-   "p_emp": {
-    "0.5": 0.7633587786259541
-   },
-   "p_mod": 0.839,
-   "p_fin": 0.801,
-   "fair_fin": 1.25,
-   "ladder_fin": [
-    [
-     0.5,
-     1.25
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.25",
-   "range": [
-    1.52,
-    1.52
-   ]
-  },
-  "v": 2
- },
- "12131037|ht_yellowcards|unter": {
-  "match_id": "12131037",
-  "home": "Espanyol",
-  "away": "Sevilla",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1788721200,
-  "league": "Spain La Liga",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "So 18:45",
-  "first_line": 2.5,
-  "first_range": [
-   1.53,
-   1.53
-  ],
-  "last_run": "So 20:30",
-  "line": 2.5,
-  "range": [
-   1.52,
-   1.52
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    50,
-    50
-   ],
-   "next_line": 1.5,
-   "next_note": "Espanyol 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Sevilla 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "longterm": [
-    0.8900407724217063,
-    0.8793909656978774
-   ],
-   "fair": 1.16,
-   "ladder": [
-    [
-     2.5,
-     1.16
-    ],
-    [
-     3.5,
-     1.23
-    ]
-   ],
-   "avg": [
-    1.3,
-    1.4
-   ],
-   "expect": 1.3,
-   "expect_sum": 1.3,
-   "expect_matchup": 1.2,
-   "contrib": [
-    0.4,
-    0.8
-   ],
-   "buffer": 1.2,
-   "fa": [
-    [
-     0.7,
-     0.6
-    ],
-    [
-     0.7,
-     0.7
-    ]
-   ],
-   "referee": "Miguel Sesma Espinosa: Ø 3.0 Karten (3 Sp.) · Ø 26.7 Fouls (3 Sp.)",
-   "b365": null,
-   "expect_ref": 1.6,
-   "buffer_ref": 0.9,
-   "sd": 1.11,
-   "p_emp": {
-    "2.5": 0.8620689655172414,
-    "3.5": 0.8130081300813008
-   },
-   "p_mod": 0.791,
-   "p_fin": 0.827,
-   "fair_fin": 1.21,
-   "ladder_fin": [
-    [
-     2.5,
-     1.21
-    ],
-    [
-     3.5,
-     1.13
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.21",
-   "range": [
-    1.52,
-    1.52
-   ]
-  },
-  "v": 2
- },
- "12131037|shots_total|unter": {
-  "match_id": "12131037",
-  "home": "Espanyol",
-  "away": "Sevilla",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1788721200,
-  "league": "Spain La Liga",
-  "metric": "Schüsse gesamt",
-  "metric_key": "shots_total",
-  "direction": "unter",
-  "first_run": "So 18:45",
-  "first_line": 20.5,
-  "first_range": [
-   1.35,
-   2.15
-  ],
-  "last_run": "So 20:30",
-  "line": 20.5,
-  "range": [
-   1.35,
-   2.15
-  ],
-  "signal": {
-   "metric": "Schüsse gesamt",
-   "metric_key": "shots_total",
-   "direction": "unter",
-   "line": 20.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
     "window": 6
    },
    "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
    },
    "home_is_anchor": false,
    "away_is_anchor": true,
@@ -1777,85 +1081,85 @@
     48,
     50
    ],
-   "next_line": 18.5,
-   "next_note": "kein Anker — Espanyol 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Sevilla 25/27 (3. Lücke) gesamt, 14/16 (3. Lücke) auswärts",
+   "next_line": 20.5,
+   "next_note": "Botafogo 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
    "longterm": [
-    0.6827633937592994,
-    0.9490040108429643
+    0.7582767939556706,
+    0.7544253387758356
    ],
-   "fair": 1.24,
+   "fair": 1.29,
    "ladder": [
     [
-     20.5,
-     1.24
+     16.5,
+     1.38
     ],
     [
-     22.5,
-     1.11
+     18.5,
+     1.29
     ]
    ],
    "avg": [
-    17.9,
-    14.3
+    23.6,
+    27.0
    ],
-   "expect": 15.9,
-   "expect_sum": 16.1,
-   "expect_matchup": 15.7,
+   "expect": 25.4,
+   "expect_sum": 25.3,
+   "expect_matchup": 25.6,
    "contrib": [
-    9.1,
-    6.5
+    13.0,
+    12.5
    ],
-   "buffer": 4.6,
+   "buffer": 6.9,
    "fa": [
     [
-     9.0,
-     8.6
+     12.1,
+     11.9
     ],
     [
-     7.6,
-     6.6
+     12.4,
+     12.8
     ]
    ],
-   "referee": null,
+   "referee": "Rodrigo Jose Pereira de Lima: Ø 3.9 Karten (18 Sp.) · Ø 25.2 Fouls (18 Sp.)",
    "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 4.51,
+   "expect_ref": 25.6,
+   "buffer_ref": 7.1,
+   "sd": 6.75,
    "p_emp": {
-    "20.5": 0.8064516129032259,
-    "22.5": 0.9009009009009008
+    "16.5": 0.7246376811594204,
+    "18.5": 0.7751937984496123
    },
-   "p_mod": 0.846,
-   "p_fin": 0.826,
-   "fair_fin": 1.21,
+   "p_mod": 0.854,
+   "p_fin": 0.814,
+   "fair_fin": 1.23,
    "ladder_fin": [
     [
-     20.5,
-     1.21
+     16.5,
+     1.22
     ],
     [
-     22.5,
-     1.09
+     18.5,
+     1.23
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "reason": "fair 1.21",
+   "reason": "fair 1.23",
    "range": [
-    1.35,
-    2.15
+    1.53,
+    1.99
    ]
   },
   "v": 2
  },
- "11329104|ht_corners|über": {
-  "match_id": "11329104",
-  "home": "Remo",
-  "away": "Flamengo",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1788721200,
+ "13013137|ht_corners|über": {
+  "match_id": "13013137",
+  "home": "Botafogo",
+  "away": "Palmeiras",
+  "kickoff": "So 23:30",
+  "kickoff_ts": 1788730200,
   "league": "Brazil Serie A",
   "metric": "1. HZ Ecken",
   "metric_key": "ht_corners",
@@ -1863,14 +1167,374 @@
   "first_run": "So 18:45",
   "first_line": 3.5,
   "first_range": [
-   1.65,
-   1.93
+   1.62,
+   1.99
   ],
-  "last_run": "So 20:30",
+  "last_run": "So 21:21",
   "line": 3.5,
   "range": [
-   1.65,
-   1.93
+   1.62,
+   1.99
+  ],
+  "signal": {
+   "metric": "1. HZ Ecken",
+   "metric_key": "ht_corners",
+   "direction": "über",
+   "line": 3.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    47,
+    47
+   ],
+   "next_line": 4.5,
+   "next_note": "Palmeiras 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.6407430226060316,
+    0.7522064649600825
+   ],
+   "fair": 1.49,
+   "ladder": [
+    [
+     2.5,
+     1.32
+    ],
+    [
+     3.5,
+     1.49
+    ]
+   ],
+   "avg": [
+    4.5,
+    5.0
+   ],
+   "expect": 5.0,
+   "expect_sum": 4.8,
+   "expect_matchup": 5.2,
+   "contrib": [
+    3.6,
+    1.6
+   ],
+   "buffer": 1.5,
+   "fa": [
+    [
+     2.1,
+     2.3
+    ],
+    [
+     3.1,
+     2.1
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "4.5",
+    "1.825",
+    "1.975"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.16,
+   "p_emp": {
+    "2.5": 0.7575757575757576,
+    "3.5": 0.6711409395973155
+   },
+   "p_mod": 0.756,
+   "p_fin": 0.714,
+   "fair_fin": 1.4,
+   "ladder_fin": [
+    [
+     2.5,
+     1.22
+    ],
+    [
+     3.5,
+     1.4
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.40",
+   "range": [
+    1.62,
+    1.99
+   ]
+  },
+  "v": 2
+ },
+ "13070191|corners|über": {
+  "match_id": "13070191",
+  "home": "Leon",
+  "away": "Club America",
+  "kickoff": "Mo 00:00",
+  "kickoff_ts": 1788732000,
+  "league": "Leagues Cup",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "So 21:21",
+  "first_line": 8.5,
+  "first_range": [
+   1.37,
+   2.0
+  ],
+  "last_run": "So 21:21",
+  "line": 8.5,
+  "range": [
+   1.37,
+   2.0
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    48
+   ],
+   "next_line": 9.5,
+   "next_note": "Leon 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "longterm": [
+    0.7895857834790537,
+    0.6861137929930835
+   ],
+   "fair": 1.48,
+   "ladder": [
+    [
+     7.5,
+     1.29
+    ],
+    [
+     8.5,
+     1.48
+    ]
+   ],
+   "avg": [
+    10.5,
+    10.3
+   ],
+   "expect": 10.9,
+   "expect_sum": 10.4,
+   "expect_matchup": 11.5,
+   "contrib": [
+    4.4,
+    7.1
+   ],
+   "buffer": 2.4,
+   "fa": [
+    [
+     4.9,
+     5.2
+    ],
+    [
+     6.0,
+     3.7
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "9.5",
+    "2.000",
+    "1.800"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.08,
+   "p_emp": {
+    "7.5": 0.7751937984496123,
+    "8.5": 0.6756756756756757
+   },
+   "p_mod": 0.782,
+   "p_fin": 0.729,
+   "fair_fin": 1.37,
+   "ladder_fin": [
+    [
+     7.5,
+     1.22
+    ],
+    [
+     8.5,
+     1.37
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.37",
+   "range": [
+    1.37,
+    2.0
+   ]
+  },
+  "v": 2
+ },
+ "13070191|ht_corners|über": {
+  "match_id": "13070191",
+  "home": "Leon",
+  "away": "Club America",
+  "kickoff": "Mo 00:00",
+  "kickoff_ts": 1788732000,
+  "league": "Leagues Cup",
+  "metric": "1. HZ Ecken",
+  "metric_key": "ht_corners",
+  "direction": "über",
+  "first_run": "So 21:21",
+  "first_line": 3.5,
+  "first_range": [
+   1.37,
+   2.0
+  ],
+  "last_run": "So 21:21",
+  "line": 3.5,
+  "range": [
+   1.37,
+   2.0
+  ],
+  "signal": {
+   "metric": "1. HZ Ecken",
+   "metric_key": "ht_corners",
+   "direction": "über",
+   "line": 3.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    48
+   ],
+   "next_line": 4.5,
+   "next_note": "Leon 3/5 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; Club America 9/11 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.7288565766178213,
+    0.6873347158671763
+   ],
+   "fair": 1.47,
+   "ladder": [
+    [
+     2.5,
+     1.28
+    ],
+    [
+     3.5,
+     1.47
+    ]
+   ],
+   "avg": [
+    4.8,
+    5.1
+   ],
+   "expect": 5.2,
+   "expect_sum": 4.9,
+   "expect_matchup": 5.6,
+   "contrib": [
+    1.9,
+    3.6
+   ],
+   "buffer": 1.7,
+   "fa": [
+    [
+     2.2,
+     2.7
+    ],
+    [
+     2.6,
+     2.0
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "4.5",
+    "2.075",
+    "1.725"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.27,
+   "p_emp": {
+    "2.5": 0.78125,
+    "3.5": 0.6802721088435374
+   },
+   "p_mod": 0.773,
+   "p_fin": 0.727,
+   "fair_fin": 1.38,
+   "ladder_fin": [
+    [
+     2.5,
+     1.2
+    ],
+    [
+     3.5,
+     1.38
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.38",
+   "range": [
+    1.37,
+    2.0
+   ]
+  },
+  "v": 2
+ },
+ "12028709|ht_corners|über": {
+  "match_id": "12028709",
+  "home": "Puntarenas",
+  "away": "Cartagines",
+  "kickoff": "Mo 00:00",
+  "kickoff_ts": 1788732000,
+  "league": "Costa Rica Primera Division",
+  "metric": "1. HZ Ecken",
+  "metric_key": "ht_corners",
+  "direction": "über",
+  "first_run": "So 21:21",
+  "first_line": 3.5,
+  "first_range": [
+   1.38,
+   2.025
+  ],
+  "last_run": "So 21:21",
+  "line": 3.5,
+  "range": [
+   1.38,
+   2.025
   ],
   "signal": {
    "metric": "1. HZ Ecken",
@@ -1883,194 +1547,198 @@
     "window": 12
    },
    "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
    },
    "home_is_anchor": true,
-   "away_is_anchor": false,
+   "away_is_anchor": true,
    "valid": [
-    45,
-    44
+    43,
+    45
    ],
    "next_line": 4.5,
-   "next_note": "kein Anker — Remo 1/3 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Flamengo 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "next_note": "Puntarenas 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
    "longterm": [
-    0.7979644196978394,
-    0.7848064562337717
+    0.659780710824231,
+    0.7658378198908112
    ],
-   "fair": 1.36,
+   "fair": 1.46,
    "ladder": [
     [
      2.5,
-     1.33
+     1.39
     ],
     [
      3.5,
-     1.36
+     1.46
     ]
    ],
    "avg": [
-    5.7,
-    4.5
+    3.8,
+    6.0
    ],
-   "expect": 5.5,
-   "expect_sum": 5.1,
-   "expect_matchup": 5.9,
+   "expect": 5.1,
+   "expect_sum": 4.9,
+   "expect_matchup": 5.3,
    "contrib": [
-    2.5,
-    3.4
+    3.6,
+    1.8
    ],
-   "buffer": 2.0,
+   "buffer": 1.6,
    "fa": [
+    [
+     2.4,
+     1.9
+    ],
     [
      2.6,
      2.8
-    ],
-    [
-     2.8,
-     1.9
     ]
    ],
    "referee": null,
    "b365": [
-    "4.5",
-    "1.850",
-    "1.950"
+    "4.0",
+    "1.725",
+    "2.075"
    ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 2.31,
+   "sd": 2.22,
    "p_emp": {
-    "2.5": 0.7518796992481203,
-    "3.5": 0.7352941176470588
+    "2.5": 0.7194244604316548,
+    "3.5": 0.684931506849315
    },
-   "p_mod": 0.807,
-   "p_fin": 0.771,
-   "fair_fin": 1.3,
+   "p_mod": 0.764,
+   "p_fin": 0.725,
+   "fair_fin": 1.38,
    "ladder_fin": [
     [
      2.5,
-     1.21
+     1.25
     ],
     [
      3.5,
-     1.3
+     1.38
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "reason": "fair 1.30",
+   "reason": "fair 1.38",
    "range": [
-    1.65,
-    1.93
+    1.38,
+    2.025
    ]
   },
   "v": 2
  },
- "12130599|yellowcards|über": {
-  "match_id": "12130599",
-  "home": "Almeria",
-  "away": "Cadiz",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1788721200,
-  "league": "Spain Segunda",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
+ "13013138|corners|über": {
+  "match_id": "13013138",
+  "home": "Corinthians",
+  "away": "Chapecoense",
+  "kickoff": "Mo 00:30",
+  "kickoff_ts": 1788733800,
+  "league": "Brazil Serie A",
+  "metric": "Ecken",
+  "metric_key": "corners",
   "direction": "über",
-  "first_run": "So 15:22",
-  "first_line": 2.5,
+  "first_run": "So 21:21",
+  "first_line": 7.5,
   "first_range": [
-   1.27,
-   1.71
+   2.04,
+   2.04
   ],
-  "last_run": "So 20:30",
-  "line": 2.5,
+  "last_run": "So 21:21",
+  "line": 7.5,
   "range": [
-   1.27,
-   1.71
+   2.04,
+   2.04
   ],
   "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
+   "metric": "Ecken",
+   "metric_key": "corners",
    "direction": "über",
-   "line": 2.5,
+   "line": 7.5,
    "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 15
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
    },
    "away_series": {
     "kind": "gesamt",
-    "hits": 5,
-    "window": 6
+    "hits": 10,
+    "window": 10
    },
    "home_is_anchor": true,
-   "away_is_anchor": false,
+   "away_is_anchor": true,
    "valid": [
-    50,
-    49
+    46,
+    48
    ],
-   "next_line": 3.5,
-   "next_note": "Cadiz 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "next_line": 8.5,
+   "next_note": "kein Anker — Corinthians 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Chapecoense 9/11 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
    "longterm": [
-    0.7287237114689662,
-    0.7370348692581529
+    0.7389621346542934,
+    0.8327537538968989
    ],
    "fair": 1.34,
    "ladder": [
     [
-     1.5,
-     1.31
+     6.5,
+     1.38
     ],
     [
-     2.5,
+     7.5,
      1.34
     ]
    ],
    "avg": [
-    4.8,
-    4.1
+    9.4,
+    10.7
    ],
-   "expect": 4.6,
-   "expect_sum": 4.5,
-   "expect_matchup": 4.7,
+   "expect": 11.0,
+   "expect_sum": 10.1,
+   "expect_matchup": 11.8,
    "contrib": [
-    1.4,
-    3.4
+    8.8,
+    3.0
    ],
-   "buffer": 2.1,
+   "buffer": 3.5,
    "fa": [
     [
-     2.1,
-     2.4
+     5.2,
+     4.3
     ],
     [
-     2.6,
-     1.7
+     5.0,
+     6.0
     ]
    ],
-   "referee": "Gorka Etayo Herrera: Ø 5.1 Karten (10 Sp.) · Ø 24.4 Fouls (10 Sp.)",
-   "b365": null,
-   "expect_ref": 5.0,
-   "buffer_ref": 2.5,
-   "sd": 2.43,
+   "referee": null,
+   "b365": [
+    "10.0",
+    "2.000",
+    "1.800"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.39,
    "p_emp": {
-    "1.5": 0.7633587786259541,
-    "2.5": 0.7462686567164178
+    "6.5": 0.7246376811594204,
+    "7.5": 0.7462686567164178
    },
-   "p_mod": 0.848,
-   "p_fin": 0.797,
+   "p_mod": 0.849,
+   "p_fin": 0.798,
    "fair_fin": 1.25,
    "ladder_fin": [
     [
-     1.5,
-     1.18
+     6.5,
+     1.23
     ],
     [
-     2.5,
+     7.5,
      1.25
     ]
    ],
@@ -2080,385 +1748,265 @@
    "light": "🟢",
    "reason": "fair 1.25",
    "range": [
-    1.27,
-    1.71
+    2.04,
+    2.04
    ]
   },
   "v": 2
  },
- "11253892|yellowcards|unter": {
-  "match_id": "11253892",
-  "home": "Cruzeiro",
-  "away": "Athletico Paranaense",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1788721200,
+ "13013138|yellowcards|unter": {
+  "match_id": "13013138",
+  "home": "Corinthians",
+  "away": "Chapecoense",
+  "kickoff": "Mo 00:30",
+  "kickoff_ts": 1788733800,
   "league": "Brazil Serie A",
   "metric": "Gelbe Karten",
   "metric_key": "yellowcards",
   "direction": "unter",
-  "first_run": "So 13:21",
-  "first_line": 5.5,
+  "first_run": "So 21:21",
+  "first_line": 6.5,
   "first_range": [
-   1.45,
-   1.73
+   1.5,
+   1.6
   ],
-  "last_run": "So 20:30",
-  "line": 5.5,
+  "last_run": "So 21:21",
+  "line": 6.5,
   "range": [
-   1.46,
-   1.74
+   1.5,
+   1.6
   ],
   "signal": {
    "metric": "Gelbe Karten",
    "metric_key": "yellowcards",
    "direction": "unter",
-   "line": 5.5,
+   "line": 6.5,
    "home_series": {
     "kind": "gesamt",
     "hits": 5,
-    "window": 6
+    "window": 5
    },
    "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    48
-   ],
-   "next_line": 4.5,
-   "next_note": "Cruzeiro 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Athletico Paranaense 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.7353518307772631,
-    0.7134305864335474
-   ],
-   "fair": 1.4,
-   "ladder": [
-    [
-     5.5,
-     1.4
-    ],
-    [
-     6.5,
-     1.2
-    ]
-   ],
-   "avg": [
-    4.7,
-    4.4
-   ],
-   "expect": 4.6,
-   "expect_sum": 4.5,
-   "expect_matchup": 4.7,
-   "contrib": [
-    2.2,
-    2.4
-   ],
-   "buffer": 0.9,
-   "fa": [
-    [
-     2.3,
-     2.3
-    ],
-    [
-     2.1,
-     2.4
-    ]
-   ],
-   "referee": "Daiane Caroline Muniz Dos Santos: Ø 4.2 Karten (4 Sp.) · Ø 22.2 Fouls (4 Sp.)",
-   "b365": null,
-   "expect_ref": 4.6,
-   "buffer_ref": 0.9,
-   "sd": 2.19,
-   "p_emp": {
-    "5.5": 0.7142857142857143,
-    "6.5": 0.8333333333333334
-   },
-   "p_mod": 0.659,
-   "p_fin": 0.687,
-   "fair_fin": 1.46,
-   "ladder_fin": [
-    [
-     5.5,
-     1.46
-    ],
-    [
-     6.5,
-     1.22
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.46",
-   "range": [
-    1.46,
-    1.74
-   ]
-  },
-  "v": 2
- },
- "11276844|yellowcards|über": {
-  "match_id": "11276844",
-  "home": "Internacional",
-  "away": "Santos",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1788721200,
-  "league": "Brazil Serie A",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "So 13:21",
-  "first_line": 3.5,
-  "first_range": [
-   1.35,
-   1.58
-  ],
-  "last_run": "So 20:30",
-  "line": 3.5,
-  "range": [
-   1.35,
-   1.59
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 3.5,
-   "home_series": {
     "kind": "gesamt",
     "hits": 10,
     "window": 11
    },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
+   "home_is_anchor": false,
+   "away_is_anchor": true,
    "valid": [
-    50,
+    46,
     48
    ],
-   "next_line": 4.5,
-   "next_note": "Internacional 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Santos 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "next_line": 5.5,
+   "next_note": "Corinthians 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
    "longterm": [
-    0.7213608749456093,
-    0.7183467110425106
+    0.6979978055198264,
+    0.9145791047259859
    ],
-   "fair": 1.45,
+   "fair": 1.23,
    "ladder": [
     [
-     2.5,
-     1.26
+     6.5,
+     1.23
     ],
     [
-     3.5,
-     1.45
+     7.5,
+     1.24
     ]
    ],
    "avg": [
-    4.8,
+    4.7,
     4.2
    ],
    "expect": 4.6,
    "expect_sum": 4.5,
    "expect_matchup": 4.7,
    "contrib": [
-    1.8,
-    3.0
+    1.6,
+    3.1
    ],
-   "buffer": 1.1,
+   "buffer": 1.9,
    "fa": [
     [
-     2.1,
-     2.2
+     2.5,
+     2.7
     ],
     [
-     2.5,
-     2.4
+     2.3,
+     1.8
     ]
    ],
-   "referee": "Alex Gomes Stefano: Ø 4.1 Karten (10 Sp.) · Ø 24.1 Fouls (10 Sp.)",
+   "referee": "Wagner do Nascimento Magalhaes: Ø 4.0 Karten (6 Sp.) · Ø 24.5 Fouls (6 Sp.)",
    "b365": null,
-   "expect_ref": 4.5,
-   "buffer_ref": 1.0,
-   "sd": 2.26,
+   "expect_ref": 4.4,
+   "buffer_ref": 2.1,
+   "sd": 2.25,
    "p_emp": {
-    "2.5": 0.7936507936507936,
-    "3.5": 0.6896551724137931
+    "6.5": 0.8130081300813008,
+    "7.5": 0.8064516129032259
    },
-   "p_mod": 0.671,
-   "p_fin": 0.68,
-   "fair_fin": 1.47,
+   "p_mod": 0.825,
+   "p_fin": 0.819,
+   "fair_fin": 1.22,
    "ladder_fin": [
     [
-     2.5,
-     1.25
+     6.5,
+     1.22
     ],
     [
-     3.5,
-     1.47
+     7.5,
+     1.16
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "reason": "fair 1.47",
+   "reason": "fair 1.22",
    "range": [
-    1.35,
-    1.59
+    1.5,
+    1.6
    ]
   },
   "v": 2
  },
- "13052056|corners|über": {
-  "match_id": "13052056",
-  "home": "Vojvodina",
-  "away": "FK Zemun",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1788721200,
-  "league": "Serbia Super Liga",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "So 13:21",
-  "first_line": 7.5,
+ "13013138|ht_yellowcards|unter": {
+  "match_id": "13013138",
+  "home": "Corinthians",
+  "away": "Chapecoense",
+  "kickoff": "Mo 00:30",
+  "kickoff_ts": 1788733800,
+  "league": "Brazil Serie A",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "So 21:21",
+  "first_line": 2.5,
   "first_range": [
-   1.36,
-   1.99
+   1.5,
+   1.6
   ],
-  "last_run": "So 20:30",
-  "line": 7.5,
+  "last_run": "So 21:21",
+  "line": 2.5,
   "range": [
-   1.36,
-   1.99
+   1.5,
+   1.6
   ],
   "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
    "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
     "kind": "gesamt",
     "hits": 5,
     "window": 6
    },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
    "valid": [
     46,
-    49
+    46
    ],
-   "next_line": 8.5,
-   "next_note": "Vojvodina 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; FK Zemun 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "next_line": 1.5,
+   "next_note": "Corinthians 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
    "longterm": [
-    0.714637819389022,
-    0.6075842863186617
+    0.7086297356198911,
+    0.8399799682338569
    ],
-   "fair": 1.51,
+   "fair": 1.28,
    "ladder": [
     [
-     6.5,
-     1.41
+     2.5,
+     1.28
     ],
     [
-     7.5,
-     1.51
+     3.5,
+     1.29
     ]
    ],
    "avg": [
-    9.0,
-    9.3
+    1.7,
+    1.1
    ],
-   "expect": 9.3,
-   "expect_sum": 9.2,
-   "expect_matchup": 9.4,
+   "expect": 1.4,
+   "expect_sum": 1.4,
+   "expect_matchup": 1.3,
    "contrib": [
-    6.9,
-    2.6
+    0.4,
+    1.0
    ],
-   "buffer": 1.8,
+   "buffer": 1.1,
    "fa": [
     [
-     4.8,
-     4.8
+     0.9,
+     1.1
     ],
     [
-     3.4,
-     5.4
+     0.8,
+     0.5
     ]
    ],
-   "referee": null,
-   "b365": [
-    "9.0",
-    "1.925",
-    "1.875"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.96,
+   "referee": "Wagner do Nascimento Magalhaes: Ø 4.0 Karten (6 Sp.) · Ø 24.5 Fouls (6 Sp.)",
+   "b365": null,
+   "expect_ref": 2.4,
+   "buffer_ref": 0.1,
+   "sd": 1.45,
    "p_emp": {
-    "6.5": 0.7092198581560284,
-    "7.5": 0.6622516556291391
+    "2.5": 0.78125,
+    "3.5": 0.7751937984496123
    },
-   "p_mod": 0.728,
-   "p_fin": 0.695,
-   "fair_fin": 1.44,
+   "p_mod": 0.527,
+   "p_fin": 0.654,
+   "fair_fin": 1.53,
    "ladder_fin": [
     [
-     6.5,
-     1.3
+     2.5,
+     1.53
     ],
     [
-     7.5,
-     1.44
+     3.5,
+     1.29
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.44",
+   "light": "🔴",
+   "reason": "Historie 78 % und Modell 53 % widersprechen sich",
    "range": [
-    1.36,
-    1.99
+    1.5,
+    1.6
    ]
   },
   "v": 2
  },
- "13055379|corners|über": {
-  "match_id": "13055379",
-  "home": "Floresta EC",
-  "away": "Maringa FC",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1788721200,
-  "league": "Brazil Serie C",
+ "13062170|corners|über": {
+  "match_id": "13062170",
+  "home": "CD Walter Ferretti",
+  "away": "Managua FC",
+  "kickoff": "Mo 01:00",
+  "kickoff_ts": 1788735600,
+  "league": "Nicaragua Apertura",
   "metric": "Ecken",
   "metric_key": "corners",
   "direction": "über",
-  "first_run": "So 13:21",
+  "first_run": "So 21:21",
   "first_line": 7.5,
   "first_range": [
-   1.4,
-   1.44
+   1.87,
+   1.87
   ],
-  "last_run": "So 20:30",
+  "last_run": "So 21:21",
   "line": 7.5,
   "range": [
-   1.4,
-   1.44
+   1.87,
+   1.87
   ],
   "signal": {
    "metric": "Ecken",
@@ -2467,8 +2015,8 @@
    "line": 7.5,
    "home_series": {
     "kind": "gesamt",
-    "hits": 10,
-    "window": 12
+    "hits": 5,
+    "window": 6
    },
    "away_series": {
     "kind": "gesamt",
@@ -2478,46 +2026,406 @@
    "home_is_anchor": false,
    "away_is_anchor": true,
    "valid": [
-    49,
-    49
+    43,
+    42
    ],
    "next_line": 8.5,
-   "next_note": "Floresta EC 6/8 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "next_note": "kein Anker — CD Walter Ferretti 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Managua FC 9/11 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
    "longterm": [
-    0.6383078128870694,
-    0.8412000975841416
+    0.5846166106011134,
+    0.7130124502582675
    ],
-   "fair": 1.41,
+   "fair": 1.53,
    "ladder": [
     [
      6.5,
-     1.38
+     1.51
     ],
     [
      7.5,
-     1.41
+     1.53
     ]
    ],
    "avg": [
-    8.7,
-    10.4
+    8.2,
+    9.2
    ],
-   "expect": 9.8,
-   "expect_sum": 9.6,
-   "expect_matchup": 9.9,
+   "expect": 8.2,
+   "expect_sum": 8.7,
+   "expect_matchup": 7.7,
    "contrib": [
-    5.1,
-    4.8
+    3.8,
+    3.9
    ],
-   "buffer": 2.3,
+   "buffer": 0.7,
    "fa": [
     [
-     3.7,
-     5.3
+     4.5,
+     4.1
     ],
     [
-     6.1,
-     4.5
+     4.8,
+     4.2
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "8.5",
+    "1.950",
+    "1.850"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.69,
+   "p_emp": {
+    "6.5": 0.6622516556291391,
+    "7.5": 0.6535947712418301
+   },
+   "p_mod": 0.575,
+   "p_fin": 0.614,
+   "fair_fin": 1.63,
+   "ladder_fin": [
+    [
+     6.5,
+     1.49
+    ],
+    [
+     7.5,
+     1.63
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "61 % knapp",
+   "range": [
+    1.87,
+    1.87
+   ]
+  },
+  "v": 2
+ },
+ "12371630|ht_corners|über": {
+  "match_id": "12371630",
+  "home": "Nacional Potosi",
+  "away": "Blooming",
+  "kickoff": "Mo 02:00",
+  "kickoff_ts": 1788739200,
+  "league": "Bolivia Primera Division",
+  "metric": "1. HZ Ecken",
+  "metric_key": "ht_corners",
+  "direction": "über",
+  "first_run": "So 21:21",
+  "first_line": 3.5,
+  "first_range": [
+   1.37,
+   2.009
+  ],
+  "last_run": "So 21:21",
+  "line": 3.5,
+  "range": [
+   1.37,
+   2.009
+  ],
+  "signal": {
+   "metric": "1. HZ Ecken",
+   "metric_key": "ht_corners",
+   "direction": "über",
+   "line": 3.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    39,
+    42
+   ],
+   "next_line": 4.5,
+   "next_note": "Nacional Potosi 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "longterm": [
+    0.6441895896650117,
+    0.752044911815805
+   ],
+   "fair": 1.5,
+   "ladder": [
+    [
+     2.5,
+     1.48
+    ],
+    [
+     3.5,
+     1.5
+    ]
+   ],
+   "avg": [
+    3.4,
+    4.9
+   ],
+   "expect": 4.1,
+   "expect_sum": 4.1,
+   "expect_matchup": 4.1,
+   "contrib": [
+    3.4,
+    0.7
+   ],
+   "buffer": 0.6,
+   "fa": [
+    [
+     1.9,
+     2.1
+    ],
+    [
+     2.0,
+     2.6
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "4.5",
+    "1.825",
+    "1.975"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.15,
+   "p_emp": {
+    "2.5": 0.6756756756756757,
+    "3.5": 0.6666666666666666
+   },
+   "p_mod": 0.61,
+   "p_fin": 0.638,
+   "fair_fin": 1.57,
+   "ladder_fin": [
+    [
+     2.5,
+     1.38
+    ],
+    [
+     3.5,
+     1.57
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "64 % knapp",
+   "range": [
+    1.37,
+    2.009
+   ]
+  },
+  "v": 2
+ },
+ "13065252|ht_corners|über": {
+  "match_id": "13065252",
+  "home": "Patriotas FC",
+  "away": "Tigres FC",
+  "kickoff": "Mo 03:15",
+  "kickoff_ts": 1788743700,
+  "league": "Colombia Primera B",
+  "metric": "1. HZ Ecken",
+  "metric_key": "ht_corners",
+  "direction": "über",
+  "first_run": "So 21:21",
+  "first_line": 3.5,
+  "first_range": [
+   1.7,
+   1.7
+  ],
+  "last_run": "So 21:21",
+  "line": 3.5,
+  "range": [
+   1.7,
+   1.7
+  ],
+  "signal": {
+   "metric": "1. HZ Ecken",
+   "metric_key": "ht_corners",
+   "direction": "über",
+   "line": 3.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    47
+   ],
+   "next_line": 4.5,
+   "next_note": "Patriotas FC 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Tigres FC 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.6434282272972363,
+    0.7673936747660325
+   ],
+   "fair": 1.47,
+   "ladder": [
+    [
+     2.5,
+     1.39
+    ],
+    [
+     3.5,
+     1.47
+    ]
+   ],
+   "avg": [
+    5.2,
+    5.6
+   ],
+   "expect": 6.7,
+   "expect_sum": 5.4,
+   "expect_matchup": 8.1,
+   "contrib": [
+    7.2,
+    0.9
+   ],
+   "buffer": 3.2,
+   "fa": [
+    [
+     2.8,
+     1.7
+    ],
+    [
+     1.6,
+     3.0
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "4.0",
+    "1.950",
+    "1.850"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.26,
+   "p_emp": {
+    "2.5": 0.7194244604316548,
+    "3.5": 0.6802721088435374
+   },
+   "p_mod": 0.922,
+   "p_fin": 0.801,
+   "fair_fin": 1.25,
+   "ladder_fin": [
+    [
+     2.5,
+     1.18
+    ],
+    [
+     3.5,
+     1.25
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 68 % vs. Modell 92 %",
+   "range": [
+    1.7,
+    1.7
+   ]
+  },
+  "v": 2
+ },
+ "13070192|corners|über": {
+  "match_id": "13070192",
+  "home": "Toluca",
+  "away": "Monterrey",
+  "kickoff": "Mo 03:15",
+  "kickoff_ts": 1788743700,
+  "league": "Leagues Cup",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "So 21:21",
+  "first_line": 7.5,
+  "first_range": [
+   1.37,
+   2.0
+  ],
+  "last_run": "So 21:21",
+  "line": 7.5,
+  "range": [
+   1.37,
+   2.0
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    49
+   ],
+   "next_line": 8.5,
+   "next_note": "kein Anker — Toluca 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Monterrey 7/9 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.7371354833749189,
+    0.7756185507166563
+   ],
+   "fair": 1.37,
+   "ladder": [
+    [
+     6.5,
+     1.35
+    ],
+    [
+     7.5,
+     1.37
+    ]
+   ],
+   "avg": [
+    9.4,
+    9.8
+   ],
+   "expect": 10.0,
+   "expect_sum": 9.6,
+   "expect_matchup": 10.4,
+   "contrib": [
+    7.3,
+    3.1
+   ],
+   "buffer": 2.5,
+   "fa": [
+    [
+     5.7,
+     3.7
+    ],
+    [
+     4.8,
+     4.7
     ]
    ],
    "referee": null,
@@ -2528,32 +2436,620 @@
    ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.59,
+   "sd": 3.04,
    "p_emp": {
-    "6.5": 0.7246376811594204,
-    "7.5": 0.7092198581560284
+    "6.5": 0.7407407407407407,
+    "7.5": 0.7299270072992701
    },
-   "p_mod": 0.739,
-   "p_fin": 0.724,
-   "fair_fin": 1.38,
+   "p_mod": 0.795,
+   "p_fin": 0.762,
+   "fair_fin": 1.31,
    "ladder_fin": [
     [
      6.5,
-     1.29
+     1.24
     ],
     [
      7.5,
-     1.38
+     1.31
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "reason": "fair 1.38",
+   "reason": "fair 1.31",
    "range": [
+    1.37,
+    2.0
+   ]
+  },
+  "v": 2
+ },
+ "13070192|yellowcards|unter": {
+  "match_id": "13070192",
+  "home": "Toluca",
+  "away": "Monterrey",
+  "kickoff": "Mo 03:15",
+  "kickoff_ts": 1788743700,
+  "league": "Leagues Cup",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "So 21:21",
+  "first_line": 6.5,
+  "first_range": [
+   1.57,
+   1.57
+  ],
+  "last_run": "So 21:21",
+  "line": 6.5,
+  "range": [
+   1.57,
+   1.57
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    49
+   ],
+   "next_line": 5.5,
+   "next_note": "kein Anker — Toluca 15/17 (3. Lücke) gesamt, 16/18 (3. Lücke) heim; Monterrey 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.9191735317246725,
+    0.8251101670081138
+   ],
+   "fair": 1.17,
+   "ladder": [
+    [
+     6.5,
+     1.17
+    ],
+    [
+     7.5,
+     1.22
+    ]
+   ],
+   "avg": [
+    3.5,
+    3.7
+   ],
+   "expect": 3.2,
+   "expect_sum": 3.6,
+   "expect_matchup": 2.9,
+   "contrib": [
     1.4,
-    1.44
+    1.5
+   ],
+   "buffer": 3.3,
+   "fa": [
+    [
+     1.9,
+     2.2
+    ],
+    [
+     1.6,
+     2.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.19,
+   "p_emp": {
+    "6.5": 0.8547008547008548,
+    "7.5": 0.819672131147541
+   },
+   "p_mod": 0.934,
+   "p_fin": 0.894,
+   "fair_fin": 1.12,
+   "ladder_fin": [
+    [
+     6.5,
+     1.12
+    ],
+    [
+     7.5,
+     1.11
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.12",
+   "range": [
+    1.57,
+    1.57
+   ]
+  },
+  "v": 2
+ },
+ "13070192|ht_corners|über": {
+  "match_id": "13070192",
+  "home": "Toluca",
+  "away": "Monterrey",
+  "kickoff": "Mo 03:15",
+  "kickoff_ts": 1788743700,
+  "league": "Leagues Cup",
+  "metric": "1. HZ Ecken",
+  "metric_key": "ht_corners",
+  "direction": "über",
+  "first_run": "So 21:21",
+  "first_line": 3.5,
+  "first_range": [
+   1.37,
+   2.0
+  ],
+  "last_run": "So 21:21",
+  "line": 3.5,
+  "range": [
+   1.37,
+   2.0
+  ],
+  "signal": {
+   "metric": "1. HZ Ecken",
+   "metric_key": "ht_corners",
+   "direction": "über",
+   "line": 3.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    49
+   ],
+   "next_line": 4.5,
+   "next_note": "Monterrey 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.8149166969041206,
+    0.8311676389110764
+   ],
+   "fair": 1.32,
+   "ladder": [
+    [
+     2.5,
+     1.28
+    ],
+    [
+     3.5,
+     1.32
+    ]
+   ],
+   "avg": [
+    4.7,
+    5.3
+   ],
+   "expect": 5.4,
+   "expect_sum": 5.0,
+   "expect_matchup": 5.9,
+   "contrib": [
+    4.3,
+    1.6
+   ],
+   "buffer": 1.9,
+   "fa": [
+    [
+     2.9,
+     1.8
+    ],
+    [
+     2.3,
+     2.3
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "4.5",
+    "2.075",
+    "1.725"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.87,
+   "p_emp": {
+    "2.5": 0.78125,
+    "3.5": 0.7575757575757576
+   },
+   "p_mod": 0.845,
+   "p_fin": 0.801,
+   "fair_fin": 1.25,
+   "ladder_fin": [
+    [
+     2.5,
+     1.16
+    ],
+    [
+     3.5,
+     1.25
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.25",
+   "range": [
+    1.37,
+    2.0
+   ]
+  },
+  "v": 2
+ },
+ "12025932|corners|über": {
+  "match_id": "12025932",
+  "home": "Cruz Azul",
+  "away": "Santos Laguna",
+  "kickoff": "Mo 04:00",
+  "kickoff_ts": 1788746400,
+  "league": "Mexico Liga MX",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "So 21:21",
+  "first_line": 7.5,
+  "first_range": [
+   1.33,
+   1.82
+  ],
+  "last_run": "So 21:21",
+  "line": 7.5,
+  "range": [
+   1.33,
+   1.82
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    50
+   ],
+   "next_line": 8.5,
+   "next_note": "Cruz Azul 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "longterm": [
+    0.8025183544236891,
+    0.7658068710238878
+   ],
+   "fair": 1.34,
+   "ladder": [
+    [
+     6.5,
+     1.31
+    ],
+    [
+     7.5,
+     1.34
+    ]
+   ],
+   "avg": [
+    8.9,
+    10.0
+   ],
+   "expect": 9.6,
+   "expect_sum": 9.5,
+   "expect_matchup": 9.8,
+   "contrib": [
+    6.3,
+    3.5
+   ],
+   "buffer": 2.1,
+   "fa": [
+    [
+     5.5,
+     3.9
+    ],
+    [
+     4.6,
+     5.4
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.850",
+    "1.950"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.1,
+   "p_emp": {
+    "6.5": 0.7633587786259541,
+    "7.5": 0.7462686567164178
+   },
+   "p_mod": 0.751,
+   "p_fin": 0.749,
+   "fair_fin": 1.34,
+   "ladder_fin": [
+    [
+     6.5,
+     1.25
+    ],
+    [
+     7.5,
+     1.34
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.34",
+   "range": [
+    1.33,
+    1.82
+   ]
+  },
+  "v": 2
+ },
+ "12025932|yellowcards|unter": {
+  "match_id": "12025932",
+  "home": "Cruz Azul",
+  "away": "Santos Laguna",
+  "kickoff": "Mo 04:00",
+  "kickoff_ts": 1788746400,
+  "league": "Mexico Liga MX",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "So 21:21",
+  "first_line": 5.5,
+  "first_range": [
+   1.61,
+   2.08
+  ],
+  "last_run": "So 21:21",
+  "line": 5.5,
+  "range": [
+   1.61,
+   2.08
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    50
+   ],
+   "next_line": 4.5,
+   "next_note": "Cruz Azul 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Santos Laguna 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.77336530122582,
+    0.7236421069255344
+   ],
+   "fair": 1.36,
+   "ladder": [
+    [
+     5.5,
+     1.36
+    ],
+    [
+     6.5,
+     1.18
+    ]
+   ],
+   "avg": [
+    4.3,
+    3.9
+   ],
+   "expect": 4.0,
+   "expect_sum": 4.1,
+   "expect_matchup": 3.9,
+   "contrib": [
+    1.5,
+    2.3
+   ],
+   "buffer": 1.5,
+   "fa": [
+    [
+     2.1,
+     2.1
+    ],
+    [
+     2.5,
+     2.1
+    ]
+   ],
+   "referee": "Maximiliano Quintero Hernandez (noch keine Daten)",
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.31,
+   "p_emp": {
+    "5.5": 0.7352941176470588,
+    "6.5": 0.8474576271186441
+   },
+   "p_mod": 0.742,
+   "p_fin": 0.739,
+   "fair_fin": 1.35,
+   "ladder_fin": [
+    [
+     5.5,
+     1.35
+    ],
+    [
+     6.5,
+     1.17
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.35",
+   "range": [
+    1.61,
+    2.08
+   ]
+  },
+  "v": 2
+ },
+ "12025932|ht_yellowcards|unter": {
+  "match_id": "12025932",
+  "home": "Cruz Azul",
+  "away": "Santos Laguna",
+  "kickoff": "Mo 04:00",
+  "kickoff_ts": 1788746400,
+  "league": "Mexico Liga MX",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "So 21:21",
+  "first_line": 2.5,
+  "first_range": [
+   1.61,
+   2.08
+  ],
+  "last_run": "So 21:21",
+  "line": 2.5,
+  "range": [
+   1.61,
+   2.08
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    49
+   ],
+   "next_line": 1.5,
+   "next_note": "Cruz Azul 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+   "longterm": [
+    0.8863378604700086,
+    0.75952989463528
+   ],
+   "fair": 1.23,
+   "ladder": [
+    [
+     2.5,
+     1.23
+    ],
+    [
+     3.5,
+     1.25
+    ]
+   ],
+   "avg": [
+    1.7,
+    1.5
+   ],
+   "expect": 1.6,
+   "expect_sum": 1.6,
+   "expect_matchup": 1.6,
+   "contrib": [
+    1.0,
+    0.6
+   ],
+   "buffer": 0.9,
+   "fa": [
+    [
+     1.0,
+     0.6
+    ],
+    [
+     1.0,
+     0.8
+    ]
+   ],
+   "referee": "Maximiliano Quintero Hernandez (noch keine Daten)",
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.39,
+   "p_emp": {
+    "2.5": 0.8130081300813008,
+    "3.5": 0.8
+   },
+   "p_mod": 0.741,
+   "p_fin": 0.777,
+   "fair_fin": 1.29,
+   "ladder_fin": [
+    [
+     2.5,
+     1.29
+    ],
+    [
+     3.5,
+     1.17
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.29",
+   "range": [
+    1.61,
+    2.08
    ]
   },
   "v": 2
@@ -2670,1513 +3166,6 @@
    "range": [
     1.65,
     2.029
-   ]
-  },
-  "v": 2
- },
- "12321245|yellowcards|über": {
-  "match_id": "12321245",
-  "home": "Lanus",
-  "away": "Defensa y Justicia",
-  "kickoff": "So 22:00",
-  "kickoff_ts": 1788724800,
-  "league": "Argentina Liga Profesional",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "So 18:45",
-  "first_line": 2.5,
-  "first_range": [
-   1.26,
-   1.61
-  ],
-  "last_run": "So 20:30",
-  "line": 2.5,
-  "range": [
-   1.33,
-   1.75
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    46
-   ],
-   "next_line": 3.5,
-   "next_note": "Lanus 6/8 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
-   "longterm": [
-    0.8933585669257426,
-    0.8702231104714077
-   ],
-   "fair": 1.18,
-   "ladder": [
-    [
-     1.5,
-     1.23
-    ],
-    [
-     2.5,
-     1.18
-    ]
-   ],
-   "avg": [
-    4.1,
-    4.2
-   ],
-   "expect": 4.1,
-   "expect_sum": 4.2,
-   "expect_matchup": 4.0,
-   "contrib": [
-    2.1,
-    1.9
-   ],
-   "buffer": 1.6,
-   "fa": [
-    [
-     2.2,
-     2.2
-    ],
-    [
-     1.8,
-     2.2
-    ]
-   ],
-   "referee": "Andres Merlos: Ø 4.5 Karten (11 Sp.) · Ø 22.0 Fouls (8 Sp.)",
-   "b365": null,
-   "expect_ref": 4.2,
-   "buffer_ref": 1.7,
-   "sd": 1.62,
-   "p_emp": {
-    "1.5": 0.8130081300813008,
-    "2.5": 0.8474576271186441
-   },
-   "p_mod": 0.853,
-   "p_fin": 0.85,
-   "fair_fin": 1.18,
-   "ladder_fin": [
-    [
-     1.5,
-     1.13
-    ],
-    [
-     2.5,
-     1.18
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.18",
-   "range": [
-    1.33,
-    1.75
-   ]
-  },
-  "v": 2
- },
- "12321245|yellowcards|unter": {
-  "match_id": "12321245",
-  "home": "Lanus",
-  "away": "Defensa y Justicia",
-  "kickoff": "So 22:00",
-  "kickoff_ts": 1788724800,
-  "league": "Argentina Liga Profesional",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "So 18:45",
-  "first_line": 6.5,
-  "first_range": [
-   1.26,
-   1.61
-  ],
-  "last_run": "So 20:30",
-  "line": 6.5,
-  "range": [
-   1.33,
-   1.75
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    46
-   ],
-   "next_line": 5.5,
-   "next_note": "kein Anker — Lanus 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Defensa y Justicia 19/21 (3. Lücke) gesamt, 16/18 (3. Lücke) auswärts",
-   "longterm": [
-    0.8820983850649952,
-    0.9051802438935828
-   ],
-   "fair": 1.15,
-   "ladder": [
-    [
-     6.5,
-     1.15
-    ],
-    [
-     7.5,
-     1.21
-    ]
-   ],
-   "avg": [
-    4.1,
-    4.2
-   ],
-   "expect": 4.1,
-   "expect_sum": 4.2,
-   "expect_matchup": 4.0,
-   "contrib": [
-    2.1,
-    1.9
-   ],
-   "buffer": 2.4,
-   "fa": [
-    [
-     2.2,
-     2.2
-    ],
-    [
-     1.8,
-     2.2
-    ]
-   ],
-   "referee": "Andres Merlos: Ø 4.5 Karten (11 Sp.) · Ø 22.0 Fouls (8 Sp.)",
-   "b365": null,
-   "expect_ref": 4.2,
-   "buffer_ref": 2.3,
-   "sd": 1.62,
-   "p_emp": {
-    "6.5": 0.8695652173913044,
-    "7.5": 0.8264462809917356
-   },
-   "p_mod": 0.922,
-   "p_fin": 0.896,
-   "fair_fin": 1.12,
-   "ladder_fin": [
-    [
-     6.5,
-     1.12
-    ],
-    [
-     7.5,
-     1.11
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.12",
-   "range": [
-    1.33,
-    1.75
-   ]
-  },
-  "v": 2
- },
- "12321245|ht_yellowcards|über": {
-  "match_id": "12321245",
-  "home": "Lanus",
-  "away": "Defensa y Justicia",
-  "kickoff": "So 22:00",
-  "kickoff_ts": 1788724800,
-  "league": "Argentina Liga Profesional",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "über",
-  "first_run": "So 18:45",
-  "first_line": 0.5,
-  "first_range": [
-   1.26,
-   1.61
-  ],
-  "last_run": "So 20:30",
-  "line": 0.5,
-  "range": [
-   1.33,
-   1.75
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "über",
-   "line": 0.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    46,
-    48
-   ],
-   "next_line": 1.5,
-   "next_note": "Lanus 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Defensa y Justicia 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.7291995191325868,
-    0.7626702604386326
-   ],
-   "fair": 1.34,
-   "ladder": [
-    [
-     0.5,
-     1.34
-    ]
-   ],
-   "avg": [
-    1.4,
-    1.6
-   ],
-   "expect": 1.5,
-   "expect_sum": 1.5,
-   "expect_matchup": 1.6,
-   "contrib": [
-    1.2,
-    0.4
-   ],
-   "buffer": 1.0,
-   "fa": [
-    [
-     0.8,
-     0.7
-    ],
-    [
-     0.6,
-     1.0
-    ]
-   ],
-   "referee": "Andres Merlos: Ø 4.5 Karten (11 Sp.) · Ø 22.0 Fouls (8 Sp.)",
-   "b365": null,
-   "expect_ref": 3.2,
-   "buffer_ref": 2.7,
-   "sd": 1.27,
-   "p_emp": {
-    "0.5": 0.7462686567164178
-   },
-   "p_mod": 0.983,
-   "p_fin": 0.865,
-   "fair_fin": 1.16,
-   "ladder_fin": [
-    [
-     0.5,
-     1.16
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 75 % vs. Modell 98 %",
-   "range": [
-    1.33,
-    1.75
-   ]
-  },
-  "v": 2
- },
- "12322479|yellowcards|über": {
-  "match_id": "12322479",
-  "home": "Central Cordoba",
-  "away": "CA Independiente",
-  "kickoff": "So 22:00",
-  "kickoff_ts": 1788724800,
-  "league": "Argentina Liga Profesional",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "So 18:45",
-  "first_line": 2.5,
-  "first_range": [
-   1.22,
-   1.5
-  ],
-  "last_run": "So 20:30",
-  "line": 2.5,
-  "range": [
-   1.44,
-   1.5
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    45
-   ],
-   "next_line": 3.5,
-   "next_note": "Central Cordoba 2/4 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; CA Independiente 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "longterm": [
-    0.858842638520126,
-    0.7830499229539195
-   ],
-   "fair": 1.24,
-   "ladder": [
-    [
-     1.5,
-     1.22
-    ],
-    [
-     2.5,
-     1.24
-    ]
-   ],
-   "avg": [
-    4.7,
-    5.0
-   ],
-   "expect": 5.1,
-   "expect_sum": 4.9,
-   "expect_matchup": 5.4,
-   "contrib": [
-    2.6,
-    2.8
-   ],
-   "buffer": 2.6,
-   "fa": [
-    [
-     2.6,
-     2.3
-    ],
-    [
-     2.6,
-     2.3
-    ]
-   ],
-   "referee": "Andres Gariano: Ø 4.2 Karten (11 Sp.) · Ø 25.9 Fouls (8 Sp.)",
-   "b365": null,
-   "expect_ref": 5.0,
-   "buffer_ref": 2.5,
-   "sd": 2.05,
-   "p_emp": {
-    "1.5": 0.819672131147541,
-    "2.5": 0.8064516129032259
-   },
-   "p_mod": 0.889,
-   "p_fin": 0.848,
-   "fair_fin": 1.18,
-   "ladder_fin": [
-    [
-     1.5,
-     1.13
-    ],
-    [
-     2.5,
-     1.18
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.18",
-   "range": [
-    1.44,
-    1.5
-   ]
-  },
-  "v": 2
- },
- "12322479|yellowcards|unter": {
-  "match_id": "12322479",
-  "home": "Central Cordoba",
-  "away": "CA Independiente",
-  "kickoff": "So 22:00",
-  "kickoff_ts": 1788724800,
-  "league": "Argentina Liga Profesional",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "So 18:45",
-  "first_line": 6.5,
-  "first_range": [
-   1.22,
-   1.5
-  ],
-  "last_run": "So 20:30",
-  "line": 6.5,
-  "range": [
-   1.44,
-   1.5
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    45
-   ],
-   "next_line": 5.5,
-   "next_note": "Central Cordoba 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
-   "longterm": [
-    0.850339103654671,
-    0.8251620310528397
-   ],
-   "fair": 1.2,
-   "ladder": [
-    [
-     6.5,
-     1.2
-    ],
-    [
-     7.5,
-     1.28
-    ]
-   ],
-   "avg": [
-    4.7,
-    5.0
-   ],
-   "expect": 5.1,
-   "expect_sum": 4.9,
-   "expect_matchup": 5.4,
-   "contrib": [
-    2.6,
-    2.8
-   ],
-   "buffer": 1.4,
-   "fa": [
-    [
-     2.6,
-     2.3
-    ],
-    [
-     2.6,
-     2.3
-    ]
-   ],
-   "referee": "Andres Gariano: Ø 4.2 Karten (11 Sp.) · Ø 25.9 Fouls (8 Sp.)",
-   "b365": null,
-   "expect_ref": 5.0,
-   "buffer_ref": 1.5,
-   "sd": 2.05,
-   "p_emp": {
-    "6.5": 0.8333333333333334,
-    "7.5": 0.78125
-   },
-   "p_mod": 0.768,
-   "p_fin": 0.801,
-   "fair_fin": 1.25,
-   "ladder_fin": [
-    [
-     6.5,
-     1.25
-    ],
-    [
-     7.5,
-     1.2
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.25",
-   "range": [
-    1.44,
-    1.5
-   ]
-  },
-  "v": 2
- },
- "12322479|ht_yellowcards|unter": {
-  "match_id": "12322479",
-  "home": "Central Cordoba",
-  "away": "CA Independiente",
-  "kickoff": "So 22:00",
-  "kickoff_ts": 1788724800,
-  "league": "Argentina Liga Profesional",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "So 18:45",
-  "first_line": 2.5,
-  "first_range": [
-   1.22,
-   1.5
-  ],
-  "last_run": "So 20:30",
-  "line": 2.5,
-  "range": [
-   1.44,
-   1.5
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    49,
-    47
-   ],
-   "next_line": 1.5,
-   "next_note": "CA Independiente 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.85193480096883,
-    0.7270245233094734
-   ],
-   "fair": 1.26,
-   "ladder": [
-    [
-     2.5,
-     1.26
-    ],
-    [
-     3.5,
-     1.24
-    ]
-   ],
-   "avg": [
-    1.3,
-    2.0
-   ],
-   "expect": 1.8,
-   "expect_sum": 1.7,
-   "expect_matchup": 2.0,
-   "contrib": [
-    2.0,
-    0.0
-   ],
-   "buffer": 0.7,
-   "fa": [
-    [
-     0.3,
-     1.2
-    ],
-    [
-     0.4,
-     1.6
-    ]
-   ],
-   "referee": "Andres Gariano: Ø 4.2 Karten (11 Sp.) · Ø 25.9 Fouls (8 Sp.)",
-   "b365": null,
-   "expect_ref": 3.6,
-   "buffer_ref": -1.1,
-   "sd": 1.19,
-   "p_emp": {
-    "2.5": 0.7936507936507936,
-    "3.5": 0.8064516129032259
-   },
-   "p_mod": 0.178,
-   "p_fin": 0.486,
-   "fair_fin": 2.06,
-   "ladder_fin": [
-    [
-     2.5,
-     2.06
-    ],
-    [
-     3.5,
-     1.57
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🔴",
-   "reason": "nur 49 % Wahrscheinlichkeit",
-   "range": [
-    1.44,
-    1.5
-   ]
-  },
-  "v": 2
- },
- "12177648|corners|über": {
-  "match_id": "12177648",
-  "home": "Boca Juniors De Cali",
-  "away": "Envigado FC",
-  "kickoff": "So 22:30",
-  "kickoff_ts": 1788726600,
-  "league": "Colombia Primera B",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "So 13:21",
-  "first_line": 7.5,
-  "first_range": [
-   1.82,
-   2.04
-  ],
-  "last_run": "So 20:30",
-  "line": 7.5,
-  "range": [
-   1.72,
-   1.72
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    46,
-    42
-   ],
-   "next_line": 8.5,
-   "next_note": "Boca Juniors De Cali 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
-   "longterm": [
-    0.6813080778119931,
-    0.7196205804355489
-   ],
-   "fair": 1.46,
-   "ladder": [
-    [
-     6.5,
-     1.47
-    ],
-    [
-     7.5,
-     1.46
-    ]
-   ],
-   "avg": [
-    9.6,
-    9.7
-   ],
-   "expect": 9.9,
-   "expect_sum": 9.6,
-   "expect_matchup": 10.1,
-   "contrib": [
-    6.0,
-    4.1
-   ],
-   "buffer": 2.4,
-   "fa": [
-    [
-     3.8,
-     5.1
-    ],
-    [
-     3.6,
-     5.8
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "8.5",
-    "1.850",
-    "1.950"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.59,
-   "p_emp": {
-    "6.5": 0.6802721088435374,
-    "7.5": 0.684931506849315
-   },
-   "p_mod": 0.748,
-   "p_fin": 0.717,
-   "fair_fin": 1.4,
-   "ladder_fin": [
-    [
-     6.5,
-     1.33
-    ],
-    [
-     7.5,
-     1.4
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.40",
-   "range": [
-    1.72,
-    1.72
-   ]
-  },
-  "v": 2
- },
- "13013137|yellowcards|über": {
-  "match_id": "13013137",
-  "home": "Botafogo",
-  "away": "Palmeiras",
-  "kickoff": "So 23:30",
-  "kickoff_ts": 1788730200,
-  "league": "Brazil Serie A",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "So 15:22",
-  "first_line": 2.5,
-  "first_range": [
-   1.24,
-   1.73
-  ],
-  "last_run": "So 20:30",
-  "line": 2.5,
-  "range": [
-   1.24,
-   1.73
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 16
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    48,
-    49
-   ],
-   "next_line": 3.5,
-   "next_note": "Botafogo 2/4 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
-   "longterm": [
-    0.795701267921318,
-    0.8311298090414424
-   ],
-   "fair": 1.25,
-   "ladder": [
-    [
-     1.5,
-     1.22
-    ],
-    [
-     2.5,
-     1.25
-    ]
-   ],
-   "avg": [
-    4.8,
-    4.3
-   ],
-   "expect": 4.7,
-   "expect_sum": 4.6,
-   "expect_matchup": 4.8,
-   "contrib": [
-    2.6,
-    2.2
-   ],
-   "buffer": 2.2,
-   "fa": [
-    [
-     2.4,
-     2.2
-    ],
-    [
-     1.7,
-     2.7
-    ]
-   ],
-   "referee": "Rodrigo Jose Pereira de Lima: Ø 3.9 Karten (18 Sp.) · Ø 25.2 Fouls (18 Sp.)",
-   "b365": null,
-   "expect_ref": 4.4,
-   "buffer_ref": 1.9,
-   "sd": 2.1,
-   "p_emp": {
-    "1.5": 0.819672131147541,
-    "2.5": 0.8
-   },
-   "p_mod": 0.817,
-   "p_fin": 0.809,
-   "fair_fin": 1.24,
-   "ladder_fin": [
-    [
-     1.5,
-     1.15
-    ],
-    [
-     2.5,
-     1.24
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.24",
-   "range": [
-    1.24,
-    1.73
-   ]
-  },
-  "v": 2
- },
- "13013137|on_target|über": {
-  "match_id": "13013137",
-  "home": "Botafogo",
-  "away": "Palmeiras",
-  "kickoff": "So 23:30",
-  "kickoff_ts": 1788730200,
-  "league": "Brazil Serie A",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "über",
-  "first_run": "So 15:22",
-  "first_line": 6.5,
-  "first_range": [
-   1.26,
-   2.19
-  ],
-  "last_run": "So 20:30",
-  "line": 6.5,
-  "range": [
-   1.26,
-   2.19
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    48,
-    49
-   ],
-   "next_line": 7.5,
-   "next_note": "Botafogo 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
-   "longterm": [
-    0.8548637274352665,
-    0.7714595608968192
-   ],
-   "fair": 1.29,
-   "ladder": [
-    [
-     5.5,
-     1.3
-    ],
-    [
-     6.5,
-     1.29
-    ]
-   ],
-   "avg": [
-    9.5,
-    8.7
-   ],
-   "expect": 9.4,
-   "expect_sum": 9.1,
-   "expect_matchup": 9.7,
-   "contrib": [
-    5.7,
-    4.0
-   ],
-   "buffer": 2.9,
-   "fa": [
-    [
-     5.2,
-     4.4
-    ],
-    [
-     4.8,
-     3.3
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.19,
-   "p_emp": {
-    "5.5": 0.7692307692307692,
-    "6.5": 0.7751937984496123
-   },
-   "p_mod": 0.818,
-   "p_fin": 0.797,
-   "fair_fin": 1.26,
-   "ladder_fin": [
-    [
-     5.5,
-     1.21
-    ],
-    [
-     6.5,
-     1.26
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.26",
-   "range": [
-    1.26,
-    2.19
-   ]
-  },
-  "v": 2
- },
- "13013137|fouls|über": {
-  "match_id": "13013137",
-  "home": "Botafogo",
-  "away": "Palmeiras",
-  "kickoff": "So 23:30",
-  "kickoff_ts": 1788730200,
-  "league": "Brazil Serie A",
-  "metric": "Fouls",
-  "metric_key": "fouls",
-  "direction": "über",
-  "first_run": "So 15:22",
-  "first_line": 18.5,
-  "first_range": [
-   1.53,
-   1.99
-  ],
-  "last_run": "So 20:30",
-  "line": 18.5,
-  "range": [
-   1.53,
-   1.99
-  ],
-  "signal": {
-   "metric": "Fouls",
-   "metric_key": "fouls",
-   "direction": "über",
-   "line": 18.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    50
-   ],
-   "next_line": 20.5,
-   "next_note": "Botafogo 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
-   "longterm": [
-    0.7582767939556706,
-    0.7544253387758356
-   ],
-   "fair": 1.29,
-   "ladder": [
-    [
-     16.5,
-     1.38
-    ],
-    [
-     18.5,
-     1.29
-    ]
-   ],
-   "avg": [
-    23.6,
-    27.0
-   ],
-   "expect": 25.4,
-   "expect_sum": 25.3,
-   "expect_matchup": 25.6,
-   "contrib": [
-    13.0,
-    12.5
-   ],
-   "buffer": 6.9,
-   "fa": [
-    [
-     12.1,
-     11.9
-    ],
-    [
-     12.4,
-     12.8
-    ]
-   ],
-   "referee": "Rodrigo Jose Pereira de Lima: Ø 3.9 Karten (18 Sp.) · Ø 25.2 Fouls (18 Sp.)",
-   "b365": null,
-   "expect_ref": 25.6,
-   "buffer_ref": 7.1,
-   "sd": 6.75,
-   "p_emp": {
-    "16.5": 0.7246376811594204,
-    "18.5": 0.7751937984496123
-   },
-   "p_mod": 0.854,
-   "p_fin": 0.814,
-   "fair_fin": 1.23,
-   "ladder_fin": [
-    [
-     16.5,
-     1.22
-    ],
-    [
-     18.5,
-     1.23
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.23",
-   "range": [
-    1.53,
-    1.99
-   ]
-  },
-  "v": 2
- },
- "13013137|ht_corners|über": {
-  "match_id": "13013137",
-  "home": "Botafogo",
-  "away": "Palmeiras",
-  "kickoff": "So 23:30",
-  "kickoff_ts": 1788730200,
-  "league": "Brazil Serie A",
-  "metric": "1. HZ Ecken",
-  "metric_key": "ht_corners",
-  "direction": "über",
-  "first_run": "So 18:45",
-  "first_line": 3.5,
-  "first_range": [
-   1.62,
-   1.99
-  ],
-  "last_run": "So 20:30",
-  "line": 3.5,
-  "range": [
-   1.62,
-   1.99
-  ],
-  "signal": {
-   "metric": "1. HZ Ecken",
-   "metric_key": "ht_corners",
-   "direction": "über",
-   "line": 3.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    47,
-    47
-   ],
-   "next_line": 4.5,
-   "next_note": "Palmeiras 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "longterm": [
-    0.6407430226060316,
-    0.7522064649600825
-   ],
-   "fair": 1.49,
-   "ladder": [
-    [
-     2.5,
-     1.32
-    ],
-    [
-     3.5,
-     1.49
-    ]
-   ],
-   "avg": [
-    4.5,
-    5.0
-   ],
-   "expect": 5.0,
-   "expect_sum": 4.8,
-   "expect_matchup": 5.2,
-   "contrib": [
-    3.6,
-    1.6
-   ],
-   "buffer": 1.5,
-   "fa": [
-    [
-     2.1,
-     2.3
-    ],
-    [
-     3.1,
-     2.1
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "4.5",
-    "1.825",
-    "1.975"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.16,
-   "p_emp": {
-    "2.5": 0.7575757575757576,
-    "3.5": 0.6711409395973155
-   },
-   "p_mod": 0.756,
-   "p_fin": 0.714,
-   "fair_fin": 1.4,
-   "ladder_fin": [
-    [
-     2.5,
-     1.22
-    ],
-    [
-     3.5,
-     1.4
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.40",
-   "range": [
-    1.62,
-    1.99
-   ]
-  },
-  "v": 2
- },
- "12030920|ht_yellowcards|unter": {
-  "match_id": "12030920",
-  "home": "Marseille",
-  "away": "Paris FC",
-  "kickoff": "So 20:45",
-  "kickoff_ts": 1788720300,
-  "league": "France Ligue 1",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "So 15:22",
-  "first_line": 2.5,
-  "first_range": [
-   1.44,
-   2.08
-  ],
-  "last_run": "So 15:56",
-  "line": 2.5,
-  "range": [
-   1.46,
-   2.11
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    14,
-    19
-   ],
-   "next_line": 1.5,
-   "next_note": "Marseille 3/5 (3. Lücke) gesamt, 6/8 heim",
-   "longterm": [
-    0.9235740550915555,
-    0.9436375104414525
-   ],
-   "fair": 1.14,
-   "ladder": [
-    [
-     2.5,
-     1.14
-    ],
-    [
-     3.5,
-     1.39
-    ]
-   ],
-   "avg": [
-    1.0,
-    0.8
-   ],
-   "expect": 0.7,
-   "expect_sum": 0.9,
-   "expect_matchup": 0.6,
-   "contrib": [
-    0.3,
-    0.2
-   ],
-   "buffer": 1.8,
-   "fa": [
-    [
-     0.6,
-     0.5
-    ],
-    [
-     0.5,
-     0.5
-    ]
-   ],
-   "referee": "Clement Turpin: Ø 2.8 Karten (16 Sp.) · Ø 22.7 Fouls (16 Sp.)",
-   "b365": null,
-   "expect_ref": 1.2,
-   "buffer_ref": 1.3,
-   "sd": 0.92,
-   "p_emp": {
-    "2.5": 0.8771929824561404,
-    "3.5": 0.7194244604316548
-   },
-   "p_mod": 0.921,
-   "p_fin": 0.899,
-   "fair_fin": 1.11,
-   "ladder_fin": [
-    [
-     2.5,
-     1.11
-    ],
-    [
-     3.5,
-     1.17
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.11",
-   "range": [
-    1.46,
-    2.11
-   ]
-  },
-  "v": 2
- },
- "12130599|ht_yellowcards|unter": {
-  "match_id": "12130599",
-  "home": "Almeria",
-  "away": "Cadiz",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1788721200,
-  "league": "Spain Segunda",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "So 13:21",
-  "first_line": 2.5,
-  "first_range": [
-   1.24,
-   1.75
-  ],
-  "last_run": "So 15:56",
-  "line": 2.5,
-  "range": [
-   1.27,
-   1.71
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    25,
-    22
-   ],
-   "next_line": 1.5,
-   "next_note": "Cadiz 1/3 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "longterm": [
-    0.698126713723274,
-    0.883511322220309
-   ],
-   "fair": 1.25,
-   "ladder": [
-    [
-     2.5,
-     1.25
-    ],
-    [
-     3.5,
-     1.39
-    ]
-   ],
-   "avg": [
-    1.5,
-    1.2
-   ],
-   "expect": 1.3,
-   "expect_sum": 1.3,
-   "expect_matchup": 1.3,
-   "contrib": [
-    0.8,
-    0.5
-   ],
-   "buffer": 1.2,
-   "fa": [
-    [
-     0.9,
-     0.9
-    ],
-    [
-     0.5,
-     0.6
-    ]
-   ],
-   "referee": "Gorka Etayo Herrera: Ø 4.4 Karten (25 Sp.) · Ø 24.8 Fouls (22 Sp.)",
-   "b365": null,
-   "expect_ref": 3.6,
-   "buffer_ref": -1.1,
-   "sd": 1.36,
-   "p_emp": {
-    "2.5": 0.8,
-    "3.5": 0.7194244604316548
-   },
-   "p_mod": 0.209,
-   "p_fin": 0.505,
-   "fair_fin": 1.98,
-   "ladder_fin": [
-    [
-     2.5,
-     1.98
-    ],
-    [
-     3.5,
-     1.68
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🔴",
-   "reason": "nur 50 % Wahrscheinlichkeit",
-   "range": [
-    1.27,
-    1.71
    ]
   },
   "v": 2
