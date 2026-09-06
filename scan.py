@@ -180,7 +180,8 @@ CACHE_VERSION = 2
 # Quoten-Nachweis über die bet365-Linie (Oder-Regel). Hinweis: bet365 führt
 # Ecken bis in Randligen, die Lucios Bookie nicht hat — der Zweig kann
 # unspielbare Signale bringen; auf False schalten, wenn das stört.
-B365_AS_PROOF = True     # Lucio (06.09.): "kann ruhig drin bleiben"
+B365_AS_PROOF = False    # Lucio (06.09., final): nur scores24-Verifizierung —
+                         # "die Odds weichen zu sehr ab, macht keinen Sinn"
 
 CONTRA_GAP = 2.0                      # Standard (Ecken, Schüsse)
 # Marktabhängig: enge Linienraster (Karten, Abseits) -> nur die direkt
