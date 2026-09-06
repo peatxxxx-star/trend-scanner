@@ -372,9 +372,20 @@ def scan_window():
     return now, end
 
 
-def fetch_matches_in_window():
+def prewarm_window():
+    """Vorwärmen: ab 23 Uhr die Spiele des NÄCHSTEN Tages (bis dessen
+    Mitternacht), sonst den Rest des heutigen Tages."""
+    now = now_berlin()
+    midnight = (now + timedelta(days=1)).replace(hour=0, minute=0, second=0,
+                                                 microsecond=0)
+    end = midnight + timedelta(days=1) if now.hour >= 23 else midnight
+    return now, end
+
+
+def fetch_matches_in_window(now=None, end=None):
     """Alle noch nicht gestarteten Spiele im Prüffenster."""
-    now, end = scan_window()
+    if now is None or end is None:
+        now, end = scan_window()
     matches = {}
     days = set()
     d = now
@@ -1895,9 +1906,11 @@ def backfill(cache):
 def is_prewarm_run() -> bool:
     if os.environ.get("PREWARM") == "1":
         return True
-    # Nur im Fenster 02–06 Uhr: ein stark verspäteter 22-Uhr-Lauf (nach
-    # Mitternacht) soll trotzdem ein normaler Lauf mit Bericht bleiben.
-    return 2 <= now_berlin().hour < PREWARM_BEFORE_HOUR
+    # Nachtfenster 23:00–06:00: Vorwärm-Läufe 23:17 / 01:17 / 03:17 / 05:17.
+    # (Der 21:11-Bericht müsste sich um fast 2 Stunden verspäten, um hier
+    # hineinzurutschen — bisher nie vorgekommen.)
+    h = now_berlin().hour
+    return h >= 23 or h < PREWARM_BEFORE_HOUR
 
 
 def prewarm(cache, hcache):
@@ -1905,9 +1918,9 @@ def prewarm(cache, hcache):
     Bricht am Stundenlimit sofort ab (kein Warten), speichert den Cache."""
     global _no_wait
     _no_wait = True
-    now, end = scan_window()
-    matches = fetch_matches_in_window()
-    print(f"VORWÄRMEN: {len(matches)} Spiele bis {end:%H:%M}, "
+    now, end = prewarm_window()
+    matches = fetch_matches_in_window(now, end)
+    print(f"VORWÄRMEN: {len(matches)} Spiele bis {end:%a %H:%M}, "
           f"{len(cache)} Spiele im Statistik-Cache")
     teams = []
     seen = set()
