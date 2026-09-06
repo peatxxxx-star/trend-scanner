@@ -342,33 +342,45 @@ def _today_num() -> int:
 
 
 def load_cache() -> dict:
+    raw = {}
     try:
         if CACHE_FILE.exists():
             with gzip.open(CACHE_FILE, "rt", encoding="utf-8") as f:
-                return json.load(f)
-        if CACHE_FILE_LEGACY.exists():                      # einmalige Migration
-            return json.loads(CACHE_FILE_LEGACY.read_text())
+                raw = json.load(f)
+        elif CACHE_FILE_LEGACY.exists():                    # einmalige Migration
+            raw = json.loads(CACHE_FILE_LEGACY.read_text())
     except Exception:
-        pass
-    return {}
+        raw = {}
+    # Veraltete Einträge (ältere Cache-Version) sofort verwerfen: sie würden
+    # bei Bedarf ohnehin neu geholt und machen den Cache nur groß/langsam.
+    cache = {k: v for k, v in raw.items() if v.get("x") == CACHE_VERSION}
+    if len(cache) != len(raw):
+        print(f"Cache: {len(raw) - len(cache)} veraltete Einträge verworfen, {len(cache)} behalten")
+    return cache
 
 
 def save_cache(cache: dict) -> None:
     """Speichert komprimiert und wirft Spiele raus, die CACHE_KEEP_DAYS lang
-    nicht mehr gebraucht wurden ("t" = Tag der letzten Nutzung)."""
+    nicht mehr gebraucht wurden ("t" = Tag der letzten Nutzung). Die Sperre
+    wird nur für die Kopie gehalten, nicht fürs Schreiben — die Arbeiter
+    laufen währenddessen weiter."""
     CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
     cutoff = _today_num() - CACHE_KEEP_DAYS
     today = _today_num()
+    with _cache_lock:
+        items = list(cache.items())
     slim = {}
-    for k, v in cache.items():
+    for k, v in items:
         t_used = v.get("t")
-        if t_used is None:                 # alte Einträge: heute als Nutzung setzen
+        if t_used is None:                 # neue Einträge: heute als Nutzung setzen
             v["t"] = today
         elif t_used < cutoff:
             continue
         slim[k] = v
-    with gzip.open(CACHE_FILE, "wt", encoding="utf-8", compresslevel=6) as f:
+    tmp = CACHE_FILE.with_suffix(".tmp")
+    with gzip.open(tmp, "wt", encoding="utf-8", compresslevel=6) as f:
         json.dump(slim, f, separators=(",", ":"))
+    tmp.replace(CACHE_FILE)
     if CACHE_FILE_LEGACY.exists():
         try:
             CACHE_FILE_LEGACY.unlink()
@@ -389,7 +401,9 @@ def save_history_cache(hcache: dict) -> None:
     """Speichert die Spiellisten; abgelaufene Einträge fliegen raus, damit
     die Datei im Repo klein bleibt."""
     cutoff = time.time() - HISTORY_TTL
-    slim = {k: v for k, v in hcache.items() if v.get("ts", 0) >= cutoff}
+    with _cache_lock:
+        items = list(hcache.items())
+    slim = {k: v for k, v in items if v.get("ts", 0) >= cutoff}
     HISTORY_CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
     HISTORY_CACHE_FILE.write_text(json.dumps(slim, separators=(",", ":")))
 
@@ -2006,8 +2020,7 @@ def backfill(cache, hcache=None):
             except Exception as exc:
                 print(f"  Fehler: {exc}")
             if done % 50 == 0:
-                with _cache_lock:
-                    save_cache(cache)
+                save_cache(cache)
                 print(f"  ... {done}/{len(chunks)} Pakete, {_request_count} Anfragen", flush=True)
     save_cache(cache)
     rest = sum(1 for eid in need if cache.get(eid, {}).get("x") != CACHE_VERSION)
@@ -2057,9 +2070,8 @@ def prewarm(cache, hcache):
             except Exception as exc:
                 print(f"  Team übersprungen: {exc}")
             if done % 100 == 0:
-                with _cache_lock:
-                    save_cache(cache)
-                    save_history_cache(hcache)
+                save_cache(cache)
+                save_history_cache(hcache)
                 print(f"  ... {done}/{len(teams)} Teams, {_request_count} Anfragen", flush=True)
     save_cache(cache)
     save_history_cache(hcache)
@@ -2165,10 +2177,9 @@ def run():
             if signals:
                 all_hits.append((match, signals))
                 print(f"  TREFFER: {match['home']} – {match['away']} ({len(signals)})")
-            if done % 25 == 0:
-                with _cache_lock:
-                    save_cache(cache)
-                    save_history_cache(hcache)
+            if done % 100 == 0:
+                save_cache(cache)
+                save_history_cache(hcache)
                 print(f"  ... {done}/{len(matches)} geprüft, {_request_count} Anfragen", flush=True)
     save_cache(cache)
     save_history_cache(hcache)
