@@ -236,6 +236,10 @@ PREWARM_BEFORE_HOUR = 6
 # sauber nach 🆕 neu / 🔄 geändert / 🔁 unverändert / ❌ weggefallen.
 # Einträge verschwinden automatisch, sobald das Spiel angepfiffen ist.
 STATE_FILE = Path(__file__).parent / "state" / "reported.json"
+# Version des Tagesgedächtnisses: Einträge einer älteren Version werden beim
+# Laden verworfen (einmaliger Reset nach Regeländerungen, z.B. 06.09.:
+# Halbzeit-Märkte liefen kurz ohne Quoten-Nachweis). Hochzählen = Reset.
+STATE_VERSION = 2
 
 _DE_DAYS = {"Mon": "Mo", "Tue": "Di", "Wed": "Mi", "Thu": "Do",
             "Fri": "Fr", "Sat": "Sa", "Sun": "So"}
@@ -1461,14 +1465,14 @@ def classify_signals(state, all_hits, checked_ids, window_ids, now_ts, run_label
                     "first_run": run_label, "first_line": s["line"],
                     "first_range": cur_range,
                     "last_run": run_label, "line": s["line"], "range": cur_range,
-                    "signal": signal_snapshot(s),
+                    "signal": signal_snapshot(s), "v": STATE_VERSION,
                 }
                 per["new"].append(s)
             else:
                 entry = dict(prev, last_run=run_label, line=s["line"],
                              range=cur_range, kickoff=match["kickoff"],
                              kickoff_ts=match.get("kickoff_ts", prev.get("kickoff_ts", 0)),
-                             signal=signal_snapshot(s))
+                             signal=signal_snapshot(s), v=STATE_VERSION)
                 notes = []
                 if prev.get("first_line") != s["line"]:
                     notes.append(f"Linie vorher {prev.get('first_line')}")
@@ -1977,9 +1981,10 @@ def run():
         return
     global _no_wait
     state = load_state()
-    # ausgeschlossene Märkte auch aus dem Tagesgedächtnis werfen
+    # ausgeschlossene Märkte und Einträge alter Gedächtnis-Versionen werfen
     state = {k: v for k, v in state.items()
-             if (v.get("metric_key"), v.get("direction")) not in EXCLUDED_MARKETS}
+             if (v.get("metric_key"), v.get("direction")) not in EXCLUDED_MARKETS
+             and v.get("v") == STATE_VERSION}
     matches = fetch_matches_in_window()
     # Anstoß-Reihenfolge: frühe Spiele zuerst. Am API-Limit wird NICHT
     # gewartet (kostet nur GitHub-Minuten) — der Rest wandert in den
