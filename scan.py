@@ -155,8 +155,11 @@ S24_GROUPS = {
     "corners": "corners",
     "yellowcards": "cards",
     "on_target": "shots",
+    "shots_total": "shots",
     "offsides": "offsides",
     "fouls": "fouls",
+    "ht_corners": "corners",          # Halbzeit -> Vollzeit-Reiter als Nachweis
+    "ht_yellowcards": "cards",
 }
 
 # Gegenläufigkeits-Regel: Über- und Unter-Trends derselben Metrik sind nur
@@ -175,7 +178,7 @@ EXCLUDED_MARKETS = {("corners", "unter"), ("ht_corners", "unter")}
 # Verfügbarkeits-Näherung, keine Werte). Der bet365-Zweig (B365_AS_PROOF)
 # ist aus. Cache-Version 2 nötig ("nachladen").
 HT_METRICS = {"ht_corners", "ht_yellowcards"}
-CACHE_VERSION = 2
+CACHE_VERSION = 3          # 3: + Schüsse gesamt (06.09.)
 
 # Quoten-Nachweis über die bet365-Linie (Oder-Regel). Hinweis: bet365 führt
 # Ecken bis in Randligen, die Lucios Bookie nicht hat — der Zweig kann
@@ -188,7 +191,7 @@ CONTRA_GAP = 2.0                      # Standard (Ecken, Schüsse)
 # benachbarte Linie ist ein Widerspruch; Fouls (Raster 2) -> 4.
 # Halbzeit-Märkte: Korridor 1 wie bei Karten/Abseits — Lucio will keine
 # Halbzeit-Signale "auf Krampf"; die Gegenbewegungs-Regel gilt dort voll.
-CONTRA_GAP_BY_METRIC = {"corners": 2.0, "on_target": 2.0, "ht_corners": 1.0, "ht_yellowcards": 1.0,
+CONTRA_GAP_BY_METRIC = {"corners": 2.0, "on_target": 2.0, "ht_corners": 1.0, "ht_yellowcards": 1.0, "shots_total": 4.0,
                         "yellowcards": 1.0, "offsides": 1.0, "fouls": 4.0}
 
 
@@ -207,14 +210,30 @@ WORKERS = 16
 
 # Metriken: BetsAPI-Feldname -> (Anzeigename, Linienbereich)
 METRICS = {
-    "corners":  ("Ecken",             [6.5, 7.5, 8.5, 9.5, 10.5, 11.5, 12.5]),
+    "corners":  ("Ecken",             [7.5, 8.5, 9.5, 10.5, 11.5, 12.5]),   # 6,5 raus (06.09.)
     "yellowcards": ("Gelbe Karten",   [2.5, 3.5, 4.5, 5.5, 6.5]),
     "on_target": ("Schüsse aufs Tor", [6.5, 7.5, 8.5, 9.5, 10.5, 11.5]),
     "offsides": ("Abseits",           [2.5, 3.5, 4.5, 5.5]),
     "fouls":    ("Fouls",             [18.5, 20.5, 22.5, 24.5, 26.5, 28.5]),
     "ht_corners": ("1. HZ Ecken",     [3.5, 4.5, 5.5, 6.5]),
     "ht_yellowcards": ("1. HZ Gelbe Karten", [0.5, 1.5, 2.5]),
+    "shots_total": ("Schüsse gesamt",  [18.5, 20.5, 22.5, 24.5, 26.5, 28.5, 30.5]),
 }
+
+# Liga-Beschränkung je Markt (06.09.): "Schüsse gesamt" führt Lucios Bookie
+# nur in großen Ligen / UEFA-Wettbewerben — Spiele anderer Ligen werden für
+# diesen Markt gar nicht erst geprüft. Muster = Teil des Liganamens (ohne
+# Groß/Klein). Bei Bedarf ergänzen.
+METRIC_LEAGUES = {}        # 06.09.: keine Liga-Beschränkung (Lucio) — Nachweis
+                           # läuft wie überall über den scores24-Reiter
+
+
+def metric_allowed_for_league(metric: str, league: str) -> bool:
+    pats = METRIC_LEAGUES.get(metric)
+    if not pats:
+        return True
+    low = (league or "").lower()
+    return any(pat in low for pat in pats)
 
 # Zusätzlich gecachte Felder (nicht als Markt, nur für die Gewichtung)
 EXTRA_STAT_FIELDS = ("redcards",)
@@ -483,6 +502,26 @@ def parse_ht_cards(ev: dict):
     return [h, a] if seen else None
 
 
+def _pair(stats, key):
+    pair = stats.get(key)
+    try:
+        return [int(pair[0]), int(pair[1])]
+    except (TypeError, ValueError, IndexError):
+        return None
+
+
+def total_shots(stats: dict):
+    """Schüsse gesamt [Heim, Gast]: API-Feld goalattempts, sonst Summe aus
+    aufs Tor + daneben + geblockt (nur wenn alle drei vorhanden)."""
+    ga = _pair(stats, "goalattempts")
+    if ga:
+        return ga
+    on, off, bl = _pair(stats, "on_target"), _pair(stats, "off_target"), _pair(stats, "shots_blocked")
+    if on and off and bl:
+        return [on[0] + off[0] + bl[0], on[1] + off[1] + bl[1]]
+    return None
+
+
 def slim_event(ev: dict) -> dict:
     """Kompakte Cache-Form eines Spiels: Statistiken + Schiedsrichter +
     Spieldauer (90/120 -> Verlängerung erkennbar)."""
@@ -496,6 +535,7 @@ def slim_event(ev: dict) -> dict:
         except (TypeError, ValueError, IndexError):
             slim[key] = None
     slim["ht_yellowcards"] = parse_ht_cards(ev)
+    slim["shots_total"] = total_shots(stats)
     extra = ev.get("extra") or {}
     ref = extra.get("referee") or {}
     slim["ref"] = [str(ref["id"]), ref.get("name", "?")] if ref.get("id") else None
@@ -561,7 +601,7 @@ def metric_total(match: dict, metric: str):
     fouls_suspect = fouls is not None and fouls[0] == 0 and fouls[1] == 0
     if metric in ("fouls", "offsides") and fouls_suspect:
         return None
-    if metric == "on_target" and pair[0] == 0 and pair[1] == 0:
+    if metric in ("on_target", "shots_total") and pair[0] == 0 and pair[1] == 0:
         return None
     return pair[0] + pair[1]
 
@@ -767,7 +807,7 @@ def s24_fetch_groups(match):
     home, away = s24_slug(match["home"]), s24_slug(match["away"])
     for d in (kick, kick - timedelta(days=1)):
         slugs.append(f"{d.strftime('%d-%m-%Y')}-{home}-{away}")
-    api_to_metric = {v: k for k, v in S24_GROUPS.items()}
+    wanted_groups = set(S24_GROUPS.values())
     for slug in slugs:
         url = (f"https://scores24.live/rapi/localized/matches/soccer/"
                f"{slug}/trends?lang=de&audience=de")
@@ -789,16 +829,16 @@ def s24_fetch_groups(match):
         if variant_tags(slug) != want_tags:
             _s24_stats["last_error"] = f"{url} -> Mannschafts-Zusatz passt nicht"[:160]
             continue
-        groups = {}
+        groups = {}                      # {reiter-name: (anzahl, min, max)}
         for g in data:
-            metric = api_to_metric.get(g.get("name"))
-            if not metric:
+            name = g.get("name")
+            if name not in wanted_groups:
                 continue
             count = int(g.get("count") or 0)
             lo = float(g.get("min_odd") or 0)
             hi = float(g.get("max_odd") or lo)
             if count > 0:
-                groups[metric] = (count, lo, hi)
+                groups[name] = (count, lo, hi)
         _s24_stats["ok"] += 1
         return groups
     if candidates:
@@ -851,9 +891,7 @@ def apply_s24_gate(signals, groups):
         # zugehörige Vollzeit-Reiter (Ecken bzw. Karten) muss Quoten haben —
         # wer Ecken anbietet, hat i.d.R. auch HZ-Ecken; wer keine Karten
         # anbietet, hat sicher keine HZ-Karten.
-        lookup = {"ht_corners": "corners", "ht_yellowcards": "yellowcards"}.get(
-            s["metric_key"], s["metric_key"])
-        g = groups.get(lookup)
+        g = groups.get(S24_GROUPS.get(s["metric_key"], ""))
         if not g:
             if B365_AS_PROOF and s["metric_key"] in ("corners", "ht_corners"):
                 s["unchecked"] = True          # zweite Chance: bet365-Linie
@@ -1219,7 +1257,7 @@ def pooled_sd(hist_home, hist_away, metric):
     return max(math.sqrt(var), 0.8)
 
 
-SD_FALLBACK = {"corners": 3.0, "yellowcards": 1.9, "on_target": 2.6, "ht_corners": 1.8, "ht_yellowcards": 1.1,
+SD_FALLBACK = {"corners": 3.0, "yellowcards": 1.9, "on_target": 2.6, "ht_corners": 1.8, "ht_yellowcards": 1.1, "shots_total": 6.0,
                "offsides": 1.8, "fouls": 5.0}
 
 
@@ -1332,6 +1370,8 @@ def evaluate_match(match, hist_home, hist_away, market_odds=None):
     """
     candidates = {}
     for metric, (label, lines) in METRICS.items():
+        if not metric_allowed_for_league(metric, match.get("league", "")):
+            continue
         for direction in ("über", "unter"):
             if (metric, direction) in EXCLUDED_MARKETS:
                 continue
@@ -2269,7 +2309,7 @@ def selftest():
         ok = False
 
     # --- Fall 7: lockeres scores24-Gate
-    g = {"corners": (4, 1.54, 1.92), "yellowcards": (2, 1.12, 1.25)}
+    g = {"corners": (4, 1.54, 1.92), "cards": (2, 1.12, 1.25)}
     sigs = [
         {"metric": "Ecken", "metric_key": "corners"},
         {"metric": "Gelbe Karten", "metric_key": "yellowcards"},   # Spanne < 1.30
@@ -2313,7 +2353,7 @@ def selftest():
     # --- Fall 8: Gegenläufigkeit nur bei ENGEM Korridor
     #  a) breiter Korridor (über 6,5 + unter 12,5) -> beide Richtungen bleiben
     #  (Heim/Auswärts so gemischt, dass keine Rollen-Gegen-Serie entsteht)
-    wide = _mk([[6, 5], [4, 3], [6, 6], [4, 4]] * 4, [H, H, A, A] * 4)[:15]
+    wide = _mk([[6, 6], [4, 4], [7, 5], [5, 4]] * 4, [H, H, A, A] * 4)[:15]
     saved_excl = set(EXCLUDED_MARKETS)
     EXCLUDED_MARKETS.clear()
     wsig = evaluate_match(match, wide, [dict(x) for x in wide])
@@ -2574,7 +2614,7 @@ def selftest():
         ok = False
     #  Gate lässt HZ-Märkte durch, HZ-Karten bekommen "Quote selbst prüfen"
     g14 = apply_s24_gate([{"metric_key": "ht_corners"}, {"metric_key": "ht_yellowcards"},
-                          {"metric_key": "fouls"}], {"corners": (2, 1.5, 1.9)})
+                          {"metric_key": "fouls"}], {"corners": (2, 1.5, 1.9)})  # Reiter-Namen
     if [s["metric_key"] for s in g14] != ["ht_corners"] or not g14[0].get("range"):
         print("FEHLER Fall 14e: HZ-Ecken nur mit Ecken-Reiter, HZ-Karten nur mit Karten-Reiter:", g14)
         ok = False
@@ -2605,6 +2645,35 @@ def selftest():
         print("FEHLER Fall 15b: Mischung Summen/Beitrag falsch:", s15.get("expect"), s15.get("contrib"))
         ok = False
     _base_means.pop("corners", None)
+
+    # --- Fall 16: Schüsse gesamt — Feld, Fallback-Summe, Liga-Beschränkung
+    if total_shots({"goalattempts": ["12", "9"]}) != [12, 9] or \
+       total_shots({"on_target": ["4", "3"], "off_target": ["5", "4"], "shots_blocked": ["2", "1"]}) != [11, 8] or \
+       total_shots({"on_target": ["4", "3"], "off_target": ["5", "4"]}) is not None:
+        print("FEHLER Fall 16a: Schüsse-gesamt-Berechnung falsch")
+        ok = False
+    METRIC_LEAGUES["_test"] = ["england premier league"]
+    if not metric_allowed_for_league("_test", "England Premier League") or \
+       metric_allowed_for_league("_test", "Norway Division 3 Group 5") or \
+       not metric_allowed_for_league("corners", "Norway Division 3 Group 5"):
+        print("FEHLER Fall 16b: Liga-Beschränkung greift nicht")
+        ok = False
+    METRIC_LEAGUES.pop("_test", None)
+    def _sh(vals, homes):
+        h = _mk([[5, 5]] * len(vals), homes)
+        for m, v in zip(h, vals):
+            m["stats"]["shots_total"] = [v, 0]
+        return h
+    shA = _sh([31, 27, 33, 26, 32, 29, 34, 27, 31, 28, 33, 26, 32, 29, 31], [H, H, A, A] * 4)
+    shB = _sh([27, 32, 26, 33, 29, 31, 27, 34, 28, 31, 26, 33, 29, 32, 27], [A, A, H, H] * 4)
+    big = dict(match, league="England Premier League")
+    small = dict(match, league="Norway Division 3 Group 5")
+    if not any(s["metric_key"] == "shots_total" for s in evaluate_match(big, shA, shB)):
+        print("FEHLER Fall 16c: Schüsse-gesamt-Signal in Top-Liga fehlt")
+        ok = False
+    if not any(s["metric_key"] == "shots_total" for s in evaluate_match(small, shA, shB)):
+        print("FEHLER Fall 16d: Schüsse gesamt muss ohne Liga-Liste überall geprüft werden")
+        ok = False
 
     # --- Fall 12: Schiedsrichter/Spieldauer im Cache + Profil
     ev = {"id": "e9", "stats": {"corners": ["5", "4"], "yellowcards": ["3", "2"],
