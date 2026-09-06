@@ -207,7 +207,7 @@ HOURLY_BUDGET = 3300
 # 16 ist das sinnvolle Maximum: mehr bringt kaum Tempo, erhöht aber das
 # Risiko, dass die API einzelne Anfragen abweist. Der Anfragen-Wächter
 # bremst vor dem Stundenlimit (3.600/h) automatisch.
-WORKERS = 16
+WORKERS = 24
 
 # Metriken: BetsAPI-Feldname -> (Anzeigename, Linienbereich)
 METRICS = {
@@ -241,8 +241,10 @@ EXTRA_STAT_FIELDS = ("redcards",)
 
 CACHE_FILE = Path(__file__).parent / "cache" / "stats.json.gz"    # komprimiert (06.09.)
 CACHE_FILE_LEGACY = Path(__file__).parent / "cache" / "stats.json"
-CACHE_KEEP_DAYS = 3      # Tagesspeicher (Lucio, 06.09.): nur was in den letzten 3 Tagen
-                         # gebraucht wurde — die Nachtläufe laden den nächsten Tag frisch
+CACHE_KEEP_DAYS = 30     # Spiele, die 30 Tage nicht gebraucht wurden, fliegen raus.
+                         # (06.09. abends: 3 Tage waren zu knapp — ein Team, das
+                         #  wöchentlich spielt, wäre jede Woche wieder "kalt" =
+                         #  6 Anfragen statt 1. Größe bleibt bei ~50-100k Spielen.)
 RUNS_DIR = Path(__file__).parent / "runs"
 
 # Tages-Cache für die Spiellisten der Teams ("welche Spiele zuletzt?").
@@ -617,6 +619,8 @@ def fetch_team_history(team_id: str, cache: dict, hcache: dict = None):
     with _cache_lock:
         need = [e["id"] for e in events
                 if e["id"] not in cache or cache[e["id"]].get("x") != CACHE_VERSION]
+        if need:
+            _cold_teams[0] += 1
     for i in range(0, len(need), 10):
         chunk = need[i:i + 10]
         view = api_get("/v1/event/view", event_id=",".join(chunk))
@@ -796,6 +800,43 @@ def s24_day_links():
         return _s24_links
 
 
+_s24_index = None
+_cold_teams = [0]          # Teams, für die in diesem Lauf Spiele nachgeladen wurden
+
+
+def s24_link_index():
+    """Einmal pro Lauf: jeden Sitemap-Slug in Tokens + Mannschafts-Zusätze
+    zerlegen. Vorher wurde das für jedes Spiel × jeden Slug neu gerechnet
+    (mehrere tausend Regex/Unicode-Läufe je Spiel, alle Threads am GIL)."""
+    global _s24_index
+    with _s24_links_lock:
+        if _s24_index is not None:
+            return _s24_index
+    links = s24_day_links()
+    idx = []
+    for link in links:
+        body = re.sub(r"^m-\d{2}-\d{2}-\d{4}-", "", link)
+        toks = tuple(t for t in body.split("-") if len(t) >= 3)
+        idx.append((link, body, toks, frozenset(variant_tags(body))))
+    with _s24_links_lock:
+        _s24_index = idx
+    return idx
+
+
+def _name_tokens(name):
+    return [_TOKEN_ALIASES.get(t, t) for t in s24_slug(name).split("-") if len(t) >= 3]
+
+
+def _tokens_match(name_toks, slug_toks):
+    score = 0
+    for tok in name_toks:
+        if any(st == tok or st.startswith(tok) or tok.startswith(st)
+               or (len(tok) >= 4 and tok in st) or (len(st) >= 4 and st in tok)
+               for st in slug_toks):
+            score += 1
+    return score
+
+
 _TOKEN_ALIASES = {"utd": "united", "cnty": "county", "wed": "wednesday",
                   "ath": "athletic", "intl": "international"}
 
@@ -827,17 +868,8 @@ def variant_tags(text: str) -> set:
 def _name_matches_slug(name, slug_part):
     """Wieviele Tokens (>=3 Zeichen) des Teamnamens im Slug vorkommen
     (auch als Prefix, damit 'sheff' auf 'sheffield' passt)."""
-    slug_tokens = slug_part.split("-")
-    score = 0
-    for tok in s24_slug(name).split("-"):
-        if len(tok) < 3:
-            continue
-        tok = _TOKEN_ALIASES.get(tok, tok)
-        if any(st == tok or st.startswith(tok) or tok.startswith(st)
-               or (len(tok) >= 4 and tok in st) or (len(st) >= 4 and st in tok)
-               for st in slug_tokens if len(st) >= 3):
-            score += 1
-    return score
+    return _tokens_match(_name_tokens(name),
+                         [st for st in slug_part.split("-") if len(st) >= 3])
 
 
 def s24_fetch_groups(match):
@@ -848,12 +880,16 @@ def s24_fetch_groups(match):
     Spiel nicht zuzuordnen/erreichbar ist.
     """
     candidates = []
-    want_tags = variant_tags(match["home"]) | variant_tags(match["away"])
-    for link in s24_day_links():
-        body = re.sub(r"^m-\d{2}-\d{2}-\d{4}-", "", link)
-        h = _name_matches_slug(match["home"], body)
-        a = _name_matches_slug(match["away"], body)
-        if h >= 1 and a >= 1 and variant_tags(body) == want_tags:
+    want_tags = frozenset(variant_tags(match["home"]) | variant_tags(match["away"]))
+    home_toks, away_toks = _name_tokens(match["home"]), _name_tokens(match["away"])
+    for link, body, toks, tags in s24_link_index():
+        if tags != want_tags:
+            continue
+        h = _tokens_match(home_toks, toks)
+        if h < 1:
+            continue
+        a = _tokens_match(away_toks, toks)
+        if a >= 1:
             candidates.append((h + a, link))
     slugs = [link[2:] for _, link in sorted(candidates, reverse=True)[:2]]
     # Fallback: direkt geratener Slug (zwei Datumsvarianten)
@@ -2028,6 +2064,220 @@ def backfill(cache, hcache=None):
           + (" — Stundenlimit erreicht, bitte später erneut starten" if _budget_exhausted else ""))
 
 
+# ----------------------------------------------------------------------------
+# Inventar-Modus (06.09., Lucio): "welche Märkte / Daten gibt es pre-match?"
+# Fragt für eine Stichprobe heutiger Spiele alles ab, was die API hergibt,
+# und schreibt eine Übersicht nach runs/inventar_<Datum>.txt + Telegram.
+# ----------------------------------------------------------------------------
+
+INV_SAMPLE = 40          # Stichprobe kommender Spiele (max. 2 je Liga)
+INV_ENDED = 30           # beendete Spiele für die Statistik-Felder
+
+ODDS_MARKET_NAMES = {
+    "1_1": "1X2 (Sieg/Remis/Niederlage)", "1_2": "Asian Handicap",
+    "1_3": "Tore über/unter", "1_4": "Ecken (Asian Corners)",
+    "1_5": "1. HZ 1X2", "1_6": "1. HZ Asian Handicap",
+    "1_7": "1. HZ Ecken (Asian Corners)", "1_8": "1. HZ Tore über/unter",
+}
+STAT_FIELD_NAMES = {
+    "corners": "Ecken", "corner_h": "Ecken 1. HZ", "corner_f": "Ecken 2. HZ",
+    "yellowcards": "Gelbe Karten", "redcards": "Rote Karten",
+    "yellowred_cards": "Gelb-Rote Karten", "on_target": "Schüsse aufs Tor",
+    "off_target": "Schüsse daneben", "shots_blocked": "geblockte Schüsse",
+    "goalattempts": "Torschüsse gesamt", "fouls": "Fouls", "offsides": "Abseits",
+    "saves": "Paraden", "possession_rt": "Ballbesitz %", "goalkicks": "Abstöße",
+    "throwins": "Einwürfe", "freekicks": "Freistöße", "penalties": "Elfmeter",
+    "substitutions": "Auswechslungen", "crosses": "Flanken", "attacks": "Angriffe",
+    "dangerous_attacks": "gefährliche Angriffe", "passing_accuracy": "Passquote",
+    "key_passes": "Schlüsselpässe", "assists": "Vorlagen", "action_areas": "Spielzonen",
+    "xg": "xG", "injuries": "Verletzungen", "ball_safe": "Ballsicherungen",
+}
+
+
+def _walk_market_names(node, out, depth=0):
+    """Sammelt alle 'name'-Werte aus einer bet365-Prematch-Antwort (robust
+    gegen Strukturänderungen: jedes dict mit 'sp' → Märkte darunter)."""
+    if depth > 8:
+        return
+    if isinstance(node, dict):
+        sp = node.get("sp")
+        if isinstance(sp, dict):
+            for mk, mv in sp.items():
+                if isinstance(mv, dict) and mv.get("name"):
+                    out[mv["name"]] += 1
+                elif isinstance(mv, list):
+                    out[mk] += 1
+                else:
+                    out[mk] += 1
+        for v in node.values():
+            _walk_market_names(v, out, depth + 1)
+    elif isinstance(node, list):
+        for v in node:
+            _walk_market_names(v, out, depth + 1)
+
+
+def inventory():
+    """Vollständige Pre-Match-Bestandsaufnahme: welche Quoten-Märkte, welche
+    Buchmacher, welche Statistik-Felder liefert die API? Kostet ~120 Anfragen."""
+    from collections import Counter, defaultdict
+    global _no_wait
+    _no_wait = True
+    now = now_berlin()
+    lines = [f"INVENTAR pre-match · {now.strftime('%d.%m.%Y %H:%M')} deutscher Zeit", ""]
+    try:
+        all_matches = fetch_matches_in_window()
+    except BudgetExhausted:
+        print("Stundenbudget schon erschöpft – bitte später starten")
+        return
+    all_matches.sort(key=lambda m: m.get("kickoff_ts", 0))
+    per_league = Counter(m["league"] for m in all_matches)
+    sample, seen = [], Counter()
+    for m in all_matches:
+        if seen[m["league"]] < 2:
+            seen[m["league"]] += 1
+            sample.append(m)
+        if len(sample) >= INV_SAMPLE:
+            break
+    lines.append(f"{len(all_matches)} Spiele im Prüffenster, {len(per_league)} Ligen; "
+                 f"Stichprobe {len(sample)} Spiele (max. 2 je Liga).")
+    lines.append("")
+
+    # 1) /v2/event/odds (bet365) — welche Marktgruppen sind gefüllt?
+    odds_hits = Counter()
+    odds_examples = {}
+    n_odds = 0
+    # 2) /v1/event/odds_summary — welche Buchmacher, welche Märkte
+    bk_hits = defaultdict(Counter)
+    n_sum = 0
+    # 3) /v1/bet365/prematch — voller bet365-Marktkatalog (falls im Paket)
+    pm_names = Counter()
+    n_pm = 0
+    pm_error = None
+    pm_tried = 0
+    try:
+        for m in sample:
+            try:
+                odds = api_get("/v2/event/odds", event_id=m["id"])
+                n_odds += 1
+                allodds = (odds.get("results") or {}).get("odds") or {}
+                for mk, rows in allodds.items():
+                    if rows:
+                        odds_hits[mk] += 1
+                        odds_examples.setdefault(mk, (m, rows[0]))
+            except BudgetExhausted:
+                raise
+            except Exception as exc:
+                print(f"  odds {m['home']}–{m['away']}: {exc}")
+            try:
+                summ = api_get("/v1/event/odds_summary", event_id=m["id"])
+                n_sum += 1
+                for bk, node in (summ.get("results") or {}).items():
+                    if not isinstance(node, dict):
+                        continue
+                    for mk, rows in (node.get("odds") or {}).items():
+                        if rows:
+                            bk_hits[bk][mk] += 1
+            except BudgetExhausted:
+                raise
+            except Exception as exc:
+                print(f"  odds_summary {m['home']}–{m['away']}: {exc}")
+            if m.get("bet365_id") and pm_tried < 15 and not (pm_error and pm_tried >= 3):
+                pm_tried += 1
+                try:
+                    pm = api_get("/v1/bet365/prematch", FI=m["bet365_id"])
+                    n_pm += 1
+                    _walk_market_names(pm.get("results") or [], pm_names)
+                except BudgetExhausted:
+                    raise
+                except Exception as exc:
+                    pm_error = str(exc)
+                    print(f"  prematch {m['home']}–{m['away']}: {exc}")
+            print(f"  {m['kickoff']} {m['home']} – {m['away']} ({m['league']}) ✓", flush=True)
+
+        # 4) Statistik-Felder aus beendeten Spielen
+        stat_hits = Counter()
+        extra_hits = Counter()
+        n_view = 0
+        day = (now - timedelta(days=1)).astimezone(timezone.utc).strftime("%Y%m%d")
+        ended = api_get("/v3/events/ended", sport_id=1, day=day, per_page=100,
+                        page=1, skip_esports=1).get("results") or []
+        ended = [e for e in ended if "esoccer" not in ((e.get("league") or {}).get("name", "").lower())]
+        ids = [e["id"] for e in ended[:INV_ENDED]]
+        for i in range(0, len(ids), 10):
+            view = api_get("/v1/event/view", event_id=",".join(ids[i:i + 10]))
+            for ev in view.get("results") or []:
+                n_view += 1
+                for k, v in (ev.get("stats") or {}).items():
+                    if v not in (None, "", [], {}):
+                        stat_hits[k] += 1
+                extra = ev.get("extra") or {}
+                for k in ("referee", "stadium", "length", "weather", "pitch",
+                          "home_manager", "away_manager", "attendance"):
+                    if extra.get(k):
+                        extra_hits[k] += 1
+                if ev.get("events"):
+                    extra_hits["events (Ereignis-Verlauf)"] += 1
+                if ev.get("lineup") or ev.get("has_lineup"):
+                    extra_hits["lineup"] += 1
+    except BudgetExhausted:
+        lines.append("⚠️ Stundenbudget erreicht – Inventar unvollständig.")
+        stat_hits, extra_hits, n_view = Counter(), Counter(), 0
+
+    # ---- Bericht ----
+    lines.append(f"1) QUOTEN-MÄRKTE bet365 (/v2/event/odds), {n_odds} Spiele geprüft")
+    if odds_hits:
+        for mk in sorted(odds_hits, key=lambda k: -odds_hits[k]):
+            name = ODDS_MARKET_NAMES.get(mk, mk)
+            m, r = odds_examples[mk]
+            ex = f" · z.B. {m['home']}–{m['away']}: Linie {r.get('handicap')} {r.get('over_od')}/{r.get('under_od')}" \
+                if r.get("handicap") is not None else ""
+            lines.append(f"   {name}: {odds_hits[mk]}/{n_odds}{ex}")
+    else:
+        lines.append("   keine Quoten")
+    lines.append("")
+    lines.append(f"2) BUCHMACHER (/v1/event/odds_summary), {n_sum} Spiele geprüft")
+    for bk in sorted(bk_hits, key=lambda b: -sum(bk_hits[b].values())):
+        parts = ", ".join(f"{ODDS_MARKET_NAMES.get(mk, mk)} {c}" for mk, c in
+                          sorted(bk_hits[bk].items()))
+        lines.append(f"   {bk}: {parts}")
+    lines.append("")
+    lines.append(f"3) bet365 PREMATCH-KATALOG (/v1/bet365/prematch), {n_pm} Spiele")
+    if pm_names:
+        for name, c in pm_names.most_common(80):
+            lines.append(f"   {name}: {c}/{n_pm}")
+    elif pm_error:
+        lines.append(f"   nicht abrufbar: {pm_error}")
+        lines.append("   (→ gehört vermutlich zum separaten Bet365-API-Paket)")
+    else:
+        lines.append("   keine bet365-IDs in der Stichprobe")
+    lines.append("")
+    lines.append(f"4) STATISTIK-FELDER (/v1/event/view), {n_view} beendete Spiele von gestern")
+    for k, c in stat_hits.most_common():
+        lines.append(f"   {k} = {STAT_FIELD_NAMES.get(k, '?')}: {c}/{n_view}")
+    if extra_hits:
+        lines.append("   Zusatzdaten: " + ", ".join(f"{k} {c}/{n_view}" for k, c in extra_hits.most_common()))
+    lines.append("")
+    lines.append(f"{_request_count} Anfragen.")
+    text = "\n".join(lines)
+    print("\n" + text)
+    RUNS_DIR.mkdir(exist_ok=True)
+    out = RUNS_DIR / f"inventar_{now.strftime('%Y-%m-%d')}.txt"
+    out.write_text(text, encoding="utf-8")
+    print(f"→ {out}")
+    # Telegram: gekürzt (Katalog auf 40 Zeilen), in Teilen
+    tg = "📋 <b>INVENTAR pre-match</b>\n<pre>" + esc("\n".join(lines[2:])) + "</pre>"
+    chunks, cur = [], ""
+    for ln in tg.split("\n"):
+        if len(cur) + len(ln) + 1 > 3300:
+            chunks.append(cur + "</pre>")
+            cur = "<pre>" + ln
+        else:
+            cur += ("\n" if cur else "") + ln
+    chunks.append(cur)
+    for i, ch in enumerate(chunks, 1):
+        send_telegram(f"{ch}\n<i>Teil {i}/{len(chunks)}</i>" if len(chunks) > 1 else ch)
+
+
 def is_prewarm_run() -> bool:
     if os.environ.get("PREWARM") == "1":
         return True
@@ -2096,6 +2346,9 @@ def run():
     if os.environ.get("BACKFILL") == "1":
         backfill(cache, hcache)
         return
+    if os.environ.get("INVENTORY") == "1":
+        inventory()
+        return
     if is_prewarm_run():
         prewarm(cache, hcache)
         return
@@ -2156,6 +2409,7 @@ def run():
         return signals, gated_out, unverifiable
 
     done = 0
+    t_start = time.time()
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
         futures = {pool.submit(check, m): m for m in matches}
         for fut in as_completed(futures):
@@ -2180,7 +2434,9 @@ def run():
             if done % 100 == 0:
                 save_cache(cache)
                 save_history_cache(hcache)
-                print(f"  ... {done}/{len(matches)} geprüft, {_request_count} Anfragen", flush=True)
+                print(f"  ... {done}/{len(matches)} geprüft, {_request_count} Anfragen, "
+                      f"{int(time.time() - t_start)} s, {_cold_teams[0]} Teams nachgeladen",
+                      flush=True)
     save_cache(cache)
     save_history_cache(hcache)
     # feste Sortierung nach Anstoßzeit (Parallelverarbeitung mischt sonst)
@@ -2241,7 +2497,8 @@ def run():
               f"{_s24_stats['fetch_fail']} Abruf-Fehler"
               + (f" | letzter Fehler: {_s24_stats['last_error']}"
                  if _s24_stats['last_error'] else ""))
-    print(f"Anfragen gesamt: {_request_count}")
+    print(f"Anfragen gesamt: {_request_count} · Dauer {int(time.time() - t_start)} s · "
+          f"{_cold_teams[0]} Teams nachgeladen · {len(deferred)} Spiele verschoben")
 
 
 # ----------------------------------------------------------------------------
