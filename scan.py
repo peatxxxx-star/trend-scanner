@@ -438,8 +438,8 @@ def scan_window():
     now = now_berlin()
     midnight = (now + timedelta(days=1)).replace(hour=0, minute=0, second=0,
                                                  microsecond=0)
-    if now.hour >= 21:            # der 22-Uhr-Lauf reicht bis 6 Uhr früh
-        end = midnight + timedelta(hours=6)
+    if now.hour >= 20:            # der 20:17-Lauf ist der letzte des Tages
+        end = midnight + timedelta(hours=6)   # deckt die Nachtspiele bis 6 Uhr ab
     else:
         end = midnight
     return now, end
