@@ -11,6 +11,11 @@ on:
     # deckt zugleich alle Anstöße bis 06:00 früh ab (Nachtspiele) — der frühere
     # Extra-Lauf um 21:11 entfällt (Lucio, 06.09.).
     - cron: "17 4-18/2 * * *"
+    # Freitag + Samstag zusätzlich ein später Schlusslauf: 20:05 UTC =
+    # 22:05 deutscher Sommerzeit (Lucio schafft es an diesen Tagen länger).
+    # Prüffenster wie beim 20:17-Lauf, also bis 06:00 früh.
+    # (Winter: "5 21 * * 5,6")
+    - cron: "5 20 * * 5,6"
     # Vorwärm-Läufe 21:17/23:17/01:17/03:17 UTC = 23:17, 01:17, 03:17, 05:17
     # deutscher Sommerzeit: laden ab 23:17 die Spiele des NÄCHSTEN Tages
     # Stück für Stück in den Cache (kein Bericht), jeder hört am Stundenlimit
