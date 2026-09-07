@@ -6,11 +6,11 @@ on:
     # Minute 17 statt 0: GitHub startet Cron-Jobs zur vollen Stunde oft mit
     # großer Verspätung (Warteschlange) — schräge Minuten laufen pünktlicher.
     # Hinweis: Im Winter (UTC+1) verschiebt sich das um eine Stunde;
-    # bei Bedarf dann auf "17 5-19/2 * * *" bzw. "11 20 * * *" ändern.
+    # bei Bedarf dann auf "17 5-19/2 * * *" ändern.
+    # Der 18:17-UTC-Lauf (= 20:17 deutscher Zeit) ist der LETZTE des Tages und
+    # deckt zugleich alle Anstöße bis 06:00 früh ab (Nachtspiele) — der frühere
+    # Extra-Lauf um 21:11 entfällt (Lucio, 06.09.).
     - cron: "17 4-18/2 * * *"
-    # Letzter Lauf des Tages: 19:11 UTC = 21:11 deutscher Sommerzeit,
-    # deckt alle Anstöße bis 06:00 früh ab (Nachtspiele).
-    - cron: "11 19 * * *"
     # Vorwärm-Läufe 21:17/23:17/01:17/03:17 UTC = 23:17, 01:17, 03:17, 05:17
     # deutscher Sommerzeit: laden ab 23:17 die Spiele des NÄCHSTEN Tages
     # Stück für Stück in den Cache (kein Bericht), jeder hört am Stundenlimit
