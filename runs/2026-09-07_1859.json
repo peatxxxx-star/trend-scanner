@@ -1,0 +1,2969 @@
+{
+ "run_utc": "2026-09-07T18:59:52+00:00",
+ "matches_checked": 38,
+ "requests": 208,
+ "hits": [
+  {
+   "match": {
+    "id": "13057726",
+    "league": "Portugal Primeira Liga",
+    "home": "Estoril",
+    "away": "Arouca",
+    "home_id": "43771",
+    "away_id": "1349",
+    "kickoff": "Mo 21:15",
+    "kickoff_ts": 1788808500,
+    "bet365_id": "199798902"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      50,
+      48
+     ],
+     "next_line": 8.5,
+     "next_note": "Arouca 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.7598105739007643,
+      0.6048074830848681
+     ],
+     "fair": 1.46,
+     "ladder": [
+      [
+       6.5,
+       1.48
+      ],
+      [
+       7.5,
+       1.46
+      ]
+     ],
+     "avg": [
+      10.6,
+      8.8
+     ],
+     "expect_sum": 9.7,
+     "expect_matchup": 10.1,
+     "contrib": [
+      6.4,
+      3.7
+     ],
+     "expect": 9.9,
+     "buffer": 2.4,
+     "fa": [
+      [
+       4.6,
+       4.9
+      ],
+      [
+       3.5,
+       5.5
+      ]
+     ],
+     "sd": 3.25,
+     "p_emp": {
+      "6.5": 0.6756756756756757,
+      "7.5": 0.684931506849315
+     },
+     "range": [
+      1.28,
+      1.3
+     ],
+     "b365": [
+      "9.5",
+      "1.950",
+      "1.850"
+     ],
+     "p_mod": 0.77,
+     "p_fin": 0.727,
+     "fair_fin": 1.37,
+     "ladder_fin": [
+      [
+       6.5,
+       1.31
+      ],
+      [
+       7.5,
+       1.37
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.37",
+     "first_run": "Mo 06:31",
+     "change_note": "Quoten vorher 1.32–1.35"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      50,
+      48
+     ],
+     "next_line": 4.5,
+     "next_note": "Arouca 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.8123617540751965,
+      0.7035936963209837
+     ],
+     "fair": 1.33,
+     "ladder": [
+      [
+       5.5,
+       1.33
+      ],
+      [
+       6.5,
+       1.18
+      ]
+     ],
+     "avg": [
+      3.5,
+      3.8
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 3.1,
+     "contrib": [
+      1.5,
+      1.6
+     ],
+     "expect": 3.3,
+     "buffer": 2.2,
+     "fa": [
+      [
+       2.2,
+       1.9
+      ],
+      [
+       2.7,
+       2.2
+      ]
+     ],
+     "sd": 2.11,
+     "p_emp": {
+      "5.5": 0.7518796992481203,
+      "6.5": 0.8474576271186441
+     },
+     "range": [
+      1.41,
+      1.73
+     ],
+     "referee": "Fabio Jose Costa Verissimo: Ø 5.8 Karten (16 Sp.) · Ø 22.9 Fouls (11 Sp.)",
+     "expect_ref": 4.1,
+     "buffer_ref": 1.4,
+     "p_mod": 0.746,
+     "p_fin": 0.749,
+     "fair_fin": 1.33,
+     "ladder_fin": [
+      [
+       5.5,
+       1.33
+      ],
+      [
+       6.5,
+       1.16
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.33",
+     "first_run": "Mo 12:31"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 10.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      48,
+      47
+     ],
+     "next_line": 9.5,
+     "next_note": "Arouca 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.816558657391297,
+      0.8046508186385986
+     ],
+     "fair": 1.27,
+     "ladder": [
+      [
+       10.5,
+       1.27
+      ],
+      [
+       11.5,
+       1.19
+      ]
+     ],
+     "avg": [
+      9.3,
+      9.1
+     ],
+     "expect_sum": 9.2,
+     "expect_matchup": 9.8,
+     "contrib": [
+      5.8,
+      4.0
+     ],
+     "expect": 9.5,
+     "buffer": 1.0,
+     "fa": [
+      [
+       4.1,
+       4.6
+      ],
+      [
+       3.9,
+       5.0
+      ]
+     ],
+     "sd": 2.7,
+     "p_emp": {
+      "10.5": 0.7874015748031495,
+      "11.5": 0.8403361344537815
+     },
+     "range": [
+      1.54,
+      1.59
+     ],
+     "p_mod": 0.644,
+     "p_fin": 0.716,
+     "fair_fin": 1.4,
+     "ladder_fin": [
+      [
+       10.5,
+       1.4
+      ],
+      [
+       11.5,
+       1.24
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 79 % vs. Modell 64 %",
+     "first_run": "Mo 12:31"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      42,
+      38
+     ],
+     "next_line": 3.5,
+     "next_note": "Estoril 3/5 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Arouca 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.8175150621752499,
+      0.7305608563262395
+     ],
+     "fair": 1.31,
+     "ladder": [
+      [
+       4.5,
+       1.31
+      ],
+      [
+       5.5,
+       1.15
+      ]
+     ],
+     "avg": [
+      3.2,
+      4.1
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 3.6,
+     "contrib": [
+      1.7,
+      1.9
+     ],
+     "expect": 3.6,
+     "buffer": 0.9,
+     "fa": [
+      [
+       1.3,
+       2.3
+      ],
+      [
+       1.5,
+       2.2
+      ]
+     ],
+     "sd": 1.68,
+     "p_emp": {
+      "4.5": 0.7633587786259541,
+      "5.5": 0.8695652173913044
+     },
+     "range": [
+      1.31,
+      1.37
+     ],
+     "p_mod": 0.704,
+     "p_fin": 0.734,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       4.5,
+       1.36
+      ],
+      [
+       5.5,
+       1.15
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.36",
+     "first_run": "Mo 12:31"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 2.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      48
+     ],
+     "next_line": 1.5,
+     "next_note": "Arouca 3/5 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.846797010950703,
+      0.7906631938577188
+     ],
+     "fair": 1.23,
+     "ladder": [
+      [
+       2.5,
+       1.23
+      ],
+      [
+       3.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      0.8,
+      1.0
+     ],
+     "expect_sum": 0.9,
+     "expect_matchup": 0.7,
+     "contrib": [
+      0.7,
+      0.0
+     ],
+     "expect": 0.8,
+     "buffer": 1.7,
+     "fa": [
+      [
+       0.7,
+       0.6
+      ],
+      [
+       0.6,
+       1.0
+      ]
+     ],
+     "sd": 1.32,
+     "p_emp": {
+      "2.5": 0.8130081300813008,
+      "3.5": 0.7936507936507936
+     },
+     "range": [
+      1.41,
+      1.73
+     ],
+     "referee": "Fabio Jose Costa Verissimo: Ø 5.8 Karten (16 Sp.) · Ø 22.9 Fouls (11 Sp.)",
+     "expect_ref": 2.3,
+     "buffer_ref": 0.2,
+     "p_mod": 0.56,
+     "p_fin": 0.687,
+     "fair_fin": 1.46,
+     "ladder_fin": [
+      [
+       2.5,
+       1.46
+      ],
+      [
+       3.5,
+       1.24
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "Historie 81 % und Modell 56 % widersprechen sich",
+     "first_run": "Mo 12:31"
+    },
+    {
+     "metric": "Schüsse gesamt",
+     "metric_key": "shots_total",
+     "line": 20.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      46,
+      46
+     ],
+     "next_line": 18.5,
+     "next_note": "kein Anker — Estoril 9/11 (3. Lücke) gesamt, 10/12 (3. Lücke) heim; Arouca 10/12 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
+     "longterm": [
+      0.8630231470230537,
+      0.8497765359193911
+     ],
+     "fair": 1.2,
+     "ladder": [
+      [
+       20.5,
+       1.2
+      ],
+      [
+       22.5,
+       1.1
+      ]
+     ],
+     "avg": [
+      16.7,
+      15.7
+     ],
+     "expect_sum": 16.2,
+     "expect_matchup": 16.0,
+     "contrib": [
+      9.3,
+      6.6
+     ],
+     "expect": 16.1,
+     "buffer": 4.4,
+     "fa": [
+      [
+       7.9,
+       8.5
+      ],
+      [
+       7.5,
+       8.8
+      ]
+     ],
+     "sd": 4.39,
+     "p_emp": {
+      "20.5": 0.8333333333333334,
+      "22.5": 0.9090909090909091
+     },
+     "range": [
+      1.54,
+      1.59
+     ],
+     "p_mod": 0.842,
+     "p_fin": 0.838,
+     "fair_fin": 1.19,
+     "ladder_fin": [
+      [
+       20.5,
+       1.19
+      ],
+      [
+       22.5,
+       1.09
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.19",
+     "first_run": "Mo 12:31"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12131038",
+    "league": "Spain La Liga",
+    "home": "Elche",
+    "away": "Real Sociedad",
+    "home_id": "6364",
+    "away_id": "6303",
+    "kickoff": "Mo 21:30",
+    "kickoff_ts": 1788809400,
+    "bet365_id": "199799217"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 5.5,
+     "next_note": "Real Sociedad 1/3 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.8903655097965202,
+      0.8551168307206058
+     ],
+     "fair": 1.16,
+     "ladder": [
+      [
+       6.5,
+       1.16
+      ],
+      [
+       7.5,
+       1.25
+      ]
+     ],
+     "avg": [
+      3.7,
+      3.7
+     ],
+     "expect_sum": 3.7,
+     "expect_matchup": 3.3,
+     "contrib": [
+      1.2,
+      2.1
+     ],
+     "expect": 3.5,
+     "buffer": 3.0,
+     "fa": [
+      [
+       1.8,
+       2.1
+      ],
+      [
+       2.0,
+       2.2
+      ]
+     ],
+     "sd": 2.22,
+     "p_emp": {
+      "6.5": 0.8620689655172414,
+      "7.5": 0.8
+     },
+     "range": [
+      1.26,
+      1.68
+     ],
+     "referee": "Miguel Angel Ortiz Arias: Ø 3.8 Karten (12 Sp.) · Ø 21.8 Fouls (12 Sp.)",
+     "expect_ref": 3.3,
+     "buffer_ref": 3.2,
+     "p_mod": 0.925,
+     "p_fin": 0.894,
+     "fair_fin": 1.12,
+     "ladder_fin": [
+      [
+       6.5,
+       1.12
+      ],
+      [
+       7.5,
+       1.13
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.12",
+     "first_run": "Mo 06:31",
+     "change_note": "Quoten vorher 1.19–1.59"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      46,
+      46
+     ],
+     "next_line": 3.5,
+     "next_note": "Real Sociedad 0/2 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.7078937065621452,
+      0.6846945068527247
+     ],
+     "fair": 1.5,
+     "ladder": [
+      [
+       1.5,
+       1.4
+      ],
+      [
+       2.5,
+       1.5
+      ]
+     ],
+     "avg": [
+      5.3,
+      3.9
+     ],
+     "expect_sum": 4.6,
+     "expect_matchup": 6.3,
+     "contrib": [
+      1.9,
+      4.4
+     ],
+     "expect": 5.5,
+     "buffer": 3.0,
+     "fa": [
+      [
+       1.6,
+       2.2
+      ],
+      [
+       2.3,
+       1.8
+      ]
+     ],
+     "sd": 2.62,
+     "p_emp": {
+      "1.5": 0.7142857142857143,
+      "2.5": 0.6666666666666666
+     },
+     "range": [
+      1.22,
+      1.54
+     ],
+     "p_mod": 0.874,
+     "p_fin": 0.77,
+     "fair_fin": 1.3,
+     "ladder_fin": [
+      [
+       1.5,
+       1.21
+      ],
+      [
+       2.5,
+       1.3
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 67 % vs. Modell 87 %",
+     "first_run": "Mo 06:31",
+     "change_note": "Quoten vorher 1.58"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 2.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 1.5,
+     "next_note": "Elche 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.8844605760594388,
+      0.8545296644947474
+     ],
+     "fair": 1.18,
+     "ladder": [
+      [
+       2.5,
+       1.18
+      ],
+      [
+       3.5,
+       1.21
+      ]
+     ],
+     "avg": [
+      1.5,
+      1.1
+     ],
+     "expect_sum": 1.3,
+     "expect_matchup": 1.1,
+     "contrib": [
+      0.4,
+      0.8
+     ],
+     "expect": 1.2,
+     "buffer": 1.3,
+     "fa": [
+      [
+       0.6,
+       0.8
+      ],
+      [
+       0.7,
+       0.5
+      ]
+     ],
+     "sd": 1.06,
+     "p_emp": {
+      "2.5": 0.8474576271186441,
+      "3.5": 0.8264462809917356
+     },
+     "range": [
+      1.26,
+      1.68
+     ],
+     "referee": "Miguel Angel Ortiz Arias: Ø 3.8 Karten (12 Sp.) · Ø 21.8 Fouls (12 Sp.)",
+     "expect_ref": 2.3,
+     "buffer_ref": 0.2,
+     "p_mod": 0.575,
+     "p_fin": 0.711,
+     "fair_fin": 1.41,
+     "ladder_fin": [
+      [
+       2.5,
+       1.41
+      ],
+      [
+       3.5,
+       1.18
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "Historie 85 % und Modell 57 % widersprechen sich",
+     "first_run": "Mo 06:31",
+     "change_note": "Quoten vorher 1.19–1.59"
+    },
+    {
+     "metric": "Schüsse gesamt",
+     "metric_key": "shots_total",
+     "line": 22.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      46
+     ],
+     "next_line": 20.5,
+     "next_note": "Real Sociedad 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.9358085236937218,
+      0.7635399620115486
+     ],
+     "fair": 1.17,
+     "ladder": [
+      [
+       22.5,
+       1.17
+      ],
+      [
+       24.5,
+       1.08
+      ]
+     ],
+     "avg": [
+      15.0,
+      18.9
+     ],
+     "expect_sum": 17.0,
+     "expect_matchup": 17.3,
+     "contrib": [
+      10.6,
+      6.7
+     ],
+     "expect": 17.1,
+     "buffer": 5.4,
+     "fa": [
+      [
+       7.6,
+       8.3
+      ],
+      [
+       8.8,
+       8.9
+      ]
+     ],
+     "sd": 5.4,
+     "p_emp": {
+      "22.5": 0.8547008547008548,
+      "24.5": 0.9259259259259258
+     },
+     "range": [
+      1.48,
+      1.9
+     ],
+     "p_mod": 0.841,
+     "p_fin": 0.848,
+     "fair_fin": 1.18,
+     "ladder_fin": [
+      [
+       22.5,
+       1.18
+      ],
+      [
+       24.5,
+       1.09
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.18",
+     "first_run": "Mo 06:31",
+     "change_note": "Quoten vorher 1.71"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13004432",
+    "league": "Brazil Serie A1 Women",
+    "home": "Corinthians (W)",
+    "away": "Cruzeiro (W)",
+    "home_id": "1177797",
+    "away_id": "1177928",
+    "kickoff": "Mo 22:00",
+    "kickoff_ts": 1788811200,
+    "bet365_id": "200645288"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      49
+     ],
+     "next_line": 8.5,
+     "next_note": "Corinthians (W) 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Cruzeiro (W) 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.7254886058027068,
+      0.8339688661074119
+     ],
+     "fair": 1.33,
+     "ladder": [
+      [
+       6.5,
+       1.3
+      ],
+      [
+       7.5,
+       1.33
+      ]
+     ],
+     "avg": [
+      8.6,
+      10.1
+     ],
+     "expect_sum": 9.4,
+     "expect_matchup": 9.3,
+     "contrib": [
+      6.5,
+      2.8
+     ],
+     "expect": 9.3,
+     "buffer": 1.8,
+     "fa": [
+      [
+       5.4,
+       3.6
+      ],
+      [
+       5.9,
+       4.9
+      ]
+     ],
+     "sd": 3.25,
+     "p_emp": {
+      "6.5": 0.7692307692307692,
+      "7.5": 0.7518796992481203
+     },
+     "range": [
+      1.24,
+      1.71
+     ],
+     "b365": [
+      "10.0",
+      "1.825",
+      "1.975"
+     ],
+     "p_mod": 0.71,
+     "p_fin": 0.731,
+     "fair_fin": 1.37,
+     "ladder_fin": [
+      [
+       6.5,
+       1.27
+      ],
+      [
+       7.5,
+       1.37
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.37",
+     "first_run": "Mo 06:31"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13055366",
+    "league": "Brazil Serie C",
+    "home": "Paysandu",
+    "away": "Brusque",
+    "home_id": "5347",
+    "away_id": "79864",
+    "kickoff": "Mo 23:00",
+    "kickoff_ts": 1788814800,
+    "bet365_id": "200658851"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 9.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      45
+     ],
+     "next_line": 10.5,
+     "next_note": "Paysandu 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.7278424180043622,
+      0.7815622566328999
+     ],
+     "fair": 1.51,
+     "ladder": [
+      [
+       8.5,
+       1.36
+      ],
+      [
+       9.5,
+       1.51
+      ]
+     ],
+     "avg": [
+      11.4,
+      14.0
+     ],
+     "expect_sum": 12.7,
+     "expect_matchup": 19.4,
+     "contrib": [
+      15.9,
+      3.5
+     ],
+     "expect": 16.1,
+     "buffer": 6.6,
+     "fa": [
+      [
+       6.1,
+       4.6
+      ],
+      [
+       4.8,
+       6.7
+      ]
+     ],
+     "sd": 3.73,
+     "p_emp": {
+      "8.5": 0.7352941176470588,
+      "9.5": 0.6622516556291391
+     },
+     "range": [
+      1.367,
+      2.12
+     ],
+     "b365": [
+      "11.0",
+      "1.950",
+      "1.850"
+     ],
+     "p_mod": 0.962,
+     "p_fin": 0.812,
+     "fair_fin": 1.23,
+     "ladder_fin": [
+      [
+       8.5,
+       1.17
+      ],
+      [
+       9.5,
+       1.23
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "Historie 66 % und Modell 96 % widersprechen sich",
+     "first_run": "Mo 06:31",
+     "change_note": "Quoten vorher 1.37–2.35"
+    },
+    {
+     "metric": "1. HZ Ecken",
+     "metric_key": "ht_corners",
+     "line": 3.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      45
+     ],
+     "next_line": 4.5,
+     "next_note": "Paysandu 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.7487955284336956,
+      0.8935956957065294
+     ],
+     "fair": 1.31,
+     "ladder": [
+      [
+       2.5,
+       1.26
+      ],
+      [
+       3.5,
+       1.31
+      ]
+     ],
+     "avg": [
+      5.6,
+      7.0
+     ],
+     "expect_sum": 6.3,
+     "expect_matchup": 10.0,
+     "contrib": [
+      8.3,
+      1.7
+     ],
+     "expect": 8.1,
+     "buffer": 4.6,
+     "fa": [
+      [
+       3.0,
+       2.5
+      ],
+      [
+       2.4,
+       3.2
+      ]
+     ],
+     "sd": 2.79,
+     "p_emp": {
+      "2.5": 0.7936507936507936,
+      "3.5": 0.7633587786259541
+     },
+     "range": [
+      1.367,
+      2.12
+     ],
+     "b365": [
+      "5.0",
+      "1.850",
+      "1.950"
+     ],
+     "p_mod": 0.95,
+     "p_fin": 0.857,
+     "fair_fin": 1.17,
+     "ladder_fin": [
+      [
+       2.5,
+       1.13
+      ],
+      [
+       3.5,
+       1.17
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 76 % vs. Modell 95 %",
+     "first_run": "Mo 06:31",
+     "change_note": "Quoten vorher 1.37–2.35"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12321117",
+    "league": "Argentina Liga Profesional",
+    "home": "Barracas Central",
+    "away": "Argentinos Jrs",
+    "home_id": "7321",
+    "away_id": "1139",
+    "kickoff": "Di 00:00",
+    "kickoff_ts": 1788818400,
+    "bet365_id": "199739337"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      46,
+      45
+     ],
+     "next_line": 3.5,
+     "next_note": "Barracas Central 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.8726537982440508,
+      0.9050610156444926
+     ],
+     "fair": 1.18,
+     "ladder": [
+      [
+       1.5,
+       1.26
+      ],
+      [
+       2.5,
+       1.18
+      ]
+     ],
+     "avg": [
+      4.4,
+      5.6
+     ],
+     "expect_sum": 5.0,
+     "expect_matchup": 5.8,
+     "contrib": [
+      3.0,
+      2.8
+     ],
+     "expect": 5.4,
+     "buffer": 2.9,
+     "fa": [
+      [
+       2.8,
+       2.5
+      ],
+      [
+       2.2,
+       3.5
+      ]
+     ],
+     "sd": 2.5,
+     "p_emp": {
+      "1.5": 0.7936507936507936,
+      "2.5": 0.8474576271186441
+     },
+     "range": [
+      1.25,
+      1.76
+     ],
+     "referee": "Leandro Rey Hilfer: Ø 4.4 Karten (25 Sp.) · Ø 22.8 Fouls (22 Sp.)",
+     "expect_ref": 5.5,
+     "buffer_ref": 3.0,
+     "p_mod": 0.885,
+     "p_fin": 0.866,
+     "fair_fin": 1.15,
+     "ladder_fin": [
+      [
+       1.5,
+       1.15
+      ],
+      [
+       2.5,
+       1.15
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.15"
+    },
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 28.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      32,
+      32
+     ],
+     "next_line": 26.5,
+     "next_note": "kein Anker — Barracas Central 3/5 (3. Lücke) gesamt, 10/12 (3. Lücke) heim; Argentinos Jrs 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.8173748017372445,
+      0.7987723519372396
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       28.5,
+       1.29
+      ],
+      [
+       30.5,
+       1.29
+      ]
+     ],
+     "avg": [
+      22.2,
+      21.6
+     ],
+     "expect_sum": 21.9,
+     "expect_matchup": 19.6,
+     "contrib": [
+      11.1,
+      8.5
+     ],
+     "expect": 20.8,
+     "buffer": 7.7,
+     "fa": [
+      [
+       12.3,
+       10.4
+      ],
+      [
+       9.6,
+       12.7
+      ]
+     ],
+     "sd": 6.48,
+     "p_emp": {
+      "28.5": 0.7751937984496123,
+      "30.5": 0.7751937984496123
+     },
+     "range": [
+      1.85,
+      1.85
+     ],
+     "referee": "Leandro Rey Hilfer: Ø 4.4 Karten (25 Sp.) · Ø 22.8 Fouls (22 Sp.)",
+     "expect_ref": 19.8,
+     "buffer_ref": 8.7,
+     "p_mod": 0.91,
+     "p_fin": 0.843,
+     "fair_fin": 1.19,
+     "ladder_fin": [
+      [
+       28.5,
+       1.19
+      ],
+      [
+       30.5,
+       1.16
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 78 % vs. Modell 91 %"
+    },
+    {
+     "metric": "Schüsse gesamt",
+     "metric_key": "shots_total",
+     "line": 20.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      48,
+      47
+     ],
+     "next_line": 18.5,
+     "next_note": "Barracas Central 9/11 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+     "longterm": [
+      0.8739655375010382,
+      0.8623086053266942
+     ],
+     "fair": 1.19,
+     "ladder": [
+      [
+       20.5,
+       1.19
+      ],
+      [
+       22.5,
+       1.11
+      ]
+     ],
+     "avg": [
+      16.5,
+      13.7
+     ],
+     "expect_sum": 15.1,
+     "expect_matchup": 13.7,
+     "contrib": [
+      6.7,
+      7.0
+     ],
+     "expect": 14.4,
+     "buffer": 6.1,
+     "fa": [
+      [
+       6.8,
+       8.8
+      ],
+      [
+       9.3,
+       6.1
+      ]
+     ],
+     "sd": 4.31,
+     "p_emp": {
+      "20.5": 0.8403361344537815,
+      "22.5": 0.9009009009009008
+     },
+     "range": [
+      1.39,
+      1.61
+     ],
+     "p_mod": 0.922,
+     "p_fin": 0.881,
+     "fair_fin": 1.14,
+     "ladder_fin": [
+      [
+       20.5,
+       1.14
+      ],
+      [
+       22.5,
+       1.07
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11257823",
+    "league": "Chile Liga de Primera",
+    "home": "Deportes Limache",
+    "away": "Cobresal",
+    "home_id": "6487",
+    "away_id": "44139",
+    "kickoff": "Di 01:00",
+    "kickoff_ts": 1788822000,
+    "bet365_id": "199797192"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      50
+     ],
+     "next_line": 9.5,
+     "next_note": "Deportes Limache 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) heim",
+     "longterm": [
+      0.7642661026683903,
+      0.7080102957142833
+     ],
+     "fair": 1.47,
+     "ladder": [
+      [
+       7.5,
+       1.33
+      ],
+      [
+       8.5,
+       1.47
+      ]
+     ],
+     "avg": [
+      10.8,
+      10.0
+     ],
+     "expect_sum": 10.4,
+     "expect_matchup": 11.6,
+     "contrib": [
+      7.0,
+      4.6
+     ],
+     "expect": 11.0,
+     "buffer": 2.5,
+     "fa": [
+      [
+       4.4,
+       5.4
+      ],
+      [
+       4.6,
+       5.9
+      ]
+     ],
+     "sd": 3.14,
+     "p_emp": {
+      "7.5": 0.7518796992481203,
+      "8.5": 0.6802721088435374
+     },
+     "range": [
+      1.875,
+      2.28
+     ],
+     "b365": [
+      "10.5",
+      "1.925",
+      "1.875"
+     ],
+     "p_mod": 0.787,
+     "p_fin": 0.734,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       7.5,
+       1.24
+      ],
+      [
+       8.5,
+       1.36
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.36"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13013139",
+    "league": "Brazil Serie A",
+    "home": "Vitoria",
+    "away": "Gremio",
+    "home_id": "1419",
+    "away_id": "1312",
+    "kickoff": "Di 01:00",
+    "kickoff_ts": 1788822000,
+    "bet365_id": "199741477"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      46
+     ],
+     "next_line": 3.5,
+     "next_note": "Vitoria 0/2 (3. Lücke) gesamt, 8/10 (3. Lücke) heim",
+     "longterm": [
+      0.8172786665102953,
+      0.93663599021745
+     ],
+     "fair": 1.19,
+     "ladder": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.19
+      ]
+     ],
+     "avg": [
+      4.5,
+      4.6
+     ],
+     "expect_sum": 4.6,
+     "expect_matchup": 5.0,
+     "contrib": [
+      2.4,
+      2.5
+     ],
+     "expect": 4.8,
+     "buffer": 2.3,
+     "fa": [
+      [
+       2.3,
+       2.4
+      ],
+      [
+       2.3,
+       2.6
+      ]
+     ],
+     "sd": 1.97,
+     "p_emp": {
+      "1.5": 0.819672131147541,
+      "2.5": 0.8403361344537815
+     },
+     "range": [
+      1.43,
+      1.86
+     ],
+     "referee": "Savio Pereira Sampaio: Ø 4.8 Karten (9 Sp.) · Ø 26.4 Fouls (9 Sp.)",
+     "expect_ref": 5.1,
+     "buffer_ref": 2.6,
+     "p_mod": 0.907,
+     "p_fin": 0.873,
+     "fair_fin": 1.14,
+     "ladder_fin": [
+      [
+       1.5,
+       1.12
+      ],
+      [
+       2.5,
+       1.14
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.14"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      46
+     ],
+     "next_line": 4.5,
+     "next_note": "Vitoria 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Gremio 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.6735107396965857,
+      0.589254224854343
+     ],
+     "fair": 1.51,
+     "ladder": [
+      [
+       5.5,
+       1.51
+      ],
+      [
+       6.5,
+       1.27
+      ]
+     ],
+     "avg": [
+      4.5,
+      4.6
+     ],
+     "expect_sum": 4.6,
+     "expect_matchup": 5.0,
+     "contrib": [
+      2.4,
+      2.5
+     ],
+     "expect": 4.8,
+     "buffer": 0.7,
+     "fa": [
+      [
+       2.3,
+       2.4
+      ],
+      [
+       2.3,
+       2.6
+      ]
+     ],
+     "sd": 1.97,
+     "p_emp": {
+      "5.5": 0.6622516556291391,
+      "6.5": 0.7874015748031495
+     },
+     "range": [
+      1.43,
+      1.86
+     ],
+     "referee": "Savio Pereira Sampaio: Ø 4.8 Karten (9 Sp.) · Ø 26.4 Fouls (9 Sp.)",
+     "expect_ref": 5.1,
+     "buffer_ref": 0.4,
+     "p_mod": 0.58,
+     "p_fin": 0.621,
+     "fair_fin": 1.61,
+     "ladder_fin": [
+      [
+       5.5,
+       1.61
+      ],
+      [
+       6.5,
+       1.29
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "62 % knapp"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 11.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      45
+     ],
+     "next_line": 10.5,
+     "next_note": "Vitoria 1/3 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+     "longterm": [
+      0.6793901465833736,
+      0.7990958715890096
+     ],
+     "fair": 1.33,
+     "ladder": [
+      [
+       11.5,
+       1.33
+      ],
+      [
+       12.5,
+       1.37
+      ]
+     ],
+     "avg": [
+      8.9,
+      6.9
+     ],
+     "expect_sum": 7.9,
+     "expect_matchup": 7.5,
+     "contrib": [
+      5.2,
+      2.3
+     ],
+     "expect": 7.7,
+     "buffer": 3.8,
+     "fa": [
+      [
+       4.7,
+       4.5
+      ],
+      [
+       3.8,
+       4.0
+      ]
+     ],
+     "sd": 3.61,
+     "p_emp": {
+      "11.5": 0.7518796992481203,
+      "12.5": 0.7299270072992701
+     },
+     "range": [
+      1.23,
+      2.17
+     ],
+     "p_mod": 0.854,
+     "p_fin": 0.803,
+     "fair_fin": 1.25,
+     "ladder_fin": [
+      [
+       11.5,
+       1.25
+      ],
+      [
+       12.5,
+       1.22
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.25"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      46
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — Vitoria 2/4 (3. Lücke) gesamt, 13/15 (3. Lücke) heim; Gremio 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.9125847962815529,
+      0.9890184653092542
+     ],
+     "fair": 1.14,
+     "ladder": [
+      [
+       4.5,
+       1.14
+      ],
+      [
+       5.5,
+       1.06
+      ]
+     ],
+     "avg": [
+      2.5,
+      2.3
+     ],
+     "expect_sum": 2.4,
+     "expect_matchup": 1.7,
+     "contrib": [
+      1.1,
+      0.6
+     ],
+     "expect": 2.1,
+     "buffer": 2.4,
+     "fa": [
+      [
+       1.2,
+       0.9
+      ],
+      [
+       1.3,
+       1.0
+      ]
+     ],
+     "sd": 1.41,
+     "p_emp": {
+      "4.5": 0.8771929824561404,
+      "5.5": 0.9433962264150942
+     },
+     "range": [
+      1.27,
+      1.31
+     ],
+     "p_mod": 0.956,
+     "p_fin": 0.916,
+     "fair_fin": 1.09,
+     "ladder_fin": [
+      [
+       4.5,
+       1.09
+      ],
+      [
+       5.5,
+       1.03
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.09"
+    },
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 18.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      45,
+      46
+     ],
+     "next_line": 20.5,
+     "next_note": "Gremio 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.9314627401669122,
+      0.8082547787679379
+     ],
+     "fair": 1.18,
+     "ladder": [
+      [
+       16.5,
+       1.22
+      ],
+      [
+       18.5,
+       1.18
+      ]
+     ],
+     "avg": [
+      26.9,
+      24.8
+     ],
+     "expect_sum": 25.8,
+     "expect_matchup": 27.0,
+     "contrib": [
+      14.7,
+      12.3
+     ],
+     "expect": 26.4,
+     "buffer": 7.9,
+     "fa": [
+      [
+       12.1,
+       14.3
+      ],
+      [
+       12.3,
+       13.5
+      ]
+     ],
+     "sd": 6.08,
+     "p_emp": {
+      "16.5": 0.819672131147541,
+      "18.5": 0.8474576271186441
+     },
+     "range": [
+      1.64,
+      1.98
+     ],
+     "referee": "Savio Pereira Sampaio: Ø 4.8 Karten (9 Sp.) · Ø 26.4 Fouls (9 Sp.)",
+     "expect_ref": 27.5,
+     "buffer_ref": 9.0,
+     "p_mod": 0.931,
+     "p_fin": 0.889,
+     "fair_fin": 1.12,
+     "ladder_fin": [
+      [
+       16.5,
+       1.12
+      ],
+      [
+       18.5,
+       1.12
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.12"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      46
+     ],
+     "next_line": 1.5,
+     "next_note": "Vitoria 3/5 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Gremio 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8534371798580805,
+      0.7573990409751384
+     ],
+     "fair": 1.27,
+     "ladder": [
+      [
+       0.5,
+       1.27
+      ]
+     ],
+     "avg": [
+      1.7,
+      1.6
+     ],
+     "expect_sum": 1.7,
+     "expect_matchup": 1.8,
+     "contrib": [
+      1.0,
+      0.9
+     ],
+     "expect": 1.7,
+     "buffer": 1.2,
+     "fa": [
+      [
+       0.9,
+       1.0
+      ],
+      [
+       0.7,
+       1.0
+      ]
+     ],
+     "sd": 1.16,
+     "p_emp": {
+      "0.5": 0.7874015748031495
+     },
+     "range": [
+      1.43,
+      1.86
+     ],
+     "referee": "Savio Pereira Sampaio: Ø 4.8 Karten (9 Sp.) · Ø 26.4 Fouls (9 Sp.)",
+     "expect_ref": 3.7,
+     "buffer_ref": 3.2,
+     "p_mod": 0.997,
+     "p_fin": 0.892,
+     "fair_fin": 1.12,
+     "ladder_fin": [
+      [
+       0.5,
+       1.12
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 79 % vs. Modell 100 %"
+    },
+    {
+     "metric": "Schüsse gesamt",
+     "metric_key": "shots_total",
+     "line": 22.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      46
+     ],
+     "next_line": 20.5,
+     "next_note": "Gremio 1/3 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.761244265963682,
+      0.7820558756019896
+     ],
+     "fair": 1.25,
+     "ladder": [
+      [
+       22.5,
+       1.25
+      ],
+      [
+       24.5,
+       1.13
+      ]
+     ],
+     "avg": [
+      18.7,
+      18.0
+     ],
+     "expect_sum": 18.4,
+     "expect_matchup": 20.6,
+     "contrib": [
+      13.3,
+      7.3
+     ],
+     "expect": 19.5,
+     "buffer": 3.0,
+     "fa": [
+      [
+       8.6,
+       9.9
+      ],
+      [
+       7.9,
+       9.4
+      ]
+     ],
+     "sd": 5.75,
+     "p_emp": {
+      "22.5": 0.8,
+      "24.5": 0.8849557522123894
+     },
+     "range": [
+      1.23,
+      2.17
+     ],
+     "p_mod": 0.699,
+     "p_fin": 0.75,
+     "fair_fin": 1.33,
+     "ladder_fin": [
+      [
+       22.5,
+       1.33
+      ],
+      [
+       24.5,
+       1.18
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.33"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12322447",
+    "league": "Argentina Liga Profesional",
+    "home": "Union Santa Fe",
+    "away": "Instituto AC Cordoba",
+    "home_id": "1340",
+    "away_id": "6463",
+    "kickoff": "Di 02:15",
+    "kickoff_ts": 1788826500,
+    "bet365_id": "199739385"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      47,
+      46
+     ],
+     "next_line": 3.5,
+     "next_note": "Instituto AC Cordoba 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.9186080602228283,
+      0.845390862511095
+     ],
+     "fair": 1.18,
+     "ladder": [
+      [
+       1.5,
+       1.21
+      ],
+      [
+       2.5,
+       1.18
+      ]
+     ],
+     "avg": [
+      5.1,
+      4.5
+     ],
+     "expect_sum": 4.8,
+     "expect_matchup": 5.3,
+     "contrib": [
+      2.6,
+      2.8
+     ],
+     "expect": 5.0,
+     "buffer": 2.5,
+     "fa": [
+      [
+       2.3,
+       2.6
+      ],
+      [
+       2.6,
+       3.0
+      ]
+     ],
+     "sd": 2.18,
+     "p_emp": {
+      "1.5": 0.8264462809917356,
+      "2.5": 0.8474576271186441
+     },
+     "range": [
+      1.24,
+      1.67
+     ],
+     "referee": "Nicolas Lamolina: Ø 3.8 Karten (9 Sp.) · Ø 17.4 Fouls (5 Sp.)",
+     "expect_ref": 4.7,
+     "buffer_ref": 2.2,
+     "p_mod": 0.844,
+     "p_fin": 0.846,
+     "fair_fin": 1.18,
+     "ladder_fin": [
+      [
+       1.5,
+       1.14
+      ],
+      [
+       2.5,
+       1.18
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.18"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      47,
+      46
+     ],
+     "next_line": 5.5,
+     "next_note": "Union Santa Fe 6/8 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+     "longterm": [
+      0.8356287985031833,
+      0.7020312304823842
+     ],
+     "fair": 1.27,
+     "ladder": [
+      [
+       6.5,
+       1.27
+      ],
+      [
+       7.5,
+       1.41
+      ]
+     ],
+     "avg": [
+      5.1,
+      4.5
+     ],
+     "expect_sum": 4.8,
+     "expect_matchup": 5.3,
+     "contrib": [
+      2.6,
+      2.8
+     ],
+     "expect": 5.0,
+     "buffer": 1.5,
+     "fa": [
+      [
+       2.3,
+       2.6
+      ],
+      [
+       2.6,
+       3.0
+      ]
+     ],
+     "sd": 2.18,
+     "p_emp": {
+      "6.5": 0.7874015748031495,
+      "7.5": 0.7092198581560284
+     },
+     "range": [
+      1.24,
+      1.67
+     ],
+     "referee": "Nicolas Lamolina: Ø 3.8 Karten (9 Sp.) · Ø 17.4 Fouls (5 Sp.)",
+     "expect_ref": 4.7,
+     "buffer_ref": 1.8,
+     "p_mod": 0.796,
+     "p_fin": 0.791,
+     "fair_fin": 1.26,
+     "ladder_fin": [
+      [
+       6.5,
+       1.26
+      ],
+      [
+       7.5,
+       1.24
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.26"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 11.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      46
+     ],
+     "next_line": 10.5,
+     "next_note": "Union Santa Fe 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.8029980861661636,
+      0.9203769808726735
+     ],
+     "fair": 1.19,
+     "ladder": [
+      [
+       11.5,
+       1.19
+      ],
+      [
+       12.5,
+       1.27
+      ]
+     ],
+     "avg": [
+      9.1,
+      7.8
+     ],
+     "expect_sum": 8.4,
+     "expect_matchup": 8.1,
+     "contrib": [
+      5.0,
+      3.1
+     ],
+     "expect": 8.3,
+     "buffer": 3.2,
+     "fa": [
+      [
+       5.0,
+       3.7
+      ],
+      [
+       4.0,
+       3.6
+      ]
+     ],
+     "sd": 3.11,
+     "p_emp": {
+      "11.5": 0.8403361344537815,
+      "12.5": 0.7874015748031495
+     },
+     "range": [
+      1.23,
+      2.4
+     ],
+     "p_mod": 0.848,
+     "p_fin": 0.844,
+     "fair_fin": 1.18,
+     "ladder_fin": [
+      [
+       11.5,
+       1.18
+      ],
+      [
+       12.5,
+       1.18
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.18"
+    },
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 28.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      27,
+      31
+     ],
+     "next_line": 26.5,
+     "next_note": "kein Anker — Union Santa Fe 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Instituto AC Cordoba 8/10 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.9644080578420124,
+      0.8242403514067769
+     ],
+     "fair": 1.21,
+     "ladder": [
+      [
+       28.5,
+       1.21
+      ],
+      [
+       30.5,
+       1.33
+      ]
+     ],
+     "avg": [
+      22.2,
+      21.1
+     ],
+     "expect_sum": 21.7,
+     "expect_matchup": 19.2,
+     "contrib": [
+      10.4,
+      8.7
+     ],
+     "expect": 20.4,
+     "buffer": 8.1,
+     "fa": [
+      [
+       11.7,
+       9.7
+      ],
+      [
+       11.5,
+       12.5
+      ]
+     ],
+     "sd": 6.23,
+     "p_emp": {
+      "28.5": 0.8264462809917356,
+      "30.5": 0.7518796992481203
+     },
+     "range": [
+      1.79,
+      1.79
+     ],
+     "referee": "Nicolas Lamolina: Ø 3.8 Karten (9 Sp.) · Ø 17.4 Fouls (5 Sp.)",
+     "expect_ref": 18.1,
+     "buffer_ref": 10.4,
+     "p_mod": 0.952,
+     "p_fin": 0.889,
+     "fair_fin": 1.12,
+     "ladder_fin": [
+      [
+       28.5,
+       1.12
+      ],
+      [
+       30.5,
+       1.16
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 83 % vs. Modell 95 %"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      48
+     ],
+     "next_line": 1.5,
+     "next_note": "Union Santa Fe 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Instituto AC Cordoba 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.7941723696625012,
+      0.7816386463123732
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       0.5,
+       1.29
+      ]
+     ],
+     "avg": [
+      1.6,
+      1.8
+     ],
+     "expect_sum": 1.7,
+     "expect_matchup": 2.0,
+     "contrib": [
+      1.1,
+      0.9
+     ],
+     "expect": 1.8,
+     "buffer": 1.3,
+     "fa": [
+      [
+       1.0,
+       0.9
+      ],
+      [
+       1.1,
+       1.0
+      ]
+     ],
+     "sd": 1.41,
+     "p_emp": {
+      "0.5": 0.7751937984496123
+     },
+     "range": [
+      1.24,
+      1.67
+     ],
+     "referee": "Nicolas Lamolina: Ø 3.8 Karten (9 Sp.) · Ø 17.4 Fouls (5 Sp.)",
+     "expect_ref": 3.3,
+     "buffer_ref": 2.8,
+     "p_mod": 0.976,
+     "p_fin": 0.876,
+     "fair_fin": 1.14,
+     "ladder_fin": [
+      [
+       0.5,
+       1.14
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 78 % vs. Modell 98 %"
+    },
+    {
+     "metric": "Schüsse gesamt",
+     "metric_key": "shots_total",
+     "line": 20.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      44,
+      47
+     ],
+     "next_line": 18.5,
+     "next_note": "Union Santa Fe 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.8283781810277867,
+      0.8745147250837756
+     ],
+     "fair": 1.2,
+     "ladder": [
+      [
+       20.5,
+       1.2
+      ],
+      [
+       22.5,
+       1.09
+      ]
+     ],
+     "avg": [
+      17.3,
+      15.5
+     ],
+     "expect_sum": 16.4,
+     "expect_matchup": 15.8,
+     "contrib": [
+      9.3,
+      6.5
+     ],
+     "expect": 16.1,
+     "buffer": 4.4,
+     "fa": [
+      [
+       9.2,
+       7.2
+      ],
+      [
+       8.5,
+       7.1
+      ]
+     ],
+     "sd": 4.53,
+     "p_emp": {
+      "20.5": 0.8333333333333334,
+      "22.5": 0.9174311926605504
+     },
+     "range": [
+      1.23,
+      2.4
+     ],
+     "p_mod": 0.834,
+     "p_fin": 0.834,
+     "fair_fin": 1.2,
+     "ladder_fin": [
+      [
+       20.5,
+       1.2
+      ],
+      [
+       22.5,
+       1.09
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.20"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12321892",
+    "league": "Mexico Liga MX Femenil",
+    "home": "Leon (W)",
+    "away": "Puebla (W)",
+    "home_id": "1176640",
+    "away_id": "1176641",
+    "kickoff": "Di 03:06",
+    "kickoff_ts": 1788829560,
+    "bet365_id": "200829562"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      49
+     ],
+     "next_line": 8.5,
+     "next_note": "Leon (W) 6/8 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+     "longterm": [
+      0.7283666697039352,
+      0.7417795310027796
+     ],
+     "fair": 1.4,
+     "ladder": [
+      [
+       6.5,
+       1.35
+      ],
+      [
+       7.5,
+       1.4
+      ]
+     ],
+     "avg": [
+      10.0,
+      10.1
+     ],
+     "expect_sum": 10.0,
+     "expect_matchup": 11.6,
+     "contrib": [
+      9.2,
+      2.4
+     ],
+     "expect": 10.8,
+     "buffer": 3.3,
+     "fa": [
+      [
+       5.0,
+       4.4
+      ],
+      [
+       3.6,
+       6.0
+      ]
+     ],
+     "sd": 3.16,
+     "p_emp": {
+      "6.5": 0.7407407407407407,
+      "7.5": 0.7142857142857143
+     },
+     "range": [
+      1.2,
+      1.95
+     ],
+     "p_mod": 0.852,
+     "p_fin": 0.783,
+     "fair_fin": 1.28,
+     "ladder_fin": [
+      [
+       6.5,
+       1.21
+      ],
+      [
+       7.5,
+       1.28
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 71 % vs. Modell 85 %"
+    }
+   ]
+  }
+ ],
+ "new": [
+  "12321117|yellowcards|über",
+  "12321117|fouls|unter",
+  "12321117|shots_total|unter",
+  "11257823|corners|über",
+  "13013139|yellowcards|über",
+  "13013139|yellowcards|unter",
+  "13013139|on_target|unter",
+  "13013139|offsides|unter",
+  "13013139|fouls|über",
+  "13013139|ht_yellowcards|über",
+  "13013139|shots_total|unter",
+  "12322447|yellowcards|über",
+  "12322447|yellowcards|unter",
+  "12322447|on_target|unter",
+  "12322447|fouls|unter",
+  "12322447|ht_yellowcards|über",
+  "12322447|shots_total|unter",
+  "12321892|corners|über"
+ ],
+ "changed": [
+  "13057726|corners|über",
+  "12131038|yellowcards|unter",
+  "12131038|offsides|über",
+  "12131038|ht_yellowcards|unter",
+  "12131038|shots_total|unter",
+  "13055366|corners|über",
+  "13055366|ht_corners|über"
+ ],
+ "dropped": []
+}
