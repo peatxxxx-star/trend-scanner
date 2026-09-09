@@ -15,7 +15,7 @@
    1.36,
    1.51
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 5.5,
   "range": [
    1.36,
@@ -131,7 +131,7 @@
    1.72,
    1.72
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 11.5,
   "range": [
    1.72,
@@ -247,7 +247,7 @@
    1.36,
    1.51
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 2.5,
   "range": [
    1.36,
@@ -363,7 +363,7 @@
    1.72,
    1.72
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 18.5,
   "range": [
    1.72,
@@ -479,11 +479,11 @@
    1.63,
    1.63
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 7.5,
   "range": [
-   1.63,
-   1.63
+   1.69,
+   1.69
   ],
   "signal": {
    "metric": "Ecken",
@@ -577,8 +577,124 @@
    "light": "🟢",
    "reason": "fair 1.27",
    "range": [
-    1.63,
-    1.63
+    1.69,
+    1.69
+   ]
+  },
+  "v": 2
+ },
+ "11274255|yellowcards|unter": {
+  "match_id": "11274255",
+  "home": "Gwangju FC",
+  "away": "Jeju SK",
+  "kickoff": "Mi 12:30",
+  "kickoff_ts": 1788949800,
+  "league": "South Korea K League 1",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 06:31",
+  "first_line": 3.5,
+  "first_range": [
+   1.28,
+   1.66
+  ],
+  "last_run": "Mi 08:37",
+  "line": 3.5,
+  "range": [
+   1.28,
+   1.66
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 3.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    49,
+    49
+   ],
+   "next_line": 2.5,
+   "next_note": "Jeju SK 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.665387056964141,
+    0.5290788387162825
+   ],
+   "fair": 1.82,
+   "ladder": [
+    [
+     3.5,
+     1.82
+    ],
+    [
+     4.5,
+     1.48
+    ]
+   ],
+   "avg": [
+    3.2,
+    3.2
+   ],
+   "expect": 2.9,
+   "expect_sum": 3.2,
+   "expect_matchup": 2.5,
+   "contrib": [
+    1.4,
+    1.2
+   ],
+   "buffer": 0.6,
+   "fa": [
+    [
+     1.9,
+     1.6
+    ],
+    [
+     1.8,
+     1.9
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.69,
+   "p_emp": {
+    "3.5": 0.5494505494505494,
+    "4.5": 0.6756756756756757
+   },
+   "p_mod": 0.639,
+   "p_fin": 0.594,
+   "fair_fin": 1.68,
+   "ladder_fin": [
+    [
+     3.5,
+     1.68
+    ],
+    [
+     4.5,
+     1.33
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "59 % knapp",
+   "range": [
+    1.28,
+    1.66
    ]
   },
   "v": 2
@@ -599,7 +715,7 @@
    1.23,
    1.49
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 2.5,
   "range": [
    1.23,
@@ -715,7 +831,7 @@
    1.23,
    1.49
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 5.5,
   "range": [
    1.23,
@@ -831,7 +947,7 @@
    1.23,
    1.49
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 1.5,
   "range": [
    1.23,
@@ -931,122 +1047,6 @@
   },
   "v": 2
  },
- "11274255|yellowcards|unter": {
-  "match_id": "11274255",
-  "home": "Gwangju FC",
-  "away": "Jeju SK",
-  "kickoff": "Mi 12:30",
-  "kickoff_ts": 1788949800,
-  "league": "South Korea K League 1",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mi 06:31",
-  "first_line": 3.5,
-  "first_range": [
-   1.28,
-   1.66
-  ],
-  "last_run": "Mi 06:31",
-  "line": 3.5,
-  "range": [
-   1.28,
-   1.66
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 3.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    49,
-    49
-   ],
-   "next_line": 2.5,
-   "next_note": "Jeju SK 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.665387056964141,
-    0.5290788387162825
-   ],
-   "fair": 1.82,
-   "ladder": [
-    [
-     3.5,
-     1.82
-    ],
-    [
-     4.5,
-     1.48
-    ]
-   ],
-   "avg": [
-    3.2,
-    3.2
-   ],
-   "expect": 2.9,
-   "expect_sum": 3.2,
-   "expect_matchup": 2.5,
-   "contrib": [
-    1.4,
-    1.2
-   ],
-   "buffer": 0.6,
-   "fa": [
-    [
-     1.9,
-     1.6
-    ],
-    [
-     1.8,
-     1.9
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.69,
-   "p_emp": {
-    "3.5": 0.5494505494505494,
-    "4.5": 0.6756756756756757
-   },
-   "p_mod": 0.639,
-   "p_fin": 0.594,
-   "fair_fin": 1.68,
-   "ladder_fin": [
-    [
-     3.5,
-     1.68
-    ],
-    [
-     4.5,
-     1.33
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "59 % knapp",
-   "range": [
-    1.28,
-    1.66
-   ]
-  },
-  "v": 2
- },
  "11274256|yellowcards|unter": {
   "match_id": "11274256",
   "home": "Gangwon FC",
@@ -1063,7 +1063,7 @@
    1.19,
    1.96
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 6.5,
   "range": [
    1.19,
@@ -1179,7 +1179,7 @@
    1.19,
    1.96
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 2.5,
   "range": [
    1.19,
@@ -1295,7 +1295,7 @@
    1.31,
    1.58
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 3.5,
   "range": [
    1.31,
@@ -1415,7 +1415,7 @@
    1.82,
    1.82
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 7.5,
   "range": [
    1.82,
@@ -1519,126 +1519,6 @@
   },
   "v": 2
  },
- "11328188|corners|über": {
-  "match_id": "11328188",
-  "home": "FC Levadia Tallinn",
-  "away": "FC Kuressaare",
-  "kickoff": "Mi 18:00",
-  "kickoff_ts": 1788969600,
-  "league": "Estonia Meistriliiga",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mi 06:31",
-  "first_line": 8.5,
-  "first_range": [
-   1.276,
-   2.14
-  ],
-  "last_run": "Mi 06:31",
-  "line": 8.5,
-  "range": [
-   1.276,
-   2.14
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 8.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    44,
-    48
-   ],
-   "next_line": 9.5,
-   "next_note": "FC Levadia Tallinn 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
-   "longterm": [
-    0.8212505916706737,
-    0.8575277775727012
-   ],
-   "fair": 1.32,
-   "ladder": [
-    [
-     7.5,
-     1.24
-    ],
-    [
-     8.5,
-     1.32
-    ]
-   ],
-   "avg": [
-    9.3,
-    12.3
-   ],
-   "expect": 11.6,
-   "expect_sum": 10.8,
-   "expect_matchup": 12.4,
-   "contrib": [
-    9.3,
-    3.2
-   ],
-   "buffer": 3.1,
-   "fa": [
-    [
-     7.9,
-     3.1
-    ],
-    [
-     5.1,
-     6.4
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "11.5",
-    "1.850",
-    "1.950"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.26,
-   "p_emp": {
-    "7.5": 0.8064516129032259,
-    "8.5": 0.7575757575757576
-   },
-   "p_mod": 0.829,
-   "p_fin": 0.793,
-   "fair_fin": 1.26,
-   "ladder_fin": [
-    [
-     7.5,
-     1.17
-    ],
-    [
-     8.5,
-     1.26
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.26",
-   "range": [
-    1.276,
-    2.14
-   ]
-  },
-  "v": 2
- },
  "11328189|corners|über": {
   "match_id": "11328189",
   "home": "JK Tammeka Tartu",
@@ -1655,7 +1535,7 @@
    1.216,
    1.607
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 8.5,
   "range": [
    1.216,
@@ -1775,7 +1655,7 @@
    1.216,
    1.607
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 3.5,
   "range": [
    1.216,
@@ -1895,11 +1775,11 @@
    1.268,
    1.544
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 7.5,
   "range": [
-   1.268,
-   1.544
+   1.275,
+   1.533
   ],
   "signal": {
    "metric": "Ecken",
@@ -1993,8 +1873,128 @@
    "light": "🟢",
    "reason": "fair 1.19",
    "range": [
-    1.268,
-    1.544
+    1.275,
+    1.533
+   ]
+  },
+  "v": 2
+ },
+ "11328188|corners|über": {
+  "match_id": "11328188",
+  "home": "FC Levadia Tallinn",
+  "away": "FC Kuressaare",
+  "kickoff": "Mi 18:00",
+  "kickoff_ts": 1788969600,
+  "league": "Estonia Meistriliiga",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mi 06:31",
+  "first_line": 8.5,
+  "first_range": [
+   1.276,
+   2.14
+  ],
+  "last_run": "Mi 08:37",
+  "line": 8.5,
+  "range": [
+   1.276,
+   2.14
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    48
+   ],
+   "next_line": 9.5,
+   "next_note": "FC Levadia Tallinn 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "longterm": [
+    0.8212505916706737,
+    0.8575277775727012
+   ],
+   "fair": 1.32,
+   "ladder": [
+    [
+     7.5,
+     1.24
+    ],
+    [
+     8.5,
+     1.32
+    ]
+   ],
+   "avg": [
+    9.3,
+    12.3
+   ],
+   "expect": 11.6,
+   "expect_sum": 10.8,
+   "expect_matchup": 12.4,
+   "contrib": [
+    9.3,
+    3.2
+   ],
+   "buffer": 3.1,
+   "fa": [
+    [
+     7.9,
+     3.1
+    ],
+    [
+     5.1,
+     6.4
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "11.5",
+    "1.850",
+    "1.950"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.26,
+   "p_emp": {
+    "7.5": 0.8064516129032259,
+    "8.5": 0.7575757575757576
+   },
+   "p_mod": 0.829,
+   "p_fin": 0.793,
+   "fair_fin": 1.26,
+   "ladder_fin": [
+    [
+     7.5,
+     1.17
+    ],
+    [
+     8.5,
+     1.26
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.26",
+   "range": [
+    1.276,
+    2.14
    ]
   },
   "v": 2
@@ -2015,11 +2015,11 @@
    1.53,
    2.029
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 4.5,
   "range": [
-   1.53,
-   2.029
+   1.19,
+   1.7
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -2109,8 +2109,8 @@
    "light": "🟡",
    "reason": "Historie 77 % vs. Modell 95 %",
    "range": [
-    1.53,
-    2.029
+    1.19,
+    1.7
    ]
   },
   "v": 2
@@ -2131,11 +2131,11 @@
    1.53,
    2.029
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 2.5,
   "range": [
-   1.53,
-   2.029
+   1.19,
+   1.7
   ],
   "signal": {
    "metric": "1. HZ Gelbe Karten",
@@ -2225,8 +2225,8 @@
    "light": "🟢",
    "reason": "fair 1.10",
    "range": [
-    1.53,
-    2.029
+    1.19,
+    1.7
    ]
   },
   "v": 2
@@ -2247,11 +2247,11 @@
    1.33,
    1.63
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 10.5,
   "range": [
    1.33,
-   1.63
+   1.65
   ],
   "signal": {
    "metric": "Ecken",
@@ -2346,7 +2346,7 @@
    "reason": "59 % knapp; Historie 50 % vs. Modell 69 %",
    "range": [
     1.33,
-    1.63
+    1.65
    ]
   },
   "v": 2
@@ -2367,11 +2367,11 @@
    1.32,
    1.59
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 6.5,
   "range": [
-   1.32,
-   1.59
+   1.29,
+   1.54
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -2461,8 +2461,8 @@
    "light": "🟢",
    "reason": "fair 1.11",
    "range": [
-    1.32,
-    1.59
+    1.29,
+    1.54
    ]
   },
   "v": 2
@@ -2483,11 +2483,11 @@
    1.41,
    1.71
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 4.5,
   "range": [
-   1.41,
-   1.71
+   1.29,
+   1.7
   ],
   "signal": {
    "metric": "Abseits",
@@ -2577,8 +2577,8 @@
    "light": "🟢",
    "reason": "fair 1.21",
    "range": [
-    1.41,
-    1.71
+    1.29,
+    1.7
    ]
   },
   "v": 2
@@ -2599,11 +2599,11 @@
    1.33,
    1.63
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 3.5,
   "range": [
    1.33,
-   1.63
+   1.65
   ],
   "signal": {
    "metric": "1. HZ Ecken",
@@ -2698,7 +2698,7 @@
    "reason": "Historie 77 % vs. Modell 89 %",
    "range": [
     1.33,
-    1.63
+    1.65
    ]
   },
   "v": 2
@@ -2719,11 +2719,11 @@
    1.32,
    1.59
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 1.5,
   "range": [
-   1.32,
-   1.59
+   1.29,
+   1.54
   ],
   "signal": {
    "metric": "1. HZ Gelbe Karten",
@@ -2813,8 +2813,8 @@
    "light": "🔴",
    "reason": "nur 51 % Wahrscheinlichkeit",
    "range": [
-    1.32,
-    1.59
+    1.29,
+    1.54
    ]
   },
   "v": 2
@@ -2835,11 +2835,11 @@
    1.73,
    1.88
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 24.5,
   "range": [
-   1.73,
-   1.88
+   1.49,
+   2.44
   ],
   "signal": {
    "metric": "Schüsse gesamt",
@@ -2929,128 +2929,8 @@
    "light": "🟢",
    "reason": "fair 1.17",
    "range": [
-    1.73,
-    1.88
-   ]
-  },
-  "v": 2
- },
- "11175476|corners|über": {
-  "match_id": "11175476",
-  "home": "Nordic United FC",
-  "away": "IFK Varnamo",
-  "kickoff": "Mi 19:00",
-  "kickoff_ts": 1788973200,
-  "league": "Sweden Superettan",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mi 06:31",
-  "first_line": 7.5,
-  "first_range": [
-   1.75,
-   1.75
-  ],
-  "last_run": "Mi 06:31",
-  "line": 7.5,
-  "range": [
-   1.75,
-   1.75
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    47
-   ],
-   "next_line": 8.5,
-   "next_note": "IFK Varnamo 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.8211297974792745,
-    0.8155936122406824
-   ],
-   "fair": 1.28,
-   "ladder": [
-    [
-     6.5,
-     1.28
-    ],
-    [
-     7.5,
-     1.28
-    ]
-   ],
-   "avg": [
-    9.7,
-    9.3
-   ],
-   "expect": 9.7,
-   "expect_sum": 9.5,
-   "expect_matchup": 10.0,
-   "contrib": [
-    6.6,
-    3.4
-   ],
-   "buffer": 2.2,
-   "fa": [
-    [
-     4.8,
-     4.3
-    ],
-    [
-     4.7,
-     5.9
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.0",
-    "1.900",
-    "1.900"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.15,
-   "p_emp": {
-    "6.5": 0.78125,
-    "7.5": 0.78125
-   },
-   "p_mod": 0.758,
-   "p_fin": 0.769,
-   "fair_fin": 1.3,
-   "ladder_fin": [
-    [
-     6.5,
-     1.23
-    ],
-    [
-     7.5,
-     1.3
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.30",
-   "range": [
-    1.75,
-    1.75
+    1.49,
+    2.44
    ]
   },
   "v": 2
@@ -3071,7 +2951,7 @@
    1.337,
    1.432
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 8.5,
   "range": [
    1.337,
@@ -3175,6 +3055,126 @@
   },
   "v": 2
  },
+ "11175476|corners|über": {
+  "match_id": "11175476",
+  "home": "Nordic United FC",
+  "away": "IFK Varnamo",
+  "kickoff": "Mi 19:00",
+  "kickoff_ts": 1788973200,
+  "league": "Sweden Superettan",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mi 06:31",
+  "first_line": 7.5,
+  "first_range": [
+   1.75,
+   1.75
+  ],
+  "last_run": "Mi 08:37",
+  "line": 7.5,
+  "range": [
+   1.75,
+   1.75
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    47
+   ],
+   "next_line": 8.5,
+   "next_note": "IFK Varnamo 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.8211297974792745,
+    0.8155936122406824
+   ],
+   "fair": 1.28,
+   "ladder": [
+    [
+     6.5,
+     1.28
+    ],
+    [
+     7.5,
+     1.28
+    ]
+   ],
+   "avg": [
+    9.7,
+    9.3
+   ],
+   "expect": 9.7,
+   "expect_sum": 9.5,
+   "expect_matchup": 10.0,
+   "contrib": [
+    6.6,
+    3.4
+   ],
+   "buffer": 2.2,
+   "fa": [
+    [
+     4.8,
+     4.3
+    ],
+    [
+     4.7,
+     5.9
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.900",
+    "1.900"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.15,
+   "p_emp": {
+    "6.5": 0.78125,
+    "7.5": 0.78125
+   },
+   "p_mod": 0.758,
+   "p_fin": 0.769,
+   "fair_fin": 1.3,
+   "ladder_fin": [
+    [
+     6.5,
+     1.23
+    ],
+    [
+     7.5,
+     1.3
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.30",
+   "range": [
+    1.75,
+    1.75
+   ]
+  },
+  "v": 2
+ },
  "12375342|corners|über": {
   "match_id": "12375342",
   "home": "Al Moqawloon Al Arab",
@@ -3191,7 +3191,7 @@
    1.36,
    1.77
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 7.5,
   "range": [
    1.36,
@@ -3311,7 +3311,7 @@
    1.35,
    1.35
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 7.5,
   "range": [
    1.35,
@@ -3431,7 +3431,7 @@
    1.35,
    1.35
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 3.5,
   "range": [
    1.35,
@@ -3551,10 +3551,10 @@
    1.34,
    1.34
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 7.5,
   "range": [
-   1.34,
+   1.33,
    1.34
   ],
   "signal": {
@@ -3649,7 +3649,7 @@
    "light": "🟡",
    "reason": "Historie 68 % vs. Modell 82 %",
    "range": [
-    1.34,
+    1.33,
     1.34
    ]
   },
@@ -3671,7 +3671,7 @@
    1.45,
    2.07
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 5.5,
   "range": [
    1.45,
@@ -3771,6 +3771,242 @@
   },
   "v": 2
  },
+ "12101717|corners|über": {
+  "match_id": "12101717",
+  "home": "Derby",
+  "away": "West Brom",
+  "kickoff": "Mi 20:45",
+  "kickoff_ts": 1788979500,
+  "league": "England Championship",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mi 08:37",
+  "first_line": 7.5,
+  "first_range": [
+   1.8,
+   2.0
+  ],
+  "last_run": "Mi 08:37",
+  "line": 7.5,
+  "range": [
+   1.8,
+   2.0
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 17
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    45,
+    48
+   ],
+   "next_line": 8.5,
+   "next_note": "West Brom 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.7338881718123,
+    0.6148500097736442
+   ],
+   "fair": 1.49,
+   "ladder": [
+    [
+     6.5,
+     1.4
+    ],
+    [
+     7.5,
+     1.49
+    ]
+   ],
+   "avg": [
+    9.5,
+    9.1
+   ],
+   "expect": 9.5,
+   "expect_sum": 9.3,
+   "expect_matchup": 9.6,
+   "contrib": [
+    6.3,
+    3.3
+   ],
+   "buffer": 2.0,
+   "fa": [
+    [
+     4.5,
+     5.4
+    ],
+    [
+     4.9,
+     4.4
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "9.5",
+    "1.800",
+    "2.000"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.51,
+   "p_emp": {
+    "6.5": 0.7142857142857143,
+    "7.5": 0.6711409395973155
+   },
+   "p_mod": 0.716,
+   "p_fin": 0.693,
+   "fair_fin": 1.44,
+   "ladder_fin": [
+    [
+     6.5,
+     1.32
+    ],
+    [
+     7.5,
+     1.44
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.44",
+   "range": [
+    1.8,
+    2.0
+   ]
+  },
+  "v": 2
+ },
+ "12101717|yellowcards|unter": {
+  "match_id": "12101717",
+  "home": "Derby",
+  "away": "West Brom",
+  "kickoff": "Mi 20:45",
+  "kickoff_ts": 1788979500,
+  "league": "England Championship",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 08:37",
+  "first_line": 5.5,
+  "first_range": [
+   1.35,
+   2.12
+  ],
+  "last_run": "Mi 08:37",
+  "line": 5.5,
+  "range": [
+   1.35,
+   2.12
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    45,
+    48
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — Derby 7/9 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; West Brom 7/9 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.8178949446505909,
+    0.833358440308425
+   ],
+   "fair": 1.25,
+   "ladder": [
+    [
+     5.5,
+     1.25
+    ],
+    [
+     6.5,
+     1.12
+    ]
+   ],
+   "avg": [
+    4.5,
+    3.0
+   ],
+   "expect": 3.5,
+   "expect_sum": 3.8,
+   "expect_matchup": 3.3,
+   "contrib": [
+    1.5,
+    1.9
+   ],
+   "buffer": 2.0,
+   "fa": [
+    [
+     2.2,
+     1.6
+    ],
+    [
+     1.7,
+     1.6
+    ]
+   ],
+   "referee": "James Bell: Ø 3.8 Karten (12 Sp.) · Ø 18.8 Fouls (11 Sp.)",
+   "b365": null,
+   "expect_ref": 3.4,
+   "buffer_ref": 2.1,
+   "sd": 2.02,
+   "p_emp": {
+    "5.5": 0.8,
+    "6.5": 0.8928571428571428
+   },
+   "p_mod": 0.851,
+   "p_fin": 0.825,
+   "fair_fin": 1.21,
+   "ladder_fin": [
+    [
+     5.5,
+     1.21
+    ],
+    [
+     6.5,
+     1.09
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.21",
+   "range": [
+    1.35,
+    2.12
+   ]
+  },
+  "v": 2
+ },
  "13040397|corners|über": {
   "match_id": "13040397",
   "home": "Rangers",
@@ -3787,7 +4023,7 @@
    1.2,
    1.71
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 8.5,
   "range": [
    1.2,
@@ -3907,7 +4143,7 @@
    1.2,
    1.71
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 3.5,
   "range": [
    1.2,
@@ -4027,7 +4263,7 @@
    1.32,
    1.82
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 5.5,
   "range": [
    1.32,
@@ -4143,11 +4379,11 @@
    1.49,
    2.4
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 24.5,
   "range": [
-   1.49,
-   2.4
+   1.33,
+   2.0
   ],
   "signal": {
    "metric": "Fouls",
@@ -4237,8 +4473,8 @@
    "light": "🟢",
    "reason": "fair 1.26",
    "range": [
-    1.49,
-    2.4
+    1.33,
+    2.0
    ]
   },
   "v": 2
@@ -4259,7 +4495,7 @@
    1.32,
    1.82
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 2.5,
   "range": [
    1.32,
@@ -4375,11 +4611,11 @@
    1.76,
    1.91
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 20.5,
   "range": [
-   1.76,
-   1.91
+   1.75,
+   1.85
   ],
   "signal": {
    "metric": "Schüsse gesamt",
@@ -4469,8 +4705,8 @@
    "light": "🟡",
    "reason": "Historie 78 % vs. Modell 65 %",
    "range": [
-    1.76,
-    1.91
+    1.75,
+    1.85
    ]
   },
   "v": 2
@@ -4491,11 +4727,11 @@
    1.3,
    1.85
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 5.5,
   "range": [
    1.3,
-   1.85
+   1.87
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -4586,7 +4822,7 @@
    "reason": "fair 1.23",
    "range": [
     1.3,
-    1.85
+    1.87
    ]
   },
   "v": 2
@@ -4607,11 +4843,11 @@
    1.71,
    1.71
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 10.5,
   "range": [
-   1.71,
-   1.71
+   1.22,
+   1.97
   ],
   "signal": {
    "metric": "Schüsse aufs Tor",
@@ -4701,8 +4937,8 @@
    "light": "🟢",
    "reason": "fair 1.42",
    "range": [
-    1.71,
-    1.71
+    1.22,
+    1.97
    ]
   },
   "v": 2
@@ -4723,7 +4959,7 @@
    1.65,
    1.65
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 5.5,
   "range": [
    1.65,
@@ -4823,6 +5059,122 @@
   },
   "v": 2
  },
+ "13040802|fouls|unter": {
+  "match_id": "13040802",
+  "home": "Chelsea",
+  "away": "Leeds",
+  "kickoff": "Mi 21:00",
+  "kickoff_ts": 1788980400,
+  "league": "England EFL Cup",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "unter",
+  "first_run": "Mi 08:37",
+  "first_line": 26.5,
+  "first_range": [
+   1.69,
+   1.69
+  ],
+  "last_run": "Mi 08:37",
+  "line": 26.5,
+  "range": [
+   1.69,
+   1.69
+  ],
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "unter",
+   "line": 26.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 17
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    45,
+    47
+   ],
+   "next_line": 24.5,
+   "next_note": "Chelsea 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Leeds 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+   "longterm": [
+    0.8050176451993173,
+    0.7852663972239816
+   ],
+   "fair": 1.33,
+   "ladder": [
+    [
+     26.5,
+     1.33
+    ],
+    [
+     28.5,
+     1.15
+    ]
+   ],
+   "avg": [
+    20.8,
+    22.8
+   ],
+   "expect": 20.8,
+   "expect_sum": 21.8,
+   "expect_matchup": 19.8,
+   "contrib": [
+    8.9,
+    11.0
+   ],
+   "buffer": 5.7,
+   "fa": [
+    [
+     9.7,
+     10.6
+    ],
+    [
+     10.4,
+     10.9
+    ]
+   ],
+   "referee": "Jarred Gillett: Ø 3.9 Karten (22 Sp.) · Ø 18.1 Fouls (21 Sp.)",
+   "b365": null,
+   "expect_ref": 17.1,
+   "buffer_ref": 9.4,
+   "sd": 5.35,
+   "p_emp": {
+    "26.5": 0.7518796992481203,
+    "28.5": 0.8695652173913044
+   },
+   "p_mod": 0.961,
+   "p_fin": 0.856,
+   "fair_fin": 1.17,
+   "ladder_fin": [
+    [
+     26.5,
+     1.17
+    ],
+    [
+     28.5,
+     1.08
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 75 % vs. Modell 96 %",
+   "range": [
+    1.69,
+    1.69
+   ]
+  },
+  "v": 2
+ },
  "13040802|ht_yellowcards|unter": {
   "match_id": "13040802",
   "home": "Chelsea",
@@ -4839,11 +5191,11 @@
    1.3,
    1.85
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 2.5,
   "range": [
    1.3,
-   1.85
+   1.87
   ],
   "signal": {
    "metric": "1. HZ Gelbe Karten",
@@ -4934,7 +5286,7 @@
    "reason": "Historie 88 % und Modell 57 % widersprechen sich",
    "range": [
     1.3,
-    1.85
+    1.87
    ]
   },
   "v": 2
@@ -4955,11 +5307,11 @@
    1.71,
    1.71
   ],
-  "last_run": "Mi 06:31",
+  "last_run": "Mi 08:37",
   "line": 20.5,
   "range": [
-   1.71,
-   1.71
+   1.22,
+   1.97
   ],
   "signal": {
    "metric": "Schüsse gesamt",
@@ -5049,8 +5401,8 @@
    "light": "🟡",
    "reason": "Historie 85 % vs. Modell 73 %",
    "range": [
-    1.71,
-    1.71
+    1.22,
+    1.97
    ]
   },
   "v": 2
