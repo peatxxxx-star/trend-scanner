@@ -1,35 +1,499 @@
 {
- "13069110|ht_corners|über": {
-  "match_id": "13069110",
-  "home": "Barcelona U19",
-  "away": "Feyenoord U19",
-  "kickoff": "Do 09:30",
-  "kickoff_ts": 1789025400,
-  "league": "UEFA Youth League",
-  "metric": "1. HZ Ecken",
-  "metric_key": "ht_corners",
-  "direction": "über",
-  "first_run": "Do 08:37",
-  "first_line": 3.5,
+ "13037895|yellowcards|unter": {
+  "match_id": "13037895",
+  "home": "Dynamo Barnaul",
+  "away": "FK Chelyabinsk",
+  "kickoff": "Do 12:00",
+  "kickoff_ts": 1789034400,
+  "league": "Russia Cup",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 10:32",
+  "first_line": 6.5,
   "first_range": [
-   1.32,
-   2.43
+   1.4,
+   1.52
   ],
-  "last_run": "Do 08:37",
-  "line": 3.5,
+  "last_run": "Do 10:32",
+  "line": 6.5,
   "range": [
-   1.32,
-   2.43
+   1.4,
+   1.52
   ],
   "signal": {
-   "metric": "1. HZ Ecken",
-   "metric_key": "ht_corners",
-   "direction": "über",
-   "line": 3.5,
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    33,
+    37
+   ],
+   "next_line": 5.5,
+   "next_note": "FK Chelyabinsk 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.8949820543175719,
+    0.8661072940013489
+   ],
+   "fair": 1.15,
+   "ladder": [
+    [
+     6.5,
+     1.15
+    ],
+    [
+     7.5,
+     1.29
+    ]
+   ],
+   "avg": [
+    4.6,
+    3.8
+   ],
+   "expect": 4.3,
+   "expect_sum": 4.2,
+   "expect_matchup": 4.3,
+   "contrib": [
+    2.6,
+    1.7
+   ],
+   "buffer": 2.2,
+   "fa": [
+    [
+     2.4,
+     1.6
+    ],
+    [
+     1.8,
+     2.4
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.29,
+   "p_emp": {
+    "6.5": 0.8695652173913044,
+    "7.5": 0.7751937984496123
+   },
+   "p_mod": 0.832,
+   "p_fin": 0.851,
+   "fair_fin": 1.18,
+   "ladder_fin": [
+    [
+     6.5,
+     1.18
+    ],
+    [
+     7.5,
+     1.18
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.18",
+   "range": [
+    1.4,
+    1.52
+   ]
+  },
+  "v": 2
+ },
+ "13037895|on_target|unter": {
+  "match_id": "13037895",
+  "home": "Dynamo Barnaul",
+  "away": "FK Chelyabinsk",
+  "kickoff": "Do 12:00",
+  "kickoff_ts": 1789034400,
+  "league": "Russia Cup",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "unter",
+  "first_run": "Do 10:32",
+  "first_line": 11.5,
+  "first_range": [
+   1.63,
+   1.63
+  ],
+  "last_run": "Do 10:32",
+  "line": 11.5,
+  "range": [
+   1.63,
+   1.63
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "unter",
+   "line": 11.5,
    "home_series": {
     "kind": "heim",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    20,
+    17
+   ],
+   "next_line": 10.5,
+   "next_note": "Dynamo Barnaul 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "longterm": [
+    0.8265762689418669,
+    1.0
+   ],
+   "fair": 1.17,
+   "ladder": [
+    [
+     11.5,
+     1.17
+    ],
+    [
+     12.5,
+     1.35
+    ]
+   ],
+   "avg": [
+    8.9,
+    4.8
+   ],
+   "expect": 5.9,
+   "expect_sum": 6.9,
+   "expect_matchup": 4.8,
+   "contrib": [
+    2.8,
+    2.0
+   ],
+   "buffer": 5.6,
+   "fa": [
+    [
+     4.0,
+     4.5
+    ],
+    [
+     2.5,
+     3.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 4.82,
+   "p_emp": {
+    "11.5": 0.8547008547008548,
+    "12.5": 0.7407407407407407
+   },
+   "p_mod": 0.877,
+   "p_fin": 0.866,
+   "fair_fin": 1.15,
+   "ladder_fin": [
+    [
+     11.5,
+     1.15
+    ],
+    [
+     12.5,
+     1.21
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.15",
+   "range": [
+    1.63,
+    1.63
+   ]
+  },
+  "v": 2
+ },
+ "13037895|shots_total|unter": {
+  "match_id": "13037895",
+  "home": "Dynamo Barnaul",
+  "away": "FK Chelyabinsk",
+  "kickoff": "Do 12:00",
+  "kickoff_ts": 1789034400,
+  "league": "Russia Cup",
+  "metric": "Schüsse gesamt",
+  "metric_key": "shots_total",
+  "direction": "unter",
+  "first_run": "Do 10:32",
+  "first_line": 26.5,
+  "first_range": [
+   1.63,
+   1.63
+  ],
+  "last_run": "Do 10:32",
+  "line": 26.5,
+  "range": [
+   1.63,
+   1.63
+  ],
+  "signal": {
+   "metric": "Schüsse gesamt",
+   "metric_key": "shots_total",
+   "direction": "unter",
+   "line": 26.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    20,
+    17
+   ],
+   "next_line": 24.5,
+   "next_note": "Dynamo Barnaul 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "longterm": [
+    0.8265762689418669,
+    1.0
+   ],
+   "fair": 1.08,
+   "ladder": [
+    [
+     26.5,
+     1.08
+    ],
+    [
+     28.5,
+     1.05
+    ]
+   ],
+   "avg": [
+    21.6,
+    12.4
+   ],
+   "expect": 16.5,
+   "expect_sum": 17.0,
+   "expect_matchup": 16.0,
+   "contrib": [
+    9.0,
+    7.0
+   ],
+   "buffer": 10.0,
+   "fa": [
+    [
+     8.6,
+     10.4
+    ],
+    [
+     5.9,
+     7.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 7.18,
+   "p_emp": {
+    "26.5": 0.9259259259259258,
+    "28.5": 0.9523809523809523
+   },
+   "p_mod": 0.918,
+   "p_fin": 0.922,
+   "fair_fin": 1.08,
+   "ladder_fin": [
+    [
+     26.5,
+     1.08
+    ],
+    [
+     28.5,
+     1.05
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.08",
+   "range": [
+    1.63,
+    1.63
+   ]
+  },
+  "v": 2
+ },
+ "13036946|yellowcards|über": {
+  "match_id": "13036946",
+  "home": "Luch Energiya",
+  "away": "Ural",
+  "kickoff": "Do 15:30",
+  "kickoff_ts": 1789047000,
+  "league": "Russia Cup",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Do 10:32",
+  "first_line": 2.5,
+  "first_range": [
+   1.35,
+   1.8
+  ],
+  "last_run": "Do 10:32",
+  "line": 2.5,
+  "range": [
+   1.35,
+   1.8
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "auswärts",
     "hits": 15,
     "window": 17
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    22,
+    39
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — Luch Energiya 8/10 (3. Lücke) gesamt, 0 in Folge heim; Ural 4/6 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "longterm": [
+    0.8436648771711417,
+    0.7363778433575011
+   ],
+   "fair": 1.32,
+   "ladder": [
+    [
+     1.5,
+     1.39
+    ],
+    [
+     2.5,
+     1.32
+    ]
+   ],
+   "avg": [
+    4.4,
+    4.7
+   ],
+   "expect": 4.8,
+   "expect_sum": 4.6,
+   "expect_matchup": 5.1,
+   "contrib": [
+    2.3,
+    2.8
+   ],
+   "buffer": 2.3,
+   "fa": [
+    [
+     2.3,
+     2.0
+    ],
+    [
+     1.9,
+     1.7
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.86,
+   "p_emp": {
+    "1.5": 0.7194244604316548,
+    "2.5": 0.7575757575757576
+   },
+   "p_mod": 0.892,
+   "p_fin": 0.825,
+   "fair_fin": 1.21,
+   "ladder_fin": [
+    [
+     1.5,
+     1.19
+    ],
+    [
+     2.5,
+     1.21
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 76 % vs. Modell 89 %",
+   "range": [
+    1.35,
+    1.8
+   ]
+  },
+  "v": 2
+ },
+ "13036946|yellowcards|unter": {
+  "match_id": "13036946",
+  "home": "Luch Energiya",
+  "away": "Ural",
+  "kickoff": "Do 15:30",
+  "kickoff_ts": 1789047000,
+  "league": "Russia Cup",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 10:32",
+  "first_line": 6.5,
+  "first_range": [
+   1.35,
+   1.8
+  ],
+  "last_run": "Do 10:32",
+  "line": 6.5,
+  "range": [
+   1.35,
+   1.8
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
    },
    "away_series": {
     "kind": "gesamt",
@@ -39,82 +503,78 @@
    "home_is_anchor": true,
    "away_is_anchor": true,
    "valid": [
-    42,
-    49
+    22,
+    39
    ],
-   "next_line": 4.5,
-   "next_note": "Barcelona U19 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Feyenoord U19 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "next_line": 5.5,
+   "next_note": "Luch Energiya 7/9 (3. Lücke) gesamt, 0 in Folge heim",
    "longterm": [
-    0.6686933820989529,
-    0.8227092588041696
+    0.893983605058077,
+    0.9590763015557275
    ],
-   "fair": 1.4,
+   "fair": 1.11,
    "ladder": [
     [
-     2.5,
-     1.3
+     6.5,
+     1.11
     ],
     [
-     3.5,
-     1.4
+     7.5,
+     1.26
     ]
    ],
    "avg": [
-    5.6,
-    5.0
+    4.4,
+    4.7
    ],
-   "expect": 6.2,
-   "expect_sum": 5.3,
-   "expect_matchup": 7.1,
+   "expect": 4.8,
+   "expect_sum": 4.6,
+   "expect_matchup": 5.1,
    "contrib": [
-    5.8,
-    1.3
+    2.3,
+    2.8
    ],
-   "buffer": 2.7,
+   "buffer": 1.7,
    "fa": [
     [
-     3.2,
-     1.5
+     2.3,
+     2.0
     ],
     [
-     2.7,
-     2.2
+     1.9,
+     1.7
     ]
    ],
    "referee": null,
-   "b365": [
-    "4.5",
-    "1.900",
-    "1.900"
-   ],
+   "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 2.31,
+   "sd": 1.86,
    "p_emp": {
-    "2.5": 0.7692307692307692,
-    "3.5": 0.7142857142857143
+    "6.5": 0.9009009009009008,
+    "7.5": 0.7936507936507936
    },
-   "p_mod": 0.879,
-   "p_fin": 0.797,
-   "fair_fin": 1.26,
+   "p_mod": 0.82,
+   "p_fin": 0.86,
+   "fair_fin": 1.16,
    "ladder_fin": [
     [
-     2.5,
-     1.17
+     6.5,
+     1.16
     ],
     [
-     3.5,
-     1.26
+     7.5,
+     1.16
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟡",
-   "reason": "Historie 71 % vs. Modell 88 %",
+   "light": "🟢",
+   "reason": "fair 1.16",
    "range": [
-    1.32,
-    2.43
+    1.35,
+    1.8
    ]
   },
   "v": 2
@@ -135,7 +595,7 @@
    2.05,
    2.05
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 7.5,
   "range": [
    2.05,
@@ -255,7 +715,7 @@
    1.7,
    2.0
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 7.5,
   "range": [
    1.7,
@@ -375,7 +835,7 @@
    1.21,
    1.74
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 3.5,
   "range": [
    1.21,
@@ -491,11 +951,11 @@
    1.28,
    1.98
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 4.5,
   "range": [
    1.28,
-   1.98
+   2.0
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -586,7 +1046,123 @@
    "reason": "fair 1.27",
    "range": [
     1.28,
-    1.98
+    2.0
+   ]
+  },
+  "v": 2
+ },
+ "13041835|offsides|unter": {
+  "match_id": "13041835",
+  "home": "PSV",
+  "away": "Shakhtar Donetsk",
+  "kickoff": "Do 18:45",
+  "kickoff_ts": 1789058700,
+  "league": "UEFA Champions League",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Do 10:32",
+  "first_line": 4.5,
+  "first_range": [
+   1.72,
+   1.72
+  ],
+  "last_run": "Do 10:32",
+  "line": 4.5,
+  "range": [
+   1.72,
+   1.72
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    39,
+    17
+   ],
+   "next_line": 3.5,
+   "next_note": "Shakhtar Donetsk 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.9527707792994742,
+    0.8809699517605334
+   ],
+   "fair": 1.19,
+   "ladder": [
+    [
+     4.5,
+     1.19
+    ],
+    [
+     5.5,
+     1.11
+    ]
+   ],
+   "avg": [
+    2.0,
+    3.4
+   ],
+   "expect": 2.3,
+   "expect_sum": 2.7,
+   "expect_matchup": 1.9,
+   "contrib": [
+    1.0,
+    0.9
+   ],
+   "buffer": 2.2,
+   "fa": [
+    [
+     1.4,
+     1.0
+    ],
+    [
+     1.8,
+     1.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.59,
+   "p_emp": {
+    "4.5": 0.8403361344537815,
+    "5.5": 0.9009009009009008
+   },
+   "p_mod": 0.917,
+   "p_fin": 0.879,
+   "fair_fin": 1.14,
+   "ladder_fin": [
+    [
+     4.5,
+     1.14
+    ],
+    [
+     5.5,
+     1.06
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.14",
+   "range": [
+    1.72,
+    1.72
    ]
   },
   "v": 2
@@ -607,7 +1183,7 @@
    1.41,
    2.23
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 22.5,
   "range": [
    1.41,
@@ -723,11 +1299,11 @@
    1.28,
    1.98
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 2.5,
   "range": [
    1.28,
-   1.98
+   2.0
   ],
   "signal": {
    "metric": "1. HZ Gelbe Karten",
@@ -818,7 +1394,7 @@
    "reason": "Historie 88 % und Modell 39 % widersprechen sich",
    "range": [
     1.28,
-    1.98
+    2.0
    ]
   },
   "v": 2
@@ -839,11 +1415,11 @@
    1.39,
    1.81
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 4.5,
   "range": [
-   1.39,
-   1.81
+   1.37,
+   1.8
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -872,11 +1448,11 @@
     0.6477734929969238,
     0.7679389027707192
    ],
-   "fair": 1.49,
+   "fair": 1.48,
    "ladder": [
     [
      4.5,
-     1.49
+     1.48
     ],
     [
      5.5,
@@ -911,11 +1487,11 @@
    "buffer_ref": 0.8,
    "sd": 2.36,
    "p_emp": {
-    "4.5": 0.6711409395973155,
+    "4.5": 0.6756756756756757,
     "5.5": 0.7692307692307692
    },
    "p_mod": 0.633,
-   "p_fin": 0.652,
+   "p_fin": 0.654,
    "fair_fin": 1.53,
    "ladder_fin": [
     [
@@ -933,8 +1509,8 @@
    "light": "🟡",
    "reason": "65 % knapp",
    "range": [
-    1.39,
-    1.81
+    1.37,
+    1.8
    ]
   },
   "v": 2
@@ -955,7 +1531,7 @@
    1.42,
    2.04
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 7.5,
   "range": [
    1.42,
@@ -1071,11 +1647,11 @@
    1.39,
    1.81
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 2.5,
   "range": [
-   1.39,
-   1.81
+   1.37,
+   1.8
   ],
   "signal": {
    "metric": "1. HZ Gelbe Karten",
@@ -1165,8 +1741,8 @@
    "light": "🔴",
    "reason": "nur 57 % Wahrscheinlichkeit",
    "range": [
-    1.39,
-    1.81
+    1.37,
+    1.8
    ]
   },
   "v": 2
@@ -1187,7 +1763,7 @@
    1.42,
    2.04
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 22.5,
   "range": [
    1.42,
@@ -1303,7 +1879,7 @@
    1.85,
    1.85
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 4.5,
   "range": [
    1.85,
@@ -1336,11 +1912,11 @@
     0.6850783953640825,
     0.5036035865606795
    ],
-   "fair": 1.69,
+   "fair": 1.68,
    "ladder": [
     [
      4.5,
-     1.69
+     1.68
     ],
     [
      5.5,
@@ -1375,16 +1951,16 @@
    "buffer_ref": 0.7,
    "sd": 2.24,
    "p_emp": {
-    "4.5": 0.591715976331361,
+    "4.5": 0.5952380952380952,
     "5.5": 0.7633587786259541
    },
    "p_mod": 0.623,
-   "p_fin": 0.607,
-   "fair_fin": 1.65,
+   "p_fin": 0.609,
+   "fair_fin": 1.64,
    "ladder_fin": [
     [
      4.5,
-     1.65
+     1.64
     ],
     [
      5.5,
@@ -1419,7 +1995,7 @@
    1.2,
    1.99
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 6.5,
   "range": [
    1.2,
@@ -1535,7 +2111,7 @@
    1.25,
    1.46
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 2.5,
   "range": [
    1.25,
@@ -1651,7 +2227,7 @@
    1.85,
    1.85
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 2.5,
   "range": [
    1.85,
@@ -1767,7 +2343,7 @@
    1.2,
    1.99
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 22.5,
   "range": [
    1.2,
@@ -1808,7 +2384,7 @@
     ],
     [
      24.5,
-     1.09
+     1.1
     ]
    ],
    "avg": [
@@ -1840,7 +2416,7 @@
    "sd": 5.24,
    "p_emp": {
     "22.5": 0.8928571428571428,
-    "24.5": 0.9174311926605504
+    "24.5": 0.9090909090909091
    },
    "p_mod": 0.918,
    "p_fin": 0.906,
@@ -1852,7 +2428,7 @@
     ],
     [
      24.5,
-     1.06
+     1.07
     ]
    ],
    "market": null,
@@ -1863,6 +2439,122 @@
    "range": [
     1.2,
     1.99
+   ]
+  },
+  "v": 2
+ },
+ "12101090|yellowcards|unter": {
+  "match_id": "12101090",
+  "home": "Stevenage",
+  "away": "Luton",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1789066800,
+  "league": "England League 1",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 10:32",
+  "first_line": 5.5,
+  "first_range": [
+   1.23,
+   2.05
+  ],
+  "last_run": "Do 10:32",
+  "line": 5.5,
+  "range": [
+   1.23,
+   2.05
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    45,
+    44
+   ],
+   "next_line": 4.5,
+   "next_note": "Luton 5/7 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "longterm": [
+    0.8812594354005732,
+    0.7722087721659247
+   ],
+   "fair": 1.25,
+   "ladder": [
+    [
+     5.5,
+     1.25
+    ],
+    [
+     6.5,
+     1.07
+    ]
+   ],
+   "avg": [
+    2.8,
+    3.6
+   ],
+   "expect": 2.8,
+   "expect_sum": 3.2,
+   "expect_matchup": 2.4,
+   "contrib": [
+    1.1,
+    1.3
+   ],
+   "buffer": 2.7,
+   "fa": [
+    [
+     1.8,
+     1.6
+    ],
+    [
+     1.5,
+     2.2
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.88,
+   "p_emp": {
+    "5.5": 0.8,
+    "6.5": 0.9345794392523364
+   },
+   "p_mod": 0.925,
+   "p_fin": 0.862,
+   "fair_fin": 1.16,
+   "ladder_fin": [
+    [
+     5.5,
+     1.16
+    ],
+    [
+     6.5,
+     1.05
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 80 % vs. Modell 92 %",
+   "range": [
+    1.23,
+    2.05
    ]
   },
   "v": 2
@@ -1883,7 +2575,7 @@
    1.8,
    1.8
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 11.5,
   "range": [
    1.8,
@@ -1983,6 +2675,122 @@
   },
   "v": 2
  },
+ "12101090|ht_yellowcards|unter": {
+  "match_id": "12101090",
+  "home": "Stevenage",
+  "away": "Luton",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1789066800,
+  "league": "England League 1",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "Do 10:32",
+  "first_line": 1.5,
+  "first_range": [
+   1.23,
+   2.05
+  ],
+  "last_run": "Do 10:32",
+  "line": 1.5,
+  "range": [
+   1.23,
+   2.05
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 1.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    47,
+    45
+   ],
+   "next_line": 0.5,
+   "next_note": "Stevenage 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; Luton 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.7709751348805675,
+    0.6841958235830954
+   ],
+   "fair": 1.45,
+   "ladder": [
+    [
+     1.5,
+     1.45
+    ],
+    [
+     2.5,
+     1.14
+    ]
+   ],
+   "avg": [
+    0.9,
+    1.1
+   ],
+   "expect": 0.9,
+   "expect_sum": 1.0,
+   "expect_matchup": 0.7,
+   "contrib": [
+    0.4,
+    0.4
+   ],
+   "buffer": 0.6,
+   "fa": [
+    [
+     0.5,
+     0.4
+    ],
+    [
+     0.4,
+     0.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.16,
+   "p_emp": {
+    "1.5": 0.6896551724137931,
+    "2.5": 0.8771929824561404
+   },
+   "p_mod": 0.698,
+   "p_fin": 0.694,
+   "fair_fin": 1.44,
+   "ladder_fin": [
+    [
+     1.5,
+     1.44
+    ],
+    [
+     2.5,
+     1.12
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.44",
+   "range": [
+    1.23,
+    2.05
+   ]
+  },
+  "v": 2
+ },
  "12101090|shots_total|unter": {
   "match_id": "12101090",
   "home": "Stevenage",
@@ -1999,7 +2807,7 @@
    1.8,
    1.8
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 18.5,
   "range": [
    1.8,
@@ -2115,11 +2923,11 @@
    1.39,
    1.67
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 4.5,
   "range": [
-   1.39,
-   1.67
+   1.22,
+   1.7
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -2209,8 +3017,8 @@
    "light": "🟡",
    "reason": "Historie 74 % vs. Modell 91 %",
    "range": [
-    1.39,
-    1.67
+    1.22,
+    1.7
    ]
   },
   "v": 2
@@ -2231,7 +3039,7 @@
    1.79,
    1.95
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 7.5,
   "range": [
    1.79,
@@ -2268,7 +3076,7 @@
    "ladder": [
     [
      6.5,
-     1.3
+     1.29
     ],
     [
      7.5,
@@ -2303,7 +3111,7 @@
    "buffer_ref": null,
    "sd": 3.11,
    "p_emp": {
-    "6.5": 0.7692307692307692,
+    "6.5": 0.7751937984496123,
     "7.5": 0.6993006993006994
    },
    "p_mod": 0.824,
@@ -2347,7 +3155,7 @@
    1.3,
    1.41
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 26.5,
   "range": [
    1.3,
@@ -2463,11 +3271,11 @@
    1.39,
    1.67
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 2.5,
   "range": [
-   1.39,
-   1.67
+   1.22,
+   1.7
   ],
   "signal": {
    "metric": "1. HZ Gelbe Karten",
@@ -2557,8 +3365,8 @@
    "light": "🟢",
    "reason": "fair 1.14",
    "range": [
-    1.39,
-    1.67
+    1.22,
+    1.7
    ]
   },
   "v": 2
@@ -2579,7 +3387,7 @@
    1.79,
    1.95
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 22.5,
   "range": [
    1.79,
@@ -2695,11 +3503,11 @@
    1.89,
    1.89
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 7.5,
   "range": [
-   1.89,
-   1.89
+   2.0,
+   2.0
   ],
   "signal": {
    "metric": "Ecken",
@@ -2793,8 +3601,8 @@
    "light": "🟢",
    "reason": "fair 1.40",
    "range": [
-    1.89,
-    1.89
+    2.0,
+    2.0
    ]
   },
   "v": 2
@@ -2815,11 +3623,11 @@
    1.27,
    1.92
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 4.5,
   "range": [
    1.27,
-   1.92
+   1.85
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -2910,7 +3718,7 @@
    "reason": "Historie 78 % vs. Modell 90 %",
    "range": [
     1.27,
-    1.92
+    1.85
    ]
   },
   "v": 2
@@ -2931,11 +3739,11 @@
    1.73,
    1.9
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 7.5,
   "range": [
    1.73,
-   1.9
+   2.44
   ],
   "signal": {
    "metric": "Schüsse aufs Tor",
@@ -3026,7 +3834,7 @@
    "reason": "fair 1.32",
    "range": [
     1.73,
-    1.9
+    2.44
    ]
   },
   "v": 2
@@ -3047,11 +3855,11 @@
    1.42,
    1.74
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 4.5,
   "range": [
-   1.42,
-   1.74
+   1.33,
+   1.53
   ],
   "signal": {
    "metric": "Abseits",
@@ -3141,8 +3949,8 @@
    "light": "🟢",
    "reason": "fair 1.32",
    "range": [
-    1.42,
-    1.74
+    1.33,
+    1.53
    ]
   },
   "v": 2
@@ -3163,11 +3971,11 @@
    1.4,
    1.5
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 22.5,
   "range": [
    1.4,
-   1.5
+   1.51
   ],
   "signal": {
    "metric": "Fouls",
@@ -3258,7 +4066,7 @@
    "reason": "Historie 68 % vs. Modell 93 %",
    "range": [
     1.4,
-    1.5
+    1.51
    ]
   },
   "v": 2
@@ -3279,11 +4087,11 @@
    1.89,
    1.89
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 3.5,
   "range": [
-   1.89,
-   1.89
+   2.0,
+   2.0
   ],
   "signal": {
    "metric": "1. HZ Ecken",
@@ -3348,8 +4156,8 @@
    "referee": null,
    "b365": [
     "5.0",
-    "2.025",
-    "1.775"
+    "2.000",
+    "1.800"
    ],
    "expect_ref": null,
    "buffer_ref": null,
@@ -3377,8 +4185,8 @@
    "light": "🟢",
    "reason": "fair 1.43",
    "range": [
-    1.89,
-    1.89
+    2.0,
+    2.0
    ]
   },
   "v": 2
@@ -3399,11 +4207,11 @@
    1.27,
    1.92
   ],
-  "last_run": "Do 08:37",
+  "last_run": "Do 10:32",
   "line": 2.5,
   "range": [
    1.27,
-   1.92
+   1.85
   ],
   "signal": {
    "metric": "1. HZ Gelbe Karten",
@@ -3494,7 +4302,7 @@
    "reason": "fair 1.19",
    "range": [
     1.27,
-    1.92
+    1.85
    ]
   },
   "v": 2
