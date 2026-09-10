@@ -15,7 +15,7 @@
    1.3,
    1.44
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 8.5,
   "range": [
    1.3,
@@ -135,7 +135,7 @@
    1.93,
    1.93
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 5.5,
   "range": [
    1.31,
@@ -251,7 +251,7 @@
    1.93,
    1.93
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 0.5,
   "range": [
    1.31,
@@ -358,7 +358,7 @@
    1.93,
    1.93
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 2.5,
   "range": [
    1.31,
@@ -474,7 +474,7 @@
    1.35,
    1.8
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 2.5,
   "range": [
    1.81,
@@ -590,7 +590,7 @@
    1.35,
    1.8
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 6.5,
   "range": [
    1.81,
@@ -706,7 +706,7 @@
    1.21,
    1.74
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 3.5,
   "range": [
    1.21,
@@ -822,10 +822,10 @@
    1.27,
    1.34
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 6.5,
   "range": [
-   1.27,
+   1.25,
    1.34
   ],
   "signal": {
@@ -916,8 +916,240 @@
    "light": "🟢",
    "reason": "fair 1.13",
    "range": [
-    1.27,
+    1.25,
     1.34
+   ]
+  },
+  "v": 2
+ },
+ "13037973|on_target|unter": {
+  "match_id": "13037973",
+  "home": "Shinnik Yaroslavl",
+  "away": "Torpedo Moscow",
+  "kickoff": "Do 18:30",
+  "kickoff_ts": 1789057800,
+  "league": "Russia Cup",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "unter",
+  "first_run": "Do 13:25",
+  "first_line": 11.5,
+  "first_range": [
+   1.33,
+   1.44
+  ],
+  "last_run": "Do 13:25",
+  "line": 11.5,
+  "range": [
+   1.33,
+   1.44
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "unter",
+   "line": 11.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    14,
+    18
+   ],
+   "next_line": 10.5,
+   "next_note": "Torpedo Moscow 7/9 (3. Lücke) gesamt, 6/8 (Aussetzer in den letzten 2) auswärts",
+   "longterm": [
+    0.9175742821261293,
+    0.9709831018240598
+   ],
+   "fair": 1.15,
+   "ladder": [
+    [
+     11.5,
+     1.15
+    ],
+    [
+     12.5,
+     1.33
+    ]
+   ],
+   "avg": [
+    8.8,
+    6.3
+   ],
+   "expect": 6.6,
+   "expect_sum": 7.6,
+   "expect_matchup": 5.6,
+   "contrib": [
+    1.7,
+    3.9
+   ],
+   "buffer": 4.9,
+   "fa": [
+    [
+     3.9,
+     3.8
+    ],
+    [
+     4.5,
+     2.6
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.17,
+   "p_emp": {
+    "11.5": 0.8695652173913044,
+    "12.5": 0.7518796992481203
+   },
+   "p_mod": 0.939,
+   "p_fin": 0.904,
+   "fair_fin": 1.11,
+   "ladder_fin": [
+    [
+     11.5,
+     1.11
+    ],
+    [
+     12.5,
+     1.16
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.11",
+   "range": [
+    1.33,
+    1.44
+   ]
+  },
+  "v": 2
+ },
+ "13037973|shots_total|unter": {
+  "match_id": "13037973",
+  "home": "Shinnik Yaroslavl",
+  "away": "Torpedo Moscow",
+  "kickoff": "Do 18:30",
+  "kickoff_ts": 1789057800,
+  "league": "Russia Cup",
+  "metric": "Schüsse gesamt",
+  "metric_key": "shots_total",
+  "direction": "unter",
+  "first_run": "Do 13:25",
+  "first_line": 18.5,
+  "first_range": [
+   1.33,
+   1.44
+  ],
+  "last_run": "Do 13:25",
+  "line": 18.5,
+  "range": [
+   1.33,
+   1.44
+  ],
+  "signal": {
+   "metric": "Schüsse gesamt",
+   "metric_key": "shots_total",
+   "direction": "unter",
+   "line": 18.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    16,
+    18
+   ],
+   "next_line": null,
+   "next_note": null,
+   "longterm": [
+    0.7862662253535863,
+    0.9043197754204217
+   ],
+   "fair": 1.3,
+   "ladder": [
+    [
+     18.5,
+     1.3
+    ],
+    [
+     20.5,
+     1.16
+    ]
+   ],
+   "avg": [
+    14.8,
+    10.7
+   ],
+   "expect": 10.9,
+   "expect_sum": 12.8,
+   "expect_matchup": 9.1,
+   "contrib": [
+    2.6,
+    6.5
+   ],
+   "buffer": 7.6,
+   "fa": [
+    [
+     6.0,
+     7.0
+    ],
+    [
+     8.0,
+     5.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 4.82,
+   "p_emp": {
+    "18.5": 0.7692307692307692,
+    "20.5": 0.8620689655172414
+   },
+   "p_mod": 0.943,
+   "p_fin": 0.856,
+   "fair_fin": 1.17,
+   "ladder_fin": [
+    [
+     18.5,
+     1.17
+    ],
+    [
+     20.5,
+     1.09
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 77 % vs. Modell 94 %",
+   "range": [
+    1.33,
+    1.44
    ]
   },
   "v": 2
@@ -938,7 +1170,7 @@
    1.28,
    1.98
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 4.5,
   "range": [
    1.28,
@@ -1054,7 +1286,7 @@
    1.72,
    1.72
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 4.5,
   "range": [
    1.79,
@@ -1170,7 +1402,7 @@
    1.41,
    2.23
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 22.5,
   "range": [
    1.46,
@@ -1286,7 +1518,7 @@
    1.28,
    1.98
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 2.5,
   "range": [
    1.28,
@@ -1402,7 +1634,7 @@
    1.39,
    1.81
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 4.5,
   "range": [
    1.2,
@@ -1518,7 +1750,7 @@
    1.42,
    2.04
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 7.5,
   "range": [
    1.42,
@@ -1634,7 +1866,7 @@
    1.39,
    1.81
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 2.5,
   "range": [
    1.2,
@@ -1750,7 +1982,7 @@
    1.42,
    2.04
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 22.5,
   "range": [
    1.42,
@@ -1866,7 +2098,7 @@
    1.85,
    1.85
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 4.5,
   "range": [
    1.85,
@@ -1982,7 +2214,7 @@
    1.2,
    1.99
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 6.5,
   "range": [
    1.2,
@@ -2098,7 +2330,7 @@
    1.25,
    1.46
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 2.5,
   "range": [
    1.25,
@@ -2214,7 +2446,7 @@
    1.85,
    1.85
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 2.5,
   "range": [
    1.85,
@@ -2330,7 +2562,7 @@
    1.2,
    1.99
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 22.5,
   "range": [
    1.2,
@@ -2446,11 +2678,11 @@
    1.23,
    2.05
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 5.5,
   "range": [
-   1.23,
-   2.04
+   1.24,
+   2.02
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -2540,8 +2772,8 @@
    "light": "🟡",
    "reason": "Historie 80 % vs. Modell 92 %",
    "range": [
-    1.23,
-    2.04
+    1.24,
+    2.02
    ]
   },
   "v": 2
@@ -2562,11 +2794,11 @@
    1.23,
    2.05
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 1.5,
   "range": [
-   1.23,
-   2.04
+   1.24,
+   2.02
   ],
   "signal": {
    "metric": "1. HZ Gelbe Karten",
@@ -2656,8 +2888,588 @@
    "light": "🟢",
    "reason": "fair 1.44",
    "range": [
-    1.23,
-    2.04
+    1.24,
+    2.02
+   ]
+  },
+  "v": 2
+ },
+ "13041816|yellowcards|unter": {
+  "match_id": "13041816",
+  "home": "Man Utd",
+  "away": "Sabah",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1789066800,
+  "league": "UEFA Champions League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 08:37",
+  "first_line": 4.5,
+  "first_range": [
+   1.39,
+   1.67
+  ],
+  "last_run": "Do 13:25",
+  "line": 4.5,
+  "range": [
+   1.21,
+   1.69
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    43
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — Man Utd 11/13 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Sabah 5/7 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "longterm": [
+    0.7764304697841786,
+    0.8199433270517292
+   ],
+   "fair": 1.36,
+   "ladder": [
+    [
+     4.5,
+     1.36
+    ],
+    [
+     5.5,
+     1.18
+    ]
+   ],
+   "avg": [
+    2.8,
+    2.8
+   ],
+   "expect": 2.4,
+   "expect_sum": 2.8,
+   "expect_matchup": 1.9,
+   "contrib": [
+    1.1,
+    0.9
+   ],
+   "buffer": 2.1,
+   "fa": [
+    [
+     1.6,
+     1.7
+    ],
+    [
+     1.7,
+     1.7
+    ]
+   ],
+   "referee": "Willy Delajod: Ø 3.0 Karten (19 Sp.) · Ø 21.7 Fouls (19 Sp.)",
+   "b365": null,
+   "expect_ref": 2.0,
+   "buffer_ref": 2.5,
+   "sd": 1.85,
+   "p_emp": {
+    "4.5": 0.7352941176470588,
+    "5.5": 0.8474576271186441
+   },
+   "p_mod": 0.912,
+   "p_fin": 0.824,
+   "fair_fin": 1.21,
+   "ladder_fin": [
+    [
+     4.5,
+     1.21
+    ],
+    [
+     5.5,
+     1.1
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 74 % vs. Modell 91 %",
+   "range": [
+    1.21,
+    1.69
+   ]
+  },
+  "v": 2
+ },
+ "13041816|on_target|über": {
+  "match_id": "13041816",
+  "home": "Man Utd",
+  "away": "Sabah",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1789066800,
+  "league": "UEFA Champions League",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Do 08:37",
+  "first_line": 7.5,
+  "first_range": [
+   1.79,
+   1.95
+  ],
+  "last_run": "Do 13:25",
+  "line": 7.5,
+  "range": [
+   1.79,
+   1.95
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    37
+   ],
+   "next_line": 8.5,
+   "next_note": "kein Anker — Man Utd 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Sabah 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.6836046679431715,
+    0.8533667643203062
+   ],
+   "fair": 1.43,
+   "ladder": [
+    [
+     6.5,
+     1.29
+    ],
+    [
+     7.5,
+     1.43
+    ]
+   ],
+   "avg": [
+    9.9,
+    9.9
+   ],
+   "expect": 10.4,
+   "expect_sum": 9.9,
+   "expect_matchup": 10.8,
+   "contrib": [
+    5.6,
+    5.2
+   ],
+   "buffer": 2.9,
+   "fa": [
+    [
+     5.6,
+     3.8
+    ],
+    [
+     6.1,
+     3.1
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.11,
+   "p_emp": {
+    "6.5": 0.7751937984496123,
+    "7.5": 0.6993006993006994
+   },
+   "p_mod": 0.824,
+   "p_fin": 0.762,
+   "fair_fin": 1.31,
+   "ladder_fin": [
+    [
+     6.5,
+     1.2
+    ],
+    [
+     7.5,
+     1.31
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 70 % vs. Modell 82 %",
+   "range": [
+    1.79,
+    1.95
+   ]
+  },
+  "v": 2
+ },
+ "13041816|fouls|unter": {
+  "match_id": "13041816",
+  "home": "Man Utd",
+  "away": "Sabah",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1789066800,
+  "league": "UEFA Champions League",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "unter",
+  "first_run": "Do 08:37",
+  "first_line": 26.5,
+  "first_range": [
+   1.3,
+   1.41
+  ],
+  "last_run": "Do 13:25",
+  "line": 26.5,
+  "range": [
+   1.29,
+   1.43
+  ],
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "unter",
+   "line": 26.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    12
+   ],
+   "next_line": 24.5,
+   "next_note": "kein Anker — Man Utd 9/11 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Sabah 2/4 (3. Lücke) gesamt, 5/6 auswärts",
+   "longterm": [
+    0.8398971672029959,
+    0.8503089315849716
+   ],
+   "fair": 1.3,
+   "ladder": [
+    [
+     26.5,
+     1.3
+    ],
+    [
+     28.5,
+     1.16
+    ]
+   ],
+   "avg": [
+    19.4,
+    19.9
+   ],
+   "expect": 17.9,
+   "expect_sum": 19.7,
+   "expect_matchup": 16.2,
+   "contrib": [
+    8.4,
+    7.8
+   ],
+   "buffer": 8.6,
+   "fa": [
+    [
+     10.1,
+     10.5
+    ],
+    [
+     12.5,
+     10.2
+    ]
+   ],
+   "referee": "Willy Delajod: Ø 3.0 Karten (19 Sp.) · Ø 21.7 Fouls (19 Sp.)",
+   "b365": null,
+   "expect_ref": 16.8,
+   "buffer_ref": 9.7,
+   "sd": 5.3,
+   "p_emp": {
+    "26.5": 0.7692307692307692,
+    "28.5": 0.8620689655172414
+   },
+   "p_mod": 0.966,
+   "p_fin": 0.868,
+   "fair_fin": 1.15,
+   "ladder_fin": [
+    [
+     26.5,
+     1.15
+    ],
+    [
+     28.5,
+     1.08
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 77 % vs. Modell 97 %",
+   "range": [
+    1.29,
+    1.43
+   ]
+  },
+  "v": 2
+ },
+ "13041816|ht_yellowcards|unter": {
+  "match_id": "13041816",
+  "home": "Man Utd",
+  "away": "Sabah",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1789066800,
+  "league": "UEFA Champions League",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "Do 08:37",
+  "first_line": 2.5,
+  "first_range": [
+   1.39,
+   1.67
+  ],
+  "last_run": "Do 13:25",
+  "line": 2.5,
+  "range": [
+   1.21,
+   1.69
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    46
+   ],
+   "next_line": 1.5,
+   "next_note": "Sabah 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.9680474326082975,
+    0.8663204901313427
+   ],
+   "fair": 1.13,
+   "ladder": [
+    [
+     2.5,
+     1.13
+    ],
+    [
+     3.5,
+     1.19
+    ]
+   ],
+   "avg": [
+    0.9,
+    0.9
+   ],
+   "expect": 0.8,
+   "expect_sum": 0.9,
+   "expect_matchup": 0.7,
+   "contrib": [
+    0.1,
+    0.6
+   ],
+   "buffer": 1.7,
+   "fa": [
+    [
+     0.4,
+     0.6
+    ],
+    [
+     0.7,
+     0.4
+    ]
+   ],
+   "referee": "Willy Delajod: Ø 3.0 Karten (19 Sp.) · Ø 21.7 Fouls (19 Sp.)",
+   "b365": null,
+   "expect_ref": 1.4,
+   "buffer_ref": 1.1,
+   "sd": 1.01,
+   "p_emp": {
+    "2.5": 0.8849557522123894,
+    "3.5": 0.8403361344537815
+   },
+   "p_mod": 0.862,
+   "p_fin": 0.873,
+   "fair_fin": 1.14,
+   "ladder_fin": [
+    [
+     2.5,
+     1.14
+    ],
+    [
+     3.5,
+     1.1
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.14",
+   "range": [
+    1.21,
+    1.69
+   ]
+  },
+  "v": 2
+ },
+ "13041816|shots_total|unter": {
+  "match_id": "13041816",
+  "home": "Man Utd",
+  "away": "Sabah",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1789066800,
+  "league": "UEFA Champions League",
+  "metric": "Schüsse gesamt",
+  "metric_key": "shots_total",
+  "direction": "unter",
+  "first_run": "Do 08:37",
+  "first_line": 22.5,
+  "first_range": [
+   1.79,
+   1.95
+  ],
+  "last_run": "Do 13:25",
+  "line": 22.5,
+  "range": [
+   1.79,
+   1.95
+  ],
+  "signal": {
+   "metric": "Schüsse gesamt",
+   "metric_key": "shots_total",
+   "direction": "unter",
+   "line": 22.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    19
+   ],
+   "next_line": 20.5,
+   "next_note": "kein Anker — Man Utd 14/16 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Sabah 6/8 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.8743546588053156,
+    0.8983597676699926
+   ],
+   "fair": 1.14,
+   "ladder": [
+    [
+     22.5,
+     1.14
+    ],
+    [
+     24.5,
+     1.06
+    ]
+   ],
+   "avg": [
+    17.6,
+    17.9
+   ],
+   "expect": 18.4,
+   "expect_sum": 17.8,
+   "expect_matchup": 19.0,
+   "contrib": [
+    11.9,
+    7.0
+   ],
+   "buffer": 4.1,
+   "fa": [
+    [
+     10.4,
+     7.2
+    ],
+    [
+     10.4,
+     6.7
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 4.6,
+   "p_emp": {
+    "22.5": 0.8771929824561404,
+    "24.5": 0.9433962264150942
+   },
+   "p_mod": 0.814,
+   "p_fin": 0.845,
+   "fair_fin": 1.18,
+   "ladder_fin": [
+    [
+     22.5,
+     1.18
+    ],
+    [
+     24.5,
+     1.08
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.18",
+   "range": [
+    1.79,
+    1.95
    ]
   },
   "v": 2
@@ -2678,7 +3490,7 @@
    1.89,
    1.89
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 7.5,
   "range": [
    2.0,
@@ -2798,7 +3610,7 @@
    1.27,
    1.92
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 4.5,
   "range": [
    1.26,
@@ -2914,7 +3726,7 @@
    1.73,
    1.9
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 7.5,
   "range": [
    1.78,
@@ -3030,7 +3842,7 @@
    1.42,
    1.74
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 4.5,
   "range": [
    1.33,
@@ -3146,7 +3958,7 @@
    1.4,
    1.5
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 22.5,
   "range": [
    1.4,
@@ -3262,7 +4074,7 @@
    1.89,
    1.89
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 3.5,
   "range": [
    2.0,
@@ -3382,7 +4194,7 @@
    1.27,
    1.92
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 2.5,
   "range": [
    1.26,
@@ -3482,586 +4294,6 @@
   },
   "v": 2
  },
- "13041816|yellowcards|unter": {
-  "match_id": "13041816",
-  "home": "Man Utd",
-  "away": "Sabah",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1789066800,
-  "league": "UEFA Champions League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 08:37",
-  "first_line": 4.5,
-  "first_range": [
-   1.39,
-   1.67
-  ],
-  "last_run": "Do 12:59",
-  "line": 4.5,
-  "range": [
-   1.23,
-   1.71
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 4.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    46,
-    43
-   ],
-   "next_line": 3.5,
-   "next_note": "kein Anker — Man Utd 11/13 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Sabah 5/7 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
-   "longterm": [
-    0.7764304697841786,
-    0.8199433270517292
-   ],
-   "fair": 1.36,
-   "ladder": [
-    [
-     4.5,
-     1.36
-    ],
-    [
-     5.5,
-     1.18
-    ]
-   ],
-   "avg": [
-    2.8,
-    2.8
-   ],
-   "expect": 2.4,
-   "expect_sum": 2.8,
-   "expect_matchup": 1.9,
-   "contrib": [
-    1.1,
-    0.9
-   ],
-   "buffer": 2.1,
-   "fa": [
-    [
-     1.6,
-     1.7
-    ],
-    [
-     1.7,
-     1.7
-    ]
-   ],
-   "referee": "Willy Delajod: Ø 3.0 Karten (19 Sp.) · Ø 21.7 Fouls (19 Sp.)",
-   "b365": null,
-   "expect_ref": 2.0,
-   "buffer_ref": 2.5,
-   "sd": 1.85,
-   "p_emp": {
-    "4.5": 0.7352941176470588,
-    "5.5": 0.8474576271186441
-   },
-   "p_mod": 0.912,
-   "p_fin": 0.824,
-   "fair_fin": 1.21,
-   "ladder_fin": [
-    [
-     4.5,
-     1.21
-    ],
-    [
-     5.5,
-     1.1
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 74 % vs. Modell 91 %",
-   "range": [
-    1.23,
-    1.71
-   ]
-  },
-  "v": 2
- },
- "13041816|on_target|über": {
-  "match_id": "13041816",
-  "home": "Man Utd",
-  "away": "Sabah",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1789066800,
-  "league": "UEFA Champions League",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "über",
-  "first_run": "Do 08:37",
-  "first_line": 7.5,
-  "first_range": [
-   1.79,
-   1.95
-  ],
-  "last_run": "Do 12:59",
-  "line": 7.5,
-  "range": [
-   1.79,
-   1.95
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    46,
-    37
-   ],
-   "next_line": 8.5,
-   "next_note": "kein Anker — Man Utd 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Sabah 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "longterm": [
-    0.6836046679431715,
-    0.8533667643203062
-   ],
-   "fair": 1.43,
-   "ladder": [
-    [
-     6.5,
-     1.29
-    ],
-    [
-     7.5,
-     1.43
-    ]
-   ],
-   "avg": [
-    9.9,
-    9.9
-   ],
-   "expect": 10.4,
-   "expect_sum": 9.9,
-   "expect_matchup": 10.8,
-   "contrib": [
-    5.6,
-    5.2
-   ],
-   "buffer": 2.9,
-   "fa": [
-    [
-     5.6,
-     3.8
-    ],
-    [
-     6.1,
-     3.1
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.11,
-   "p_emp": {
-    "6.5": 0.7751937984496123,
-    "7.5": 0.6993006993006994
-   },
-   "p_mod": 0.824,
-   "p_fin": 0.762,
-   "fair_fin": 1.31,
-   "ladder_fin": [
-    [
-     6.5,
-     1.2
-    ],
-    [
-     7.5,
-     1.31
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 70 % vs. Modell 82 %",
-   "range": [
-    1.79,
-    1.95
-   ]
-  },
-  "v": 2
- },
- "13041816|fouls|unter": {
-  "match_id": "13041816",
-  "home": "Man Utd",
-  "away": "Sabah",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1789066800,
-  "league": "UEFA Champions League",
-  "metric": "Fouls",
-  "metric_key": "fouls",
-  "direction": "unter",
-  "first_run": "Do 08:37",
-  "first_line": 26.5,
-  "first_range": [
-   1.3,
-   1.41
-  ],
-  "last_run": "Do 12:59",
-  "line": 26.5,
-  "range": [
-   1.29,
-   1.43
-  ],
-  "signal": {
-   "metric": "Fouls",
-   "metric_key": "fouls",
-   "direction": "unter",
-   "line": 26.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    42,
-    12
-   ],
-   "next_line": 24.5,
-   "next_note": "kein Anker — Man Utd 9/11 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Sabah 2/4 (3. Lücke) gesamt, 5/6 auswärts",
-   "longterm": [
-    0.8398971672029959,
-    0.8503089315849716
-   ],
-   "fair": 1.3,
-   "ladder": [
-    [
-     26.5,
-     1.3
-    ],
-    [
-     28.5,
-     1.16
-    ]
-   ],
-   "avg": [
-    19.4,
-    19.9
-   ],
-   "expect": 17.9,
-   "expect_sum": 19.7,
-   "expect_matchup": 16.2,
-   "contrib": [
-    8.4,
-    7.8
-   ],
-   "buffer": 8.6,
-   "fa": [
-    [
-     10.1,
-     10.5
-    ],
-    [
-     12.5,
-     10.2
-    ]
-   ],
-   "referee": "Willy Delajod: Ø 3.0 Karten (19 Sp.) · Ø 21.7 Fouls (19 Sp.)",
-   "b365": null,
-   "expect_ref": 16.8,
-   "buffer_ref": 9.7,
-   "sd": 5.3,
-   "p_emp": {
-    "26.5": 0.7692307692307692,
-    "28.5": 0.8620689655172414
-   },
-   "p_mod": 0.966,
-   "p_fin": 0.868,
-   "fair_fin": 1.15,
-   "ladder_fin": [
-    [
-     26.5,
-     1.15
-    ],
-    [
-     28.5,
-     1.08
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 77 % vs. Modell 97 %",
-   "range": [
-    1.29,
-    1.43
-   ]
-  },
-  "v": 2
- },
- "13041816|ht_yellowcards|unter": {
-  "match_id": "13041816",
-  "home": "Man Utd",
-  "away": "Sabah",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1789066800,
-  "league": "UEFA Champions League",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "Do 08:37",
-  "first_line": 2.5,
-  "first_range": [
-   1.39,
-   1.67
-  ],
-  "last_run": "Do 12:59",
-  "line": 2.5,
-  "range": [
-   1.23,
-   1.71
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    46
-   ],
-   "next_line": 1.5,
-   "next_note": "Sabah 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "longterm": [
-    0.9680474326082975,
-    0.8663204901313427
-   ],
-   "fair": 1.13,
-   "ladder": [
-    [
-     2.5,
-     1.13
-    ],
-    [
-     3.5,
-     1.19
-    ]
-   ],
-   "avg": [
-    0.9,
-    0.9
-   ],
-   "expect": 0.8,
-   "expect_sum": 0.9,
-   "expect_matchup": 0.7,
-   "contrib": [
-    0.1,
-    0.6
-   ],
-   "buffer": 1.7,
-   "fa": [
-    [
-     0.4,
-     0.6
-    ],
-    [
-     0.7,
-     0.4
-    ]
-   ],
-   "referee": "Willy Delajod: Ø 3.0 Karten (19 Sp.) · Ø 21.7 Fouls (19 Sp.)",
-   "b365": null,
-   "expect_ref": 1.4,
-   "buffer_ref": 1.1,
-   "sd": 1.01,
-   "p_emp": {
-    "2.5": 0.8849557522123894,
-    "3.5": 0.8403361344537815
-   },
-   "p_mod": 0.862,
-   "p_fin": 0.873,
-   "fair_fin": 1.14,
-   "ladder_fin": [
-    [
-     2.5,
-     1.14
-    ],
-    [
-     3.5,
-     1.1
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.14",
-   "range": [
-    1.23,
-    1.71
-   ]
-  },
-  "v": 2
- },
- "13041816|shots_total|unter": {
-  "match_id": "13041816",
-  "home": "Man Utd",
-  "away": "Sabah",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1789066800,
-  "league": "UEFA Champions League",
-  "metric": "Schüsse gesamt",
-  "metric_key": "shots_total",
-  "direction": "unter",
-  "first_run": "Do 08:37",
-  "first_line": 22.5,
-  "first_range": [
-   1.79,
-   1.95
-  ],
-  "last_run": "Do 12:59",
-  "line": 22.5,
-  "range": [
-   1.79,
-   1.95
-  ],
-  "signal": {
-   "metric": "Schüsse gesamt",
-   "metric_key": "shots_total",
-   "direction": "unter",
-   "line": 22.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    42,
-    19
-   ],
-   "next_line": 20.5,
-   "next_note": "kein Anker — Man Utd 14/16 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Sabah 6/8 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "longterm": [
-    0.8743546588053156,
-    0.8983597676699926
-   ],
-   "fair": 1.14,
-   "ladder": [
-    [
-     22.5,
-     1.14
-    ],
-    [
-     24.5,
-     1.06
-    ]
-   ],
-   "avg": [
-    17.6,
-    17.9
-   ],
-   "expect": 18.4,
-   "expect_sum": 17.8,
-   "expect_matchup": 19.0,
-   "contrib": [
-    11.9,
-    7.0
-   ],
-   "buffer": 4.1,
-   "fa": [
-    [
-     10.4,
-     7.2
-    ],
-    [
-     10.4,
-     6.7
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 4.6,
-   "p_emp": {
-    "22.5": 0.8771929824561404,
-    "24.5": 0.9433962264150942
-   },
-   "p_mod": 0.814,
-   "p_fin": 0.845,
-   "fair_fin": 1.18,
-   "ladder_fin": [
-    [
-     22.5,
-     1.18
-    ],
-    [
-     24.5,
-     1.08
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.18",
-   "range": [
-    1.79,
-    1.95
-   ]
-  },
-  "v": 2
- },
  "12155250|yellowcards|unter": {
   "match_id": "12155250",
   "home": "Estrela",
@@ -4078,7 +4310,7 @@
    1.39,
    2.0
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 6.5,
   "range": [
    1.39,
@@ -4194,7 +4426,7 @@
    1.36,
    1.95
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 10.5,
   "range": [
    1.36,
@@ -4310,7 +4542,7 @@
    1.29,
    1.63
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 5.5,
   "range": [
    1.29,
@@ -4426,7 +4658,7 @@
    1.39,
    2.0
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 0.5,
   "range": [
    1.39,
@@ -4533,7 +4765,7 @@
    1.36,
    1.95
   ],
-  "last_run": "Do 12:59",
+  "last_run": "Do 13:25",
   "line": 18.5,
   "range": [
    1.36,
