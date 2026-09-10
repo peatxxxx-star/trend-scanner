@@ -1,0 +1,1760 @@
+{
+ "run_utc": "2026-09-10T19:23:32+00:00",
+ "matches_checked": 53,
+ "requests": 23,
+ "hits": [
+  {
+   "match": {
+    "id": "13076523",
+    "league": "Colombia Primera B",
+    "home": "Orsomarso",
+    "away": "Tigres FC",
+    "home_id": "6449",
+    "away_id": "6411",
+    "kickoff": "Fr 00:00",
+    "kickoff_ts": 1789077600,
+    "bet365_id": "200884892"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      45,
+      47
+     ],
+     "next_line": 8.5,
+     "next_note": "Orsomarso 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+     "longterm": [
+      0.6665616509191593,
+      0.7322245587745474
+     ],
+     "fair": 1.44,
+     "ladder": [
+      [
+       6.5,
+       1.47
+      ],
+      [
+       7.5,
+       1.44
+      ]
+     ],
+     "avg": [
+      9.7,
+      10.0
+     ],
+     "expect_sum": 9.9,
+     "expect_matchup": 12.0,
+     "contrib": [
+      10.2,
+      1.7
+     ],
+     "expect": 10.9,
+     "buffer": 3.4,
+     "fa": [
+      [
+       4.2,
+       4.5
+      ],
+      [
+       3.1,
+       5.8
+      ]
+     ],
+     "sd": 3.44,
+     "p_emp": {
+      "6.5": 0.6802721088435374,
+      "7.5": 0.6944444444444444
+     },
+     "range": [
+      1.213,
+      1.836
+     ],
+     "b365": [
+      "8.5",
+      "1.975",
+      "1.825"
+     ],
+     "p_mod": 0.839,
+     "p_fin": 0.766,
+     "fair_fin": 1.3,
+     "ladder_fin": [
+      [
+       6.5,
+       1.27
+      ],
+      [
+       7.5,
+       1.3
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 69 % vs. Modell 84 %",
+     "first_run": "Do 20:29"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11416989",
+    "league": "Brazil Serie B",
+    "home": "Sao Bernardo SP",
+    "away": "Londrina",
+    "home_id": "80659",
+    "away_id": "3160",
+    "kickoff": "Fr 00:30",
+    "kickoff_ts": 1789079400,
+    "bet365_id": "200099670"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      47
+     ],
+     "next_line": 9.5,
+     "next_note": "Londrina 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.7589201593061693,
+      0.8385007693539106
+     ],
+     "fair": 1.37,
+     "ladder": [
+      [
+       7.5,
+       1.24
+      ],
+      [
+       8.5,
+       1.37
+      ]
+     ],
+     "avg": [
+      11.6,
+      10.8
+     ],
+     "expect_sum": 11.2,
+     "expect_matchup": 13.8,
+     "contrib": [
+      8.9,
+      4.9
+     ],
+     "expect": 12.5,
+     "buffer": 4.0,
+     "fa": [
+      [
+       5.3,
+       5.8
+      ],
+      [
+       5.3,
+       5.7
+      ]
+     ],
+     "sd": 3.56,
+     "p_emp": {
+      "7.5": 0.8064516129032259,
+      "8.5": 0.7299270072992701
+     },
+     "range": [
+      1.26,
+      1.506
+     ],
+     "b365": [
+      "10.5",
+      "1.900",
+      "1.900"
+     ],
+     "p_mod": 0.869,
+     "p_fin": 0.8,
+     "fair_fin": 1.25,
+     "ladder_fin": [
+      [
+       7.5,
+       1.16
+      ],
+      [
+       8.5,
+       1.25
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 73 % vs. Modell 87 %",
+     "first_run": "Do 20:29"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12470302",
+    "league": "Copa Sudamericana",
+    "home": "Cienciano",
+    "away": "Torque",
+    "home_id": "1356",
+    "away_id": "28749",
+    "kickoff": "Fr 02:30",
+    "kickoff_ts": 1789086600,
+    "bet365_id": "199946615"
+   },
+   "signals": [
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      50,
+      44
+     ],
+     "next_line": 8.5,
+     "next_note": "kein Anker — Cienciano 7/9 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; Torque 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.7372720173224321,
+      0.6403905412293707
+     ],
+     "fair": 1.51,
+     "ladder": [
+      [
+       6.5,
+       1.34
+      ],
+      [
+       7.5,
+       1.51
+      ]
+     ],
+     "avg": [
+      9.5,
+      9.3
+     ],
+     "expect_sum": 9.4,
+     "expect_matchup": 9.8,
+     "contrib": [
+      5.7,
+      4.1
+     ],
+     "expect": 9.6,
+     "buffer": 2.1,
+     "fa": [
+      [
+       5.0,
+       4.1
+      ],
+      [
+       4.5,
+       3.3
+      ]
+     ],
+     "sd": 2.99,
+     "p_emp": {
+      "6.5": 0.7462686567164178,
+      "7.5": 0.6622516556291391
+     },
+     "range": [
+      1.24,
+      1.98
+     ],
+     "p_mod": 0.759,
+     "p_fin": 0.711,
+     "fair_fin": 1.41,
+     "ladder_fin": [
+      [
+       6.5,
+       1.25
+      ],
+      [
+       7.5,
+       1.41
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.41",
+     "first_run": "Do 20:29"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      37,
+      13
+     ],
+     "next_line": 4.5,
+     "next_note": "Cienciano 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.6642223328342616,
+      1.0
+     ],
+     "fair": 1.27,
+     "ladder": [
+      [
+       5.5,
+       1.27
+      ],
+      [
+       6.5,
+       1.34
+      ]
+     ],
+     "avg": [
+      4.7,
+      1.3
+     ],
+     "expect_sum": 3.0,
+     "expect_matchup": 1.8,
+     "contrib": [
+      0.7,
+      1.1
+     ],
+     "expect": 2.4,
+     "buffer": 3.1,
+     "fa": [
+      [
+       1.8,
+       3.0
+      ],
+      [
+       0.9,
+       1.0
+      ]
+     ],
+     "sd": 2.01,
+     "p_emp": {
+      "5.5": 0.7874015748031495,
+      "6.5": 0.7462686567164178
+     },
+     "range": [
+      1.73,
+      2.0
+     ],
+     "p_mod": 0.938,
+     "p_fin": 0.863,
+     "fair_fin": 1.16,
+     "ladder_fin": [
+      [
+       5.5,
+       1.16
+      ],
+      [
+       6.5,
+       1.16
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 79 % vs. Modell 94 %",
+     "first_run": "Do 20:29"
+    },
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 26.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      37,
+      13
+     ],
+     "next_line": 24.5,
+     "next_note": "Torque 3/5 (3. Lücke) gesamt, 4/6 auswärts",
+     "longterm": [
+      0.8017560329907664,
+      0.6683133928940062
+     ],
+     "fair": 1.39,
+     "ladder": [
+      [
+       26.5,
+       1.39
+      ],
+      [
+       28.5,
+       1.18
+      ]
+     ],
+     "avg": [
+      18.2,
+      22.3
+     ],
+     "expect_sum": 20.2,
+     "expect_matchup": 16.8,
+     "contrib": [
+      6.9,
+      9.8
+     ],
+     "expect": 18.5,
+     "buffer": 8.0,
+     "fa": [
+      [
+       10.6,
+       10.8
+      ],
+      [
+       11.9,
+       10.5
+      ]
+     ],
+     "sd": 5.54,
+     "p_emp": {
+      "26.5": 0.7194244604316548,
+      "28.5": 0.8474576271186441
+     },
+     "range": [
+      1.69,
+      1.79
+     ],
+     "referee": "Wilton Pereira Sampaio: Ø 4.5 Karten (22 Sp.) · Ø 25.2 Fouls (22 Sp.)",
+     "expect_ref": 19.2,
+     "buffer_ref": 7.3,
+     "p_mod": 0.906,
+     "p_fin": 0.813,
+     "fair_fin": 1.23,
+     "ladder_fin": [
+      [
+       26.5,
+       1.23
+      ],
+      [
+       28.5,
+       1.11
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 72 % vs. Modell 91 %",
+     "first_run": "Do 20:29"
+    },
+    {
+     "metric": "Schüsse gesamt",
+     "metric_key": "shots_total",
+     "line": 30.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      14
+     ],
+     "next_line": 28.5,
+     "next_note": "Cienciano 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+     "longterm": [
+      0.9781255727015578,
+      1.0
+     ],
+     "fair": 1.02,
+     "ladder": [
+      [
+       30.5,
+       1.02
+      ],
+      [
+       32.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      22.3,
+      16.4
+     ],
+     "expect_sum": 19.3,
+     "expect_matchup": 21.6,
+     "contrib": [
+      14.4,
+      7.3
+     ],
+     "expect": 20.5,
+     "buffer": 10.0,
+     "fa": [
+      [
+       11.9,
+       8.4
+      ],
+      [
+       7.6,
+       8.2
+      ]
+     ],
+     "sd": 5.27,
+     "p_emp": {
+      "30.5": 0.9803921568627451,
+      "32.5": 0.7936507936507936
+     },
+     "range": [
+      1.24,
+      1.98
+     ],
+     "p_mod": 0.971,
+     "p_fin": 0.976,
+     "fair_fin": 1.02,
+     "ladder_fin": [
+      [
+       30.5,
+       1.02
+      ],
+      [
+       32.5,
+       1.12
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.02",
+     "first_run": "Do 20:29"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11417169",
+    "league": "Brazil Serie B",
+    "home": "Sport Recife",
+    "away": "Ponte Preta",
+    "home_id": "1421",
+    "away_id": "9173",
+    "kickoff": "Fr 02:30",
+    "kickoff_ts": 1789086600,
+    "bet365_id": "200099677"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 8.5,
+     "next_note": "kein Anker — Sport Recife 8/10 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Ponte Preta 6/8 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.8142581636300547,
+      0.7731144718010697
+     ],
+     "fair": 1.32,
+     "ladder": [
+      [
+       6.5,
+       1.33
+      ],
+      [
+       7.5,
+       1.32
+      ]
+     ],
+     "avg": [
+      10.7,
+      10.9
+     ],
+     "expect_sum": 10.8,
+     "expect_matchup": 12.7,
+     "contrib": [
+      7.9,
+      4.8
+     ],
+     "expect": 11.7,
+     "buffer": 4.2,
+     "fa": [
+      [
+       5.1,
+       5.2
+      ],
+      [
+       4.9,
+       5.9
+      ]
+     ],
+     "sd": 3.98,
+     "p_emp": {
+      "6.5": 0.7518796992481203,
+      "7.5": 0.7575757575757576
+     },
+     "range": [
+      1.31,
+      1.37
+     ],
+     "b365": [
+      "11.5",
+      "1.900",
+      "1.900"
+     ],
+     "p_mod": 0.854,
+     "p_fin": 0.806,
+     "fair_fin": 1.24,
+     "ladder_fin": [
+      [
+       6.5,
+       1.21
+      ],
+      [
+       7.5,
+       1.24
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.24",
+     "first_run": "Do 20:29"
+    },
+    {
+     "metric": "1. HZ Ecken",
+     "metric_key": "ht_corners",
+     "line": 3.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 4.5,
+     "next_note": "Sport Recife 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.6615073840272638,
+      0.7547851075019217
+     ],
+     "fair": 1.46,
+     "ladder": [
+      [
+       2.5,
+       1.36
+      ],
+      [
+       3.5,
+       1.46
+      ]
+     ],
+     "avg": [
+      4.9,
+      6.3
+     ],
+     "expect_sum": 5.6,
+     "expect_matchup": 7.0,
+     "contrib": [
+      3.8,
+      3.2
+     ],
+     "expect": 6.3,
+     "buffer": 2.8,
+     "fa": [
+      [
+       2.4,
+       2.4
+      ],
+      [
+       2.8,
+       2.8
+      ]
+     ],
+     "sd": 2.62,
+     "p_emp": {
+      "2.5": 0.7352941176470588,
+      "3.5": 0.684931506849315
+     },
+     "range": [
+      1.31,
+      1.37
+     ],
+     "b365": [
+      "5.0",
+      "1.750",
+      "2.050"
+     ],
+     "p_mod": 0.857,
+     "p_fin": 0.771,
+     "fair_fin": 1.3,
+     "ladder_fin": [
+      [
+       2.5,
+       1.2
+      ],
+      [
+       3.5,
+       1.3
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 68 % vs. Modell 86 %",
+     "first_run": "Do 20:29"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13017019",
+    "league": "Copa Libertadores",
+    "home": "Independiente del Valle",
+    "away": "Flamengo",
+    "home_id": "37492",
+    "away_id": "1339",
+    "kickoff": "Fr 02:30",
+    "kickoff_ts": 1789086600,
+    "bet365_id": "200200177"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      42,
+      47
+     ],
+     "next_line": 3.5,
+     "next_note": "Independiente del Valle 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Flamengo 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.6197884523030054,
+      0.8181748062044858
+     ],
+     "fair": 1.46,
+     "ladder": [
+      [
+       4.5,
+       1.46
+      ],
+      [
+       5.5,
+       1.22
+      ]
+     ],
+     "avg": [
+      3.5,
+      3.5
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 2.8,
+     "contrib": [
+      1.0,
+      1.9
+     ],
+     "expect": 3.2,
+     "buffer": 1.3,
+     "fa": [
+      [
+       1.6,
+       2.7
+      ],
+      [
+       1.6,
+       2.2
+      ]
+     ],
+     "sd": 1.81,
+     "p_emp": {
+      "4.5": 0.684931506849315,
+      "5.5": 0.819672131147541
+     },
+     "range": [
+      1.24,
+      1.97
+     ],
+     "referee": "Facundo Tello: Ø 4.8 Karten (27 Sp.) · Ø 23.8 Fouls (20 Sp.)",
+     "expect_ref": 3.7,
+     "buffer_ref": 0.8,
+     "p_mod": 0.671,
+     "p_fin": 0.678,
+     "fair_fin": 1.48,
+     "ladder_fin": [
+      [
+       4.5,
+       1.48
+      ],
+      [
+       5.5,
+       1.21
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "68 % knapp",
+     "first_run": "Do 20:29"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      10,
+      43
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — Independiente del Valle 9/10 gesamt, 5 in Folge heim; Flamengo 7/9 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
+     "longterm": [
+      0.9332206083725904,
+      0.849387703030464
+     ],
+     "fair": 1.24,
+     "ladder": [
+      [
+       4.5,
+       1.24
+      ],
+      [
+       5.5,
+       1.13
+      ]
+     ],
+     "avg": [
+      1.2,
+      2.1
+     ],
+     "expect_sum": 1.6,
+     "expect_matchup": 0.7,
+     "contrib": [
+      0.4,
+      0.4
+     ],
+     "expect": 1.2,
+     "buffer": 3.3,
+     "fa": [
+      [
+       0.9,
+       1.3
+      ],
+      [
+       1.1,
+       1.4
+      ]
+     ],
+     "sd": 1.79,
+     "p_emp": {
+      "4.5": 0.8064516129032259,
+      "5.5": 0.8849557522123894
+     },
+     "range": [
+      1.66,
+      2.3
+     ],
+     "p_mod": 0.967,
+     "p_fin": 0.887,
+     "fair_fin": 1.13,
+     "ladder_fin": [
+      [
+       4.5,
+       1.13
+      ],
+      [
+       5.5,
+       1.07
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 81 % vs. Modell 97 %",
+     "first_run": "Do 20:29"
+    },
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 24.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      10,
+      43
+     ],
+     "next_line": 22.5,
+     "next_note": "kein Anker — Independiente del Valle 8/10 (Aussetzer in den letzten 2) gesamt, 5 in Folge heim; Flamengo 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.8837303260043722,
+      0.724848245044794
+     ],
+     "fair": 1.49,
+     "ladder": [
+      [
+       24.5,
+       1.49
+      ],
+      [
+       26.5,
+       1.32
+      ]
+     ],
+     "avg": [
+      11.6,
+      21.9
+     ],
+     "expect_sum": 16.7,
+     "expect_matchup": 10.5,
+     "contrib": [
+      4.7,
+      5.8
+     ],
+     "expect": 13.6,
+     "buffer": 10.9,
+     "fa": [
+      [
+       7.4,
+       8.6
+      ],
+      [
+       11.8,
+       11.6
+      ]
+     ],
+     "sd": 7.06,
+     "p_emp": {
+      "24.5": 0.6711409395973155,
+      "26.5": 0.7575757575757576
+     },
+     "range": [
+      1.48,
+      2.49
+     ],
+     "referee": "Facundo Tello: Ø 4.8 Karten (27 Sp.) · Ø 23.8 Fouls (20 Sp.)",
+     "expect_ref": 13.5,
+     "buffer_ref": 11.0,
+     "p_mod": 0.94,
+     "p_fin": 0.806,
+     "fair_fin": 1.24,
+     "ladder_fin": [
+      [
+       24.5,
+       1.24
+      ],
+      [
+       26.5,
+       1.16
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "Historie 67 % und Modell 94 % widersprechen sich",
+     "first_run": "Do 20:29"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 2.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      42,
+      46
+     ],
+     "next_line": 1.5,
+     "next_note": "Flamengo 8/10 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.8379947763789489,
+      0.8612274241340159
+     ],
+     "fair": 1.19,
+     "ladder": [
+      [
+       2.5,
+       1.19
+      ],
+      [
+       3.5,
+       1.21
+      ]
+     ],
+     "avg": [
+      0.8,
+      1.6
+     ],
+     "expect_sum": 1.2,
+     "expect_matchup": 0.8,
+     "contrib": [
+      0.3,
+      0.6
+     ],
+     "expect": 1.0,
+     "buffer": 1.5,
+     "fa": [
+      [
+       0.6,
+       0.9
+      ],
+      [
+       0.7,
+       0.7
+      ]
+     ],
+     "sd": 1.17,
+     "p_emp": {
+      "2.5": 0.8403361344537815,
+      "3.5": 0.8264462809917356
+     },
+     "range": [
+      1.24,
+      1.97
+     ],
+     "referee": "Facundo Tello: Ø 4.8 Karten (27 Sp.) · Ø 23.8 Fouls (20 Sp.)",
+     "expect_ref": 2.9,
+     "buffer_ref": -0.4,
+     "p_mod": 0.366,
+     "p_fin": 0.603,
+     "fair_fin": 1.66,
+     "ladder_fin": [
+      [
+       2.5,
+       1.66
+      ],
+      [
+       3.5,
+       1.31
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "Historie 84 % und Modell 37 % widersprechen sich",
+     "first_run": "Do 20:29"
+    },
+    {
+     "metric": "Schüsse gesamt",
+     "metric_key": "shots_total",
+     "line": 22.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      10,
+      46
+     ],
+     "next_line": 20.5,
+     "next_note": "Flamengo 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.7770474978880944,
+      0.7431135620516423
+     ],
+     "fair": 1.26,
+     "ladder": [
+      [
+       22.5,
+       1.26
+      ],
+      [
+       24.5,
+       1.16
+      ]
+     ],
+     "avg": [
+      19.7,
+      17.7
+     ],
+     "expect_sum": 18.7,
+     "expect_matchup": 20.7,
+     "contrib": [
+      15.6,
+      5.1
+     ],
+     "expect": 19.7,
+     "buffer": 2.8,
+     "fa": [
+      [
+       13.3,
+       8.0
+      ],
+      [
+       11.0,
+       7.1
+      ]
+     ],
+     "sd": 5.06,
+     "p_emp": {
+      "22.5": 0.7936507936507936,
+      "24.5": 0.8620689655172414
+     },
+     "range": [
+      1.34,
+      1.97
+     ],
+     "p_mod": 0.71,
+     "p_fin": 0.752,
+     "fair_fin": 1.33,
+     "ladder_fin": [
+      [
+       22.5,
+       1.33
+      ],
+      [
+       24.5,
+       1.18
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.33",
+     "first_run": "Do 20:29"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13061673",
+    "league": "Colombia Primera A",
+    "home": "Millonarios",
+    "away": "Deportivo Cali",
+    "home_id": "1493",
+    "away_id": "4122",
+    "kickoff": "Fr 03:00",
+    "kickoff_ts": 1789088400,
+    "bet365_id": "200880519"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      41
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — Millonarios 6/8 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Deportivo Cali 8/10 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+     "longterm": [
+      0.9331669082343284,
+      0.8812694121381839
+     ],
+     "fair": 1.18,
+     "ladder": [
+      [
+       1.5,
+       1.3
+      ],
+      [
+       2.5,
+       1.18
+      ]
+     ],
+     "avg": [
+      5.5,
+      5.6
+     ],
+     "expect_sum": 5.5,
+     "expect_matchup": 7.5,
+     "contrib": [
+      3.4,
+      4.1
+     ],
+     "expect": 6.5,
+     "buffer": 4.0,
+     "fa": [
+      [
+       2.8,
+       3.1
+      ],
+      [
+       2.8,
+       3.4
+      ]
+     ],
+     "sd": 2.63,
+     "p_emp": {
+      "1.5": 0.7692307692307692,
+      "2.5": 0.8474576271186441
+     },
+     "range": [
+      1.92,
+      1.95
+     ],
+     "referee": "Carlos Andres Marquez Ortega: Ø 6.5 Karten (19 Sp.) · Ø 23.6 Fouls (8 Sp.)",
+     "expect_ref": 9.2,
+     "buffer_ref": 6.7,
+     "p_mod": 0.995,
+     "p_fin": 0.921,
+     "fair_fin": 1.09,
+     "ladder_fin": [
+      [
+       1.5,
+       1.13
+      ],
+      [
+       2.5,
+       1.09
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 85 % vs. Modell 99 %",
+     "first_run": "Do 20:29",
+     "change_note": "Quoten vorher 2.10–2.22"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      41
+     ],
+     "next_line": 1.5,
+     "next_note": "Millonarios 1/3 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Deportivo Cali 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.9137978448343625,
+      0.8574104454901583
+     ],
+     "fair": 1.21,
+     "ladder": [
+      [
+       0.5,
+       1.21
+      ]
+     ],
+     "avg": [
+      2.4,
+      1.9
+     ],
+     "expect_sum": 2.2,
+     "expect_matchup": 3.3,
+     "contrib": [
+      1.3,
+      2.0
+     ],
+     "expect": 2.8,
+     "buffer": 2.3,
+     "fa": [
+      [
+       1.0,
+       1.3
+      ],
+      [
+       1.0,
+       1.3
+      ]
+     ],
+     "sd": 1.39,
+     "p_emp": {
+      "0.5": 0.8264462809917356
+     },
+     "range": [
+      1.92,
+      1.95
+     ],
+     "referee": "Carlos Andres Marquez Ortega: Ø 6.5 Karten (19 Sp.) · Ø 23.6 Fouls (8 Sp.)",
+     "expect_ref": 9.9,
+     "buffer_ref": 9.4,
+     "p_mod": 1.0,
+     "p_fin": 0.913,
+     "fair_fin": 1.1,
+     "ladder_fin": [
+      [
+       0.5,
+       1.1
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 83 % vs. Modell 100 %",
+     "first_run": "Do 20:29",
+     "change_note": "Quoten vorher 2.10–2.22"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13072586",
+    "league": "Mexico Liga MX",
+    "home": "Unam Pumas",
+    "away": "Leon",
+    "home_id": "44097",
+    "away_id": "1466",
+    "kickoff": "Fr 05:05",
+    "kickoff_ts": 1789095900,
+    "bet365_id": "200935674"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 9.5,
+     "next_note": "Unam Pumas 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Leon 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.6234733248935589,
+      0.7999071000886943
+     ],
+     "fair": 1.51,
+     "ladder": [
+      [
+       7.5,
+       1.33
+      ],
+      [
+       8.5,
+       1.51
+      ]
+     ],
+     "avg": [
+      10.4,
+      10.4
+     ],
+     "expect_sum": 10.4,
+     "expect_matchup": 11.7,
+     "contrib": [
+      6.3,
+      5.4
+     ],
+     "expect": 11.1,
+     "buffer": 2.6,
+     "fa": [
+      [
+       4.0,
+       5.6
+      ],
+      [
+       4.9,
+       5.3
+      ]
+     ],
+     "sd": 3.07,
+     "p_emp": {
+      "7.5": 0.7518796992481203,
+      "8.5": 0.6622516556291391
+     },
+     "range": [
+      1.52,
+      1.54
+     ],
+     "b365": [
+      "9.5",
+      "1.850",
+      "1.950"
+     ],
+     "p_mod": 0.801,
+     "p_fin": 0.732,
+     "fair_fin": 1.37,
+     "ladder_fin": [
+      [
+       7.5,
+       1.23
+      ],
+      [
+       8.5,
+       1.37
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 66 % vs. Modell 80 %",
+     "first_run": "Do 20:29"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 4.5,
+     "next_note": "Leon 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8350818853138469,
+      0.772890576796564
+     ],
+     "fair": 1.27,
+     "ladder": [
+      [
+       5.5,
+       1.27
+      ],
+      [
+       6.5,
+       1.12
+      ]
+     ],
+     "avg": [
+      3.1,
+      4.1
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 3.1,
+     "contrib": [
+      1.6,
+      1.5
+     ],
+     "expect": 3.4,
+     "buffer": 2.1,
+     "fa": [
+      [
+       2.1,
+       1.6
+      ],
+      [
+       2.2,
+       2.1
+      ]
+     ],
+     "sd": 2.02,
+     "p_emp": {
+      "5.5": 0.7874015748031495,
+      "6.5": 0.8928571428571428
+     },
+     "range": [
+      1.21,
+      1.86
+     ],
+     "p_mod": 0.851,
+     "p_fin": 0.819,
+     "fair_fin": 1.22,
+     "ladder_fin": [
+      [
+       5.5,
+       1.22
+      ],
+      [
+       6.5,
+       1.09
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.22",
+     "first_run": "Do 20:29",
+     "change_note": "Quoten vorher 1.22–1.89"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 2.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 1.5,
+     "next_note": "Leon 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8820734572270315,
+      0.8153612990971103
+     ],
+     "fair": 1.19,
+     "ladder": [
+      [
+       2.5,
+       1.19
+      ],
+      [
+       3.5,
+       1.27
+      ]
+     ],
+     "avg": [
+      1.0,
+      1.8
+     ],
+     "expect_sum": 1.4,
+     "expect_matchup": 1.3,
+     "contrib": [
+      0.7,
+      0.6
+     ],
+     "expect": 1.4,
+     "buffer": 1.1,
+     "fa": [
+      [
+       0.9,
+       0.7
+      ],
+      [
+       0.8,
+       0.8
+      ]
+     ],
+     "sd": 1.22,
+     "p_emp": {
+      "2.5": 0.8403361344537815,
+      "3.5": 0.7874015748031495
+     },
+     "range": [
+      1.21,
+      1.86
+     ],
+     "p_mod": 0.816,
+     "p_fin": 0.828,
+     "fair_fin": 1.21,
+     "ladder_fin": [
+      [
+       2.5,
+       1.21
+      ],
+      [
+       3.5,
+       1.15
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.21",
+     "first_run": "Do 20:29",
+     "change_note": "Quoten vorher 1.22–1.89"
+    }
+   ]
+  }
+ ],
+ "new": [],
+ "changed": [
+  "13061673|yellowcards|über",
+  "13061673|ht_yellowcards|über",
+  "13072586|yellowcards|unter",
+  "13072586|ht_yellowcards|unter"
+ ],
+ "dropped": []
+}
