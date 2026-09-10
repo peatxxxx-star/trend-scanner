@@ -2,18 +2,19 @@ name: Trend-Scan
 
 on:
   schedule:
-    # Alle 2 Stunden, 04:17–18:17 UTC = 06:17–20:17 deutscher Sommerzeit.
+    # STÜNDLICH, 04:17–19:17 UTC = 06:17–21:17 deutscher Sommerzeit
+    # (10.09.: vorher alle 2 Stunden und nur bis 20:17 — viele Nebenmärkte
+    # werden erst kurz vor Anpfiff veröffentlicht; jede spätere Stunde
+    # bringt zusätzliche Märkte).
     # Minute 17 statt 0: GitHub startet Cron-Jobs zur vollen Stunde oft mit
     # großer Verspätung (Warteschlange) — schräge Minuten laufen pünktlicher.
     # Hinweis: Im Winter (UTC+1) verschiebt sich das um eine Stunde;
-    # bei Bedarf dann auf "17 5-19/2 * * *" ändern.
-    # Der 18:17-UTC-Lauf (= 20:17 deutscher Zeit) ist der LETZTE des Tages und
-    # deckt zugleich alle Anstöße bis 06:00 früh ab (Nachtspiele) — der frühere
-    # Extra-Lauf um 21:11 entfällt (Lucio, 06.09.).
-    - cron: "17 4-18/2 * * *"
-    # Freitag + Samstag zusätzlich ein später Schlusslauf: 20:05 UTC =
-    # 22:05 deutscher Sommerzeit (Lucio schafft es an diesen Tagen länger).
-    # Prüffenster wie beim 20:17-Lauf, also bis 06:00 früh.
+    # bei Bedarf dann auf "17 5-20 * * *" ändern.
+    # Ab dem 20-Uhr-Lauf reicht das Prüffenster bis 06:00 früh (Nachtspiele),
+    # der 21:17-Lauf ist der letzte des Tages.
+    - cron: "17 4-19 * * *"
+    # Freitag + Samstag noch einmal später: 20:05 UTC = 22:05 deutscher
+    # Sommerzeit (an diesen Tagen bleibt Lucio länger wach).
     # (Winter: "5 21 * * 5,6")
     - cron: "5 20 * * 5,6"
     # Vorwärm-Läufe 21:17/23:17/01:17/03:17 UTC = 23:17, 01:17, 03:17, 05:17
