@@ -1,236 +1,4 @@
 {
- "12051839|yellowcards|unter": {
-  "match_id": "12051839",
-  "home": "Vissel Kobe",
-  "away": "Kashima Antlers",
-  "kickoff": "Fr 12:00",
-  "kickoff_ts": 1789120800,
-  "league": "Japan J-League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Fr 06:28",
-  "first_line": 3.5,
-  "first_range": [
-   1.61,
-   1.79
-  ],
-  "last_run": "Fr 10:29",
-  "line": 3.5,
-  "range": [
-   1.61,
-   1.79
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 3.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 17
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    50,
-    50
-   ],
-   "next_line": 2.5,
-   "next_note": "kein Anker — Vissel Kobe 2/4 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Kashima Antlers 3/5 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "longterm": [
-    0.7744981254234078,
-    0.7295054437612202
-   ],
-   "fair": 1.5,
-   "ladder": [
-    [
-     3.5,
-     1.5
-    ],
-    [
-     4.5,
-     1.19
-    ]
-   ],
-   "avg": [
-    2.2,
-    2.3
-   ],
-   "expect": 1.7,
-   "expect_sum": 2.2,
-   "expect_matchup": 1.2,
-   "contrib": [
-    0.7,
-    0.6
-   ],
-   "buffer": 1.8,
-   "fa": [
-    [
-     1.1,
-     1.6
-    ],
-    [
-     1.2,
-     1.6
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.4,
-   "p_emp": {
-    "3.5": 0.6666666666666666,
-    "4.5": 0.8403361344537815
-   },
-   "p_mod": 0.901,
-   "p_fin": 0.784,
-   "fair_fin": 1.28,
-   "ladder_fin": [
-    [
-     3.5,
-     1.28
-    ],
-    [
-     4.5,
-     1.1
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 67 % vs. Modell 90 %",
-   "range": [
-    1.61,
-    1.79
-   ]
-  },
-  "v": 2
- },
- "12051839|offsides|unter": {
-  "match_id": "12051839",
-  "home": "Vissel Kobe",
-  "away": "Kashima Antlers",
-  "kickoff": "Fr 12:00",
-  "kickoff_ts": 1789120800,
-  "league": "Japan J-League",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "Fr 10:29",
-  "first_line": 5.5,
-  "first_range": [
-   1.33,
-   1.61
-  ],
-  "last_run": "Fr 10:29",
-  "line": 5.5,
-  "range": [
-   1.33,
-   1.61
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    43,
-    45
-   ],
-   "next_line": 4.5,
-   "next_note": "kein Anker — Vissel Kobe 6/8 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Kashima Antlers 9/11 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
-   "longterm": [
-    0.7878584419166453,
-    0.8596151752916301
-   ],
-   "fair": 1.21,
-   "ladder": [
-    [
-     5.5,
-     1.21
-    ],
-    [
-     6.5,
-     1.27
-    ]
-   ],
-   "avg": [
-    4.0,
-    3.5
-   ],
-   "expect": 3.9,
-   "expect_sum": 3.8,
-   "expect_matchup": 4.1,
-   "contrib": [
-    1.6,
-    2.4
-   ],
-   "buffer": 1.6,
-   "fa": [
-    [
-     1.9,
-     2.1
-    ],
-    [
-     1.4,
-     1.5
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.3,
-   "p_emp": {
-    "5.5": 0.8264462809917356,
-    "6.5": 0.7874015748031495
-   },
-   "p_mod": 0.757,
-   "p_fin": 0.792,
-   "fair_fin": 1.26,
-   "ladder_fin": [
-    [
-     5.5,
-     1.26
-    ],
-    [
-     6.5,
-     1.21
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.26",
-   "range": [
-    1.33,
-    1.61
-   ]
-  },
-  "v": 2
- },
  "12051841|yellowcards|unter": {
   "match_id": "12051841",
   "home": "Kyoto Sanga FC",
@@ -247,7 +15,7 @@
    1.4,
    1.96
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 4.5,
   "range": [
    1.4,
@@ -363,11 +131,11 @@
    1.31,
    2.43
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 3.5,
   "range": [
-   1.31,
-   2.43
+   1.22,
+   1.85
   ],
   "signal": {
    "metric": "1. HZ Ecken",
@@ -461,8 +229,240 @@
    "light": "🟢",
    "reason": "fair 1.47",
    "range": [
-    1.31,
-    2.43
+    1.22,
+    1.85
+   ]
+  },
+  "v": 2
+ },
+ "12051839|yellowcards|unter": {
+  "match_id": "12051839",
+  "home": "Vissel Kobe",
+  "away": "Kashima Antlers",
+  "kickoff": "Fr 12:00",
+  "kickoff_ts": 1789120800,
+  "league": "Japan J-League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Fr 06:28",
+  "first_line": 3.5,
+  "first_range": [
+   1.61,
+   1.79
+  ],
+  "last_run": "Fr 11:31",
+  "line": 3.5,
+  "range": [
+   1.61,
+   1.79
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 3.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 17
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    50,
+    50
+   ],
+   "next_line": 2.5,
+   "next_note": "kein Anker — Vissel Kobe 2/4 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Kashima Antlers 3/5 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.7744981254234078,
+    0.7295054437612202
+   ],
+   "fair": 1.5,
+   "ladder": [
+    [
+     3.5,
+     1.5
+    ],
+    [
+     4.5,
+     1.19
+    ]
+   ],
+   "avg": [
+    2.2,
+    2.3
+   ],
+   "expect": 1.7,
+   "expect_sum": 2.2,
+   "expect_matchup": 1.2,
+   "contrib": [
+    0.7,
+    0.6
+   ],
+   "buffer": 1.8,
+   "fa": [
+    [
+     1.1,
+     1.6
+    ],
+    [
+     1.2,
+     1.6
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.4,
+   "p_emp": {
+    "3.5": 0.6666666666666666,
+    "4.5": 0.8403361344537815
+   },
+   "p_mod": 0.901,
+   "p_fin": 0.784,
+   "fair_fin": 1.28,
+   "ladder_fin": [
+    [
+     3.5,
+     1.28
+    ],
+    [
+     4.5,
+     1.1
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 67 % vs. Modell 90 %",
+   "range": [
+    1.61,
+    1.79
+   ]
+  },
+  "v": 2
+ },
+ "12051839|offsides|unter": {
+  "match_id": "12051839",
+  "home": "Vissel Kobe",
+  "away": "Kashima Antlers",
+  "kickoff": "Fr 12:00",
+  "kickoff_ts": 1789120800,
+  "league": "Japan J-League",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Fr 10:29",
+  "first_line": 5.5,
+  "first_range": [
+   1.33,
+   1.61
+  ],
+  "last_run": "Fr 11:31",
+  "line": 5.5,
+  "range": [
+   1.33,
+   1.61
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    45
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — Vissel Kobe 6/8 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Kashima Antlers 9/11 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.7878584419166453,
+    0.8596151752916301
+   ],
+   "fair": 1.21,
+   "ladder": [
+    [
+     5.5,
+     1.21
+    ],
+    [
+     6.5,
+     1.27
+    ]
+   ],
+   "avg": [
+    4.0,
+    3.5
+   ],
+   "expect": 3.9,
+   "expect_sum": 3.8,
+   "expect_matchup": 4.1,
+   "contrib": [
+    1.6,
+    2.4
+   ],
+   "buffer": 1.6,
+   "fa": [
+    [
+     1.9,
+     2.1
+    ],
+    [
+     1.4,
+     1.5
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.3,
+   "p_emp": {
+    "5.5": 0.8264462809917356,
+    "6.5": 0.7874015748031495
+   },
+   "p_mod": 0.757,
+   "p_fin": 0.792,
+   "fair_fin": 1.26,
+   "ladder_fin": [
+    [
+     5.5,
+     1.26
+    ],
+    [
+     6.5,
+     1.21
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.26",
+   "range": [
+    1.33,
+    1.61
    ]
   },
   "v": 2
@@ -483,7 +483,7 @@
    1.227,
    2.16
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 7.5,
   "range": [
    1.227,
@@ -587,126 +587,6 @@
   },
   "v": 2
  },
- "12392017|ht_corners|über": {
-  "match_id": "12392017",
-  "home": "Dewa United FC",
-  "away": "Bhayangkara FC",
-  "kickoff": "Fr 14:00",
-  "kickoff_ts": 1789128000,
-  "league": "Indonesia Super League",
-  "metric": "1. HZ Ecken",
-  "metric_key": "ht_corners",
-  "direction": "über",
-  "first_run": "Fr 06:28",
-  "first_line": 3.5,
-  "first_range": [
-   1.19,
-   2.1
-  ],
-  "last_run": "Fr 10:29",
-  "line": 3.5,
-  "range": [
-   1.19,
-   2.1
-  ],
-  "signal": {
-   "metric": "1. HZ Ecken",
-   "metric_key": "ht_corners",
-   "direction": "über",
-   "line": 3.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    46
-   ],
-   "next_line": 4.5,
-   "next_note": "Bhayangkara FC 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "longterm": [
-    0.744785897908858,
-    0.7519057005708404
-   ],
-   "fair": 1.41,
-   "ladder": [
-    [
-     2.5,
-     1.38
-    ],
-    [
-     3.5,
-     1.41
-    ]
-   ],
-   "avg": [
-    5.0,
-    4.6
-   ],
-   "expect": 5.0,
-   "expect_sum": 4.8,
-   "expect_matchup": 5.2,
-   "contrib": [
-    2.5,
-    2.7
-   ],
-   "buffer": 1.5,
-   "fa": [
-    [
-     2.5,
-     2.4
-    ],
-    [
-     2.4,
-     2.1
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "4.5",
-    "1.900",
-    "1.900"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.38,
-   "p_emp": {
-    "2.5": 0.7246376811594204,
-    "3.5": 0.7092198581560284
-   },
-   "p_mod": 0.736,
-   "p_fin": 0.722,
-   "fair_fin": 1.38,
-   "ladder_fin": [
-    [
-     2.5,
-     1.27
-    ],
-    [
-     3.5,
-     1.38
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.38",
-   "range": [
-    1.19,
-    2.1
-   ]
-  },
-  "v": 2
- },
  "12255858|ht_corners|über": {
   "match_id": "12255858",
   "home": "Ratchaburi FC",
@@ -723,7 +603,7 @@
    1.7,
    2.02
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 3.5,
   "range": [
    1.73,
@@ -827,6 +707,126 @@
   },
   "v": 2
  },
+ "12392017|ht_corners|über": {
+  "match_id": "12392017",
+  "home": "Dewa United FC",
+  "away": "Bhayangkara FC",
+  "kickoff": "Fr 14:00",
+  "kickoff_ts": 1789128000,
+  "league": "Indonesia Super League",
+  "metric": "1. HZ Ecken",
+  "metric_key": "ht_corners",
+  "direction": "über",
+  "first_run": "Fr 06:28",
+  "first_line": 3.5,
+  "first_range": [
+   1.19,
+   2.1
+  ],
+  "last_run": "Fr 11:31",
+  "line": 3.5,
+  "range": [
+   1.19,
+   2.1
+  ],
+  "signal": {
+   "metric": "1. HZ Ecken",
+   "metric_key": "ht_corners",
+   "direction": "über",
+   "line": 3.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    46
+   ],
+   "next_line": 4.5,
+   "next_note": "Bhayangkara FC 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.744785897908858,
+    0.7519057005708404
+   ],
+   "fair": 1.41,
+   "ladder": [
+    [
+     2.5,
+     1.38
+    ],
+    [
+     3.5,
+     1.41
+    ]
+   ],
+   "avg": [
+    5.0,
+    4.6
+   ],
+   "expect": 5.0,
+   "expect_sum": 4.8,
+   "expect_matchup": 5.2,
+   "contrib": [
+    2.5,
+    2.7
+   ],
+   "buffer": 1.5,
+   "fa": [
+    [
+     2.5,
+     2.4
+    ],
+    [
+     2.4,
+     2.1
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "4.5",
+    "1.900",
+    "1.900"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.38,
+   "p_emp": {
+    "2.5": 0.7246376811594204,
+    "3.5": 0.7092198581560284
+   },
+   "p_mod": 0.736,
+   "p_fin": 0.722,
+   "fair_fin": 1.38,
+   "ladder_fin": [
+    [
+     2.5,
+     1.27
+    ],
+    [
+     3.5,
+     1.38
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.38",
+   "range": [
+    1.19,
+    2.1
+   ]
+  },
+  "v": 2
+ },
  "12469569|corners|über": {
   "match_id": "12469569",
   "home": "Khor Fakkan",
@@ -843,7 +843,7 @@
    1.198,
    1.97
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 7.5,
   "range": [
    1.198,
@@ -947,126 +947,6 @@
   },
   "v": 2
  },
- "12069468|corners|über": {
-  "match_id": "12069468",
-  "home": "FK Neptunas Klaipeda",
-  "away": "Lietava Jonava",
-  "kickoff": "Fr 16:00",
-  "kickoff_ts": 1789135200,
-  "league": "Lithuania 1 Lyga",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Fr 06:28",
-  "first_line": 7.5,
-  "first_range": [
-   1.37,
-   1.37
-  ],
-  "last_run": "Fr 10:29",
-  "line": 7.5,
-  "range": [
-   1.37,
-   1.37
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    41,
-    41
-   ],
-   "next_line": 8.5,
-   "next_note": "FK Neptunas Klaipeda 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Lietava Jonava 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.839129045953175,
-    0.755884775067478
-   ],
-   "fair": 1.32,
-   "ladder": [
-    [
-     6.5,
-     1.3
-    ],
-    [
-     7.5,
-     1.32
-    ]
-   ],
-   "avg": [
-    10.2,
-    9.4
-   ],
-   "expect": 9.8,
-   "expect_sum": 9.8,
-   "expect_matchup": 9.7,
-   "contrib": [
-    4.6,
-    5.2
-   ],
-   "buffer": 2.3,
-   "fa": [
-    [
-     4.2,
-     5.8
-    ],
-    [
-     3.7,
-     5.5
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "9.5",
-    "2.000",
-    "1.800"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.65,
-   "p_emp": {
-    "6.5": 0.7692307692307692,
-    "7.5": 0.7575757575757576
-   },
-   "p_mod": 0.807,
-   "p_fin": 0.782,
-   "fair_fin": 1.28,
-   "ladder_fin": [
-    [
-     6.5,
-     1.2
-    ],
-    [
-     7.5,
-     1.28
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.28",
-   "range": [
-    1.37,
-    1.37
-   ]
-  },
-  "v": 2
- },
  "11368656|corners|über": {
   "match_id": "11368656",
   "home": "Ogre United",
@@ -1083,7 +963,7 @@
    1.68,
    1.69
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 7.5,
   "range": [
    1.68,
@@ -1203,7 +1083,7 @@
    1.68,
    1.69
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 3.5,
   "range": [
    1.68,
@@ -1307,6 +1187,126 @@
   },
   "v": 2
  },
+ "12069468|corners|über": {
+  "match_id": "12069468",
+  "home": "FK Neptunas Klaipeda",
+  "away": "Lietava Jonava",
+  "kickoff": "Fr 16:00",
+  "kickoff_ts": 1789135200,
+  "league": "Lithuania 1 Lyga",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Fr 06:28",
+  "first_line": 7.5,
+  "first_range": [
+   1.37,
+   1.37
+  ],
+  "last_run": "Fr 11:31",
+  "line": 7.5,
+  "range": [
+   1.37,
+   1.37
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    41,
+    41
+   ],
+   "next_line": 8.5,
+   "next_note": "FK Neptunas Klaipeda 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Lietava Jonava 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.839129045953175,
+    0.755884775067478
+   ],
+   "fair": 1.32,
+   "ladder": [
+    [
+     6.5,
+     1.3
+    ],
+    [
+     7.5,
+     1.32
+    ]
+   ],
+   "avg": [
+    10.2,
+    9.4
+   ],
+   "expect": 9.8,
+   "expect_sum": 9.8,
+   "expect_matchup": 9.7,
+   "contrib": [
+    4.6,
+    5.2
+   ],
+   "buffer": 2.3,
+   "fa": [
+    [
+     4.2,
+     5.8
+    ],
+    [
+     3.7,
+     5.5
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "9.5",
+    "2.000",
+    "1.800"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.65,
+   "p_emp": {
+    "6.5": 0.7692307692307692,
+    "7.5": 0.7575757575757576
+   },
+   "p_mod": 0.807,
+   "p_fin": 0.782,
+   "fair_fin": 1.28,
+   "ladder_fin": [
+    [
+     6.5,
+     1.2
+    ],
+    [
+     7.5,
+     1.28
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.28",
+   "range": [
+    1.37,
+    1.37
+   ]
+  },
+  "v": 2
+ },
  "11366612|ht_corners|über": {
   "match_id": "11366612",
   "home": "Riga FC",
@@ -1323,7 +1323,7 @@
    1.39,
    1.46
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 3.5,
   "range": [
    1.39,
@@ -1443,7 +1443,7 @@
    1.27,
    1.55
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 6.5,
   "range": [
    1.27,
@@ -1559,7 +1559,7 @@
    1.35,
    2.35
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 6.5,
   "range": [
    1.35,
@@ -1675,11 +1675,11 @@
    2.029,
    2.029
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 6.5,
   "range": [
-   2.029,
-   2.029
+   2.18,
+   2.18
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -1769,8 +1769,8 @@
    "light": "🟢",
    "reason": "fair 1.08",
    "range": [
-    2.029,
-    2.029
+    2.18,
+    2.18
    ]
   },
   "v": 2
@@ -1791,10 +1791,10 @@
    1.22,
    1.54
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 4.5,
   "range": [
-   1.22,
+   1.21,
    1.54
   ],
   "signal": {
@@ -1885,7 +1885,7 @@
    "light": "🟢",
    "reason": "fair 1.41",
    "range": [
-    1.22,
+    1.21,
     1.54
    ]
   },
@@ -1907,10 +1907,10 @@
    1.22,
    1.54
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 2.5,
   "range": [
-   1.22,
+   1.21,
    1.54
   ],
   "signal": {
@@ -2001,7 +2001,7 @@
    "light": "🟢",
    "reason": "fair 1.10",
    "range": [
-    1.22,
+    1.21,
     1.54
    ]
   },
@@ -2023,7 +2023,7 @@
    1.26,
    1.7
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 8.5,
   "range": [
    1.26,
@@ -2143,7 +2143,7 @@
    1.75,
    1.75
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 8.5,
   "range": [
    1.75,
@@ -2259,10 +2259,10 @@
    1.32,
    1.49
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 6.5,
   "range": [
-   1.31,
+   1.32,
    1.49
   ],
   "signal": {
@@ -2353,7 +2353,7 @@
    "light": "🟢",
    "reason": "fair 1.07",
    "range": [
-    1.31,
+    1.32,
     1.49
    ]
   },
@@ -2375,7 +2375,7 @@
    1.8,
    2.0
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 7.5,
   "range": [
    1.8,
@@ -2495,7 +2495,7 @@
    1.8,
    2.0
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 3.5,
   "range": [
    1.8,
@@ -2615,7 +2615,7 @@
    1.77,
    1.77
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 7.5,
   "range": [
    1.77,
@@ -2719,6 +2719,826 @@
   },
   "v": 2
  },
+ "12145974|corners|über": {
+  "match_id": "12145974",
+  "home": "Darmstadt",
+  "away": "Arminia Bielefeld",
+  "kickoff": "Fr 18:30",
+  "kickoff_ts": 1789144200,
+  "league": "Germany Bundesliga II",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Fr 06:28",
+  "first_line": 7.5,
+  "first_range": [
+   1.27,
+   1.75
+  ],
+  "last_run": "Fr 11:31",
+  "line": 7.5,
+  "range": [
+   1.23,
+   1.65
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    46,
+    46
+   ],
+   "next_line": 8.5,
+   "next_note": "Arminia Bielefeld 4/6 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+   "longterm": [
+    0.8475158657243002,
+    0.8273280908700212
+   ],
+   "fair": 1.27,
+   "ladder": [
+    [
+     6.5,
+     1.28
+    ],
+    [
+     7.5,
+     1.27
+    ]
+   ],
+   "avg": [
+    10.3,
+    11.1
+   ],
+   "expect": 11.5,
+   "expect_sum": 10.7,
+   "expect_matchup": 12.3,
+   "contrib": [
+    5.7,
+    6.6
+   ],
+   "buffer": 4.0,
+   "fa": [
+    [
+     5.0,
+     5.4
+    ],
+    [
+     6.0,
+     4.4
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "11.0",
+    "1.850",
+    "1.950"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.23,
+   "p_emp": {
+    "6.5": 0.78125,
+    "7.5": 0.7874015748031495
+   },
+   "p_mod": 0.892,
+   "p_fin": 0.84,
+   "fair_fin": 1.19,
+   "ladder_fin": [
+    [
+     6.5,
+     1.16
+    ],
+    [
+     7.5,
+     1.19
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.19",
+   "range": [
+    1.23,
+    1.65
+   ]
+  },
+  "v": 2
+ },
+ "12145974|yellowcards|unter": {
+  "match_id": "12145974",
+  "home": "Darmstadt",
+  "away": "Arminia Bielefeld",
+  "kickoff": "Fr 18:30",
+  "kickoff_ts": 1789144200,
+  "league": "Germany Bundesliga II",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 5.5,
+  "first_range": [
+   2.029,
+   2.029
+  ],
+  "last_run": "Fr 11:31",
+  "line": 5.5,
+  "range": [
+   2.029,
+   2.029
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    46
+   ],
+   "next_line": 4.5,
+   "next_note": "Arminia Bielefeld 6/8 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.9541956304758092,
+    0.7868505686155549
+   ],
+   "fair": 1.2,
+   "ladder": [
+    [
+     5.5,
+     1.2
+    ],
+    [
+     6.5,
+     1.12
+    ]
+   ],
+   "avg": [
+    3.0,
+    4.0
+   ],
+   "expect": 3.3,
+   "expect_sum": 3.5,
+   "expect_matchup": 3.0,
+   "contrib": [
+    2.0,
+    1.0
+   ],
+   "buffer": 2.2,
+   "fa": [
+    [
+     1.5,
+     1.5
+    ],
+    [
+     1.7,
+     2.3
+    ]
+   ],
+   "referee": "Eric-Dominic Weisbach: Ø 5.0 Karten (12 Sp.) · Ø 26.2 Fouls (8 Sp.)",
+   "b365": null,
+   "expect_ref": 3.8,
+   "buffer_ref": 1.7,
+   "sd": 1.88,
+   "p_emp": {
+    "5.5": 0.8333333333333334,
+    "6.5": 0.8928571428571428
+   },
+   "p_mod": 0.817,
+   "p_fin": 0.825,
+   "fair_fin": 1.21,
+   "ladder_fin": [
+    [
+     5.5,
+     1.21
+    ],
+    [
+     6.5,
+     1.1
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.21",
+   "range": [
+    2.029,
+    2.029
+   ]
+  },
+  "v": 2
+ },
+ "12145974|on_target|über": {
+  "match_id": "12145974",
+  "home": "Darmstadt",
+  "away": "Arminia Bielefeld",
+  "kickoff": "Fr 18:30",
+  "kickoff_ts": 1789144200,
+  "league": "Germany Bundesliga II",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Fr 11:31",
+  "first_line": 6.5,
+  "first_range": [
+   1.52,
+   1.96
+  ],
+  "last_run": "Fr 11:31",
+  "line": 6.5,
+  "range": [
+   1.52,
+   1.96
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    44
+   ],
+   "next_line": 7.5,
+   "next_note": "Arminia Bielefeld 3/5 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.9191645608015719,
+    0.8376844600756704
+   ],
+   "fair": 1.22,
+   "ladder": [
+    [
+     5.5,
+     1.26
+    ],
+    [
+     6.5,
+     1.22
+    ]
+   ],
+   "avg": [
+    9.4,
+    9.6
+   ],
+   "expect": 10.0,
+   "expect_sum": 9.5,
+   "expect_matchup": 10.4,
+   "contrib": [
+    6.7,
+    3.7
+   ],
+   "buffer": 3.5,
+   "fa": [
+    [
+     4.5,
+     4.9
+    ],
+    [
+     4.7,
+     4.5
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.73,
+   "p_emp": {
+    "5.5": 0.7936507936507936,
+    "6.5": 0.819672131147541
+   },
+   "p_mod": 0.9,
+   "p_fin": 0.86,
+   "fair_fin": 1.16,
+   "ladder_fin": [
+    [
+     5.5,
+     1.15
+    ],
+    [
+     6.5,
+     1.16
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.16",
+   "range": [
+    1.52,
+    1.96
+   ]
+  },
+  "v": 2
+ },
+ "12145974|fouls|über": {
+  "match_id": "12145974",
+  "home": "Darmstadt",
+  "away": "Arminia Bielefeld",
+  "kickoff": "Fr 18:30",
+  "kickoff_ts": 1789144200,
+  "league": "Germany Bundesliga II",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "über",
+  "first_run": "Fr 11:31",
+  "first_line": 18.5,
+  "first_range": [
+   1.379,
+   1.79
+  ],
+  "last_run": "Fr 11:31",
+  "line": 18.5,
+  "range": [
+   1.379,
+   1.79
+  ],
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "über",
+   "line": 18.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    42
+   ],
+   "next_line": 20.5,
+   "next_note": "Darmstadt 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "longterm": [
+    0.7829694494925207,
+    0.8478012908577701
+   ],
+   "fair": 1.25,
+   "ladder": [
+    [
+     16.5,
+     1.3
+    ],
+    [
+     18.5,
+     1.25
+    ]
+   ],
+   "avg": [
+    24.4,
+    22.9
+   ],
+   "expect": 23.6,
+   "expect_sum": 23.7,
+   "expect_matchup": 23.5,
+   "contrib": [
+    10.8,
+    12.7
+   ],
+   "buffer": 5.1,
+   "fa": [
+    [
+     11.0,
+     12.1
+    ],
+    [
+     11.7,
+     12.5
+    ]
+   ],
+   "referee": "Eric-Dominic Weisbach: Ø 5.0 Karten (12 Sp.) · Ø 26.2 Fouls (8 Sp.)",
+   "b365": null,
+   "expect_ref": 24.8,
+   "buffer_ref": 6.3,
+   "sd": 6.2,
+   "p_emp": {
+    "16.5": 0.7692307692307692,
+    "18.5": 0.8
+   },
+   "p_mod": 0.845,
+   "p_fin": 0.823,
+   "fair_fin": 1.22,
+   "ladder_fin": [
+    [
+     16.5,
+     1.19
+    ],
+    [
+     18.5,
+     1.22
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.22",
+   "range": [
+    1.379,
+    1.79
+   ]
+  },
+  "v": 2
+ },
+ "12145974|ht_corners|über": {
+  "match_id": "12145974",
+  "home": "Darmstadt",
+  "away": "Arminia Bielefeld",
+  "kickoff": "Fr 18:30",
+  "kickoff_ts": 1789144200,
+  "league": "Germany Bundesliga II",
+  "metric": "1. HZ Ecken",
+  "metric_key": "ht_corners",
+  "direction": "über",
+  "first_run": "Fr 06:28",
+  "first_line": 3.5,
+  "first_range": [
+   1.27,
+   1.75
+  ],
+  "last_run": "Fr 11:31",
+  "line": 3.5,
+  "range": [
+   1.23,
+   1.65
+  ],
+  "signal": {
+   "metric": "1. HZ Ecken",
+   "metric_key": "ht_corners",
+   "direction": "über",
+   "line": 3.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    45,
+    46
+   ],
+   "next_line": 4.5,
+   "next_note": "Arminia Bielefeld 3/5 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.8431169803171785,
+    0.7430666396540339
+   ],
+   "fair": 1.35,
+   "ladder": [
+    [
+     2.5,
+     1.3
+    ],
+    [
+     3.5,
+     1.35
+    ]
+   ],
+   "avg": [
+    5.5,
+    4.7
+   ],
+   "expect": 5.5,
+   "expect_sum": 5.1,
+   "expect_matchup": 5.8,
+   "contrib": [
+    2.3,
+    3.5
+   ],
+   "buffer": 2.0,
+   "fa": [
+    [
+     2.4,
+     2.7
+    ],
+    [
+     2.5,
+     1.9
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "5.0",
+    "1.850",
+    "1.950"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.85,
+   "p_emp": {
+    "2.5": 0.7692307692307692,
+    "3.5": 0.7407407407407407
+   },
+   "p_mod": 0.86,
+   "p_fin": 0.8,
+   "fair_fin": 1.25,
+   "ladder_fin": [
+    [
+     2.5,
+     1.16
+    ],
+    [
+     3.5,
+     1.25
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.25",
+   "range": [
+    1.23,
+    1.65
+   ]
+  },
+  "v": 2
+ },
+ "12145974|ht_yellowcards|unter": {
+  "match_id": "12145974",
+  "home": "Darmstadt",
+  "away": "Arminia Bielefeld",
+  "kickoff": "Fr 18:30",
+  "kickoff_ts": 1789144200,
+  "league": "Germany Bundesliga II",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 2.5,
+  "first_range": [
+   2.029,
+   2.029
+  ],
+  "last_run": "Fr 11:31",
+  "line": 2.5,
+  "range": [
+   2.029,
+   2.029
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    46
+   ],
+   "next_line": 1.5,
+   "next_note": "Arminia Bielefeld 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.8352152726110827,
+    0.8371266271467448
+   ],
+   "fair": 1.2,
+   "ladder": [
+    [
+     2.5,
+     1.2
+    ],
+    [
+     3.5,
+     1.29
+    ]
+   ],
+   "avg": [
+    1.4,
+    1.5
+   ],
+   "expect": 1.5,
+   "expect_sum": 1.4,
+   "expect_matchup": 1.5,
+   "contrib": [
+    1.1,
+    0.5
+   ],
+   "buffer": 1.0,
+   "fa": [
+    [
+     0.6,
+     0.5
+    ],
+    [
+     0.6,
+     1.0
+    ]
+   ],
+   "referee": "Eric-Dominic Weisbach: Ø 5.0 Karten (12 Sp.) · Ø 26.2 Fouls (8 Sp.)",
+   "b365": null,
+   "expect_ref": 3.9,
+   "buffer_ref": -1.4,
+   "sd": 1.26,
+   "p_emp": {
+    "2.5": 0.8333333333333334,
+    "3.5": 0.7751937984496123
+   },
+   "p_mod": 0.133,
+   "p_fin": 0.483,
+   "fair_fin": 2.07,
+   "ladder_fin": [
+    [
+     2.5,
+     2.07
+    ],
+    [
+     3.5,
+     1.74
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "nur 48 % Wahrscheinlichkeit",
+   "range": [
+    2.029,
+    2.029
+   ]
+  },
+  "v": 2
+ },
+ "12145974|shots_total|unter": {
+  "match_id": "12145974",
+  "home": "Darmstadt",
+  "away": "Arminia Bielefeld",
+  "kickoff": "Fr 18:30",
+  "kickoff_ts": 1789144200,
+  "league": "Germany Bundesliga II",
+  "metric": "Schüsse gesamt",
+  "metric_key": "shots_total",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 22.5,
+  "first_range": [
+   1.52,
+   1.96
+  ],
+  "last_run": "Fr 11:31",
+  "line": 22.5,
+  "range": [
+   1.52,
+   1.96
+  ],
+  "signal": {
+   "metric": "Schüsse gesamt",
+   "metric_key": "shots_total",
+   "direction": "unter",
+   "line": 22.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    43
+   ],
+   "next_line": 20.5,
+   "next_note": "Arminia Bielefeld 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.8737252380334721,
+    0.8418274653569467
+   ],
+   "fair": 1.17,
+   "ladder": [
+    [
+     22.5,
+     1.17
+    ],
+    [
+     24.5,
+     1.11
+    ]
+   ],
+   "avg": [
+    17.7,
+    18.7
+   ],
+   "expect": 19.2,
+   "expect_sum": 18.2,
+   "expect_matchup": 20.2,
+   "contrib": [
+    12.4,
+    7.8
+   ],
+   "buffer": 3.3,
+   "fa": [
+    [
+     9.1,
+     9.4
+    ],
+    [
+     9.3,
+     8.4
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 5.25,
+   "p_emp": {
+    "22.5": 0.8547008547008548,
+    "24.5": 0.9009009009009008
+   },
+   "p_mod": 0.735,
+   "p_fin": 0.795,
+   "fair_fin": 1.26,
+   "ladder_fin": [
+    [
+     22.5,
+     1.26
+    ],
+    [
+     24.5,
+     1.15
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.26",
+   "range": [
+    1.52,
+    1.96
+   ]
+  },
+  "v": 2
+ },
  "12123681|corners|über": {
   "match_id": "12123681",
   "home": "Admira Wacker",
@@ -2735,7 +3555,7 @@
    1.207,
    1.645
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 7.5,
   "range": [
    1.207,
@@ -2855,7 +3675,7 @@
    1.207,
    1.645
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 3.5,
   "range": [
    1.207,
@@ -2959,246 +3779,6 @@
   },
   "v": 2
  },
- "12145974|corners|über": {
-  "match_id": "12145974",
-  "home": "Darmstadt",
-  "away": "Arminia Bielefeld",
-  "kickoff": "Fr 18:30",
-  "kickoff_ts": 1789144200,
-  "league": "Germany Bundesliga II",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Fr 06:28",
-  "first_line": 7.5,
-  "first_range": [
-   1.27,
-   1.75
-  ],
-  "last_run": "Fr 10:29",
-  "line": 7.5,
-  "range": [
-   1.26,
-   1.7
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    46,
-    46
-   ],
-   "next_line": 8.5,
-   "next_note": "Arminia Bielefeld 4/6 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
-   "longterm": [
-    0.8475158657243002,
-    0.8273280908700212
-   ],
-   "fair": 1.27,
-   "ladder": [
-    [
-     6.5,
-     1.28
-    ],
-    [
-     7.5,
-     1.27
-    ]
-   ],
-   "avg": [
-    10.3,
-    11.1
-   ],
-   "expect": 11.5,
-   "expect_sum": 10.7,
-   "expect_matchup": 12.3,
-   "contrib": [
-    5.7,
-    6.6
-   ],
-   "buffer": 4.0,
-   "fa": [
-    [
-     5.0,
-     5.4
-    ],
-    [
-     6.0,
-     4.4
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "11.0",
-    "1.850",
-    "1.950"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.23,
-   "p_emp": {
-    "6.5": 0.78125,
-    "7.5": 0.7874015748031495
-   },
-   "p_mod": 0.892,
-   "p_fin": 0.84,
-   "fair_fin": 1.19,
-   "ladder_fin": [
-    [
-     6.5,
-     1.16
-    ],
-    [
-     7.5,
-     1.19
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.19",
-   "range": [
-    1.26,
-    1.7
-   ]
-  },
-  "v": 2
- },
- "12145974|ht_corners|über": {
-  "match_id": "12145974",
-  "home": "Darmstadt",
-  "away": "Arminia Bielefeld",
-  "kickoff": "Fr 18:30",
-  "kickoff_ts": 1789144200,
-  "league": "Germany Bundesliga II",
-  "metric": "1. HZ Ecken",
-  "metric_key": "ht_corners",
-  "direction": "über",
-  "first_run": "Fr 06:28",
-  "first_line": 3.5,
-  "first_range": [
-   1.27,
-   1.75
-  ],
-  "last_run": "Fr 10:29",
-  "line": 3.5,
-  "range": [
-   1.26,
-   1.7
-  ],
-  "signal": {
-   "metric": "1. HZ Ecken",
-   "metric_key": "ht_corners",
-   "direction": "über",
-   "line": 3.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    45,
-    46
-   ],
-   "next_line": 4.5,
-   "next_note": "Arminia Bielefeld 3/5 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
-   "longterm": [
-    0.8431169803171785,
-    0.7430666396540339
-   ],
-   "fair": 1.35,
-   "ladder": [
-    [
-     2.5,
-     1.3
-    ],
-    [
-     3.5,
-     1.35
-    ]
-   ],
-   "avg": [
-    5.5,
-    4.7
-   ],
-   "expect": 5.5,
-   "expect_sum": 5.1,
-   "expect_matchup": 5.8,
-   "contrib": [
-    2.3,
-    3.5
-   ],
-   "buffer": 2.0,
-   "fa": [
-    [
-     2.4,
-     2.7
-    ],
-    [
-     2.5,
-     1.9
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "5.0",
-    "1.850",
-    "1.950"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.85,
-   "p_emp": {
-    "2.5": 0.7692307692307692,
-    "3.5": 0.7407407407407407
-   },
-   "p_mod": 0.86,
-   "p_fin": 0.8,
-   "fair_fin": 1.25,
-   "ladder_fin": [
-    [
-     2.5,
-     1.16
-    ],
-    [
-     3.5,
-     1.25
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.25",
-   "range": [
-    1.26,
-    1.7
-   ]
-  },
-  "v": 2
- },
  "12022714|corners|über": {
   "match_id": "12022714",
   "home": "Vendsyssel FF",
@@ -3215,7 +3795,7 @@
    1.54,
    1.54
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 7.5,
   "range": [
    1.54,
@@ -3319,118 +3899,122 @@
   },
   "v": 2
  },
- "12205885|shots_total|unter": {
-  "match_id": "12205885",
-  "home": "Besiktas",
-  "away": "Erzurumspor FK",
+ "12192174|ht_corners|über": {
+  "match_id": "12192174",
+  "home": "FC Viktoria Köln",
+  "away": "Hansa Rostock",
   "kickoff": "Fr 19:00",
   "kickoff_ts": 1789146000,
-  "league": "Türkiye Super Lig",
-  "metric": "Schüsse gesamt",
-  "metric_key": "shots_total",
-  "direction": "unter",
-  "first_run": "Fr 10:29",
-  "first_line": 26.5,
+  "league": "Germany 3. Liga",
+  "metric": "1. HZ Ecken",
+  "metric_key": "ht_corners",
+  "direction": "über",
+  "first_run": "Fr 06:28",
+  "first_line": 3.5,
   "first_range": [
-   1.79,
-   1.79
+   1.24,
+   1.95
   ],
-  "last_run": "Fr 10:29",
-  "line": 26.5,
+  "last_run": "Fr 11:31",
+  "line": 3.5,
   "range": [
-   1.79,
-   1.79
+   1.24,
+   1.95
   ],
   "signal": {
-   "metric": "Schüsse gesamt",
-   "metric_key": "shots_total",
-   "direction": "unter",
-   "line": 26.5,
+   "metric": "1. HZ Ecken",
+   "metric_key": "ht_corners",
+   "direction": "über",
+   "line": 3.5,
    "home_series": {
     "kind": "gesamt",
     "hits": 10,
-    "window": 11
+    "window": 12
    },
    "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 12
    },
    "home_is_anchor": true,
    "away_is_anchor": false,
    "valid": [
-    37,
-    7
+    46,
+    46
    ],
-   "next_line": 24.5,
-   "next_note": "kein Anker — Besiktas 8/10 (3. Lücke) gesamt, 10/12 (3. Lücke) heim; Erzurumspor FK 7 in Folge gesamt, 4 in Folge auswärts",
+   "next_line": 4.5,
+   "next_note": "Hansa Rostock 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
    "longterm": [
-    0.9182483564887862,
-    1.0
+    0.7122936058264392,
+    0.7013222914892854
    ],
-   "fair": 1.06,
+   "fair": 1.46,
    "ladder": [
     [
-     26.5,
-     1.06
+     2.5,
+     1.36
     ],
     [
-     28.5,
-     1.03
+     3.5,
+     1.46
     ]
    ],
    "avg": [
-    18.1,
-    14.1
+    4.4,
+    5.3
    ],
-   "expect": 16.4,
-   "expect_sum": 16.1,
-   "expect_matchup": 16.6,
+   "expect": 5.1,
+   "expect_sum": 4.8,
+   "expect_matchup": 5.3,
    "contrib": [
-    12.6,
-    4.0
+    3.4,
+    2.0
    ],
-   "buffer": 10.1,
+   "buffer": 1.6,
    "fa": [
     [
-     10.9,
-     7.6
+     2.2,
+     2.2
     ],
     [
-     5.4,
-     8.1
+     2.6,
+     2.3
     ]
    ],
    "referee": null,
-   "b365": null,
+   "b365": [
+    "4.5",
+    "2.000",
+    "1.800"
+   ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 4.72,
+   "sd": 2.33,
    "p_emp": {
-    "26.5": 0.9433962264150942,
-    "28.5": 0.970873786407767
+    "2.5": 0.7352941176470588,
+    "3.5": 0.684931506849315
    },
-   "p_mod": 0.984,
-   "p_fin": 0.964,
-   "fair_fin": 1.04,
+   "p_mod": 0.754,
+   "p_fin": 0.719,
+   "fair_fin": 1.39,
    "ladder_fin": [
     [
-     26.5,
-     1.04
+     2.5,
+     1.25
     ],
     [
-     28.5,
-     1.02
+     3.5,
+     1.39
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "reason": "fair 1.04",
+   "reason": "fair 1.39",
    "range": [
-    1.79,
-    1.79
+    1.24,
+    1.95
    ]
   },
   "v": 2
@@ -3451,7 +4035,7 @@
    2.15,
    2.15
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 2.5,
   "range": [
    2.15,
@@ -3567,7 +4151,7 @@
    2.15,
    2.15
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 5.5,
   "range": [
    2.15,
@@ -3667,33 +4251,149 @@
   },
   "v": 2
  },
- "12192174|ht_corners|über": {
-  "match_id": "12192174",
-  "home": "FC Viktoria Köln",
-  "away": "Hansa Rostock",
+ "12205885|yellowcards|unter": {
+  "match_id": "12205885",
+  "home": "Besiktas",
+  "away": "Erzurumspor FK",
   "kickoff": "Fr 19:00",
   "kickoff_ts": 1789146000,
-  "league": "Germany 3. Liga",
-  "metric": "1. HZ Ecken",
-  "metric_key": "ht_corners",
-  "direction": "über",
-  "first_run": "Fr 06:28",
-  "first_line": 3.5,
+  "league": "Türkiye Super Lig",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 5.5,
   "first_range": [
-   1.24,
-   1.95
+   1.2,
+   1.42
   ],
-  "last_run": "Fr 10:29",
-  "line": 3.5,
+  "last_run": "Fr 11:31",
+  "line": 5.5,
   "range": [
-   1.24,
-   1.95
+   1.2,
+   1.42
   ],
   "signal": {
-   "metric": "1. HZ Ecken",
-   "metric_key": "ht_corners",
-   "direction": "über",
-   "line": 3.5,
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    48
+   ],
+   "next_line": 4.5,
+   "next_note": "Besiktas 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Erzurumspor FK 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.7869436130311072,
+    0.8961187626417482
+   ],
+   "fair": 1.22,
+   "ladder": [
+    [
+     5.5,
+     1.22
+    ],
+    [
+     6.5,
+     1.13
+    ]
+   ],
+   "avg": [
+    4.0,
+    3.9
+   ],
+   "expect": 3.8,
+   "expect_sum": 3.9,
+   "expect_matchup": 3.7,
+   "contrib": [
+    1.8,
+    1.9
+   ],
+   "buffer": 1.7,
+   "fa": [
+    [
+     1.8,
+     2.4
+    ],
+    [
+     1.6,
+     2.2
+    ]
+   ],
+   "referee": "Gurcan Hasova: Ø 4.6 Karten (19 Sp.) · Ø 26.8 Fouls (8 Sp.)",
+   "b365": null,
+   "expect_ref": 4.2,
+   "buffer_ref": 1.3,
+   "sd": 2.23,
+   "p_emp": {
+    "5.5": 0.819672131147541,
+    "6.5": 0.8849557522123894
+   },
+   "p_mod": 0.72,
+   "p_fin": 0.77,
+   "fair_fin": 1.3,
+   "ladder_fin": [
+    [
+     5.5,
+     1.3
+    ],
+    [
+     6.5,
+     1.15
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.30",
+   "range": [
+    1.2,
+    1.42
+   ]
+  },
+  "v": 2
+ },
+ "12205885|ht_yellowcards|unter": {
+  "match_id": "12205885",
+  "home": "Besiktas",
+  "away": "Erzurumspor FK",
+  "kickoff": "Fr 19:00",
+  "kickoff_ts": 1789146000,
+  "league": "Türkiye Super Lig",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 2.5,
+  "first_range": [
+   1.2,
+   1.42
+  ],
+  "last_run": "Fr 11:31",
+  "line": 2.5,
+  "range": [
+   1.2,
+   1.42
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
    "home_series": {
     "kind": "gesamt",
     "hits": 10,
@@ -3701,123 +4401,583 @@
    },
    "away_series": {
     "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    48
+   ],
+   "next_line": 1.5,
+   "next_note": "Erzurumspor FK 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.8357287005827249,
+    0.8271114482347777
+   ],
+   "fair": 1.21,
+   "ladder": [
+    [
+     2.5,
+     1.21
+    ],
+    [
+     3.5,
+     1.21
+    ]
+   ],
+   "avg": [
+    1.3,
+    1.5
+   ],
+   "expect": 1.4,
+   "expect_sum": 1.4,
+   "expect_matchup": 1.3,
+   "contrib": [
+    0.8,
+    0.5
+   ],
+   "buffer": 1.1,
+   "fa": [
+    [
+     0.6,
+     0.7
+    ],
+    [
+     0.6,
+     0.8
+    ]
+   ],
+   "referee": "Gurcan Hasova: Ø 4.6 Karten (19 Sp.) · Ø 26.8 Fouls (8 Sp.)",
+   "b365": null,
+   "expect_ref": 3.7,
+   "buffer_ref": -1.2,
+   "sd": 1.19,
+   "p_emp": {
+    "2.5": 0.8264462809917356,
+    "3.5": 0.8264462809917356
+   },
+   "p_mod": 0.157,
+   "p_fin": 0.492,
+   "fair_fin": 2.03,
+   "ladder_fin": [
+    [
+     2.5,
+     2.03
+    ],
+    [
+     3.5,
+     1.59
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "nur 49 % Wahrscheinlichkeit",
+   "range": [
+    1.2,
+    1.42
+   ]
+  },
+  "v": 2
+ },
+ "12205885|shots_total|unter": {
+  "match_id": "12205885",
+  "home": "Besiktas",
+  "away": "Erzurumspor FK",
+  "kickoff": "Fr 19:00",
+  "kickoff_ts": 1789146000,
+  "league": "Türkiye Super Lig",
+  "metric": "Schüsse gesamt",
+  "metric_key": "shots_total",
+  "direction": "unter",
+  "first_run": "Fr 10:29",
+  "first_line": 26.5,
+  "first_range": [
+   1.79,
+   1.79
+  ],
+  "last_run": "Fr 11:31",
+  "line": 26.5,
+  "range": [
+   1.61,
+   1.9
+  ],
+  "signal": {
+   "metric": "Schüsse gesamt",
+   "metric_key": "shots_total",
+   "direction": "unter",
+   "line": 26.5,
+   "home_series": {
+    "kind": "gesamt",
     "hits": 10,
-    "window": 12
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
    },
    "home_is_anchor": true,
    "away_is_anchor": false,
    "valid": [
-    46,
-    46
+    37,
+    7
    ],
-   "next_line": 4.5,
-   "next_note": "Hansa Rostock 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "next_line": 24.5,
+   "next_note": "kein Anker — Besiktas 8/10 (3. Lücke) gesamt, 10/12 (3. Lücke) heim; Erzurumspor FK 7 in Folge gesamt, 4 in Folge auswärts",
    "longterm": [
-    0.7122936058264392,
-    0.7013222914892854
+    0.9182483564887862,
+    1.0
    ],
-   "fair": 1.46,
+   "fair": 1.06,
    "ladder": [
     [
-     2.5,
-     1.36
+     26.5,
+     1.06
     ],
     [
-     3.5,
-     1.46
+     28.5,
+     1.03
     ]
    ],
    "avg": [
-    4.4,
-    5.3
+    18.1,
+    14.1
    ],
-   "expect": 5.1,
-   "expect_sum": 4.8,
-   "expect_matchup": 5.3,
+   "expect": 16.4,
+   "expect_sum": 16.1,
+   "expect_matchup": 16.6,
    "contrib": [
-    3.4,
-    2.0
+    12.6,
+    4.0
    ],
-   "buffer": 1.6,
+   "buffer": 10.1,
    "fa": [
     [
-     2.2,
-     2.2
+     10.9,
+     7.6
     ],
     [
-     2.6,
-     2.3
+     5.4,
+     8.1
     ]
    ],
    "referee": null,
-   "b365": [
-    "4.5",
-    "2.000",
-    "1.800"
-   ],
+   "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 2.33,
+   "sd": 4.72,
    "p_emp": {
-    "2.5": 0.7352941176470588,
-    "3.5": 0.684931506849315
+    "26.5": 0.9433962264150942,
+    "28.5": 0.970873786407767
    },
-   "p_mod": 0.754,
-   "p_fin": 0.719,
-   "fair_fin": 1.39,
+   "p_mod": 0.984,
+   "p_fin": 0.964,
+   "fair_fin": 1.04,
    "ladder_fin": [
     [
-     2.5,
-     1.25
+     26.5,
+     1.04
     ],
     [
-     3.5,
-     1.39
+     28.5,
+     1.02
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "reason": "fair 1.39",
+   "reason": "fair 1.04",
    "range": [
-    1.24,
-    1.95
+    1.61,
+    1.9
    ]
   },
   "v": 2
  },
- "12402287|corners|über": {
-  "match_id": "12402287",
-  "home": "Fulham U21",
-  "away": "Aston Villa U21",
-  "kickoff": "Fr 20:00",
-  "kickoff_ts": 1789149600,
-  "league": "England Premier League 2",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Fr 06:28",
-  "first_line": 7.5,
+ "12286982|yellowcards|unter": {
+  "match_id": "12286982",
+  "home": "Empoli",
+  "away": "Arezzo",
+  "kickoff": "Fr 19:00",
+  "kickoff_ts": 1789146000,
+  "league": "Italy Serie B",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 4.5,
   "first_range": [
-   1.323,
-   1.722
+   1.59,
+   1.7
   ],
-  "last_run": "Fr 10:29",
-  "line": 7.5,
+  "last_run": "Fr 11:31",
+  "line": 4.5,
   "range": [
-   1.323,
-   1.722
+   1.59,
+   1.7
   ],
   "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 4.5,
    "home_series": {
     "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    50,
+    47
+   ],
+   "next_line": 3.5,
+   "next_note": "Empoli 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Arezzo 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.6618302134855032,
+    0.6341251732786217
+   ],
+   "fair": 1.57,
+   "ladder": [
+    [
+     4.5,
+     1.57
+    ],
+    [
+     5.5,
+     1.3
+    ]
+   ],
+   "avg": [
+    3.2,
+    3.7
+   ],
+   "expect": 3.2,
+   "expect_sum": 3.5,
+   "expect_matchup": 3.0,
+   "contrib": [
+    1.3,
+    1.7
+   ],
+   "buffer": 1.3,
+   "fa": [
+    [
+     2.0,
+     1.7
+    ],
+    [
+     2.3,
+     2.3
+    ]
+   ],
+   "referee": "Michael Fabbri: Ø 3.8 Karten (20 Sp.) · Ø 23.2 Fouls (20 Sp.)",
+   "b365": null,
+   "expect_ref": 3.1,
+   "buffer_ref": 1.4,
+   "sd": 2.1,
+   "p_emp": {
+    "4.5": 0.6369426751592356,
+    "5.5": 0.7692307692307692
+   },
+   "p_mod": 0.748,
+   "p_fin": 0.692,
+   "fair_fin": 1.44,
+   "ladder_fin": [
+    [
+     4.5,
+     1.44
+    ],
+    [
+     5.5,
+     1.22
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.44",
+   "range": [
+    1.59,
+    1.7
+   ]
+  },
+  "v": 2
+ },
+ "12286982|ht_yellowcards|unter": {
+  "match_id": "12286982",
+  "home": "Empoli",
+  "away": "Arezzo",
+  "kickoff": "Fr 19:00",
+  "kickoff_ts": 1789146000,
+  "league": "Italy Serie B",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 2.5,
+  "first_range": [
+   1.59,
+   1.7
+  ],
+  "last_run": "Fr 11:31",
+  "line": 2.5,
+  "range": [
+   1.59,
+   1.7
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    50,
+    47
+   ],
+   "next_line": 1.5,
+   "next_note": "Empoli 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "longterm": [
+    0.8602248026397619,
+    0.8980027265089117
+   ],
+   "fair": 1.16,
+   "ladder": [
+    [
+     2.5,
+     1.16
+    ],
+    [
+     3.5,
+     1.22
+    ]
+   ],
+   "avg": [
+    1.1,
+    1.2
+   ],
+   "expect": 1.1,
+   "expect_sum": 1.2,
+   "expect_matchup": 1.0,
+   "contrib": [
+    0.5,
+    0.5
+   ],
+   "buffer": 1.4,
+   "fa": [
+    [
+     0.8,
+     0.6
+    ],
+    [
+     0.7,
+     1.0
+    ]
+   ],
+   "referee": "Michael Fabbri: Ø 3.8 Karten (20 Sp.) · Ø 23.2 Fouls (20 Sp.)",
+   "b365": null,
+   "expect_ref": 2.5,
+   "buffer_ref": 0.0,
+   "sd": 1.1,
+   "p_emp": {
+    "2.5": 0.8620689655172414,
+    "3.5": 0.819672131147541
+   },
+   "p_mod": 0.5,
+   "p_fin": 0.681,
+   "fair_fin": 1.47,
+   "ladder_fin": [
+    [
+     2.5,
+     1.47
+    ],
+    [
+     3.5,
+     1.22
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "Historie 86 % und Modell 50 % widersprechen sich",
+   "range": [
+    1.59,
+    1.7
+   ]
+  },
+  "v": 2
+ },
+ "13028958|yellowcards|unter": {
+  "match_id": "13028958",
+  "home": "FC Minsk",
+  "away": "Slavia Mozyr",
+  "kickoff": "Fr 19:10",
+  "kickoff_ts": 1789146600,
+  "league": "Belarus Premier League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 5.5,
+  "first_range": [
+   1.19,
+   1.45
+  ],
+  "last_run": "Fr 11:31",
+  "line": 5.5,
+  "range": [
+   1.19,
+   1.45
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    45,
+    33
+   ],
+   "next_line": 4.5,
+   "next_note": "Slavia Mozyr 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.8905640667370438,
+    0.8665295444721371
+   ],
+   "fair": 1.19,
+   "ladder": [
+    [
+     5.5,
+     1.19
+    ],
+    [
+     6.5,
+     1.1
+    ]
+   ],
+   "avg": [
+    3.1,
+    3.7
+   ],
+   "expect": 3.1,
+   "expect_sum": 3.4,
+   "expect_matchup": 2.9,
+   "contrib": [
+    1.8,
+    1.1
+   ],
+   "buffer": 2.4,
+   "fa": [
+    [
+     1.4,
+     1.3
+    ],
+    [
+     1.8,
+     1.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.06,
+   "p_emp": {
+    "5.5": 0.8403361344537815,
+    "6.5": 0.9090909090909091
+   },
+   "p_mod": 0.878,
+   "p_fin": 0.859,
+   "fair_fin": 1.16,
+   "ladder_fin": [
+    [
+     5.5,
+     1.16
+    ],
+    [
+     6.5,
+     1.08
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.16",
+   "range": [
+    1.19,
+    1.45
+   ]
+  },
+  "v": 2
+ },
+ "13028958|fouls|über": {
+  "match_id": "13028958",
+  "home": "FC Minsk",
+  "away": "Slavia Mozyr",
+  "kickoff": "Fr 19:10",
+  "kickoff_ts": 1789146600,
+  "league": "Belarus Premier League",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "über",
+  "first_run": "Fr 11:31",
+  "first_line": 18.5,
+  "first_range": [
+   1.75,
+   1.75
+  ],
+  "last_run": "Fr 11:31",
+  "line": 18.5,
+  "range": [
+   1.75,
+   1.75
+  ],
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "über",
+   "line": 18.5,
+   "home_series": {
+    "kind": "heim",
     "hits": 5,
-    "window": 5
+    "window": 6
    },
    "away_series": {
     "kind": "gesamt",
@@ -3827,194 +4987,194 @@
    "home_is_anchor": false,
    "away_is_anchor": true,
    "valid": [
-    48,
-    41
+    18,
+    15
    ],
-   "next_line": 8.5,
-   "next_note": "Aston Villa U21 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "next_line": 20.5,
+   "next_note": "FC Minsk 1/3 (3. Lücke) gesamt, 5/7 (Aussetzer in den letzten 2) heim",
    "longterm": [
-    0.6911186067916163,
-    0.8993454843923019
+    0.6785963294834363,
+    0.925657720958371
    ],
-   "fair": 1.33,
+   "fair": 1.28,
    "ladder": [
     [
-     6.5,
-     1.34
+     16.5,
+     1.4
     ],
     [
-     7.5,
-     1.33
+     18.5,
+     1.28
     ]
    ],
    "avg": [
-    10.4,
-    10.3
+    22.5,
+    27.4
    ],
-   "expect": 10.9,
-   "expect_sum": 10.3,
-   "expect_matchup": 11.5,
+   "expect": 25.4,
+   "expect_sum": 25.0,
+   "expect_matchup": 25.8,
    "contrib": [
-    7.0,
-    4.4
+    13.4,
+    12.4
    ],
-   "buffer": 3.4,
+   "buffer": 6.9,
    "fa": [
     [
-     4.6,
-     4.7
+     10.9,
+     10.9
     ],
     [
-     4.6,
-     6.0
+     12.3,
+     13.1
     ]
    ],
    "referee": null,
    "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.25,
+   "sd": 5.36,
    "p_emp": {
-    "6.5": 0.7462686567164178,
-    "7.5": 0.7518796992481203
+    "16.5": 0.7142857142857143,
+    "18.5": 0.78125
    },
-   "p_mod": 0.852,
-   "p_fin": 0.802,
-   "fair_fin": 1.25,
+   "p_mod": 0.901,
+   "p_fin": 0.841,
+   "fair_fin": 1.19,
    "ladder_fin": [
     [
-     6.5,
-     1.21
+     16.5,
+     1.2
     ],
     [
-     7.5,
-     1.25
+     18.5,
+     1.19
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "reason": "fair 1.25",
+   "reason": "fair 1.19",
    "range": [
-    1.323,
-    1.722
+    1.75,
+    1.75
    ]
   },
   "v": 2
  },
- "12402294|corners|über": {
-  "match_id": "12402294",
-  "home": "Derby U21",
-  "away": "Tottenham U21",
-  "kickoff": "Fr 20:00",
-  "kickoff_ts": 1789149600,
-  "league": "England Premier League 2",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Fr 06:28",
-  "first_line": 9.5,
+ "13028958|shots_total|unter": {
+  "match_id": "13028958",
+  "home": "FC Minsk",
+  "away": "Slavia Mozyr",
+  "kickoff": "Fr 19:10",
+  "kickoff_ts": 1789146600,
+  "league": "Belarus Premier League",
+  "metric": "Schüsse gesamt",
+  "metric_key": "shots_total",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 22.5,
   "first_range": [
-   1.197,
-   2.4
+   1.9,
+   1.9
   ],
-  "last_run": "Fr 10:29",
-  "line": 9.5,
+  "last_run": "Fr 11:31",
+  "line": 22.5,
   "range": [
-   1.197,
-   2.4
+   1.9,
+   1.9
   ],
   "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 9.5,
+   "metric": "Schüsse gesamt",
+   "metric_key": "shots_total",
+   "direction": "unter",
+   "line": 22.5,
    "home_series": {
     "kind": "gesamt",
     "hits": 10,
-    "window": 11
+    "window": 12
    },
    "away_series": {
-    "kind": "auswärts",
-    "hits": 5,
-    "window": 6
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
    },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
+   "home_is_anchor": false,
+   "away_is_anchor": true,
    "valid": [
-    45,
-    43
+    22,
+    19
    ],
-   "next_line": 10.5,
-   "next_note": "Derby U21 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+   "next_line": 20.5,
+   "next_note": "FC Minsk 0/2 (3. Lücke) gesamt, 8/10 (Aussetzer in den letzten 2) heim",
    "longterm": [
-    0.7039635839536469,
-    0.5851112005369755
+    0.8465188425298779,
+    0.8445684312758389
    ],
-   "fair": 1.71,
+   "fair": 1.17,
    "ladder": [
     [
-     8.5,
-     1.57
+     22.5,
+     1.17
     ],
     [
-     9.5,
-     1.71
+     24.5,
+     1.09
     ]
    ],
    "avg": [
-    10.8,
-    10.3
+    16.9,
+    13.6
    ],
-   "expect": 11.1,
-   "expect_sum": 10.5,
-   "expect_matchup": 11.7,
+   "expect": 14.7,
+   "expect_sum": 15.2,
+   "expect_matchup": 14.1,
    "contrib": [
-    5.2,
-    6.5
+    4.7,
+    9.4
    ],
-   "buffer": 1.6,
+   "buffer": 7.8,
    "fa": [
     [
-     4.5,
-     6.0
+     6.9,
+     8.9
     ],
     [
-     5.4,
-     4.9
+     7.7,
+     6.3
     ]
    ],
    "referee": null,
    "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.89,
+   "sd": 6.1,
    "p_emp": {
-    "8.5": 0.6369426751592356,
-    "9.5": 0.5847953216374269
+    "22.5": 0.8547008547008548,
+    "24.5": 0.9174311926605504
    },
-   "p_mod": 0.66,
-   "p_fin": 0.622,
-   "fair_fin": 1.61,
+   "p_mod": 0.899,
+   "p_fin": 0.877,
+   "fair_fin": 1.14,
    "ladder_fin": [
     [
-     8.5,
-     1.44
+     22.5,
+     1.14
     ],
     [
-     9.5,
-     1.61
+     24.5,
+     1.07
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟡",
-   "reason": "62 % knapp",
+   "light": "🟢",
+   "reason": "fair 1.14",
    "range": [
-    1.197,
-    2.4
+    1.9,
+    1.9
    ]
   },
   "v": 2
@@ -4035,7 +5195,7 @@
    1.59,
    1.59
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 6.5,
   "range": [
    1.59,
@@ -4101,10 +5261,10 @@
      2.0
     ]
    ],
-   "referee": null,
+   "referee": "George Catalin Roman: Ø 4.1 Karten (16 Sp.) · Ø 25.4 Fouls (15 Sp.)",
    "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
+   "expect_ref": 3.7,
+   "buffer_ref": 2.8,
    "sd": 2.36,
    "p_emp": {
     "6.5": 0.8695652173913044,
@@ -4151,7 +5311,7 @@
    1.19,
    1.91
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 4.5,
   "range": [
    1.19,
@@ -4267,7 +5427,7 @@
    1.59,
    1.59
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 2.5,
   "range": [
    1.59,
@@ -4333,33 +5493,33 @@
      0.5
     ]
    ],
-   "referee": null,
+   "referee": "George Catalin Roman: Ø 4.1 Karten (16 Sp.) · Ø 25.4 Fouls (15 Sp.)",
    "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
+   "expect_ref": 2.5,
+   "buffer_ref": 0.0,
    "sd": 1.01,
    "p_emp": {
     "2.5": 0.8695652173913044,
     "3.5": 0.8474576271186441
    },
-   "p_mod": 0.917,
-   "p_fin": 0.893,
-   "fair_fin": 1.12,
+   "p_mod": 0.5,
+   "p_fin": 0.685,
+   "fair_fin": 1.46,
    "ladder_fin": [
     [
      2.5,
-     1.12
+     1.46
     ],
     [
      3.5,
-     1.09
+     1.19
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.12",
+   "light": "🔴",
+   "reason": "Historie 87 % und Modell 50 % widersprechen sich",
    "range": [
     1.59,
     1.59
@@ -4383,7 +5543,7 @@
    1.2,
    2.27
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 24.5,
   "range": [
    1.19,
@@ -4436,7 +5596,7 @@
    "expect_matchup": 19.2,
    "contrib": [
     7.3,
-    12.0
+    11.9
    ],
    "buffer": 6.0,
    "fa": [
@@ -4483,6 +5643,470 @@
   },
   "v": 2
  },
+ "12402294|corners|über": {
+  "match_id": "12402294",
+  "home": "Derby U21",
+  "away": "Tottenham U21",
+  "kickoff": "Fr 20:00",
+  "kickoff_ts": 1789149600,
+  "league": "England Premier League 2",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Fr 06:28",
+  "first_line": 9.5,
+  "first_range": [
+   1.197,
+   2.4
+  ],
+  "last_run": "Fr 11:31",
+  "line": 9.5,
+  "range": [
+   1.197,
+   2.4
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 9.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    45,
+    43
+   ],
+   "next_line": 10.5,
+   "next_note": "Derby U21 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+   "longterm": [
+    0.7039635839536469,
+    0.5851112005369755
+   ],
+   "fair": 1.71,
+   "ladder": [
+    [
+     8.5,
+     1.57
+    ],
+    [
+     9.5,
+     1.71
+    ]
+   ],
+   "avg": [
+    10.8,
+    10.3
+   ],
+   "expect": 11.1,
+   "expect_sum": 10.5,
+   "expect_matchup": 11.7,
+   "contrib": [
+    5.2,
+    6.5
+   ],
+   "buffer": 1.6,
+   "fa": [
+    [
+     4.5,
+     6.0
+    ],
+    [
+     5.4,
+     4.9
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.89,
+   "p_emp": {
+    "8.5": 0.6369426751592356,
+    "9.5": 0.5847953216374269
+   },
+   "p_mod": 0.66,
+   "p_fin": 0.622,
+   "fair_fin": 1.61,
+   "ladder_fin": [
+    [
+     8.5,
+     1.44
+    ],
+    [
+     9.5,
+     1.61
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "62 % knapp",
+   "range": [
+    1.197,
+    2.4
+   ]
+  },
+  "v": 2
+ },
+ "12402287|corners|über": {
+  "match_id": "12402287",
+  "home": "Fulham U21",
+  "away": "Aston Villa U21",
+  "kickoff": "Fr 20:00",
+  "kickoff_ts": 1789149600,
+  "league": "England Premier League 2",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Fr 06:28",
+  "first_line": 7.5,
+  "first_range": [
+   1.323,
+   1.722
+  ],
+  "last_run": "Fr 11:31",
+  "line": 7.5,
+  "range": [
+   1.323,
+   1.722
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    41
+   ],
+   "next_line": 8.5,
+   "next_note": "Aston Villa U21 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.6911186067916163,
+    0.8993454843923019
+   ],
+   "fair": 1.33,
+   "ladder": [
+    [
+     6.5,
+     1.34
+    ],
+    [
+     7.5,
+     1.33
+    ]
+   ],
+   "avg": [
+    10.4,
+    10.3
+   ],
+   "expect": 10.9,
+   "expect_sum": 10.3,
+   "expect_matchup": 11.5,
+   "contrib": [
+    7.0,
+    4.4
+   ],
+   "buffer": 3.4,
+   "fa": [
+    [
+     4.6,
+     4.7
+    ],
+    [
+     4.6,
+     6.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.25,
+   "p_emp": {
+    "6.5": 0.7462686567164178,
+    "7.5": 0.7518796992481203
+   },
+   "p_mod": 0.852,
+   "p_fin": 0.802,
+   "fair_fin": 1.25,
+   "ladder_fin": [
+    [
+     6.5,
+     1.21
+    ],
+    [
+     7.5,
+     1.25
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.25",
+   "range": [
+    1.323,
+    1.722
+   ]
+  },
+  "v": 2
+ },
+ "12011597|yellowcards|über": {
+  "match_id": "12011597",
+  "home": "Cherno More Varna",
+  "away": "Lokomotiv 1929 Sofia",
+  "kickoff": "Fr 20:00",
+  "kickoff_ts": 1789149600,
+  "league": "Bulgaria First League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Fr 11:31",
+  "first_line": 2.5,
+  "first_range": [
+   1.2,
+   2.08
+  ],
+  "last_run": "Fr 11:31",
+  "line": 2.5,
+  "range": [
+   1.2,
+   2.08
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    47,
+    46
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — Cherno More Varna 7/9 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Lokomotiv 1929 Sofia 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.765308164537762,
+    0.8372804579295071
+   ],
+   "fair": 1.29,
+   "ladder": [
+    [
+     1.5,
+     1.25
+    ],
+    [
+     2.5,
+     1.29
+    ]
+   ],
+   "avg": [
+    4.0,
+    3.7
+   ],
+   "expect": 3.8,
+   "expect_sum": 3.8,
+   "expect_matchup": 3.7,
+   "contrib": [
+    1.6,
+    2.1
+   ],
+   "buffer": 1.3,
+   "fa": [
+    [
+     2.2,
+     2.1
+    ],
+    [
+     2.3,
+     1.7
+    ]
+   ],
+   "referee": "Kristiyan Kolev: Ø 3.6 Karten (13 Sp.)",
+   "b365": null,
+   "expect_ref": 3.6,
+   "buffer_ref": 1.1,
+   "sd": 1.87,
+   "p_emp": {
+    "1.5": 0.8,
+    "2.5": 0.7751937984496123
+   },
+   "p_mod": 0.722,
+   "p_fin": 0.749,
+   "fair_fin": 1.34,
+   "ladder_fin": [
+    [
+     1.5,
+     1.2
+    ],
+    [
+     2.5,
+     1.34
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.34",
+   "range": [
+    1.2,
+    2.08
+   ]
+  },
+  "v": 2
+ },
+ "12011597|yellowcards|unter": {
+  "match_id": "12011597",
+  "home": "Cherno More Varna",
+  "away": "Lokomotiv 1929 Sofia",
+  "kickoff": "Fr 20:00",
+  "kickoff_ts": 1789149600,
+  "league": "Bulgaria First League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 6.5,
+  "first_range": [
+   1.2,
+   2.08
+  ],
+  "last_run": "Fr 11:31",
+  "line": 6.5,
+  "range": [
+   1.2,
+   2.08
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 16
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 15
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    47,
+    46
+   ],
+   "next_line": 5.5,
+   "next_note": "Cherno More Varna 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "longterm": [
+    0.8867650951900381,
+    0.8987589414214391
+   ],
+   "fair": 1.13,
+   "ladder": [
+    [
+     6.5,
+     1.13
+    ],
+    [
+     7.5,
+     1.2
+    ]
+   ],
+   "avg": [
+    4.0,
+    3.7
+   ],
+   "expect": 3.8,
+   "expect_sum": 3.8,
+   "expect_matchup": 3.7,
+   "contrib": [
+    1.6,
+    2.1
+   ],
+   "buffer": 2.7,
+   "fa": [
+    [
+     2.2,
+     2.1
+    ],
+    [
+     2.3,
+     1.7
+    ]
+   ],
+   "referee": "Kristiyan Kolev: Ø 3.6 Karten (13 Sp.)",
+   "b365": null,
+   "expect_ref": 3.6,
+   "buffer_ref": 2.9,
+   "sd": 1.87,
+   "p_emp": {
+    "6.5": 0.8849557522123894,
+    "7.5": 0.8333333333333334
+   },
+   "p_mod": 0.94,
+   "p_fin": 0.912,
+   "fair_fin": 1.1,
+   "ladder_fin": [
+    [
+     6.5,
+     1.1
+    ],
+    [
+     7.5,
+     1.1
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.10",
+   "range": [
+    1.2,
+    2.08
+   ]
+  },
+  "v": 2
+ },
  "12130588|yellowcards|unter": {
   "match_id": "12130588",
   "home": "Burgos",
@@ -4499,11 +6123,11 @@
    1.21,
    1.87
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 6.5,
   "range": [
-   1.2,
-   1.83
+   1.19,
+   1.8
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -4593,8 +6217,240 @@
    "light": "🟢",
    "reason": "fair 1.20",
    "range": [
-    1.2,
-    1.83
+    1.19,
+    1.8
+   ]
+  },
+  "v": 2
+ },
+ "12130588|offsides|unter": {
+  "match_id": "12130588",
+  "home": "Burgos",
+  "away": "AD Ceuta FC",
+  "kickoff": "Fr 20:30",
+  "kickoff_ts": 1789151400,
+  "league": "Spain Segunda",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 4.5,
+  "first_range": [
+   1.6,
+   1.6
+  ],
+  "last_run": "Fr 11:31",
+  "line": 4.5,
+  "range": [
+   1.6,
+   1.6
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    37,
+    38
+   ],
+   "next_line": 3.5,
+   "next_note": "AD Ceuta FC 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.8131050156492388,
+    0.7281084319621781
+   ],
+   "fair": 1.33,
+   "ladder": [
+    [
+     4.5,
+     1.33
+    ],
+    [
+     5.5,
+     1.17
+    ]
+   ],
+   "avg": [
+    3.0,
+    4.1
+   ],
+   "expect": 3.8,
+   "expect_sum": 3.6,
+   "expect_matchup": 4.0,
+   "contrib": [
+    3.5,
+    0.5
+   ],
+   "buffer": 0.7,
+   "fa": [
+    [
+     2.2,
+     0.8
+    ],
+    [
+     1.7,
+     2.2
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.03,
+   "p_emp": {
+    "4.5": 0.7518796992481203,
+    "5.5": 0.8547008547008548
+   },
+   "p_mod": 0.635,
+   "p_fin": 0.693,
+   "fair_fin": 1.44,
+   "ladder_fin": [
+    [
+     4.5,
+     1.44
+    ],
+    [
+     5.5,
+     1.21
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.44",
+   "range": [
+    1.6,
+    1.6
+   ]
+  },
+  "v": 2
+ },
+ "12130588|fouls|über": {
+  "match_id": "12130588",
+  "home": "Burgos",
+  "away": "AD Ceuta FC",
+  "kickoff": "Fr 20:30",
+  "kickoff_ts": 1789151400,
+  "league": "Spain Segunda",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "über",
+  "first_run": "Fr 11:31",
+  "first_line": 20.5,
+  "first_range": [
+   1.75,
+   1.75
+  ],
+  "last_run": "Fr 11:31",
+  "line": 20.5,
+  "range": [
+   1.75,
+   1.75
+  ],
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "über",
+   "line": 20.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    40,
+    39
+   ],
+   "next_line": 22.5,
+   "next_note": "AD Ceuta FC 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.8656503882764321,
+    0.8091059598739716
+   ],
+   "fair": 1.28,
+   "ladder": [
+    [
+     18.5,
+     1.17
+    ],
+    [
+     20.5,
+     1.28
+    ]
+   ],
+   "avg": [
+    24.7,
+    22.9
+   ],
+   "expect": 23.8,
+   "expect_sum": 23.8,
+   "expect_matchup": 23.8,
+   "contrib": [
+    12.6,
+    11.2
+   ],
+   "buffer": 3.3,
+   "fa": [
+    [
+     12.8,
+     13.9
+    ],
+    [
+     12.3,
+     11.3
+    ]
+   ],
+   "referee": "Gorka Etayo Herrera: Ø 4.6 Karten (19 Sp.) · Ø 23.7 Fouls (17 Sp.)",
+   "b365": null,
+   "expect_ref": 23.7,
+   "buffer_ref": 3.2,
+   "sd": 5.93,
+   "p_emp": {
+    "18.5": 0.8547008547008548,
+    "20.5": 0.78125
+   },
+   "p_mod": 0.705,
+   "p_fin": 0.743,
+   "fair_fin": 1.35,
+   "ladder_fin": [
+    [
+     18.5,
+     1.2
+    ],
+    [
+     20.5,
+     1.35
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.35",
+   "range": [
+    1.75,
+    1.75
    ]
   },
   "v": 2
@@ -4615,11 +6471,11 @@
    1.21,
    1.87
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 2.5,
   "range": [
-   1.2,
-   1.83
+   1.19,
+   1.8
   ],
   "signal": {
    "metric": "1. HZ Gelbe Karten",
@@ -4709,8 +6565,8 @@
    "light": "🔴",
    "reason": "nur 47 % Wahrscheinlichkeit",
    "range": [
-    1.2,
-    1.83
+    1.19,
+    1.8
    ]
   },
   "v": 2
@@ -4731,7 +6587,7 @@
    1.229,
    2.0
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 7.5,
   "range": [
    1.223,
@@ -4851,7 +6707,7 @@
    1.256,
    1.656
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 7.5,
   "range": [
    1.289,
@@ -4955,246 +6811,6 @@
   },
   "v": 2
  },
- "12445954|corners|über": {
-  "match_id": "12445954",
-  "home": "Stenhousemuir",
-  "away": "Hearts",
-  "kickoff": "Fr 20:45",
-  "kickoff_ts": 1789152300,
-  "league": "Scotland League Cup",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Fr 06:28",
-  "first_line": 7.5,
-  "first_range": [
-   1.47,
-   1.47
-  ],
-  "last_run": "Fr 10:29",
-  "line": 7.5,
-  "range": [
-   1.47,
-   1.47
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 17
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    46,
-    46
-   ],
-   "next_line": 8.5,
-   "next_note": "Stenhousemuir 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
-   "longterm": [
-    0.7142117939597873,
-    0.9141707273672582
-   ],
-   "fair": 1.3,
-   "ladder": [
-    [
-     6.5,
-     1.32
-    ],
-    [
-     7.5,
-     1.3
-    ]
-   ],
-   "avg": [
-    10.4,
-    11.2
-   ],
-   "expect": 11.6,
-   "expect_sum": 10.8,
-   "expect_matchup": 12.4,
-   "contrib": [
-    6.1,
-    6.3
-   ],
-   "buffer": 4.1,
-   "fa": [
-    [
-     4.9,
-     4.9
-    ],
-    [
-     5.9,
-     4.6
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.0",
-    "1.825",
-    "1.975"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.64,
-   "p_emp": {
-    "6.5": 0.7575757575757576,
-    "7.5": 0.7692307692307692
-   },
-   "p_mod": 0.87,
-   "p_fin": 0.82,
-   "fair_fin": 1.22,
-   "ladder_fin": [
-    [
-     6.5,
-     1.19
-    ],
-    [
-     7.5,
-     1.22
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.22",
-   "range": [
-    1.47,
-    1.47
-   ]
-  },
-  "v": 2
- },
- "12074540|corners|über": {
-  "match_id": "12074540",
-  "home": "Puszcza Niepolomice",
-  "away": "LKS Lodz",
-  "kickoff": "Fr 20:45",
-  "kickoff_ts": 1789152300,
-  "league": "Poland I Liga",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Fr 06:28",
-  "first_line": 7.5,
-  "first_range": [
-   1.83,
-   1.83
-  ],
-  "last_run": "Fr 10:29",
-  "line": 7.5,
-  "range": [
-   1.97,
-   1.97
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    44
-   ],
-   "next_line": 8.5,
-   "next_note": "kein Anker — Puszcza Niepolomice 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; LKS Lodz 9/11 (3. Lücke) gesamt, 12/14 (3. Lücke) auswärts",
-   "longterm": [
-    0.6798567707140161,
-    0.8457769191952924
-   ],
-   "fair": 1.35,
-   "ladder": [
-    [
-     6.5,
-     1.29
-    ],
-    [
-     7.5,
-     1.35
-    ]
-   ],
-   "avg": [
-    9.2,
-    11.9
-   ],
-   "expect": 11.2,
-   "expect_sum": 10.6,
-   "expect_matchup": 11.8,
-   "contrib": [
-    5.4,
-    6.4
-   ],
-   "buffer": 3.7,
-   "fa": [
-    [
-     4.2,
-     5.4
-    ],
-    [
-     6.1,
-     5.4
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.0",
-    "1.875",
-    "1.925"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.78,
-   "p_emp": {
-    "6.5": 0.7751937984496123,
-    "7.5": 0.7407407407407407
-   },
-   "p_mod": 0.836,
-   "p_fin": 0.788,
-   "fair_fin": 1.27,
-   "ladder_fin": [
-    [
-     6.5,
-     1.2
-    ],
-    [
-     7.5,
-     1.27
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.27",
-   "range": [
-    1.97,
-    1.97
-   ]
-  },
-  "v": 2
- },
  "11998001|yellowcards|unter": {
   "match_id": "11998001",
   "home": "Venezia",
@@ -5211,7 +6827,7 @@
    1.2,
    1.66
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 5.5,
   "range": [
    1.46,
@@ -5327,7 +6943,7 @@
    1.26,
    2.4
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 6.5,
   "range": [
    1.73,
@@ -5443,10 +7059,10 @@
    1.85,
    1.85
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 18.5,
   "range": [
-   1.85,
+   1.56,
    1.85
   ],
   "signal": {
@@ -5493,7 +7109,7 @@
    ],
    "expect": 26.5,
    "expect_sum": 25.6,
-   "expect_matchup": 27.4,
+   "expect_matchup": 27.3,
    "contrib": [
     14.9,
     12.4
@@ -5537,7 +7153,7 @@
    "light": "🟢",
    "reason": "fair 1.14",
    "range": [
-    1.85,
+    1.56,
     1.85
    ]
   },
@@ -5559,7 +7175,7 @@
    1.2,
    1.66
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 2.5,
   "range": [
    1.46,
@@ -5675,7 +7291,7 @@
    1.26,
    2.4
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 24.5,
   "range": [
    1.73,
@@ -5775,6 +7391,126 @@
   },
   "v": 2
  },
+ "12074540|corners|über": {
+  "match_id": "12074540",
+  "home": "Puszcza Niepolomice",
+  "away": "LKS Lodz",
+  "kickoff": "Fr 20:45",
+  "kickoff_ts": 1789152300,
+  "league": "Poland I Liga",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Fr 06:28",
+  "first_line": 7.5,
+  "first_range": [
+   1.83,
+   1.83
+  ],
+  "last_run": "Fr 11:31",
+  "line": 7.5,
+  "range": [
+   1.97,
+   1.97
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    44
+   ],
+   "next_line": 8.5,
+   "next_note": "kein Anker — Puszcza Niepolomice 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; LKS Lodz 9/11 (3. Lücke) gesamt, 12/14 (3. Lücke) auswärts",
+   "longterm": [
+    0.6798567707140161,
+    0.8457769191952924
+   ],
+   "fair": 1.35,
+   "ladder": [
+    [
+     6.5,
+     1.29
+    ],
+    [
+     7.5,
+     1.35
+    ]
+   ],
+   "avg": [
+    9.2,
+    11.9
+   ],
+   "expect": 11.2,
+   "expect_sum": 10.6,
+   "expect_matchup": 11.8,
+   "contrib": [
+    5.4,
+    6.4
+   ],
+   "buffer": 3.7,
+   "fa": [
+    [
+     4.2,
+     5.4
+    ],
+    [
+     6.1,
+     5.4
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.875",
+    "1.925"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.78,
+   "p_emp": {
+    "6.5": 0.7751937984496123,
+    "7.5": 0.7407407407407407
+   },
+   "p_mod": 0.836,
+   "p_fin": 0.788,
+   "fair_fin": 1.27,
+   "ladder_fin": [
+    [
+     6.5,
+     1.2
+    ],
+    [
+     7.5,
+     1.27
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.27",
+   "range": [
+    1.97,
+    1.97
+   ]
+  },
+  "v": 2
+ },
  "12031647|corners|über": {
   "match_id": "12031647",
   "home": "Rennes",
@@ -5791,7 +7527,7 @@
    1.25,
    1.57
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 7.5,
   "range": [
    1.25,
@@ -5911,11 +7647,11 @@
    1.24,
    1.63
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 5.5,
   "range": [
    1.28,
-   1.74
+   1.75
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -6006,7 +7742,7 @@
    "reason": "fair 1.14",
    "range": [
     1.28,
-    1.74
+    1.75
    ]
   },
   "v": 2
@@ -6027,7 +7763,7 @@
    1.73,
    1.73
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 6.5,
   "range": [
    1.73,
@@ -6143,11 +7879,11 @@
    1.75,
    1.75
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 4.5,
   "range": [
-   1.85,
-   1.85
+   1.28,
+   1.73
   ],
   "signal": {
    "metric": "Abseits",
@@ -6176,11 +7912,11 @@
     0.6150887866927731,
     0.7216271876622673
    ],
-   "fair": 1.47,
+   "fair": 1.46,
    "ladder": [
     [
      4.5,
-     1.47
+     1.46
     ],
     [
      5.5,
@@ -6193,7 +7929,7 @@
    ],
    "expect": 4.4,
    "expect_sum": 4.0,
-   "expect_matchup": 4.7,
+   "expect_matchup": 4.8,
    "contrib": [
     3.5,
     1.3
@@ -6215,16 +7951,16 @@
    "buffer_ref": null,
    "sd": 1.91,
    "p_emp": {
-    "4.5": 0.6802721088435374,
+    "4.5": 0.684931506849315,
     "5.5": 0.8403361344537815
    },
    "p_mod": 0.521,
-   "p_fin": 0.601,
-   "fair_fin": 1.67,
+   "p_fin": 0.603,
+   "fair_fin": 1.66,
    "ladder_fin": [
     [
      4.5,
-     1.67
+     1.66
     ],
     [
      5.5,
@@ -6237,8 +7973,8 @@
    "light": "🟡",
    "reason": "60 % knapp; Historie 68 % vs. Modell 52 %",
    "range": [
-    1.85,
-    1.85
+    1.28,
+    1.73
    ]
   },
   "v": 2
@@ -6259,11 +7995,11 @@
    1.24,
    1.63
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 2.5,
   "range": [
    1.28,
-   1.74
+   1.75
   ],
   "signal": {
    "metric": "1. HZ Gelbe Karten",
@@ -6354,7 +8090,7 @@
    "reason": "fair 1.19",
    "range": [
     1.28,
-    1.74
+    1.75
    ]
   },
   "v": 2
@@ -6375,7 +8111,7 @@
    1.73,
    1.73
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 22.5,
   "range": [
    1.73,
@@ -6425,7 +8161,7 @@
    ],
    "expect": 18.3,
    "expect_sum": 17.9,
-   "expect_matchup": 18.7,
+   "expect_matchup": 18.6,
    "contrib": [
     10.9,
     7.8
@@ -6475,33 +8211,849 @@
   },
   "v": 2
  },
- "12395238|corners|über": {
-  "match_id": "12395238",
-  "home": "Afturelding",
-  "away": "Breidablik",
-  "kickoff": "Fr 21:00",
-  "kickoff_ts": 1789153200,
-  "league": "Iceland Cup",
+ "12445954|corners|über": {
+  "match_id": "12445954",
+  "home": "Stenhousemuir",
+  "away": "Hearts",
+  "kickoff": "Fr 20:45",
+  "kickoff_ts": 1789152300,
+  "league": "Scotland League Cup",
   "metric": "Ecken",
   "metric_key": "corners",
   "direction": "über",
   "first_run": "Fr 06:28",
-  "first_line": 8.5,
+  "first_line": 7.5,
   "first_range": [
-   1.69,
-   1.69
+   1.47,
+   1.47
   ],
-  "last_run": "Fr 10:29",
-  "line": 8.5,
+  "last_run": "Fr 11:31",
+  "line": 7.5,
   "range": [
-   1.74,
-   1.74
+   1.47,
+   1.47
   ],
   "signal": {
    "metric": "Ecken",
    "metric_key": "corners",
    "direction": "über",
-   "line": 8.5,
+   "line": 7.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 17
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    46
+   ],
+   "next_line": 8.5,
+   "next_note": "Stenhousemuir 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "longterm": [
+    0.7142117939597873,
+    0.9141707273672582
+   ],
+   "fair": 1.3,
+   "ladder": [
+    [
+     6.5,
+     1.32
+    ],
+    [
+     7.5,
+     1.3
+    ]
+   ],
+   "avg": [
+    10.4,
+    11.2
+   ],
+   "expect": 11.6,
+   "expect_sum": 10.8,
+   "expect_matchup": 12.4,
+   "contrib": [
+    6.1,
+    6.3
+   ],
+   "buffer": 4.1,
+   "fa": [
+    [
+     4.9,
+     4.9
+    ],
+    [
+     5.9,
+     4.6
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.825",
+    "1.975"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.64,
+   "p_emp": {
+    "6.5": 0.7575757575757576,
+    "7.5": 0.7692307692307692
+   },
+   "p_mod": 0.87,
+   "p_fin": 0.82,
+   "fair_fin": 1.22,
+   "ladder_fin": [
+    [
+     6.5,
+     1.19
+    ],
+    [
+     7.5,
+     1.22
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.22",
+   "range": [
+    1.47,
+    1.47
+   ]
+  },
+  "v": 2
+ },
+ "12065840|yellowcards|über": {
+  "match_id": "12065840",
+  "home": "KV Mechelen",
+  "away": "Anderlecht",
+  "kickoff": "Fr 20:45",
+  "kickoff_ts": 1789152300,
+  "league": "Belgium First Division A",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Fr 11:31",
+  "first_line": 2.5,
+  "first_range": [
+   1.2,
+   1.85
+  ],
+  "last_run": "Fr 11:31",
+  "line": 2.5,
+  "range": [
+   1.2,
+   1.85
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    45
+   ],
+   "next_line": 3.5,
+   "next_note": "KV Mechelen 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "longterm": [
+    0.6162218446061263,
+    0.8620939042629697
+   ],
+   "fair": 1.37,
+   "ladder": [
+    [
+     1.5,
+     1.38
+    ],
+    [
+     2.5,
+     1.37
+    ]
+   ],
+   "avg": [
+    4.4,
+    4.4
+   ],
+   "expect": 4.7,
+   "expect_sum": 4.4,
+   "expect_matchup": 4.9,
+   "contrib": [
+    1.6,
+    3.3
+   ],
+   "buffer": 2.2,
+   "fa": [
+    [
+     1.8,
+     1.8
+    ],
+    [
+     2.3,
+     2.3
+    ]
+   ],
+   "referee": "Erik Lambrechts: Ø 3.9 Karten (23 Sp.) · Ø 19.9 Fouls (19 Sp.)",
+   "b365": null,
+   "expect_ref": 4.6,
+   "buffer_ref": 2.1,
+   "sd": 2.23,
+   "p_emp": {
+    "1.5": 0.7246376811594204,
+    "2.5": 0.7299270072992701
+   },
+   "p_mod": 0.827,
+   "p_fin": 0.778,
+   "fair_fin": 1.28,
+   "ladder_fin": [
+    [
+     1.5,
+     1.22
+    ],
+    [
+     2.5,
+     1.28
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.28",
+   "range": [
+    1.2,
+    1.85
+   ]
+  },
+  "v": 2
+ },
+ "12065840|offsides|unter": {
+  "match_id": "12065840",
+  "home": "KV Mechelen",
+  "away": "Anderlecht",
+  "kickoff": "Fr 20:45",
+  "kickoff_ts": 1789152300,
+  "league": "Belgium First Division A",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 5.5,
+  "first_range": [
+   1.55,
+   1.86
+  ],
+  "last_run": "Fr 11:31",
+  "line": 5.5,
+  "range": [
+   1.55,
+   1.86
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    35,
+    33
+   ],
+   "next_line": 4.5,
+   "next_note": "Anderlecht 0/2 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    1.0,
+    0.7934044358778778
+   ],
+   "fair": 1.15,
+   "ladder": [
+    [
+     5.5,
+     1.15
+    ],
+    [
+     6.5,
+     1.26
+    ]
+   ],
+   "avg": [
+    3.0,
+    3.5
+   ],
+   "expect": 3.2,
+   "expect_sum": 3.3,
+   "expect_matchup": 3.2,
+   "contrib": [
+    2.1,
+    1.0
+   ],
+   "buffer": 2.3,
+   "fa": [
+    [
+     1.5,
+     1.1
+    ],
+    [
+     1.4,
+     1.7
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.62,
+   "p_emp": {
+    "5.5": 0.8695652173913044,
+    "6.5": 0.7936507936507936
+   },
+   "p_mod": 0.922,
+   "p_fin": 0.896,
+   "fair_fin": 1.12,
+   "ladder_fin": [
+    [
+     5.5,
+     1.12
+    ],
+    [
+     6.5,
+     1.13
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.12",
+   "range": [
+    1.55,
+    1.86
+   ]
+  },
+  "v": 2
+ },
+ "12065840|fouls|über": {
+  "match_id": "12065840",
+  "home": "KV Mechelen",
+  "away": "Anderlecht",
+  "kickoff": "Fr 20:45",
+  "kickoff_ts": 1789152300,
+  "league": "Belgium First Division A",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "über",
+  "first_run": "Fr 11:31",
+  "first_line": 18.5,
+  "first_range": [
+   1.75,
+   1.75
+  ],
+  "last_run": "Fr 11:31",
+  "line": 18.5,
+  "range": [
+   1.75,
+   1.75
+  ],
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "über",
+   "line": 18.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    37,
+    35
+   ],
+   "next_line": 20.5,
+   "next_note": "kein Anker — KV Mechelen 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Anderlecht 15/17 (3. Lücke) gesamt, 14/16 auswärts",
+   "longterm": [
+    0.6315048725360092,
+    0.9194697052835763
+   ],
+   "fair": 1.29,
+   "ladder": [
+    [
+     16.5,
+     1.32
+    ],
+    [
+     18.5,
+     1.29
+    ]
+   ],
+   "avg": [
+    21.3,
+    25.4
+   ],
+   "expect": 23.2,
+   "expect_sum": 23.3,
+   "expect_matchup": 23.1,
+   "contrib": [
+    8.2,
+    14.9
+   ],
+   "buffer": 4.7,
+   "fa": [
+    [
+     9.7,
+     10.4
+    ],
+    [
+     13.1,
+     11.1
+    ]
+   ],
+   "referee": "Erik Lambrechts: Ø 3.9 Karten (23 Sp.) · Ø 19.9 Fouls (19 Sp.)",
+   "b365": null,
+   "expect_ref": 20.5,
+   "buffer_ref": 2.0,
+   "sd": 5.04,
+   "p_emp": {
+    "16.5": 0.7575757575757576,
+    "18.5": 0.7751937984496123
+   },
+   "p_mod": 0.654,
+   "p_fin": 0.715,
+   "fair_fin": 1.4,
+   "ladder_fin": [
+    [
+     16.5,
+     1.3
+    ],
+    [
+     18.5,
+     1.4
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 78 % vs. Modell 65 %",
+   "range": [
+    1.75,
+    1.75
+   ]
+  },
+  "v": 2
+ },
+ "12065840|fouls|unter": {
+  "match_id": "12065840",
+  "home": "KV Mechelen",
+  "away": "Anderlecht",
+  "kickoff": "Fr 20:45",
+  "kickoff_ts": 1789152300,
+  "league": "Belgium First Division A",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 28.5,
+  "first_range": [
+   1.75,
+   1.75
+  ],
+  "last_run": "Fr 11:31",
+  "line": 28.5,
+  "range": [
+   1.75,
+   1.75
+  ],
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "unter",
+   "line": 28.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    37,
+    35
+   ],
+   "next_line": 26.5,
+   "next_note": "Anderlecht 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.944564661365228,
+    0.8159917657702193
+   ],
+   "fair": 1.2,
+   "ladder": [
+    [
+     28.5,
+     1.2
+    ],
+    [
+     30.5,
+     1.28
+    ]
+   ],
+   "avg": [
+    21.3,
+    25.4
+   ],
+   "expect": 23.2,
+   "expect_sum": 23.3,
+   "expect_matchup": 23.1,
+   "contrib": [
+    8.2,
+    14.9
+   ],
+   "buffer": 5.3,
+   "fa": [
+    [
+     9.7,
+     10.4
+    ],
+    [
+     13.1,
+     11.1
+    ]
+   ],
+   "referee": "Erik Lambrechts: Ø 3.9 Karten (23 Sp.) · Ø 19.9 Fouls (19 Sp.)",
+   "b365": null,
+   "expect_ref": 20.5,
+   "buffer_ref": 8.0,
+   "sd": 5.04,
+   "p_emp": {
+    "28.5": 0.8333333333333334,
+    "30.5": 0.78125
+   },
+   "p_mod": 0.944,
+   "p_fin": 0.889,
+   "fair_fin": 1.13,
+   "ladder_fin": [
+    [
+     28.5,
+     1.13
+    ],
+    [
+     30.5,
+     1.14
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.13",
+   "range": [
+    1.75,
+    1.75
+   ]
+  },
+  "v": 2
+ },
+ "12065840|ht_yellowcards|unter": {
+  "match_id": "12065840",
+  "home": "KV Mechelen",
+  "away": "Anderlecht",
+  "kickoff": "Fr 20:45",
+  "kickoff_ts": 1789152300,
+  "league": "Belgium First Division A",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 2.5,
+  "first_range": [
+   1.2,
+   1.85
+  ],
+  "last_run": "Fr 11:31",
+  "line": 2.5,
+  "range": [
+   1.2,
+   1.85
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 16
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    48
+   ],
+   "next_line": 1.5,
+   "next_note": "KV Mechelen 7/9 (3. Lücke) gesamt, 7/9 (3. Lücke) heim",
+   "longterm": [
+    0.8969412193769212,
+    0.8326066366464113
+   ],
+   "fair": 1.17,
+   "ladder": [
+    [
+     2.5,
+     1.17
+    ],
+    [
+     3.5,
+     1.22
+    ]
+   ],
+   "avg": [
+    1.2,
+    1.5
+   ],
+   "expect": 1.3,
+   "expect_sum": 1.3,
+   "expect_matchup": 1.3,
+   "contrib": [
+    0.4,
+    0.9
+   ],
+   "buffer": 1.2,
+   "fa": [
+    [
+     0.6,
+     0.5
+    ],
+    [
+     0.7,
+     0.9
+    ]
+   ],
+   "referee": "Erik Lambrechts: Ø 3.9 Karten (23 Sp.) · Ø 19.9 Fouls (19 Sp.)",
+   "b365": null,
+   "expect_ref": 3.1,
+   "buffer_ref": -0.6,
+   "sd": 1.28,
+   "p_emp": {
+    "2.5": 0.8547008547008548,
+    "3.5": 0.819672131147541
+   },
+   "p_mod": 0.32,
+   "p_fin": 0.587,
+   "fair_fin": 1.7,
+   "ladder_fin": [
+    [
+     2.5,
+     1.7
+    ],
+    [
+     3.5,
+     1.39
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "Historie 85 % und Modell 32 % widersprechen sich",
+   "range": [
+    1.2,
+    1.85
+   ]
+  },
+  "v": 2
+ },
+ "12100748|yellowcards|unter": {
+  "match_id": "12100748",
+  "home": "West Ham",
+  "away": "Wrexham",
+  "kickoff": "Fr 21:00",
+  "kickoff_ts": 1789153200,
+  "league": "England Championship",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Fr 06:28",
+  "first_line": 4.5,
+  "first_range": [
+   1.2,
+   1.48
+  ],
+  "last_run": "Fr 11:31",
+  "line": 4.5,
+  "range": [
+   1.25,
+   1.89
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    48,
+    47
+   ],
+   "next_line": 3.5,
+   "next_note": "West Ham 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Wrexham 4/6 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.7538562268369177,
+    0.7534250867245664
+   ],
+   "fair": 1.4,
+   "ladder": [
+    [
+     4.5,
+     1.4
+    ],
+    [
+     5.5,
+     1.16
+    ]
+   ],
+   "avg": [
+    4.0,
+    2.7
+   ],
+   "expect": 3.0,
+   "expect_sum": 3.4,
+   "expect_matchup": 2.7,
+   "contrib": [
+    1.1,
+    1.6
+   ],
+   "buffer": 1.5,
+   "fa": [
+    [
+     1.7,
+     1.9
+    ],
+    [
+     1.4,
+     1.9
+    ]
+   ],
+   "referee": "Matt Donohue: Ø 4.1 Karten (22 Sp.) · Ø 20.2 Fouls (17 Sp.)",
+   "b365": null,
+   "expect_ref": 3.1,
+   "buffer_ref": 1.4,
+   "sd": 2.02,
+   "p_emp": {
+    "4.5": 0.7142857142857143,
+    "5.5": 0.8620689655172414
+   },
+   "p_mod": 0.756,
+   "p_fin": 0.735,
+   "fair_fin": 1.36,
+   "ladder_fin": [
+    [
+     4.5,
+     1.36
+    ],
+    [
+     5.5,
+     1.15
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.36",
+   "range": [
+    1.25,
+    1.89
+   ]
+  },
+  "v": 2
+ },
+ "12100748|offsides|unter": {
+  "match_id": "12100748",
+  "home": "West Ham",
+  "away": "Wrexham",
+  "kickoff": "Fr 21:00",
+  "kickoff_ts": 1789153200,
+  "league": "England Championship",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 4.5,
+  "first_range": [
+   1.56,
+   1.56
+  ],
+  "last_run": "Fr 11:31",
+  "line": 4.5,
+  "range": [
+   1.56,
+   1.56
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 4.5,
    "home_series": {
     "kind": "gesamt",
     "hits": 10,
@@ -6512,85 +9064,661 @@
     "hits": 10,
     "window": 10
    },
-   "home_is_anchor": false,
+   "home_is_anchor": true,
    "away_is_anchor": true,
    "valid": [
-    41,
-    45
+    46,
+    34
    ],
-   "next_line": 9.5,
-   "next_note": "Afturelding 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "next_line": 3.5,
+   "next_note": "West Ham 1/3 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
    "longterm": [
-    0.854574374632512,
-    0.8971608764916353
+    0.7701795470743513,
+    0.9739176402460481
    ],
-   "fair": 1.28,
+   "fair": 1.23,
    "ladder": [
     [
-     7.5,
-     1.18
+     4.5,
+     1.23
     ],
     [
-     8.5,
-     1.28
+     5.5,
+     1.12
     ]
    ],
    "avg": [
-    10.6,
-    13.3
+    2.8,
+    2.4
+   ],
+   "expect": 2.2,
+   "expect_sum": 2.6,
+   "expect_matchup": 1.8,
+   "contrib": [
+    0.9,
+    0.9
+   ],
+   "buffer": 2.3,
+   "fa": [
+    [
+     2.0,
+     1.1
+    ],
+    [
+     1.7,
+     1.1
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.82,
+   "p_emp": {
+    "4.5": 0.8130081300813008,
+    "5.5": 0.8928571428571428
+   },
+   "p_mod": 0.897,
+   "p_fin": 0.855,
+   "fair_fin": 1.17,
+   "ladder_fin": [
+    [
+     4.5,
+     1.17
+    ],
+    [
+     5.5,
+     1.08
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.17",
+   "range": [
+    1.56,
+    1.56
+   ]
+  },
+  "v": 2
+ },
+ "12100748|shots_total|unter": {
+  "match_id": "12100748",
+  "home": "West Ham",
+  "away": "Wrexham",
+  "kickoff": "Fr 21:00",
+  "kickoff_ts": 1789153200,
+  "league": "England Championship",
+  "metric": "Schüsse gesamt",
+  "metric_key": "shots_total",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 18.5,
+  "first_range": [
+   1.61,
+   2.02
+  ],
+  "last_run": "Fr 11:31",
+  "line": 18.5,
+  "range": [
+   1.61,
+   2.02
+  ],
+  "signal": {
+   "metric": "Schüsse gesamt",
+   "metric_key": "shots_total",
+   "direction": "unter",
+   "line": 18.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    48
+   ],
+   "next_line": null,
+   "next_note": null,
+   "longterm": [
+    0.6333562623481188,
+    0.8114450366158213
+   ],
+   "fair": 1.41,
+   "ladder": [
+    [
+     18.5,
+     1.41
+    ],
+    [
+     20.5,
+     1.2
+    ]
+   ],
+   "avg": [
+    16.5,
+    12.6
    ],
    "expect": 13.5,
-   "expect_sum": 12.0,
-   "expect_matchup": 15.0,
+   "expect_sum": 14.5,
+   "expect_matchup": 12.6,
    "contrib": [
-    8.4,
-    6.6
+    7.6,
+    5.0
    ],
    "buffer": 5.0,
    "fa": [
     [
-     6.1,
-     6.0
+     7.6,
+     9.5
     ],
     [
-     7.3,
-     5.9
+     6.9,
+     7.5
     ]
    ],
    "referee": null,
-   "b365": [
-    "12.0",
-    "2.000",
-    "1.800"
-   ],
+   "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.79,
+   "sd": 4.76,
    "p_emp": {
-    "7.5": 0.8474576271186441,
-    "8.5": 0.78125
+    "18.5": 0.7092198581560284,
+    "20.5": 0.8333333333333334
    },
-   "p_mod": 0.906,
-   "p_fin": 0.844,
-   "fair_fin": 1.19,
+   "p_mod": 0.853,
+   "p_fin": 0.781,
+   "fair_fin": 1.28,
    "ladder_fin": [
     [
-     7.5,
-     1.12
+     18.5,
+     1.28
     ],
     [
-     8.5,
-     1.19
+     20.5,
+     1.13
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟡",
-   "reason": "Historie 78 % vs. Modell 91 %",
+   "reason": "Historie 71 % vs. Modell 85 %",
    "range": [
-    1.74,
-    1.74
+    1.61,
+    2.02
+   ]
+  },
+  "v": 2
+ },
+ "12286983|yellowcards|unter": {
+  "match_id": "12286983",
+  "home": "Benevento",
+  "away": "Verona",
+  "kickoff": "Fr 21:00",
+  "kickoff_ts": 1789153200,
+  "league": "Italy Serie B",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 5.5,
+  "first_range": [
+   1.62,
+   1.63
+  ],
+  "last_run": "Fr 11:31",
+  "line": 5.5,
+  "range": [
+   1.62,
+   1.63
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    46
+   ],
+   "next_line": 4.5,
+   "next_note": "Verona 8/10 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.835663245429208,
+    0.8399180816408112
+   ],
+   "fair": 1.23,
+   "ladder": [
+    [
+     5.5,
+     1.23
+    ],
+    [
+     6.5,
+     1.09
+    ]
+   ],
+   "avg": [
+    3.4,
+    3.7
+   ],
+   "expect": 3.4,
+   "expect_sum": 3.5,
+   "expect_matchup": 3.2,
+   "contrib": [
+    1.1,
+    2.1
+   ],
+   "buffer": 2.1,
+   "fa": [
+    [
+     1.8,
+     1.7
+    ],
+    [
+     2.1,
+     1.5
+    ]
+   ],
+   "referee": "Livio Marinelli: Ø 4.1 Karten (15 Sp.) · Ø 26.5 Fouls (12 Sp.)",
+   "b365": null,
+   "expect_ref": 3.5,
+   "buffer_ref": 2.0,
+   "sd": 1.99,
+   "p_emp": {
+    "5.5": 0.8130081300813008,
+    "6.5": 0.9174311926605504
+   },
+   "p_mod": 0.843,
+   "p_fin": 0.828,
+   "fair_fin": 1.21,
+   "ladder_fin": [
+    [
+     5.5,
+     1.21
+    ],
+    [
+     6.5,
+     1.08
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.21",
+   "range": [
+    1.62,
+    1.63
+   ]
+  },
+  "v": 2
+ },
+ "12286983|ht_yellowcards|unter": {
+  "match_id": "12286983",
+  "home": "Benevento",
+  "away": "Verona",
+  "kickoff": "Fr 21:00",
+  "kickoff_ts": 1789153200,
+  "league": "Italy Serie B",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 2.5,
+  "first_range": [
+   1.62,
+   1.63
+  ],
+  "last_run": "Fr 11:31",
+  "line": 2.5,
+  "range": [
+   1.62,
+   1.63
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 16
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    48
+   ],
+   "next_line": 1.5,
+   "next_note": "Verona 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.9109014309171537,
+    0.8006491101506666
+   ],
+   "fair": 1.18,
+   "ladder": [
+    [
+     2.5,
+     1.18
+    ],
+    [
+     3.5,
+     1.19
+    ]
+   ],
+   "avg": [
+    0.9,
+    1.7
+   ],
+   "expect": 1.2,
+   "expect_sum": 1.3,
+   "expect_matchup": 1.0,
+   "contrib": [
+    0.4,
+    0.6
+   ],
+   "buffer": 1.3,
+   "fa": [
+    [
+     0.7,
+     0.6
+    ],
+    [
+     0.9,
+     0.5
+    ]
+   ],
+   "referee": "Livio Marinelli: Ø 4.1 Karten (15 Sp.) · Ø 26.5 Fouls (12 Sp.)",
+   "b365": null,
+   "expect_ref": 2.8,
+   "buffer_ref": -0.3,
+   "sd": 1.14,
+   "p_emp": {
+    "2.5": 0.8474576271186441,
+    "3.5": 0.8403361344537815
+   },
+   "p_mod": 0.396,
+   "p_fin": 0.622,
+   "fair_fin": 1.61,
+   "ladder_fin": [
+    [
+     2.5,
+     1.61
+    ],
+    [
+     3.5,
+     1.27
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "Historie 85 % und Modell 40 % widersprechen sich",
+   "range": [
+    1.62,
+    1.63
+   ]
+  },
+  "v": 2
+ },
+ "12287467|yellowcards|über": {
+  "match_id": "12287467",
+  "home": "Pisa",
+  "away": "Virtus Entella",
+  "kickoff": "Fr 21:00",
+  "kickoff_ts": 1789153200,
+  "league": "Italy Serie B",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Fr 11:31",
+  "first_line": 2.5,
+  "first_range": [
+   1.7,
+   1.7
+  ],
+  "last_run": "Fr 11:31",
+  "line": 2.5,
+  "range": [
+   1.7,
+   1.7
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    47,
+    49
+   ],
+   "next_line": 3.5,
+   "next_note": "Virtus Entella 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.8325854879374522,
+    0.7274744001529764
+   ],
+   "fair": 1.31,
+   "ladder": [
+    [
+     1.5,
+     1.31
+    ],
+    [
+     2.5,
+     1.31
+    ]
+   ],
+   "avg": [
+    4.0,
+    3.3
+   ],
+   "expect": 3.5,
+   "expect_sum": 3.6,
+   "expect_matchup": 3.3,
+   "contrib": [
+    1.5,
+    1.8
+   ],
+   "buffer": 1.0,
+   "fa": [
+    [
+     2.0,
+     1.6
+    ],
+    [
+     1.9,
+     1.7
+    ]
+   ],
+   "referee": "Ermanno Feliciani: Ø 2.9 Karten (22 Sp.) · Ø 22.8 Fouls (20 Sp.)",
+   "b365": null,
+   "expect_ref": 2.8,
+   "buffer_ref": 0.3,
+   "sd": 1.7,
+   "p_emp": {
+    "1.5": 0.7633587786259541,
+    "2.5": 0.7633587786259541
+   },
+   "p_mod": 0.57,
+   "p_fin": 0.667,
+   "fair_fin": 1.5,
+   "ladder_fin": [
+    [
+     1.5,
+     1.3
+    ],
+    [
+     2.5,
+     1.5
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "67 % knapp; Historie 76 % vs. Modell 57 %",
+   "range": [
+    1.7,
+    1.7
+   ]
+  },
+  "v": 2
+ },
+ "12287467|yellowcards|unter": {
+  "match_id": "12287467",
+  "home": "Pisa",
+  "away": "Virtus Entella",
+  "kickoff": "Fr 21:00",
+  "kickoff_ts": 1789153200,
+  "league": "Italy Serie B",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Fr 11:31",
+  "first_line": 5.5,
+  "first_range": [
+   1.7,
+   1.7
+  ],
+  "last_run": "Fr 11:31",
+  "line": 5.5,
+  "range": [
+   1.7,
+   1.7
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    47,
+    49
+   ],
+   "next_line": 4.5,
+   "next_note": "Pisa 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "longterm": [
+    0.8745463986727582,
+    0.8937671384277518
+   ],
+   "fair": 1.18,
+   "ladder": [
+    [
+     5.5,
+     1.18
+    ],
+    [
+     6.5,
+     1.09
+    ]
+   ],
+   "avg": [
+    4.0,
+    3.3
+   ],
+   "expect": 3.5,
+   "expect_sum": 3.6,
+   "expect_matchup": 3.3,
+   "contrib": [
+    1.5,
+    1.8
+   ],
+   "buffer": 2.0,
+   "fa": [
+    [
+     2.0,
+     1.6
+    ],
+    [
+     1.9,
+     1.7
+    ]
+   ],
+   "referee": "Ermanno Feliciani: Ø 2.9 Karten (22 Sp.) · Ø 22.8 Fouls (20 Sp.)",
+   "b365": null,
+   "expect_ref": 2.8,
+   "buffer_ref": 2.7,
+   "sd": 1.7,
+   "p_emp": {
+    "5.5": 0.8474576271186441,
+    "6.5": 0.9174311926605504
+   },
+   "p_mod": 0.944,
+   "p_fin": 0.896,
+   "fair_fin": 1.12,
+   "ladder_fin": [
+    [
+     5.5,
+     1.12
+    ],
+    [
+     6.5,
+     1.05
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.12",
+   "range": [
+    1.7,
+    1.7
    ]
   },
   "v": 2
@@ -6611,7 +9739,7 @@
    1.21,
    1.53
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 6.5,
   "range": [
    1.22,
@@ -6727,7 +9855,7 @@
    1.78,
    1.78
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 10.5,
   "range": [
    1.56,
@@ -6843,7 +9971,7 @@
    1.78,
    1.78
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 20.5,
   "range": [
    1.56,
@@ -6943,33 +10071,33 @@
   },
   "v": 2
  },
- "12100748|yellowcards|unter": {
-  "match_id": "12100748",
-  "home": "West Ham",
-  "away": "Wrexham",
+ "12395238|corners|über": {
+  "match_id": "12395238",
+  "home": "Afturelding",
+  "away": "Breidablik",
   "kickoff": "Fr 21:00",
   "kickoff_ts": 1789153200,
-  "league": "England Championship",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
+  "league": "Iceland Cup",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
   "first_run": "Fr 06:28",
-  "first_line": 4.5,
+  "first_line": 8.5,
   "first_range": [
-   1.2,
-   1.48
+   1.69,
+   1.69
   ],
-  "last_run": "Fr 10:29",
-  "line": 4.5,
+  "last_run": "Fr 11:31",
+  "line": 8.5,
   "range": [
-   1.26,
-   1.93
+   1.74,
+   1.74
   ],
   "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 4.5,
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
    "home_series": {
     "kind": "gesamt",
     "hits": 10,
@@ -6978,83 +10106,310 @@
    "away_series": {
     "kind": "gesamt",
     "hits": 10,
-    "window": 12
+    "window": 10
    },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
+   "home_is_anchor": false,
+   "away_is_anchor": true,
    "valid": [
-    48,
-    47
+    41,
+    45
    ],
-   "next_line": 3.5,
-   "next_note": "West Ham 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Wrexham 4/6 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "next_line": 9.5,
+   "next_note": "Afturelding 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
    "longterm": [
-    0.7538562268369177,
-    0.7534250867245664
+    0.854574374632512,
+    0.8971608764916353
    ],
-   "fair": 1.4,
+   "fair": 1.28,
    "ladder": [
     [
-     4.5,
-     1.4
+     7.5,
+     1.18
     ],
     [
-     5.5,
-     1.16
+     8.5,
+     1.28
     ]
    ],
    "avg": [
-    4.0,
-    2.7
+    10.6,
+    13.3
    ],
-   "expect": 3.0,
-   "expect_sum": 3.4,
-   "expect_matchup": 2.7,
+   "expect": 13.5,
+   "expect_sum": 12.0,
+   "expect_matchup": 15.0,
    "contrib": [
-    1.1,
-    1.6
+    8.4,
+    6.6
    ],
-   "buffer": 1.5,
+   "buffer": 5.0,
    "fa": [
     [
-     1.7,
-     1.9
+     6.1,
+     6.0
     ],
     [
-     1.4,
-     1.9
+     7.3,
+     5.9
     ]
    ],
-   "referee": "Matt Donohue: Ø 4.1 Karten (22 Sp.) · Ø 20.2 Fouls (17 Sp.)",
-   "b365": null,
-   "expect_ref": 3.1,
-   "buffer_ref": 1.4,
-   "sd": 2.02,
+   "referee": null,
+   "b365": [
+    "12.0",
+    "2.000",
+    "1.800"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.79,
    "p_emp": {
-    "4.5": 0.7142857142857143,
-    "5.5": 0.8620689655172414
+    "7.5": 0.8474576271186441,
+    "8.5": 0.78125
    },
-   "p_mod": 0.756,
-   "p_fin": 0.735,
-   "fair_fin": 1.36,
+   "p_mod": 0.906,
+   "p_fin": 0.844,
+   "fair_fin": 1.19,
    "ladder_fin": [
     [
-     4.5,
-     1.36
+     7.5,
+     1.12
     ],
     [
-     5.5,
-     1.15
+     8.5,
+     1.19
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.36",
+   "light": "🟡",
+   "reason": "Historie 78 % vs. Modell 91 %",
    "range": [
-    1.26,
-    1.93
+    1.74,
+    1.74
+   ]
+  },
+  "v": 2
+ },
+ "12322441|yellowcards|über": {
+  "match_id": "12322441",
+  "home": "Newell's",
+  "away": "Velez Sarsfield",
+  "kickoff": "Fr 22:00",
+  "kickoff_ts": 1789156800,
+  "league": "Argentina Liga Profesional",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Fr 11:31",
+  "first_line": 2.5,
+  "first_range": [
+   1.22,
+   2.2
+  ],
+  "last_run": "Fr 11:31",
+  "line": 2.5,
+  "range": [
+   1.22,
+   2.2
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 16
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    46
+   ],
+   "next_line": 3.5,
+   "next_note": "Newell's 2/4 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Velez Sarsfield 9/11 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.8637095792393473,
+    0.9593874235664256
+   ],
+   "fair": 1.17,
+   "ladder": [
+    [
+     1.5,
+     1.2
+    ],
+    [
+     2.5,
+     1.17
+    ]
+   ],
+   "avg": [
+    5.1,
+    4.8
+   ],
+   "expect": 5.6,
+   "expect_sum": 5.0,
+   "expect_matchup": 6.2,
+   "contrib": [
+    2.9,
+    3.3
+   ],
+   "buffer": 3.1,
+   "fa": [
+    [
+     2.6,
+     2.4
+    ],
+    [
+     2.5,
+     3.2
+    ]
+   ],
+   "referee": "Nicolas Ramirez: Ø 6.3 Karten (26 Sp.) · Ø 24.5 Fouls (19 Sp.)",
+   "b365": null,
+   "expect_ref": 8.1,
+   "buffer_ref": 5.6,
+   "sd": 2.26,
+   "p_emp": {
+    "1.5": 0.8333333333333334,
+    "2.5": 0.8547008547008548
+   },
+   "p_mod": 0.993,
+   "p_fin": 0.924,
+   "fair_fin": 1.08,
+   "ladder_fin": [
+    [
+     1.5,
+     1.09
+    ],
+    [
+     2.5,
+     1.08
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 85 % vs. Modell 99 %",
+   "range": [
+    1.22,
+    2.2
+   ]
+  },
+  "v": 2
+ },
+ "12322441|ht_yellowcards|über": {
+  "match_id": "12322441",
+  "home": "Newell's",
+  "away": "Velez Sarsfield",
+  "kickoff": "Fr 22:00",
+  "kickoff_ts": 1789156800,
+  "league": "Argentina Liga Profesional",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "über",
+  "first_run": "Fr 11:31",
+  "first_line": 0.5,
+  "first_range": [
+   1.22,
+   2.2
+  ],
+  "last_run": "Fr 11:31",
+  "line": 0.5,
+  "range": [
+   1.22,
+   2.2
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "über",
+   "line": 0.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 15
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    48
+   ],
+   "next_line": 1.5,
+   "next_note": "kein Anker — Newell's 5/7 (3. Lücke) gesamt, 12/14 (3. Lücke) heim; Velez Sarsfield 11/13 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.8829617951540479,
+    0.9772669212070109
+   ],
+   "fair": 1.15,
+   "ladder": [
+    [
+     0.5,
+     1.15
+    ]
+   ],
+   "avg": [
+    2.5,
+    2.0
+   ],
+   "expect": 2.8,
+   "expect_sum": 2.2,
+   "expect_matchup": 3.4,
+   "contrib": [
+    1.6,
+    1.7
+   ],
+   "buffer": 2.3,
+   "fa": [
+    [
+     1.3,
+     0.8
+    ],
+    [
+     1.3,
+     1.0
+    ]
+   ],
+   "referee": "Nicolas Ramirez: Ø 6.3 Karten (26 Sp.) · Ø 24.5 Fouls (19 Sp.)",
+   "b365": null,
+   "expect_ref": 10.5,
+   "buffer_ref": 10.0,
+   "sd": 1.27,
+   "p_emp": {
+    "0.5": 0.8695652173913044
+   },
+   "p_mod": 1.0,
+   "p_fin": 0.935,
+   "fair_fin": 1.07,
+   "ladder_fin": [
+    [
+     0.5,
+     1.07
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 87 % vs. Modell 100 %",
+   "range": [
+    1.22,
+    2.2
    ]
   },
   "v": 2
@@ -7075,7 +10430,7 @@
    1.321,
    1.85
   ],
-  "last_run": "Fr 10:29",
+  "last_run": "Fr 11:31",
   "line": 7.5,
   "range": [
    1.308,
