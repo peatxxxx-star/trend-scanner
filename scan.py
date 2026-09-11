@@ -171,8 +171,10 @@ S24_GROUPS = {
 # Märkte, die grundsätzlich NICHT gemeldet werden (Lucios Vorgabe 05.09.:
 # "alle unter-Ecken-Märkte raus"). Für die Gegenbewegungs-Prüfung zählen
 # sie trotzdem weiter.
-EXCLUDED_MARKETS = {("corners", "unter"), ("ht_corners", "unter"),
-                    ("fouls", "unter")}          # 10.09.: "Fouls unter" spielt er nicht mehr
+EXCLUDED_MARKETS = {("corners", "unter"), ("ht_corners", "unter")}
+# 11.09.: "Fouls unter" wieder drin — "Fouls über" löst fast nur bei 18,5 aus,
+# und dafür gibt es beim Bookie keine spielbare Quote. Die Zahlen geben das her:
+# unter 8/12 bei Ø-Quote 1,57 (+4 %), über 1/3 (-43 %).
 
 # Halbzeit-Märkte (05.09.): 1. HZ Ecken aus dem API-Feld corner_h, 1. HZ Gelbe
 # Karten aus dem Ereignis-Verlauf (Minute + "Score After First Half"-Marker).
