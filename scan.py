@@ -183,7 +183,18 @@ EXCLUDED_MARKETS = {("corners", "unter"), ("ht_corners", "unter")}
 # Verfügbarkeits-Näherung, keine Werte). Der bet365-Zweig (B365_AS_PROOF)
 # ist aus. Cache-Version 2 nötig ("nachladen").
 HT_METRICS = {"ht_corners", "ht_yellowcards"}
-CACHE_VERSION = 3          # 3: + Schüsse gesamt (06.09.)
+CACHE_VERSION = 4          # 3: + Schüsse gesamt (06.09.)
+                           # 4: Schüsse gesamt richtig gezählt (11.09.) —
+                           #    das API-Feld "goalattempts" enthält NUR
+                           #    Schüsse aufs Tor + daneben, nicht die
+                           #    geblockten. Der Buchmacher zählt geblockte
+                           #    mit; dadurch lagen unsere Werte im Schnitt
+                           #    rund 8 Schüsse pro Spiel zu niedrig und es
+                           #    kamen ausschließlich "unter"-Serien heraus.
+SHOTS_CACHE_VERSION = 4    # ab dieser Cache-Version ist "Schüsse gesamt"
+                           # verlässlich; ältere Einträge werden für diesen
+                           # Markt ignoriert (für alle anderen Märkte sind
+                           # sie weiter gültig).
 
 # Quoten-Nachweis über die bet365-Linie (Oder-Regel). Hinweis: bet365 führt
 # Ecken bis in Randligen, die Lucios Bookie nicht hat — der Zweig kann
@@ -196,7 +207,7 @@ CONTRA_GAP = 2.0                      # Standard (Ecken, Schüsse)
 # benachbarte Linie ist ein Widerspruch; Fouls (Raster 2) -> 4.
 # Halbzeit-Märkte: Korridor 1 wie bei Karten/Abseits — Lucio will keine
 # Halbzeit-Signale "auf Krampf"; die Gegenbewegungs-Regel gilt dort voll.
-CONTRA_GAP_BY_METRIC = {"corners": 2.0, "on_target": 2.0, "ht_corners": 1.0, "ht_yellowcards": 1.0, "shots_total": 4.0,
+CONTRA_GAP_BY_METRIC = {"corners": 2.0, "on_target": 2.0, "ht_corners": 1.0, "ht_yellowcards": 1.0, "shots_total": 5.0,
                         "yellowcards": 1.0, "offsides": 1.0, "fouls": 4.0}
 
 
@@ -357,12 +368,16 @@ def load_cache() -> dict:
             raw = json.loads(CACHE_FILE_LEGACY.read_text())
     except Exception:
         raw = {}
-    # Veraltete Einträge (ältere Cache-Version) sofort verwerfen: sie würden
-    # bei Bedarf ohnehin neu geholt und machen den Cache nur groß/langsam.
-    cache = {k: v for k, v in raw.items() if v.get("x") == CACHE_VERSION}
-    if len(cache) != len(raw):
-        print(f"Cache: {len(raw) - len(cache)} veraltete Einträge verworfen, {len(cache)} behalten")
-    return cache
+    # 11.09.: Veraltete Einträge werden NICHT mehr weggeworfen. Für Ecken,
+    # Karten, Fouls, Abseits und Schüsse aufs Tor sind sie unverändert gültig;
+    # nur "Schüsse gesamt" wird aus ihnen nicht gelesen (siehe metric_total).
+    # Sie werden ohnehin nach und nach aufgefrischt, sobald ein Team drankommt —
+    # so bricht die Historie beim Versionswechsel nicht auf einen Schlag weg.
+    alt = sum(1 for v in raw.values() if v.get("x") != CACHE_VERSION)
+    if alt:
+        print(f"Cache: {len(raw)} Spiele, davon {alt} noch in alter Fassung "
+              f"(werden bei Bedarf nachgeladen; 'Schüsse gesamt' zählt erst danach)")
+    return raw
 
 
 def save_cache(cache: dict) -> None:
@@ -562,15 +577,28 @@ def _pair(stats, key):
 
 
 def total_shots(stats: dict):
-    """Schüsse gesamt [Heim, Gast]: API-Feld goalattempts, sonst Summe aus
-    aufs Tor + daneben + geblockt (nur wenn alle drei vorhanden)."""
+    """Schüsse gesamt [Heim, Gast] – so gezählt, wie der Buchmacher abrechnet:
+    aufs Tor + daneben + GEBLOCKT.
+
+    11.09.: Bis hierher wurde das API-Feld "goalattempts" direkt genommen.
+    Das war falsch — "goalattempts" zählt nur aufs Tor + daneben, die
+    geblockten Schüsse fehlen. Ergebnis: Ø 16,5 statt Ø ~25 Schüsse pro
+    Spiel, und in 342 gemeldeten Signalen war ausnahmslos "unter" dabei.
+    Ohne geblockte Schüsse gibt es deshalb keinen Wert mehr."""
+    on, off, bl = (_pair(stats, "on_target"), _pair(stats, "off_target"),
+                   _pair(stats, "shots_blocked"))
+    if bl is None:
+        return None                      # ohne geblockte Schüsse nicht zählbar
     ga = _pair(stats, "goalattempts")
     if ga:
-        return ga
-    on, off, bl = _pair(stats, "on_target"), _pair(stats, "off_target"), _pair(stats, "shots_blocked")
-    if on and off and bl:
-        return [on[0] + off[0] + bl[0], on[1] + off[1] + bl[1]]
-    return None
+        tot = [ga[0] + bl[0], ga[1] + bl[1]]
+    elif on and off:
+        tot = [on[0] + off[0] + bl[0], on[1] + off[1] + bl[1]]
+    else:
+        return None
+    if on and (tot[0] < on[0] or tot[1] < on[1]):
+        return None                      # unplausibel (Feed unvollständig)
+    return tot
 
 
 def slim_event(ev: dict) -> dict:
@@ -623,8 +651,13 @@ def fetch_team_history(team_id: str, cache: dict, hcache: dict = None):
     # fehlende UND veraltete (ältere Cache-Version) Spiele holen — so werden
     # neue Felder genau dort aufgefrischt, wo sie gebraucht werden
     with _cache_lock:
-        need = [e["id"] for e in events
-                if e["id"] not in cache or cache[e["id"]].get("x") != CACHE_VERSION]
+        missing = [e["id"] for e in events if e["id"] not in cache]
+        stale = [e["id"] for e in events
+                 if e["id"] in cache and cache[e["id"]].get("x") != CACHE_VERSION]
+        # Erst die Spiele holen, die uns ganz fehlen, danach erst die, die nur
+        # in alter Fassung vorliegen (11.09.): Geht das Stundenlimit zu Ende,
+        # fehlt dann höchstens "Schüsse gesamt", nicht die ganze Historie.
+        need = missing + stale
         if need:
             _cold_teams[0] += 1
     for i in range(0, len(need), 10):
@@ -668,6 +701,8 @@ def metric_total(match: dict, metric: str):
         return None
     if metric in ("on_target", "shots_total") and pair[0] == 0 and pair[1] == 0:
         return None
+    if metric == "shots_total" and stats.get("x", 0) < SHOTS_CACHE_VERSION:
+        return None          # alt gezählt (ohne geblockte Schüsse) -> nicht verwenden
     return pair[0] + pair[1]
 
 
@@ -1400,7 +1435,7 @@ def pooled_sd(hist_home, hist_away, metric):
     return max(math.sqrt(var), 0.8)
 
 
-SD_FALLBACK = {"corners": 3.0, "yellowcards": 1.9, "on_target": 2.6, "ht_corners": 1.8, "ht_yellowcards": 1.1, "shots_total": 6.0,
+SD_FALLBACK = {"corners": 3.0, "yellowcards": 1.9, "on_target": 2.6, "ht_corners": 1.8, "ht_yellowcards": 1.1, "shots_total": 7.5,
                "offsides": 1.8, "fouls": 5.0}
 
 
@@ -3043,11 +3078,19 @@ def selftest():
         ok = False
     _base_means.pop("corners", None)
 
-    # --- Fall 16: Schüsse gesamt — Feld, Fallback-Summe, Liga-Beschränkung
-    if total_shots({"goalattempts": ["12", "9"]}) != [12, 9] or \
+    # --- Fall 16: Schüsse gesamt — geblockte Schüsse zählen mit (11.09.)
+    if total_shots({"goalattempts": ["12", "9"], "shots_blocked": ["4", "2"]}) != [16, 11] or \
        total_shots({"on_target": ["4", "3"], "off_target": ["5", "4"], "shots_blocked": ["2", "1"]}) != [11, 8] or \
-       total_shots({"on_target": ["4", "3"], "off_target": ["5", "4"]}) is not None:
+       total_shots({"goalattempts": ["12", "9"]}) is not None or \
+       total_shots({"on_target": ["4", "3"], "off_target": ["5", "4"]}) is not None or \
+       total_shots({"on_target": ["9", "3"], "goalattempts": ["6", "4"], "shots_blocked": ["1", "1"]}) is not None:
         print("FEHLER Fall 16a: Schüsse-gesamt-Berechnung falsch")
+        ok = False
+    # alte Cache-Einträge dürfen für diesen Markt nicht mehr gelesen werden
+    if metric_total({"stats": {"shots_total": [12, 10], "x": 3}}, "shots_total") is not None or \
+       metric_total({"stats": {"shots_total": [12, 10], "x": CACHE_VERSION}}, "shots_total") != 22 or \
+       metric_total({"stats": {"corners": [6, 4], "x": 3}}, "corners") != 10:
+        print("FEHLER Fall 16e: Cache-Sperre für Schüsse gesamt greift nicht")
         ok = False
     METRIC_LEAGUES["_test"] = ["england premier league"]
     if not metric_allowed_for_league("_test", "England Premier League") or \
@@ -3060,6 +3103,7 @@ def selftest():
         h = _mk([[5, 5]] * len(vals), homes)
         for m, v in zip(h, vals):
             m["stats"]["shots_total"] = [v, 0]
+            m["stats"]["x"] = CACHE_VERSION      # neue Zählweise (11.09.)
         return h
     shA = _sh([31, 27, 33, 26, 32, 29, 34, 27, 31, 28, 33, 26, 32, 29, 31], [H, H, A, A] * 4)
     shB = _sh([27, 32, 26, 33, 29, 31, 27, 34, 28, 31, 26, 33, 29, 32, 27], [A, A, H, H] * 4)
