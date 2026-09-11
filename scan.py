@@ -171,7 +171,12 @@ S24_GROUPS = {
 # Märkte, die grundsätzlich NICHT gemeldet werden (Lucios Vorgabe 05.09.:
 # "alle unter-Ecken-Märkte raus"). Für die Gegenbewegungs-Prüfung zählen
 # sie trotzdem weiter.
-EXCLUDED_MARKETS = {("corners", "unter"), ("ht_corners", "unter")}
+EXCLUDED_MARKETS = {("corners", "unter"), ("ht_corners", "unter"),
+                    ("shots_total", "über"), ("shots_total", "unter")}
+# 11.09. abends: "Schüsse gesamt" komplett raus (Lucio). Die API-Zahlen
+# decken sich nicht mit dem, was bei Flashscore bzw. beim Buchmacher steht —
+# solange die Grundlage nicht stimmt, hat der Markt nichts zu melden.
+# Zum Wiedereinschalten: die beiden Zeilen hier entfernen.
 # 11.09.: "Fouls unter" wieder drin — "Fouls über" löst fast nur bei 18,5 aus,
 # und dafür gibt es beim Bookie keine spielbare Quote. Die Zahlen geben das her:
 # unter 8/12 bei Ø-Quote 1,57 (+4 %), über 1/3 (-43 %).
@@ -183,18 +188,12 @@ EXCLUDED_MARKETS = {("corners", "unter"), ("ht_corners", "unter")}
 # Verfügbarkeits-Näherung, keine Werte). Der bet365-Zweig (B365_AS_PROOF)
 # ist aus. Cache-Version 2 nötig ("nachladen").
 HT_METRICS = {"ht_corners", "ht_yellowcards"}
-CACHE_VERSION = 4          # 3: + Schüsse gesamt (06.09.)
-                           # 4: Schüsse gesamt richtig gezählt (11.09.) —
-                           #    das API-Feld "goalattempts" enthält NUR
-                           #    Schüsse aufs Tor + daneben, nicht die
-                           #    geblockten. Der Buchmacher zählt geblockte
-                           #    mit; dadurch lagen unsere Werte im Schnitt
-                           #    rund 8 Schüsse pro Spiel zu niedrig und es
-                           #    kamen ausschließlich "unter"-Serien heraus.
-SHOTS_CACHE_VERSION = 4    # ab dieser Cache-Version ist "Schüsse gesamt"
-                           # verlässlich; ältere Einträge werden für diesen
-                           # Markt ignoriert (für alle anderen Märkte sind
-                           # sie weiter gültig).
+CACHE_VERSION = 3          # 3: + Schüsse gesamt (06.09.)
+                           # 4 war der Anlauf mit korrigierten Schusszahlen
+                           #   (11.09.) — der Markt ist inzwischen raus, die
+                           #   damals geholten Einträge bleiben aber gültig.
+CACHE_OK_VERSIONS = {3, 4} # diese Fassungen gelten als aktuell; alles andere
+                           # wird bei Bedarf neu geholt
 
 # Quoten-Nachweis über die bet365-Linie (Oder-Regel). Hinweis: bet365 führt
 # Ecken bis in Randligen, die Lucios Bookie nicht hat — der Zweig kann
@@ -373,7 +372,7 @@ def load_cache() -> dict:
     # nur "Schüsse gesamt" wird aus ihnen nicht gelesen (siehe metric_total).
     # Sie werden ohnehin nach und nach aufgefrischt, sobald ein Team drankommt —
     # so bricht die Historie beim Versionswechsel nicht auf einen Schlag weg.
-    alt = sum(1 for v in raw.values() if v.get("x") != CACHE_VERSION)
+    alt = sum(1 for v in raw.values() if v.get("x") not in CACHE_OK_VERSIONS)
     if alt:
         print(f"Cache: {len(raw)} Spiele, davon {alt} noch in alter Fassung "
               f"(werden bei Bedarf nachgeladen; 'Schüsse gesamt' zählt erst danach)")
@@ -653,7 +652,7 @@ def fetch_team_history(team_id: str, cache: dict, hcache: dict = None):
     with _cache_lock:
         missing = [e["id"] for e in events if e["id"] not in cache]
         stale = [e["id"] for e in events
-                 if e["id"] in cache and cache[e["id"]].get("x") != CACHE_VERSION]
+                 if e["id"] in cache and cache[e["id"]].get("x") not in CACHE_OK_VERSIONS]
         # Erst die Spiele holen, die uns ganz fehlen, danach erst die, die nur
         # in alter Fassung vorliegen (11.09.): Geht das Stundenlimit zu Ende,
         # fehlt dann höchstens "Schüsse gesamt", nicht die ganze Historie.
@@ -701,8 +700,6 @@ def metric_total(match: dict, metric: str):
         return None
     if metric in ("on_target", "shots_total") and pair[0] == 0 and pair[1] == 0:
         return None
-    if metric == "shots_total" and stats.get("x", 0) < SHOTS_CACHE_VERSION:
-        return None          # alt gezählt (ohne geblockte Schüsse) -> nicht verwenden
     return pair[0] + pair[1]
 
 
@@ -2113,7 +2110,7 @@ def backfill(cache, hcache=None):
             continue                       # Liste unbekannt -> holt der normale Lauf
         for e in entry["events"]:
             slim = cache.get(e["id"])
-            if slim is not None and slim.get("x") != CACHE_VERSION:
+            if slim is not None and slim.get("x") not in CACHE_OK_VERSIONS:
                 need_set.add(e["id"])
     need = sorted(need_set)
     print(f"NACHLADEN: {len(need)} veraltete Spiele für {len(teams)} Teams (heute+morgen), "
@@ -2146,7 +2143,7 @@ def backfill(cache, hcache=None):
                 save_cache(cache)
                 print(f"  ... {done}/{len(chunks)} Pakete, {_request_count} Anfragen", flush=True)
     save_cache(cache)
-    rest = sum(1 for eid in need if cache.get(eid, {}).get("x") != CACHE_VERSION)
+    rest = sum(1 for eid in need if cache.get(eid, {}).get("x") not in CACHE_OK_VERSIONS)
     print(f"Nachladen fertig: {_request_count} Anfragen, noch {rest} relevante Spiele veraltet"
           + (" — Stundenlimit erreicht, bitte später erneut starten" if _budget_exhausted else ""))
 
@@ -2422,6 +2419,99 @@ def prewarm(cache, hcache):
           + (" — Stundenlimit erreicht, Rest holt der nächste Lauf" if _budget_exhausted else ""))
 
 
+# ----------------------------------------------------------------------------
+# Schuss-Prüfung (11.09., Lucio): "stimmen die Schusszahlen mit dem Buchmacher
+# überein?" Holt beendete Spiele von gestern und schreibt die EINZELFELDER
+# roh heraus — aufs Tor / daneben / geblockt / goalattempts — plus unsere
+# Summe. Damit lässt sich Spiel für Spiel von Hand gegenprüfen.
+# ----------------------------------------------------------------------------
+
+SHOTS_CHECK_N = 60        # beendete Spiele, die geprüft werden
+
+
+def shots_check():
+    global _no_wait
+    _no_wait = True
+    now = now_berlin()
+    lines = [f"SCHUSS-PRÜFUNG · {now.strftime('%d.%m.%Y %H:%M')} deutscher Zeit",
+             "Felder: aufs Tor / daneben / geblockt / goalattempts -> unsere Summe", ""]
+    day = (now - timedelta(days=1)).astimezone(timezone.utc).strftime("%Y%m%d")
+    ended = []
+    for page in (1, 2):
+        try:
+            res = api_get("/v3/events/ended", sport_id=1, day=day, per_page=100,
+                          page=page, skip_esports=1).get("results") or []
+        except Exception as exc:
+            print("  ended:", exc)
+            break
+        ended += res
+        if len(res) < 100:
+            break
+    ended = [e for e in ended
+             if "esoccer" not in ((e.get("league") or {}).get("name", "").lower())]
+    ids = [e["id"] for e in ended[:SHOTS_CHECK_N]]
+    rows, with_bl, with_ga, n = [], 0, 0, 0
+    for i in range(0, len(ids), 10):
+        try:
+            view = api_get("/v1/event/view", event_id=",".join(ids[i:i + 10]))
+        except Exception as exc:
+            print("  view:", exc)
+            break
+        for ev in view.get("results") or []:
+            st = ev.get("stats") or {}
+            on, off = _pair(st, "on_target"), _pair(st, "off_target")
+            bl, ga = _pair(st, "shots_blocked"), _pair(st, "goalattempts")
+            if not any((on, off, bl, ga)):
+                continue
+            n += 1
+            if bl:
+                with_bl += 1
+            if ga:
+                with_ga += 1
+            tot = total_shots(st)
+            def f(pair):
+                return f"{pair[0]}:{pair[1]}" if pair else "–"
+            rows.append("%-38s %6s %6s %6s %6s -> %s" % (
+                (ev.get("home", {}).get("name", "?")[:18] + " - " +
+                 ev.get("away", {}).get("name", "?")[:18]),
+                f(on), f(off), f(bl), f(ga),
+                (f"{tot[0]}:{tot[1]} = {tot[0] + tot[1]}" if tot else "kein Wert")))
+    lines.append("%-38s %6s %6s %6s %6s" % ("Spiel", "Tor", "dane", "block", "goalA"))
+    lines += rows
+    lines.append("")
+    lines.append(f"{n} Spiele mit Schussdaten · geblockt vorhanden: {with_bl} "
+                 f"({with_bl * 100 // max(1, n)} %) · goalattempts: {with_ga} "
+                 f"({with_ga * 100 // max(1, n)} %)")
+    tots = []
+    for r in rows:
+        if "=" in r:
+            try:
+                tots.append(int(r.rsplit("=", 1)[1]))
+            except ValueError:
+                pass
+    if tots:
+        lines.append(f"Ø unsere Summe: {sum(tots) / len(tots):.1f} Schüsse pro Spiel "
+                     f"(min {min(tots)}, max {max(tots)})")
+    lines.append(f"{_request_count} Anfragen.")
+    text = "\n".join(lines)
+    print("\n" + text)
+    RUNS_DIR.mkdir(exist_ok=True)
+    out = RUNS_DIR / f"schuesse_{now.strftime('%Y-%m-%d')}.txt"
+    out.write_text(text, encoding="utf-8")
+    print(f"→ {out}")
+    chunks, cur = [], "<pre>"
+    for ln in text.split("\n"):
+        ln = esc(ln)
+        if len(cur) + len(ln) + 1 > 3300:
+            chunks.append(cur + "</pre>")
+            cur = "<pre>" + ln
+        else:
+            cur += ("\n" if cur != "<pre>" else "") + ln
+    chunks.append(cur + "</pre>")
+    for c in chunks:
+        send_telegram(c)
+
+
 def run():
     if not TOKEN:
         sys.exit("BETSAPI_TOKEN fehlt")
@@ -2435,6 +2525,9 @@ def run():
         return
     if os.environ.get("INVENTORY") == "1":
         inventory()
+        return
+    if os.environ.get("SHOTSCHECK") == "1":
+        shots_check()
         return
     if is_prewarm_run():
         prewarm(cache, hcache)
@@ -3086,12 +3179,6 @@ def selftest():
        total_shots({"on_target": ["9", "3"], "goalattempts": ["6", "4"], "shots_blocked": ["1", "1"]}) is not None:
         print("FEHLER Fall 16a: Schüsse-gesamt-Berechnung falsch")
         ok = False
-    # alte Cache-Einträge dürfen für diesen Markt nicht mehr gelesen werden
-    if metric_total({"stats": {"shots_total": [12, 10], "x": 3}}, "shots_total") is not None or \
-       metric_total({"stats": {"shots_total": [12, 10], "x": CACHE_VERSION}}, "shots_total") != 22 or \
-       metric_total({"stats": {"corners": [6, 4], "x": 3}}, "corners") != 10:
-        print("FEHLER Fall 16e: Cache-Sperre für Schüsse gesamt greift nicht")
-        ok = False
     METRIC_LEAGUES["_test"] = ["england premier league"]
     if not metric_allowed_for_league("_test", "England Premier League") or \
        metric_allowed_for_league("_test", "Norway Division 3 Group 5") or \
@@ -3109,11 +3196,9 @@ def selftest():
     shB = _sh([27, 32, 26, 33, 29, 31, 27, 34, 28, 31, 26, 33, 29, 32, 27], [A, A, H, H] * 4)
     big = dict(match, league="England Premier League")
     small = dict(match, league="Norway Division 3 Group 5")
-    if not any(s["metric_key"] == "shots_total" for s in evaluate_match(big, shA, shB)):
-        print("FEHLER Fall 16c: Schüsse-gesamt-Signal in Top-Liga fehlt")
-        ok = False
-    if not any(s["metric_key"] == "shots_total" for s in evaluate_match(small, shA, shB)):
-        print("FEHLER Fall 16d: Schüsse gesamt muss ohne Liga-Liste überall geprüft werden")
+    if any(s["metric_key"] == "shots_total" for s in evaluate_match(big, shA, shB)) or \
+       any(s["metric_key"] == "shots_total" for s in evaluate_match(small, shA, shB)):
+        print("FEHLER Fall 16c: Schüsse gesamt ist gesperrt, darf nicht mehr melden")
         ok = False
 
     # --- Fall 12: Schiedsrichter/Spieldauer im Cache + Profil
