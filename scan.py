@@ -105,6 +105,7 @@ import os
 import sys
 import threading
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -170,7 +171,8 @@ S24_GROUPS = {
 # Märkte, die grundsätzlich NICHT gemeldet werden (Lucios Vorgabe 05.09.:
 # "alle unter-Ecken-Märkte raus"). Für die Gegenbewegungs-Prüfung zählen
 # sie trotzdem weiter.
-EXCLUDED_MARKETS = {("corners", "unter"), ("ht_corners", "unter")}
+EXCLUDED_MARKETS = {("corners", "unter"), ("ht_corners", "unter"),
+                    ("fouls", "unter")}          # 10.09.: "Fouls unter" spielt er nicht mehr
 
 # Halbzeit-Märkte (05.09.): 1. HZ Ecken aus dem API-Feld corner_h, 1. HZ Gelbe
 # Karten aus dem Ereignis-Verlauf (Minute + "Score After First Half"-Marker).
@@ -438,8 +440,10 @@ def scan_window():
     now = now_berlin()
     midnight = (now + timedelta(days=1)).replace(hour=0, minute=0, second=0,
                                                  microsecond=0)
-    if now.hour >= 20:            # der 20:17-Lauf ist der letzte des Tages
-        end = midnight + timedelta(hours=6)   # deckt die Nachtspiele bis 6 Uhr ab
+    if now.hour >= 20:            # ab dem 20-Uhr-Lauf zählt der nächste Morgen mit
+        end = midnight + timedelta(hours=9)   # bis 9 Uhr früh (11.09.: vorher 6 Uhr —
+                                              # er schläft manchmal länger und würde
+                                              # die frühen Anstöße sonst verpassen)
     else:
         end = midnight
     return now, end
@@ -767,11 +771,57 @@ _s24_links_lock = threading.Lock()
 _s24_stats = {"ok": 0, "no_link": 0, "fetch_fail": 0, "last_error": ""}
 
 
+# 10.09.: scores24 antwortet auf die JSON-Schnittstelle plötzlich mit
+# "406 Not Acceptable", wenn kein Accept-Kopf mitgeschickt wird (die
+# Sitemap ging weiter). Deshalb jetzt ein vollständiger Browser-Satz an
+# Kopfzeilen, mit einfacherem Profil als Rückfallebene.
+_S24_HEADERS = (
+    {"User-Agent": S24_UA,
+     "Accept": "application/json, text/plain, */*",
+     "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7",
+     "Accept-Encoding": "gzip, deflate",
+     "Referer": "https://scores24.live/de/soccer/",
+     "Origin": "https://scores24.live",
+     "Sec-Fetch-Dest": "empty", "Sec-Fetch-Mode": "cors",
+     "Sec-Fetch-Site": "same-origin", "Connection": "keep-alive"},
+    {"User-Agent": S24_UA, "Accept": "*/*", "Accept-Language": "de"},
+)
+
+
+def _s24_decode(resp, raw):
+    enc = (resp.headers.get("Content-Encoding") or "").lower()
+    if enc == "gzip":
+        try:
+            raw = gzip.decompress(raw)
+        except Exception:
+            pass
+    elif enc == "deflate":
+        import zlib
+        try:
+            raw = zlib.decompress(raw, -zlib.MAX_WBITS)
+        except Exception:
+            try:
+                raw = zlib.decompress(raw)
+            except Exception:
+                pass
+    return raw.decode("utf-8", "ignore")
+
+
 def _s24_get(url):
-    req = urllib.request.Request(url, headers={"User-Agent": S24_UA,
-                                               "Accept-Language": "de"})
-    with urllib.request.urlopen(req, timeout=20) as r:
-        return r.read().decode("utf-8", "ignore")
+    last = None
+    for hdrs in _S24_HEADERS:
+        try:
+            req = urllib.request.Request(url, headers=hdrs)
+            with urllib.request.urlopen(req, timeout=20) as r:
+                return _s24_decode(r, r.read())
+        except urllib.error.HTTPError as exc:
+            last = exc
+            _s24_stats["http_%d" % exc.code] = _s24_stats.get("http_%d" % exc.code, 0) + 1
+            if exc.code not in (403, 406, 429):
+                raise
+        except Exception as exc:
+            last = exc
+    raise last
 
 
 def s24_day_links():
@@ -2468,6 +2518,18 @@ def run():
               f"(frühester Anstoß {deferred[0]['kickoff']})")
     chunks = assemble_report(buckets, run_label, new_state,
                              deferred_note=(len(deferred), deferred[0]["kickoff"]) if deferred else None)
+    # Störungs-Warnung: Wenn die Verfügbarkeits-Prüfung (scores24) flächendeckend
+    # ausfällt, fliegen ALLE Signale raus und die Nachricht wäre grundlos leer.
+    # Dann kommt stattdessen eine klare Ansage (10.09.: HTTP 406).
+    fails = _s24_stats["fetch_fail"]
+    if GATE_ENABLED and fails >= 10 and _s24_stats["ok"] == 0:
+        codes = ", ".join(f"{k[5:]}x{v}" for k, v in sorted(_s24_stats.items())
+                          if k.startswith("http_"))
+        warn = ("🚨 <b>scores24 nicht erreichbar</b>\n"
+                f"{fails} Abrufe fehlgeschlagen" + (f" ({codes})" if codes else "") +
+                " — die Quoten-Prüfung konnte nicht laufen, deshalb wurde nichts gemeldet. "
+                "Der nächste Lauf versucht es erneut.")
+        chunks = [warn] if not chunks else [warn + "\n\n" + chunks[0]] + chunks[1:]
     delivered = True
     if chunks:
         if TG_TOKEN and TG_CHAT:
