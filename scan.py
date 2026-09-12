@@ -548,6 +548,7 @@ def fetch_matches_in_window(now=None, end=None):
                 matches[e["id"]] = {
                     "id": e["id"],
                     "league": league,
+                    "league_id": str((e.get("league") or {}).get("id") or ""),
                     "home": (e.get("home") or {}).get("name", "?"),
                     "away": (e.get("away") or {}).get("name", "?"),
                     "home_id": str((e.get("home") or {}).get("id")),
@@ -2450,6 +2451,33 @@ def inventory():
         lines.append(f"   {k} = {STAT_FIELD_NAMES.get(k, '?')}: {c}/{n_view}")
     if extra_hits:
         lines.append("   Zusatzdaten: " + ", ".join(f"{k} {c}/{n_view}" for k, c in extra_hits.most_common()))
+    # 5) Tabellenstände: liefert das Paket die? (12.09., Lucios Frage)
+    lines.append("")
+    lines.append("5) TABELLEN / LIGA-ENDPUNKTE — was das Paket freigibt")
+    lid = None
+    for m in sample:
+        lid = (m.get("league_id") or lid)
+    probes = [("/v3/league", {"sport_id": 1, "page": 1}),
+              ("/v1/league", {"sport_id": 1, "page": 1})]
+    if lid:
+        probes += [("/v3/league/table", {"league_id": lid}),
+                   ("/v1/league/table", {"league_id": lid}),
+                   ("/v3/league/teams", {"league_id": lid, "page": 1})]
+    for path, params in probes:
+        try:
+            res = api_get(path, **params)
+            r = res.get("results")
+            kind = type(r).__name__
+            size = len(r) if hasattr(r, "__len__") else "?"
+            keys = ""
+            if isinstance(r, list) and r and isinstance(r[0], dict):
+                keys = " · Felder: " + ", ".join(list(r[0].keys())[:8])
+            elif isinstance(r, dict):
+                keys = " · Felder: " + ", ".join(list(r.keys())[:8])
+            lines.append(f"   {path}: OK ({kind}, {size}){keys}")
+        except Exception as exc:
+            lines.append(f"   {path}: nicht verfügbar — {str(exc)[:120]}")
+
     lines.append("")
     lines.append(f"{_request_count} Anfragen.")
     text = "\n".join(lines)
