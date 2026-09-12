@@ -37,10 +37,12 @@ REGELWERK (vollständig):
   Je Metrik/Richtung wird nur die strengste qualifizierende Linie
   gemeldet (über: höchste, unter: niedrigste).
 
-  Gegenläufigkeits-Filter: hat auch nur EINES der beiden Teams in der
-  Gegenrichtung eine Serie (kleine Serie reicht) an einer Linie im engen
-  Korridor (Abstand <= CONTRA_GAP), wird das Signal verworfen. Breite
-  Korridore (z.B. über 6,5 + unter 12,5) sind legitim.
+  Gegenläufigkeits-Filter: hat eines der beiden Teams in der Gegenrichtung
+  eine Serie an einer Linie im engen Korridor (Abstand <= CONTRA_GAP), wird
+  das Signal verworfen. Breite Korridore (z.B. über 6,5 + unter 12,5) sind
+  legitim. Bei Ecken und Fouls muss die Gegenserie ein ANKER sein (12.09.,
+  siehe CONTRA_ANCHOR_ONLY) — kleine Gegenserien kosteten dort nur Signale,
+  ohne die Trefferquote zu verbessern.
 
   Datenqualität: fehlende Statistik -> Spiel zählt für die Metrik nicht
   (weder Treffer noch Aussetzer). Fouls 0:0 gilt als "nicht erfasst"
@@ -172,7 +174,14 @@ S24_GROUPS = {
 # "alle unter-Ecken-Märkte raus"). Für die Gegenbewegungs-Prüfung zählen
 # sie trotzdem weiter.
 EXCLUDED_MARKETS = {("corners", "unter"), ("ht_corners", "unter"),
-                    ("shots_total", "über"), ("shots_total", "unter")}
+                    ("shots_total", "über"), ("shots_total", "unter"),
+                    ("fouls", "über"), ("fouls", "unter")}
+# 12.09.: FOULS komplett raus (Lucio). Das Modell ist dort systematisch zu
+# optimistisch — im Backtest sagte es 82 % (faire Quote 1,22), tatsächlich
+# waren es 76 % (faire Quote 1,32). Eine Bookie-Quote von 1,28 sieht damit
+# nach Value aus und ist keiner. Passt zu seiner echten Historie: Fouls
+# 9/15 = der schwächste Markt. Die Foul-Zahlen werden weiter gecacht
+# (Schiedsrichter-Profil, Datenqualitätsprüfung), gemeldet wird nichts.
 # 11.09. abends: "Schüsse gesamt" komplett raus (Lucio). Die API-Zahlen
 # decken sich nicht mit dem, was bei Flashscore bzw. beim Buchmacher steht —
 # solange die Grundlage nicht stimmt, hat der Markt nichts zu melden.
@@ -200,6 +209,21 @@ CACHE_OK_VERSIONS = {3, 4} # diese Fassungen gelten als aktuell; alles andere
 # unspielbare Signale bringen; auf False schalten, wenn das stört.
 B365_AS_PROOF = False    # Lucio (06.09., final): nur scores24-Verifizierung —
                          # "die Odds weichen zu sehr ab, macht keinen Sinn"
+
+# 12.09. (Lucio, Variante C): Gegenbewegungs-Sperre KOMPLETT AUS.
+# Nachgerechnet an 4.665 grünen Signalen aus dem Cache — verglichen wurde
+# nicht die Trefferquote, sondern das, was für Lucio zählt: hält die faire
+# Quote? ("Rendite, wenn man immer exakt die faire Quote bekäme")
+#
+#   A) bisherige Sperre        4.103 Signale   -0,34 %
+#   B) nur Gegen-Signale       3.525 Signale   +0,09 %
+#   C) keine Sperre            4.665 Signale   -0,50 %
+#
+# Die drei liegen 0,6 Punkte auseinander, also im Rauschen. Lucios
+# Entscheidung: C — mehr Signale = mehr Gelegenheiten, beim Bookie eine
+# Quote über fair zu finden. Zum Wiedereinschalten: CONTRA_ENABLED = True
+# (dann greift die alte Korridor-Regel inkl. CONTRA_ANCHOR_ONLY).
+CONTRA_ENABLED = False
 
 CONTRA_GAP = 2.0                      # Standard (Ecken, Schüsse)
 # Marktabhängig: enge Linienraster (Karten, Abseits) -> nur die direkt
@@ -1134,14 +1158,37 @@ def next_line_note(match, hist_home, hist_away, metric, direction, line):
     return nxt, "; ".join(parts)
 
 
+# 12.09. (Lucio: "mir ist zu viel Selektion drin") — an 5.080 grünen
+# Signalen aus dem Cache nachgerechnet, was jede Variante verworfen HÄTTE
+# und wie die verworfenen Signale wirklich ausgegangen sind:
+#
+#   Markt            verwirft   Quote verworfen   Quote Rest
+#   Ecken              17 %         77,3 %          78,1 %   -> kein Nutzen
+#   Fouls              22 %         80,0 %          76,1 %   -> schädlich
+#   Gelbe Karten        5 %         70,7 %          83,6 %   -> klarer Nutzen
+#   1. HZ Ecken         6 %         65,0 %          79,9 %   -> klarer Nutzen
+#   1. HZ Karten       18 %         79,4 %          86,0 %   -> Nutzen
+#   Schüsse aufs Tor   14 %         73,7 %          79,3 %   -> Nutzen
+#   Abseits             4 %         60,0 %          84,4 %   -> Nutzen
+#
+# Deshalb marktabhängig: bei Ecken und Fouls muss die Gegenbewegung ein
+# ANKER sein (Lucios eigene Handregel), sonst genügt weiter eine kleine
+# Serie. Das gibt bei Ecken rund 17 % und bei Fouls rund 22 % mehr Signale,
+# ohne die Märkte anzufassen, in denen die Sperre nachweislich trägt.
+CONTRA_ANCHOR_ONLY = {"corners", "fouls"}
+
+
 def counter_trend(match, hist_home, hist_away, metric, direction, line):
     """Gegenbewegung: Hat EINES der beiden Teams in der Gegenrichtung eine
-    Serie (kleine Serie reicht) an einer Linie im engen Korridor
-    (Abstand <= CONTRA_GAP)? Dann widerspricht sich der Markt und wird
-    verworfen — Lucios Vorgabe (Beispiel Palermo: unter 5,5 Abseits für
-    beide, aber Palermo über 4,5 in 7 der letzten 8 -> raus).
+    Serie an einer Linie im engen Korridor (Abstand <= CONTRA_GAP)? Dann
+    widerspricht sich der Markt und wird verworfen (Beispiel Palermo:
+    unter 5,5 Abseits für beide, aber Palermo über 4,5 in 7 der letzten 8).
+
+    Bei den Märkten in CONTRA_ANCHOR_ONLY zählt nur eine ANKER-Gegenserie;
+    kleine Gegenserien werden dort ignoriert.
     Liefert Beschreibung der Gegen-Serie oder None."""
     opp = "unter" if direction == "über" else "über"
+    anchor_only = metric in CONTRA_ANCHOR_ONLY
     for L in METRICS[metric][1]:
         gap = (L - line) if direction == "über" else (line - L)
         if gap > contra_gap(metric):
@@ -1149,7 +1196,7 @@ def counter_trend(match, hist_home, hist_away, metric, direction, line):
         for hist, role, name in ((hist_home, "home", match["home"]),
                                  (hist_away, "away", match["away"])):
             a, o, _ = team_qualifies(hist, metric, L, opp, role)
-            s = a or o
+            s = a if anchor_only else (a or o)
             if s:
                 return f"{name} {opp} {L}: {fmt_series(s, bool(a))}"
     return None
@@ -1592,7 +1639,8 @@ def evaluate_match(match, hist_home, hist_away, market_odds=None):
             continue
         best = max(cands, key=lambda c: c["line"]) if direction == "über" \
             else min(cands, key=lambda c: c["line"])
-        contra = counter_trend(match, hist_home, hist_away, metric, direction, best["line"])
+        contra = (counter_trend(match, hist_home, hist_away, metric, direction, best["line"])
+                  if CONTRA_ENABLED else None)
         if contra:
             match.setdefault("_contra", []).append(
                 f"{METRICS[metric][0]} {direction} {best['line']} verworfen — Gegenbewegung {contra}")
@@ -3112,10 +3160,17 @@ def selftest():
     if any(s["metric"] == "Ecken" and s["direction"] == "unter" for s in wsig2):
         print("FEHLER Fall 8c: unter-Ecken müssen ausgeschlossen sein")
         ok = False
-    #  b) enger Korridor (über 8,5 + unter 10,5 bei konstant 9/10 Ecken) -> raus
+    #  b) enger Korridor (über 8,5 + unter 10,5 bei konstant 9/10 Ecken) -> raus.
+    #     12.09.: Die Sperre ist standardmäßig AUS (Variante C) — hier wird sie
+    #     nur für den Test kurz eingeschaltet, damit die Mechanik nicht
+    #     unbemerkt kaputtgeht, falls Lucio sie wieder haben will.
+    global CONTRA_ENABLED
     tight = _mk([[5, 4], [5, 5]] * 8, [H, A] * 8)[:15]
+    _prev_contra = CONTRA_ENABLED
+    CONTRA_ENABLED = True
     tsig = [s for s in evaluate_match(match, tight, [dict(x) for x in tight])
             if s["metric"] == "Ecken"]
+    CONTRA_ENABLED = _prev_contra
     if tsig:
         print("FEHLER Fall 8b: enger Korridor muss verworfen werden:", tsig)
         ok = False
@@ -3261,7 +3316,9 @@ def selftest():
         return h
     pal = _off([5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5], [H, A] * 7 + [H])
     man = _off([3] * 15, [A, H] * 7 + [A])
+    CONTRA_ENABLED = True                     # Sperre nur für diesen Test an
     sig11 = [s for s in evaluate_match(dict(match), pal, man) if s["metric"] == "Abseits"]
+    CONTRA_ENABLED = _prev_contra
     if sig11:
         print("FEHLER Fall 11a: Gegenbewegung (über 4.5 bei einem Team) muss unter 5.5 kippen:", sig11)
         ok = False
@@ -3390,6 +3447,39 @@ def selftest():
         print("FEHLER Fall 15b: Mischung Summen/Beitrag falsch:", s15.get("expect"), s15.get("contrib"))
         ok = False
     _base_means.pop("corners", None)
+
+    # --- Fall 20: Sperre ist im Normalbetrieb aus (12.09., Variante C)
+    if CONTRA_ENABLED:
+        print("FEHLER Fall 20a: CONTRA_ENABLED muss standardmäßig False sein")
+        ok = False
+    tight20 = _mk([[5, 4], [5, 5]] * 8, [H, A] * 8)[:15]
+    if not [s for s in evaluate_match(dict(match), tight20, [dict(x) for x in tight20])
+            if s["metric"] == "Ecken"]:
+        print("FEHLER Fall 20b: ohne Sperre muss das Ecken-Signal stehen bleiben")
+        ok = False
+    # Fouls sind komplett ausgeschlossen
+    fo = _mk([[14, 13]] * 15, [H, A] * 7 + [H])
+    for m_ in fo:
+        m_["stats"]["fouls"] = [14, 13]
+    if any(s["metric_key"] == "fouls" for s in evaluate_match(dict(match), fo, [dict(x) for x in fo])):
+        print("FEHLER Fall 20c: Fouls müssen ausgeschlossen sein")
+        ok = False
+
+    # --- Fall 19: Gegenbewegung bei Ecken nur noch mit Anker (12.09.)
+    # kleine Gegenserie (6 Spiele unter 8,5), danach klar drüber -> kein Anker
+    seqK = _mk([[7, 0]] * 6 + [[12, 0]] * 8, [H, A] * 7)
+    seqG = _mk([[11, 0]] * 14, [H, A] * 7)                   # keine Gegenserie
+    mt = dict(match, league="Test")
+    if counter_trend(mt, seqK, seqG, "corners", "über", 8.5) is not None:
+        print("FEHLER Fall 19a: kleine Gegenserie darf Ecken nicht mehr kippen")
+        ok = False
+    if counter_trend(mt, seqK, seqG, "on_target", "über", 8.5) is None:
+        print("FEHLER Fall 19c: kleine Gegenserie muss bei Schüssen weiter kippen")
+        ok = False
+    seqA = _mk([[7, 0]] * 14, [H, A] * 7)                    # Anker unter 8,5
+    if counter_trend(mt, seqA, seqG, "corners", "über", 8.5) is None:
+        print("FEHLER Fall 19b: Anker-Gegenserie muss Ecken kippen")
+        ok = False
 
     # --- Fall 18: gleiche Anstoßzeit -> nach Liga gruppiert (12.09.)
     def _mm(mid, home, league, ts):
