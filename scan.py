@@ -637,6 +637,14 @@ def slim_event(ev: dict) -> dict:
         except (TypeError, ValueError, IndexError):
             slim[key] = None
     slim["ht_yellowcards"] = parse_ht_cards(ev)
+    # Endstand (12.09.): bisher lagen im Cache keine Tore, damit waren
+    # 1X2-Vorhersagen nicht überprüfbar. Kommt in derselben Antwort mit,
+    # kostet also nichts. Alte Einträge bleiben ohne — füllt sich mit der Zeit.
+    try:
+        ss = (ev.get("ss") or "").split("-")
+        slim["goals"] = [int(ss[0]), int(ss[1])] if len(ss) == 2 else None
+    except (TypeError, ValueError):
+        slim["goals"] = None
     slim["shots_total"] = total_shots(stats)
     extra = ev.get("extra") or {}
     ref = extra.get("referee") or {}
@@ -2797,6 +2805,181 @@ def backtest(cache, hcache):
         send_telegram(c)
 
 
+# ----------------------------------------------------------------------------
+# BONUS-PICKS (12.09., Lucio) — jeden Samstag 100 EUR Bonusguthaben bei
+# BetLabel. Bedingung: innerhalb von 24 h das 3-fache in AKKUMULATOREN mit
+# mind. 3 Auswahlen umsetzen, davon 3 Auswahlen mit Quote >= 1,40.
+# "Gesamtzahl"- und Handicap-Wetten zählen NICHT — also genau seine ganze
+# normale Strategie. Übrig bleiben Siegwetten und Doppelte Chance.
+#
+# Wichtig zum Verständnis: hier gibt es KEINEN Vorteil aus Serien. 1X2 ist
+# der am schärfsten bepreiste Markt. Der Vorteil kommt allein daraus, dass
+# das Bonusgeld geschenkt ist — die Aufgabe lautet deshalb nicht "welcher
+# Pick gewinnt", sondern "welcher Umsatz kostet am wenigsten Marge".
+# Simulation (200.000 Durchläufe, Umsatzziel 300 EUR, Auszahlung max. 100):
+#   1 Schein je Welle:            31 % erfüllt, Ø 9 EUR
+#   20 Scheine, 5 Abrechnungen:   67 % erfüllt, Ø 41 EUR
+#   40 Scheine, 6 Abrechnungen:   86 % erfüllt, Ø 45 EUR
+# Marge je Bein 4 % statt 8 % macht dabei ~13 EUR Unterschied.
+# ----------------------------------------------------------------------------
+
+BONUS_DAYS = {5, 6}          # Samstag, Sonntag (Montag = 0)
+BONUS_HORIZON_H = 14         # nur Spiele, die in den nächsten x Stunden anfangen
+BONUS_ODDS_TTL = 2 * 3600    # 1X2-Quoten so lange zwischenspeichern
+BONUS_MAX_REQ = 400          # Obergrenze an Quoten-Abfragen je Lauf
+BONUS_FAIR_LO = 1.42         # nur Auswahlen, deren FAIRE Quote hier liegt: der
+BONUS_FAIR_HI = 1.85         # Bookie stellt immer UNTER fair, für die verlangten
+                             # 1,40 braucht es also mindestens ~1,42 fair.
+BONUS_SHOW = 14              # so viele Spiele in der Telegram-Liste
+BONUS_TURNOVER = 3.0         # Umsatzfaktor
+BONUS_AMOUNT = 100.0         # Bonushöhe in EUR
+ODDS_FILE = Path(__file__).parent / "cache" / "odds1x2.json"
+
+
+def load_odds_cache() -> dict:
+    try:
+        if ODDS_FILE.exists():
+            raw = json.loads(ODDS_FILE.read_text())
+            cutoff = time.time() - BONUS_ODDS_TTL
+            return {k: v for k, v in raw.items() if v.get("ts", 0) >= cutoff}
+    except Exception:
+        pass
+    return {}
+
+
+def save_odds_cache(oc: dict) -> None:
+    try:
+        ODDS_FILE.parent.mkdir(parents=True, exist_ok=True)
+        ODDS_FILE.write_text(json.dumps(oc))
+    except Exception as exc:
+        print(f"Quoten-Cache nicht gespeichert: {exc}")
+
+
+def _odds_1x2(res: dict):
+    """[Heim, Remis, Gast] aus der jüngsten 1X2-Zeile (Markt 1_1)."""
+    rows = ((res.get("odds") or {}).get("1_1")) or []
+    for r in rows:                       # jüngste zuerst; erste vollständige nehmen
+        try:
+            o = [float(r["home_od"]), float(r["draw_od"]), float(r["away_od"])]
+        except (KeyError, TypeError, ValueError):
+            continue
+        if min(o) > 1.0:
+            return o
+    return None
+
+
+def demargin(odds):
+    """Marge und echte Wahrscheinlichkeiten aus drei Quoten.
+    Marge = Summe der Kehrwerte - 1; die Wahrscheinlichkeiten werden
+    proportional heruntergerechnet."""
+    inv = [1.0 / o for o in odds]
+    tot = sum(inv)
+    return tot - 1.0, [i / tot for i in inv]
+
+
+def bonus_selections(odds):
+    """Alle Auswahlen eines Spiels mit fairer Quote: Sieg/Remis + Doppelte
+    Chance (letztere aus denselben Wahrscheinlichkeiten abgeleitet)."""
+    margin, p = demargin(odds)
+    ph, pd, pa = p
+    cand = [("Heimsieg", ph, odds[0]), ("Remis", pd, odds[1]),
+            ("Auswärtssieg", pa, odds[2]),
+            ("1X (Heim o. Remis)", ph + pd, None), ("12 (kein Remis)", ph + pa, None),
+            ("X2 (Remis o. Ausw.)", pd + pa, None)]
+    out = []
+    for name, prob, raw in cand:
+        if prob <= 0.02:
+            continue
+        fair = 1.0 / prob
+        if BONUS_FAIR_LO <= fair <= BONUS_FAIR_HI:
+            e = {"auswahl": name, "p": round(prob, 4), "fair": round(fair, 2)}
+            if raw:
+                e["b365"] = round(raw, 2)
+            out.append(e)
+    out.sort(key=lambda x: x["fair"])
+    return margin, out
+
+
+def bonus_picks(matches, ocache):
+    """Liste der günstigsten Bonus-Kandidaten: je Spiel Marge + Auswahlen,
+    sortiert nach Marge (kleinste zuerst). Kostet 1 Anfrage je Spiel, das
+    nicht im Quoten-Cache liegt."""
+    now = now_berlin()
+    horizon = now.timestamp() + BONUS_HORIZON_H * 3600
+    todo = [m for m in matches if 0 < m.get("kickoff_ts", 0) <= horizon]
+    todo.sort(key=lambda m: m.get("kickoff_ts", 0))
+    used = [0]
+    rows = []
+
+    def work(m):
+        eid = m["id"]
+        with _cache_lock:
+            ent = ocache.get(eid)
+        if ent is None:
+            if used[0] >= BONUS_MAX_REQ:
+                return
+            with _cache_lock:
+                used[0] += 1
+            try:
+                data = api_get("/v2/event/odds", event_id=eid)
+            except BudgetExhausted:
+                raise
+            except Exception:
+                return
+            o = _odds_1x2((data.get("results") or {}))
+            ent = {"ts": int(time.time()), "o": o}
+            with _cache_lock:
+                ocache[eid] = ent
+        if not ent.get("o"):
+            return
+        margin, sels = bonus_selections(ent["o"])
+        if not sels:
+            return
+        rows.append({"match": m, "margin": round(100 * margin, 1),
+                     "odds": ent["o"], "sel": sels})
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futures = [pool.submit(work, m) for m in todo]
+        for fut in as_completed(futures):
+            try:
+                fut.result()
+            except BudgetExhausted:
+                pass
+            except Exception as exc:
+                print(f"  Bonus-Quoten: {exc}")
+    rows.sort(key=lambda r: (r["margin"], r["match"].get("kickoff_ts", 0)))
+    print(f"Bonus-Picks: {len(rows)} Spiele mit brauchbaren Auswahlen "
+          f"({used[0]} Quoten-Abfragen, {len(todo)} Spiele im Zeitfenster)")
+    return rows
+
+
+def build_bonus_block(rows):
+    """Telegram-Abschnitt für die Bonus-Picks."""
+    if not rows:
+        return None
+    ziel = BONUS_AMOUNT * BONUS_TURNOVER
+    head = [f"{BANNER}", f"🎁 <b>BONUS-PICKS</b> · nur für das Bonusguthaben", f"{BANNER}",
+            f"<i>Umsatz {ziel:.0f} € in Kombis mit 3+ Auswahlen, davon 3 mit Quote ≥ 1,40. "
+            f"Gesamtzahl- und Handicap-Wetten zählen NICHT. Hier geht es nicht um Value, "
+            f"sondern um die kleinste Marge.</i>", ""]
+    lines = []
+    for r in rows[:BONUS_SHOW]:
+        m = r["match"]
+        lines.append(f"<b>{r['margin']:.1f} % Marge</b> · {m['kickoff']} "
+                     f"{esc(m['home'])} – {esc(m['away'])}")
+        lines.append(f"   <i>{esc(m.get('league', ''))}</i>")
+        for s in r["sel"][:3]:
+            ref = f" <i>(bet365 {s['b365']:.2f})</i>" if s.get("b365") else ""
+            lines.append(f"   {esc(s['auswahl'])}: fair <b>{s['fair']:.2f}</b>{ref}")
+        lines.append("")
+    tail = ["<i>Vorgehen: viele kleine Scheine statt wenige große — in der "
+            "Simulation ist das der Unterschied zwischen 9 € und 45 € Ausschüttung. "
+            "Je Schein 3 Beine aus VERSCHIEDENEN Spielen. Früh anfangen, damit 5–6 "
+            "Abrechnungswellen in die 24 Stunden passen. Sobald der Umsatz steht: "
+            "aufhören, jede weitere Wette kostet nur Marge.</i>"]
+    return "\n".join(head + lines + tail)
+
+
 def run():
     if not TOKEN:
         sys.exit("BETSAPI_TOKEN fehlt")
@@ -2936,6 +3119,21 @@ def run():
               f"(frühester Anstoß {deferred[0]['kickoff']})")
     chunks = assemble_report(buckets, run_label, new_state,
                              deferred_note=(len(deferred), deferred[0]["kickoff"]) if deferred else None)
+    # --- Bonus-Picks (Sa/So): separate Nachricht, klar als Bonus markiert ---
+    if now_berlin().weekday() in BONUS_DAYS:
+        try:
+            ocache = load_odds_cache()
+            brows = bonus_picks(matches, ocache)
+            save_odds_cache(ocache)
+            log["bonus"] = [{"match": r["match"], "margin": r["margin"],
+                             "odds": r["odds"], "sel": r["sel"]} for r in brows]
+            (RUNS_DIR / f"{now:%Y-%m-%d_%H%M}.json").write_text(
+                json.dumps(log, ensure_ascii=False, indent=1))
+            block = build_bonus_block(brows)
+            if block:
+                chunks = (chunks or []) + [block]
+        except Exception as exc:
+            print(f"Bonus-Picks übersprungen: {exc}")
     # Störungs-Warnung: Wenn die Verfügbarkeits-Prüfung (scores24) flächendeckend
     # ausfällt, fliegen ALLE Signale raus und die Nachricht wäre grundlos leer.
     # Dann kommt stattdessen eine klare Ansage (10.09.: HTTP 406).
@@ -3467,6 +3665,42 @@ def selftest():
         print("FEHLER Fall 15b: Mischung Summen/Beitrag falsch:", s15.get("expect"), s15.get("contrib"))
         ok = False
     _base_means.pop("corners", None)
+
+    # --- Fall 21: Bonus-Picks (12.09.)
+    mrg, sels = bonus_selections([1.55, 4.20, 6.00])
+    inv = 1/1.55 + 1/4.20 + 1/6.00
+    if abs(mrg - (inv - 1)) > 1e-9:
+        print("FEHLER Fall 21a: Marge falsch berechnet:", mrg)
+        ok = False
+    names = {x["auswahl"] for x in sels}
+    if "Heimsieg" not in names:                       # fair ~1,62 -> im Band
+        print("FEHLER Fall 21b: Heimsieg müsste im Zielband liegen:", sels)
+        ok = False
+    if not any(x.get("b365") == 1.55 for x in sels):
+        print("FEHLER Fall 21i: bet365-Rohquote fehlt")
+        ok = False
+    if any(x["auswahl"].startswith("1X") for x in sels):
+        print("FEHLER Fall 21c: 1X (fair ~1,15) darf nicht im Band liegen:", sels)
+        ok = False
+    for x in sels:                                    # Band wird eingehalten
+        if not (BONUS_FAIR_LO <= x["fair"] <= BONUS_FAIR_HI):
+            print("FEHLER Fall 21d: Auswahl außerhalb des Bandes:", x)
+            ok = False
+    # Wahrscheinlichkeiten summieren sich auf 1 (Marge ist raus)
+    _, p3 = demargin([2.10, 3.40, 3.60])
+    if abs(sum(p3) - 1.0) > 1e-9:
+        print("FEHLER Fall 21e: Wahrscheinlichkeiten ergeben nicht 1:", p3)
+        ok = False
+    if _odds_1x2({"odds": {"1_1": [{"home_od": "1.80", "draw_od": "3.60",
+                                    "away_od": "4.20"}]}}) != [1.80, 3.60, 4.20]:
+        print("FEHLER Fall 21f: 1X2-Quoten nicht gelesen")
+        ok = False
+    if _odds_1x2({"odds": {}}) is not None:
+        print("FEHLER Fall 21g: fehlende Quoten müssen None ergeben")
+        ok = False
+    if build_bonus_block([]) is not None:
+        print("FEHLER Fall 21h: ohne Kandidaten kein Bonus-Block")
+        ok = False
 
     # --- Fall 20: Sperre ist im Normalbetrieb aus (12.09., Variante C)
     if CONTRA_ENABLED:
