@@ -360,9 +360,13 @@ def api_get(path: str, **params) -> dict:
     _budget_guard()
     params["token"] = TOKEN
     url = f"{API}{path}?{urllib.parse.urlencode(params)}"
-    for attempt in range(3):
+    # 12.09.: 5 Versuche statt 3, Zeitlimit 45 s statt 30, Wartezeit wächst
+    # (3/6/12/24 s). Anlass: ein einzelner hängender Aufruf auf
+    # /v3/events/upcoming hat den kompletten Lauf mit Timeout abgebrochen.
+    last = None
+    for attempt in range(5):
         try:
-            with urllib.request.urlopen(url, timeout=30) as r:
+            with urllib.request.urlopen(url, timeout=45) as r:
                 data = json.loads(r.read().decode("utf-8"))
             with _counter_lock:
                 _request_count += 1
@@ -370,11 +374,12 @@ def api_get(path: str, **params) -> dict:
             if data.get("success") != 1:
                 raise RuntimeError(f"API-Fehler {data.get('error')} bei {path}")
             return data
-        except Exception:
-            if attempt == 2:
+        except Exception as exc:
+            last = exc
+            if attempt == 4:
                 raise
-            time.sleep(2 * (attempt + 1))
-    raise RuntimeError("unreachable")
+            time.sleep(min(3 * 2 ** attempt, 30))
+    raise last if last else RuntimeError("unreachable")
 
 
 def _today_num() -> int:
@@ -499,6 +504,9 @@ def prewarm_window():
     return now, end
 
 
+_list_fail = []          # Seiten der Spielliste, die in diesem Lauf ausfielen
+
+
 def fetch_matches_in_window(now=None, end=None):
     """Alle noch nicht gestarteten Spiele im Prüffenster."""
     if now is None or end is None:
@@ -510,11 +518,22 @@ def fetch_matches_in_window(now=None, end=None):
         days.add(d.astimezone(timezone.utc).strftime("%Y%m%d"))
         d += timedelta(hours=12)
     days.add(end.astimezone(timezone.utc).strftime("%Y%m%d"))
+    fail = []
     for day in sorted(days):
         page = 1
         while page <= 15:
-            data = api_get("/v3/events/upcoming", sport_id=1, day=day,
-                           per_page=100, page=page, skip_esports=1)
+            try:
+                data = api_get("/v3/events/upcoming", sport_id=1, day=day,
+                               per_page=100, page=page, skip_esports=1)
+            except BudgetExhausted:
+                raise
+            except Exception as exc:
+                # 12.09.: eine hängende Seite beendet nicht mehr den ganzen Lauf.
+                # Fehlen ALLE Seiten, wird unten sauber abgebrochen.
+                print(f"  Spielliste {day} Seite {page} fehlgeschlagen: {exc}")
+                fail.append(f"{day}/{page}")
+                _list_fail.append(f"{day}/{page}")
+                break
             results = data.get("results", [])
             if not results:
                 break
@@ -541,6 +560,11 @@ def fetch_matches_in_window(now=None, end=None):
             if page * 100 >= total:
                 break
             page += 1
+    if fail and not matches:
+        raise RuntimeError("Spielliste nicht abrufbar (" + ", ".join(fail) + ")")
+    if fail:
+        print(f"  Hinweis: {len(fail)} Seite(n) der Spielliste fehlen, "
+              f"{len(matches)} Spiele trotzdem geladen")
     return list(matches.values())
 
 
@@ -2981,6 +3005,24 @@ def build_bonus_block(rows):
 
 
 def run():
+    """Umhüllt den eigentlichen Lauf: unerwartete Fehler werden gemeldet,
+    statt den Job ohne Nachricht abzubrechen (12.09.)."""
+    try:
+        _run()
+    except SystemExit:
+        raise
+    except BaseException as exc:
+        msg = (f"🚨 <b>Lauf abgebrochen</b>\n{type(exc).__name__}: {esc(str(exc)[:400])}\n"
+               f"Nach {_request_count} Anfragen. Der nächste Lauf versucht es erneut.")
+        print(msg)
+        try:
+            send_telegram(msg)
+        except Exception:
+            pass
+        raise
+
+
+def _run():
     if not TOKEN:
         sys.exit("BETSAPI_TOKEN fehlt")
     cache = load_cache()
@@ -3137,6 +3179,11 @@ def run():
     # Störungs-Warnung: Wenn die Verfügbarkeits-Prüfung (scores24) flächendeckend
     # ausfällt, fliegen ALLE Signale raus und die Nachricht wäre grundlos leer.
     # Dann kommt stattdessen eine klare Ansage (10.09.: HTTP 406).
+    if _list_fail and chunks:
+        hint = (f"⚠️ <b>Unvollständige Spielliste</b>\n{len(_list_fail)} Seite(n) der "
+                f"API-Liste waren nicht abrufbar — es können Spiele fehlen. "
+                f"Der nächste Lauf holt sie nach.")
+        chunks = [hint + "\n\n" + chunks[0]] + chunks[1:]
     fails = _s24_stats["fetch_fail"]
     if GATE_ENABLED and fails >= 10 and _s24_stats["ok"] == 0:
         codes = ", ".join(f"{k[5:]}x{v}" for k, v in sorted(_s24_stats.items())
