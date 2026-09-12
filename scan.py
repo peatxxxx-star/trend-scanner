@@ -1879,8 +1879,14 @@ def merge_by_kickoff(buckets):
         slot["entries"].append(("dropped", entry, reason))
     order = {"new": 0, "changed": 1, "same": 2, "dropped": 3}
     result = []
+    # 12.09. (Lucio): innerhalb DERSELBEN Anstoßzeit nach Liga gruppieren.
+    # Vorher standen bei z.B. 16:00 die Ligen bunt gemischt, und er musste im
+    # Buchmacher-Konto ständig zwischen Championship, Liga 1 und Liga 2 hin
+    # und her springen. Die strenge Reihenfolge nach Anstoßzeit bleibt.
     for slot in sorted(per_match.values(),
-                       key=lambda x: (x["match"].get("kickoff_ts", 0), x["match"]["home"])):
+                       key=lambda x: (x["match"].get("kickoff_ts", 0),
+                                      (x["match"].get("league") or "").lower(),
+                                      x["match"]["home"])):
         slot["entries"].sort(key=lambda e: (order[e[0]], e[1].get("metric", "")))
         result.append((slot["match"], slot["entries"]))
     return result
@@ -1916,8 +1922,12 @@ def day_list(buckets, new_state):
     order = {"new": 0, "known": 1}
     lorder = {"🟢": 0, "🟡": 1, "🔴": 2}
     result = []
+    # 12.09. (Lucio): gleiche Anstoßzeit -> nach Liga gruppieren (siehe
+    # merge_by_kickoff). Das ist die Sortierung, die in Telegram landet.
     for slot in sorted(per_match.values(),
-                       key=lambda x: (x["match"].get("kickoff_ts", 0), x["match"]["home"])):
+                       key=lambda x: (x["match"].get("kickoff_ts", 0),
+                                      (x["match"].get("league") or "").lower(),
+                                      x["match"]["home"])):
         slot["entries"].sort(key=lambda e: (lorder.get(e[1].get("light"), 1),
                                             order[e[0]], e[1].get("metric", "")))
         result.append((slot["match"], slot["entries"]))
@@ -2512,6 +2522,213 @@ def shots_check():
         send_telegram(c)
 
 
+# ----------------------------------------------------------------------------
+# Backtest (11.09., Lucio): "kann man nicht einfach den gestrigen Tag prüfen?"
+# Nimmt alle beendeten Spiele eines Tages, baut für beide Teams die Historie
+# STRENG AUS DER ZEIT VOR DIESEM SPIEL nach, lässt das Regelwerk laufen und
+# vergleicht die Signale mit dem, was wirklich passiert ist.
+#
+# Grenzen, die man beim Lesen mitdenken muss:
+#   * Der scores24-Nachweis lässt sich für vergangene Tage nicht nachstellen.
+#     Der Backtest sieht deshalb AUCH Signale, die live mangels Markt
+#     rausgeflogen wären — die echte Trefferquote der gemeldeten Signale kann
+#     also abweichen.
+#   * Historische Quoten gibt es nicht. Gemessen wird die Trefferquote, nicht
+#     die Rendite. Ob sich ein Markt lohnt, hängt zusätzlich an der Quote.
+#   * Der Schiedsrichter-Zuschlag fehlt (der läuft live erst nach der Bewertung).
+# ----------------------------------------------------------------------------
+
+BACKTEST_MAX = 150         # Spiele je Lauf (Stundenlimit!)
+
+
+def _history_before(team_id, event_id, cache, hcache):
+    """Historie eines Teams NUR mit Spielen, die vor event_id liegen."""
+    events = None
+    if hcache is not None:
+        with _cache_lock:
+            entry = hcache.get(str(team_id))
+            if entry and time.time() - entry.get("ts", 0) < HISTORY_TTL:
+                events = entry["events"]
+    if events is None:
+        events = _fetch_ended_list(team_id)
+        if hcache is not None:
+            with _cache_lock:
+                hcache[str(team_id)] = {"ts": int(time.time()), "events": events}
+    ids = [e["id"] for e in events]
+    if event_id not in ids:
+        return None                     # Spiel nicht in der Liste -> nicht prüfbar
+    older = events[ids.index(event_id) + 1:]
+    with _cache_lock:
+        need = [e["id"] for e in older if e["id"] not in cache]
+    for i in range(0, len(need), 10):
+        chunk = need[i:i + 10]
+        view = api_get("/v1/event/view", event_id=",".join(chunk))
+        got = set()
+        for ev in view.get("results", []):
+            with _cache_lock:
+                cache[ev["id"]] = slim_event(ev)
+            got.add(ev["id"])
+        with _cache_lock:
+            for eid in chunk:
+                if eid not in got:
+                    cache.setdefault(eid, {"x": CACHE_VERSION})
+    hist = []
+    with _cache_lock:
+        for e in older:
+            hist.append({"stats": cache.get(e["id"], {}), "is_home": e["h"], "label": e["l"]})
+    return hist
+
+
+def backtest(cache, hcache):
+    global _no_wait
+    _no_wait = True
+    now = now_berlin()
+    tag = os.environ.get("BACKTEST_TAG", "").strip()
+    if tag:
+        try:
+            day_dt = datetime.strptime(tag, "%Y-%m-%d")
+        except ValueError:
+            print("BACKTEST_TAG muss JJJJ-MM-TT sein"); return
+    else:
+        day_dt = now - timedelta(days=1)
+    day = day_dt.strftime("%Y%m%d")
+    print(f"BACKTEST für den {day_dt.strftime('%d.%m.%Y')}")
+
+    ended, page = [], 1
+    while page <= 8:
+        try:
+            data = api_get("/v3/events/ended", sport_id=1, day=day, per_page=100,
+                           page=page, skip_esports=1)
+        except Exception as exc:
+            print("  ended:", exc); break
+        res = data.get("results") or []
+        ended += [e for e in res
+                  if "esoccer" not in ((e.get("league") or {}).get("name", "").lower())]
+        if len(res) < 100:
+            break
+        page += 1
+    print(f"  {len(ended)} beendete Spiele an diesem Tag")
+
+    # Spiele bevorzugen, deren Teams schon im Cache stecken (spart Anfragen)
+    def known(e):
+        with _cache_lock:
+            return sum(1 for t in ("home", "away")
+                       if str((e.get(t) or {}).get("id")) in hcache)
+    ended.sort(key=known, reverse=True)
+    todo = ended[:BACKTEST_MAX]
+
+    rows, stats_out = [], []
+    done = [0]
+
+    def work(e):
+        eid = e["id"]
+        home, away = e.get("home") or {}, e.get("away") or {}
+        match = {"id": eid, "league": (e.get("league") or {}).get("name", ""),
+                 "home": home.get("name", "?"), "away": away.get("name", "?"),
+                 "home_id": str(home.get("id")), "away_id": str(away.get("id")),
+                 "kickoff": "", "kickoff_ts": int(e.get("time", 0) or 0)}
+        with _cache_lock:
+            own = cache.get(eid)
+        if own is None:
+            view = api_get("/v1/event/view", event_id=eid)
+            res = (view.get("results") or [{}])[0]
+            if not res.get("stats"):
+                return
+            own = slim_event(res)
+            with _cache_lock:
+                cache[eid] = own
+        hh = _history_before(match["home_id"], eid, cache, hcache)
+        ha = _history_before(match["away_id"], eid, cache, hcache)
+        if hh is None or ha is None:
+            return
+        signals = evaluate_match(match, hh, ha)
+        for s in signals:
+            actual = metric_total({"stats": own}, s["metric_key"])
+            if actual is None:
+                continue
+            hit = actual > s["line"] if s["direction"] == "über" else actual < s["line"]
+            rows.append({"metric": s["metric_key"], "dir": s["direction"],
+                         "line": s["line"], "p": s.get("p_fin"), "light": s.get("light"),
+                         "actual": actual, "hit": hit, "league": match["league"],
+                         "spiel": f'{match["home"]} – {match["away"]}'})
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futures = [pool.submit(work, e) for e in todo]
+        for fut in as_completed(futures):
+            done[0] += 1
+            try:
+                fut.result()
+            except BudgetExhausted:
+                pass
+            except Exception as exc:
+                print(f"  Fehler: {exc}")
+            if done[0] % 25 == 0:
+                print(f"  ... {done[0]}/{len(todo)} Spiele, {_request_count} Anfragen",
+                      flush=True)
+    save_cache(cache)
+    save_history_cache(hcache)
+
+    def quote(rs):
+        n = len(rs); t = sum(1 for r in rs if r["hit"])
+        pm = sum(r["p"] or 0 for r in rs) / n if n else 0
+        return n, t, (100.0 * t / n if n else 0), 100.0 * pm
+
+    lines = [f"BACKTEST {day_dt.strftime('%d.%m.%Y')} · {len(todo)} Spiele geprüft",
+             "Trefferquote der Signale gegen das tatsächliche Ergebnis.",
+             "Ohne scores24-Nachweis und ohne Quoten — misst die Regel, nicht die Rendite.",
+             ""]
+    gruen = [r for r in rows if r["light"] == "🟢"]
+    n, t, q, pm = quote(gruen) if gruen else (0, 0, 0, 0)
+    lines.append(f"GRÜNE SIGNALE: {t}/{n} = {q:.1f} %  (Modell sagte {pm:.1f} %)")
+    alle = quote(rows) if rows else (0, 0, 0, 0)
+    lines.append(f"ALLE SIGNALE:  {alle[1]}/{alle[0]} = {alle[2]:.1f} %  "
+                 f"(Modell {alle[3]:.1f} %)")
+    lines.append("")
+    lines.append("Je Markt (nur grüne):")
+    keys = sorted({(r["metric"], r["dir"]) for r in gruen})
+    for m, d in keys:
+        rs = [r for r in gruen if r["metric"] == m and r["dir"] == d]
+        n, t, q, pm = quote(rs)
+        name = METRICS.get(m, (m, []))[0]
+        lines.append(f"   {name} {d}: {t}/{n} = {q:.0f} %  (Modell {pm:.0f} %)")
+    lines.append("")
+    lines.append("Nach Wahrscheinlichkeit (nur grüne):")
+    for lo, hi in ((0.68, 0.72), (0.72, 0.75), (0.75, 0.80), (0.80, 0.90), (0.90, 1.01)):
+        rs = [r for r in gruen if r["p"] and lo <= r["p"] < hi]
+        if not rs:
+            continue
+        n, t, q, pm = quote(rs)
+        lines.append(f"   p {lo*100:.0f}–{hi*100:.0f} %: {t}/{n} = {q:.0f} %")
+    fehl = [r for r in gruen if not r["hit"]]
+    if fehl:
+        lines.append("")
+        lines.append(f"Danebengegangene grüne Signale ({len(fehl)}):")
+        for r in sorted(fehl, key=lambda r: r["p"] or 0, reverse=True)[:30]:
+            name = METRICS.get(r["metric"], (r["metric"], []))[0]
+            lines.append(f"   {r['spiel'][:40]:40s} {name} {r['dir']} {r['line']} "
+                         f"-> {r['actual']} (p {100*(r['p'] or 0):.0f} %)")
+    lines.append("")
+    lines.append(f"{_request_count} Anfragen."
+                 + ("  ⚠️ Stundenlimit erreicht, Tag nur teilweise geprüft."
+                    if _budget_exhausted else ""))
+    text = "\n".join(lines)
+    print("\n" + text)
+    RUNS_DIR.mkdir(exist_ok=True)
+    out = RUNS_DIR / f"backtest_{day_dt.strftime('%Y-%m-%d')}.txt"
+    out.write_text(text, encoding="utf-8")
+    print(f"→ {out}")
+    chunks, cur = [], "<pre>"
+    for ln in text.split("\n"):
+        ln = esc(ln)
+        if len(cur) + len(ln) + 1 > 3300:
+            chunks.append(cur + "</pre>"); cur = "<pre>" + ln
+        else:
+            cur += ("\n" if cur != "<pre>" else "") + ln
+    chunks.append(cur + "</pre>")
+    for c in chunks:
+        send_telegram(c)
+
+
 def run():
     if not TOKEN:
         sys.exit("BETSAPI_TOKEN fehlt")
@@ -2528,6 +2745,9 @@ def run():
         return
     if os.environ.get("SHOTSCHECK") == "1":
         shots_check()
+        return
+    if os.environ.get("BACKTEST") == "1":
+        backtest(cache, hcache)
         return
     if is_prewarm_run():
         prewarm(cache, hcache)
@@ -3170,6 +3390,36 @@ def selftest():
         print("FEHLER Fall 15b: Mischung Summen/Beitrag falsch:", s15.get("expect"), s15.get("contrib"))
         ok = False
     _base_means.pop("corners", None)
+
+    # --- Fall 18: gleiche Anstoßzeit -> nach Liga gruppiert (12.09.)
+    def _mm(mid, home, league, ts):
+        return {"match_id": mid, "home": home, "away": "X", "kickoff": "Sa 16:00",
+                "kickoff_ts": ts, "league": league,
+                "signal": {"metric": "Ecken", "direction": "über", "line": 8.5,
+                           "light": "🟢"}, "metric": "Ecken", "direction": "über",
+                "line": 8.5, "v": STATE_VERSION}
+    st18 = {"k1": _mm("m1", "A-Team", "England Championship", 1000),
+            "k2": _mm("m2", "B-Team", "Germany Bundesliga 2", 1000),
+            "k3": _mm("m3", "C-Team", "England Championship", 1000),
+            "k4": _mm("m4", "D-Team", "Germany Bundesliga 2", 2000)}
+    order18 = [m["league"] for m, _ in day_list({"new": [], "changed": [], "same": [],
+                                                 "dropped": []}, st18)]
+    if order18 != ["England Championship", "England Championship",
+                   "Germany Bundesliga 2", "Germany Bundesliga 2"]:
+        print("FEHLER Fall 18: Ligen nicht gruppiert:", order18)
+        ok = False
+
+    # --- Fall 17: Backtest schneidet die Historie an der richtigen Stelle ab
+    hb = {"99": {"ts": time.time(), "events": [{"id": "b3", "h": True, "l": "A - B"},
+                                               {"id": "b2", "h": False, "l": "C - A"},
+                                               {"id": "b1", "h": True, "l": "A - D"}]}}
+    cb = {"b1": {"corners": [5, 4], "x": CACHE_VERSION},
+          "b2": {"corners": [6, 3], "x": CACHE_VERSION},
+          "b3": {"corners": [7, 2], "x": CACHE_VERSION}}
+    hist_b = _history_before("99", "b2", cb, hb)
+    if [h["label"] for h in hist_b] != ["A - D"] or _history_before("99", "xx", cb, hb) is not None:
+        print("FEHLER Fall 17: Backtest-Historie falsch abgeschnitten:", hist_b)
+        ok = False
 
     # --- Fall 16: Schüsse gesamt — geblockte Schüsse zählen mit (11.09.)
     if total_shots({"goalattempts": ["12", "9"], "shots_blocked": ["4", "2"]}) != [16, 11] or \
