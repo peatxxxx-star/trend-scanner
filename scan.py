@@ -2851,9 +2851,12 @@ BONUS_DAYS = {5, 6}          # Samstag, Sonntag (Montag = 0)
 BONUS_HORIZON_H = 14         # nur Spiele, die in den nächsten x Stunden anfangen
 BONUS_ODDS_TTL = 2 * 3600    # 1X2-Quoten so lange zwischenspeichern
 BONUS_MAX_REQ = 400          # Obergrenze an Quoten-Abfragen je Lauf
-BONUS_FAIR_LO = 1.42         # nur Auswahlen, deren FAIRE Quote hier liegt: der
-BONUS_FAIR_HI = 1.85         # Bookie stellt immer UNTER fair, für die verlangten
-                             # 1,40 braucht es also mindestens ~1,42 fair.
+BONUS_FAIR_HI = 1.85         # Obergrenze der fairen Quote (darüber zu unsicher)
+BONUS_MIN_BOOKIE = 1.38      # 12.09. nachgeschärft: entscheidend ist nicht die
+                             # faire Quote, sondern was der Bookie daraus macht.
+                             # Erwartete Bookie-Quote = fair / (1 + Marge). Die
+                             # Bedingung verlangt >= 1,40; alles darunter ist für
+                             # den Umsatz nutzlos, 1,38 als kleine Toleranz.
 BONUS_SHOW = 14              # so viele Spiele in der Telegram-Liste
 BONUS_TURNOVER = 3.0         # Umsatzfaktor
 BONUS_AMOUNT = 100.0         # Bonushöhe in EUR
@@ -2915,13 +2918,27 @@ def bonus_selections(odds):
         if prob <= 0.02:
             continue
         fair = 1.0 / prob
-        if BONUS_FAIR_LO <= fair <= BONUS_FAIR_HI:
-            e = {"auswahl": name, "p": round(prob, 4), "fair": round(fair, 2)}
+        erw = fair / (1.0 + margin)          # was der Bookie daraus machen dürfte
+        if erw >= BONUS_MIN_BOOKIE and fair <= BONUS_FAIR_HI:
+            e = {"auswahl": name, "p": round(prob, 4), "fair": round(fair, 2),
+                 "erw": round(erw, 2)}
             if raw:
                 e["b365"] = round(raw, 2)
             out.append(e)
     out.sort(key=lambda x: x["fair"])
     return margin, out
+
+
+def bonus_best(sels):
+    """EINE Empfehlung je Spiel (12.09., Lucio: "dachte je Spiel eine
+    Empfehlung, so ist es widersprüchlich" — 1X und X2 beim selben Spiel sind
+    Gegenseiten). Gewählt wird die Auswahl mit der NIEDRIGSTEN erwarteten
+    Bookie-Quote, die noch über der verlangten Schwelle liegt: niedrigste
+    Quote = höchste Trefferwahrscheinlichkeit = kleinste Schwankung beim
+    Umsetzen. Value gibt es hier ohnehin nicht zu holen."""
+    if not sels:
+        return None
+    return min(sels, key=lambda x: x["erw"])
 
 
 def bonus_picks(matches, ocache):
@@ -2957,10 +2974,11 @@ def bonus_picks(matches, ocache):
         if not ent.get("o"):
             return
         margin, sels = bonus_selections(ent["o"])
-        if not sels:
+        best = bonus_best(sels)
+        if not best:
             return
         rows.append({"match": m, "margin": round(100 * margin, 1),
-                     "odds": ent["o"], "sel": sels})
+                     "odds": ent["o"], "pick": best, "sel": sels})
 
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
         futures = [pool.submit(work, m) for m in todo]
@@ -2985,16 +3003,17 @@ def build_bonus_block(rows):
     head = [f"{BANNER}", f"🎁 <b>BONUS-PICKS</b> · nur für das Bonusguthaben", f"{BANNER}",
             f"<i>Umsatz {ziel:.0f} € in Kombis mit 3+ Auswahlen, davon 3 mit Quote ≥ 1,40. "
             f"Gesamtzahl- und Handicap-Wetten zählen NICHT. Hier geht es nicht um Value, "
-            f"sondern um die kleinste Marge.</i>", ""]
+            f"sondern um die kleinste Marge. Je Spiel EINE Auswahl: die mit der "
+            f"höchsten Trefferchance, die beim Bookie noch über 1,40 landet.</i>", ""]
     lines = []
     for r in rows[:BONUS_SHOW]:
         m = r["match"]
         lines.append(f"<b>{r['margin']:.1f} % Marge</b> · {m['kickoff']} "
                      f"{esc(m['home'])} – {esc(m['away'])}")
         lines.append(f"   <i>{esc(m.get('league', ''))}</i>")
-        for s in r["sel"][:3]:
-            ref = f" <i>(bet365 {s['b365']:.2f})</i>" if s.get("b365") else ""
-            lines.append(f"   {esc(s['auswahl'])}: fair <b>{s['fair']:.2f}</b>{ref}")
+        pk = r["pick"]
+        lines.append(f"   ▸ <b>{esc(pk['auswahl'])}</b> — erwartete Quote "
+                     f"~<b>{pk['erw']:.2f}</b> (fair {pk['fair']:.2f})")
         lines.append("")
     tail = ["<i>Vorgehen: viele kleine Scheine statt wenige große — in der "
             "Simulation ist das der Unterschied zwischen 9 € und 45 € Ausschüttung. "
@@ -3168,7 +3187,8 @@ def _run():
             brows = bonus_picks(matches, ocache)
             save_odds_cache(ocache)
             log["bonus"] = [{"match": r["match"], "margin": r["margin"],
-                             "odds": r["odds"], "sel": r["sel"]} for r in brows]
+                             "odds": r["odds"], "pick": r["pick"],
+                             "sel": r["sel"]} for r in brows]
             (RUNS_DIR / f"{now:%Y-%m-%d_%H%M}.json").write_text(
                 json.dumps(log, ensure_ascii=False, indent=1))
             block = build_bonus_block(brows)
@@ -3730,9 +3750,14 @@ def selftest():
         print("FEHLER Fall 21c: 1X (fair ~1,15) darf nicht im Band liegen:", sels)
         ok = False
     for x in sels:                                    # Band wird eingehalten
-        if not (BONUS_FAIR_LO <= x["fair"] <= BONUS_FAIR_HI):
+        if not (x["erw"] >= BONUS_MIN_BOOKIE and x["fair"] <= BONUS_FAIR_HI):
             print("FEHLER Fall 21d: Auswahl außerhalb des Bandes:", x)
             ok = False
+    # eine faire 1,42 bei 5 % Marge landet beim Bookie bei ~1,35 -> muss raus
+    _, s21 = bonus_selections([1.42 / 1.05, 100.0, 100.0])
+    if any(x["auswahl"] == "Heimsieg" for x in s21):
+        print("FEHLER Fall 21j: zu knappe Auswahl muss rausfallen:", s21)
+        ok = False
     # Wahrscheinlichkeiten summieren sich auf 1 (Marge ist raus)
     _, p3 = demargin([2.10, 3.40, 3.60])
     if abs(sum(p3) - 1.0) > 1e-9:
@@ -3744,6 +3769,14 @@ def selftest():
         ok = False
     if _odds_1x2({"odds": {}}) is not None:
         print("FEHLER Fall 21g: fehlende Quoten müssen None ergeben")
+        ok = False
+    b21 = bonus_best([{"auswahl": "1X", "erw": 1.62, "fair": 1.71},
+                      {"auswahl": "Heimsieg", "erw": 1.41, "fair": 1.49}])
+    if not b21 or b21["auswahl"] != "Heimsieg":
+        print("FEHLER Fall 21k: sicherste Auswahl nicht gewählt:", b21)
+        ok = False
+    if bonus_best([]) is not None:
+        print("FEHLER Fall 21l: ohne Auswahlen keine Empfehlung")
         ok = False
     if build_bonus_block([]) is not None:
         print("FEHLER Fall 21h: ohne Kandidaten kein Bonus-Block")
