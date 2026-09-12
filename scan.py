@@ -1927,14 +1927,25 @@ def merge_by_kickoff(buckets):
         slot["entries"].append(("dropped", entry, reason))
     order = {"new": 0, "changed": 1, "same": 2, "dropped": 3}
     result = []
-    # 12.09. (Lucio): innerhalb DERSELBEN Anstoßzeit nach Liga gruppieren.
-    # Vorher standen bei z.B. 16:00 die Ligen bunt gemischt, und er musste im
-    # Buchmacher-Konto ständig zwischen Championship, Liga 1 und Liga 2 hin
-    # und her springen. Die strenge Reihenfolge nach Anstoßzeit bleibt.
-    for slot in sorted(per_match.values(),
-                       key=lambda x: (x["match"].get("kickoff_ts", 0),
-                                      (x["match"].get("league") or "").lower(),
-                                      x["match"]["home"])):
+    # 12.09. (Lucio, zweite Fassung): LIGA-BLÖCKE über den ganzen Tag.
+    # Alle Spiele einer Liga stehen zusammen, innerhalb der Liga aufsteigend
+    # nach Anstoßzeit. Die Blöcke selbst sind nach dem frühesten Spiel der
+    # jeweiligen Liga sortiert, damit die Liste grob chronologisch bleibt und
+    # die nächste anstehende Liga oben steht. Grund: er arbeitet im
+    # Buchmacher-Konto Liga für Liga ab, jeder Ligawechsel kostet Zeit.
+    first_kick = {}
+    for slot in per_match.values():
+        lg = (slot["match"].get("league") or "").lower()
+        ts = slot["match"].get("kickoff_ts", 0)
+        if lg not in first_kick or ts < first_kick[lg]:
+            first_kick[lg] = ts
+
+    def _sortkey(x):
+        lg = (x["match"].get("league") or "").lower()
+        return (first_kick.get(lg, 0), lg, x["match"].get("kickoff_ts", 0),
+                x["match"]["home"])
+
+    for slot in sorted(per_match.values(), key=_sortkey):
         slot["entries"].sort(key=lambda e: (order[e[0]], e[1].get("metric", "")))
         result.append((slot["match"], slot["entries"]))
     return result
@@ -1970,12 +1981,21 @@ def day_list(buckets, new_state):
     order = {"new": 0, "known": 1}
     lorder = {"🟢": 0, "🟡": 1, "🔴": 2}
     result = []
-    # 12.09. (Lucio): gleiche Anstoßzeit -> nach Liga gruppieren (siehe
-    # merge_by_kickoff). Das ist die Sortierung, die in Telegram landet.
-    for slot in sorted(per_match.values(),
-                       key=lambda x: (x["match"].get("kickoff_ts", 0),
-                                      (x["match"].get("league") or "").lower(),
-                                      x["match"]["home"])):
+    # 12.09.: Liga-Blöcke (siehe merge_by_kickoff). Das ist die Sortierung,
+    # die in Telegram landet.
+    first_kick = {}
+    for slot in per_match.values():
+        lg = (slot["match"].get("league") or "").lower()
+        ts = slot["match"].get("kickoff_ts", 0)
+        if lg not in first_kick or ts < first_kick[lg]:
+            first_kick[lg] = ts
+
+    def _sortkey(x):
+        lg = (x["match"].get("league") or "").lower()
+        return (first_kick.get(lg, 0), lg, x["match"].get("kickoff_ts", 0),
+                x["match"]["home"])
+
+    for slot in sorted(per_match.values(), key=_sortkey):
         slot["entries"].sort(key=lambda e: (lorder.get(e[1].get("light"), 1),
                                             order[e[0]], e[1].get("metric", "")))
         result.append((slot["match"], slot["entries"]))
@@ -3492,11 +3512,18 @@ def selftest():
             "k2": _mm("m2", "B-Team", "Germany Bundesliga 2", 1000),
             "k3": _mm("m3", "C-Team", "England Championship", 1000),
             "k4": _mm("m4", "D-Team", "Germany Bundesliga 2", 2000)}
-    order18 = [m["league"] for m, _ in day_list({"new": [], "changed": [], "same": [],
-                                                 "dropped": []}, st18)]
-    if order18 != ["England Championship", "England Championship",
-                   "Germany Bundesliga 2", "Germany Bundesliga 2"]:
-        print("FEHLER Fall 18: Ligen nicht gruppiert:", order18)
+    st18["k5"] = _mm("m5", "E-Team", "Spain LaLiga 2", 500)   # frühestes Spiel
+    st18["k6"] = _mm("m6", "F-Team", "England Championship", 3000)
+    got18 = [(m["league"], m["kickoff_ts"]) for m, _ in
+             day_list({"new": [], "changed": [], "same": [], "dropped": []}, st18)]
+    want18 = [("Spain LaLiga 2", 500),                  # Liga mit dem frühesten Spiel
+              ("England Championship", 1000),           # dann Championship, Zeit aufsteigend
+              ("England Championship", 1000),
+              ("England Championship", 3000),
+              ("Germany Bundesliga 2", 1000),
+              ("Germany Bundesliga 2", 2000)]
+    if got18 != want18:
+        print("FEHLER Fall 18: Liga-Blöcke falsch sortiert:", got18)
         ok = False
 
     # --- Fall 17: Backtest schneidet die Historie an der richtigen Stelle ab
