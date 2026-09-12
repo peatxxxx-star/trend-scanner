@@ -2957,6 +2957,199 @@ def bonus_selections(odds):
     return margin, out
 
 
+# ----------------------------------------------------------------------------
+# "WER HAT MEHR" (12.09., Lucios Idee) — sein Bookie bietet die Nebenmärkte
+# auch als Siegwette an: wer hat mehr Ecken / Schüsse. Das sind KEINE
+# Gesamtzahl-Wetten, zählen also für die Bonus-Umsatzbedingung — und es sind
+# Nebenmärkte, in denen der Bookie weniger sorgfältig rechnet als bei 1X2.
+#
+# Modell: erwartete Anzahl JE MANNSCHAFT (eigene Ø + gegnerische Gegen-Ø,
+# gewichtet), mal Heimfaktor; daraus die Differenzverteilung zweier
+# Poisson-Zähler (Skellam) -> P(Heim mehr), P(gleich), P(Gast mehr).
+#
+# An 3.697 Spielen aus dem Cache geprüft (Heimfaktor auf einer Hälfte
+# geschätzt, auf der anderen getestet). Kalibrierung Ecken:
+#   Modell 50-55 % -> real 51,1 %      Modell 65-70 % -> real 66,8 %
+#   Modell 55-60 % -> real 58,6 %      Modell 70-80 % -> real 71,8 %
+#   Modell 60-65 % -> real 62,5 %      Modell  >80 %  -> real 87,1 %
+# Schüsse aufs Tor genauso gut. GELBE KARTEN: kein Signal (Heimfaktor 1,00,
+# keine Verbesserung gegenüber der Grundrate) -> nicht aufgenommen.
+# ----------------------------------------------------------------------------
+
+WHO_METRICS = {"corners": 1.06, "on_target": 1.08, "ht_corners": 1.08}
+WHO_NAMES = {"corners": "Meiste Ecken", "on_target": "Meiste Schüsse aufs Tor",
+             "ht_corners": "Meiste Ecken 1. HZ"}
+WHO_MIN_P = 0.55             # 12.09. gelockert (Lucio: "Fair-Restriktion spült
+                             # Fehler des Bookies mit raus" — dasselbe Argument
+                             # wie bei MIN_FAIR am 06.09.). Keine Obergrenze mehr.
+                             # Die 55 % sind KEINE Geschmacksgrenze: in der
+                             # Klasse 50-55 % lag die Realität bei 51,1 %, dort
+                             # steckt schlicht keine Information.
+WHO_SHOW = 12                # so viele in der Telegram-Liste
+
+
+def _pois_pmf(k, lam):
+    if lam <= 0:
+        return 1.0 if k == 0 else 0.0
+    return math.exp(-lam + k * math.log(lam) - math.lgamma(k + 1))
+
+
+def skellam_probs(lam_h, lam_a, kmax=40):
+    """P(Heim mehr), P(gleich), P(Gast mehr) für zwei Poisson-Zähler."""
+    ph = pe = pa = 0.0
+    for i in range(kmax):
+        pi = _pois_pmf(i, lam_h)
+        if pi < 1e-12 and i > lam_h + 12:
+            break
+        for j in range(kmax):
+            pj = _pois_pmf(j, lam_a)
+            if pj < 1e-12 and j > lam_a + 12:
+                break
+            p = pi * pj
+            if i > j:
+                ph += p
+            elif i == j:
+                pe += p
+            else:
+                pa += p
+    tot = ph + pe + pa
+    if tot <= 0:
+        return None
+    return ph / tot, pe / tot, pa / tot
+
+
+def who_sequence(history, metric, mehr=True, venue=None):
+    """Trefferfolge für "hatte MEHR (bzw. WENIGER) als der Gegner",
+    jüngstes Spiel zuerst. Liefert (Folge, gewertete Spiele)."""
+    seq = []
+    for m in history:
+        if venue == "home" and not m["is_home"]:
+            continue
+        if venue == "away" and m["is_home"]:
+            continue
+        if metric_total(m, metric) is None:
+            continue
+        pair = (m.get("stats") or {}).get(metric)
+        if not pair:
+            continue
+        own, opp = (pair[0], pair[1]) if m["is_home"] else (pair[1], pair[0])
+        if own == opp:
+            seq.append(False)          # Gleichstand zählt als Aussetzer
+            continue
+        seq.append((own > opp) if mehr else (own < opp))
+    return seq, len(seq)
+
+
+def who_series(history, metric, mehr, role):
+    """Anker- und kleine Serie für "hat mehr/weniger", nach denselben
+    Regeln wie die Gesamtmärkte (10 von <=12 gesamt, 15 in der Rolle,
+    Frische-Regel; kleine Serie 5 von <=6).
+
+    12.09., Lucios Idee — am Cache nachgerechnet (Ecken): Signale mit
+    Modell >=60 % UND Anker trafen 76,7 % (146 Spiele), ohne Anker nur
+    66,2 % (779 Spiele). Der Anker trägt also Information, die das
+    Erwartungsmodell nicht hat."""
+    seq_all, valid = who_sequence(history, metric, mehr)
+    seq_ven, _ = who_sequence(history, metric, mehr, venue=role)
+    if valid < MIN_VALID_MATCHES:
+        return None, None, valid
+    anchor = None
+    sr = series(seq_all, ANCHOR_HITS_OVERALL, ANCHOR_MAX_MISSES, fresh=FRESH_GAMES)
+    if sr:
+        anchor = {"kind": "gesamt", "hits": sr[0], "window": sr[1]}
+    else:
+        sr = series(seq_ven, ANCHOR_HITS_VENUE, ANCHOR_MAX_MISSES, fresh=FRESH_GAMES)
+        if sr:
+            anchor = {"kind": "heim" if role == "home" else "auswärts",
+                      "hits": sr[0], "window": sr[1]}
+    other = None
+    sr = series(seq_all, OTHER_HITS, OTHER_MAX_MISSES)
+    if sr:
+        other = {"kind": "gesamt", "hits": sr[0], "window": sr[1]}
+    else:
+        sr = series(seq_ven, OTHER_HITS, OTHER_MAX_MISSES)
+        if sr:
+            other = {"kind": "heim" if role == "home" else "auswärts",
+                     "hits": sr[0], "window": sr[1]}
+    return anchor, other, valid
+
+
+def who_more(match, hist_home, hist_away):
+    """Kandidaten für die Siegwetten in den Nebenmärkten."""
+    out = []
+    for metric, hf in WHO_METRICS.items():
+        fa_h = team_for_against(hist_home, metric, None, True)
+        fa_a = team_for_against(hist_away, metric, None, True)
+        if not fa_h or not fa_a:
+            continue
+        lam_h = (fa_h[0] + fa_a[1]) / 2 * hf
+        lam_a = (fa_a[0] + fa_h[1]) / 2 / hf
+        if lam_h <= 0 or lam_a <= 0:
+            continue
+        pr = skellam_probs(lam_h, lam_a)
+        if not pr:
+            continue
+        ph, pe, pa = pr
+        if ph >= pa:
+            side, p, name = "heim", ph, match["home"]
+        else:
+            side, p, name = "gast", pa, match["away"]
+        if p < WHO_MIN_P:
+            continue
+        rest = ph + pa
+        # Serien beider Seiten: der Favorit muss "mehr" gehabt haben,
+        # der Gegner "weniger" — dieselbe Beide-Teams-Logik wie sonst.
+        if side == "heim":
+            a_fav, o_fav, _ = who_series(hist_home, metric, True, "home")
+            a_opp, o_opp, _ = who_series(hist_away, metric, False, "away")
+        else:
+            a_fav, o_fav, _ = who_series(hist_away, metric, True, "away")
+            a_opp, o_opp, _ = who_series(hist_home, metric, False, "home")
+        out.append({"metric_key": metric, "metric": WHO_NAMES[metric],
+                    "seite": side, "team": name,
+                    "p": round(p, 4), "fair": round(1 / p, 2),
+                    "p_ohne_x": round(p / rest, 4) if rest > 0 else None,
+                    "fair_ohne_x": round(rest / p, 2) if p > 0 else None,
+                    "p_gleich": round(pe, 4),
+                    "erwartet": [round(lam_h, 1), round(lam_a, 1)],
+                    "anker": bool(a_fav),
+                    "serie_fav": a_fav or o_fav,
+                    "serie_gegner": a_opp or o_opp,
+                    "gegner_anker": bool(a_opp)})
+    out.sort(key=lambda x: (not x["anker"], -x["p"]))
+    return out
+
+
+def build_who_block(rows):
+    """Telegram-Abschnitt: Siegwetten in den Nebenmärkten."""
+    if not rows:
+        return None
+    lines = [f"{SEP}", "🥇 <b>WER HAT MEHR</b> — Siegwette in den Nebenmärkten", f"{SEP}",
+             "<i>Zählt für die Umsatzbedingung (keine Gesamtzahl). Dreiweg-Markt, "
+             "Gleichstand ist eine eigene Auswahl und in der fairen Quote drin. "
+             "Nachweis wie immer über den scores24-Reiter.</i>", ""]
+    for m, s in rows[:WHO_SHOW]:
+        bonus = " 🎁" if s["fair"] >= 1.40 else ""
+        anker = " ⚓" if s["anker"] else ""
+        lines.append(f"{m['kickoff']} {esc(m['home'])} – {esc(m['away'])}")
+        lines.append(f"   <i>{esc(m.get('league', ''))}</i>")
+        lines.append(f"   <b>{esc(s['metric'])}: {esc(s['team'])}</b>{anker}{bonus}")
+        lines.append(f"   Fair <b>{s['fair']:.2f}</b> · erwartet "
+                     f"{s['erwartet'][0]:.1f}:{s['erwartet'][1]:.1f} · Gleichstand "
+                     f"{100 * s['p_gleich']:.0f} %")
+        sf, sg = s.get("serie_fav"), s.get("serie_gegner")
+        if sf:
+            txt = f"mehr in {sf['hits']}/{sf['window']} ({sf['kind']})"
+            if sg:
+                txt += f" · Gegner weniger in {sg['hits']}/{sg['window']} ({sg['kind']})"
+            lines.append(f"   {txt}")
+        lines.append("")
+    lines.append("<i>⚓ = Anker-Serie (10 von ≤12, bzw. 15 in der Rolle) — traf im "
+                 "Backtest 76,7 % statt 66,2 %. 🎁 = faire Quote über 1,40, also "
+                 "als Bonus-Bein brauchbar.</i>")
+    return "\n".join(lines)
+
+
 def bonus_best(sels):
     """EINE Empfehlung je Spiel (12.09., Lucio: "dachte je Spiel eine
     Empfehlung, so ist es widersprüchlich" — 1X und X2 beim selben Spiel sind
@@ -3120,16 +3313,25 @@ def _run():
                              # Quoten-Markt bei scores24 aber weg ist
     unverifiable = set()     # Signale, deren scores24-Seite nicht zuordenbar war
 
+    who_day = now_berlin().weekday() in BONUS_DAYS
+
     def check(match):
         hist_home = fetch_team_history(match["home_id"], cache, hcache)
         hist_away = fetch_team_history(match["away_id"], cache, hcache)
         signals = evaluate_match(match, hist_home, hist_away)
         gated_out, unverifiable = [], []
         before = {signal_key(match, s) for s in signals}
+        groups = None
+        # 0) "Wer hat mehr" (nur Sa/So): Modell ist rechnerisch billig, der
+        #    scores24-Nachweis wird nur für Kandidaten geholt.
+        who = who_more(match, hist_home, hist_away) if who_day else []
         # 1) scores24: Verfügbarkeits-Näherung je Marktfamilie (keine Werte).
         #    Ecken/HZ-Ecken ohne Reiter bleiben markiert (zweite Chance bet365).
-        if signals and GATE_ENABLED:
+        if (signals or who) and GATE_ENABLED:
             groups = s24_fetch_groups(match)
+        if who and GATE_ENABLED:
+            who = [w for w in who if S24_GROUPS.get(w["metric_key"]) in (groups or set())]
+        if signals and GATE_ENABLED:
             signals = apply_s24_gate(signals, groups)
         if signals:
             # 2) Zusatzabfragen: bet365-Linie (kann den Nachweis liefern),
@@ -3146,8 +3348,9 @@ def _run():
                 assess_signal(s)
             signals = [s for s in signals
                        if (s.get("fair_fin") or s.get("fair") or 0) >= MIN_FAIR]
-        return signals, gated_out, unverifiable
+        return signals, gated_out, unverifiable, who
 
+    who_hits = []
     done = 0
     t_start = time.time()
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
@@ -3156,7 +3359,7 @@ def _run():
             match = futures[fut]
             done += 1
             try:
-                signals, gated_out, unverif = fut.result()
+                signals, gated_out, unverif, who = fut.result()
             except BudgetExhausted:
                 deferred.append(match)
                 continue
@@ -3171,6 +3374,8 @@ def _run():
             if signals:
                 all_hits.append((match, signals))
                 print(f"  TREFFER: {match['home']} – {match['away']} ({len(signals)})")
+            for w in who or []:
+                who_hits.append((match, w))
             if done % 100 == 0:
                 save_cache(cache)
                 save_history_cache(hcache)
@@ -3181,6 +3386,7 @@ def _run():
     save_history_cache(hcache)
     # feste Sortierung nach Anstoßzeit (Parallelverarbeitung mischt sonst)
     all_hits.sort(key=lambda h: h[0].get("kickoff_ts", 0))
+    who_hits.sort(key=lambda h: -h[1]["p"])
 
     # Lauf-Vergleich mit dem Gedächtnis des Vortags/Vorlaufs
     now = datetime.now(timezone.utc)
@@ -3220,8 +3426,13 @@ def _run():
             (RUNS_DIR / f"{now:%Y-%m-%d_%H%M}.json").write_text(
                 json.dumps(log, ensure_ascii=False, indent=1))
             block = build_bonus_block(brows)
-            if block:
-                chunks = (chunks or []) + [block]
+            who_block = build_who_block(who_hits)
+            log["who_more"] = [{"match": m, "signal": w} for m, w in who_hits]
+            (RUNS_DIR / f"{now:%Y-%m-%d_%H%M}.json").write_text(
+                json.dumps(log, ensure_ascii=False, indent=1))
+            extra = [b for b in (block, who_block) if b]
+            if extra:
+                chunks = (chunks or []) + extra
         except Exception as exc:
             print(f"Bonus-Picks übersprungen: {exc}")
     # Störungs-Warnung: Wenn die Verfügbarkeits-Prüfung (scores24) flächendeckend
@@ -3760,6 +3971,61 @@ def selftest():
         print("FEHLER Fall 15b: Mischung Summen/Beitrag falsch:", s15.get("expect"), s15.get("contrib"))
         ok = False
     _base_means.pop("corners", None)
+
+    # --- Fall 22: "Wer hat mehr" (12.09.)
+    pr = skellam_probs(5.0, 5.0)
+    if not pr or abs(pr[0] - pr[2]) > 1e-9 or abs(sum(pr) - 1.0) > 1e-9:
+        print("FEHLER Fall 22a: Skellam bei gleichen Erwartungen nicht symmetrisch:", pr)
+        ok = False
+    pr2 = skellam_probs(7.0, 4.0)
+    if not (pr2[0] > 0.6 and pr2[0] > pr2[2]) or abs(sum(pr2) - 1.0) > 1e-9:
+        print("FEHLER Fall 22b: Skellam falsch:", pr2)
+        ok = False
+    # Heimteam holt viele Ecken, Gast lässt viele zu -> Heim-Signal.
+    # Achtung: die Werte müssen ROLLENRICHTIG stehen (eigene Zahl je nach
+    # Heim/Auswärts vorne oder hinten), sonst ist die Historie symmetrisch.
+    def _who_hist(own, opp, homes):
+        h = []
+        for is_home in homes:
+            pair = [own, opp] if is_home else [opp, own]
+            h.append({"stats": {"corners": pair, "on_target": [4, 3],
+                                "yellowcards": [1, 1], "fouls": [10, 9],
+                                "offsides": [1, 1]},
+                      "is_home": is_home, "label": "t"})
+        return h
+    hh22 = _who_hist(6, 4, [H, A] * 7)          # holt 6, lässt 4 zu
+    ha22 = _who_hist(4, 6, [A, H] * 7)          # holt 4, lässt 6 zu
+    w22 = who_more(dict(match), hh22, ha22)
+    ec = [w for w in w22 if w["metric_key"] == "corners"]
+    if not ec or ec[0]["seite"] != "heim" or ec[0]["p"] < WHO_MIN_P:
+        print("FEHLER Fall 22c: Heim-Übergewicht nicht erkannt:", w22)
+        ok = False
+    # Anker-Serie muss erkannt werden: das Heimteam hatte IMMER mehr
+    if ec and not ec[0]["anker"]:
+        print("FEHLER Fall 22g: Anker-Serie nicht erkannt:", ec[0])
+        ok = False
+    if ec and not (ec[0]["serie_gegner"] and ec[0]["gegner_anker"]):
+        print("FEHLER Fall 22h: Gegen-Serie des Gegners nicht erkannt:", ec[0])
+        ok = False
+    # ohne durchgehende Serie kein Anker
+    mixed = _who_hist(6, 4, [H, A] * 7)
+    for i in (0, 2, 4):
+        mixed[i]["stats"]["corners"] = [2, 8] if mixed[i]["is_home"] else [8, 2]
+    w22b = who_more(dict(match), mixed, ha22)
+    ec2 = [w for w in w22b if w["metric_key"] == "corners"]
+    if ec2 and ec2[0]["anker"]:
+        print("FEHLER Fall 22i: löchrige Serie darf kein Anker sein:", ec2[0])
+        ok = False
+    if ec and not (0.0 < ec[0]["p_gleich"] < 0.5):
+        print("FEHLER Fall 22d: Gleichstand-Wahrscheinlichkeit unplausibel:", ec[0])
+        ok = False
+    # Karten sind bewusst NICHT dabei (kein Signal im Backtest)
+    if any(w["metric_key"] == "yellowcards" for w in w22):
+        print("FEHLER Fall 22e: Karten dürfen nicht in 'Wer hat mehr' auftauchen")
+        ok = False
+    if build_who_block([]) is not None:
+        print("FEHLER Fall 22f: ohne Kandidaten kein Block")
+        ok = False
 
     # --- Fall 21: Bonus-Picks (12.09.)
     mrg, sels = bonus_selections([1.55, 4.20, 6.00])
