@@ -1,4 +1,120 @@
 {
+ "12480466|corners|über": {
+  "match_id": "12480466",
+  "home": "RANS Nusantara",
+  "away": "Persiba Balikpapan",
+  "kickoff": "So 10:30",
+  "kickoff_ts": 1789288200,
+  "league": "Indonesia Championship",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "So 08:36",
+  "first_line": 7.5,
+  "first_range": [
+   1.4,
+   1.4
+  ],
+  "last_run": "So 08:36",
+  "line": 7.5,
+  "range": [
+   1.4,
+   1.4
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    46,
+    49
+   ],
+   "next_line": 8.5,
+   "next_note": "RANS Nusantara 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Persiba Balikpapan 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.7542507783376557,
+    0.6592068856245046
+   ],
+   "fair": 1.43,
+   "ladder": [
+    [
+     6.5,
+     1.39
+    ],
+    [
+     7.5,
+     1.43
+    ]
+   ],
+   "avg": [
+    8.4,
+    9.4
+   ],
+   "expect": 8.6,
+   "expect_sum": 8.9,
+   "expect_matchup": 8.3,
+   "contrib": [
+    4.4,
+    3.9
+   ],
+   "buffer": 1.1,
+   "fa": [
+    [
+     4.2,
+     4.5
+    ],
+    [
+     4.6,
+     4.6
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.16,
+   "p_emp": {
+    "6.5": 0.7194244604316548,
+    "7.5": 0.6993006993006994
+   },
+   "p_mod": 0.636,
+   "p_fin": 0.668,
+   "fair_fin": 1.5,
+   "ladder_fin": [
+    [
+     6.5,
+     1.36
+    ],
+    [
+     7.5,
+     1.5
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "67 % knapp",
+   "range": [
+    1.4,
+    1.4
+   ]
+  },
+  "v": 2
+ },
  "12392014|corners|über": {
   "match_id": "12392014",
   "home": "PSM Makassar",
@@ -15,7 +131,7 @@
    1.38,
    1.75
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.38,
@@ -131,11 +247,11 @@
    1.2,
    1.6
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
-   1.19,
-   1.61
+   1.2,
+   1.6
   ],
   "signal": {
    "metric": "Ecken",
@@ -229,8 +345,8 @@
    "light": "🟢",
    "reason": "fair 1.23",
    "range": [
-    1.19,
-    1.61
+    1.2,
+    1.6
    ]
   },
   "v": 2
@@ -251,10 +367,10 @@
    1.63,
    1.925
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 8.5,
   "range": [
-   1.63,
+   1.62,
    1.925
   ],
   "signal": {
@@ -349,7 +465,7 @@
    "light": "🟡",
    "reason": "61 % knapp",
    "range": [
-    1.63,
+    1.62,
     1.925
    ]
   },
@@ -371,7 +487,7 @@
    1.29,
    1.62
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.29,
@@ -491,7 +607,7 @@
    1.3,
    1.732
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.3,
@@ -611,10 +727,10 @@
    1.32,
    2.24
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
-   1.32,
+   1.3,
    2.19
   ],
   "signal": {
@@ -709,7 +825,7 @@
    "light": "🟡",
    "reason": "Historie 73 % vs. Modell 91 %",
    "range": [
-    1.32,
+    1.3,
     2.19
    ]
   },
@@ -731,7 +847,7 @@
    1.193,
    1.6
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.193,
@@ -851,11 +967,11 @@
    1.203,
    1.791
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
-   1.203,
-   1.791
+   1.196,
+   1.822
   ],
   "signal": {
    "metric": "Ecken",
@@ -949,8 +1065,8 @@
    "light": "🟢",
    "reason": "fair 1.26",
    "range": [
-    1.203,
-    1.791
+    1.196,
+    1.822
    ]
   },
   "v": 2
@@ -971,7 +1087,7 @@
    1.27,
    1.92
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 4.5,
   "range": [
    1.27,
@@ -1087,7 +1203,7 @@
    1.27,
    1.92
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 2.5,
   "range": [
    1.27,
@@ -1203,7 +1319,7 @@
    1.32,
    2.42
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.37,
@@ -1323,7 +1439,7 @@
    1.32,
    1.61
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.32,
@@ -1439,7 +1555,7 @@
    1.32,
    1.61
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
    1.32,
@@ -1555,7 +1671,7 @@
    1.24,
    2.15
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 8.5,
   "range": [
    1.24,
@@ -1675,7 +1791,7 @@
    1.24,
    2.15
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
    1.24,
@@ -1779,238 +1895,6 @@
   },
   "v": 2
  },
- "12101929|on_target|über": {
-  "match_id": "12101929",
-  "home": "FC Akhmat Grozny",
-  "away": "Dynamo Makhachkala",
-  "kickoff": "So 13:30",
-  "kickoff_ts": 1789299000,
-  "league": "Russia Premier League",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 6.5,
-  "first_range": [
-   1.21,
-   1.57
-  ],
-  "last_run": "So 07:26",
-  "line": 6.5,
-  "range": [
-   1.21,
-   1.57
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    43,
-    46
-   ],
-   "next_line": 7.5,
-   "next_note": "Dynamo Makhachkala 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
-   "longterm": [
-    0.7805852775839337,
-    0.6483816474944574
-   ],
-   "fair": 1.4,
-   "ladder": [
-    [
-     5.5,
-     1.4
-    ],
-    [
-     6.5,
-     1.4
-    ]
-   ],
-   "avg": [
-    8.7,
-    7.9
-   ],
-   "expect": 8.0,
-   "expect_sum": 8.3,
-   "expect_matchup": 7.7,
-   "contrib": [
-    4.8,
-    2.9
-   ],
-   "buffer": 1.5,
-   "fa": [
-    [
-     3.9,
-     4.4
-    ],
-    [
-     3.5,
-     3.8
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.09,
-   "p_emp": {
-    "5.5": 0.7142857142857143,
-    "6.5": 0.7142857142857143
-   },
-   "p_mod": 0.686,
-   "p_fin": 0.7,
-   "fair_fin": 1.43,
-   "ladder_fin": [
-    [
-     5.5,
-     1.33
-    ],
-    [
-     6.5,
-     1.43
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.43",
-   "range": [
-    1.21,
-    1.57
-   ]
-  },
-  "v": 2
- },
- "12101929|offsides|unter": {
-  "match_id": "12101929",
-  "home": "FC Akhmat Grozny",
-  "away": "Dynamo Makhachkala",
-  "kickoff": "So 13:30",
-  "kickoff_ts": 1789299000,
-  "league": "Russia Premier League",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 4.5,
-  "first_range": [
-   1.29,
-   1.8
-  ],
-  "last_run": "So 07:26",
-  "line": 4.5,
-  "range": [
-   1.29,
-   1.8
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 4.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    43,
-    43
-   ],
-   "next_line": 3.5,
-   "next_note": "kein Anker — FC Akhmat Grozny 13/15 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Dynamo Makhachkala 9/11 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
-   "longterm": [
-    0.7936519991834862,
-    0.8297474010676559
-   ],
-   "fair": 1.28,
-   "ladder": [
-    [
-     4.5,
-     1.28
-    ],
-    [
-     5.5,
-     1.12
-    ]
-   ],
-   "avg": [
-    2.8,
-    2.9
-   ],
-   "expect": 2.7,
-   "expect_sum": 2.9,
-   "expect_matchup": 2.5,
-   "contrib": [
-    1.5,
-    0.9
-   ],
-   "buffer": 1.8,
-   "fa": [
-    [
-     1.6,
-     1.5
-    ],
-    [
-     1.7,
-     1.6
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.65,
-   "p_emp": {
-    "4.5": 0.78125,
-    "5.5": 0.8928571428571428
-   },
-   "p_mod": 0.862,
-   "p_fin": 0.822,
-   "fair_fin": 1.22,
-   "ladder_fin": [
-    [
-     4.5,
-     1.22
-    ],
-    [
-     5.5,
-     1.08
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.22",
-   "range": [
-    1.29,
-    1.8
-   ]
-  },
-  "v": 2
- },
  "11328280|corners|über": {
   "match_id": "11328280",
   "home": "Paide Linnameeskond",
@@ -2027,7 +1911,7 @@
    1.43,
    1.66
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 8.5,
   "range": [
    1.43,
@@ -2131,6 +2015,126 @@
   },
   "v": 2
  },
+ "11982884|corners|über": {
+  "match_id": "11982884",
+  "home": "Panevezys",
+  "away": "FK Kauno Zalgiris",
+  "kickoff": "So 13:30",
+  "kickoff_ts": 1789299000,
+  "league": "Lithuania A Lyga",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 7.5,
+  "first_range": [
+   1.36,
+   1.68
+  ],
+  "last_run": "So 08:36",
+  "line": 7.5,
+  "range": [
+   1.36,
+   1.68
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 17
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    45,
+    41
+   ],
+   "next_line": 8.5,
+   "next_note": "FK Kauno Zalgiris 4/6 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+   "longterm": [
+    0.7859466642409472,
+    0.5643163688792457
+   ],
+   "fair": 1.46,
+   "ladder": [
+    [
+     6.5,
+     1.41
+    ],
+    [
+     7.5,
+     1.46
+    ]
+   ],
+   "avg": [
+    11.0,
+    10.6
+   ],
+   "expect": 11.8,
+   "expect_sum": 10.8,
+   "expect_matchup": 12.7,
+   "contrib": [
+    4.8,
+    8.0
+   ],
+   "buffer": 4.3,
+   "fa": [
+    [
+     4.9,
+     5.2
+    ],
+    [
+     5.2,
+     4.0
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.5",
+    "2.000",
+    "1.800"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.46,
+   "p_emp": {
+    "6.5": 0.7092198581560284,
+    "7.5": 0.684931506849315
+   },
+   "p_mod": 0.893,
+   "p_fin": 0.789,
+   "fair_fin": 1.27,
+   "ladder_fin": [
+    [
+     6.5,
+     1.21
+    ],
+    [
+     7.5,
+     1.27
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 68 % vs. Modell 89 %",
+   "range": [
+    1.36,
+    1.68
+   ]
+  },
+  "v": 2
+ },
  "12145851|ht_corners|über": {
   "match_id": "12145851",
   "home": "Karlsruher SC",
@@ -2147,7 +2151,7 @@
    1.29,
    1.67
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
    1.29,
@@ -2251,126 +2255,6 @@
   },
   "v": 2
  },
- "12145852|corners|über": {
-  "match_id": "12145852",
-  "home": "Heidenheim",
-  "away": "Holstein Kiel",
-  "kickoff": "So 13:30",
-  "kickoff_ts": 1789299000,
-  "league": "Germany Bundesliga II",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 7.5,
-  "first_range": [
-   1.19,
-   1.44
-  ],
-  "last_run": "So 07:26",
-  "line": 7.5,
-  "range": [
-   1.19,
-   1.44
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    47,
-    48
-   ],
-   "next_line": 8.5,
-   "next_note": "Heidenheim 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Holstein Kiel 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.7095546013928221,
-    0.8016277750058591
-   ],
-   "fair": 1.36,
-   "ladder": [
-    [
-     6.5,
-     1.36
-    ],
-    [
-     7.5,
-     1.36
-    ]
-   ],
-   "avg": [
-    9.1,
-    9.4
-   ],
-   "expect": 9.2,
-   "expect_sum": 9.3,
-   "expect_matchup": 9.2,
-   "contrib": [
-    4.8,
-    4.4
-   ],
-   "buffer": 1.7,
-   "fa": [
-    [
-     4.7,
-     4.9
-    ],
-    [
-     5.4,
-     5.0
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.0",
-    "1.975",
-    "1.825"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.64,
-   "p_emp": {
-    "6.5": 0.7352941176470588,
-    "7.5": 0.7352941176470588
-   },
-   "p_mod": 0.68,
-   "p_fin": 0.708,
-   "fair_fin": 1.41,
-   "ladder_fin": [
-    [
-     6.5,
-     1.33
-    ],
-    [
-     7.5,
-     1.41
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.41",
-   "range": [
-    1.19,
-    1.44
-   ]
-  },
-  "v": 2
- },
  "12145971|corners|über": {
   "match_id": "12145971",
   "home": "VfL Osnabruck",
@@ -2387,7 +2271,7 @@
    1.4,
    1.4
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.4,
@@ -2507,7 +2391,7 @@
    1.4,
    1.4
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
    1.4,
@@ -2611,27 +2495,27 @@
   },
   "v": 2
  },
- "11982884|corners|über": {
-  "match_id": "11982884",
-  "home": "Panevezys",
-  "away": "FK Kauno Zalgiris",
+ "12145852|corners|über": {
+  "match_id": "12145852",
+  "home": "Heidenheim",
+  "away": "Holstein Kiel",
   "kickoff": "So 13:30",
   "kickoff_ts": 1789299000,
-  "league": "Lithuania A Lyga",
+  "league": "Germany Bundesliga II",
   "metric": "Ecken",
   "metric_key": "corners",
   "direction": "über",
   "first_run": "So 06:27",
   "first_line": 7.5,
   "first_range": [
-   1.36,
-   1.68
+   1.19,
+   1.44
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
-   1.36,
-   1.68
+   1.19,
+   1.44
   ],
   "signal": {
    "metric": "Ecken",
@@ -2639,94 +2523,326 @@
    "direction": "über",
    "line": 7.5,
    "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 17
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
    },
    "away_series": {
-    "kind": "auswärts",
+    "kind": "gesamt",
     "hits": 10,
     "window": 12
    },
    "home_is_anchor": true,
    "away_is_anchor": false,
    "valid": [
-    45,
-    41
+    47,
+    48
    ],
    "next_line": 8.5,
-   "next_note": "FK Kauno Zalgiris 4/6 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+   "next_note": "Heidenheim 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Holstein Kiel 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
    "longterm": [
-    0.7859466642409472,
-    0.5643163688792457
+    0.7095546013928221,
+    0.8016277750058591
    ],
-   "fair": 1.46,
+   "fair": 1.36,
    "ladder": [
     [
      6.5,
-     1.41
+     1.36
     ],
     [
      7.5,
-     1.46
+     1.36
     ]
    ],
    "avg": [
-    11.0,
-    10.6
+    9.1,
+    9.4
    ],
-   "expect": 11.8,
-   "expect_sum": 10.8,
-   "expect_matchup": 12.7,
+   "expect": 9.2,
+   "expect_sum": 9.3,
+   "expect_matchup": 9.2,
    "contrib": [
     4.8,
-    8.0
+    4.4
    ],
-   "buffer": 4.3,
+   "buffer": 1.7,
    "fa": [
     [
-     4.9,
-     5.2
+     4.7,
+     4.9
     ],
     [
-     5.2,
-     4.0
+     5.4,
+     5.0
     ]
    ],
    "referee": null,
    "b365": [
-    "10.5",
-    "2.000",
-    "1.800"
+    "10.0",
+    "1.975",
+    "1.825"
    ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.46,
+   "sd": 3.64,
    "p_emp": {
-    "6.5": 0.7092198581560284,
-    "7.5": 0.684931506849315
+    "6.5": 0.7352941176470588,
+    "7.5": 0.7352941176470588
    },
-   "p_mod": 0.893,
-   "p_fin": 0.789,
-   "fair_fin": 1.27,
+   "p_mod": 0.68,
+   "p_fin": 0.708,
+   "fair_fin": 1.41,
    "ladder_fin": [
     [
      6.5,
-     1.21
+     1.33
     ],
     [
      7.5,
-     1.27
+     1.41
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟡",
-   "reason": "Historie 68 % vs. Modell 89 %",
+   "light": "🟢",
+   "reason": "fair 1.41",
    "range": [
-    1.36,
-    1.68
+    1.19,
+    1.44
+   ]
+  },
+  "v": 2
+ },
+ "12101929|on_target|über": {
+  "match_id": "12101929",
+  "home": "FC Akhmat Grozny",
+  "away": "Dynamo Makhachkala",
+  "kickoff": "So 13:30",
+  "kickoff_ts": 1789299000,
+  "league": "Russia Premier League",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 6.5,
+  "first_range": [
+   1.21,
+   1.57
+  ],
+  "last_run": "So 08:36",
+  "line": 6.5,
+  "range": [
+   1.21,
+   1.57
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    43,
+    46
+   ],
+   "next_line": 7.5,
+   "next_note": "Dynamo Makhachkala 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.7805852775839337,
+    0.6483816474944574
+   ],
+   "fair": 1.4,
+   "ladder": [
+    [
+     5.5,
+     1.4
+    ],
+    [
+     6.5,
+     1.4
+    ]
+   ],
+   "avg": [
+    8.7,
+    7.9
+   ],
+   "expect": 8.0,
+   "expect_sum": 8.3,
+   "expect_matchup": 7.7,
+   "contrib": [
+    4.8,
+    2.9
+   ],
+   "buffer": 1.5,
+   "fa": [
+    [
+     3.9,
+     4.4
+    ],
+    [
+     3.5,
+     3.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.09,
+   "p_emp": {
+    "5.5": 0.7142857142857143,
+    "6.5": 0.7142857142857143
+   },
+   "p_mod": 0.686,
+   "p_fin": 0.7,
+   "fair_fin": 1.43,
+   "ladder_fin": [
+    [
+     5.5,
+     1.33
+    ],
+    [
+     6.5,
+     1.43
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.43",
+   "range": [
+    1.21,
+    1.57
+   ]
+  },
+  "v": 2
+ },
+ "12101929|offsides|unter": {
+  "match_id": "12101929",
+  "home": "FC Akhmat Grozny",
+  "away": "Dynamo Makhachkala",
+  "kickoff": "So 13:30",
+  "kickoff_ts": 1789299000,
+  "league": "Russia Premier League",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 4.5,
+  "first_range": [
+   1.29,
+   1.8
+  ],
+  "last_run": "So 08:36",
+  "line": 4.5,
+  "range": [
+   1.29,
+   1.8
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    43
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — FC Akhmat Grozny 13/15 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Dynamo Makhachkala 9/11 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "longterm": [
+    0.7936519991834862,
+    0.8297474010676559
+   ],
+   "fair": 1.28,
+   "ladder": [
+    [
+     4.5,
+     1.28
+    ],
+    [
+     5.5,
+     1.12
+    ]
+   ],
+   "avg": [
+    2.8,
+    2.9
+   ],
+   "expect": 2.7,
+   "expect_sum": 2.9,
+   "expect_matchup": 2.5,
+   "contrib": [
+    1.5,
+    0.9
+   ],
+   "buffer": 1.8,
+   "fa": [
+    [
+     1.6,
+     1.5
+    ],
+    [
+     1.7,
+     1.6
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.65,
+   "p_emp": {
+    "4.5": 0.78125,
+    "5.5": 0.8928571428571428
+   },
+   "p_mod": 0.862,
+   "p_fin": 0.822,
+   "fair_fin": 1.22,
+   "ladder_fin": [
+    [
+     4.5,
+     1.22
+    ],
+    [
+     5.5,
+     1.08
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.22",
+   "range": [
+    1.29,
+    1.8
    ]
   },
   "v": 2
@@ -2747,7 +2863,7 @@
    1.2,
    1.9
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.2,
@@ -2851,813 +2967,6 @@
   },
   "v": 2
  },
- "12121853|yellowcards|über": {
-  "match_id": "12121853",
-  "home": "FC Arges Pitesti",
-  "away": "FC Botosani",
-  "kickoff": "So 14:00",
-  "kickoff_ts": 1789300800,
-  "league": "Romania Liga I",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 2.5,
-  "first_range": [
-   1.91,
-   1.91
-  ],
-  "last_run": "So 07:26",
-  "line": 2.5,
-  "range": [
-   1.91,
-   1.91
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    48
-   ],
-   "next_line": 3.5,
-   "next_note": "kein Anker — FC Arges Pitesti 7/9 (3. Lücke) gesamt, 9/11 (3. Lücke) heim; FC Botosani 8/10 (3. Lücke) gesamt, 10/12 (3. Lücke) auswärts",
-   "longterm": [
-    0.7853198570795007,
-    0.8497071292995684
-   ],
-   "fair": 1.28,
-   "ladder": [
-    [
-     1.5,
-     1.28
-    ],
-    [
-     2.5,
-     1.28
-    ]
-   ],
-   "avg": [
-    5.1,
-    4.8
-   ],
-   "expect": 5.6,
-   "expect_sum": 4.9,
-   "expect_matchup": 6.3,
-   "contrib": [
-    2.8,
-    3.4
-   ],
-   "buffer": 3.1,
-   "fa": [
-    [
-     2.5,
-     2.1
-    ],
-    [
-     2.1,
-     2.3
-    ]
-   ],
-   "referee": "Florin Andrei: Ø 3.6 Karten (21 Sp.) · Ø 22.4 Fouls (20 Sp.)",
-   "b365": null,
-   "expect_ref": 5.3,
-   "buffer_ref": 2.8,
-   "sd": 2.34,
-   "p_emp": {
-    "1.5": 0.78125,
-    "2.5": 0.78125
-   },
-   "p_mod": 0.884,
-   "p_fin": 0.833,
-   "fair_fin": 1.2,
-   "ladder_fin": [
-    [
-     1.5,
-     1.16
-    ],
-    [
-     2.5,
-     1.2
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.20",
-   "range": [
-    1.91,
-    1.91
-   ]
-  },
-  "v": 2
- },
- "12121853|on_target|unter": {
-  "match_id": "12121853",
-  "home": "FC Arges Pitesti",
-  "away": "FC Botosani",
-  "kickoff": "So 14:00",
-  "kickoff_ts": 1789300800,
-  "league": "Romania Liga I",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 11.5,
-  "first_range": [
-   1.22,
-   1.7
-  ],
-  "last_run": "So 07:26",
-  "line": 11.5,
-  "range": [
-   1.22,
-   1.7
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "unter",
-   "line": 11.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    47,
-    47
-   ],
-   "next_line": 10.5,
-   "next_note": "FC Botosani 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
-   "longterm": [
-    0.9102465555709474,
-    0.720889439477277
-   ],
-   "fair": 1.25,
-   "ladder": [
-    [
-     11.5,
-     1.25
-    ],
-    [
-     12.5,
-     1.3
-    ]
-   ],
-   "avg": [
-    7.1,
-    9.9
-   ],
-   "expect": 8.2,
-   "expect_sum": 8.5,
-   "expect_matchup": 7.9,
-   "contrib": [
-    5.0,
-    2.9
-   ],
-   "buffer": 3.3,
-   "fa": [
-    [
-     3.4,
-     3.7
-    ],
-    [
-     4.9,
-     4.7
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.18,
-   "p_emp": {
-    "11.5": 0.8,
-    "12.5": 0.7692307692307692
-   },
-   "p_mod": 0.85,
-   "p_fin": 0.825,
-   "fair_fin": 1.21,
-   "ladder_fin": [
-    [
-     11.5,
-     1.21
-    ],
-    [
-     12.5,
-     1.19
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.21",
-   "range": [
-    1.22,
-    1.7
-   ]
-  },
-  "v": 2
- },
- "12121853|offsides|unter": {
-  "match_id": "12121853",
-  "home": "FC Arges Pitesti",
-  "away": "FC Botosani",
-  "kickoff": "So 14:00",
-  "kickoff_ts": 1789300800,
-  "league": "Romania Liga I",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 4.5,
-  "first_range": [
-   1.25,
-   1.52
-  ],
-  "last_run": "So 07:26",
-  "line": 4.5,
-  "range": [
-   1.25,
-   1.52
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 4.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    38,
-    35
-   ],
-   "next_line": 3.5,
-   "next_note": "FC Botosani 7/9 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
-   "longterm": [
-    0.9395903508699645,
-    0.7413394665373075
-   ],
-   "fair": 1.25,
-   "ladder": [
-    [
-     4.5,
-     1.25
-    ],
-    [
-     5.5,
-     1.15
-    ]
-   ],
-   "avg": [
-    3.1,
-    3.1
-   ],
-   "expect": 3.1,
-   "expect_sum": 3.1,
-   "expect_matchup": 3.1,
-   "contrib": [
-    2.4,
-    0.7
-   ],
-   "buffer": 1.4,
-   "fa": [
-    [
-     1.4,
-     1.2
-    ],
-    [
-     1.3,
-     2.3
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.3,
-   "p_emp": {
-    "4.5": 0.8,
-    "5.5": 0.8695652173913044
-   },
-   "p_mod": 0.729,
-   "p_fin": 0.764,
-   "fair_fin": 1.31,
-   "ladder_fin": [
-    [
-     4.5,
-     1.31
-    ],
-    [
-     5.5,
-     1.16
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.31",
-   "range": [
-    1.25,
-    1.52
-   ]
-  },
-  "v": 2
- },
- "12121853|ht_yellowcards|über": {
-  "match_id": "12121853",
-  "home": "FC Arges Pitesti",
-  "away": "FC Botosani",
-  "kickoff": "So 14:00",
-  "kickoff_ts": 1789300800,
-  "league": "Romania Liga I",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 0.5,
-  "first_range": [
-   1.91,
-   1.91
-  ],
-  "last_run": "So 07:26",
-  "line": 0.5,
-  "range": [
-   1.91,
-   1.91
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "über",
-   "line": 0.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    49,
-    48
-   ],
-   "next_line": 1.5,
-   "next_note": "FC Arges Pitesti 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; FC Botosani 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.8800669240837298,
-    0.7225901414121847
-   ],
-   "fair": 1.3,
-   "ladder": [
-    [
-     0.5,
-     1.3
-    ]
-   ],
-   "avg": [
-    1.6,
-    1.7
-   ],
-   "expect": 1.9,
-   "expect_sum": 1.7,
-   "expect_matchup": 2.0,
-   "contrib": [
-    1.1,
-    0.9
-   ],
-   "buffer": 1.4,
-   "fa": [
-    [
-     1.0,
-     0.7
-    ],
-    [
-     0.8,
-     0.6
-    ]
-   ],
-   "referee": "Florin Andrei: Ø 3.6 Karten (21 Sp.) · Ø 22.4 Fouls (20 Sp.)",
-   "b365": null,
-   "expect_ref": 4.3,
-   "buffer_ref": 3.8,
-   "sd": 1.2,
-   "p_emp": {
-    "0.5": 0.7692307692307692
-   },
-   "p_mod": 0.999,
-   "p_fin": 0.884,
-   "fair_fin": 1.13,
-   "ladder_fin": [
-    [
-     0.5,
-     1.13
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 77 % vs. Modell 100 %",
-   "range": [
-    1.91,
-    1.91
-   ]
-  },
-  "v": 2
- },
- "12130582|yellowcards|unter": {
-  "match_id": "12130582",
-  "home": "Sporting Gijon",
-  "away": "Eldense",
-  "kickoff": "So 14:00",
-  "kickoff_ts": 1789300800,
-  "league": "Spain Segunda",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 5.5,
-  "first_range": [
-   1.25,
-   1.59
-  ],
-  "last_run": "So 07:26",
-  "line": 5.5,
-  "range": [
-   1.25,
-   1.59
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    48
-   ],
-   "next_line": 4.5,
-   "next_note": "kein Anker — Sporting Gijon 7/9 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Eldense 9/11 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
-   "longterm": [
-    0.6919968101193066,
-    0.6923240709177576
-   ],
-   "fair": 1.4,
-   "ladder": [
-    [
-     5.5,
-     1.4
-    ],
-    [
-     6.5,
-     1.18
-    ]
-   ],
-   "avg": [
-    5.0,
-    3.7
-   ],
-   "expect": 4.6,
-   "expect_sum": 4.4,
-   "expect_matchup": 4.8,
-   "contrib": [
-    1.8,
-    3.0
-   ],
-   "buffer": 0.9,
-   "fa": [
-    [
-     2.1,
-     2.5
-    ],
-    [
-     2.3,
-     2.6
-    ]
-   ],
-   "referee": "Olatz Rivera Olmedo: Ø 2.8 Karten (9 Sp.) · Ø 17.7 Fouls (3 Sp.)",
-   "b365": null,
-   "expect_ref": 3.9,
-   "buffer_ref": 1.6,
-   "sd": 2.18,
-   "p_emp": {
-    "5.5": 0.7142857142857143,
-    "6.5": 0.8474576271186441
-   },
-   "p_mod": 0.769,
-   "p_fin": 0.741,
-   "fair_fin": 1.35,
-   "ladder_fin": [
-    [
-     5.5,
-     1.35
-    ],
-    [
-     6.5,
-     1.16
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.35",
-   "range": [
-    1.25,
-    1.59
-   ]
-  },
-  "v": 2
- },
- "12130582|ht_yellowcards|unter": {
-  "match_id": "12130582",
-  "home": "Sporting Gijon",
-  "away": "Eldense",
-  "kickoff": "So 14:00",
-  "kickoff_ts": 1789300800,
-  "league": "Spain Segunda",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 2.5,
-  "first_range": [
-   1.25,
-   1.59
-  ],
-  "last_run": "So 07:26",
-  "line": 2.5,
-  "range": [
-   1.25,
-   1.59
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    47
-   ],
-   "next_line": 1.5,
-   "next_note": "Sporting Gijon 5/7 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
-   "longterm": [
-    0.8003563881150003,
-    0.8330442757150147
-   ],
-   "fair": 1.22,
-   "ladder": [
-    [
-     2.5,
-     1.22
-    ],
-    [
-     3.5,
-     1.24
-    ]
-   ],
-   "avg": [
-    1.8,
-    1.6
-   ],
-   "expect": 1.9,
-   "expect_sum": 1.7,
-   "expect_matchup": 2.1,
-   "contrib": [
-    1.1,
-    1.0
-   ],
-   "buffer": 0.6,
-   "fa": [
-    [
-     0.7,
-     0.7
-    ],
-    [
-     0.7,
-     1.0
-    ]
-   ],
-   "referee": "Olatz Rivera Olmedo: Ø 2.8 Karten (9 Sp.) · Ø 17.7 Fouls (3 Sp.)",
-   "b365": null,
-   "expect_ref": 3.0,
-   "buffer_ref": -0.5,
-   "sd": 1.29,
-   "p_emp": {
-    "2.5": 0.819672131147541,
-    "3.5": 0.8064516129032259
-   },
-   "p_mod": 0.349,
-   "p_fin": 0.584,
-   "fair_fin": 1.71,
-   "ladder_fin": [
-    [
-     2.5,
-     1.71
-    ],
-    [
-     3.5,
-     1.37
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🔴",
-   "reason": "Historie 82 % und Modell 35 % widersprechen sich",
-   "range": [
-    1.25,
-    1.59
-   ]
-  },
-  "v": 2
- },
- "12057991|ht_corners|über": {
-  "match_id": "12057991",
-  "home": "FC Zurich",
-  "away": "FC Vaduz",
-  "kickoff": "So 14:00",
-  "kickoff_ts": 1789300800,
-  "league": "Switzerland Super League",
-  "metric": "1. HZ Ecken",
-  "metric_key": "ht_corners",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 3.5,
-  "first_range": [
-   1.25,
-   1.54
-  ],
-  "last_run": "So 07:26",
-  "line": 3.5,
-  "range": [
-   1.25,
-   1.54
-  ],
-  "signal": {
-   "metric": "1. HZ Ecken",
-   "metric_key": "ht_corners",
-   "direction": "über",
-   "line": 3.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    44,
-    42
-   ],
-   "next_line": 4.5,
-   "next_note": "FC Zurich 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
-   "longterm": [
-    0.7748344441264624,
-    0.7384742914276994
-   ],
-   "fair": 1.4,
-   "ladder": [
-    [
-     2.5,
-     1.26
-    ],
-    [
-     3.5,
-     1.4
-    ]
-   ],
-   "avg": [
-    5.0,
-    4.7
-   ],
-   "expect": 5.1,
-   "expect_sum": 4.9,
-   "expect_matchup": 5.3,
-   "contrib": [
-    2.4,
-    2.9
-   ],
-   "buffer": 1.6,
-   "fa": [
-    [
-     1.9,
-     2.9
-    ],
-    [
-     2.5,
-     2.1
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "4.5",
-    "1.825",
-    "1.975"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.94,
-   "p_emp": {
-    "2.5": 0.7936507936507936,
-    "3.5": 0.7142857142857143
-   },
-   "p_mod": 0.795,
-   "p_fin": 0.755,
-   "fair_fin": 1.32,
-   "ladder_fin": [
-    [
-     2.5,
-     1.17
-    ],
-    [
-     3.5,
-     1.32
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.32",
-   "range": [
-    1.25,
-    1.54
-   ]
-  },
-  "v": 2
- },
  "11991410|corners|über": {
   "match_id": "11991410",
   "home": "Silkeborg IF",
@@ -3674,7 +2983,7 @@
    1.23,
    1.42
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.23,
@@ -3794,7 +3103,7 @@
    1.23,
    1.42
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
    1.23,
@@ -3898,35 +3207,735 @@
   },
   "v": 2
  },
- "12167268|corners|über": {
-  "match_id": "12167268",
-  "home": "FC Ufa",
-  "away": "FK Volga Ulyanovsk",
+ "12057991|ht_corners|über": {
+  "match_id": "12057991",
+  "home": "FC Zurich",
+  "away": "FC Vaduz",
   "kickoff": "So 14:00",
   "kickoff_ts": 1789300800,
-  "league": "Russia Division 1",
-  "metric": "Ecken",
-  "metric_key": "corners",
+  "league": "Switzerland Super League",
+  "metric": "1. HZ Ecken",
+  "metric_key": "ht_corners",
   "direction": "über",
   "first_run": "So 06:27",
-  "first_line": 7.5,
+  "first_line": 3.5,
   "first_range": [
    1.25,
-   2.44
+   1.54
   ],
-  "last_run": "So 07:26",
-  "line": 7.5,
+  "last_run": "So 08:36",
+  "line": 3.5,
   "range": [
    1.25,
-   2.44
+   1.54
   ],
   "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
+   "metric": "1. HZ Ecken",
+   "metric_key": "ht_corners",
    "direction": "über",
-   "line": 7.5,
+   "line": 3.5,
    "home_series": {
-    "kind": "heim",
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    42
+   ],
+   "next_line": 4.5,
+   "next_note": "FC Zurich 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+   "longterm": [
+    0.7748344441264624,
+    0.7384742914276994
+   ],
+   "fair": 1.4,
+   "ladder": [
+    [
+     2.5,
+     1.26
+    ],
+    [
+     3.5,
+     1.4
+    ]
+   ],
+   "avg": [
+    5.0,
+    4.7
+   ],
+   "expect": 5.1,
+   "expect_sum": 4.9,
+   "expect_matchup": 5.3,
+   "contrib": [
+    2.4,
+    2.9
+   ],
+   "buffer": 1.6,
+   "fa": [
+    [
+     1.9,
+     2.9
+    ],
+    [
+     2.5,
+     2.1
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "4.5",
+    "1.825",
+    "1.975"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.94,
+   "p_emp": {
+    "2.5": 0.7936507936507936,
+    "3.5": 0.7142857142857143
+   },
+   "p_mod": 0.795,
+   "p_fin": 0.755,
+   "fair_fin": 1.32,
+   "ladder_fin": [
+    [
+     2.5,
+     1.17
+    ],
+    [
+     3.5,
+     1.32
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.32",
+   "range": [
+    1.25,
+    1.54
+   ]
+  },
+  "v": 2
+ },
+ "12130582|yellowcards|unter": {
+  "match_id": "12130582",
+  "home": "Sporting Gijon",
+  "away": "Eldense",
+  "kickoff": "So 14:00",
+  "kickoff_ts": 1789300800,
+  "league": "Spain Segunda",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 5.5,
+  "first_range": [
+   1.25,
+   1.59
+  ],
+  "last_run": "So 08:36",
+  "line": 5.5,
+  "range": [
+   1.25,
+   1.59
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    48
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — Sporting Gijon 7/9 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Eldense 9/11 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.6919968101193066,
+    0.6923240709177576
+   ],
+   "fair": 1.4,
+   "ladder": [
+    [
+     5.5,
+     1.4
+    ],
+    [
+     6.5,
+     1.18
+    ]
+   ],
+   "avg": [
+    5.0,
+    3.7
+   ],
+   "expect": 4.6,
+   "expect_sum": 4.4,
+   "expect_matchup": 4.8,
+   "contrib": [
+    1.8,
+    3.0
+   ],
+   "buffer": 0.9,
+   "fa": [
+    [
+     2.1,
+     2.5
+    ],
+    [
+     2.3,
+     2.6
+    ]
+   ],
+   "referee": "Olatz Rivera Olmedo: Ø 2.8 Karten (9 Sp.) · Ø 17.7 Fouls (3 Sp.)",
+   "b365": null,
+   "expect_ref": 3.9,
+   "buffer_ref": 1.6,
+   "sd": 2.18,
+   "p_emp": {
+    "5.5": 0.7142857142857143,
+    "6.5": 0.8474576271186441
+   },
+   "p_mod": 0.769,
+   "p_fin": 0.741,
+   "fair_fin": 1.35,
+   "ladder_fin": [
+    [
+     5.5,
+     1.35
+    ],
+    [
+     6.5,
+     1.16
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.35",
+   "range": [
+    1.25,
+    1.59
+   ]
+  },
+  "v": 2
+ },
+ "12130582|ht_yellowcards|unter": {
+  "match_id": "12130582",
+  "home": "Sporting Gijon",
+  "away": "Eldense",
+  "kickoff": "So 14:00",
+  "kickoff_ts": 1789300800,
+  "league": "Spain Segunda",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 2.5,
+  "first_range": [
+   1.25,
+   1.59
+  ],
+  "last_run": "So 08:36",
+  "line": 2.5,
+  "range": [
+   1.25,
+   1.59
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    47
+   ],
+   "next_line": 1.5,
+   "next_note": "Sporting Gijon 5/7 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+   "longterm": [
+    0.8003563881150003,
+    0.8330442757150147
+   ],
+   "fair": 1.22,
+   "ladder": [
+    [
+     2.5,
+     1.22
+    ],
+    [
+     3.5,
+     1.24
+    ]
+   ],
+   "avg": [
+    1.8,
+    1.6
+   ],
+   "expect": 1.9,
+   "expect_sum": 1.7,
+   "expect_matchup": 2.1,
+   "contrib": [
+    1.1,
+    1.0
+   ],
+   "buffer": 0.6,
+   "fa": [
+    [
+     0.7,
+     0.7
+    ],
+    [
+     0.7,
+     1.0
+    ]
+   ],
+   "referee": "Olatz Rivera Olmedo: Ø 2.8 Karten (9 Sp.) · Ø 17.7 Fouls (3 Sp.)",
+   "b365": null,
+   "expect_ref": 3.0,
+   "buffer_ref": -0.5,
+   "sd": 1.29,
+   "p_emp": {
+    "2.5": 0.819672131147541,
+    "3.5": 0.8064516129032259
+   },
+   "p_mod": 0.349,
+   "p_fin": 0.584,
+   "fair_fin": 1.71,
+   "ladder_fin": [
+    [
+     2.5,
+     1.71
+    ],
+    [
+     3.5,
+     1.37
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "Historie 82 % und Modell 35 % widersprechen sich",
+   "range": [
+    1.25,
+    1.59
+   ]
+  },
+  "v": 2
+ },
+ "12121853|yellowcards|über": {
+  "match_id": "12121853",
+  "home": "FC Arges Pitesti",
+  "away": "FC Botosani",
+  "kickoff": "So 14:00",
+  "kickoff_ts": 1789300800,
+  "league": "Romania Liga I",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 2.5,
+  "first_range": [
+   1.91,
+   1.91
+  ],
+  "last_run": "So 08:36",
+  "line": 2.5,
+  "range": [
+   1.91,
+   1.91
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    48
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — FC Arges Pitesti 7/9 (3. Lücke) gesamt, 9/11 (3. Lücke) heim; FC Botosani 8/10 (3. Lücke) gesamt, 10/12 (3. Lücke) auswärts",
+   "longterm": [
+    0.7853198570795007,
+    0.8497071292995684
+   ],
+   "fair": 1.28,
+   "ladder": [
+    [
+     1.5,
+     1.28
+    ],
+    [
+     2.5,
+     1.28
+    ]
+   ],
+   "avg": [
+    5.1,
+    4.8
+   ],
+   "expect": 5.6,
+   "expect_sum": 4.9,
+   "expect_matchup": 6.3,
+   "contrib": [
+    2.8,
+    3.4
+   ],
+   "buffer": 3.1,
+   "fa": [
+    [
+     2.5,
+     2.1
+    ],
+    [
+     2.1,
+     2.3
+    ]
+   ],
+   "referee": "Florin Andrei: Ø 3.6 Karten (21 Sp.) · Ø 22.4 Fouls (20 Sp.)",
+   "b365": null,
+   "expect_ref": 5.3,
+   "buffer_ref": 2.8,
+   "sd": 2.34,
+   "p_emp": {
+    "1.5": 0.78125,
+    "2.5": 0.78125
+   },
+   "p_mod": 0.884,
+   "p_fin": 0.833,
+   "fair_fin": 1.2,
+   "ladder_fin": [
+    [
+     1.5,
+     1.16
+    ],
+    [
+     2.5,
+     1.2
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.20",
+   "range": [
+    1.91,
+    1.91
+   ]
+  },
+  "v": 2
+ },
+ "12121853|on_target|unter": {
+  "match_id": "12121853",
+  "home": "FC Arges Pitesti",
+  "away": "FC Botosani",
+  "kickoff": "So 14:00",
+  "kickoff_ts": 1789300800,
+  "league": "Romania Liga I",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 11.5,
+  "first_range": [
+   1.22,
+   1.7
+  ],
+  "last_run": "So 08:36",
+  "line": 11.5,
+  "range": [
+   1.22,
+   1.7
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "unter",
+   "line": 11.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    47,
+    47
+   ],
+   "next_line": 10.5,
+   "next_note": "FC Botosani 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.9102465555709474,
+    0.720889439477277
+   ],
+   "fair": 1.25,
+   "ladder": [
+    [
+     11.5,
+     1.25
+    ],
+    [
+     12.5,
+     1.3
+    ]
+   ],
+   "avg": [
+    7.1,
+    9.9
+   ],
+   "expect": 8.2,
+   "expect_sum": 8.5,
+   "expect_matchup": 7.9,
+   "contrib": [
+    5.0,
+    2.9
+   ],
+   "buffer": 3.3,
+   "fa": [
+    [
+     3.4,
+     3.7
+    ],
+    [
+     4.9,
+     4.7
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.18,
+   "p_emp": {
+    "11.5": 0.8,
+    "12.5": 0.7692307692307692
+   },
+   "p_mod": 0.85,
+   "p_fin": 0.825,
+   "fair_fin": 1.21,
+   "ladder_fin": [
+    [
+     11.5,
+     1.21
+    ],
+    [
+     12.5,
+     1.19
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.21",
+   "range": [
+    1.22,
+    1.7
+   ]
+  },
+  "v": 2
+ },
+ "12121853|offsides|unter": {
+  "match_id": "12121853",
+  "home": "FC Arges Pitesti",
+  "away": "FC Botosani",
+  "kickoff": "So 14:00",
+  "kickoff_ts": 1789300800,
+  "league": "Romania Liga I",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 4.5,
+  "first_range": [
+   1.25,
+   1.52
+  ],
+  "last_run": "So 08:36",
+  "line": 4.5,
+  "range": [
+   1.25,
+   1.52
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    38,
+    35
+   ],
+   "next_line": 3.5,
+   "next_note": "FC Botosani 7/9 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.9395903508699645,
+    0.7413394665373075
+   ],
+   "fair": 1.25,
+   "ladder": [
+    [
+     4.5,
+     1.25
+    ],
+    [
+     5.5,
+     1.15
+    ]
+   ],
+   "avg": [
+    3.1,
+    3.1
+   ],
+   "expect": 3.1,
+   "expect_sum": 3.1,
+   "expect_matchup": 3.1,
+   "contrib": [
+    2.4,
+    0.7
+   ],
+   "buffer": 1.4,
+   "fa": [
+    [
+     1.4,
+     1.2
+    ],
+    [
+     1.3,
+     2.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.3,
+   "p_emp": {
+    "4.5": 0.8,
+    "5.5": 0.8695652173913044
+   },
+   "p_mod": 0.729,
+   "p_fin": 0.764,
+   "fair_fin": 1.31,
+   "ladder_fin": [
+    [
+     4.5,
+     1.31
+    ],
+    [
+     5.5,
+     1.16
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.31",
+   "range": [
+    1.25,
+    1.52
+   ]
+  },
+  "v": 2
+ },
+ "12121853|ht_yellowcards|über": {
+  "match_id": "12121853",
+  "home": "FC Arges Pitesti",
+  "away": "FC Botosani",
+  "kickoff": "So 14:00",
+  "kickoff_ts": 1789300800,
+  "league": "Romania Liga I",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 0.5,
+  "first_range": [
+   1.91,
+   1.91
+  ],
+  "last_run": "So 08:36",
+  "line": 0.5,
+  "range": [
+   1.91,
+   1.91
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "über",
+   "line": 0.5,
+   "home_series": {
+    "kind": "gesamt",
     "hits": 10,
     "window": 12
    },
@@ -3935,81 +3944,72 @@
     "hits": 10,
     "window": 12
    },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
+   "home_is_anchor": true,
+   "away_is_anchor": false,
    "valid": [
-    35,
-    23
+    49,
+    48
    ],
-   "next_line": 8.5,
-   "next_note": "FC Ufa 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; FK Volga Ulyanovsk 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "next_line": 1.5,
+   "next_note": "FC Arges Pitesti 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; FC Botosani 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
    "longterm": [
-    0.7216687902410934,
-    0.8249356178115982
+    0.8800669240837298,
+    0.7225901414121847
    ],
-   "fair": 1.37,
+   "fair": 1.3,
    "ladder": [
     [
-     6.5,
-     1.36
-    ],
-    [
-     7.5,
-     1.37
+     0.5,
+     1.3
     ]
    ],
    "avg": [
-    10.0,
-    10.3
+    1.6,
+    1.7
    ],
-   "expect": 10.6,
-   "expect_sum": 10.2,
-   "expect_matchup": 11.1,
+   "expect": 1.9,
+   "expect_sum": 1.7,
+   "expect_matchup": 2.0,
    "contrib": [
-    5.9,
-    5.2
+    1.1,
+    0.9
    ],
-   "buffer": 3.1,
+   "buffer": 1.4,
    "fa": [
     [
-     3.8,
-     5.8
+     1.0,
+     0.7
     ],
     [
-     5.0,
-     4.8
+     0.8,
+     0.6
     ]
    ],
-   "referee": null,
+   "referee": "Florin Andrei: Ø 3.6 Karten (21 Sp.) · Ø 22.4 Fouls (20 Sp.)",
    "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.28,
+   "expect_ref": 4.3,
+   "buffer_ref": 3.8,
+   "sd": 1.2,
    "p_emp": {
-    "6.5": 0.7352941176470588,
-    "7.5": 0.7299270072992701
+    "0.5": 0.7692307692307692
    },
-   "p_mod": 0.828,
-   "p_fin": 0.779,
-   "fair_fin": 1.28,
+   "p_mod": 0.999,
+   "p_fin": 0.884,
+   "fair_fin": 1.13,
    "ladder_fin": [
     [
-     6.5,
-     1.23
-    ],
-    [
-     7.5,
-     1.28
+     0.5,
+     1.13
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.28",
+   "light": "🟡",
+   "reason": "Historie 77 % vs. Modell 100 %",
    "range": [
-    1.25,
-    2.44
+    1.91,
+    1.91
    ]
   },
   "v": 2
@@ -4030,11 +4030,11 @@
    1.21,
    1.4
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
    1.21,
-   1.41
+   1.4
   ],
   "signal": {
    "metric": "1. HZ Ecken",
@@ -4129,7 +4129,7 @@
    "reason": "fair 1.34",
    "range": [
     1.21,
-    1.41
+    1.4
    ]
   },
   "v": 2
@@ -4150,7 +4150,7 @@
    1.61,
    1.61
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.61,
@@ -4254,6 +4254,122 @@
   },
   "v": 2
  },
+ "12167268|corners|über": {
+  "match_id": "12167268",
+  "home": "FC Ufa",
+  "away": "FK Volga Ulyanovsk",
+  "kickoff": "So 14:00",
+  "kickoff_ts": 1789300800,
+  "league": "Russia Division 1",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 7.5,
+  "first_range": [
+   1.25,
+   2.44
+  ],
+  "last_run": "So 08:36",
+  "line": 7.5,
+  "range": [
+   1.25,
+   2.44
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    35,
+    23
+   ],
+   "next_line": 8.5,
+   "next_note": "FC Ufa 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; FK Volga Ulyanovsk 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.7216687902410934,
+    0.8249356178115982
+   ],
+   "fair": 1.37,
+   "ladder": [
+    [
+     6.5,
+     1.36
+    ],
+    [
+     7.5,
+     1.37
+    ]
+   ],
+   "avg": [
+    10.0,
+    10.3
+   ],
+   "expect": 10.6,
+   "expect_sum": 10.2,
+   "expect_matchup": 11.1,
+   "contrib": [
+    5.9,
+    5.2
+   ],
+   "buffer": 3.1,
+   "fa": [
+    [
+     3.8,
+     5.8
+    ],
+    [
+     5.0,
+     4.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.28,
+   "p_emp": {
+    "6.5": 0.7352941176470588,
+    "7.5": 0.7299270072992701
+   },
+   "p_mod": 0.828,
+   "p_fin": 0.779,
+   "fair_fin": 1.28,
+   "ladder_fin": [
+    [
+     6.5,
+     1.23
+    ],
+    [
+     7.5,
+     1.28
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.28",
+   "range": [
+    1.25,
+    2.44
+   ]
+  },
+  "v": 2
+ },
  "12475876|corners|über": {
   "match_id": "12475876",
   "home": "Sardarapat FC",
@@ -4270,7 +4386,7 @@
    1.36,
    1.75
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.36,
@@ -4386,10 +4502,10 @@
    1.191,
    1.88
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 9.5,
   "range": [
-   1.191,
+   1.194,
    1.88
   ],
   "signal": {
@@ -4480,7 +4596,7 @@
    "light": "🔴",
    "reason": "Historie 66 % und Modell 93 % widersprechen sich",
    "range": [
-    1.191,
+    1.194,
     1.88
    ]
   },
@@ -4502,10 +4618,10 @@
    1.191,
    1.88
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
-   1.191,
+   1.194,
    1.88
   ],
   "signal": {
@@ -4596,7 +4712,7 @@
    "light": "🟢",
    "reason": "fair 1.16",
    "range": [
-    1.191,
+    1.194,
     1.88
    ]
   },
@@ -4618,7 +4734,7 @@
    1.21,
    2.11
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 5.5,
   "range": [
    1.21,
@@ -4734,11 +4850,11 @@
    1.43,
    1.92
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 6.5,
   "range": [
-   1.43,
-   1.92
+   1.91,
+   1.91
   ],
   "signal": {
    "metric": "Schüsse aufs Tor",
@@ -4828,8 +4944,8 @@
    "light": "🟢",
    "reason": "fair 1.36",
    "range": [
-    1.43,
-    1.92
+    1.91,
+    1.91
    ]
   },
   "v": 2
@@ -4850,11 +4966,11 @@
    1.43,
    1.92
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 9.5,
   "range": [
-   1.43,
-   1.92
+   1.91,
+   1.91
   ],
   "signal": {
    "metric": "Schüsse aufs Tor",
@@ -4944,8 +5060,124 @@
    "light": "🟡",
    "reason": "66 % knapp",
    "range": [
-    1.43,
-    1.92
+    1.91,
+    1.91
+   ]
+  },
+  "v": 2
+ },
+ "13048527|offsides|unter": {
+  "match_id": "13048527",
+  "home": "Celta Vigo",
+  "away": "Malaga",
+  "kickoff": "So 14:00",
+  "kickoff_ts": 1789300800,
+  "league": "Spain La Liga",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "So 08:36",
+  "first_line": 5.5,
+  "first_range": [
+   1.34,
+   1.34
+  ],
+  "last_run": "So 08:36",
+  "line": 5.5,
+  "range": [
+   1.34,
+   1.34
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    40
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — Celta Vigo 9/11 (3. Lücke) gesamt, 12/14 (3. Lücke) heim; Malaga 8/10 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.8170855367724693,
+    0.8837920718298392
+   ],
+   "fair": 1.19,
+   "ladder": [
+    [
+     5.5,
+     1.19
+    ],
+    [
+     6.5,
+     1.29
+    ]
+   ],
+   "avg": [
+    2.7,
+    3.1
+   ],
+   "expect": 2.7,
+   "expect_sum": 2.9,
+   "expect_matchup": 2.5,
+   "contrib": [
+    1.7,
+    0.9
+   ],
+   "buffer": 2.8,
+   "fa": [
+    [
+     1.9,
+     1.8
+    ],
+    [
+     1.5,
+     1.6
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.2,
+   "p_emp": {
+    "5.5": 0.8403361344537815,
+    "6.5": 0.7751937984496123
+   },
+   "p_mod": 0.898,
+   "p_fin": 0.869,
+   "fair_fin": 1.15,
+   "ladder_fin": [
+    [
+     5.5,
+     1.15
+    ],
+    [
+     6.5,
+     1.15
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.15",
+   "range": [
+    1.34,
+    1.34
    ]
   },
   "v": 2
@@ -4966,7 +5198,7 @@
    1.21,
    2.11
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 2.5,
   "range": [
    1.21,
@@ -5082,7 +5314,7 @@
    1.34,
    2.04
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 8.5,
   "range": [
    1.34,
@@ -5202,7 +5434,7 @@
    1.34,
    2.04
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
    1.34,
@@ -5271,8 +5503,8 @@
    "referee": null,
    "b365": [
     "5.5",
-    "1.850",
-    "1.950"
+    "1.875",
+    "1.925"
    ],
    "expect_ref": null,
    "buffer_ref": null,
@@ -5322,7 +5554,7 @@
    1.6,
    1.875
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 8.5,
   "range": [
    1.6,
@@ -5442,7 +5674,7 @@
    1.58,
    1.58
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 8.5,
   "range": [
    1.58,
@@ -5562,7 +5794,7 @@
    1.25,
    1.35
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 5.5,
   "range": [
    1.25,
@@ -5678,7 +5910,7 @@
    1.71,
    1.99
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 6.5,
   "range": [
    1.22,
@@ -5794,7 +6026,7 @@
    1.71,
    1.99
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 10.5,
   "range": [
    1.22,
@@ -5910,7 +6142,7 @@
    1.25,
    1.35
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 2.5,
   "range": [
    1.25,
@@ -6026,7 +6258,7 @@
    1.21,
    1.78
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.21,
@@ -6130,6 +6362,246 @@
   },
   "v": 2
  },
+ "12331150|corners|über": {
+  "match_id": "12331150",
+  "home": "AC Dolomiti Bellunesi",
+  "away": "Albinoleffe",
+  "kickoff": "So 15:00",
+  "kickoff_ts": 1789304400,
+  "league": "Italy Serie C Group A",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 7.5,
+  "first_range": [
+   1.219,
+   1.577
+  ],
+  "last_run": "So 08:36",
+  "line": 7.5,
+  "range": [
+   1.219,
+   1.577
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    46,
+    49
+   ],
+   "next_line": 8.5,
+   "next_note": "AC Dolomiti Bellunesi 2/4 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Albinoleffe 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.7967726684807356,
+    0.7113569628870318
+   ],
+   "fair": 1.37,
+   "ladder": [
+    [
+     6.5,
+     1.33
+    ],
+    [
+     7.5,
+     1.37
+    ]
+   ],
+   "avg": [
+    9.3,
+    10.9
+   ],
+   "expect": 10.5,
+   "expect_sum": 10.1,
+   "expect_matchup": 10.8,
+   "contrib": [
+    5.6,
+    5.2
+   ],
+   "buffer": 3.0,
+   "fa": [
+    [
+     3.6,
+     5.9
+    ],
+    [
+     4.9,
+     5.2
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "9.5",
+    "2.025",
+    "1.775"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.16,
+   "p_emp": {
+    "6.5": 0.7518796992481203,
+    "7.5": 0.7299270072992701
+   },
+   "p_mod": 0.829,
+   "p_fin": 0.779,
+   "fair_fin": 1.28,
+   "ladder_fin": [
+    [
+     6.5,
+     1.21
+    ],
+    [
+     7.5,
+     1.28
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.28",
+   "range": [
+    1.219,
+    1.577
+   ]
+  },
+  "v": 2
+ },
+ "12389385|corners|über": {
+  "match_id": "12389385",
+  "home": "Everton (W)",
+  "away": "Charlton (W)",
+  "kickoff": "So 15:00",
+  "kickoff_ts": 1789304400,
+  "league": "England Super League Women",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 7.5,
+  "first_range": [
+   1.68,
+   1.68
+  ],
+  "last_run": "So 08:36",
+  "line": 7.5,
+  "range": [
+   1.68,
+   1.68
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    47,
+    46
+   ],
+   "next_line": 8.5,
+   "next_note": "kein Anker — Everton (W) 14/16 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Charlton (W) 8/10 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.7660573225240019,
+    0.7891611899677776
+   ],
+   "fair": 1.33,
+   "ladder": [
+    [
+     6.5,
+     1.26
+    ],
+    [
+     7.5,
+     1.33
+    ]
+   ],
+   "avg": [
+    10.1,
+    10.1
+   ],
+   "expect": 10.5,
+   "expect_sum": 10.1,
+   "expect_matchup": 10.8,
+   "contrib": [
+    5.7,
+    5.2
+   ],
+   "buffer": 3.0,
+   "fa": [
+    [
+     3.9,
+     6.3
+    ],
+    [
+     4.5,
+     5.3
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.900",
+    "1.900"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.39,
+   "p_emp": {
+    "6.5": 0.7936507936507936,
+    "7.5": 0.7518796992481203
+   },
+   "p_mod": 0.812,
+   "p_fin": 0.782,
+   "fair_fin": 1.28,
+   "ladder_fin": [
+    [
+     6.5,
+     1.19
+    ],
+    [
+     7.5,
+     1.28
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.28",
+   "range": [
+    1.68,
+    1.68
+   ]
+  },
+  "v": 2
+ },
  "12365069|corners|über": {
   "match_id": "12365069",
   "home": "Wolverhampton (W)",
@@ -6146,11 +6618,11 @@
    2.029,
    2.15
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 8.5,
   "range": [
    2.029,
-   2.15
+   2.14
   ],
   "signal": {
    "metric": "Ecken",
@@ -6245,7 +6717,7 @@
    "reason": "65 % knapp",
    "range": [
     2.029,
-    2.15
+    2.14
    ]
   },
   "v": 2
@@ -6266,7 +6738,7 @@
    1.4,
    2.38
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 4.5,
   "range": [
    1.4,
@@ -6382,7 +6854,7 @@
    1.4,
    2.38
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 2.5,
   "range": [
    1.4,
@@ -6482,246 +6954,6 @@
   },
   "v": 2
  },
- "12389385|corners|über": {
-  "match_id": "12389385",
-  "home": "Everton (W)",
-  "away": "Charlton (W)",
-  "kickoff": "So 15:00",
-  "kickoff_ts": 1789304400,
-  "league": "England Super League Women",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 7.5,
-  "first_range": [
-   1.68,
-   1.68
-  ],
-  "last_run": "So 07:26",
-  "line": 7.5,
-  "range": [
-   1.68,
-   1.68
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    46
-   ],
-   "next_line": 8.5,
-   "next_note": "kein Anker — Everton (W) 14/16 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Charlton (W) 8/10 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "longterm": [
-    0.7660573225240019,
-    0.7891611899677776
-   ],
-   "fair": 1.33,
-   "ladder": [
-    [
-     6.5,
-     1.26
-    ],
-    [
-     7.5,
-     1.33
-    ]
-   ],
-   "avg": [
-    10.1,
-    10.1
-   ],
-   "expect": 10.5,
-   "expect_sum": 10.1,
-   "expect_matchup": 10.8,
-   "contrib": [
-    5.7,
-    5.2
-   ],
-   "buffer": 3.0,
-   "fa": [
-    [
-     3.9,
-     6.3
-    ],
-    [
-     4.5,
-     5.3
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.0",
-    "1.900",
-    "1.900"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.39,
-   "p_emp": {
-    "6.5": 0.7936507936507936,
-    "7.5": 0.7518796992481203
-   },
-   "p_mod": 0.812,
-   "p_fin": 0.782,
-   "fair_fin": 1.28,
-   "ladder_fin": [
-    [
-     6.5,
-     1.19
-    ],
-    [
-     7.5,
-     1.28
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.28",
-   "range": [
-    1.68,
-    1.68
-   ]
-  },
-  "v": 2
- },
- "12331150|corners|über": {
-  "match_id": "12331150",
-  "home": "AC Dolomiti Bellunesi",
-  "away": "Albinoleffe",
-  "kickoff": "So 15:00",
-  "kickoff_ts": 1789304400,
-  "league": "Italy Serie C Group A",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 7.5,
-  "first_range": [
-   1.219,
-   1.577
-  ],
-  "last_run": "So 07:26",
-  "line": 7.5,
-  "range": [
-   1.219,
-   1.577
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    46,
-    49
-   ],
-   "next_line": 8.5,
-   "next_note": "AC Dolomiti Bellunesi 2/4 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Albinoleffe 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "longterm": [
-    0.7967726684807356,
-    0.7113569628870318
-   ],
-   "fair": 1.37,
-   "ladder": [
-    [
-     6.5,
-     1.33
-    ],
-    [
-     7.5,
-     1.37
-    ]
-   ],
-   "avg": [
-    9.3,
-    10.9
-   ],
-   "expect": 10.5,
-   "expect_sum": 10.1,
-   "expect_matchup": 10.8,
-   "contrib": [
-    5.6,
-    5.2
-   ],
-   "buffer": 3.0,
-   "fa": [
-    [
-     3.6,
-     5.9
-    ],
-    [
-     4.9,
-     5.2
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "9.5",
-    "2.025",
-    "1.775"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.16,
-   "p_emp": {
-    "6.5": 0.7518796992481203,
-    "7.5": 0.7299270072992701
-   },
-   "p_mod": 0.829,
-   "p_fin": 0.779,
-   "fair_fin": 1.28,
-   "ladder_fin": [
-    [
-     6.5,
-     1.21
-    ],
-    [
-     7.5,
-     1.28
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.28",
-   "range": [
-    1.219,
-    1.577
-   ]
-  },
-  "v": 2
- },
  "12389383|corners|über": {
   "match_id": "12389383",
   "home": "Arsenal (W)",
@@ -6738,7 +6970,7 @@
    1.61,
    1.8
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.61,
@@ -6842,238 +7074,6 @@
   },
   "v": 2
  },
- "12098712|on_target|unter": {
-  "match_id": "12098712",
-  "home": "Spartak Moscow",
-  "away": "Rostov",
-  "kickoff": "So 16:00",
-  "kickoff_ts": 1789308000,
-  "league": "Russia Premier League",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 11.5,
-  "first_range": [
-   1.26,
-   1.9
-  ],
-  "last_run": "So 07:26",
-  "line": 11.5,
-  "range": [
-   1.26,
-   1.9
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "unter",
-   "line": 11.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    47
-   ],
-   "next_line": 10.5,
-   "next_note": "Spartak Moscow 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
-   "longterm": [
-    0.8726040083177635,
-    0.8687983889835458
-   ],
-   "fair": 1.19,
-   "ladder": [
-    [
-     11.5,
-     1.19
-    ],
-    [
-     12.5,
-     1.28
-    ]
-   ],
-   "avg": [
-    9.3,
-    8.5
-   ],
-   "expect": 8.6,
-   "expect_sum": 8.9,
-   "expect_matchup": 8.3,
-   "contrib": [
-    5.0,
-    3.4
-   ],
-   "buffer": 2.9,
-   "fa": [
-    [
-     5.0,
-     3.4
-    ],
-    [
-     4.5,
-     3.3
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.25,
-   "p_emp": {
-    "11.5": 0.8403361344537815,
-    "12.5": 0.78125
-   },
-   "p_mod": 0.814,
-   "p_fin": 0.827,
-   "fair_fin": 1.21,
-   "ladder_fin": [
-    [
-     11.5,
-     1.21
-    ],
-    [
-     12.5,
-     1.2
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.21",
-   "range": [
-    1.26,
-    1.9
-   ]
-  },
-  "v": 2
- },
- "12098712|offsides|unter": {
-  "match_id": "12098712",
-  "home": "Spartak Moscow",
-  "away": "Rostov",
-  "kickoff": "So 16:00",
-  "kickoff_ts": 1789308000,
-  "league": "Russia Premier League",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 5.5,
-  "first_range": [
-   1.24,
-   1.71
-  ],
-  "last_run": "So 07:26",
-  "line": 5.5,
-  "range": [
-   1.24,
-   1.71
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    43,
-    44
-   ],
-   "next_line": 4.5,
-   "next_note": "kein Anker — Spartak Moscow 7/9 (3. Lücke) gesamt, 10/12 (3. Lücke) heim; Rostov 9/11 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.8657329191283188,
-    0.8419270739228766
-   ],
-   "fair": 1.18,
-   "ladder": [
-    [
-     5.5,
-     1.18
-    ],
-    [
-     6.5,
-     1.28
-    ]
-   ],
-   "avg": [
-    3.3,
-    3.8
-   ],
-   "expect": 3.5,
-   "expect_sum": 3.5,
-   "expect_matchup": 3.5,
-   "contrib": [
-    2.4,
-    1.1
-   ],
-   "buffer": 2.0,
-   "fa": [
-    [
-     2.3,
-     1.2
-    ],
-    [
-     1.9,
-     2.1
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.97,
-   "p_emp": {
-    "5.5": 0.8474576271186441,
-    "6.5": 0.78125
-   },
-   "p_mod": 0.845,
-   "p_fin": 0.846,
-   "fair_fin": 1.18,
-   "ladder_fin": [
-    [
-     5.5,
-     1.18
-    ],
-    [
-     6.5,
-     1.16
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.18",
-   "range": [
-    1.24,
-    1.71
-   ]
-  },
-  "v": 2
- },
  "11982882|ht_corners|über": {
   "match_id": "11982882",
   "home": "FK Siauliai",
@@ -7090,7 +7090,7 @@
    1.42,
    1.81
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
    1.42,
@@ -7210,7 +7210,7 @@
    1.19,
    2.16
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.19,
@@ -7330,7 +7330,7 @@
    1.33,
    1.4
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.33,
@@ -7434,6 +7434,238 @@
   },
   "v": 2
  },
+ "12098712|on_target|unter": {
+  "match_id": "12098712",
+  "home": "Spartak Moscow",
+  "away": "Rostov",
+  "kickoff": "So 16:00",
+  "kickoff_ts": 1789308000,
+  "league": "Russia Premier League",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 11.5,
+  "first_range": [
+   1.26,
+   1.9
+  ],
+  "last_run": "So 08:36",
+  "line": 11.5,
+  "range": [
+   1.26,
+   1.9
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "unter",
+   "line": 11.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    47
+   ],
+   "next_line": 10.5,
+   "next_note": "Spartak Moscow 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "longterm": [
+    0.8726040083177635,
+    0.8687983889835458
+   ],
+   "fair": 1.19,
+   "ladder": [
+    [
+     11.5,
+     1.19
+    ],
+    [
+     12.5,
+     1.28
+    ]
+   ],
+   "avg": [
+    9.3,
+    8.5
+   ],
+   "expect": 8.6,
+   "expect_sum": 8.9,
+   "expect_matchup": 8.3,
+   "contrib": [
+    5.0,
+    3.4
+   ],
+   "buffer": 2.9,
+   "fa": [
+    [
+     5.0,
+     3.4
+    ],
+    [
+     4.5,
+     3.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.25,
+   "p_emp": {
+    "11.5": 0.8403361344537815,
+    "12.5": 0.78125
+   },
+   "p_mod": 0.814,
+   "p_fin": 0.827,
+   "fair_fin": 1.21,
+   "ladder_fin": [
+    [
+     11.5,
+     1.21
+    ],
+    [
+     12.5,
+     1.2
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.21",
+   "range": [
+    1.26,
+    1.9
+   ]
+  },
+  "v": 2
+ },
+ "12098712|offsides|unter": {
+  "match_id": "12098712",
+  "home": "Spartak Moscow",
+  "away": "Rostov",
+  "kickoff": "So 16:00",
+  "kickoff_ts": 1789308000,
+  "league": "Russia Premier League",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 5.5,
+  "first_range": [
+   1.24,
+   1.71
+  ],
+  "last_run": "So 08:36",
+  "line": 5.5,
+  "range": [
+   1.24,
+   1.71
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    44
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — Spartak Moscow 7/9 (3. Lücke) gesamt, 10/12 (3. Lücke) heim; Rostov 9/11 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.8657329191283188,
+    0.8419270739228766
+   ],
+   "fair": 1.18,
+   "ladder": [
+    [
+     5.5,
+     1.18
+    ],
+    [
+     6.5,
+     1.28
+    ]
+   ],
+   "avg": [
+    3.3,
+    3.8
+   ],
+   "expect": 3.5,
+   "expect_sum": 3.5,
+   "expect_matchup": 3.5,
+   "contrib": [
+    2.4,
+    1.1
+   ],
+   "buffer": 2.0,
+   "fa": [
+    [
+     2.3,
+     1.2
+    ],
+    [
+     1.9,
+     2.1
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.97,
+   "p_emp": {
+    "5.5": 0.8474576271186441,
+    "6.5": 0.78125
+   },
+   "p_mod": 0.845,
+   "p_fin": 0.846,
+   "fair_fin": 1.18,
+   "ladder_fin": [
+    [
+     5.5,
+     1.18
+    ],
+    [
+     6.5,
+     1.16
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.18",
+   "range": [
+    1.24,
+    1.71
+   ]
+  },
+  "v": 2
+ },
  "12259863|corners|über": {
   "match_id": "12259863",
   "home": "Eintracht Frankfurt (W)",
@@ -7450,7 +7682,7 @@
    1.243,
    1.509
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.243,
@@ -7570,7 +7802,7 @@
    2.22,
    2.22
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    2.22,
@@ -7686,7 +7918,7 @@
    2.22,
    2.22
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
    2.22,
@@ -7802,7 +8034,7 @@
    1.72,
    1.72
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.72,
@@ -7918,7 +8150,7 @@
    1.22,
    2.06
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 9.5,
   "range": [
    1.22,
@@ -8038,7 +8270,7 @@
    1.22,
    2.06
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 4.5,
   "range": [
    1.22,
@@ -8158,7 +8390,7 @@
    1.24,
    2.02
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 9.5,
   "range": [
    1.24,
@@ -8278,7 +8510,7 @@
    1.3,
    1.85
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 10.5,
   "range": [
    1.3,
@@ -8398,7 +8630,7 @@
    1.3,
    1.85
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 5.5,
   "range": [
    1.3,
@@ -8518,7 +8750,7 @@
    1.24,
    1.9
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 6.5,
   "range": [
    1.24,
@@ -8634,7 +8866,7 @@
    1.24,
    1.9
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 0.5,
   "range": [
    1.24,
@@ -8741,7 +8973,7 @@
    1.24,
    1.9
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 2.5,
   "range": [
    1.24,
@@ -8857,7 +9089,7 @@
    1.31,
    1.98
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.31,
@@ -8977,7 +9209,7 @@
    2.009,
    2.025
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
    2.009,
@@ -9097,7 +9329,7 @@
    1.29,
    1.8
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.29,
@@ -9201,6 +9433,126 @@
   },
   "v": 2
  },
+ "11161557|corners|über": {
+  "match_id": "11161557",
+  "home": "IK Start",
+  "away": "SK Brann",
+  "kickoff": "So 17:00",
+  "kickoff_ts": 1789311600,
+  "league": "Norway Eliteserien",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 7.5,
+  "first_range": [
+   1.29,
+   2.36
+  ],
+  "last_run": "So 08:36",
+  "line": 7.5,
+  "range": [
+   1.28,
+   2.37
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 17
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    47,
+    44
+   ],
+   "next_line": 8.5,
+   "next_note": "kein Anker — IK Start 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; SK Brann 10/12 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.7839295173674747,
+    0.8338788735977223
+   ],
+   "fair": 1.3,
+   "ladder": [
+    [
+     6.5,
+     1.34
+    ],
+    [
+     7.5,
+     1.3
+    ]
+   ],
+   "avg": [
+    10.2,
+    10.3
+   ],
+   "expect": 10.8,
+   "expect_sum": 10.3,
+   "expect_matchup": 11.4,
+   "contrib": [
+    6.8,
+    4.6
+   ],
+   "buffer": 3.3,
+   "fa": [
+    [
+     5.4,
+     4.8
+    ],
+    [
+     6.2,
+     4.7
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.5",
+    "1.925",
+    "1.875"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.76,
+   "p_emp": {
+    "6.5": 0.7462686567164178,
+    "7.5": 0.7692307692307692
+   },
+   "p_mod": 0.81,
+   "p_fin": 0.79,
+   "fair_fin": 1.27,
+   "ladder_fin": [
+    [
+     6.5,
+     1.23
+    ],
+    [
+     7.5,
+     1.27
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.27",
+   "range": [
+    1.28,
+    2.37
+   ]
+  },
+  "v": 2
+ },
  "11162958|corners|über": {
   "match_id": "11162958",
   "home": "KFUM",
@@ -9217,7 +9569,7 @@
    1.32,
    1.58
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 9.5,
   "range": [
    1.32,
@@ -9337,7 +9689,7 @@
    1.32,
    1.58
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
    1.32,
@@ -9457,7 +9809,7 @@
    1.22,
    2.28
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.22,
@@ -9561,126 +9913,6 @@
   },
   "v": 2
  },
- "11168570|corners|über": {
-  "match_id": "11168570",
-  "home": "Raufoss",
-  "away": "Odd BK",
-  "kickoff": "So 17:00",
-  "kickoff_ts": 1789311600,
-  "league": "Norway Division 1",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 8.5,
-  "first_range": [
-   1.39,
-   1.95
-  ],
-  "last_run": "So 07:26",
-  "line": 8.5,
-  "range": [
-   1.39,
-   1.95
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 8.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    47
-   ],
-   "next_line": 9.5,
-   "next_note": "Odd BK 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "longterm": [
-    0.7450361853710245,
-    0.7688138161388346
-   ],
-   "fair": 1.42,
-   "ladder": [
-    [
-     7.5,
-     1.28
-    ],
-    [
-     8.5,
-     1.42
-    ]
-   ],
-   "avg": [
-    11.4,
-    9.2
-   ],
-   "expect": 10.8,
-   "expect_sum": 10.3,
-   "expect_matchup": 11.3,
-   "contrib": [
-    5.4,
-    5.8
-   ],
-   "buffer": 2.3,
-   "fa": [
-    [
-     5.0,
-     6.4
-    ],
-    [
-     5.3,
-     5.2
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.5",
-    "1.950",
-    "1.850"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.84,
-   "p_emp": {
-    "7.5": 0.78125,
-    "8.5": 0.7042253521126761
-   },
-   "p_mod": 0.725,
-   "p_fin": 0.715,
-   "fair_fin": 1.4,
-   "ladder_fin": [
-    [
-     7.5,
-     1.26
-    ],
-    [
-     8.5,
-     1.4
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.40",
-   "range": [
-    1.39,
-    1.95
-   ]
-  },
-  "v": 2
- },
  "11168571|corners|über": {
   "match_id": "11168571",
   "home": "Ranheim",
@@ -9697,11 +9929,11 @@
    1.84,
    1.84
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 8.5,
   "range": [
-   1.83,
-   1.83
+   1.84,
+   1.84
   ],
   "signal": {
    "metric": "Ecken",
@@ -9795,8 +10027,128 @@
    "light": "🟡",
    "reason": "Historie 71 % vs. Modell 83 %",
    "range": [
-    1.83,
-    1.83
+    1.84,
+    1.84
+   ]
+  },
+  "v": 2
+ },
+ "11167430|corners|über": {
+  "match_id": "11167430",
+  "home": "Hodd",
+  "away": "Lyn 1896",
+  "kickoff": "So 17:00",
+  "kickoff_ts": 1789311600,
+  "league": "Norway Division 1",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 9.5,
+  "first_range": [
+   1.2,
+   1.49
+  ],
+  "last_run": "So 08:36",
+  "line": 9.5,
+  "range": [
+   1.2,
+   1.49
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 9.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 17
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    49,
+    49
+   ],
+   "next_line": 10.5,
+   "next_note": "Hodd 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Lyn 1896 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.6820178848055894,
+    0.5650216002362851
+   ],
+   "fair": 1.74,
+   "ladder": [
+    [
+     8.5,
+     1.45
+    ],
+    [
+     9.5,
+     1.74
+    ]
+   ],
+   "avg": [
+    12.4,
+    11.5
+   ],
+   "expect": 13.4,
+   "expect_sum": 11.9,
+   "expect_matchup": 14.9,
+   "contrib": [
+    5.9,
+    9.0
+   ],
+   "buffer": 3.9,
+   "fa": [
+    [
+     4.2,
+     6.4
+    ],
+    [
+     5.2,
+     5.1
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.5",
+    "1.875",
+    "1.925"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.82,
+   "p_emp": {
+    "8.5": 0.6896551724137931,
+    "9.5": 0.5747126436781609
+   },
+   "p_mod": 0.846,
+   "p_fin": 0.711,
+   "fair_fin": 1.41,
+   "ladder_fin": [
+    [
+     8.5,
+     1.26
+    ],
+    [
+     9.5,
+     1.41
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "Historie 57 % und Modell 85 % widersprechen sich",
+   "range": [
+    1.2,
+    1.49
    ]
   },
   "v": 2
@@ -9817,7 +10169,7 @@
    1.28,
    1.975
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
    1.28,
@@ -9937,7 +10289,7 @@
    1.22,
    1.95
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.22,
@@ -10041,153 +10393,33 @@
   },
   "v": 2
  },
- "11161557|corners|über": {
-  "match_id": "11161557",
-  "home": "IK Start",
-  "away": "SK Brann",
+ "11168570|corners|über": {
+  "match_id": "11168570",
+  "home": "Raufoss",
+  "away": "Odd BK",
   "kickoff": "So 17:00",
   "kickoff_ts": 1789311600,
-  "league": "Norway Eliteserien",
+  "league": "Norway Division 1",
   "metric": "Ecken",
   "metric_key": "corners",
   "direction": "über",
   "first_run": "So 06:27",
-  "first_line": 7.5,
+  "first_line": 8.5,
   "first_range": [
-   1.29,
-   2.36
+   1.39,
+   1.95
   ],
-  "last_run": "So 07:26",
-  "line": 7.5,
+  "last_run": "So 08:36",
+  "line": 8.5,
   "range": [
-   1.29,
-   2.36
+   1.39,
+   1.95
   ],
   "signal": {
    "metric": "Ecken",
    "metric_key": "corners",
    "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 17
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    44
-   ],
-   "next_line": 8.5,
-   "next_note": "kein Anker — IK Start 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; SK Brann 10/12 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "longterm": [
-    0.7839295173674747,
-    0.8338788735977223
-   ],
-   "fair": 1.3,
-   "ladder": [
-    [
-     6.5,
-     1.34
-    ],
-    [
-     7.5,
-     1.3
-    ]
-   ],
-   "avg": [
-    10.2,
-    10.3
-   ],
-   "expect": 10.8,
-   "expect_sum": 10.3,
-   "expect_matchup": 11.4,
-   "contrib": [
-    6.8,
-    4.6
-   ],
-   "buffer": 3.3,
-   "fa": [
-    [
-     5.4,
-     4.8
-    ],
-    [
-     6.2,
-     4.7
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.5",
-    "1.925",
-    "1.875"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.76,
-   "p_emp": {
-    "6.5": 0.7462686567164178,
-    "7.5": 0.7692307692307692
-   },
-   "p_mod": 0.81,
-   "p_fin": 0.79,
-   "fair_fin": 1.27,
-   "ladder_fin": [
-    [
-     6.5,
-     1.23
-    ],
-    [
-     7.5,
-     1.27
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.27",
-   "range": [
-    1.29,
-    2.36
-   ]
-  },
-  "v": 2
- },
- "13053551|corners|über": {
-  "match_id": "13053551",
-  "home": "Zira IK",
-  "away": "FK Qarabag",
-  "kickoff": "So 17:00",
-  "kickoff_ts": 1789311600,
-  "league": "Azerbaijan Premier League",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 7.5,
-  "first_range": [
-   1.2,
-   1.88
-  ],
-  "last_run": "So 07:26",
-  "line": 7.5,
-  "range": [
-   1.2,
-   1.88
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
+   "line": 8.5,
    "home_series": {
     "kind": "heim",
     "hits": 5,
@@ -10196,87 +10428,87 @@
    "away_series": {
     "kind": "gesamt",
     "hits": 10,
-    "window": 10
+    "window": 12
    },
    "home_is_anchor": false,
    "away_is_anchor": true,
    "valid": [
-    45,
-    39
+    48,
+    47
    ],
-   "next_line": 8.5,
-   "next_note": "Zira IK 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "next_line": 9.5,
+   "next_note": "Odd BK 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
    "longterm": [
-    0.6166338894661485,
-    0.8263791174513246
+    0.7450361853710245,
+    0.7688138161388346
    ],
-   "fair": 1.43,
+   "fair": 1.42,
    "ladder": [
     [
-     6.5,
-     1.49
+     7.5,
+     1.28
     ],
     [
-     7.5,
-     1.43
+     8.5,
+     1.42
     ]
    ],
    "avg": [
-    8.8,
-    10.6
+    11.4,
+    9.2
    ],
-   "expect": 9.3,
-   "expect_sum": 9.7,
-   "expect_matchup": 8.9,
+   "expect": 10.8,
+   "expect_sum": 10.3,
+   "expect_matchup": 11.3,
    "contrib": [
-    4.3,
-    4.6
+    5.4,
+    5.8
    ],
-   "buffer": 1.8,
+   "buffer": 2.3,
    "fa": [
     [
-     4.7,
-     3.3
+     5.0,
+     6.4
     ],
     [
-     6.8,
-     3.5
+     5.3,
+     5.2
     ]
    ],
    "referee": null,
    "b365": [
-    "8.5",
-    "2.000",
-    "1.800"
+    "10.5",
+    "1.950",
+    "1.850"
    ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.06,
+   "sd": 3.84,
    "p_emp": {
-    "6.5": 0.6711409395973155,
-    "7.5": 0.6993006993006994
+    "7.5": 0.78125,
+    "8.5": 0.7042253521126761
    },
-   "p_mod": 0.722,
-   "p_fin": 0.711,
-   "fair_fin": 1.41,
+   "p_mod": 0.725,
+   "p_fin": 0.715,
+   "fair_fin": 1.4,
    "ladder_fin": [
     [
-     6.5,
-     1.34
+     7.5,
+     1.26
     ],
     [
-     7.5,
-     1.41
+     8.5,
+     1.4
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "reason": "fair 1.41",
+   "reason": "fair 1.40",
    "range": [
-    1.2,
-    1.88
+    1.39,
+    1.95
    ]
   },
   "v": 2
@@ -10297,7 +10529,7 @@
    1.55,
    1.65
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 2.5,
   "range": [
    1.55,
@@ -10413,7 +10645,7 @@
    1.55,
    1.65
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 6.5,
   "range": [
    1.55,
@@ -10529,7 +10761,7 @@
    1.44,
    1.83
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 11.5,
   "range": [
    1.44,
@@ -10645,7 +10877,7 @@
    1.2,
    1.63
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 5.5,
   "range": [
    1.2,
@@ -10761,7 +10993,7 @@
    1.55,
    1.65
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 0.5,
   "range": [
    1.55,
@@ -10852,122 +11084,122 @@
   },
   "v": 2
  },
- "11167430|corners|über": {
-  "match_id": "11167430",
-  "home": "Hodd",
-  "away": "Lyn 1896",
+ "13053551|corners|über": {
+  "match_id": "13053551",
+  "home": "Zira IK",
+  "away": "FK Qarabag",
   "kickoff": "So 17:00",
   "kickoff_ts": 1789311600,
-  "league": "Norway Division 1",
+  "league": "Azerbaijan Premier League",
   "metric": "Ecken",
   "metric_key": "corners",
   "direction": "über",
   "first_run": "So 06:27",
-  "first_line": 9.5,
+  "first_line": 7.5,
   "first_range": [
    1.2,
-   1.49
+   1.88
   ],
-  "last_run": "So 07:26",
-  "line": 9.5,
+  "last_run": "So 08:36",
+  "line": 7.5,
   "range": [
-   1.2,
-   1.49
+   1.19,
+   1.89
   ],
   "signal": {
    "metric": "Ecken",
    "metric_key": "corners",
    "direction": "über",
-   "line": 9.5,
+   "line": 7.5,
    "home_series": {
     "kind": "heim",
-    "hits": 15,
-    "window": 17
-   },
-   "away_series": {
-    "kind": "auswärts",
     "hits": 5,
     "window": 6
    },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
    "valid": [
-    49,
-    49
+    45,
+    39
    ],
-   "next_line": 10.5,
-   "next_note": "Hodd 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Lyn 1896 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "next_line": 8.5,
+   "next_note": "Zira IK 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
    "longterm": [
-    0.6820178848055894,
-    0.5650216002362851
+    0.6166338894661485,
+    0.8263791174513246
    ],
-   "fair": 1.74,
+   "fair": 1.43,
    "ladder": [
     [
-     8.5,
-     1.45
+     6.5,
+     1.49
     ],
     [
-     9.5,
-     1.74
+     7.5,
+     1.43
     ]
    ],
    "avg": [
-    12.4,
-    11.5
+    8.8,
+    10.6
    ],
-   "expect": 13.4,
-   "expect_sum": 11.9,
-   "expect_matchup": 14.9,
+   "expect": 9.3,
+   "expect_sum": 9.7,
+   "expect_matchup": 8.9,
    "contrib": [
-    5.9,
-    9.0
+    4.3,
+    4.6
    ],
-   "buffer": 3.9,
+   "buffer": 1.8,
    "fa": [
     [
-     4.2,
-     6.4
+     4.7,
+     3.3
     ],
     [
-     5.2,
-     5.1
+     6.8,
+     3.5
     ]
    ],
    "referee": null,
    "b365": [
-    "10.5",
-    "1.875",
-    "1.925"
+    "8.5",
+    "2.000",
+    "1.800"
    ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.82,
+   "sd": 3.06,
    "p_emp": {
-    "8.5": 0.6896551724137931,
-    "9.5": 0.5747126436781609
+    "6.5": 0.6711409395973155,
+    "7.5": 0.6993006993006994
    },
-   "p_mod": 0.846,
+   "p_mod": 0.722,
    "p_fin": 0.711,
    "fair_fin": 1.41,
    "ladder_fin": [
     [
-     8.5,
-     1.26
+     6.5,
+     1.34
     ],
     [
-     9.5,
+     7.5,
      1.41
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🔴",
-   "reason": "Historie 57 % und Modell 85 % widersprechen sich",
+   "light": "🟢",
+   "reason": "fair 1.41",
    "range": [
-    1.2,
-    1.49
+    1.19,
+    1.89
    ]
   },
   "v": 2
@@ -10988,10 +11220,10 @@
    1.32,
    2.13
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
-   1.32,
+   1.31,
    2.13
   ],
   "signal": {
@@ -11086,7 +11318,7 @@
    "light": "🟢",
    "reason": "fair 1.30",
    "range": [
-    1.32,
+    1.31,
     2.13
    ]
   },
@@ -11108,10 +11340,10 @@
    1.35,
    1.55
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 4.5,
   "range": [
-   1.35,
+   1.38,
    1.6
   ],
   "signal": {
@@ -11202,7 +11434,7 @@
    "light": "🟢",
    "reason": "fair 1.34",
    "range": [
-    1.35,
+    1.38,
     1.6
    ]
   },
@@ -11224,7 +11456,7 @@
    1.23,
    2.25
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 6.5,
   "range": [
    1.23,
@@ -11340,7 +11572,7 @@
    2.12,
    2.12
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 5.5,
   "range": [
    2.12,
@@ -11456,10 +11688,10 @@
    1.35,
    1.55
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 1.5,
   "range": [
-   1.35,
+   1.38,
    1.6
   ],
   "signal": {
@@ -11550,7 +11782,7 @@
    "light": "🔴",
    "reason": "nur 44 % Wahrscheinlichkeit",
    "range": [
-    1.35,
+    1.38,
     1.6
    ]
   },
@@ -11572,10 +11804,10 @@
    1.135,
    1.43
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 4.5,
   "range": [
-   1.123,
+   1.113,
    1.43
   ],
   "signal": {
@@ -11666,7 +11898,7 @@
    "light": "🟡",
    "reason": "Historie 75 % vs. Modell 87 %",
    "range": [
-    1.123,
+    1.113,
     1.43
    ]
   },
@@ -11688,7 +11920,7 @@
    1.42,
    1.42
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 5.5,
   "range": [
    1.42,
@@ -11804,10 +12036,10 @@
    1.135,
    1.43
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 0.5,
   "range": [
-   1.123,
+   1.113,
    1.43
   ],
   "signal": {
@@ -11889,7 +12121,7 @@
    "light": "🔴",
    "reason": "Historie 68 % und Modell 99 % widersprechen sich",
    "range": [
-    1.123,
+    1.113,
     1.43
    ]
   },
@@ -11911,10 +12143,10 @@
    1.135,
    1.43
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 2.5,
   "range": [
-   1.123,
+   1.113,
    1.43
   ],
   "signal": {
@@ -12005,7 +12237,7 @@
    "light": "🔴",
    "reason": "Historie 90 % und Modell 37 % widersprechen sich",
    "range": [
-    1.123,
+    1.113,
     1.43
    ]
   },
@@ -12027,11 +12259,11 @@
    1.22,
    1.59
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
-   1.35,
-   1.62
+   1.22,
+   1.59
   ],
   "signal": {
    "metric": "Ecken",
@@ -12125,8 +12357,8 @@
    "light": "🟢",
    "reason": "fair 1.30",
    "range": [
-    1.35,
-    1.62
+    1.22,
+    1.59
    ]
   },
   "v": 2
@@ -12147,11 +12379,11 @@
    1.256,
    1.88
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 8.5,
   "range": [
-   1.256,
-   1.88
+   1.252,
+   1.889
   ],
   "signal": {
    "metric": "Ecken",
@@ -12241,8 +12473,8 @@
    "light": "🟢",
    "reason": "fair 1.35",
    "range": [
-    1.256,
-    1.88
+    1.252,
+    1.889
    ]
   },
   "v": 2
@@ -12263,11 +12495,11 @@
    1.256,
    1.88
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
-   1.256,
-   1.88
+   1.252,
+   1.889
   ],
   "signal": {
    "metric": "1. HZ Ecken",
@@ -12361,8 +12593,231 @@
    "light": "🟡",
    "reason": "Historie 68 % vs. Modell 85 %",
    "range": [
-    1.256,
-    1.88
+    1.252,
+    1.889
+   ]
+  },
+  "v": 2
+ },
+ "13092654|ht_yellowcards|über": {
+  "match_id": "13092654",
+  "home": "AEK Larnaca",
+  "away": "Pafos FC",
+  "kickoff": "So 18:00",
+  "kickoff_ts": 1789315200,
+  "league": "Cyprus Division 1",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 0.5,
+  "first_range": [
+   1.62,
+   1.95
+  ],
+  "last_run": "So 08:36",
+  "line": 0.5,
+  "range": [
+   1.62,
+   1.95
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "über",
+   "line": 0.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 17
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    49
+   ],
+   "next_line": 1.5,
+   "next_note": "AEK Larnaca 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Pafos FC 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.72072331398702,
+    0.8186342067128368
+   ],
+   "fair": 1.33,
+   "ladder": [
+    [
+     0.5,
+     1.33
+    ]
+   ],
+   "avg": [
+    1.2,
+    1.2
+   ],
+   "expect": 1.2,
+   "expect_sum": 1.2,
+   "expect_matchup": 1.2,
+   "contrib": [
+    0.3,
+    0.9
+   ],
+   "buffer": 0.7,
+   "fa": [
+    [
+     0.5,
+     0.9
+    ],
+    [
+     0.8,
+     0.7
+    ]
+   ],
+   "referee": "Menelaos Antoniou: Ø 4.6 Karten (24 Sp.)",
+   "b365": null,
+   "expect_ref": 3.5,
+   "buffer_ref": 3.0,
+   "sd": 1.06,
+   "p_emp": {
+    "0.5": 0.7518796992481203
+   },
+   "p_mod": 0.998,
+   "p_fin": 0.875,
+   "fair_fin": 1.14,
+   "ladder_fin": [
+    [
+     0.5,
+     1.14
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 75 % vs. Modell 100 %",
+   "range": [
+    1.62,
+    1.95
+   ]
+  },
+  "v": 2
+ },
+ "13092654|ht_yellowcards|unter": {
+  "match_id": "13092654",
+  "home": "AEK Larnaca",
+  "away": "Pafos FC",
+  "kickoff": "So 18:00",
+  "kickoff_ts": 1789315200,
+  "league": "Cyprus Division 1",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 2.5,
+  "first_range": [
+   1.62,
+   1.95
+  ],
+  "last_run": "So 08:36",
+  "line": 2.5,
+  "range": [
+   1.62,
+   1.95
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    49,
+    49
+   ],
+   "next_line": 1.5,
+   "next_note": "AEK Larnaca 9/11 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Pafos FC 5/7 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.8759954254582683,
+    0.8102266156272746
+   ],
+   "fair": 1.19,
+   "ladder": [
+    [
+     2.5,
+     1.19
+    ],
+    [
+     3.5,
+     1.2
+    ]
+   ],
+   "avg": [
+    1.2,
+    1.2
+   ],
+   "expect": 1.2,
+   "expect_sum": 1.2,
+   "expect_matchup": 1.2,
+   "contrib": [
+    0.3,
+    0.9
+   ],
+   "buffer": 1.3,
+   "fa": [
+    [
+     0.5,
+     0.9
+    ],
+    [
+     0.8,
+     0.7
+    ]
+   ],
+   "referee": "Menelaos Antoniou: Ø 4.6 Karten (24 Sp.)",
+   "b365": null,
+   "expect_ref": 3.5,
+   "buffer_ref": -1.0,
+   "sd": 1.06,
+   "p_emp": {
+    "2.5": 0.8403361344537815,
+    "3.5": 0.8333333333333334
+   },
+   "p_mod": 0.173,
+   "p_fin": 0.507,
+   "fair_fin": 1.97,
+   "ladder_fin": [
+    [
+     2.5,
+     1.97
+    ],
+    [
+     3.5,
+     1.5
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "nur 51 % Wahrscheinlichkeit",
+   "range": [
+    1.62,
+    1.95
    ]
   },
   "v": 2
@@ -12383,7 +12838,7 @@
    1.55,
    1.65
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 6.5,
   "range": [
    1.55,
@@ -12499,7 +12954,7 @@
    1.26,
    1.94
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 6.5,
   "range": [
    1.26,
@@ -12615,7 +13070,7 @@
    1.26,
    1.94
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 9.5,
   "range": [
    1.26,
@@ -12731,7 +13186,7 @@
    1.24,
    2.27
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 5.5,
   "range": [
    1.24,
@@ -12847,7 +13302,7 @@
    1.55,
    1.65
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 2.5,
   "range": [
    1.55,
@@ -12963,7 +13418,7 @@
    1.3,
    1.3
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.3,
@@ -13079,7 +13534,7 @@
    1.3,
    1.3
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
    1.3,
@@ -13179,229 +13634,6 @@
   },
   "v": 2
  },
- "13092654|ht_yellowcards|über": {
-  "match_id": "13092654",
-  "home": "AEK Larnaca",
-  "away": "Pafos FC",
-  "kickoff": "So 18:00",
-  "kickoff_ts": 1789315200,
-  "league": "Cyprus Division 1",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 0.5,
-  "first_range": [
-   1.62,
-   1.95
-  ],
-  "last_run": "So 07:26",
-  "line": 0.5,
-  "range": [
-   1.62,
-   1.95
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "über",
-   "line": 0.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 17
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    49
-   ],
-   "next_line": 1.5,
-   "next_note": "AEK Larnaca 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Pafos FC 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.72072331398702,
-    0.8186342067128368
-   ],
-   "fair": 1.33,
-   "ladder": [
-    [
-     0.5,
-     1.33
-    ]
-   ],
-   "avg": [
-    1.2,
-    1.2
-   ],
-   "expect": 1.2,
-   "expect_sum": 1.2,
-   "expect_matchup": 1.2,
-   "contrib": [
-    0.3,
-    0.9
-   ],
-   "buffer": 0.7,
-   "fa": [
-    [
-     0.5,
-     0.9
-    ],
-    [
-     0.8,
-     0.7
-    ]
-   ],
-   "referee": "Menelaos Antoniou: Ø 4.6 Karten (24 Sp.)",
-   "b365": null,
-   "expect_ref": 3.5,
-   "buffer_ref": 3.0,
-   "sd": 1.06,
-   "p_emp": {
-    "0.5": 0.7518796992481203
-   },
-   "p_mod": 0.998,
-   "p_fin": 0.875,
-   "fair_fin": 1.14,
-   "ladder_fin": [
-    [
-     0.5,
-     1.14
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 75 % vs. Modell 100 %",
-   "range": [
-    1.62,
-    1.95
-   ]
-  },
-  "v": 2
- },
- "13092654|ht_yellowcards|unter": {
-  "match_id": "13092654",
-  "home": "AEK Larnaca",
-  "away": "Pafos FC",
-  "kickoff": "So 18:00",
-  "kickoff_ts": 1789315200,
-  "league": "Cyprus Division 1",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 2.5,
-  "first_range": [
-   1.62,
-   1.95
-  ],
-  "last_run": "So 07:26",
-  "line": 2.5,
-  "range": [
-   1.62,
-   1.95
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    49,
-    49
-   ],
-   "next_line": 1.5,
-   "next_note": "AEK Larnaca 9/11 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Pafos FC 5/7 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
-   "longterm": [
-    0.8759954254582683,
-    0.8102266156272746
-   ],
-   "fair": 1.19,
-   "ladder": [
-    [
-     2.5,
-     1.19
-    ],
-    [
-     3.5,
-     1.2
-    ]
-   ],
-   "avg": [
-    1.2,
-    1.2
-   ],
-   "expect": 1.2,
-   "expect_sum": 1.2,
-   "expect_matchup": 1.2,
-   "contrib": [
-    0.3,
-    0.9
-   ],
-   "buffer": 1.3,
-   "fa": [
-    [
-     0.5,
-     0.9
-    ],
-    [
-     0.8,
-     0.7
-    ]
-   ],
-   "referee": "Menelaos Antoniou: Ø 4.6 Karten (24 Sp.)",
-   "b365": null,
-   "expect_ref": 3.5,
-   "buffer_ref": -1.0,
-   "sd": 1.06,
-   "p_emp": {
-    "2.5": 0.8403361344537815,
-    "3.5": 0.8333333333333334
-   },
-   "p_mod": 0.173,
-   "p_fin": 0.507,
-   "fair_fin": 1.97,
-   "ladder_fin": [
-    [
-     2.5,
-     1.97
-    ],
-    [
-     3.5,
-     1.5
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🔴",
-   "reason": "nur 51 % Wahrscheinlichkeit",
-   "range": [
-    1.62,
-    1.95
-   ]
-  },
-  "v": 2
- },
  "13099731|corners|über": {
   "match_id": "13099731",
   "home": "Throttur Reykjavik",
@@ -13418,7 +13650,7 @@
    1.28,
    2.0
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 8.5,
   "range": [
    1.28,
@@ -13538,7 +13770,7 @@
    1.28,
    2.0
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
    1.28,
@@ -13658,11 +13890,11 @@
    1.27,
    1.38
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 5.5,
   "range": [
    1.27,
-   1.38
+   1.37
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -13753,7 +13985,7 @@
    "reason": "fair 1.16",
    "range": [
     1.27,
-    1.38
+    1.37
    ]
   },
   "v": 2
@@ -13774,11 +14006,11 @@
    1.27,
    1.38
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 2.5,
   "range": [
    1.27,
-   1.38
+   1.37
   ],
   "signal": {
    "metric": "1. HZ Gelbe Karten",
@@ -13869,7 +14101,7 @@
    "reason": "fair 1.17",
    "range": [
     1.27,
-    1.38
+    1.37
    ]
   },
   "v": 2
@@ -13890,11 +14122,11 @@
    1.2,
    1.92
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 11.5,
   "range": [
-   1.28,
-   1.92
+   1.36,
+   2.02
   ],
   "signal": {
    "metric": "Schüsse aufs Tor",
@@ -13984,8 +14216,8 @@
    "light": "🟢",
    "reason": "fair 1.26",
    "range": [
-    1.28,
-    1.92
+    1.36,
+    2.02
    ]
   },
   "v": 2
@@ -14006,11 +14238,11 @@
    1.23,
    1.6
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 5.5,
   "range": [
-   1.36,
-   1.58
+   1.21,
+   1.571
   ],
   "signal": {
    "metric": "Abseits",
@@ -14100,8 +14332,8 @@
    "light": "🟢",
    "reason": "fair 1.28",
    "range": [
-    1.36,
-    1.58
+    1.21,
+    1.571
    ]
   },
   "v": 2
@@ -14122,7 +14354,7 @@
    1.41,
    1.8
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.8,
@@ -14242,7 +14474,7 @@
    1.26,
    1.86
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 2.5,
   "range": [
    1.24,
@@ -14358,7 +14590,7 @@
    1.26,
    1.86
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 5.5,
   "range": [
    1.24,
@@ -14474,7 +14706,7 @@
    1.2,
    1.9
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 8.5,
   "range": [
    1.73,
@@ -14590,7 +14822,7 @@
    1.56,
    1.56
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 5.5,
   "range": [
    1.56,
@@ -14706,7 +14938,7 @@
    1.26,
    1.86
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 2.5,
   "range": [
    1.24,
@@ -14822,11 +15054,11 @@
    1.2,
    1.44
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
-   1.2,
-   1.44
+   2.12,
+   2.12
   ],
   "signal": {
    "metric": "Ecken",
@@ -14920,8 +15152,8 @@
    "light": "🟢",
    "reason": "fair 1.26",
    "range": [
-    1.2,
-    1.44
+    2.12,
+    2.12
    ]
   },
   "v": 2
@@ -14942,7 +15174,7 @@
    1.55,
    1.96
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 2.5,
   "range": [
    1.55,
@@ -15058,7 +15290,7 @@
    1.55,
    1.96
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 6.5,
   "range": [
    1.55,
@@ -15174,7 +15406,7 @@
    1.55,
    1.96
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 2.5,
   "range": [
    1.55,
@@ -15290,7 +15522,7 @@
    1.19,
    1.87
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.19,
@@ -15410,7 +15642,7 @@
    1.28,
    1.78
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.28,
@@ -15514,35 +15746,35 @@
   },
   "v": 2
  },
- "11400135|corners|über": {
-  "match_id": "11400135",
-  "home": "Leones FC",
-  "away": "Tecnico Universitario",
+ "12026922|corners|über": {
+  "match_id": "12026922",
+  "home": "PSV",
+  "away": "Sparta Rotterdam",
   "kickoff": "So 20:00",
   "kickoff_ts": 1789322400,
-  "league": "Ecuador LigaPro Serie A",
+  "league": "Netherlands Eredivisie",
   "metric": "Ecken",
   "metric_key": "corners",
   "direction": "über",
   "first_run": "So 06:27",
-  "first_line": 8.5,
+  "first_line": 7.5,
   "first_range": [
-   1.54,
-   1.54
+   1.36,
+   2.36
   ],
-  "last_run": "So 07:26",
-  "line": 8.5,
+  "last_run": "So 08:36",
+  "line": 7.5,
   "range": [
-   1.51,
-   1.51
+   1.36,
+   2.36
   ],
   "signal": {
    "metric": "Ecken",
    "metric_key": "corners",
    "direction": "über",
-   "line": 8.5,
+   "line": 7.5,
    "home_series": {
-    "kind": "gesamt",
+    "kind": "heim",
     "hits": 10,
     "window": 12
    },
@@ -15551,85 +15783,85 @@
     "hits": 10,
     "window": 11
    },
-   "home_is_anchor": true,
+   "home_is_anchor": false,
    "away_is_anchor": true,
    "valid": [
-    42,
-    48
+    48,
+    47
    ],
-   "next_line": 9.5,
-   "next_note": "Leones FC 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Tecnico Universitario 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "next_line": 8.5,
+   "next_note": "PSV 2/4 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
    "longterm": [
-    0.688695002025985,
-    0.7279521134451016
+    0.8011814144962611,
+    0.915265034423568
    ],
-   "fair": 1.51,
+   "fair": 1.24,
    "ladder": [
     [
-     7.5,
-     1.29
+     6.5,
+     1.25
     ],
     [
-     8.5,
-     1.51
+     7.5,
+     1.24
     ]
    ],
    "avg": [
-    9.2,
-    9.8
+    10.3,
+    11.0
    ],
-   "expect": 9.6,
-   "expect_sum": 9.5,
-   "expect_matchup": 9.7,
+   "expect": 11.7,
+   "expect_sum": 10.6,
+   "expect_matchup": 12.7,
    "contrib": [
-    5.6,
-    4.1
+    9.1,
+    3.6
    ],
-   "buffer": 1.1,
+   "buffer": 4.2,
    "fa": [
     [
-     4.0,
-     4.9
+     6.6,
+     4.0
     ],
     [
-     4.5,
-     4.9
+     5.0,
+     6.2
     ]
    ],
    "referee": null,
    "b365": [
-    "9.5",
-    "1.900",
-    "1.900"
+    "11.5",
+    "2.000",
+    "1.800"
    ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 2.48,
+   "sd": 3.45,
    "p_emp": {
-    "7.5": 0.7751937984496123,
-    "8.5": 0.6622516556291391
+    "6.5": 0.8,
+    "7.5": 0.8064516129032259
    },
-   "p_mod": 0.671,
-   "p_fin": 0.667,
-   "fair_fin": 1.5,
+   "p_mod": 0.888,
+   "p_fin": 0.847,
+   "fair_fin": 1.18,
    "ladder_fin": [
     [
-     7.5,
-     1.27
+     6.5,
+     1.15
     ],
     [
-     8.5,
-     1.5
+     7.5,
+     1.18
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟡",
-   "reason": "67 % knapp",
+   "light": "🟢",
+   "reason": "fair 1.18",
    "range": [
-    1.51,
-    1.51
+    1.36,
+    2.36
    ]
   },
   "v": 2
@@ -15650,7 +15882,7 @@
    1.285,
    1.93
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.285,
@@ -15754,693 +15986,6 @@
   },
   "v": 2
  },
- "13077329|yellowcards|über": {
-  "match_id": "13077329",
-  "home": "Kifisias FC",
-  "away": "Levadiakos",
-  "kickoff": "So 20:00",
-  "kickoff_ts": 1789322400,
-  "league": "Greece Super League 1",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 2.5,
-  "first_range": [
-   1.66,
-   2.09
-  ],
-  "last_run": "So 07:26",
-  "line": 2.5,
-  "range": [
-   1.66,
-   2.09
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    47
-   ],
-   "next_line": 3.5,
-   "next_note": "Kifisias FC 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
-   "longterm": [
-    0.7801749216303564,
-    0.8925573343905884
-   ],
-   "fair": 1.26,
-   "ladder": [
-    [
-     1.5,
-     1.25
-    ],
-    [
-     2.5,
-     1.26
-    ]
-   ],
-   "avg": [
-    4.4,
-    5.3
-   ],
-   "expect": 5.4,
-   "expect_sum": 4.8,
-   "expect_matchup": 6.0,
-   "contrib": [
-    2.9,
-    3.1
-   ],
-   "buffer": 2.9,
-   "fa": [
-    [
-     3.0,
-     2.1
-    ],
-    [
-     2.2,
-     2.7
-    ]
-   ],
-   "referee": "Konstantinos Tsetsilas: Ø 8.0 Karten (1 Sp.) · Ø 36.0 Fouls (1 Sp.)",
-   "b365": null,
-   "expect_ref": 6.0,
-   "buffer_ref": 3.5,
-   "sd": 2.22,
-   "p_emp": {
-    "1.5": 0.8,
-    "2.5": 0.7936507936507936
-   },
-   "p_mod": 0.943,
-   "p_fin": 0.868,
-   "fair_fin": 1.15,
-   "ladder_fin": [
-    [
-     1.5,
-     1.12
-    ],
-    [
-     2.5,
-     1.15
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 79 % vs. Modell 94 %",
-   "range": [
-    1.66,
-    2.09
-   ]
-  },
-  "v": 2
- },
- "13077329|yellowcards|unter": {
-  "match_id": "13077329",
-  "home": "Kifisias FC",
-  "away": "Levadiakos",
-  "kickoff": "So 20:00",
-  "kickoff_ts": 1789322400,
-  "league": "Greece Super League 1",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 6.5,
-  "first_range": [
-   1.66,
-   2.09
-  ],
-  "last_run": "So 07:26",
-  "line": 6.5,
-  "range": [
-   1.66,
-   2.09
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    47,
-    47
-   ],
-   "next_line": 5.5,
-   "next_note": "Levadiakos 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "longterm": [
-    0.8099587462374344,
-    0.7240508637203077
-   ],
-   "fair": 1.25,
-   "ladder": [
-    [
-     6.5,
-     1.25
-    ],
-    [
-     7.5,
-     1.27
-    ]
-   ],
-   "avg": [
-    4.4,
-    5.3
-   ],
-   "expect": 5.4,
-   "expect_sum": 4.8,
-   "expect_matchup": 6.0,
-   "contrib": [
-    2.9,
-    3.1
-   ],
-   "buffer": 1.1,
-   "fa": [
-    [
-     3.0,
-     2.1
-    ],
-    [
-     2.2,
-     2.7
-    ]
-   ],
-   "referee": "Konstantinos Tsetsilas: Ø 8.0 Karten (1 Sp.) · Ø 36.0 Fouls (1 Sp.)",
-   "b365": null,
-   "expect_ref": 6.0,
-   "buffer_ref": 0.5,
-   "sd": 2.22,
-   "p_emp": {
-    "6.5": 0.8,
-    "7.5": 0.7874015748031495
-   },
-   "p_mod": 0.589,
-   "p_fin": 0.695,
-   "fair_fin": 1.44,
-   "ladder_fin": [
-    [
-     6.5,
-     1.44
-    ],
-    [
-     7.5,
-     1.3
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 80 % vs. Modell 59 %",
-   "range": [
-    1.66,
-    2.09
-   ]
-  },
-  "v": 2
- },
- "13077329|on_target|unter": {
-  "match_id": "13077329",
-  "home": "Kifisias FC",
-  "away": "Levadiakos",
-  "kickoff": "So 20:00",
-  "kickoff_ts": 1789322400,
-  "league": "Greece Super League 1",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 10.5,
-  "first_range": [
-   1.22,
-   1.7
-  ],
-  "last_run": "So 07:26",
-  "line": 10.5,
-  "range": [
-   1.22,
-   1.7
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "unter",
-   "line": 10.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    47
-   ],
-   "next_line": 9.5,
-   "next_note": "Kifisias FC 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
-   "longterm": [
-    0.7479200886922434,
-    0.8228288453150466
-   ],
-   "fair": 1.33,
-   "ladder": [
-    [
-     10.5,
-     1.33
-    ],
-    [
-     11.5,
-     1.24
-    ]
-   ],
-   "avg": [
-    9.2,
-    7.7
-   ],
-   "expect": 8.3,
-   "expect_sum": 8.5,
-   "expect_matchup": 8.1,
-   "contrib": [
-    5.2,
-    2.9
-   ],
-   "buffer": 2.2,
-   "fa": [
-    [
-     4.4,
-     4.2
-    ],
-    [
-     4.5,
-     3.6
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.23,
-   "p_emp": {
-    "10.5": 0.7518796992481203,
-    "11.5": 0.8064516129032259
-   },
-   "p_mod": 0.752,
-   "p_fin": 0.752,
-   "fair_fin": 1.33,
-   "ladder_fin": [
-    [
-     10.5,
-     1.33
-    ],
-    [
-     11.5,
-     1.22
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.33",
-   "range": [
-    1.22,
-    1.7
-   ]
-  },
-  "v": 2
- },
- "13077329|offsides|unter": {
-  "match_id": "13077329",
-  "home": "Kifisias FC",
-  "away": "Levadiakos",
-  "kickoff": "So 20:00",
-  "kickoff_ts": 1789322400,
-  "league": "Greece Super League 1",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 5.5,
-  "first_range": [
-   1.33,
-   1.72
-  ],
-  "last_run": "So 07:26",
-  "line": 5.5,
-  "range": [
-   1.33,
-   1.72
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    33,
-    35
-   ],
-   "next_line": 4.5,
-   "next_note": "Levadiakos 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
-   "longterm": [
-    0.7345560175138727,
-    0.821401549454136
-   ],
-   "fair": 1.26,
-   "ladder": [
-    [
-     5.5,
-     1.26
-    ],
-    [
-     6.5,
-     1.24
-    ]
-   ],
-   "avg": [
-    3.5,
-    3.1
-   ],
-   "expect": 3.3,
-   "expect_sum": 3.3,
-   "expect_matchup": 3.3,
-   "contrib": [
-    0.9,
-    2.4
-   ],
-   "buffer": 2.2,
-   "fa": [
-    [
-     1.5,
-     2.3
-    ],
-    [
-     2.1,
-     1.0
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.77,
-   "p_emp": {
-    "5.5": 0.7936507936507936,
-    "6.5": 0.8064516129032259
-   },
-   "p_mod": 0.893,
-   "p_fin": 0.843,
-   "fair_fin": 1.19,
-   "ladder_fin": [
-    [
-     5.5,
-     1.19
-    ],
-    [
-     6.5,
-     1.13
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.19",
-   "range": [
-    1.33,
-    1.72
-   ]
-  },
-  "v": 2
- },
- "13077329|ht_yellowcards|über": {
-  "match_id": "13077329",
-  "home": "Kifisias FC",
-  "away": "Levadiakos",
-  "kickoff": "So 20:00",
-  "kickoff_ts": 1789322400,
-  "league": "Greece Super League 1",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 0.5,
-  "first_range": [
-   1.66,
-   2.09
-  ],
-  "last_run": "So 07:26",
-  "line": 0.5,
-  "range": [
-   1.66,
-   2.09
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "über",
-   "line": 0.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    47
-   ],
-   "next_line": 1.5,
-   "next_note": "Kifisias FC 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Levadiakos 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "longterm": [
-    0.7796423598530879,
-    0.8929634660238028
-   ],
-   "fair": 1.26,
-   "ladder": [
-    [
-     0.5,
-     1.26
-    ]
-   ],
-   "avg": [
-    1.6,
-    1.8
-   ],
-   "expect": 2.0,
-   "expect_sum": 1.7,
-   "expect_matchup": 2.3,
-   "contrib": [
-    1.1,
-    1.2
-   ],
-   "buffer": 1.5,
-   "fa": [
-    [
-     0.4,
-     1.4
-    ],
-    [
-     0.9,
-     1.2
-    ]
-   ],
-   "referee": "Konstantinos Tsetsilas: Ø 8.0 Karten (1 Sp.) · Ø 36.0 Fouls (1 Sp.)",
-   "b365": null,
-   "expect_ref": 3.1,
-   "buffer_ref": 2.6,
-   "sd": 1.22,
-   "p_emp": {
-    "0.5": 0.7936507936507936
-   },
-   "p_mod": 0.983,
-   "p_fin": 0.889,
-   "fair_fin": 1.13,
-   "ladder_fin": [
-    [
-     0.5,
-     1.13
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 79 % vs. Modell 98 %",
-   "range": [
-    1.66,
-    2.09
-   ]
-  },
-  "v": 2
- },
- "13077329|ht_yellowcards|unter": {
-  "match_id": "13077329",
-  "home": "Kifisias FC",
-  "away": "Levadiakos",
-  "kickoff": "So 20:00",
-  "kickoff_ts": 1789322400,
-  "league": "Greece Super League 1",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 2.5,
-  "first_range": [
-   1.66,
-   2.09
-  ],
-  "last_run": "So 07:26",
-  "line": 2.5,
-  "range": [
-   1.66,
-   2.09
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    47,
-    47
-   ],
-   "next_line": 1.5,
-   "next_note": "Kifisias FC 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Levadiakos 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.8090510618916027,
-    0.599661718232107
-   ],
-   "fair": 1.34,
-   "ladder": [
-    [
-     2.5,
-     1.34
-    ],
-    [
-     3.5,
-     1.25
-    ]
-   ],
-   "avg": [
-    1.6,
-    1.8
-   ],
-   "expect": 2.0,
-   "expect_sum": 1.7,
-   "expect_matchup": 2.3,
-   "contrib": [
-    1.1,
-    1.2
-   ],
-   "buffer": 0.5,
-   "fa": [
-    [
-     0.4,
-     1.4
-    ],
-    [
-     0.9,
-     1.2
-    ]
-   ],
-   "referee": "Konstantinos Tsetsilas: Ø 8.0 Karten (1 Sp.) · Ø 36.0 Fouls (1 Sp.)",
-   "b365": null,
-   "expect_ref": 3.1,
-   "buffer_ref": -0.6,
-   "sd": 1.22,
-   "p_emp": {
-    "2.5": 0.7462686567164178,
-    "3.5": 0.8
-   },
-   "p_mod": 0.311,
-   "p_fin": 0.529,
-   "fair_fin": 1.89,
-   "ladder_fin": [
-    [
-     2.5,
-     1.89
-    ],
-    [
-     3.5,
-     1.4
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🔴",
-   "reason": "nur 53 % Wahrscheinlichkeit",
-   "range": [
-    1.66,
-    2.09
-   ]
-  },
-  "v": 2
- },
  "13089091|corners|über": {
   "match_id": "13089091",
   "home": "La Serena",
@@ -16457,11 +16002,11 @@
    1.35,
    1.8
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 8.5,
   "range": [
-   1.35,
-   1.8
+   1.36,
+   1.82
   ],
   "signal": {
    "metric": "Ecken",
@@ -16555,8 +16100,8 @@
    "light": "🟢",
    "reason": "fair 1.44",
    "range": [
-    1.35,
-    1.8
+    1.36,
+    1.82
    ]
   },
   "v": 2
@@ -16577,7 +16122,7 @@
    1.63,
    1.9
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 6.5,
   "range": [
    1.63,
@@ -16693,7 +16238,7 @@
    1.26,
    2.1
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.26,
@@ -16809,7 +16354,7 @@
    1.26,
    2.1
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 11.5,
   "range": [
    1.26,
@@ -16925,7 +16470,7 @@
    1.19,
    1.4
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 4.5,
   "range": [
    1.19,
@@ -17041,7 +16586,7 @@
    1.63,
    1.9
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 2.5,
   "range": [
    1.63,
@@ -17141,37 +16686,501 @@
   },
   "v": 2
  },
- "12026922|corners|über": {
-  "match_id": "12026922",
-  "home": "PSV",
-  "away": "Sparta Rotterdam",
+ "13077329|yellowcards|über": {
+  "match_id": "13077329",
+  "home": "Kifisias FC",
+  "away": "Levadiakos",
   "kickoff": "So 20:00",
   "kickoff_ts": 1789322400,
-  "league": "Netherlands Eredivisie",
-  "metric": "Ecken",
-  "metric_key": "corners",
+  "league": "Greece Super League 1",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
   "direction": "über",
   "first_run": "So 06:27",
-  "first_line": 7.5,
+  "first_line": 2.5,
   "first_range": [
-   1.36,
-   2.36
+   1.66,
+   2.09
   ],
-  "last_run": "So 07:26",
-  "line": 7.5,
+  "last_run": "So 08:36",
+  "line": 2.5,
   "range": [
-   1.36,
-   2.36
+   1.66,
+   2.09
   ],
   "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
    "direction": "über",
-   "line": 7.5,
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    47,
+    47
+   ],
+   "next_line": 3.5,
+   "next_note": "Kifisias FC 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "longterm": [
+    0.7801749216303564,
+    0.8925573343905884
+   ],
+   "fair": 1.26,
+   "ladder": [
+    [
+     1.5,
+     1.25
+    ],
+    [
+     2.5,
+     1.26
+    ]
+   ],
+   "avg": [
+    4.4,
+    5.3
+   ],
+   "expect": 5.4,
+   "expect_sum": 4.8,
+   "expect_matchup": 6.0,
+   "contrib": [
+    2.9,
+    3.1
+   ],
+   "buffer": 2.9,
+   "fa": [
+    [
+     3.0,
+     2.1
+    ],
+    [
+     2.2,
+     2.7
+    ]
+   ],
+   "referee": "Konstantinos Tsetsilas: Ø 8.0 Karten (1 Sp.) · Ø 36.0 Fouls (1 Sp.)",
+   "b365": null,
+   "expect_ref": 6.0,
+   "buffer_ref": 3.5,
+   "sd": 2.22,
+   "p_emp": {
+    "1.5": 0.8,
+    "2.5": 0.7936507936507936
+   },
+   "p_mod": 0.943,
+   "p_fin": 0.868,
+   "fair_fin": 1.15,
+   "ladder_fin": [
+    [
+     1.5,
+     1.12
+    ],
+    [
+     2.5,
+     1.15
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 79 % vs. Modell 94 %",
+   "range": [
+    1.66,
+    2.09
+   ]
+  },
+  "v": 2
+ },
+ "13077329|yellowcards|unter": {
+  "match_id": "13077329",
+  "home": "Kifisias FC",
+  "away": "Levadiakos",
+  "kickoff": "So 20:00",
+  "kickoff_ts": 1789322400,
+  "league": "Greece Super League 1",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 6.5,
+  "first_range": [
+   1.66,
+   2.09
+  ],
+  "last_run": "So 08:36",
+  "line": 6.5,
+  "range": [
+   1.66,
+   2.09
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    47,
+    47
+   ],
+   "next_line": 5.5,
+   "next_note": "Levadiakos 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.8099587462374344,
+    0.7240508637203077
+   ],
+   "fair": 1.25,
+   "ladder": [
+    [
+     6.5,
+     1.25
+    ],
+    [
+     7.5,
+     1.27
+    ]
+   ],
+   "avg": [
+    4.4,
+    5.3
+   ],
+   "expect": 5.4,
+   "expect_sum": 4.8,
+   "expect_matchup": 6.0,
+   "contrib": [
+    2.9,
+    3.1
+   ],
+   "buffer": 1.1,
+   "fa": [
+    [
+     3.0,
+     2.1
+    ],
+    [
+     2.2,
+     2.7
+    ]
+   ],
+   "referee": "Konstantinos Tsetsilas: Ø 8.0 Karten (1 Sp.) · Ø 36.0 Fouls (1 Sp.)",
+   "b365": null,
+   "expect_ref": 6.0,
+   "buffer_ref": 0.5,
+   "sd": 2.22,
+   "p_emp": {
+    "6.5": 0.8,
+    "7.5": 0.7874015748031495
+   },
+   "p_mod": 0.589,
+   "p_fin": 0.695,
+   "fair_fin": 1.44,
+   "ladder_fin": [
+    [
+     6.5,
+     1.44
+    ],
+    [
+     7.5,
+     1.3
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 80 % vs. Modell 59 %",
+   "range": [
+    1.66,
+    2.09
+   ]
+  },
+  "v": 2
+ },
+ "13077329|on_target|unter": {
+  "match_id": "13077329",
+  "home": "Kifisias FC",
+  "away": "Levadiakos",
+  "kickoff": "So 20:00",
+  "kickoff_ts": 1789322400,
+  "league": "Greece Super League 1",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 10.5,
+  "first_range": [
+   1.22,
+   1.7
+  ],
+  "last_run": "So 08:36",
+  "line": 10.5,
+  "range": [
+   1.22,
+   1.7
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "unter",
+   "line": 10.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    47,
+    47
+   ],
+   "next_line": 9.5,
+   "next_note": "Kifisias FC 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+   "longterm": [
+    0.7479200886922434,
+    0.8228288453150466
+   ],
+   "fair": 1.33,
+   "ladder": [
+    [
+     10.5,
+     1.33
+    ],
+    [
+     11.5,
+     1.24
+    ]
+   ],
+   "avg": [
+    9.2,
+    7.7
+   ],
+   "expect": 8.3,
+   "expect_sum": 8.5,
+   "expect_matchup": 8.1,
+   "contrib": [
+    5.2,
+    2.9
+   ],
+   "buffer": 2.2,
+   "fa": [
+    [
+     4.4,
+     4.2
+    ],
+    [
+     4.5,
+     3.6
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.23,
+   "p_emp": {
+    "10.5": 0.7518796992481203,
+    "11.5": 0.8064516129032259
+   },
+   "p_mod": 0.752,
+   "p_fin": 0.752,
+   "fair_fin": 1.33,
+   "ladder_fin": [
+    [
+     10.5,
+     1.33
+    ],
+    [
+     11.5,
+     1.22
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.33",
+   "range": [
+    1.22,
+    1.7
+   ]
+  },
+  "v": 2
+ },
+ "13077329|offsides|unter": {
+  "match_id": "13077329",
+  "home": "Kifisias FC",
+  "away": "Levadiakos",
+  "kickoff": "So 20:00",
+  "kickoff_ts": 1789322400,
+  "league": "Greece Super League 1",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 5.5,
+  "first_range": [
+   1.33,
+   1.72
+  ],
+  "last_run": "So 08:36",
+  "line": 5.5,
+  "range": [
+   1.33,
+   1.72
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
    "home_series": {
     "kind": "heim",
     "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
     "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    33,
+    35
+   ],
+   "next_line": 4.5,
+   "next_note": "Levadiakos 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.7345560175138727,
+    0.821401549454136
+   ],
+   "fair": 1.26,
+   "ladder": [
+    [
+     5.5,
+     1.26
+    ],
+    [
+     6.5,
+     1.24
+    ]
+   ],
+   "avg": [
+    3.5,
+    3.1
+   ],
+   "expect": 3.3,
+   "expect_sum": 3.3,
+   "expect_matchup": 3.3,
+   "contrib": [
+    0.9,
+    2.4
+   ],
+   "buffer": 2.2,
+   "fa": [
+    [
+     1.5,
+     2.3
+    ],
+    [
+     2.1,
+     1.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.77,
+   "p_emp": {
+    "5.5": 0.7936507936507936,
+    "6.5": 0.8064516129032259
+   },
+   "p_mod": 0.893,
+   "p_fin": 0.843,
+   "fair_fin": 1.19,
+   "ladder_fin": [
+    [
+     5.5,
+     1.19
+    ],
+    [
+     6.5,
+     1.13
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.19",
+   "range": [
+    1.33,
+    1.72
+   ]
+  },
+  "v": 2
+ },
+ "13077329|ht_yellowcards|über": {
+  "match_id": "13077329",
+  "home": "Kifisias FC",
+  "away": "Levadiakos",
+  "kickoff": "So 20:00",
+  "kickoff_ts": 1789322400,
+  "league": "Greece Super League 1",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 0.5,
+  "first_range": [
+   1.66,
+   2.09
+  ],
+  "last_run": "So 08:36",
+  "line": 0.5,
+  "range": [
+   1.66,
+   2.09
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "über",
+   "line": 0.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
    },
    "away_series": {
     "kind": "gesamt",
@@ -17181,82 +17190,305 @@
    "home_is_anchor": false,
    "away_is_anchor": true,
    "valid": [
-    48,
+    47,
     47
    ],
-   "next_line": 8.5,
-   "next_note": "PSV 2/4 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+   "next_line": 1.5,
+   "next_note": "Kifisias FC 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Levadiakos 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
    "longterm": [
-    0.8011814144962611,
-    0.915265034423568
+    0.7796423598530879,
+    0.8929634660238028
    ],
-   "fair": 1.24,
+   "fair": 1.26,
    "ladder": [
     [
-     6.5,
-     1.25
-    ],
-    [
-     7.5,
-     1.24
+     0.5,
+     1.26
     ]
    ],
    "avg": [
-    10.3,
-    11.0
+    1.6,
+    1.8
    ],
-   "expect": 11.7,
-   "expect_sum": 10.6,
-   "expect_matchup": 12.7,
+   "expect": 2.0,
+   "expect_sum": 1.7,
+   "expect_matchup": 2.3,
    "contrib": [
-    9.1,
-    3.6
+    1.1,
+    1.2
    ],
-   "buffer": 4.2,
+   "buffer": 1.5,
    "fa": [
     [
-     6.6,
-     4.0
+     0.4,
+     1.4
     ],
     [
-     5.0,
-     6.2
+     0.9,
+     1.2
     ]
    ],
-   "referee": null,
-   "b365": [
-    "11.5",
-    "2.000",
-    "1.800"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.45,
+   "referee": "Konstantinos Tsetsilas: Ø 8.0 Karten (1 Sp.) · Ø 36.0 Fouls (1 Sp.)",
+   "b365": null,
+   "expect_ref": 3.1,
+   "buffer_ref": 2.6,
+   "sd": 1.22,
    "p_emp": {
-    "6.5": 0.8,
-    "7.5": 0.8064516129032259
+    "0.5": 0.7936507936507936
    },
-   "p_mod": 0.888,
-   "p_fin": 0.847,
-   "fair_fin": 1.18,
+   "p_mod": 0.983,
+   "p_fin": 0.889,
+   "fair_fin": 1.13,
    "ladder_fin": [
     [
-     6.5,
-     1.15
-    ],
-    [
-     7.5,
-     1.18
+     0.5,
+     1.13
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.18",
+   "light": "🟡",
+   "reason": "Historie 79 % vs. Modell 98 %",
    "range": [
-    1.36,
-    2.36
+    1.66,
+    2.09
+   ]
+  },
+  "v": 2
+ },
+ "13077329|ht_yellowcards|unter": {
+  "match_id": "13077329",
+  "home": "Kifisias FC",
+  "away": "Levadiakos",
+  "kickoff": "So 20:00",
+  "kickoff_ts": 1789322400,
+  "league": "Greece Super League 1",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 2.5,
+  "first_range": [
+   1.66,
+   2.09
+  ],
+  "last_run": "So 08:36",
+  "line": 2.5,
+  "range": [
+   1.66,
+   2.09
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    47,
+    47
+   ],
+   "next_line": 1.5,
+   "next_note": "Kifisias FC 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Levadiakos 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.8090510618916027,
+    0.599661718232107
+   ],
+   "fair": 1.34,
+   "ladder": [
+    [
+     2.5,
+     1.34
+    ],
+    [
+     3.5,
+     1.25
+    ]
+   ],
+   "avg": [
+    1.6,
+    1.8
+   ],
+   "expect": 2.0,
+   "expect_sum": 1.7,
+   "expect_matchup": 2.3,
+   "contrib": [
+    1.1,
+    1.2
+   ],
+   "buffer": 0.5,
+   "fa": [
+    [
+     0.4,
+     1.4
+    ],
+    [
+     0.9,
+     1.2
+    ]
+   ],
+   "referee": "Konstantinos Tsetsilas: Ø 8.0 Karten (1 Sp.) · Ø 36.0 Fouls (1 Sp.)",
+   "b365": null,
+   "expect_ref": 3.1,
+   "buffer_ref": -0.6,
+   "sd": 1.22,
+   "p_emp": {
+    "2.5": 0.7462686567164178,
+    "3.5": 0.8
+   },
+   "p_mod": 0.311,
+   "p_fin": 0.529,
+   "fair_fin": 1.89,
+   "ladder_fin": [
+    [
+     2.5,
+     1.89
+    ],
+    [
+     3.5,
+     1.4
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "nur 53 % Wahrscheinlichkeit",
+   "range": [
+    1.66,
+    2.09
+   ]
+  },
+  "v": 2
+ },
+ "11400135|corners|über": {
+  "match_id": "11400135",
+  "home": "Leones FC",
+  "away": "Tecnico Universitario",
+  "kickoff": "So 20:00",
+  "kickoff_ts": 1789322400,
+  "league": "Ecuador LigaPro Serie A",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 8.5,
+  "first_range": [
+   1.54,
+   1.54
+  ],
+  "last_run": "So 08:36",
+  "line": 8.5,
+  "range": [
+   1.57,
+   1.57
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    48
+   ],
+   "next_line": 9.5,
+   "next_note": "Leones FC 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Tecnico Universitario 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.688695002025985,
+    0.7279521134451016
+   ],
+   "fair": 1.51,
+   "ladder": [
+    [
+     7.5,
+     1.29
+    ],
+    [
+     8.5,
+     1.51
+    ]
+   ],
+   "avg": [
+    9.2,
+    9.8
+   ],
+   "expect": 9.6,
+   "expect_sum": 9.5,
+   "expect_matchup": 9.7,
+   "contrib": [
+    5.6,
+    4.1
+   ],
+   "buffer": 1.1,
+   "fa": [
+    [
+     4.0,
+     4.9
+    ],
+    [
+     4.5,
+     4.9
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "9.5",
+    "1.900",
+    "1.900"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.48,
+   "p_emp": {
+    "7.5": 0.7751937984496123,
+    "8.5": 0.6622516556291391
+   },
+   "p_mod": 0.671,
+   "p_fin": 0.667,
+   "fair_fin": 1.5,
+   "ladder_fin": [
+    [
+     7.5,
+     1.27
+    ],
+    [
+     8.5,
+     1.5
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "67 % knapp",
+   "range": [
+    1.57,
+    1.57
    ]
   },
   "v": 2
@@ -17277,7 +17509,7 @@
    1.29,
    1.68
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.29,
@@ -17397,7 +17629,7 @@
    1.363,
    2.0
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.35,
@@ -17501,126 +17733,6 @@
   },
   "v": 2
  },
- "11175262|corners|über": {
-  "match_id": "11175262",
-  "home": "Gimnasia Jujuy",
-  "away": "Atletico Rafaela",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1789326000,
-  "league": "Argentina Nacional B",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 7.5,
-  "first_range": [
-   1.66,
-   2.3
-  ],
-  "last_run": "So 07:26",
-  "line": 7.5,
-  "range": [
-   1.66,
-   2.3
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    39,
-    41
-   ],
-   "next_line": 8.5,
-   "next_note": "Atletico Rafaela 0/2 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "longterm": [
-    0.8944211760482282,
-    0.6634455841825126
-   ],
-   "fair": 1.35,
-   "ladder": [
-    [
-     6.5,
-     1.31
-    ],
-    [
-     7.5,
-     1.35
-    ]
-   ],
-   "avg": [
-    12.9,
-    8.3
-   ],
-   "expect": 11.3,
-   "expect_sum": 10.6,
-   "expect_matchup": 12.0,
-   "contrib": [
-    8.3,
-    3.7
-   ],
-   "buffer": 3.8,
-   "fa": [
-    [
-     5.8,
-     5.1
-    ],
-    [
-     4.6,
-     4.4
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "9.5",
-    "1.850",
-    "1.950"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.49,
-   "p_emp": {
-    "6.5": 0.7633587786259541,
-    "7.5": 0.7407407407407407
-   },
-   "p_mod": 0.862,
-   "p_fin": 0.801,
-   "fair_fin": 1.25,
-   "ladder_fin": [
-    [
-     6.5,
-     1.19
-    ],
-    [
-     7.5,
-     1.25
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 74 % vs. Modell 86 %",
-   "range": [
-    1.66,
-    2.3
-   ]
-  },
-  "v": 2
- },
  "12130580|yellowcards|unter": {
   "match_id": "12130580",
   "home": "Tenerife",
@@ -17637,7 +17749,7 @@
    1.42,
    1.42
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 6.5,
   "range": [
    1.42,
@@ -17753,7 +17865,7 @@
    1.42,
    1.42
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 2.5,
   "range": [
    1.42,
@@ -17853,350 +17965,122 @@
   },
   "v": 2
  },
- "13048299|yellowcards|unter": {
-  "match_id": "13048299",
-  "home": "Real Sociedad",
-  "away": "Atletico Madrid",
+ "11175262|corners|über": {
+  "match_id": "11175262",
+  "home": "Gimnasia Jujuy",
+  "away": "Atletico Rafaela",
   "kickoff": "So 21:00",
   "kickoff_ts": 1789326000,
-  "league": "Spain La Liga",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 6.5,
-  "first_range": [
-   1.19,
-   1.82
-  ],
-  "last_run": "So 07:26",
-  "line": 6.5,
-  "range": [
-   1.19,
-   1.82
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    49
-   ],
-   "next_line": 5.5,
-   "next_note": "Real Sociedad 2/4 (3. Lücke) gesamt, 7/9 (3. Lücke) heim",
-   "longterm": [
-    0.8593128937473826,
-    0.9002141354141568
-   ],
-   "fair": 1.14,
-   "ladder": [
-    [
-     6.5,
-     1.14
-    ],
-    [
-     7.5,
-     1.23
-    ]
-   ],
-   "avg": [
-    4.6,
-    3.4
-   ],
-   "expect": 4.0,
-   "expect_sum": 4.0,
-   "expect_matchup": 4.0,
-   "contrib": [
-    1.6,
-    2.4
-   ],
-   "buffer": 2.5,
-   "fa": [
-    [
-     2.0,
-     2.2
-    ],
-    [
-     1.8,
-     1.8
-    ]
-   ],
-   "referee": "Juan Martinez Munuera: Ø 4.2 Karten (23 Sp.) · Ø 26.3 Fouls (23 Sp.)",
-   "b365": null,
-   "expect_ref": 4.2,
-   "buffer_ref": 2.3,
-   "sd": 2.33,
-   "p_emp": {
-    "6.5": 0.8771929824561404,
-    "7.5": 0.8130081300813008
-   },
-   "p_mod": 0.838,
-   "p_fin": 0.858,
-   "fair_fin": 1.17,
-   "ladder_fin": [
-    [
-     6.5,
-     1.17
-    ],
-    [
-     7.5,
-     1.15
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.17",
-   "range": [
-    1.19,
-    1.82
-   ]
-  },
-  "v": 2
- },
- "13048299|on_target|über": {
-  "match_id": "13048299",
-  "home": "Real Sociedad",
-  "away": "Atletico Madrid",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1789326000,
-  "league": "Spain La Liga",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
+  "league": "Argentina Nacional B",
+  "metric": "Ecken",
+  "metric_key": "corners",
   "direction": "über",
   "first_run": "So 06:27",
-  "first_line": 6.5,
+  "first_line": 7.5,
   "first_range": [
-   1.73,
-   1.73
+   1.66,
+   2.3
   ],
-  "last_run": "So 07:26",
-  "line": 6.5,
+  "last_run": "So 08:36",
+  "line": 7.5,
   "range": [
-   1.73,
-   1.73
+   1.66,
+   2.3
   ],
   "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
+   "metric": "Ecken",
+   "metric_key": "corners",
    "direction": "über",
-   "line": 6.5,
+   "line": 7.5,
    "home_series": {
     "kind": "gesamt",
     "hits": 10,
-    "window": 11
+    "window": 10
    },
    "away_series": {
     "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    44,
-    47
-   ],
-   "next_line": 7.5,
-   "next_note": "Atletico Madrid 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "longterm": [
-    0.790900924554891,
-    0.7616683912071812
-   ],
-   "fair": 1.32,
-   "ladder": [
-    [
-     5.5,
-     1.33
-    ],
-    [
-     6.5,
-     1.32
-    ]
-   ],
-   "avg": [
-    8.9,
-    9.1
-   ],
-   "expect": 9.1,
-   "expect_sum": 9.0,
-   "expect_matchup": 9.3,
-   "contrib": [
-    6.3,
-    3.0
-   ],
-   "buffer": 2.6,
-   "fa": [
-    [
-     4.7,
-     4.5
-    ],
-    [
-     4.8,
-     4.8
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.39,
-   "p_emp": {
-    "5.5": 0.7518796992481203,
-    "6.5": 0.7575757575757576
-   },
-   "p_mod": 0.778,
-   "p_fin": 0.768,
-   "fair_fin": 1.3,
-   "ladder_fin": [
-    [
-     5.5,
-     1.24
-    ],
-    [
-     6.5,
-     1.3
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.30",
-   "range": [
-    1.73,
-    1.73
-   ]
-  },
-  "v": 2
- },
- "13048299|ht_yellowcards|unter": {
-  "match_id": "13048299",
-  "home": "Real Sociedad",
-  "away": "Atletico Madrid",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1789326000,
-  "league": "Spain La Liga",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 2.5,
-  "first_range": [
-   1.19,
-   1.82
-  ],
-  "last_run": "So 07:26",
-  "line": 2.5,
-  "range": [
-   1.19,
-   1.82
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
     "hits": 5,
     "window": 6
    },
    "home_is_anchor": true,
    "away_is_anchor": false,
    "valid": [
-    49,
-    49
+    39,
+    41
    ],
-   "next_line": 1.5,
-   "next_note": "Real Sociedad 1/3 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "next_line": 8.5,
+   "next_note": "Atletico Rafaela 0/2 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
    "longterm": [
-    0.8569029746183914,
-    0.8208214822487538
+    0.8944211760482282,
+    0.6634455841825126
    ],
-   "fair": 1.19,
+   "fair": 1.35,
    "ladder": [
     [
-     2.5,
-     1.19
+     6.5,
+     1.31
     ],
     [
-     3.5,
-     1.2
+     7.5,
+     1.35
     ]
    ],
    "avg": [
-    1.4,
-    1.2
+    12.9,
+    8.3
    ],
-   "expect": 1.3,
-   "expect_sum": 1.3,
-   "expect_matchup": 1.3,
+   "expect": 11.3,
+   "expect_sum": 10.6,
+   "expect_matchup": 12.0,
    "contrib": [
-    0.5,
-    0.8
+    8.3,
+    3.7
    ],
-   "buffer": 1.2,
+   "buffer": 3.8,
    "fa": [
     [
-     0.7,
-     0.5
+     5.8,
+     5.1
     ],
     [
-     0.7,
-     0.5
+     4.6,
+     4.4
     ]
    ],
-   "referee": "Juan Martinez Munuera: Ø 4.2 Karten (23 Sp.) · Ø 26.3 Fouls (23 Sp.)",
-   "b365": null,
-   "expect_ref": 3.4,
-   "buffer_ref": -0.9,
-   "sd": 1.1,
+   "referee": null,
+   "b365": [
+    "9.5",
+    "1.850",
+    "1.950"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.49,
    "p_emp": {
-    "2.5": 0.8403361344537815,
-    "3.5": 0.8333333333333334
+    "6.5": 0.7633587786259541,
+    "7.5": 0.7407407407407407
    },
-   "p_mod": 0.207,
-   "p_fin": 0.523,
-   "fair_fin": 1.91,
+   "p_mod": 0.862,
+   "p_fin": 0.801,
+   "fair_fin": 1.25,
    "ladder_fin": [
     [
-     2.5,
-     1.91
+     6.5,
+     1.19
     ],
     [
-     3.5,
-     1.46
+     7.5,
+     1.25
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🔴",
-   "reason": "nur 52 % Wahrscheinlichkeit",
+   "light": "🟡",
+   "reason": "Historie 74 % vs. Modell 86 %",
    "range": [
-    1.19,
-    1.82
+    1.66,
+    2.3
    ]
   },
   "v": 2
@@ -18217,11 +18101,11 @@
    1.2,
    2.38
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
    1.21,
-   2.32
+   2.25
   ],
   "signal": {
    "metric": "Ecken",
@@ -18316,7 +18200,7 @@
    "reason": "Historie 75 % vs. Modell 89 %",
    "range": [
     1.21,
-    2.32
+    2.25
    ]
   },
   "v": 2
@@ -18337,11 +18221,11 @@
    1.2,
    2.38
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
    1.21,
-   2.32
+   2.25
   ],
   "signal": {
    "metric": "1. HZ Ecken",
@@ -18436,243 +18320,7 @@
    "reason": "Historie 69 % vs. Modell 82 %",
    "range": [
     1.21,
-    2.32
-   ]
-  },
-  "v": 2
- },
- "13053809|yellowcards|unter": {
-  "match_id": "13053809",
-  "home": "Mirassol",
-  "away": "Vitoria",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1789326000,
-  "league": "Brazil Serie A",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 5.5,
-  "first_range": [
-   1.23,
-   1.76
-  ],
-  "last_run": "So 07:26",
-  "line": 5.5,
-  "range": [
-   1.23,
-   1.76
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    48,
-    49
-   ],
-   "next_line": 4.5,
-   "next_note": "kein Anker — Mirassol 5/7 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; Vitoria 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "longterm": [
-    0.8072529951353228,
-    0.6447910678096068
-   ],
-   "fair": 1.35,
-   "ladder": [
-    [
-     5.5,
-     1.35
-    ],
-    [
-     6.5,
-     1.21
-    ]
-   ],
-   "avg": [
-    3.8,
-    4.4
-   ],
-   "expect": 4.2,
-   "expect_sum": 4.1,
-   "expect_matchup": 4.3,
-   "contrib": [
-    2.4,
-    1.9
-   ],
-   "buffer": 1.3,
-   "fa": [
-    [
-     2.4,
-     1.9
-    ],
-    [
-     2.3,
-     2.4
-    ]
-   ],
-   "referee": "Ramon Abatti Abel: Ø 4.3 Karten (23 Sp.) · Ø 29.1 Fouls (23 Sp.)",
-   "b365": null,
-   "expect_ref": 4.5,
-   "buffer_ref": 1.0,
-   "sd": 2.0,
-   "p_emp": {
-    "5.5": 0.7407407407407407,
-    "6.5": 0.8264462809917356
-   },
-   "p_mod": 0.691,
-   "p_fin": 0.716,
-   "fair_fin": 1.4,
-   "ladder_fin": [
-    [
-     5.5,
-     1.4
-    ],
-    [
-     6.5,
-     1.2
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.40",
-   "range": [
-    1.23,
-    1.76
-   ]
-  },
-  "v": 2
- },
- "13053809|ht_corners|über": {
-  "match_id": "13053809",
-  "home": "Mirassol",
-  "away": "Vitoria",
-  "kickoff": "So 21:00",
-  "kickoff_ts": 1789326000,
-  "league": "Brazil Serie A",
-  "metric": "1. HZ Ecken",
-  "metric_key": "ht_corners",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 3.5,
-  "first_range": [
-   1.22,
-   2.16
-  ],
-  "last_run": "So 07:26",
-  "line": 3.5,
-  "range": [
-   1.22,
-   2.16
-  ],
-  "signal": {
-   "metric": "1. HZ Ecken",
-   "metric_key": "ht_corners",
-   "direction": "über",
-   "line": 3.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    46,
-    47
-   ],
-   "next_line": 4.5,
-   "next_note": "Mirassol 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
-   "longterm": [
-    0.6782318765427408,
-    0.6796005229587885
-   ],
-   "fair": 1.51,
-   "ladder": [
-    [
-     2.5,
-     1.36
-    ],
-    [
-     3.5,
-     1.51
-    ]
-   ],
-   "avg": [
-    4.0,
-    4.8
-   ],
-   "expect": 4.4,
-   "expect_sum": 4.4,
-   "expect_matchup": 4.4,
-   "contrib": [
-    3.1,
-    1.3
-   ],
-   "buffer": 0.9,
-   "fa": [
-    [
-     2.0,
-     2.5
-    ],
-    [
-     2.0,
-     2.4
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "4.5",
-    "1.825",
-    "1.975"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.11,
-   "p_emp": {
-    "2.5": 0.7352941176470588,
-    "3.5": 0.6622516556291391
-   },
-   "p_mod": 0.665,
-   "p_fin": 0.664,
-   "fair_fin": 1.51,
-   "ladder_fin": [
-    [
-     2.5,
-     1.29
-    ],
-    [
-     3.5,
-     1.51
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "66 % knapp",
-   "range": [
-    1.22,
-    2.16
+    2.25
    ]
   },
   "v": 2
@@ -18693,7 +18341,7 @@
    1.875,
    1.94
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 8.5,
   "range": [
    1.875,
@@ -18813,11 +18461,11 @@
    1.54,
    1.54
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 7.5,
   "range": [
-   1.51,
-   1.51
+   1.57,
+   1.57
   ],
   "signal": {
    "metric": "Ecken",
@@ -18907,8 +18555,8 @@
    "light": "🟢",
    "reason": "fair 1.26",
    "range": [
-    1.51,
-    1.51
+    1.57,
+    1.57
    ]
   },
   "v": 2
@@ -18929,11 +18577,11 @@
    1.54,
    1.54
   ],
-  "last_run": "So 07:26",
+  "last_run": "So 08:36",
   "line": 3.5,
   "range": [
-   1.51,
-   1.51
+   1.57,
+   1.57
   ],
   "signal": {
    "metric": "1. HZ Ecken",
@@ -19023,8 +18671,1420 @@
    "light": "🟢",
    "reason": "fair 1.35",
    "range": [
-    1.51,
-    1.51
+    1.57,
+    1.57
+   ]
+  },
+  "v": 2
+ },
+ "13053809|yellowcards|unter": {
+  "match_id": "13053809",
+  "home": "Mirassol",
+  "away": "Vitoria",
+  "kickoff": "So 21:00",
+  "kickoff_ts": 1789326000,
+  "league": "Brazil Serie A",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 5.5,
+  "first_range": [
+   1.23,
+   1.76
+  ],
+  "last_run": "So 08:36",
+  "line": 5.5,
+  "range": [
+   1.23,
+   1.76
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    48,
+    49
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — Mirassol 5/7 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; Vitoria 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.8072529951353228,
+    0.6447910678096068
+   ],
+   "fair": 1.35,
+   "ladder": [
+    [
+     5.5,
+     1.35
+    ],
+    [
+     6.5,
+     1.21
+    ]
+   ],
+   "avg": [
+    3.8,
+    4.4
+   ],
+   "expect": 4.2,
+   "expect_sum": 4.1,
+   "expect_matchup": 4.3,
+   "contrib": [
+    2.4,
+    1.9
+   ],
+   "buffer": 1.3,
+   "fa": [
+    [
+     2.4,
+     1.9
+    ],
+    [
+     2.3,
+     2.4
+    ]
+   ],
+   "referee": "Ramon Abatti Abel: Ø 4.3 Karten (23 Sp.) · Ø 29.1 Fouls (23 Sp.)",
+   "b365": null,
+   "expect_ref": 4.5,
+   "buffer_ref": 1.0,
+   "sd": 2.0,
+   "p_emp": {
+    "5.5": 0.7407407407407407,
+    "6.5": 0.8264462809917356
+   },
+   "p_mod": 0.691,
+   "p_fin": 0.716,
+   "fair_fin": 1.4,
+   "ladder_fin": [
+    [
+     5.5,
+     1.4
+    ],
+    [
+     6.5,
+     1.2
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.40",
+   "range": [
+    1.23,
+    1.76
+   ]
+  },
+  "v": 2
+ },
+ "13053809|ht_corners|über": {
+  "match_id": "13053809",
+  "home": "Mirassol",
+  "away": "Vitoria",
+  "kickoff": "So 21:00",
+  "kickoff_ts": 1789326000,
+  "league": "Brazil Serie A",
+  "metric": "1. HZ Ecken",
+  "metric_key": "ht_corners",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 3.5,
+  "first_range": [
+   1.22,
+   2.16
+  ],
+  "last_run": "So 08:36",
+  "line": 3.5,
+  "range": [
+   1.22,
+   2.15
+  ],
+  "signal": {
+   "metric": "1. HZ Ecken",
+   "metric_key": "ht_corners",
+   "direction": "über",
+   "line": 3.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    46,
+    47
+   ],
+   "next_line": 4.5,
+   "next_note": "Mirassol 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "longterm": [
+    0.6782318765427408,
+    0.6796005229587885
+   ],
+   "fair": 1.51,
+   "ladder": [
+    [
+     2.5,
+     1.36
+    ],
+    [
+     3.5,
+     1.51
+    ]
+   ],
+   "avg": [
+    4.0,
+    4.8
+   ],
+   "expect": 4.4,
+   "expect_sum": 4.4,
+   "expect_matchup": 4.4,
+   "contrib": [
+    3.1,
+    1.3
+   ],
+   "buffer": 0.9,
+   "fa": [
+    [
+     2.0,
+     2.5
+    ],
+    [
+     2.0,
+     2.4
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "4.5",
+    "1.825",
+    "1.975"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.11,
+   "p_emp": {
+    "2.5": 0.7352941176470588,
+    "3.5": 0.6622516556291391
+   },
+   "p_mod": 0.665,
+   "p_fin": 0.664,
+   "fair_fin": 1.51,
+   "ladder_fin": [
+    [
+     2.5,
+     1.29
+    ],
+    [
+     3.5,
+     1.51
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "66 % knapp",
+   "range": [
+    1.22,
+    2.15
+   ]
+  },
+  "v": 2
+ },
+ "13048299|yellowcards|unter": {
+  "match_id": "13048299",
+  "home": "Real Sociedad",
+  "away": "Atletico Madrid",
+  "kickoff": "So 21:00",
+  "kickoff_ts": 1789326000,
+  "league": "Spain La Liga",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 6.5,
+  "first_range": [
+   1.19,
+   1.82
+  ],
+  "last_run": "So 08:36",
+  "line": 6.5,
+  "range": [
+   1.19,
+   1.82
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    49
+   ],
+   "next_line": 5.5,
+   "next_note": "Real Sociedad 2/4 (3. Lücke) gesamt, 7/9 (3. Lücke) heim",
+   "longterm": [
+    0.8593128937473826,
+    0.9002141354141568
+   ],
+   "fair": 1.14,
+   "ladder": [
+    [
+     6.5,
+     1.14
+    ],
+    [
+     7.5,
+     1.23
+    ]
+   ],
+   "avg": [
+    4.6,
+    3.4
+   ],
+   "expect": 4.0,
+   "expect_sum": 4.0,
+   "expect_matchup": 4.0,
+   "contrib": [
+    1.6,
+    2.4
+   ],
+   "buffer": 2.5,
+   "fa": [
+    [
+     2.0,
+     2.2
+    ],
+    [
+     1.8,
+     1.8
+    ]
+   ],
+   "referee": "Juan Martinez Munuera: Ø 4.2 Karten (23 Sp.) · Ø 26.3 Fouls (23 Sp.)",
+   "b365": null,
+   "expect_ref": 4.2,
+   "buffer_ref": 2.3,
+   "sd": 2.33,
+   "p_emp": {
+    "6.5": 0.8771929824561404,
+    "7.5": 0.8130081300813008
+   },
+   "p_mod": 0.838,
+   "p_fin": 0.858,
+   "fair_fin": 1.17,
+   "ladder_fin": [
+    [
+     6.5,
+     1.17
+    ],
+    [
+     7.5,
+     1.15
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.17",
+   "range": [
+    1.19,
+    1.82
+   ]
+  },
+  "v": 2
+ },
+ "13048299|on_target|über": {
+  "match_id": "13048299",
+  "home": "Real Sociedad",
+  "away": "Atletico Madrid",
+  "kickoff": "So 21:00",
+  "kickoff_ts": 1789326000,
+  "league": "Spain La Liga",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 6.5,
+  "first_range": [
+   1.73,
+   1.73
+  ],
+  "last_run": "So 08:36",
+  "line": 6.5,
+  "range": [
+   1.73,
+   1.73
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    47
+   ],
+   "next_line": 7.5,
+   "next_note": "Atletico Madrid 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.790900924554891,
+    0.7616683912071812
+   ],
+   "fair": 1.32,
+   "ladder": [
+    [
+     5.5,
+     1.33
+    ],
+    [
+     6.5,
+     1.32
+    ]
+   ],
+   "avg": [
+    8.9,
+    9.1
+   ],
+   "expect": 9.1,
+   "expect_sum": 9.0,
+   "expect_matchup": 9.3,
+   "contrib": [
+    6.3,
+    3.0
+   ],
+   "buffer": 2.6,
+   "fa": [
+    [
+     4.7,
+     4.5
+    ],
+    [
+     4.8,
+     4.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.39,
+   "p_emp": {
+    "5.5": 0.7518796992481203,
+    "6.5": 0.7575757575757576
+   },
+   "p_mod": 0.778,
+   "p_fin": 0.768,
+   "fair_fin": 1.3,
+   "ladder_fin": [
+    [
+     5.5,
+     1.24
+    ],
+    [
+     6.5,
+     1.3
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.30",
+   "range": [
+    1.73,
+    1.73
+   ]
+  },
+  "v": 2
+ },
+ "13048299|ht_yellowcards|unter": {
+  "match_id": "13048299",
+  "home": "Real Sociedad",
+  "away": "Atletico Madrid",
+  "kickoff": "So 21:00",
+  "kickoff_ts": 1789326000,
+  "league": "Spain La Liga",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 2.5,
+  "first_range": [
+   1.19,
+   1.82
+  ],
+  "last_run": "So 08:36",
+  "line": 2.5,
+  "range": [
+   1.19,
+   1.82
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    49,
+    49
+   ],
+   "next_line": 1.5,
+   "next_note": "Real Sociedad 1/3 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "longterm": [
+    0.8569029746183914,
+    0.8208214822487538
+   ],
+   "fair": 1.19,
+   "ladder": [
+    [
+     2.5,
+     1.19
+    ],
+    [
+     3.5,
+     1.2
+    ]
+   ],
+   "avg": [
+    1.4,
+    1.2
+   ],
+   "expect": 1.3,
+   "expect_sum": 1.3,
+   "expect_matchup": 1.3,
+   "contrib": [
+    0.5,
+    0.8
+   ],
+   "buffer": 1.2,
+   "fa": [
+    [
+     0.7,
+     0.5
+    ],
+    [
+     0.7,
+     0.5
+    ]
+   ],
+   "referee": "Juan Martinez Munuera: Ø 4.2 Karten (23 Sp.) · Ø 26.3 Fouls (23 Sp.)",
+   "b365": null,
+   "expect_ref": 3.4,
+   "buffer_ref": -0.9,
+   "sd": 1.1,
+   "p_emp": {
+    "2.5": 0.8403361344537815,
+    "3.5": 0.8333333333333334
+   },
+   "p_mod": 0.207,
+   "p_fin": 0.523,
+   "fair_fin": 1.91,
+   "ladder_fin": [
+    [
+     2.5,
+     1.91
+    ],
+    [
+     3.5,
+     1.46
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "nur 52 % Wahrscheinlichkeit",
+   "range": [
+    1.19,
+    1.82
+   ]
+  },
+  "v": 2
+ },
+ "13053515|yellowcards|unter": {
+  "match_id": "13053515",
+  "home": "Flamengo",
+  "away": "Corinthians",
+  "kickoff": "So 22:30",
+  "kickoff_ts": 1789331400,
+  "league": "Brazil Serie A",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 6.5,
+  "first_range": [
+   1.2,
+   2.28
+  ],
+  "last_run": "So 08:36",
+  "line": 6.5,
+  "range": [
+   1.2,
+   2.28
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    47,
+    46
+   ],
+   "next_line": 5.5,
+   "next_note": "Corinthians 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.9518321973828582,
+    0.728934176871513
+   ],
+   "fair": 1.18,
+   "ladder": [
+    [
+     6.5,
+     1.18
+    ],
+    [
+     7.5,
+     1.23
+    ]
+   ],
+   "avg": [
+    3.6,
+    5.4
+   ],
+   "expect": 4.7,
+   "expect_sum": 4.5,
+   "expect_matchup": 5.0,
+   "contrib": [
+    1.6,
+    3.4
+   ],
+   "buffer": 1.8,
+   "fa": [
+    [
+     1.6,
+     2.1
+    ],
+    [
+     2.4,
+     2.8
+    ]
+   ],
+   "referee": "Wilton Pereira Sampaio: Ø 4.4 Karten (25 Sp.) · Ø 24.8 Fouls (25 Sp.)",
+   "b365": null,
+   "expect_ref": 5.2,
+   "buffer_ref": 1.3,
+   "sd": 2.07,
+   "p_emp": {
+    "6.5": 0.8474576271186441,
+    "7.5": 0.8130081300813008
+   },
+   "p_mod": 0.735,
+   "p_fin": 0.791,
+   "fair_fin": 1.26,
+   "ladder_fin": [
+    [
+     6.5,
+     1.26
+    ],
+    [
+     7.5,
+     1.19
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.26",
+   "range": [
+    1.2,
+    2.28
+   ]
+  },
+  "v": 2
+ },
+ "11068632|yellowcards|unter": {
+  "match_id": "11068632",
+  "home": "Chicago Fire",
+  "away": "New England Revolution",
+  "kickoff": "So 23:30",
+  "kickoff_ts": 1789335000,
+  "league": "USA MLS",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 5.5,
+  "first_range": [
+   1.37,
+   1.96
+  ],
+  "last_run": "So 08:36",
+  "line": 5.5,
+  "range": [
+   1.37,
+   1.96
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    44
+   ],
+   "next_line": 4.5,
+   "next_note": "Chicago Fire 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+   "longterm": [
+    0.8241518107246708,
+    0.8802588144126803
+   ],
+   "fair": 1.21,
+   "ladder": [
+    [
+     5.5,
+     1.21
+    ],
+    [
+     6.5,
+     1.14
+    ]
+   ],
+   "avg": [
+    3.9,
+    3.3
+   ],
+   "expect": 3.5,
+   "expect_sum": 3.6,
+   "expect_matchup": 3.4,
+   "contrib": [
+    1.3,
+    2.1
+   ],
+   "buffer": 2.0,
+   "fa": [
+    [
+     2.0,
+     2.2
+    ],
+    [
+     1.9,
+     1.8
+    ]
+   ],
+   "referee": "Rubiel Vazquez: Ø 4.0 Karten (26 Sp.) · Ø 21.8 Fouls (26 Sp.)",
+   "b365": null,
+   "expect_ref": 3.6,
+   "buffer_ref": 1.9,
+   "sd": 1.78,
+   "p_emp": {
+    "5.5": 0.8264462809917356,
+    "6.5": 0.8771929824561404
+   },
+   "p_mod": 0.857,
+   "p_fin": 0.842,
+   "fair_fin": 1.19,
+   "ladder_fin": [
+    [
+     5.5,
+     1.19
+    ],
+    [
+     6.5,
+     1.1
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.19",
+   "range": [
+    1.37,
+    1.96
+   ]
+  },
+  "v": 2
+ },
+ "11068632|ht_yellowcards|unter": {
+  "match_id": "11068632",
+  "home": "Chicago Fire",
+  "away": "New England Revolution",
+  "kickoff": "So 23:30",
+  "kickoff_ts": 1789335000,
+  "league": "USA MLS",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "So 06:27",
+  "first_line": 2.5,
+  "first_range": [
+   1.37,
+   1.96
+  ],
+  "last_run": "So 08:36",
+  "line": 2.5,
+  "range": [
+   1.37,
+   1.96
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    44
+   ],
+   "next_line": 1.5,
+   "next_note": "Chicago Fire 1/3 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; New England Revolution 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.920106812080814,
+    0.9044022267774919
+   ],
+   "fair": 1.12,
+   "ladder": [
+    [
+     2.5,
+     1.12
+    ],
+    [
+     3.5,
+     1.18
+    ]
+   ],
+   "avg": [
+    1.1,
+    1.4
+   ],
+   "expect": 1.4,
+   "expect_sum": 1.2,
+   "expect_matchup": 1.6,
+   "contrib": [
+    1.6,
+    0.0
+   ],
+   "buffer": 1.1,
+   "fa": [
+    [
+     0.8,
+     0.5
+    ],
+    [
+     0.4,
+     0.8
+    ]
+   ],
+   "referee": "Rubiel Vazquez: Ø 4.0 Karten (26 Sp.) · Ø 21.8 Fouls (26 Sp.)",
+   "b365": null,
+   "expect_ref": 3.6,
+   "buffer_ref": -1.1,
+   "sd": 0.97,
+   "p_emp": {
+    "2.5": 0.8928571428571428,
+    "3.5": 0.8474576271186441
+   },
+   "p_mod": 0.128,
+   "p_fin": 0.511,
+   "fair_fin": 1.96,
+   "ladder_fin": [
+    [
+     2.5,
+     1.96
+    ],
+    [
+     3.5,
+     1.53
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "nur 51 % Wahrscheinlichkeit",
+   "range": [
+    1.37,
+    1.96
+   ]
+  },
+  "v": 2
+ },
+ "11416814|corners|über": {
+  "match_id": "11416814",
+  "home": "Gremio Novorizontino",
+  "away": "Cuiaba",
+  "kickoff": "So 23:30",
+  "kickoff_ts": 1789335000,
+  "league": "Brazil Serie B",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 7.5,
+  "first_range": [
+   1.727,
+   1.727
+  ],
+  "last_run": "So 08:36",
+  "line": 7.5,
+  "range": [
+   1.76,
+   1.76
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    50,
+    49
+   ],
+   "next_line": 8.5,
+   "next_note": "Cuiaba 0/2 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.8560678551401419,
+    0.7286887565961273
+   ],
+   "fair": 1.31,
+   "ladder": [
+    [
+     6.5,
+     1.29
+    ],
+    [
+     7.5,
+     1.31
+    ]
+   ],
+   "avg": [
+    10.5,
+    9.6
+   ],
+   "expect": 10.4,
+   "expect_sum": 10.0,
+   "expect_matchup": 10.7,
+   "contrib": [
+    6.6,
+    4.2
+   ],
+   "buffer": 2.9,
+   "fa": [
+    [
+     5.5,
+     5.2
+    ],
+    [
+     5.0,
+     3.9
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.900",
+    "1.900"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.37,
+   "p_emp": {
+    "6.5": 0.7751937984496123,
+    "7.5": 0.7633587786259541
+   },
+   "p_mod": 0.805,
+   "p_fin": 0.784,
+   "fair_fin": 1.28,
+   "ladder_fin": [
+    [
+     6.5,
+     1.21
+    ],
+    [
+     7.5,
+     1.28
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.28",
+   "range": [
+    1.76,
+    1.76
+   ]
+  },
+  "v": 2
+ },
+ "13055364|corners|über": {
+  "match_id": "13055364",
+  "home": "Brusque",
+  "away": "Inter de Limeira",
+  "kickoff": "So 23:30",
+  "kickoff_ts": 1789335000,
+  "league": "Brazil Serie C",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 7.5,
+  "first_range": [
+   1.22,
+   1.92
+  ],
+  "last_run": "So 08:36",
+  "line": 7.5,
+  "range": [
+   1.22,
+   1.92
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    45,
+    49
+   ],
+   "next_line": 8.5,
+   "next_note": "Inter de Limeira 1/3 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.9021282085383902,
+    0.8980234967089631
+   ],
+   "fair": 1.2,
+   "ladder": [
+    [
+     6.5,
+     1.26
+    ],
+    [
+     7.5,
+     1.2
+    ]
+   ],
+   "avg": [
+    11.3,
+    9.6
+   ],
+   "expect": 11.0,
+   "expect_sum": 10.4,
+   "expect_matchup": 11.6,
+   "contrib": [
+    7.1,
+    4.5
+   ],
+   "buffer": 3.5,
+   "fa": [
+    [
+     4.8,
+     6.8
+    ],
+    [
+     5.5,
+     4.7
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.5",
+    "1.975",
+    "1.825"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.46,
+   "p_emp": {
+    "6.5": 0.7936507936507936,
+    "7.5": 0.8333333333333334
+   },
+   "p_mod": 0.844,
+   "p_fin": 0.839,
+   "fair_fin": 1.19,
+   "ladder_fin": [
+    [
+     6.5,
+     1.18
+    ],
+    [
+     7.5,
+     1.19
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.19",
+   "range": [
+    1.22,
+    1.92
+   ]
+  },
+  "v": 2
+ },
+ "13055364|ht_corners|über": {
+  "match_id": "13055364",
+  "home": "Brusque",
+  "away": "Inter de Limeira",
+  "kickoff": "So 23:30",
+  "kickoff_ts": 1789335000,
+  "league": "Brazil Serie C",
+  "metric": "1. HZ Ecken",
+  "metric_key": "ht_corners",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 3.5,
+  "first_range": [
+   1.22,
+   1.92
+  ],
+  "last_run": "So 08:36",
+  "line": 3.5,
+  "range": [
+   1.22,
+   1.92
+  ],
+  "signal": {
+   "metric": "1. HZ Ecken",
+   "metric_key": "ht_corners",
+   "direction": "über",
+   "line": 3.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    47
+   ],
+   "next_line": 4.5,
+   "next_note": "Brusque 2/4 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; Inter de Limeira 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.9033873666488345,
+    0.8338226554589252
+   ],
+   "fair": 1.25,
+   "ladder": [
+    [
+     2.5,
+     1.29
+    ],
+    [
+     3.5,
+     1.25
+    ]
+   ],
+   "avg": [
+    5.3,
+    4.1
+   ],
+   "expect": 4.8,
+   "expect_sum": 4.7,
+   "expect_matchup": 5.0,
+   "contrib": [
+    3.5,
+    1.5
+   ],
+   "buffer": 1.3,
+   "fa": [
+    [
+     2.4,
+     3.3
+    ],
+    [
+     2.2,
+     2.4
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "4.5",
+    "1.750",
+    "2.050"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.58,
+   "p_emp": {
+    "2.5": 0.7751937984496123,
+    "3.5": 0.8
+   },
+   "p_mod": 0.693,
+   "p_fin": 0.746,
+   "fair_fin": 1.34,
+   "ladder_fin": [
+    [
+     2.5,
+     1.26
+    ],
+    [
+     3.5,
+     1.34
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.34",
+   "range": [
+    1.22,
+    1.92
+   ]
+  },
+  "v": 2
+ },
+ "11419569|corners|über": {
+  "match_id": "11419569",
+  "home": "Fortaleza",
+  "away": "Ceara",
+  "kickoff": "So 23:30",
+  "kickoff_ts": 1789335000,
+  "league": "Brazil Serie B",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "So 06:27",
+  "first_line": 8.5,
+  "first_range": [
+   1.77,
+   1.77
+  ],
+  "last_run": "So 08:36",
+  "line": 8.5,
+  "range": [
+   1.77,
+   1.77
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    50,
+    50
+   ],
+   "next_line": 9.5,
+   "next_note": "kein Anker — Fortaleza 3/5 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; Ceara 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.6455665024988099,
+    0.6997271963485194
+   ],
+   "fair": 1.56,
+   "ladder": [
+    [
+     7.5,
+     1.34
+    ],
+    [
+     8.5,
+     1.56
+    ]
+   ],
+   "avg": [
+    10.3,
+    11.4
+   ],
+   "expect": 11.8,
+   "expect_sum": 10.8,
+   "expect_matchup": 12.7,
+   "contrib": [
+    8.7,
+    4.1
+   ],
+   "buffer": 3.3,
+   "fa": [
+    [
+     5.8,
+     3.8
+    ],
+    [
+     5.5,
+     4.5
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.850",
+    "1.950"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.75,
+   "p_emp": {
+    "7.5": 0.7462686567164178,
+    "8.5": 0.641025641025641
+   },
+   "p_mod": 0.811,
+   "p_fin": 0.726,
+   "fair_fin": 1.38,
+   "ladder_fin": [
+    [
+     7.5,
+     1.23
+    ],
+    [
+     8.5,
+     1.38
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 64 % vs. Modell 81 %",
+   "range": [
+    1.77,
+    1.77
    ]
   },
   "v": 2
@@ -19265,834 +20325,6 @@
    "range": [
     1.35,
     1.68
-   ]
-  },
-  "v": 2
- },
- "13053515|yellowcards|unter": {
-  "match_id": "13053515",
-  "home": "Flamengo",
-  "away": "Corinthians",
-  "kickoff": "So 22:30",
-  "kickoff_ts": 1789331400,
-  "league": "Brazil Serie A",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 6.5,
-  "first_range": [
-   1.2,
-   2.28
-  ],
-  "last_run": "So 07:26",
-  "line": 6.5,
-  "range": [
-   1.2,
-   2.28
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    47,
-    46
-   ],
-   "next_line": 5.5,
-   "next_note": "Corinthians 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.9518321973828582,
-    0.728934176871513
-   ],
-   "fair": 1.18,
-   "ladder": [
-    [
-     6.5,
-     1.18
-    ],
-    [
-     7.5,
-     1.23
-    ]
-   ],
-   "avg": [
-    3.6,
-    5.4
-   ],
-   "expect": 4.7,
-   "expect_sum": 4.5,
-   "expect_matchup": 5.0,
-   "contrib": [
-    1.6,
-    3.4
-   ],
-   "buffer": 1.8,
-   "fa": [
-    [
-     1.6,
-     2.1
-    ],
-    [
-     2.4,
-     2.8
-    ]
-   ],
-   "referee": "Wilton Pereira Sampaio: Ø 4.4 Karten (25 Sp.) · Ø 24.8 Fouls (25 Sp.)",
-   "b365": null,
-   "expect_ref": 5.2,
-   "buffer_ref": 1.3,
-   "sd": 2.07,
-   "p_emp": {
-    "6.5": 0.8474576271186441,
-    "7.5": 0.8130081300813008
-   },
-   "p_mod": 0.735,
-   "p_fin": 0.791,
-   "fair_fin": 1.26,
-   "ladder_fin": [
-    [
-     6.5,
-     1.26
-    ],
-    [
-     7.5,
-     1.19
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.26",
-   "range": [
-    1.2,
-    2.28
-   ]
-  },
-  "v": 2
- },
- "11068632|yellowcards|unter": {
-  "match_id": "11068632",
-  "home": "Chicago Fire",
-  "away": "New England Revolution",
-  "kickoff": "So 23:30",
-  "kickoff_ts": 1789335000,
-  "league": "USA MLS",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 5.5,
-  "first_range": [
-   1.37,
-   1.96
-  ],
-  "last_run": "So 07:26",
-  "line": 5.5,
-  "range": [
-   1.37,
-   1.96
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    44,
-    44
-   ],
-   "next_line": 4.5,
-   "next_note": "Chicago Fire 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
-   "longterm": [
-    0.8241518107246708,
-    0.8802588144126803
-   ],
-   "fair": 1.21,
-   "ladder": [
-    [
-     5.5,
-     1.21
-    ],
-    [
-     6.5,
-     1.14
-    ]
-   ],
-   "avg": [
-    3.9,
-    3.3
-   ],
-   "expect": 3.5,
-   "expect_sum": 3.6,
-   "expect_matchup": 3.4,
-   "contrib": [
-    1.3,
-    2.1
-   ],
-   "buffer": 2.0,
-   "fa": [
-    [
-     2.0,
-     2.2
-    ],
-    [
-     1.9,
-     1.8
-    ]
-   ],
-   "referee": "Rubiel Vazquez: Ø 4.0 Karten (26 Sp.) · Ø 21.8 Fouls (26 Sp.)",
-   "b365": null,
-   "expect_ref": 3.6,
-   "buffer_ref": 1.9,
-   "sd": 1.78,
-   "p_emp": {
-    "5.5": 0.8264462809917356,
-    "6.5": 0.8771929824561404
-   },
-   "p_mod": 0.857,
-   "p_fin": 0.842,
-   "fair_fin": 1.19,
-   "ladder_fin": [
-    [
-     5.5,
-     1.19
-    ],
-    [
-     6.5,
-     1.1
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.19",
-   "range": [
-    1.37,
-    1.96
-   ]
-  },
-  "v": 2
- },
- "11068632|ht_yellowcards|unter": {
-  "match_id": "11068632",
-  "home": "Chicago Fire",
-  "away": "New England Revolution",
-  "kickoff": "So 23:30",
-  "kickoff_ts": 1789335000,
-  "league": "USA MLS",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "So 06:27",
-  "first_line": 2.5,
-  "first_range": [
-   1.37,
-   1.96
-  ],
-  "last_run": "So 07:26",
-  "line": 2.5,
-  "range": [
-   1.37,
-   1.96
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    44,
-    44
-   ],
-   "next_line": 1.5,
-   "next_note": "Chicago Fire 1/3 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; New England Revolution 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "longterm": [
-    0.920106812080814,
-    0.9044022267774919
-   ],
-   "fair": 1.12,
-   "ladder": [
-    [
-     2.5,
-     1.12
-    ],
-    [
-     3.5,
-     1.18
-    ]
-   ],
-   "avg": [
-    1.1,
-    1.4
-   ],
-   "expect": 1.4,
-   "expect_sum": 1.2,
-   "expect_matchup": 1.6,
-   "contrib": [
-    1.6,
-    0.0
-   ],
-   "buffer": 1.1,
-   "fa": [
-    [
-     0.8,
-     0.5
-    ],
-    [
-     0.4,
-     0.8
-    ]
-   ],
-   "referee": "Rubiel Vazquez: Ø 4.0 Karten (26 Sp.) · Ø 21.8 Fouls (26 Sp.)",
-   "b365": null,
-   "expect_ref": 3.6,
-   "buffer_ref": -1.1,
-   "sd": 0.97,
-   "p_emp": {
-    "2.5": 0.8928571428571428,
-    "3.5": 0.8474576271186441
-   },
-   "p_mod": 0.128,
-   "p_fin": 0.511,
-   "fair_fin": 1.96,
-   "ladder_fin": [
-    [
-     2.5,
-     1.96
-    ],
-    [
-     3.5,
-     1.53
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🔴",
-   "reason": "nur 51 % Wahrscheinlichkeit",
-   "range": [
-    1.37,
-    1.96
-   ]
-  },
-  "v": 2
- },
- "11416814|corners|über": {
-  "match_id": "11416814",
-  "home": "Gremio Novorizontino",
-  "away": "Cuiaba",
-  "kickoff": "So 23:30",
-  "kickoff_ts": 1789335000,
-  "league": "Brazil Serie B",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 7.5,
-  "first_range": [
-   1.727,
-   1.727
-  ],
-  "last_run": "So 07:26",
-  "line": 7.5,
-  "range": [
-   1.76,
-   1.76
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    50,
-    49
-   ],
-   "next_line": 8.5,
-   "next_note": "Cuiaba 0/2 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.8560678551401419,
-    0.7286887565961273
-   ],
-   "fair": 1.31,
-   "ladder": [
-    [
-     6.5,
-     1.29
-    ],
-    [
-     7.5,
-     1.31
-    ]
-   ],
-   "avg": [
-    10.5,
-    9.6
-   ],
-   "expect": 10.4,
-   "expect_sum": 10.0,
-   "expect_matchup": 10.7,
-   "contrib": [
-    6.6,
-    4.2
-   ],
-   "buffer": 2.9,
-   "fa": [
-    [
-     5.5,
-     5.2
-    ],
-    [
-     5.0,
-     3.9
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.0",
-    "1.900",
-    "1.900"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.37,
-   "p_emp": {
-    "6.5": 0.7751937984496123,
-    "7.5": 0.7633587786259541
-   },
-   "p_mod": 0.805,
-   "p_fin": 0.784,
-   "fair_fin": 1.28,
-   "ladder_fin": [
-    [
-     6.5,
-     1.21
-    ],
-    [
-     7.5,
-     1.28
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.28",
-   "range": [
-    1.76,
-    1.76
-   ]
-  },
-  "v": 2
- },
- "13055364|corners|über": {
-  "match_id": "13055364",
-  "home": "Brusque",
-  "away": "Inter de Limeira",
-  "kickoff": "So 23:30",
-  "kickoff_ts": 1789335000,
-  "league": "Brazil Serie C",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 7.5,
-  "first_range": [
-   1.22,
-   1.92
-  ],
-  "last_run": "So 07:26",
-  "line": 7.5,
-  "range": [
-   1.22,
-   1.92
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    45,
-    49
-   ],
-   "next_line": 8.5,
-   "next_note": "Inter de Limeira 1/3 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "longterm": [
-    0.9021282085383902,
-    0.8980234967089631
-   ],
-   "fair": 1.2,
-   "ladder": [
-    [
-     6.5,
-     1.26
-    ],
-    [
-     7.5,
-     1.2
-    ]
-   ],
-   "avg": [
-    11.3,
-    9.6
-   ],
-   "expect": 11.0,
-   "expect_sum": 10.4,
-   "expect_matchup": 11.6,
-   "contrib": [
-    7.1,
-    4.5
-   ],
-   "buffer": 3.5,
-   "fa": [
-    [
-     4.8,
-     6.8
-    ],
-    [
-     5.5,
-     4.7
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.5",
-    "1.975",
-    "1.825"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.46,
-   "p_emp": {
-    "6.5": 0.7936507936507936,
-    "7.5": 0.8333333333333334
-   },
-   "p_mod": 0.844,
-   "p_fin": 0.839,
-   "fair_fin": 1.19,
-   "ladder_fin": [
-    [
-     6.5,
-     1.18
-    ],
-    [
-     7.5,
-     1.19
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.19",
-   "range": [
-    1.22,
-    1.92
-   ]
-  },
-  "v": 2
- },
- "13055364|ht_corners|über": {
-  "match_id": "13055364",
-  "home": "Brusque",
-  "away": "Inter de Limeira",
-  "kickoff": "So 23:30",
-  "kickoff_ts": 1789335000,
-  "league": "Brazil Serie C",
-  "metric": "1. HZ Ecken",
-  "metric_key": "ht_corners",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 3.5,
-  "first_range": [
-   1.22,
-   1.92
-  ],
-  "last_run": "So 07:26",
-  "line": 3.5,
-  "range": [
-   1.22,
-   1.92
-  ],
-  "signal": {
-   "metric": "1. HZ Ecken",
-   "metric_key": "ht_corners",
-   "direction": "über",
-   "line": 3.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    47
-   ],
-   "next_line": 4.5,
-   "next_note": "Brusque 2/4 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; Inter de Limeira 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.9033873666488345,
-    0.8338226554589252
-   ],
-   "fair": 1.25,
-   "ladder": [
-    [
-     2.5,
-     1.29
-    ],
-    [
-     3.5,
-     1.25
-    ]
-   ],
-   "avg": [
-    5.3,
-    4.1
-   ],
-   "expect": 4.8,
-   "expect_sum": 4.7,
-   "expect_matchup": 5.0,
-   "contrib": [
-    3.5,
-    1.5
-   ],
-   "buffer": 1.3,
-   "fa": [
-    [
-     2.4,
-     3.3
-    ],
-    [
-     2.2,
-     2.4
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "4.5",
-    "1.750",
-    "2.050"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.58,
-   "p_emp": {
-    "2.5": 0.7751937984496123,
-    "3.5": 0.8
-   },
-   "p_mod": 0.693,
-   "p_fin": 0.746,
-   "fair_fin": 1.34,
-   "ladder_fin": [
-    [
-     2.5,
-     1.26
-    ],
-    [
-     3.5,
-     1.34
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.34",
-   "range": [
-    1.22,
-    1.92
-   ]
-  },
-  "v": 2
- },
- "11419569|corners|über": {
-  "match_id": "11419569",
-  "home": "Fortaleza",
-  "away": "Ceara",
-  "kickoff": "So 23:30",
-  "kickoff_ts": 1789335000,
-  "league": "Brazil Serie B",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "So 06:27",
-  "first_line": 8.5,
-  "first_range": [
-   1.77,
-   1.77
-  ],
-  "last_run": "So 07:26",
-  "line": 8.5,
-  "range": [
-   1.71,
-   1.71
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 8.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    50,
-    50
-   ],
-   "next_line": 9.5,
-   "next_note": "kein Anker — Fortaleza 3/5 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; Ceara 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "longterm": [
-    0.6455665024988099,
-    0.6997271963485194
-   ],
-   "fair": 1.56,
-   "ladder": [
-    [
-     7.5,
-     1.34
-    ],
-    [
-     8.5,
-     1.56
-    ]
-   ],
-   "avg": [
-    10.3,
-    11.4
-   ],
-   "expect": 11.8,
-   "expect_sum": 10.8,
-   "expect_matchup": 12.7,
-   "contrib": [
-    8.7,
-    4.1
-   ],
-   "buffer": 3.3,
-   "fa": [
-    [
-     5.8,
-     3.8
-    ],
-    [
-     5.5,
-     4.5
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.0",
-    "1.850",
-    "1.950"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.75,
-   "p_emp": {
-    "7.5": 0.7462686567164178,
-    "8.5": 0.641025641025641
-   },
-   "p_mod": 0.811,
-   "p_fin": 0.726,
-   "fair_fin": 1.38,
-   "ladder_fin": [
-    [
-     7.5,
-     1.23
-    ],
-    [
-     8.5,
-     1.38
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 64 % vs. Modell 81 %",
-   "range": [
-    1.71,
-    1.71
    ]
   },
   "v": 2
