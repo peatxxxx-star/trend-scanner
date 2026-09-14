@@ -15,10 +15,10 @@
    1.22,
    2.05
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 7.5,
   "range": [
-   1.22,
+   1.23,
    2.05
   ],
   "signal": {
@@ -113,7 +113,7 @@
    "light": "🟢",
    "reason": "fair 1.23",
    "range": [
-    1.22,
+    1.23,
     2.05
    ]
   },
@@ -135,10 +135,10 @@
    1.22,
    2.05
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 3.5,
   "range": [
-   1.22,
+   1.23,
    2.05
   ],
   "signal": {
@@ -233,7 +233,7 @@
    "light": "🟡",
    "reason": "Historie 74 % vs. Modell 88 %",
    "range": [
-    1.22,
+    1.23,
     2.05
    ]
   },
@@ -255,7 +255,7 @@
    1.68,
    1.68
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 7.5,
   "range": [
    1.68,
@@ -355,6 +355,122 @@
   },
   "v": 2
  },
+ "12167406|corners|über": {
+  "match_id": "12167406",
+  "home": "FK Spartak Kostroma",
+  "away": "Neftekhimik Nizhnekamsk",
+  "kickoff": "Mo 17:00",
+  "kickoff_ts": 1789398000,
+  "league": "Russia Division 1",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mo 06:27",
+  "first_line": 7.5,
+  "first_range": [
+   1.21,
+   2.009
+  ],
+  "last_run": "Mo 08:34",
+  "line": 7.5,
+  "range": [
+   1.21,
+   2.009
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 17
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    37,
+    40
+   ],
+   "next_line": 8.5,
+   "next_note": "Neftekhimik Nizhnekamsk 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.8441232696086258,
+    0.7261820830276531
+   ],
+   "fair": 1.33,
+   "ladder": [
+    [
+     6.5,
+     1.32
+    ],
+    [
+     7.5,
+     1.33
+    ]
+   ],
+   "avg": [
+    10.7,
+    8.1
+   ],
+   "expect": 9.4,
+   "expect_sum": 9.4,
+   "expect_matchup": 9.4,
+   "contrib": [
+    5.9,
+    3.6
+   ],
+   "buffer": 1.9,
+   "fa": [
+    [
+     4.6,
+     5.0
+    ],
+    [
+     4.9,
+     4.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.68,
+   "p_emp": {
+    "6.5": 0.7575757575757576,
+    "7.5": 0.7518796992481203
+   },
+   "p_mod": 0.761,
+   "p_fin": 0.756,
+   "fair_fin": 1.32,
+   "ladder_fin": [
+    [
+     6.5,
+     1.24
+    ],
+    [
+     7.5,
+     1.32
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.32",
+   "range": [
+    1.21,
+    2.009
+   ]
+  },
+  "v": 2
+ },
  "12112746|corners|über": {
   "match_id": "12112746",
   "home": "Universitatea Cluj",
@@ -371,7 +487,7 @@
    1.58,
    1.58
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 7.5,
   "range": [
    1.58,
@@ -491,7 +607,7 @@
    1.55,
    1.61
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 5.5,
   "range": [
    1.55,
@@ -607,7 +723,7 @@
    1.24,
    1.8
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 6.5,
   "range": [
    1.24,
@@ -723,7 +839,7 @@
    1.25,
    1.53
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 3.5,
   "range": [
    1.25,
@@ -839,7 +955,7 @@
    1.55,
    1.61
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 2.5,
   "range": [
    1.55,
@@ -939,122 +1055,6 @@
   },
   "v": 2
  },
- "12167406|corners|über": {
-  "match_id": "12167406",
-  "home": "FK Spartak Kostroma",
-  "away": "Neftekhimik Nizhnekamsk",
-  "kickoff": "Mo 17:00",
-  "kickoff_ts": 1789398000,
-  "league": "Russia Division 1",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mo 06:27",
-  "first_line": 7.5,
-  "first_range": [
-   1.21,
-   2.009
-  ],
-  "last_run": "Mo 07:25",
-  "line": 7.5,
-  "range": [
-   1.21,
-   2.009
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 17
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    37,
-    40
-   ],
-   "next_line": 8.5,
-   "next_note": "Neftekhimik Nizhnekamsk 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
-   "longterm": [
-    0.8441232696086258,
-    0.7261820830276531
-   ],
-   "fair": 1.33,
-   "ladder": [
-    [
-     6.5,
-     1.32
-    ],
-    [
-     7.5,
-     1.33
-    ]
-   ],
-   "avg": [
-    10.7,
-    8.1
-   ],
-   "expect": 9.4,
-   "expect_sum": 9.4,
-   "expect_matchup": 9.4,
-   "contrib": [
-    5.9,
-    3.6
-   ],
-   "buffer": 1.9,
-   "fa": [
-    [
-     4.6,
-     5.0
-    ],
-    [
-     4.9,
-     4.8
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.68,
-   "p_emp": {
-    "6.5": 0.7575757575757576,
-    "7.5": 0.7518796992481203
-   },
-   "p_mod": 0.761,
-   "p_fin": 0.756,
-   "fair_fin": 1.32,
-   "ladder_fin": [
-    [
-     6.5,
-     1.24
-    ],
-    [
-     7.5,
-     1.32
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.32",
-   "range": [
-    1.21,
-    2.009
-   ]
-  },
-  "v": 2
- },
  "12261388|ht_corners|über": {
   "match_id": "12261388",
   "home": "Bayer Leverkusen (W)",
@@ -1071,7 +1071,7 @@
    1.256,
    1.88
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 3.5,
   "range": [
    1.256,
@@ -1191,7 +1191,7 @@
    1.76,
    1.78
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 7.5,
   "range": [
    1.76,
@@ -1311,7 +1311,7 @@
    1.26,
    1.88
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 9.5,
   "range": [
    1.26,
@@ -1415,366 +1415,6 @@
   },
   "v": 2
  },
- "11175530|corners|über": {
-  "match_id": "11175530",
-  "home": "Orebro SK",
-  "away": "Nordic United FC",
-  "kickoff": "Mo 19:00",
-  "kickoff_ts": 1789405200,
-  "league": "Sweden Superettan",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mo 06:27",
-  "first_line": 7.5,
-  "first_range": [
-   1.21,
-   1.76
-  ],
-  "last_run": "Mo 07:25",
-  "line": 7.5,
-  "range": [
-   1.21,
-   1.76
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    48
-   ],
-   "next_line": 8.5,
-   "next_note": "Orebro SK 0/2 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
-   "longterm": [
-    0.7248481990308585,
-    0.8279750424431679
-   ],
-   "fair": 1.33,
-   "ladder": [
-    [
-     6.5,
-     1.29
-    ],
-    [
-     7.5,
-     1.33
-    ]
-   ],
-   "avg": [
-    9.6,
-    9.6
-   ],
-   "expect": 9.7,
-   "expect_sum": 9.6,
-   "expect_matchup": 9.9,
-   "contrib": [
-    4.5,
-    5.4
-   ],
-   "buffer": 2.2,
-   "fa": [
-    [
-     4.5,
-     5.2
-    ],
-    [
-     4.9,
-     4.4
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.0",
-    "1.975",
-    "1.825"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.07,
-   "p_emp": {
-    "6.5": 0.7751937984496123,
-    "7.5": 0.7518796992481203
-   },
-   "p_mod": 0.763,
-   "p_fin": 0.758,
-   "fair_fin": 1.32,
-   "ladder_fin": [
-    [
-     6.5,
-     1.23
-    ],
-    [
-     7.5,
-     1.32
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.32",
-   "range": [
-    1.21,
-    1.76
-   ]
-  },
-  "v": 2
- },
- "11176417|corners|über": {
-  "match_id": "11176417",
-  "home": "Sirius",
-  "away": "Degerfors",
-  "kickoff": "Mo 19:00",
-  "kickoff_ts": 1789405200,
-  "league": "Sweden Allsvenskan",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mo 06:27",
-  "first_line": 8.5,
-  "first_range": [
-   1.37,
-   1.97
-  ],
-  "last_run": "Mo 07:25",
-  "line": 8.5,
-  "range": [
-   1.37,
-   1.97
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 8.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    48,
-    48
-   ],
-   "next_line": 9.5,
-   "next_note": "Degerfors 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
-   "longterm": [
-    0.8589160194195167,
-    0.5900680254150144
-   ],
-   "fair": 1.47,
-   "ladder": [
-    [
-     7.5,
-     1.25
-    ],
-    [
-     8.5,
-     1.47
-    ]
-   ],
-   "avg": [
-    11.2,
-    10.0
-   ],
-   "expect": 11.4,
-   "expect_sum": 10.6,
-   "expect_matchup": 12.2,
-   "contrib": [
-    7.5,
-    4.6
-   ],
-   "buffer": 2.9,
-   "fa": [
-    [
-     5.9,
-     5.3
-    ],
-    [
-     4.7,
-     5.6
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "11.0",
-    "1.800",
-    "2.000"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.17,
-   "p_emp": {
-    "7.5": 0.8,
-    "8.5": 0.6802721088435374
-   },
-   "p_mod": 0.82,
-   "p_fin": 0.75,
-   "fair_fin": 1.33,
-   "ladder_fin": [
-    [
-     7.5,
-     1.18
-    ],
-    [
-     8.5,
-     1.33
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 68 % vs. Modell 82 %",
-   "range": [
-    1.37,
-    1.97
-   ]
-  },
-  "v": 2
- },
- "11176417|ht_corners|über": {
-  "match_id": "11176417",
-  "home": "Sirius",
-  "away": "Degerfors",
-  "kickoff": "Mo 19:00",
-  "kickoff_ts": 1789405200,
-  "league": "Sweden Allsvenskan",
-  "metric": "1. HZ Ecken",
-  "metric_key": "ht_corners",
-  "direction": "über",
-  "first_run": "Mo 06:27",
-  "first_line": 3.5,
-  "first_range": [
-   1.37,
-   1.97
-  ],
-  "last_run": "Mo 07:25",
-  "line": 3.5,
-  "range": [
-   1.37,
-   1.97
-  ],
-  "signal": {
-   "metric": "1. HZ Ecken",
-   "metric_key": "ht_corners",
-   "direction": "über",
-   "line": 3.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    47,
-    45
-   ],
-   "next_line": 4.5,
-   "next_note": "Sirius 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
-   "longterm": [
-    0.853667704024604,
-    0.6871463470995339
-   ],
-   "fair": 1.37,
-   "ladder": [
-    [
-     2.5,
-     1.22
-    ],
-    [
-     3.5,
-     1.37
-    ]
-   ],
-   "avg": [
-    5.8,
-    5.2
-   ],
-   "expect": 6.1,
-   "expect_sum": 5.5,
-   "expect_matchup": 6.8,
-   "contrib": [
-    4.2,
-    2.6
-   ],
-   "buffer": 2.6,
-   "fa": [
-    [
-     3.0,
-     2.5
-    ],
-    [
-     2.2,
-     3.0
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "5.5",
-    "2.050",
-    "1.750"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.16,
-   "p_emp": {
-    "2.5": 0.819672131147541,
-    "3.5": 0.7299270072992701
-   },
-   "p_mod": 0.886,
-   "p_fin": 0.808,
-   "fair_fin": 1.24,
-   "ladder_fin": [
-    [
-     2.5,
-     1.13
-    ],
-    [
-     3.5,
-     1.24
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 73 % vs. Modell 89 %",
-   "range": [
-    1.37,
-    1.97
-   ]
-  },
-  "v": 2
- },
  "11162542|corners|über": {
   "match_id": "11162542",
   "home": "Bodo/Glimt",
@@ -1791,7 +1431,7 @@
    1.19,
    2.35
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 8.5,
   "range": [
    1.19,
@@ -1911,7 +1551,7 @@
    1.19,
    2.35
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 4.5,
   "range": [
    1.19,
@@ -1979,9 +1619,9 @@
    ],
    "referee": null,
    "b365": [
-    "6.0",
-    "2.050",
-    "1.750"
+    "5.5",
+    "1.850",
+    "1.950"
    ],
    "expect_ref": null,
    "buffer_ref": null,
@@ -2015,6 +1655,366 @@
   },
   "v": 2
  },
+ "11175530|corners|über": {
+  "match_id": "11175530",
+  "home": "Orebro SK",
+  "away": "Nordic United FC",
+  "kickoff": "Mo 19:00",
+  "kickoff_ts": 1789405200,
+  "league": "Sweden Superettan",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mo 06:27",
+  "first_line": 7.5,
+  "first_range": [
+   1.21,
+   1.76
+  ],
+  "last_run": "Mo 08:34",
+  "line": 7.5,
+  "range": [
+   1.21,
+   1.76
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    47,
+    48
+   ],
+   "next_line": 8.5,
+   "next_note": "Orebro SK 0/2 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+   "longterm": [
+    0.7248481990308585,
+    0.8279750424431679
+   ],
+   "fair": 1.33,
+   "ladder": [
+    [
+     6.5,
+     1.29
+    ],
+    [
+     7.5,
+     1.33
+    ]
+   ],
+   "avg": [
+    9.6,
+    9.6
+   ],
+   "expect": 9.7,
+   "expect_sum": 9.6,
+   "expect_matchup": 9.9,
+   "contrib": [
+    4.5,
+    5.4
+   ],
+   "buffer": 2.2,
+   "fa": [
+    [
+     4.5,
+     5.2
+    ],
+    [
+     4.9,
+     4.4
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.975",
+    "1.825"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.07,
+   "p_emp": {
+    "6.5": 0.7751937984496123,
+    "7.5": 0.7518796992481203
+   },
+   "p_mod": 0.763,
+   "p_fin": 0.758,
+   "fair_fin": 1.32,
+   "ladder_fin": [
+    [
+     6.5,
+     1.23
+    ],
+    [
+     7.5,
+     1.32
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.32",
+   "range": [
+    1.21,
+    1.76
+   ]
+  },
+  "v": 2
+ },
+ "11176417|corners|über": {
+  "match_id": "11176417",
+  "home": "Sirius",
+  "away": "Degerfors",
+  "kickoff": "Mo 19:00",
+  "kickoff_ts": 1789405200,
+  "league": "Sweden Allsvenskan",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mo 06:27",
+  "first_line": 8.5,
+  "first_range": [
+   1.37,
+   1.97
+  ],
+  "last_run": "Mo 08:34",
+  "line": 8.5,
+  "range": [
+   1.37,
+   1.97
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    48,
+    48
+   ],
+   "next_line": 9.5,
+   "next_note": "Degerfors 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.8589160194195167,
+    0.5900680254150144
+   ],
+   "fair": 1.47,
+   "ladder": [
+    [
+     7.5,
+     1.25
+    ],
+    [
+     8.5,
+     1.47
+    ]
+   ],
+   "avg": [
+    11.2,
+    10.0
+   ],
+   "expect": 11.4,
+   "expect_sum": 10.6,
+   "expect_matchup": 12.2,
+   "contrib": [
+    7.5,
+    4.6
+   ],
+   "buffer": 2.9,
+   "fa": [
+    [
+     5.9,
+     5.3
+    ],
+    [
+     4.7,
+     5.6
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "11.0",
+    "1.800",
+    "2.000"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.17,
+   "p_emp": {
+    "7.5": 0.8,
+    "8.5": 0.6802721088435374
+   },
+   "p_mod": 0.82,
+   "p_fin": 0.75,
+   "fair_fin": 1.33,
+   "ladder_fin": [
+    [
+     7.5,
+     1.18
+    ],
+    [
+     8.5,
+     1.33
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 68 % vs. Modell 82 %",
+   "range": [
+    1.37,
+    1.97
+   ]
+  },
+  "v": 2
+ },
+ "11176417|ht_corners|über": {
+  "match_id": "11176417",
+  "home": "Sirius",
+  "away": "Degerfors",
+  "kickoff": "Mo 19:00",
+  "kickoff_ts": 1789405200,
+  "league": "Sweden Allsvenskan",
+  "metric": "1. HZ Ecken",
+  "metric_key": "ht_corners",
+  "direction": "über",
+  "first_run": "Mo 06:27",
+  "first_line": 3.5,
+  "first_range": [
+   1.37,
+   1.97
+  ],
+  "last_run": "Mo 08:34",
+  "line": 3.5,
+  "range": [
+   1.37,
+   1.97
+  ],
+  "signal": {
+   "metric": "1. HZ Ecken",
+   "metric_key": "ht_corners",
+   "direction": "über",
+   "line": 3.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    47,
+    45
+   ],
+   "next_line": 4.5,
+   "next_note": "Sirius 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+   "longterm": [
+    0.853667704024604,
+    0.6871463470995339
+   ],
+   "fair": 1.37,
+   "ladder": [
+    [
+     2.5,
+     1.22
+    ],
+    [
+     3.5,
+     1.37
+    ]
+   ],
+   "avg": [
+    5.8,
+    5.2
+   ],
+   "expect": 6.1,
+   "expect_sum": 5.5,
+   "expect_matchup": 6.8,
+   "contrib": [
+    4.2,
+    2.6
+   ],
+   "buffer": 2.6,
+   "fa": [
+    [
+     3.0,
+     2.5
+    ],
+    [
+     2.2,
+     3.0
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "5.5",
+    "2.050",
+    "1.750"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.16,
+   "p_emp": {
+    "2.5": 0.819672131147541,
+    "3.5": 0.7299270072992701
+   },
+   "p_mod": 0.886,
+   "p_fin": 0.808,
+   "fair_fin": 1.24,
+   "ladder_fin": [
+    [
+     2.5,
+     1.13
+    ],
+    [
+     3.5,
+     1.24
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 73 % vs. Modell 89 %",
+   "range": [
+    1.37,
+    1.97
+   ]
+  },
+  "v": 2
+ },
  "12122293|corners|über": {
   "match_id": "12122293",
   "home": "FCSB",
@@ -2031,7 +2031,7 @@
    1.83,
    1.83
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 8.5,
   "range": [
    1.83,
@@ -2151,7 +2151,7 @@
    1.73,
    1.74
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 2.5,
   "range": [
    1.73,
@@ -2267,7 +2267,7 @@
    1.29,
    1.83
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 6.5,
   "range": [
    1.29,
@@ -2383,7 +2383,7 @@
    1.25,
    1.35
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 5.5,
   "range": [
    1.25,
@@ -2499,7 +2499,7 @@
    1.73,
    1.74
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 2.5,
   "range": [
    1.73,
@@ -2615,7 +2615,7 @@
    1.28,
    1.52
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 4.5,
   "range": [
    1.28,
@@ -2731,7 +2731,7 @@
    1.73,
    1.8
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 6.5,
   "range": [
    1.73,
@@ -2847,7 +2847,7 @@
    1.73,
    1.8
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 11.5,
   "range": [
    1.73,
@@ -2963,7 +2963,7 @@
    1.28,
    1.52
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 1.5,
   "range": [
    1.28,
@@ -3063,366 +3063,6 @@
   },
   "v": 2
  },
- "12465842|corners|über": {
-  "match_id": "12465842",
-  "home": "Sligo Rovers",
-  "away": "Galway United",
-  "kickoff": "Mo 20:45",
-  "kickoff_ts": 1789411500,
-  "league": "Republic of Ireland Premier Division",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mo 06:27",
-  "first_line": 7.5,
-  "first_range": [
-   1.35,
-   2.05
-  ],
-  "last_run": "Mo 07:25",
-  "line": 7.5,
-  "range": [
-   1.35,
-   2.05
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    42
-   ],
-   "next_line": 8.5,
-   "next_note": "Galway United 6/8 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
-   "longterm": [
-    0.822516857856051,
-    0.7461018717837923
-   ],
-   "fair": 1.32,
-   "ladder": [
-    [
-     6.5,
-     1.31
-    ],
-    [
-     7.5,
-     1.32
-    ]
-   ],
-   "avg": [
-    10.9,
-    11.0
-   ],
-   "expect": 11.5,
-   "expect_sum": 10.9,
-   "expect_matchup": 12.1,
-   "contrib": [
-    6.3,
-    5.7
-   ],
-   "buffer": 4.0,
-   "fa": [
-    [
-     4.5,
-     6.4
-    ],
-    [
-     4.5,
-     6.0
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.0",
-    "1.825",
-    "1.975"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.73,
-   "p_emp": {
-    "6.5": 0.7633587786259541,
-    "7.5": 0.7575757575757576
-   },
-   "p_mod": 0.858,
-   "p_fin": 0.808,
-   "fair_fin": 1.24,
-   "ladder_fin": [
-    [
-     6.5,
-     1.2
-    ],
-    [
-     7.5,
-     1.24
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.24",
-   "range": [
-    1.35,
-    2.05
-   ]
-  },
-  "v": 2
- },
- "12465844|corners|über": {
-  "match_id": "12465844",
-  "home": "Shelbourne",
-  "away": "Drogheda United",
-  "kickoff": "Mo 20:45",
-  "kickoff_ts": 1789411500,
-  "league": "Republic of Ireland Premier Division",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mo 06:27",
-  "first_line": 8.5,
-  "first_range": [
-   1.32,
-   2.04
-  ],
-  "last_run": "Mo 07:25",
-  "line": 8.5,
-  "range": [
-   1.32,
-   2.04
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 8.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    42,
-    46
-   ],
-   "next_line": 9.5,
-   "next_note": "kein Anker — Shelbourne 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Drogheda United 1/3 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "longterm": [
-    0.7174036985447507,
-    0.649678165676055
-   ],
-   "fair": 1.54,
-   "ladder": [
-    [
-     7.5,
-     1.33
-    ],
-    [
-     8.5,
-     1.54
-    ]
-   ],
-   "avg": [
-    10.2,
-    11.5
-   ],
-   "expect": 11.7,
-   "expect_sum": 10.8,
-   "expect_matchup": 12.6,
-   "contrib": [
-    7.7,
-    4.9
-   ],
-   "buffer": 3.2,
-   "fa": [
-    [
-     5.0,
-     5.0
-    ],
-    [
-     4.8,
-     5.5
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "9.5",
-    "1.800",
-    "2.000"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.49,
-   "p_emp": {
-    "7.5": 0.7518796992481203,
-    "8.5": 0.6493506493506493
-   },
-   "p_mod": 0.82,
-   "p_fin": 0.735,
-   "fair_fin": 1.36,
-   "ladder_fin": [
-    [
-     7.5,
-     1.22
-    ],
-    [
-     8.5,
-     1.36
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 65 % vs. Modell 82 %",
-   "range": [
-    1.32,
-    2.04
-   ]
-  },
-  "v": 2
- },
- "13021282|corners|über": {
-  "match_id": "13021282",
-  "home": "Red Star FC 93",
-  "away": "Metz",
-  "kickoff": "Mo 20:45",
-  "kickoff_ts": 1789411500,
-  "league": "France Ligue 2",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mo 06:27",
-  "first_line": 8.5,
-  "first_range": [
-   1.19,
-   2.45
-  ],
-  "last_run": "Mo 07:25",
-  "line": 8.5,
-  "range": [
-   1.19,
-   2.45
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 8.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    43,
-    43
-   ],
-   "next_line": 9.5,
-   "next_note": "Red Star FC 93 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
-   "longterm": [
-    0.5887614576039509,
-    0.6194745242028402
-   ],
-   "fair": 1.69,
-   "ladder": [
-    [
-     7.5,
-     1.41
-    ],
-    [
-     8.5,
-     1.69
-    ]
-   ],
-   "avg": [
-    8.2,
-    9.6
-   ],
-   "expect": 9.0,
-   "expect_sum": 8.9,
-   "expect_matchup": 9.0,
-   "contrib": [
-    6.6,
-    2.4
-   ],
-   "buffer": 0.5,
-   "fa": [
-    [
-     5.0,
-     3.6
-    ],
-    [
-     4.3,
-     5.3
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "9.5",
-    "1.950",
-    "1.850"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.96,
-   "p_emp": {
-    "7.5": 0.7092198581560284,
-    "8.5": 0.591715976331361
-   },
-   "p_mod": 0.567,
-   "p_fin": 0.579,
-   "fair_fin": 1.73,
-   "ladder_fin": [
-    [
-     7.5,
-     1.43
-    ],
-    [
-     8.5,
-     1.73
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🔴",
-   "reason": "nur 58 % Wahrscheinlichkeit",
-   "range": [
-    1.19,
-    2.45
-   ]
-  },
-  "v": 2
- },
  "12465843|corners|über": {
   "match_id": "12465843",
   "home": "Waterford FC",
@@ -3439,7 +3079,7 @@
    1.2,
    2.04
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 9.5,
   "range": [
    1.2,
@@ -3559,7 +3199,7 @@
    1.2,
    2.04
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 3.5,
   "range": [
    1.2,
@@ -3663,6 +3303,366 @@
   },
   "v": 2
  },
+ "12465844|corners|über": {
+  "match_id": "12465844",
+  "home": "Shelbourne",
+  "away": "Drogheda United",
+  "kickoff": "Mo 20:45",
+  "kickoff_ts": 1789411500,
+  "league": "Republic of Ireland Premier Division",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mo 06:27",
+  "first_line": 8.5,
+  "first_range": [
+   1.32,
+   2.04
+  ],
+  "last_run": "Mo 08:34",
+  "line": 8.5,
+  "range": [
+   1.32,
+   2.04
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    42,
+    46
+   ],
+   "next_line": 9.5,
+   "next_note": "kein Anker — Shelbourne 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Drogheda United 1/3 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.7174036985447507,
+    0.649678165676055
+   ],
+   "fair": 1.54,
+   "ladder": [
+    [
+     7.5,
+     1.33
+    ],
+    [
+     8.5,
+     1.54
+    ]
+   ],
+   "avg": [
+    10.2,
+    11.5
+   ],
+   "expect": 11.7,
+   "expect_sum": 10.8,
+   "expect_matchup": 12.6,
+   "contrib": [
+    7.7,
+    4.9
+   ],
+   "buffer": 3.2,
+   "fa": [
+    [
+     5.0,
+     5.0
+    ],
+    [
+     4.8,
+     5.5
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "9.5",
+    "1.800",
+    "2.000"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.49,
+   "p_emp": {
+    "7.5": 0.7518796992481203,
+    "8.5": 0.6493506493506493
+   },
+   "p_mod": 0.82,
+   "p_fin": 0.735,
+   "fair_fin": 1.36,
+   "ladder_fin": [
+    [
+     7.5,
+     1.22
+    ],
+    [
+     8.5,
+     1.36
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 65 % vs. Modell 82 %",
+   "range": [
+    1.32,
+    2.04
+   ]
+  },
+  "v": 2
+ },
+ "13021282|corners|über": {
+  "match_id": "13021282",
+  "home": "Red Star FC 93",
+  "away": "Metz",
+  "kickoff": "Mo 20:45",
+  "kickoff_ts": 1789411500,
+  "league": "France Ligue 2",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mo 06:27",
+  "first_line": 8.5,
+  "first_range": [
+   1.19,
+   2.45
+  ],
+  "last_run": "Mo 08:34",
+  "line": 8.5,
+  "range": [
+   1.71,
+   1.95
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    43
+   ],
+   "next_line": 9.5,
+   "next_note": "Red Star FC 93 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+   "longterm": [
+    0.5887614576039509,
+    0.6194745242028402
+   ],
+   "fair": 1.69,
+   "ladder": [
+    [
+     7.5,
+     1.41
+    ],
+    [
+     8.5,
+     1.69
+    ]
+   ],
+   "avg": [
+    8.2,
+    9.6
+   ],
+   "expect": 9.0,
+   "expect_sum": 8.9,
+   "expect_matchup": 9.0,
+   "contrib": [
+    6.6,
+    2.4
+   ],
+   "buffer": 0.5,
+   "fa": [
+    [
+     5.0,
+     3.6
+    ],
+    [
+     4.3,
+     5.3
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "9.5",
+    "1.950",
+    "1.850"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.96,
+   "p_emp": {
+    "7.5": 0.7092198581560284,
+    "8.5": 0.591715976331361
+   },
+   "p_mod": 0.567,
+   "p_fin": 0.579,
+   "fair_fin": 1.73,
+   "ladder_fin": [
+    [
+     7.5,
+     1.43
+    ],
+    [
+     8.5,
+     1.73
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "nur 58 % Wahrscheinlichkeit",
+   "range": [
+    1.71,
+    1.95
+   ]
+  },
+  "v": 2
+ },
+ "12465842|corners|über": {
+  "match_id": "12465842",
+  "home": "Sligo Rovers",
+  "away": "Galway United",
+  "kickoff": "Mo 20:45",
+  "kickoff_ts": 1789411500,
+  "league": "Republic of Ireland Premier Division",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mo 06:27",
+  "first_line": 7.5,
+  "first_range": [
+   1.35,
+   2.05
+  ],
+  "last_run": "Mo 08:34",
+  "line": 7.5,
+  "range": [
+   1.35,
+   2.05
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    42
+   ],
+   "next_line": 8.5,
+   "next_note": "Galway United 6/8 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "longterm": [
+    0.822516857856051,
+    0.7461018717837923
+   ],
+   "fair": 1.32,
+   "ladder": [
+    [
+     6.5,
+     1.31
+    ],
+    [
+     7.5,
+     1.32
+    ]
+   ],
+   "avg": [
+    10.9,
+    11.0
+   ],
+   "expect": 11.5,
+   "expect_sum": 10.9,
+   "expect_matchup": 12.1,
+   "contrib": [
+    6.3,
+    5.7
+   ],
+   "buffer": 4.0,
+   "fa": [
+    [
+     4.5,
+     6.4
+    ],
+    [
+     4.5,
+     6.0
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.825",
+    "1.975"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.73,
+   "p_emp": {
+    "6.5": 0.7633587786259541,
+    "7.5": 0.7575757575757576
+   },
+   "p_mod": 0.858,
+   "p_fin": 0.808,
+   "fair_fin": 1.24,
+   "ladder_fin": [
+    [
+     6.5,
+     1.2
+    ],
+    [
+     7.5,
+     1.24
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.24",
+   "range": [
+    1.35,
+    2.05
+   ]
+  },
+  "v": 2
+ },
  "13099410|corners|über": {
   "match_id": "13099410",
   "home": "Vikingur Reykjavik",
@@ -3679,7 +3679,7 @@
    1.25,
    1.98
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 8.5,
   "range": [
    1.25,
@@ -3799,7 +3799,7 @@
    1.25,
    1.98
   ],
-  "last_run": "Mo 07:25",
+  "last_run": "Mo 08:34",
   "line": 3.5,
   "range": [
    1.25,
