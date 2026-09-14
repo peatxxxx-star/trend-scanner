@@ -15,11 +15,11 @@
    1.22,
    2.05
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 7.5,
   "range": [
-   1.23,
-   2.05
+   1.21,
+   1.89
   ],
   "signal": {
    "metric": "Ecken",
@@ -113,8 +113,8 @@
    "light": "🟢",
    "reason": "fair 1.23",
    "range": [
-    1.23,
-    2.05
+    1.21,
+    1.89
    ]
   },
   "v": 2
@@ -135,11 +135,11 @@
    1.22,
    2.05
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 3.5,
   "range": [
-   1.23,
-   2.05
+   1.21,
+   1.89
   ],
   "signal": {
    "metric": "1. HZ Ecken",
@@ -233,8 +233,8 @@
    "light": "🟡",
    "reason": "Historie 74 % vs. Modell 88 %",
    "range": [
-    1.23,
-    2.05
+    1.21,
+    1.89
    ]
   },
   "v": 2
@@ -255,7 +255,7 @@
    1.68,
    1.68
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 7.5,
   "range": [
    1.68,
@@ -371,7 +371,7 @@
    1.21,
    2.009
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 7.5,
   "range": [
    1.21,
@@ -487,7 +487,7 @@
    1.58,
    1.58
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 7.5,
   "range": [
    1.58,
@@ -607,7 +607,7 @@
    1.55,
    1.61
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 5.5,
   "range": [
    1.55,
@@ -723,7 +723,7 @@
    1.24,
    1.8
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 6.5,
   "range": [
    1.24,
@@ -839,11 +839,11 @@
    1.25,
    1.53
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 3.5,
   "range": [
-   1.25,
-   1.53
+   1.47,
+   1.91
   ],
   "signal": {
    "metric": "Abseits",
@@ -933,8 +933,8 @@
    "light": "🟢",
    "reason": "fair 1.33",
    "range": [
-    1.25,
-    1.53
+    1.47,
+    1.91
    ]
   },
   "v": 2
@@ -955,7 +955,7 @@
    1.55,
    1.61
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 2.5,
   "range": [
    1.55,
@@ -1071,7 +1071,7 @@
    1.256,
    1.88
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 3.5,
   "range": [
    1.256,
@@ -1191,11 +1191,11 @@
    1.76,
    1.78
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 7.5,
   "range": [
-   1.76,
-   1.78
+   1.81,
+   1.95
   ],
   "signal": {
    "metric": "Ecken",
@@ -1289,16 +1289,16 @@
    "light": "🟢",
    "reason": "fair 1.41",
    "range": [
-    1.76,
-    1.78
+    1.81,
+    1.95
    ]
   },
   "v": 2
  },
- "11175529|corners|über": {
-  "match_id": "11175529",
-  "home": "Norrby IF",
-  "away": "Varbergs BoIS FC",
+ "11175530|corners|über": {
+  "match_id": "11175530",
+  "home": "Orebro SK",
+  "away": "Nordic United FC",
   "kickoff": "Mo 19:00",
   "kickoff_ts": 1789405200,
   "league": "Sweden Superettan",
@@ -1306,111 +1306,111 @@
   "metric_key": "corners",
   "direction": "über",
   "first_run": "Mo 06:27",
-  "first_line": 9.5,
+  "first_line": 7.5,
   "first_range": [
-   1.26,
-   1.88
+   1.21,
+   1.76
   ],
-  "last_run": "Mo 08:34",
-  "line": 9.5,
+  "last_run": "Mo 09:28",
+  "line": 7.5,
   "range": [
-   1.26,
-   1.88
+   1.21,
+   1.76
   ],
   "signal": {
    "metric": "Ecken",
    "metric_key": "corners",
    "direction": "über",
-   "line": 9.5,
+   "line": 7.5,
    "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
+    "kind": "heim",
     "hits": 5,
     "window": 6
    },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
    "valid": [
-    48,
-    47
+    47,
+    48
    ],
-   "next_line": 10.5,
-   "next_note": "kein Anker — Norrby IF 5/7 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Varbergs BoIS FC 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "next_line": 8.5,
+   "next_note": "Orebro SK 0/2 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
    "longterm": [
-    0.7131695905800538,
-    0.5574222478619861
+    0.7248481990308585,
+    0.8279750424431679
    ],
-   "fair": 1.71,
+   "fair": 1.33,
    "ladder": [
     [
-     8.5,
-     1.51
+     6.5,
+     1.29
     ],
     [
-     9.5,
-     1.71
+     7.5,
+     1.33
     ]
    ],
    "avg": [
-    11.5,
-    10.1
+    9.6,
+    9.6
    ],
-   "expect": 11.6,
-   "expect_sum": 10.8,
-   "expect_matchup": 12.4,
+   "expect": 9.7,
+   "expect_sum": 9.6,
+   "expect_matchup": 9.9,
    "contrib": [
-    6.4,
-    6.0
+    4.5,
+    5.4
    ],
-   "buffer": 2.1,
+   "buffer": 2.2,
    "fa": [
     [
-     5.4,
-     5.5
+     4.5,
+     5.2
     ],
     [
-     5.0,
-     5.1
+     4.9,
+     4.4
     ]
    ],
    "referee": null,
    "b365": [
-    "10.5",
-    "1.875",
-    "1.925"
+    "10.0",
+    "1.975",
+    "1.825"
    ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.72,
+   "sd": 3.07,
    "p_emp": {
-    "8.5": 0.6622516556291391,
-    "9.5": 0.5847953216374269
+    "6.5": 0.7751937984496123,
+    "7.5": 0.7518796992481203
    },
-   "p_mod": 0.714,
-   "p_fin": 0.649,
-   "fair_fin": 1.54,
+   "p_mod": 0.763,
+   "p_fin": 0.758,
+   "fair_fin": 1.32,
    "ladder_fin": [
     [
-     8.5,
-     1.37
+     6.5,
+     1.23
     ],
     [
-     9.5,
-     1.54
+     7.5,
+     1.32
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟡",
-   "reason": "65 % knapp; Historie 58 % vs. Modell 71 %",
+   "light": "🟢",
+   "reason": "fair 1.32",
    "range": [
-    1.26,
-    1.88
+    1.21,
+    1.76
    ]
   },
   "v": 2
@@ -1431,7 +1431,7 @@
    1.19,
    2.35
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 8.5,
   "range": [
    1.19,
@@ -1551,7 +1551,7 @@
    1.19,
    2.35
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 4.5,
   "range": [
    1.19,
@@ -1655,10 +1655,10 @@
   },
   "v": 2
  },
- "11175530|corners|über": {
-  "match_id": "11175530",
-  "home": "Orebro SK",
-  "away": "Nordic United FC",
+ "11175529|corners|über": {
+  "match_id": "11175529",
+  "home": "Norrby IF",
+  "away": "Varbergs BoIS FC",
   "kickoff": "Mo 19:00",
   "kickoff_ts": 1789405200,
   "league": "Sweden Superettan",
@@ -1666,111 +1666,111 @@
   "metric_key": "corners",
   "direction": "über",
   "first_run": "Mo 06:27",
-  "first_line": 7.5,
+  "first_line": 9.5,
   "first_range": [
-   1.21,
-   1.76
+   1.26,
+   1.88
   ],
-  "last_run": "Mo 08:34",
-  "line": 7.5,
+  "last_run": "Mo 09:28",
+  "line": 9.5,
   "range": [
-   1.21,
-   1.76
+   1.26,
+   1.88
   ],
   "signal": {
    "metric": "Ecken",
    "metric_key": "corners",
    "direction": "über",
-   "line": 7.5,
+   "line": 9.5,
    "home_series": {
-    "kind": "heim",
-    "hits": 5,
-    "window": 6
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
    },
    "away_series": {
     "kind": "gesamt",
-    "hits": 10,
-    "window": 11
+    "hits": 5,
+    "window": 6
    },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
+   "home_is_anchor": true,
+   "away_is_anchor": false,
    "valid": [
-    47,
-    48
+    48,
+    47
    ],
-   "next_line": 8.5,
-   "next_note": "Orebro SK 0/2 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+   "next_line": 10.5,
+   "next_note": "kein Anker — Norrby IF 5/7 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Varbergs BoIS FC 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
    "longterm": [
-    0.7248481990308585,
-    0.8279750424431679
+    0.7131695905800538,
+    0.5574222478619861
    ],
-   "fair": 1.33,
+   "fair": 1.71,
    "ladder": [
     [
-     6.5,
-     1.29
+     8.5,
+     1.51
     ],
     [
-     7.5,
-     1.33
+     9.5,
+     1.71
     ]
    ],
    "avg": [
-    9.6,
-    9.6
+    11.5,
+    10.1
    ],
-   "expect": 9.7,
-   "expect_sum": 9.6,
-   "expect_matchup": 9.9,
+   "expect": 11.6,
+   "expect_sum": 10.8,
+   "expect_matchup": 12.4,
    "contrib": [
-    4.5,
-    5.4
+    6.4,
+    6.0
    ],
-   "buffer": 2.2,
+   "buffer": 2.1,
    "fa": [
     [
-     4.5,
-     5.2
+     5.4,
+     5.5
     ],
     [
-     4.9,
-     4.4
+     5.0,
+     5.1
     ]
    ],
    "referee": null,
    "b365": [
-    "10.0",
-    "1.975",
-    "1.825"
+    "10.5",
+    "1.875",
+    "1.925"
    ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.07,
+   "sd": 3.72,
    "p_emp": {
-    "6.5": 0.7751937984496123,
-    "7.5": 0.7518796992481203
+    "8.5": 0.6622516556291391,
+    "9.5": 0.5847953216374269
    },
-   "p_mod": 0.763,
-   "p_fin": 0.758,
-   "fair_fin": 1.32,
+   "p_mod": 0.714,
+   "p_fin": 0.649,
+   "fair_fin": 1.54,
    "ladder_fin": [
     [
-     6.5,
-     1.23
+     8.5,
+     1.37
     ],
     [
-     7.5,
-     1.32
+     9.5,
+     1.54
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.32",
+   "light": "🟡",
+   "reason": "65 % knapp; Historie 58 % vs. Modell 71 %",
    "range": [
-    1.21,
-    1.76
+    1.26,
+    1.88
    ]
   },
   "v": 2
@@ -1791,11 +1791,11 @@
    1.37,
    1.97
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 8.5,
   "range": [
-   1.37,
-   1.97
+   1.32,
+   1.8
   ],
   "signal": {
    "metric": "Ecken",
@@ -1889,8 +1889,8 @@
    "light": "🟡",
    "reason": "Historie 68 % vs. Modell 82 %",
    "range": [
-    1.37,
-    1.97
+    1.32,
+    1.8
    ]
   },
   "v": 2
@@ -1911,11 +1911,11 @@
    1.37,
    1.97
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 3.5,
   "range": [
-   1.37,
-   1.97
+   1.32,
+   1.8
   ],
   "signal": {
    "metric": "1. HZ Ecken",
@@ -2009,8 +2009,128 @@
    "light": "🟡",
    "reason": "Historie 73 % vs. Modell 89 %",
    "range": [
-    1.37,
-    1.97
+    1.32,
+    1.8
+   ]
+  },
+  "v": 2
+ },
+ "12074538|corners|über": {
+  "match_id": "12074538",
+  "home": "Stal Mielec",
+  "away": "Termalica BB Nieciecza",
+  "kickoff": "Mo 19:00",
+  "kickoff_ts": 1789405200,
+  "league": "Poland I Liga",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mo 09:28",
+  "first_line": 7.5,
+  "first_range": [
+   1.343,
+   1.343
+  ],
+  "last_run": "Mo 09:28",
+  "line": 7.5,
+  "range": [
+   1.343,
+   1.343
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 17
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    46
+   ],
+   "next_line": 8.5,
+   "next_note": "Stal Mielec 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "longterm": [
+    0.7950731471555402,
+    0.8303197891777258
+   ],
+   "fair": 1.29,
+   "ladder": [
+    [
+     6.5,
+     1.26
+    ],
+    [
+     7.5,
+     1.29
+    ]
+   ],
+   "avg": [
+    10.1,
+    10.6
+   ],
+   "expect": 10.9,
+   "expect_sum": 10.4,
+   "expect_matchup": 11.4,
+   "contrib": [
+    5.5,
+    5.9
+   ],
+   "buffer": 3.4,
+   "fa": [
+    [
+     5.0,
+     5.9
+    ],
+    [
+     4.5,
+     5.5
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.775",
+    "2.025"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.24,
+   "p_emp": {
+    "6.5": 0.7936507936507936,
+    "7.5": 0.7751937984496123
+   },
+   "p_mod": 0.853,
+   "p_fin": 0.814,
+   "fair_fin": 1.23,
+   "ladder_fin": [
+    [
+     6.5,
+     1.17
+    ],
+    [
+     7.5,
+     1.23
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.23",
+   "range": [
+    1.343,
+    1.343
    ]
   },
   "v": 2
@@ -2031,7 +2151,7 @@
    1.83,
    1.83
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 8.5,
   "range": [
    1.83,
@@ -2151,11 +2271,11 @@
    1.73,
    1.74
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 2.5,
   "range": [
-   1.73,
-   1.74
+   1.69,
+   1.81
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -2245,8 +2365,8 @@
    "light": "🟢",
    "reason": "fair 1.21",
    "range": [
-    1.73,
-    1.74
+    1.69,
+    1.81
    ]
   },
   "v": 2
@@ -2267,7 +2387,7 @@
    1.29,
    1.83
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 6.5,
   "range": [
    1.29,
@@ -2367,122 +2487,6 @@
   },
   "v": 2
  },
- "12122293|offsides|unter": {
-  "match_id": "12122293",
-  "home": "FCSB",
-  "away": "Petrolul Ploiesti",
-  "kickoff": "Mo 20:00",
-  "kickoff_ts": 1789408800,
-  "league": "Romania Liga I",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "Mo 06:27",
-  "first_line": 5.5,
-  "first_range": [
-   1.25,
-   1.35
-  ],
-  "last_run": "Mo 08:34",
-  "line": 5.5,
-  "range": [
-   1.25,
-   1.35
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    35,
-    32
-   ],
-   "next_line": 4.5,
-   "next_note": "Petrolul Ploiesti 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "longterm": [
-    0.95878591929232,
-    0.8401809734699832
-   ],
-   "fair": 1.15,
-   "ladder": [
-    [
-     5.5,
-     1.15
-    ],
-    [
-     6.5,
-     1.29
-    ]
-   ],
-   "avg": [
-    1.7,
-    3.8
-   ],
-   "expect": 2.3,
-   "expect_sum": 2.8,
-   "expect_matchup": 1.8,
-   "contrib": [
-    1.2,
-    0.6
-   ],
-   "buffer": 3.2,
-   "fa": [
-    [
-     1.4,
-     0.9
-    ],
-    [
-     1.9,
-     1.4
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.11,
-   "p_emp": {
-    "5.5": 0.8695652173913044,
-    "6.5": 0.7751937984496123
-   },
-   "p_mod": 0.935,
-   "p_fin": 0.902,
-   "fair_fin": 1.11,
-   "ladder_fin": [
-    [
-     5.5,
-     1.11
-    ],
-    [
-     6.5,
-     1.14
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.11",
-   "range": [
-    1.25,
-    1.35
-   ]
-  },
-  "v": 2
- },
  "12122293|ht_yellowcards|unter": {
   "match_id": "12122293",
   "home": "FCSB",
@@ -2499,11 +2503,11 @@
    1.73,
    1.74
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 2.5,
   "range": [
-   1.73,
-   1.74
+   1.69,
+   1.81
   ],
   "signal": {
    "metric": "1. HZ Gelbe Karten",
@@ -2593,8 +2597,8 @@
    "light": "🔴",
    "reason": "nur 49 % Wahrscheinlichkeit",
    "range": [
-    1.73,
-    1.74
+    1.69,
+    1.81
    ]
   },
   "v": 2
@@ -2615,10 +2619,10 @@
    1.28,
    1.52
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 4.5,
   "range": [
-   1.28,
+   1.24,
    1.52
   ],
   "signal": {
@@ -2709,7 +2713,7 @@
    "light": "🟢",
    "reason": "fair 1.23",
    "range": [
-    1.28,
+    1.24,
     1.52
    ]
   },
@@ -2731,7 +2735,7 @@
    1.73,
    1.8
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 6.5,
   "range": [
    1.73,
@@ -2847,7 +2851,7 @@
    1.73,
    1.8
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 11.5,
   "range": [
    1.73,
@@ -2963,10 +2967,10 @@
    1.28,
    1.52
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 1.5,
   "range": [
-   1.28,
+   1.24,
    1.52
   ],
   "signal": {
@@ -3057,16 +3061,16 @@
    "light": "🔴",
    "reason": "nur 57 % Wahrscheinlichkeit",
    "range": [
-    1.28,
+    1.24,
     1.52
    ]
   },
   "v": 2
  },
- "12465843|corners|über": {
-  "match_id": "12465843",
-  "home": "Waterford FC",
-  "away": "Derry City",
+ "12465842|corners|über": {
+  "match_id": "12465842",
+  "home": "Sligo Rovers",
+  "away": "Galway United",
   "kickoff": "Mo 20:45",
   "kickoff_ts": 1789411500,
   "league": "Republic of Ireland Premier Division",
@@ -3074,75 +3078,75 @@
   "metric_key": "corners",
   "direction": "über",
   "first_run": "Mo 06:27",
-  "first_line": 9.5,
+  "first_line": 7.5,
   "first_range": [
-   1.2,
-   2.04
+   1.35,
+   2.05
   ],
-  "last_run": "Mo 08:34",
-  "line": 9.5,
+  "last_run": "Mo 09:28",
+  "line": 7.5,
   "range": [
-   1.2,
-   2.04
+   1.32,
+   2.0
   ],
   "signal": {
    "metric": "Ecken",
    "metric_key": "corners",
    "direction": "über",
-   "line": 9.5,
+   "line": 7.5,
    "home_series": {
     "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "auswärts",
     "hits": 5,
     "window": 6
    },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
    "valid": [
-    44,
-    47
+    48,
+    42
    ],
-   "next_line": 10.5,
-   "next_note": "Waterford FC 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "next_line": 8.5,
+   "next_note": "Galway United 6/8 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
    "longterm": [
-    0.6990183122361593,
-    0.6386912752779509
+    0.822516857856051,
+    0.7461018717837923
    ],
-   "fair": 1.65,
+   "fair": 1.32,
    "ladder": [
     [
-     8.5,
-     1.4
+     6.5,
+     1.31
     ],
     [
-     9.5,
-     1.65
+     7.5,
+     1.32
     ]
    ],
    "avg": [
-    12.1,
-    10.4
+    10.9,
+    11.0
    ],
-   "expect": 12.4,
-   "expect_sum": 11.3,
-   "expect_matchup": 13.5,
+   "expect": 11.5,
+   "expect_sum": 10.9,
+   "expect_matchup": 12.1,
    "contrib": [
-    7.1,
-    6.4
+    6.3,
+    5.7
    ],
-   "buffer": 2.9,
+   "buffer": 4.0,
    "fa": [
     [
-     5.5,
-     5.8
+     4.5,
+     6.4
     ],
     [
-     5.7,
-     4.7
+     4.5,
+     6.0
     ]
    ],
    "referee": null,
@@ -3153,152 +3157,32 @@
    ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.35,
+   "sd": 3.73,
    "p_emp": {
-    "8.5": 0.7142857142857143,
-    "9.5": 0.6060606060606061
+    "6.5": 0.7633587786259541,
+    "7.5": 0.7575757575757576
    },
-   "p_mod": 0.807,
-   "p_fin": 0.706,
-   "fair_fin": 1.42,
+   "p_mod": 0.858,
+   "p_fin": 0.808,
+   "fair_fin": 1.24,
    "ladder_fin": [
     [
-     8.5,
-     1.26
+     6.5,
+     1.2
     ],
     [
-     9.5,
-     1.42
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 61 % vs. Modell 81 %",
-   "range": [
-    1.2,
-    2.04
-   ]
-  },
-  "v": 2
- },
- "12465843|ht_corners|über": {
-  "match_id": "12465843",
-  "home": "Waterford FC",
-  "away": "Derry City",
-  "kickoff": "Mo 20:45",
-  "kickoff_ts": 1789411500,
-  "league": "Republic of Ireland Premier Division",
-  "metric": "1. HZ Ecken",
-  "metric_key": "ht_corners",
-  "direction": "über",
-  "first_run": "Mo 06:27",
-  "first_line": 3.5,
-  "first_range": [
-   1.2,
-   2.04
-  ],
-  "last_run": "Mo 08:34",
-  "line": 3.5,
-  "range": [
-   1.2,
-   2.04
-  ],
-  "signal": {
-   "metric": "1. HZ Ecken",
-   "metric_key": "ht_corners",
-   "direction": "über",
-   "line": 3.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    44,
-    47
-   ],
-   "next_line": 4.5,
-   "next_note": "Derry City 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.9088881437486297,
-    0.7457621082458419
-   ],
-   "fair": 1.3,
-   "ladder": [
-    [
-     2.5,
-     1.31
-    ],
-    [
-     3.5,
-     1.3
-    ]
-   ],
-   "avg": [
-    5.9,
-    4.5
-   ],
-   "expect": 5.6,
-   "expect_sum": 5.2,
-   "expect_matchup": 6.1,
-   "contrib": [
-    2.7,
-    3.4
-   ],
-   "buffer": 2.1,
-   "fa": [
-    [
-     2.6,
-     3.2
-    ],
-    [
-     2.6,
-     2.0
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "4.5",
-    "1.825",
-    "1.975"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.47,
-   "p_emp": {
-    "2.5": 0.7633587786259541,
-    "3.5": 0.7692307692307692
-   },
-   "p_mod": 0.802,
-   "p_fin": 0.786,
-   "fair_fin": 1.27,
-   "ladder_fin": [
-    [
-     2.5,
-     1.21
-    ],
-    [
-     3.5,
-     1.27
+     7.5,
+     1.24
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "reason": "fair 1.27",
+   "reason": "fair 1.24",
    "range": [
-    1.2,
-    2.04
+    1.32,
+    2.0
    ]
   },
   "v": 2
@@ -3319,10 +3203,10 @@
    1.32,
    2.04
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 8.5,
   "range": [
-   1.32,
+   1.31,
    2.04
   ],
   "signal": {
@@ -3417,7 +3301,247 @@
    "light": "🟡",
    "reason": "Historie 65 % vs. Modell 82 %",
    "range": [
-    1.32,
+    1.31,
+    2.04
+   ]
+  },
+  "v": 2
+ },
+ "12465843|corners|über": {
+  "match_id": "12465843",
+  "home": "Waterford FC",
+  "away": "Derry City",
+  "kickoff": "Mo 20:45",
+  "kickoff_ts": 1789411500,
+  "league": "Republic of Ireland Premier Division",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mo 06:27",
+  "first_line": 9.5,
+  "first_range": [
+   1.2,
+   2.04
+  ],
+  "last_run": "Mo 09:28",
+  "line": 9.5,
+  "range": [
+   1.21,
+   2.04
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 9.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    44,
+    47
+   ],
+   "next_line": 10.5,
+   "next_note": "Waterford FC 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "longterm": [
+    0.6990183122361593,
+    0.6386912752779509
+   ],
+   "fair": 1.65,
+   "ladder": [
+    [
+     8.5,
+     1.4
+    ],
+    [
+     9.5,
+     1.65
+    ]
+   ],
+   "avg": [
+    12.1,
+    10.4
+   ],
+   "expect": 12.4,
+   "expect_sum": 11.3,
+   "expect_matchup": 13.5,
+   "contrib": [
+    7.1,
+    6.4
+   ],
+   "buffer": 2.9,
+   "fa": [
+    [
+     5.5,
+     5.8
+    ],
+    [
+     5.7,
+     4.7
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.825",
+    "1.975"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.35,
+   "p_emp": {
+    "8.5": 0.7142857142857143,
+    "9.5": 0.6060606060606061
+   },
+   "p_mod": 0.807,
+   "p_fin": 0.706,
+   "fair_fin": 1.42,
+   "ladder_fin": [
+    [
+     8.5,
+     1.26
+    ],
+    [
+     9.5,
+     1.42
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 61 % vs. Modell 81 %",
+   "range": [
+    1.21,
+    2.04
+   ]
+  },
+  "v": 2
+ },
+ "12465843|ht_corners|über": {
+  "match_id": "12465843",
+  "home": "Waterford FC",
+  "away": "Derry City",
+  "kickoff": "Mo 20:45",
+  "kickoff_ts": 1789411500,
+  "league": "Republic of Ireland Premier Division",
+  "metric": "1. HZ Ecken",
+  "metric_key": "ht_corners",
+  "direction": "über",
+  "first_run": "Mo 06:27",
+  "first_line": 3.5,
+  "first_range": [
+   1.2,
+   2.04
+  ],
+  "last_run": "Mo 09:28",
+  "line": 3.5,
+  "range": [
+   1.21,
+   2.04
+  ],
+  "signal": {
+   "metric": "1. HZ Ecken",
+   "metric_key": "ht_corners",
+   "direction": "über",
+   "line": 3.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    44,
+    47
+   ],
+   "next_line": 4.5,
+   "next_note": "Derry City 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.9088881437486297,
+    0.7457621082458419
+   ],
+   "fair": 1.3,
+   "ladder": [
+    [
+     2.5,
+     1.31
+    ],
+    [
+     3.5,
+     1.3
+    ]
+   ],
+   "avg": [
+    5.9,
+    4.5
+   ],
+   "expect": 5.6,
+   "expect_sum": 5.2,
+   "expect_matchup": 6.1,
+   "contrib": [
+    2.7,
+    3.4
+   ],
+   "buffer": 2.1,
+   "fa": [
+    [
+     2.6,
+     3.2
+    ],
+    [
+     2.6,
+     2.0
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "4.5",
+    "1.825",
+    "1.975"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.47,
+   "p_emp": {
+    "2.5": 0.7633587786259541,
+    "3.5": 0.7692307692307692
+   },
+   "p_mod": 0.802,
+   "p_fin": 0.786,
+   "fair_fin": 1.27,
+   "ladder_fin": [
+    [
+     2.5,
+     1.21
+    ],
+    [
+     3.5,
+     1.27
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.27",
+   "range": [
+    1.21,
     2.04
    ]
   },
@@ -3439,11 +3563,11 @@
    1.19,
    2.45
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 8.5,
   "range": [
-   1.71,
-   1.95
+   1.19,
+   2.45
   ],
   "signal": {
    "metric": "Ecken",
@@ -3537,128 +3661,8 @@
    "light": "🔴",
    "reason": "nur 58 % Wahrscheinlichkeit",
    "range": [
-    1.71,
-    1.95
-   ]
-  },
-  "v": 2
- },
- "12465842|corners|über": {
-  "match_id": "12465842",
-  "home": "Sligo Rovers",
-  "away": "Galway United",
-  "kickoff": "Mo 20:45",
-  "kickoff_ts": 1789411500,
-  "league": "Republic of Ireland Premier Division",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mo 06:27",
-  "first_line": 7.5,
-  "first_range": [
-   1.35,
-   2.05
-  ],
-  "last_run": "Mo 08:34",
-  "line": 7.5,
-  "range": [
-   1.35,
-   2.05
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    42
-   ],
-   "next_line": 8.5,
-   "next_note": "Galway United 6/8 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
-   "longterm": [
-    0.822516857856051,
-    0.7461018717837923
-   ],
-   "fair": 1.32,
-   "ladder": [
-    [
-     6.5,
-     1.31
-    ],
-    [
-     7.5,
-     1.32
-    ]
-   ],
-   "avg": [
-    10.9,
-    11.0
-   ],
-   "expect": 11.5,
-   "expect_sum": 10.9,
-   "expect_matchup": 12.1,
-   "contrib": [
-    6.3,
-    5.7
-   ],
-   "buffer": 4.0,
-   "fa": [
-    [
-     4.5,
-     6.4
-    ],
-    [
-     4.5,
-     6.0
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.0",
-    "1.825",
-    "1.975"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.73,
-   "p_emp": {
-    "6.5": 0.7633587786259541,
-    "7.5": 0.7575757575757576
-   },
-   "p_mod": 0.858,
-   "p_fin": 0.808,
-   "fair_fin": 1.24,
-   "ladder_fin": [
-    [
-     6.5,
-     1.2
-    ],
-    [
-     7.5,
-     1.24
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.24",
-   "range": [
-    1.35,
-    2.05
+    1.19,
+    2.45
    ]
   },
   "v": 2
@@ -3679,7 +3683,7 @@
    1.25,
    1.98
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 8.5,
   "range": [
    1.25,
@@ -3799,7 +3803,7 @@
    1.25,
    1.98
   ],
-  "last_run": "Mo 08:34",
+  "last_run": "Mo 09:28",
   "line": 3.5,
   "range": [
    1.25,
@@ -3899,6 +3903,122 @@
    "range": [
     1.25,
     1.98
+   ]
+  },
+  "v": 2
+ },
+ "12122293|offsides|unter": {
+  "match_id": "12122293",
+  "home": "FCSB",
+  "away": "Petrolul Ploiesti",
+  "kickoff": "Mo 20:00",
+  "kickoff_ts": 1789408800,
+  "league": "Romania Liga I",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Mo 06:27",
+  "first_line": 5.5,
+  "first_range": [
+   1.25,
+   1.35
+  ],
+  "last_run": "Mo 08:34",
+  "line": 5.5,
+  "range": [
+   1.25,
+   1.35
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    35,
+    32
+   ],
+   "next_line": 4.5,
+   "next_note": "Petrolul Ploiesti 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.95878591929232,
+    0.8401809734699832
+   ],
+   "fair": 1.15,
+   "ladder": [
+    [
+     5.5,
+     1.15
+    ],
+    [
+     6.5,
+     1.29
+    ]
+   ],
+   "avg": [
+    1.7,
+    3.8
+   ],
+   "expect": 2.3,
+   "expect_sum": 2.8,
+   "expect_matchup": 1.8,
+   "contrib": [
+    1.2,
+    0.6
+   ],
+   "buffer": 3.2,
+   "fa": [
+    [
+     1.4,
+     0.9
+    ],
+    [
+     1.9,
+     1.4
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.11,
+   "p_emp": {
+    "5.5": 0.8695652173913044,
+    "6.5": 0.7751937984496123
+   },
+   "p_mod": 0.935,
+   "p_fin": 0.902,
+   "fair_fin": 1.11,
+   "ladder_fin": [
+    [
+     5.5,
+     1.11
+    ],
+    [
+     6.5,
+     1.14
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.11",
+   "range": [
+    1.25,
+    1.35
    ]
   },
   "v": 2
