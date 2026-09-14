@@ -15,10 +15,10 @@
    1.22,
    2.05
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 7.5,
   "range": [
-   1.21,
+   1.2,
    1.89
   ],
   "signal": {
@@ -113,7 +113,7 @@
    "light": "🟢",
    "reason": "fair 1.23",
    "range": [
-    1.21,
+    1.2,
     1.89
    ]
   },
@@ -135,10 +135,10 @@
    1.22,
    2.05
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 3.5,
   "range": [
-   1.21,
+   1.2,
    1.89
   ],
   "signal": {
@@ -233,8 +233,356 @@
    "light": "🟡",
    "reason": "Historie 74 % vs. Modell 88 %",
    "range": [
-    1.21,
+    1.2,
     1.89
+   ]
+  },
+  "v": 2
+ },
+ "12375341|yellowcards|über": {
+  "match_id": "12375341",
+  "home": "Talaea El Geish",
+  "away": "Smouha",
+  "kickoff": "Mo 16:00",
+  "kickoff_ts": 1789394400,
+  "league": "Egypt Division 1",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Mo 13:27",
+  "first_line": 2.5,
+  "first_range": [
+   1.23,
+   1.7
+  ],
+  "last_run": "Mo 13:27",
+  "line": 2.5,
+  "range": [
+   1.23,
+   1.7
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    45
+   ],
+   "next_line": 3.5,
+   "next_note": "Talaea El Geish 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "longterm": [
+    0.8127525483333594,
+    0.8222566355049717
+   ],
+   "fair": 1.28,
+   "ladder": [
+    [
+     1.5,
+     1.23
+    ],
+    [
+     2.5,
+     1.28
+    ]
+   ],
+   "avg": [
+    4.1,
+    4.2
+   ],
+   "expect": 4.4,
+   "expect_sum": 4.2,
+   "expect_matchup": 4.6,
+   "contrib": [
+    2.6,
+    2.0
+   ],
+   "buffer": 1.9,
+   "fa": [
+    [
+     2.1,
+     1.9
+    ],
+    [
+     2.1,
+     2.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.64,
+   "p_emp": {
+    "1.5": 0.8130081300813008,
+    "2.5": 0.78125
+   },
+   "p_mod": 0.877,
+   "p_fin": 0.829,
+   "fair_fin": 1.21,
+   "ladder_fin": [
+    [
+     1.5,
+     1.13
+    ],
+    [
+     2.5,
+     1.21
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.21",
+   "range": [
+    1.23,
+    1.7
+   ]
+  },
+  "v": 2
+ },
+ "12375341|yellowcards|unter": {
+  "match_id": "12375341",
+  "home": "Talaea El Geish",
+  "away": "Smouha",
+  "kickoff": "Mo 16:00",
+  "kickoff_ts": 1789394400,
+  "league": "Egypt Division 1",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 13:27",
+  "first_line": 4.5,
+  "first_range": [
+   1.23,
+   1.7
+  ],
+  "last_run": "Mo 13:27",
+  "line": 4.5,
+  "range": [
+   1.23,
+   1.7
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    49,
+    45
+   ],
+   "next_line": 3.5,
+   "next_note": "Talaea El Geish 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Smouha 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+   "longterm": [
+    0.6949941177951464,
+    0.6313846959311962
+   ],
+   "fair": 1.53,
+   "ladder": [
+    [
+     4.5,
+     1.53
+    ],
+    [
+     5.5,
+     1.26
+    ]
+   ],
+   "avg": [
+    4.1,
+    4.2
+   ],
+   "expect": 4.4,
+   "expect_sum": 4.2,
+   "expect_matchup": 4.6,
+   "contrib": [
+    2.6,
+    2.0
+   ],
+   "buffer": 0.1,
+   "fa": [
+    [
+     2.1,
+     1.9
+    ],
+    [
+     2.1,
+     2.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.64,
+   "p_emp": {
+    "4.5": 0.6535947712418301,
+    "5.5": 0.7936507936507936
+   },
+   "p_mod": 0.524,
+   "p_fin": 0.589,
+   "fair_fin": 1.7,
+   "ladder_fin": [
+    [
+     4.5,
+     1.7
+    ],
+    [
+     5.5,
+     1.3
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "59 % knapp; Historie 65 % vs. Modell 52 %",
+   "range": [
+    1.23,
+    1.7
+   ]
+  },
+  "v": 2
+ },
+ "12375341|ht_yellowcards|unter": {
+  "match_id": "12375341",
+  "home": "Talaea El Geish",
+  "away": "Smouha",
+  "kickoff": "Mo 16:00",
+  "kickoff_ts": 1789394400,
+  "league": "Egypt Division 1",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 13:27",
+  "first_line": 2.5,
+  "first_range": [
+   1.23,
+   1.7
+  ],
+  "last_run": "Mo 13:27",
+  "line": 2.5,
+  "range": [
+   1.23,
+   1.7
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    45
+   ],
+   "next_line": 1.5,
+   "next_note": "Smouha 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.9155995505444186,
+    0.777712447904836
+   ],
+   "fair": 1.18,
+   "ladder": [
+    [
+     2.5,
+     1.18
+    ],
+    [
+     3.5,
+     1.23
+    ]
+   ],
+   "avg": [
+    1.2,
+    1.4
+   ],
+   "expect": 1.3,
+   "expect_sum": 1.3,
+   "expect_matchup": 1.3,
+   "contrib": [
+    0.7,
+    0.6
+   ],
+   "buffer": 1.2,
+   "fa": [
+    [
+     0.6,
+     0.6
+    ],
+    [
+     0.8,
+     0.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.19,
+   "p_emp": {
+    "2.5": 0.8474576271186441,
+    "3.5": 0.8130081300813008
+   },
+   "p_mod": 0.843,
+   "p_fin": 0.845,
+   "fair_fin": 1.18,
+   "ladder_fin": [
+    [
+     2.5,
+     1.18
+    ],
+    [
+     3.5,
+     1.12
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.18",
+   "range": [
+    1.23,
+    1.7
    ]
   },
   "v": 2
@@ -255,7 +603,7 @@
    1.68,
    1.68
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 7.5,
   "range": [
    1.68,
@@ -371,7 +719,7 @@
    1.85,
    1.85
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 9.5,
   "range": [
    1.85,
@@ -487,7 +835,7 @@
    1.58,
    1.58
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 7.5,
   "range": [
    1.58,
@@ -607,7 +955,7 @@
    1.55,
    1.61
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 5.5,
   "range": [
    1.55,
@@ -723,11 +1071,11 @@
    1.24,
    1.8
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 6.5,
   "range": [
    1.24,
-   1.8
+   1.67
   ],
   "signal": {
    "metric": "Schüsse aufs Tor",
@@ -818,7 +1166,7 @@
    "reason": "fair 1.32",
    "range": [
     1.24,
-    1.8
+    1.67
    ]
   },
   "v": 2
@@ -839,7 +1187,7 @@
    1.25,
    1.53
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 3.5,
   "range": [
    1.47,
@@ -955,7 +1303,7 @@
    1.55,
    1.61
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 2.5,
   "range": [
    1.55,
@@ -1071,7 +1419,7 @@
    1.21,
    2.009
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 7.5,
   "range": [
    1.21,
@@ -1187,7 +1535,7 @@
    1.52,
    1.52
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 5.5,
   "range": [
    1.65,
@@ -1303,7 +1651,7 @@
    1.79,
    1.79
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 11.5,
   "range": [
    1.79,
@@ -1419,7 +1767,7 @@
    1.256,
    1.88
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 3.5,
   "range": [
    1.256,
@@ -1539,7 +1887,7 @@
    1.35,
    1.85
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 6.5,
   "range": [
    1.35,
@@ -1655,7 +2003,7 @@
    1.35,
    1.85
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 2.5,
   "range": [
    1.35,
@@ -1771,7 +2119,7 @@
    1.76,
    1.78
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 7.5,
   "range": [
    1.81,
@@ -1875,470 +2223,6 @@
   },
   "v": 2
  },
- "11998002|yellowcards|unter": {
-  "match_id": "11998002",
-  "home": "Torino",
-  "away": "Roma",
-  "kickoff": "Mo 18:30",
-  "kickoff_ts": 1789403400,
-  "league": "Italy Serie A",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 11:28",
-  "first_line": 3.5,
-  "first_range": [
-   1.27,
-   2.15
-  ],
-  "last_run": "Mo 12:26",
-  "line": 3.5,
-  "range": [
-   1.3,
-   2.11
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 3.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    49,
-    46
-   ],
-   "next_line": 2.5,
-   "next_note": "Roma 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.6866035488719979,
-    0.504325674864477
-   ],
-   "fair": 1.78,
-   "ladder": [
-    [
-     3.5,
-     1.78
-    ],
-    [
-     4.5,
-     1.32
-    ]
-   ],
-   "avg": [
-    2.5,
-    3.5
-   ],
-   "expect": 2.7,
-   "expect_sum": 3.0,
-   "expect_matchup": 2.3,
-   "contrib": [
-    1.0,
-    1.3
-   ],
-   "buffer": 0.8,
-   "fa": [
-    [
-     1.6,
-     1.3
-    ],
-    [
-     1.8,
-     2.0
-    ]
-   ],
-   "referee": "Fabio Maresca: Ø 4.8 Karten (16 Sp.) · Ø 27.1 Fouls (15 Sp.)",
-   "b365": null,
-   "expect_ref": 3.1,
-   "buffer_ref": 0.4,
-   "sd": 1.94,
-   "p_emp": {
-    "3.5": 0.5617977528089888,
-    "4.5": 0.7575757575757576
-   },
-   "p_mod": 0.582,
-   "p_fin": 0.572,
-   "fair_fin": 1.75,
-   "ladder_fin": [
-    [
-     3.5,
-     1.75
-    ],
-    [
-     4.5,
-     1.31
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🔴",
-   "reason": "nur 57 % Wahrscheinlichkeit",
-   "range": [
-    1.3,
-    2.11
-   ]
-  },
-  "v": 2
- },
- "11998002|on_target|unter": {
-  "match_id": "11998002",
-  "home": "Torino",
-  "away": "Roma",
-  "kickoff": "Mo 18:30",
-  "kickoff_ts": 1789403400,
-  "league": "Italy Serie A",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "unter",
-  "first_run": "Mo 11:28",
-  "first_line": 11.5,
-  "first_range": [
-   1.57,
-   1.91
-  ],
-  "last_run": "Mo 12:26",
-  "line": 11.5,
-  "range": [
-   1.57,
-   1.91
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "unter",
-   "line": 11.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    49,
-    45
-   ],
-   "next_line": 10.5,
-   "next_note": "Roma 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.8958620998097112,
-    0.8005909590659105
-   ],
-   "fair": 1.21,
-   "ladder": [
-    [
-     11.5,
-     1.21
-    ],
-    [
-     12.5,
-     1.24
-    ]
-   ],
-   "avg": [
-    8.1,
-    8.8
-   ],
-   "expect": 8.2,
-   "expect_sum": 8.4,
-   "expect_matchup": 7.9,
-   "contrib": [
-    4.2,
-    3.7
-   ],
-   "buffer": 3.3,
-   "fa": [
-    [
-     3.9,
-     4.3
-    ],
-    [
-     4.9,
-     3.7
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.51,
-   "p_emp": {
-    "11.5": 0.8264462809917356,
-    "12.5": 0.8064516129032259
-   },
-   "p_mod": 0.906,
-   "p_fin": 0.866,
-   "fair_fin": 1.15,
-   "ladder_fin": [
-    [
-     11.5,
-     1.15
-    ],
-    [
-     12.5,
-     1.13
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.15",
-   "range": [
-    1.57,
-    1.91
-   ]
-  },
-  "v": 2
- },
- "11998002|offsides|unter": {
-  "match_id": "11998002",
-  "home": "Torino",
-  "away": "Roma",
-  "kickoff": "Mo 18:30",
-  "kickoff_ts": 1789403400,
-  "league": "Italy Serie A",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "Mo 11:28",
-  "first_line": 5.5,
-  "first_range": [
-   1.55,
-   1.81
-  ],
-  "last_run": "Mo 12:26",
-  "line": 5.5,
-  "range": [
-   1.55,
-   1.76
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    47,
-    48
-   ],
-   "next_line": 4.5,
-   "next_note": "Roma 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.9045551693116252,
-    0.8612323994203083
-   ],
-   "fair": 1.16,
-   "ladder": [
-    [
-     5.5,
-     1.16
-    ],
-    [
-     6.5,
-     1.25
-    ]
-   ],
-   "avg": [
-    2.7,
-    3.8
-   ],
-   "expect": 3.2,
-   "expect_sum": 3.2,
-   "expect_matchup": 3.1,
-   "contrib": [
-    0.8,
-    2.3
-   ],
-   "buffer": 2.3,
-   "fa": [
-    [
-     1.5,
-     1.4
-    ],
-    [
-     2.0,
-     1.5
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.1,
-   "p_emp": {
-    "5.5": 0.8620689655172414,
-    "6.5": 0.8
-   },
-   "p_mod": 0.863,
-   "p_fin": 0.863,
-   "fair_fin": 1.16,
-   "ladder_fin": [
-    [
-     5.5,
-     1.16
-    ],
-    [
-     6.5,
-     1.15
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.16",
-   "range": [
-    1.55,
-    1.76
-   ]
-  },
-  "v": 2
- },
- "11998002|ht_yellowcards|unter": {
-  "match_id": "11998002",
-  "home": "Torino",
-  "away": "Roma",
-  "kickoff": "Mo 18:30",
-  "kickoff_ts": 1789403400,
-  "league": "Italy Serie A",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 11:28",
-  "first_line": 1.5,
-  "first_range": [
-   1.27,
-   2.15
-  ],
-  "last_run": "Mo 12:26",
-  "line": 1.5,
-  "range": [
-   1.3,
-   2.11
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 1.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    49,
-    50
-   ],
-   "next_line": 0.5,
-   "next_note": "Torino 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Roma 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.8490571491554132,
-    0.6905136433719594
-   ],
-   "fair": 1.37,
-   "ladder": [
-    [
-     1.5,
-     1.37
-    ],
-    [
-     2.5,
-     1.08
-    ]
-   ],
-   "avg": [
-    0.6,
-    1.1
-   ],
-   "expect": 0.7,
-   "expect_sum": 0.8,
-   "expect_matchup": 0.5,
-   "contrib": [
-    0.3,
-    0.2
-   ],
-   "buffer": 0.8,
-   "fa": [
-    [
-     0.5,
-     0.4
-    ],
-    [
-     0.5,
-     0.6
-    ]
-   ],
-   "referee": "Fabio Maresca: Ø 4.8 Karten (16 Sp.) · Ø 27.1 Fouls (15 Sp.)",
-   "b365": null,
-   "expect_ref": 1.9,
-   "buffer_ref": -0.4,
-   "sd": 0.89,
-   "p_emp": {
-    "1.5": 0.7299270072992701,
-    "2.5": 0.9259259259259258
-   },
-   "p_mod": 0.327,
-   "p_fin": 0.528,
-   "fair_fin": 1.89,
-   "ladder_fin": [
-    [
-     1.5,
-     1.89
-    ],
-    [
-     2.5,
-     1.19
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🔴",
-   "reason": "nur 53 % Wahrscheinlichkeit",
-   "range": [
-    1.3,
-    2.11
-   ]
-  },
-  "v": 2
- },
  "12077158|yellowcards|über": {
   "match_id": "12077158",
   "home": "Hapoel Haifa",
@@ -2355,7 +2239,7 @@
    1.26,
    1.82
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 2.5,
   "range": [
    1.26,
@@ -2471,7 +2355,7 @@
    1.26,
    1.82
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 6.5,
   "range": [
    1.26,
@@ -2587,7 +2471,7 @@
    1.26,
    1.82
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 0.5,
   "range": [
    1.26,
@@ -2678,461 +2562,6 @@
   },
   "v": 2
  },
- "12076797|yellowcards|über": {
-  "match_id": "12076797",
-  "home": "Hapoel Ramat Gan",
-  "away": "Maccabi Netanya",
-  "kickoff": "Mo 18:30",
-  "kickoff_ts": 1789403400,
-  "league": "Israel Premier League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "Mo 12:26",
-  "first_line": 2.5,
-  "first_range": [
-   1.29,
-   1.58
-  ],
-  "last_run": "Mo 12:26",
-  "line": 2.5,
-  "range": [
-   1.29,
-   1.58
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    43,
-    44
-   ],
-   "next_line": 3.5,
-   "next_note": "Maccabi Netanya 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.9913497163202087,
-    0.8397682380419526
-   ],
-   "fair": 1.18,
-   "ladder": [
-    [
-     1.5,
-     1.23
-    ],
-    [
-     2.5,
-     1.18
-    ]
-   ],
-   "avg": [
-    4.5,
-    4.2
-   ],
-   "expect": 4.6,
-   "expect_sum": 4.4,
-   "expect_matchup": 4.9,
-   "contrib": [
-    2.6,
-    2.3
-   ],
-   "buffer": 2.1,
-   "fa": [
-    [
-     2.7,
-     2.5
-    ],
-    [
-     2.4,
-     2.6
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.79,
-   "p_emp": {
-    "1.5": 0.8130081300813008,
-    "2.5": 0.8474576271186441
-   },
-   "p_mod": 0.88,
-   "p_fin": 0.864,
-   "fair_fin": 1.16,
-   "ladder_fin": [
-    [
-     1.5,
-     1.13
-    ],
-    [
-     2.5,
-     1.16
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.16",
-   "range": [
-    1.29,
-    1.58
-   ]
-  },
-  "v": 2
- },
- "12076797|yellowcards|unter": {
-  "match_id": "12076797",
-  "home": "Hapoel Ramat Gan",
-  "away": "Maccabi Netanya",
-  "kickoff": "Mo 18:30",
-  "kickoff_ts": 1789403400,
-  "league": "Israel Premier League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 12:26",
-  "first_line": 5.5,
-  "first_range": [
-   1.29,
-   1.58
-  ],
-  "last_run": "Mo 12:26",
-  "line": 5.5,
-  "range": [
-   1.29,
-   1.58
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    43,
-    44
-   ],
-   "next_line": 4.5,
-   "next_note": "Maccabi Netanya 1/3 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "longterm": [
-    0.703549965978867,
-    0.6405058877818517
-   ],
-   "fair": 1.42,
-   "ladder": [
-    [
-     5.5,
-     1.42
-    ],
-    [
-     6.5,
-     1.18
-    ]
-   ],
-   "avg": [
-    4.5,
-    4.2
-   ],
-   "expect": 4.6,
-   "expect_sum": 4.4,
-   "expect_matchup": 4.9,
-   "contrib": [
-    2.6,
-    2.3
-   ],
-   "buffer": 0.9,
-   "fa": [
-    [
-     2.7,
-     2.5
-    ],
-    [
-     2.4,
-     2.6
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.79,
-   "p_emp": {
-    "5.5": 0.7042253521126761,
-    "6.5": 0.8474576271186441
-   },
-   "p_mod": 0.692,
-   "p_fin": 0.698,
-   "fair_fin": 1.43,
-   "ladder_fin": [
-    [
-     5.5,
-     1.43
-    ],
-    [
-     6.5,
-     1.17
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.43",
-   "range": [
-    1.29,
-    1.58
-   ]
-  },
-  "v": 2
- },
- "12076797|ht_yellowcards|über": {
-  "match_id": "12076797",
-  "home": "Hapoel Ramat Gan",
-  "away": "Maccabi Netanya",
-  "kickoff": "Mo 18:30",
-  "kickoff_ts": 1789403400,
-  "league": "Israel Premier League",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "über",
-  "first_run": "Mo 12:26",
-  "first_line": 0.5,
-  "first_range": [
-   1.29,
-   1.58
-  ],
-  "last_run": "Mo 12:26",
-  "line": 0.5,
-  "range": [
-   1.29,
-   1.58
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "über",
-   "line": 0.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    44,
-    46
-   ],
-   "next_line": 1.5,
-   "next_note": "Hapoel Ramat Gan 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
-   "longterm": [
-    0.8766691049642675,
-    0.8282465725899476
-   ],
-   "fair": 1.24,
-   "ladder": [
-    [
-     0.5,
-     1.24
-    ]
-   ],
-   "avg": [
-    1.5,
-    1.6
-   ],
-   "expect": 1.6,
-   "expect_sum": 1.5,
-   "expect_matchup": 1.7,
-   "contrib": [
-    1.4,
-    0.3
-   ],
-   "buffer": 1.1,
-   "fa": [
-    [
-     1.4,
-     0.8
-    ],
-    [
-     1.2,
-     0.9
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.25,
-   "p_emp": {
-    "0.5": 0.8064516129032259
-   },
-   "p_mod": 0.811,
-   "p_fin": 0.809,
-   "fair_fin": 1.24,
-   "ladder_fin": [
-    [
-     0.5,
-     1.24
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.24",
-   "range": [
-    1.29,
-    1.58
-   ]
-  },
-  "v": 2
- },
- "12076797|ht_yellowcards|unter": {
-  "match_id": "12076797",
-  "home": "Hapoel Ramat Gan",
-  "away": "Maccabi Netanya",
-  "kickoff": "Mo 18:30",
-  "kickoff_ts": 1789403400,
-  "league": "Israel Premier League",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 12:26",
-  "first_line": 2.5,
-  "first_range": [
-   1.29,
-   1.58
-  ],
-  "last_run": "Mo 12:26",
-  "line": 2.5,
-  "range": [
-   1.29,
-   1.58
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    44,
-    46
-   ],
-   "next_line": 1.5,
-   "next_note": "Hapoel Ramat Gan 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Maccabi Netanya 0/2 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "longterm": [
-    0.7379543762593391,
-    0.7061717058749688
-   ],
-   "fair": 1.32,
-   "ladder": [
-    [
-     2.5,
-     1.32
-    ],
-    [
-     3.5,
-     1.3
-    ]
-   ],
-   "avg": [
-    1.5,
-    1.6
-   ],
-   "expect": 1.6,
-   "expect_sum": 1.5,
-   "expect_matchup": 1.7,
-   "contrib": [
-    1.4,
-    0.3
-   ],
-   "buffer": 0.9,
-   "fa": [
-    [
-     1.4,
-     0.8
-    ],
-    [
-     1.2,
-     0.9
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.25,
-   "p_emp": {
-    "2.5": 0.7575757575757576,
-    "3.5": 0.7692307692307692
-   },
-   "p_mod": 0.764,
-   "p_fin": 0.761,
-   "fair_fin": 1.31,
-   "ladder_fin": [
-    [
-     2.5,
-     1.31
-    ],
-    [
-     3.5,
-     1.17
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.31",
-   "range": [
-    1.29,
-    1.58
-   ]
-  },
-  "v": 2
- },
  "12167405|yellowcards|unter": {
   "match_id": "12167405",
   "home": "Veles",
@@ -3149,7 +2578,7 @@
    1.2,
    2.2
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 5.5,
   "range": [
    1.23,
@@ -3265,7 +2694,7 @@
    1.21,
    2.12
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 7.5,
   "range": [
    1.21,
@@ -3385,7 +2814,7 @@
    1.21,
    1.56
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 4.5,
   "range": [
    1.39,
@@ -3501,7 +2930,7 @@
    1.65,
    2.39
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 10.5,
   "range": [
    1.65,
@@ -3617,7 +3046,7 @@
    1.21,
    1.56
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 2.5,
   "range": [
    1.39,
@@ -3717,148 +3146,32 @@
   },
   "v": 2
  },
- "11176338|yellowcards|unter": {
-  "match_id": "11176338",
-  "home": "Djurgarden",
-  "away": "GAIS",
-  "kickoff": "Mo 19:00",
-  "kickoff_ts": 1789405200,
-  "league": "Sweden Allsvenskan",
+ "12076797|yellowcards|über": {
+  "match_id": "12076797",
+  "home": "Hapoel Ramat Gan",
+  "away": "Maccabi Netanya",
+  "kickoff": "Mo 18:30",
+  "kickoff_ts": 1789403400,
+  "league": "Israel Premier League",
   "metric": "Gelbe Karten",
   "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 11:28",
-  "first_line": 4.5,
+  "direction": "über",
+  "first_run": "Mo 12:26",
+  "first_line": 2.5,
   "first_range": [
-   1.22,
-   1.79
+   1.29,
+   1.58
   ],
-  "last_run": "Mo 12:26",
-  "line": 4.5,
+  "last_run": "Mo 13:27",
+  "line": 2.5,
   "range": [
-   1.22,
-   1.79
+   1.29,
+   1.58
   ],
   "signal": {
    "metric": "Gelbe Karten",
    "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 4.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    46,
-    47
-   ],
-   "next_line": 3.5,
-   "next_note": "Djurgarden 0/2 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
-   "longterm": [
-    0.7171015061212886,
-    0.7940700321908288
-   ],
-   "fair": 1.39,
-   "ladder": [
-    [
-     4.5,
-     1.39
-    ],
-    [
-     5.5,
-     1.2
-    ]
-   ],
-   "avg": [
-    2.9,
-    3.1
-   ],
-   "expect": 2.9,
-   "expect_sum": 3.0,
-   "expect_matchup": 2.7,
-   "contrib": [
-    0.4,
-    2.3
-   ],
-   "buffer": 1.6,
-   "fa": [
-    [
-     1.5,
-     2.2
-    ],
-    [
-     1.8,
-     1.3
-    ]
-   ],
-   "referee": "Adam Ladeback: Ø 2.9 Karten (28 Sp.) · Ø 20.4 Fouls (24 Sp.)",
-   "b365": null,
-   "expect_ref": 2.3,
-   "buffer_ref": 2.2,
-   "sd": 1.81,
-   "p_emp": {
-    "4.5": 0.7194244604316548,
-    "5.5": 0.8333333333333334
-   },
-   "p_mod": 0.888,
-   "p_fin": 0.804,
-   "fair_fin": 1.24,
-   "ladder_fin": [
-    [
-     4.5,
-     1.24
-    ],
-    [
-     5.5,
-     1.11
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 72 % vs. Modell 89 %",
-   "range": [
-    1.22,
-    1.79
-   ]
-  },
-  "v": 2
- },
- "11176338|ht_yellowcards|unter": {
-  "match_id": "11176338",
-  "home": "Djurgarden",
-  "away": "GAIS",
-  "kickoff": "Mo 19:00",
-  "kickoff_ts": 1789405200,
-  "league": "Sweden Allsvenskan",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 11:28",
-  "first_line": 2.5,
-  "first_range": [
-   1.22,
-   1.79
-  ],
-  "last_run": "Mo 12:26",
-  "line": 2.5,
-  "range": [
-   1.22,
-   1.79
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
+   "direction": "über",
    "line": 2.5,
    "home_series": {
     "kind": "gesamt",
@@ -3868,83 +3181,886 @@
    "away_series": {
     "kind": "gesamt",
     "hits": 10,
-    "window": 10
+    "window": 12
    },
    "home_is_anchor": true,
    "away_is_anchor": true,
    "valid": [
     43,
-    42
+    44
    ],
-   "next_line": 1.5,
-   "next_note": "kein Anker — Djurgarden 4/6 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; GAIS 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "next_line": 3.5,
+   "next_note": "Maccabi Netanya 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
    "longterm": [
-    0.8977250375607071,
-    0.9262840894097585
+    0.9913497163202087,
+    0.8397682380419526
    ],
-   "fair": 1.12,
+   "fair": 1.18,
    "ladder": [
     [
-     2.5,
-     1.12
+     1.5,
+     1.23
     ],
     [
-     3.5,
-     1.23
+     2.5,
+     1.18
     ]
    ],
    "avg": [
-    1.1,
-    1.3
+    4.5,
+    4.2
    ],
-   "expect": 1.1,
-   "expect_sum": 1.2,
-   "expect_matchup": 1.1,
+   "expect": 4.6,
+   "expect_sum": 4.4,
+   "expect_matchup": 4.9,
    "contrib": [
-    0.3,
-    0.7
+    2.6,
+    2.3
    ],
-   "buffer": 1.4,
+   "buffer": 2.1,
    "fa": [
     [
-     0.6,
-     1.0
+     2.7,
+     2.5
     ],
     [
-     0.8,
-     0.5
+     2.4,
+     2.6
     ]
    ],
-   "referee": "Adam Ladeback: Ø 2.9 Karten (28 Sp.) · Ø 20.4 Fouls (24 Sp.)",
+   "referee": null,
    "b365": null,
-   "expect_ref": 2.1,
-   "buffer_ref": 0.4,
-   "sd": 1.04,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.79,
    "p_emp": {
-    "2.5": 0.8928571428571428,
-    "3.5": 0.8130081300813008
+    "1.5": 0.8130081300813008,
+    "2.5": 0.8474576271186441
    },
-   "p_mod": 0.65,
-   "p_fin": 0.771,
-   "fair_fin": 1.3,
+   "p_mod": 0.88,
+   "p_fin": 0.864,
+   "fair_fin": 1.16,
    "ladder_fin": [
     [
-     2.5,
-     1.3
+     1.5,
+     1.13
     ],
     [
-     3.5,
+     2.5,
      1.16
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟡",
-   "reason": "Historie 89 % vs. Modell 65 %",
+   "light": "🟢",
+   "reason": "fair 1.16",
    "range": [
-    1.22,
-    1.79
+    1.29,
+    1.58
+   ]
+  },
+  "v": 2
+ },
+ "12076797|yellowcards|unter": {
+  "match_id": "12076797",
+  "home": "Hapoel Ramat Gan",
+  "away": "Maccabi Netanya",
+  "kickoff": "Mo 18:30",
+  "kickoff_ts": 1789403400,
+  "league": "Israel Premier League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 12:26",
+  "first_line": 5.5,
+  "first_range": [
+   1.29,
+   1.58
+  ],
+  "last_run": "Mo 13:27",
+  "line": 5.5,
+  "range": [
+   1.29,
+   1.58
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    44
+   ],
+   "next_line": 4.5,
+   "next_note": "Maccabi Netanya 1/3 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.703549965978867,
+    0.6405058877818517
+   ],
+   "fair": 1.42,
+   "ladder": [
+    [
+     5.5,
+     1.42
+    ],
+    [
+     6.5,
+     1.18
+    ]
+   ],
+   "avg": [
+    4.5,
+    4.2
+   ],
+   "expect": 4.6,
+   "expect_sum": 4.4,
+   "expect_matchup": 4.9,
+   "contrib": [
+    2.6,
+    2.3
+   ],
+   "buffer": 0.9,
+   "fa": [
+    [
+     2.7,
+     2.5
+    ],
+    [
+     2.4,
+     2.6
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.79,
+   "p_emp": {
+    "5.5": 0.7042253521126761,
+    "6.5": 0.8474576271186441
+   },
+   "p_mod": 0.692,
+   "p_fin": 0.698,
+   "fair_fin": 1.43,
+   "ladder_fin": [
+    [
+     5.5,
+     1.43
+    ],
+    [
+     6.5,
+     1.17
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.43",
+   "range": [
+    1.29,
+    1.58
+   ]
+  },
+  "v": 2
+ },
+ "12076797|ht_yellowcards|über": {
+  "match_id": "12076797",
+  "home": "Hapoel Ramat Gan",
+  "away": "Maccabi Netanya",
+  "kickoff": "Mo 18:30",
+  "kickoff_ts": 1789403400,
+  "league": "Israel Premier League",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "über",
+  "first_run": "Mo 12:26",
+  "first_line": 0.5,
+  "first_range": [
+   1.29,
+   1.58
+  ],
+  "last_run": "Mo 13:27",
+  "line": 0.5,
+  "range": [
+   1.29,
+   1.58
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "über",
+   "line": 0.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    46
+   ],
+   "next_line": 1.5,
+   "next_note": "Hapoel Ramat Gan 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+   "longterm": [
+    0.8766691049642675,
+    0.8282465725899476
+   ],
+   "fair": 1.24,
+   "ladder": [
+    [
+     0.5,
+     1.24
+    ]
+   ],
+   "avg": [
+    1.5,
+    1.6
+   ],
+   "expect": 1.6,
+   "expect_sum": 1.5,
+   "expect_matchup": 1.7,
+   "contrib": [
+    1.4,
+    0.3
+   ],
+   "buffer": 1.1,
+   "fa": [
+    [
+     1.4,
+     0.8
+    ],
+    [
+     1.2,
+     0.9
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.25,
+   "p_emp": {
+    "0.5": 0.8064516129032259
+   },
+   "p_mod": 0.811,
+   "p_fin": 0.809,
+   "fair_fin": 1.24,
+   "ladder_fin": [
+    [
+     0.5,
+     1.24
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.24",
+   "range": [
+    1.29,
+    1.58
+   ]
+  },
+  "v": 2
+ },
+ "12076797|ht_yellowcards|unter": {
+  "match_id": "12076797",
+  "home": "Hapoel Ramat Gan",
+  "away": "Maccabi Netanya",
+  "kickoff": "Mo 18:30",
+  "kickoff_ts": 1789403400,
+  "league": "Israel Premier League",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 12:26",
+  "first_line": 2.5,
+  "first_range": [
+   1.29,
+   1.58
+  ],
+  "last_run": "Mo 13:27",
+  "line": 2.5,
+  "range": [
+   1.29,
+   1.58
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    46
+   ],
+   "next_line": 1.5,
+   "next_note": "Hapoel Ramat Gan 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Maccabi Netanya 0/2 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.7379543762593391,
+    0.7061717058749688
+   ],
+   "fair": 1.32,
+   "ladder": [
+    [
+     2.5,
+     1.32
+    ],
+    [
+     3.5,
+     1.3
+    ]
+   ],
+   "avg": [
+    1.5,
+    1.6
+   ],
+   "expect": 1.6,
+   "expect_sum": 1.5,
+   "expect_matchup": 1.7,
+   "contrib": [
+    1.4,
+    0.3
+   ],
+   "buffer": 0.9,
+   "fa": [
+    [
+     1.4,
+     0.8
+    ],
+    [
+     1.2,
+     0.9
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.25,
+   "p_emp": {
+    "2.5": 0.7575757575757576,
+    "3.5": 0.7692307692307692
+   },
+   "p_mod": 0.764,
+   "p_fin": 0.761,
+   "fair_fin": 1.31,
+   "ladder_fin": [
+    [
+     2.5,
+     1.31
+    ],
+    [
+     3.5,
+     1.17
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.31",
+   "range": [
+    1.29,
+    1.58
+   ]
+  },
+  "v": 2
+ },
+ "11998002|yellowcards|unter": {
+  "match_id": "11998002",
+  "home": "Torino",
+  "away": "Roma",
+  "kickoff": "Mo 18:30",
+  "kickoff_ts": 1789403400,
+  "league": "Italy Serie A",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 11:28",
+  "first_line": 3.5,
+  "first_range": [
+   1.27,
+   2.15
+  ],
+  "last_run": "Mo 13:27",
+  "line": 3.5,
+  "range": [
+   1.29,
+   2.11
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 3.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    49,
+    46
+   ],
+   "next_line": 2.5,
+   "next_note": "Roma 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.6866035488719979,
+    0.504325674864477
+   ],
+   "fair": 1.78,
+   "ladder": [
+    [
+     3.5,
+     1.78
+    ],
+    [
+     4.5,
+     1.32
+    ]
+   ],
+   "avg": [
+    2.5,
+    3.5
+   ],
+   "expect": 2.7,
+   "expect_sum": 3.0,
+   "expect_matchup": 2.3,
+   "contrib": [
+    1.0,
+    1.3
+   ],
+   "buffer": 0.8,
+   "fa": [
+    [
+     1.6,
+     1.3
+    ],
+    [
+     1.8,
+     2.0
+    ]
+   ],
+   "referee": "Fabio Maresca: Ø 4.8 Karten (16 Sp.) · Ø 27.1 Fouls (15 Sp.)",
+   "b365": null,
+   "expect_ref": 3.1,
+   "buffer_ref": 0.4,
+   "sd": 1.94,
+   "p_emp": {
+    "3.5": 0.5617977528089888,
+    "4.5": 0.7575757575757576
+   },
+   "p_mod": 0.582,
+   "p_fin": 0.572,
+   "fair_fin": 1.75,
+   "ladder_fin": [
+    [
+     3.5,
+     1.75
+    ],
+    [
+     4.5,
+     1.31
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "nur 57 % Wahrscheinlichkeit",
+   "range": [
+    1.29,
+    2.11
+   ]
+  },
+  "v": 2
+ },
+ "11998002|on_target|unter": {
+  "match_id": "11998002",
+  "home": "Torino",
+  "away": "Roma",
+  "kickoff": "Mo 18:30",
+  "kickoff_ts": 1789403400,
+  "league": "Italy Serie A",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "unter",
+  "first_run": "Mo 11:28",
+  "first_line": 11.5,
+  "first_range": [
+   1.57,
+   1.91
+  ],
+  "last_run": "Mo 13:27",
+  "line": 11.5,
+  "range": [
+   1.8,
+   1.91
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "unter",
+   "line": 11.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    49,
+    45
+   ],
+   "next_line": 10.5,
+   "next_note": "Roma 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.8958620998097112,
+    0.8005909590659105
+   ],
+   "fair": 1.21,
+   "ladder": [
+    [
+     11.5,
+     1.21
+    ],
+    [
+     12.5,
+     1.24
+    ]
+   ],
+   "avg": [
+    8.1,
+    8.8
+   ],
+   "expect": 8.2,
+   "expect_sum": 8.4,
+   "expect_matchup": 7.9,
+   "contrib": [
+    4.2,
+    3.7
+   ],
+   "buffer": 3.3,
+   "fa": [
+    [
+     3.9,
+     4.3
+    ],
+    [
+     4.9,
+     3.7
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.51,
+   "p_emp": {
+    "11.5": 0.8264462809917356,
+    "12.5": 0.8064516129032259
+   },
+   "p_mod": 0.906,
+   "p_fin": 0.866,
+   "fair_fin": 1.15,
+   "ladder_fin": [
+    [
+     11.5,
+     1.15
+    ],
+    [
+     12.5,
+     1.13
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.15",
+   "range": [
+    1.8,
+    1.91
+   ]
+  },
+  "v": 2
+ },
+ "11998002|offsides|unter": {
+  "match_id": "11998002",
+  "home": "Torino",
+  "away": "Roma",
+  "kickoff": "Mo 18:30",
+  "kickoff_ts": 1789403400,
+  "league": "Italy Serie A",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Mo 11:28",
+  "first_line": 5.5,
+  "first_range": [
+   1.55,
+   1.81
+  ],
+  "last_run": "Mo 13:27",
+  "line": 5.5,
+  "range": [
+   1.56,
+   1.7
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    47,
+    48
+   ],
+   "next_line": 4.5,
+   "next_note": "Roma 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.9045551693116252,
+    0.8612323994203083
+   ],
+   "fair": 1.16,
+   "ladder": [
+    [
+     5.5,
+     1.16
+    ],
+    [
+     6.5,
+     1.25
+    ]
+   ],
+   "avg": [
+    2.7,
+    3.8
+   ],
+   "expect": 3.2,
+   "expect_sum": 3.2,
+   "expect_matchup": 3.1,
+   "contrib": [
+    0.8,
+    2.3
+   ],
+   "buffer": 2.3,
+   "fa": [
+    [
+     1.5,
+     1.4
+    ],
+    [
+     2.0,
+     1.5
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.1,
+   "p_emp": {
+    "5.5": 0.8620689655172414,
+    "6.5": 0.8
+   },
+   "p_mod": 0.863,
+   "p_fin": 0.863,
+   "fair_fin": 1.16,
+   "ladder_fin": [
+    [
+     5.5,
+     1.16
+    ],
+    [
+     6.5,
+     1.15
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.16",
+   "range": [
+    1.56,
+    1.7
+   ]
+  },
+  "v": 2
+ },
+ "11998002|ht_yellowcards|unter": {
+  "match_id": "11998002",
+  "home": "Torino",
+  "away": "Roma",
+  "kickoff": "Mo 18:30",
+  "kickoff_ts": 1789403400,
+  "league": "Italy Serie A",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 11:28",
+  "first_line": 1.5,
+  "first_range": [
+   1.27,
+   2.15
+  ],
+  "last_run": "Mo 13:27",
+  "line": 1.5,
+  "range": [
+   1.29,
+   2.11
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 1.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    49,
+    50
+   ],
+   "next_line": 0.5,
+   "next_note": "Torino 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Roma 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.8490571491554132,
+    0.6905136433719594
+   ],
+   "fair": 1.37,
+   "ladder": [
+    [
+     1.5,
+     1.37
+    ],
+    [
+     2.5,
+     1.08
+    ]
+   ],
+   "avg": [
+    0.6,
+    1.1
+   ],
+   "expect": 0.7,
+   "expect_sum": 0.8,
+   "expect_matchup": 0.5,
+   "contrib": [
+    0.3,
+    0.2
+   ],
+   "buffer": 0.8,
+   "fa": [
+    [
+     0.5,
+     0.4
+    ],
+    [
+     0.5,
+     0.6
+    ]
+   ],
+   "referee": "Fabio Maresca: Ø 4.8 Karten (16 Sp.) · Ø 27.1 Fouls (15 Sp.)",
+   "b365": null,
+   "expect_ref": 1.9,
+   "buffer_ref": -0.4,
+   "sd": 0.89,
+   "p_emp": {
+    "1.5": 0.7299270072992701,
+    "2.5": 0.9259259259259258
+   },
+   "p_mod": 0.327,
+   "p_fin": 0.528,
+   "fair_fin": 1.89,
+   "ladder_fin": [
+    [
+     1.5,
+     1.89
+    ],
+    [
+     2.5,
+     1.19
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "nur 53 % Wahrscheinlichkeit",
+   "range": [
+    1.29,
+    2.11
    ]
   },
   "v": 2
@@ -3965,7 +4081,7 @@
    1.26,
    1.88
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 9.5,
   "range": [
    1.26,
@@ -4085,7 +4201,7 @@
    1.21,
    1.76
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 7.5,
   "range": [
    1.21,
@@ -4189,6 +4305,238 @@
   },
   "v": 2
  },
+ "11176338|yellowcards|unter": {
+  "match_id": "11176338",
+  "home": "Djurgarden",
+  "away": "GAIS",
+  "kickoff": "Mo 19:00",
+  "kickoff_ts": 1789405200,
+  "league": "Sweden Allsvenskan",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 11:28",
+  "first_line": 4.5,
+  "first_range": [
+   1.22,
+   1.79
+  ],
+  "last_run": "Mo 13:27",
+  "line": 4.5,
+  "range": [
+   1.22,
+   1.79
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    46,
+    47
+   ],
+   "next_line": 3.5,
+   "next_note": "Djurgarden 0/2 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+   "longterm": [
+    0.7171015061212886,
+    0.7940700321908288
+   ],
+   "fair": 1.39,
+   "ladder": [
+    [
+     4.5,
+     1.39
+    ],
+    [
+     5.5,
+     1.2
+    ]
+   ],
+   "avg": [
+    2.9,
+    3.1
+   ],
+   "expect": 2.9,
+   "expect_sum": 3.0,
+   "expect_matchup": 2.7,
+   "contrib": [
+    0.4,
+    2.3
+   ],
+   "buffer": 1.6,
+   "fa": [
+    [
+     1.5,
+     2.2
+    ],
+    [
+     1.8,
+     1.3
+    ]
+   ],
+   "referee": "Adam Ladeback: Ø 2.9 Karten (28 Sp.) · Ø 20.4 Fouls (24 Sp.)",
+   "b365": null,
+   "expect_ref": 2.3,
+   "buffer_ref": 2.2,
+   "sd": 1.81,
+   "p_emp": {
+    "4.5": 0.7194244604316548,
+    "5.5": 0.8333333333333334
+   },
+   "p_mod": 0.888,
+   "p_fin": 0.804,
+   "fair_fin": 1.24,
+   "ladder_fin": [
+    [
+     4.5,
+     1.24
+    ],
+    [
+     5.5,
+     1.11
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 72 % vs. Modell 89 %",
+   "range": [
+    1.22,
+    1.79
+   ]
+  },
+  "v": 2
+ },
+ "11176338|ht_yellowcards|unter": {
+  "match_id": "11176338",
+  "home": "Djurgarden",
+  "away": "GAIS",
+  "kickoff": "Mo 19:00",
+  "kickoff_ts": 1789405200,
+  "league": "Sweden Allsvenskan",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 11:28",
+  "first_line": 2.5,
+  "first_range": [
+   1.22,
+   1.79
+  ],
+  "last_run": "Mo 13:27",
+  "line": 2.5,
+  "range": [
+   1.22,
+   1.79
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    42
+   ],
+   "next_line": 1.5,
+   "next_note": "kein Anker — Djurgarden 4/6 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; GAIS 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.8977250375607071,
+    0.9262840894097585
+   ],
+   "fair": 1.12,
+   "ladder": [
+    [
+     2.5,
+     1.12
+    ],
+    [
+     3.5,
+     1.23
+    ]
+   ],
+   "avg": [
+    1.1,
+    1.3
+   ],
+   "expect": 1.1,
+   "expect_sum": 1.2,
+   "expect_matchup": 1.1,
+   "contrib": [
+    0.3,
+    0.7
+   ],
+   "buffer": 1.4,
+   "fa": [
+    [
+     0.6,
+     1.0
+    ],
+    [
+     0.8,
+     0.5
+    ]
+   ],
+   "referee": "Adam Ladeback: Ø 2.9 Karten (28 Sp.) · Ø 20.4 Fouls (24 Sp.)",
+   "b365": null,
+   "expect_ref": 2.1,
+   "buffer_ref": 0.4,
+   "sd": 1.04,
+   "p_emp": {
+    "2.5": 0.8928571428571428,
+    "3.5": 0.8130081300813008
+   },
+   "p_mod": 0.65,
+   "p_fin": 0.771,
+   "fair_fin": 1.3,
+   "ladder_fin": [
+    [
+     2.5,
+     1.3
+    ],
+    [
+     3.5,
+     1.16
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 89 % vs. Modell 65 %",
+   "range": [
+    1.22,
+    1.79
+   ]
+  },
+  "v": 2
+ },
  "11162542|corners|über": {
   "match_id": "11162542",
   "home": "Bodo/Glimt",
@@ -4205,7 +4553,7 @@
    1.19,
    2.35
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 8.5,
   "range": [
    1.19,
@@ -4325,7 +4673,7 @@
    1.45,
    1.8
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 5.5,
   "range": [
    1.45,
@@ -4441,7 +4789,7 @@
    1.19,
    2.35
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 4.5,
   "range": [
    1.19,
@@ -4545,126 +4893,6 @@
   },
   "v": 2
  },
- "12074538|corners|über": {
-  "match_id": "12074538",
-  "home": "Stal Mielec",
-  "away": "Termalica BB Nieciecza",
-  "kickoff": "Mo 19:00",
-  "kickoff_ts": 1789405200,
-  "league": "Poland I Liga",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mo 09:28",
-  "first_line": 7.5,
-  "first_range": [
-   1.343,
-   1.343
-  ],
-  "last_run": "Mo 12:26",
-  "line": 7.5,
-  "range": [
-   1.343,
-   1.343
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 17
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    46
-   ],
-   "next_line": 8.5,
-   "next_note": "Stal Mielec 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
-   "longterm": [
-    0.7950731471555402,
-    0.8303197891777258
-   ],
-   "fair": 1.29,
-   "ladder": [
-    [
-     6.5,
-     1.26
-    ],
-    [
-     7.5,
-     1.29
-    ]
-   ],
-   "avg": [
-    10.1,
-    10.6
-   ],
-   "expect": 10.9,
-   "expect_sum": 10.4,
-   "expect_matchup": 11.4,
-   "contrib": [
-    5.5,
-    5.9
-   ],
-   "buffer": 3.4,
-   "fa": [
-    [
-     5.0,
-     5.9
-    ],
-    [
-     4.5,
-     5.5
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.0",
-    "1.775",
-    "2.025"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.24,
-   "p_emp": {
-    "6.5": 0.7936507936507936,
-    "7.5": 0.7751937984496123
-   },
-   "p_mod": 0.853,
-   "p_fin": 0.814,
-   "fair_fin": 1.23,
-   "ladder_fin": [
-    [
-     6.5,
-     1.17
-    ],
-    [
-     7.5,
-     1.23
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.23",
-   "range": [
-    1.343,
-    1.343
-   ]
-  },
-  "v": 2
- },
  "12077155|yellowcards|über": {
   "match_id": "12077155",
   "home": "Hapoel Kiryat Shmona",
@@ -4681,7 +4909,7 @@
    1.48,
    1.59
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 2.5,
   "range": [
    1.48,
@@ -4797,7 +5025,7 @@
    1.48,
    1.59
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 6.5,
   "range": [
    1.48,
@@ -4913,7 +5141,7 @@
    1.48,
    1.59
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 0.5,
   "range": [
    1.48,
@@ -5004,259 +5232,27 @@
   },
   "v": 2
  },
- "12375339|yellowcards|unter": {
-  "match_id": "12375339",
-  "home": "Ceramica Cleopatra",
-  "away": "National Bank",
+ "12074538|corners|über": {
+  "match_id": "12074538",
+  "home": "Stal Mielec",
+  "away": "Termalica BB Nieciecza",
   "kickoff": "Mo 19:00",
   "kickoff_ts": 1789405200,
-  "league": "Egypt Division 1",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 12:26",
-  "first_line": 5.5,
-  "first_range": [
-   1.36,
-   1.99
-  ],
-  "last_run": "Mo 12:26",
-  "line": 5.5,
-  "range": [
-   1.36,
-   1.99
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    46,
-    49
-   ],
-   "next_line": 4.5,
-   "next_note": "Ceramica Cleopatra 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
-   "longterm": [
-    0.8895604844039724,
-    0.8619200650612161
-   ],
-   "fair": 1.18,
-   "ladder": [
-    [
-     5.5,
-     1.18
-    ],
-    [
-     6.5,
-     1.1
-    ]
-   ],
-   "avg": [
-    3.8,
-    3.3
-   ],
-   "expect": 3.5,
-   "expect_sum": 3.6,
-   "expect_matchup": 3.4,
-   "contrib": [
-    2.2,
-    1.2
-   ],
-   "buffer": 2.0,
-   "fa": [
-    [
-     1.8,
-     2.1
-    ],
-    [
-     1.7,
-     1.9
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.86,
-   "p_emp": {
-    "5.5": 0.8474576271186441,
-    "6.5": 0.9090909090909091
-   },
-   "p_mod": 0.859,
-   "p_fin": 0.853,
-   "fair_fin": 1.17,
-   "ladder_fin": [
-    [
-     5.5,
-     1.17
-    ],
-    [
-     6.5,
-     1.08
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.17",
-   "range": [
-    1.36,
-    1.99
-   ]
-  },
-  "v": 2
- },
- "12375339|ht_yellowcards|unter": {
-  "match_id": "12375339",
-  "home": "Ceramica Cleopatra",
-  "away": "National Bank",
-  "kickoff": "Mo 19:00",
-  "kickoff_ts": 1789405200,
-  "league": "Egypt Division 1",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 12:26",
-  "first_line": 2.5,
-  "first_range": [
-   1.36,
-   1.99
-  ],
-  "last_run": "Mo 12:26",
-  "line": 2.5,
-  "range": [
-   1.36,
-   1.99
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 16
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    46,
-    49
-   ],
-   "next_line": 1.5,
-   "next_note": "Ceramica Cleopatra 0/2 (3. Lücke) gesamt, 0/2 (3. Lücke) heim",
-   "longterm": [
-    0.8704058945811038,
-    0.833927099467696
-   ],
-   "fair": 1.18,
-   "ladder": [
-    [
-     2.5,
-     1.18
-    ],
-    [
-     3.5,
-     1.21
-    ]
-   ],
-   "avg": [
-    1.4,
-    1.1
-   ],
-   "expect": 1.3,
-   "expect_sum": 1.2,
-   "expect_matchup": 1.3,
-   "contrib": [
-    1.3,
-    0.0
-   ],
-   "buffer": 1.2,
-   "fa": [
-    [
-     0.7,
-     0.8
-    ],
-    [
-     0.3,
-     1.0
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.1,
-   "p_emp": {
-    "2.5": 0.8474576271186441,
-    "3.5": 0.8264462809917356
-   },
-   "p_mod": 0.862,
-   "p_fin": 0.855,
-   "fair_fin": 1.17,
-   "ladder_fin": [
-    [
-     2.5,
-     1.17
-    ],
-    [
-     3.5,
-     1.11
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.17",
-   "range": [
-    1.36,
-    1.99
-   ]
-  },
-  "v": 2
- },
- "12202985|corners|über": {
-  "match_id": "12202985",
-  "home": "Gazisehir Gaziantep FK",
-  "away": "Fenerbahce",
-  "kickoff": "Mo 19:00",
-  "kickoff_ts": 1789405200,
-  "league": "Türkiye Super Lig",
+  "league": "Poland I Liga",
   "metric": "Ecken",
   "metric_key": "corners",
   "direction": "über",
-  "first_run": "Mo 10:29",
+  "first_run": "Mo 09:28",
   "first_line": 7.5,
   "first_range": [
-   1.8,
-   1.98
+   1.343,
+   1.343
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 7.5,
   "range": [
-   1.8,
-   1.98
+   1.343,
+   1.343
   ],
   "signal": {
    "metric": "Ecken",
@@ -5264,424 +5260,76 @@
    "direction": "über",
    "line": 7.5,
    "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
+    "kind": "heim",
+    "hits": 15,
+    "window": 17
    },
    "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    46,
-    46
-   ],
-   "next_line": 8.5,
-   "next_note": "Gazisehir Gaziantep FK 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Fenerbahce 3/5 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
-   "longterm": [
-    0.8140251093901774,
-    0.7436943927871027
-   ],
-   "fair": 1.33,
-   "ladder": [
-    [
-     6.5,
-     1.4
-    ],
-    [
-     7.5,
-     1.33
-    ]
-   ],
-   "avg": [
-    9.8,
-    11.6
-   ],
-   "expect": 11.2,
-   "expect_sum": 10.7,
-   "expect_matchup": 11.7,
-   "contrib": [
-    5.3,
-    6.4
-   ],
-   "buffer": 3.7,
-   "fa": [
-    [
-     4.9,
-     5.1
-    ],
-    [
-     6.7,
-     4.2
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "8.5",
-    "1.800",
-    "2.000"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.93,
-   "p_emp": {
-    "6.5": 0.7142857142857143,
-    "7.5": 0.7518796992481203
-   },
-   "p_mod": 0.827,
-   "p_fin": 0.789,
-   "fair_fin": 1.27,
-   "ladder_fin": [
-    [
-     6.5,
-     1.25
-    ],
-    [
-     7.5,
-     1.27
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.27",
-   "range": [
-    1.8,
-    1.98
-   ]
-  },
-  "v": 2
- },
- "12202985|yellowcards|über": {
-  "match_id": "12202985",
-  "home": "Gazisehir Gaziantep FK",
-  "away": "Fenerbahce",
-  "kickoff": "Mo 19:00",
-  "kickoff_ts": 1789405200,
-  "league": "Türkiye Super Lig",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "Mo 11:28",
-  "first_line": 2.5,
-  "first_range": [
-   1.2,
-   1.85
-  ],
-  "last_run": "Mo 12:26",
-  "line": 2.5,
-  "range": [
-   1.22,
-   1.98
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    46,
-    46
-   ],
-   "next_line": 3.5,
-   "next_note": "Gazisehir Gaziantep FK 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Fenerbahce 3/5 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
-   "longterm": [
-    0.8392535072539673,
-    0.7219559287221323
-   ],
-   "fair": 1.32,
-   "ladder": [
-    [
-     1.5,
-     1.35
-    ],
-    [
-     2.5,
-     1.32
-    ]
-   ],
-   "avg": [
-    4.5,
-    4.0
-   ],
-   "expect": 4.4,
-   "expect_sum": 4.2,
-   "expect_matchup": 4.6,
-   "contrib": [
-    2.1,
-    2.5
-   ],
-   "buffer": 1.9,
-   "fa": [
-    [
-     2.5,
-     2.7
-    ],
-    [
-     2.2,
-     2.4
-    ]
-   ],
-   "referee": "Mehmet Turkmen: Ø 3.5 Karten (24 Sp.) · Ø 23.0 Fouls (17 Sp.)",
-   "b365": null,
-   "expect_ref": 4.1,
-   "buffer_ref": 1.6,
-   "sd": 2.42,
-   "p_emp": {
-    "1.5": 0.7407407407407407,
-    "2.5": 0.7575757575757576
-   },
-   "p_mod": 0.746,
-   "p_fin": 0.752,
-   "fair_fin": 1.33,
-   "ladder_fin": [
-    [
-     1.5,
-     1.25
-    ],
-    [
-     2.5,
-     1.33
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.33",
-   "range": [
-    1.22,
-    1.98
-   ]
-  },
-  "v": 2
- },
- "12202985|yellowcards|unter": {
-  "match_id": "12202985",
-  "home": "Gazisehir Gaziantep FK",
-  "away": "Fenerbahce",
-  "kickoff": "Mo 19:00",
-  "kickoff_ts": 1789405200,
-  "league": "Türkiye Super Lig",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 11:28",
-  "first_line": 6.5,
-  "first_range": [
-   1.2,
-   1.85
-  ],
-  "last_run": "Mo 12:26",
-  "line": 6.5,
-  "range": [
-   1.22,
-   1.98
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
     "kind": "gesamt",
     "hits": 10,
     "window": 10
    },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
    "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    46,
-    46
-   ],
-   "next_line": 5.5,
-   "next_note": "Fenerbahce 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.8334365107853091,
-    0.7372838044614397
-   ],
-   "fair": 1.23,
-   "ladder": [
-    [
-     6.5,
-     1.23
-    ],
-    [
-     7.5,
-     1.3
-    ]
-   ],
-   "avg": [
-    4.5,
-    4.0
-   ],
-   "expect": 4.4,
-   "expect_sum": 4.2,
-   "expect_matchup": 4.6,
-   "contrib": [
-    2.1,
-    2.5
-   ],
-   "buffer": 2.1,
-   "fa": [
-    [
-     2.5,
-     2.7
-    ],
-    [
-     2.2,
-     2.4
-    ]
-   ],
-   "referee": "Mehmet Turkmen: Ø 3.5 Karten (24 Sp.) · Ø 23.0 Fouls (17 Sp.)",
-   "b365": null,
-   "expect_ref": 4.1,
-   "buffer_ref": 2.4,
-   "sd": 2.42,
-   "p_emp": {
-    "6.5": 0.8130081300813008,
-    "7.5": 0.7692307692307692
-   },
-   "p_mod": 0.839,
-   "p_fin": 0.826,
-   "fair_fin": 1.21,
-   "ladder_fin": [
-    [
-     6.5,
-     1.21
-    ],
-    [
-     7.5,
-     1.18
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.21",
-   "range": [
-    1.22,
-    1.98
-   ]
-  },
-  "v": 2
- },
- "12202985|on_target|über": {
-  "match_id": "12202985",
-  "home": "Gazisehir Gaziantep FK",
-  "away": "Fenerbahce",
-  "kickoff": "Mo 19:00",
-  "kickoff_ts": 1789405200,
-  "league": "Türkiye Super Lig",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "über",
-  "first_run": "Mo 10:29",
-  "first_line": 7.5,
-  "first_range": [
-   1.32,
-   1.98
-  ],
-  "last_run": "Mo 12:26",
-  "line": 7.5,
-  "range": [
-   1.71,
-   1.99
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
    "away_is_anchor": true,
    "valid": [
-    44,
-    42
+    45,
+    46
    ],
    "next_line": 8.5,
-   "next_note": "Fenerbahce 0/2 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "next_note": "Stal Mielec 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
    "longterm": [
-    0.8254450046260257,
-    0.8462634956585924
+    0.7950731471555402,
+    0.8303197891777258
    ],
-   "fair": 1.31,
+   "fair": 1.29,
    "ladder": [
     [
      6.5,
-     1.23
+     1.26
     ],
     [
      7.5,
-     1.31
+     1.29
     ]
    ],
    "avg": [
-    9.3,
-    10.5
+    10.1,
+    10.6
    ],
-   "expect": 10.1,
-   "expect_sum": 9.9,
-   "expect_matchup": 10.4,
+   "expect": 10.9,
+   "expect_sum": 10.4,
+   "expect_matchup": 11.4,
    "contrib": [
-    3.8,
-    6.6
+    5.5,
+    5.9
    ],
-   "buffer": 2.6,
+   "buffer": 3.4,
    "fa": [
     [
-     4.8,
-     4.9
+     5.0,
+     5.9
     ],
     [
-     6.3,
-     3.7
+     4.5,
+     5.5
     ]
    ],
    "referee": null,
-   "b365": null,
+   "b365": [
+    "10.0",
+    "1.775",
+    "2.025"
+   ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 2.85,
+   "sd": 3.24,
    "p_emp": {
-    "6.5": 0.8130081300813008,
-    "7.5": 0.7633587786259541
+    "6.5": 0.7936507936507936,
+    "7.5": 0.7751937984496123
    },
-   "p_mod": 0.819,
-   "p_fin": 0.791,
-   "fair_fin": 1.26,
+   "p_mod": 0.853,
+   "p_fin": 0.814,
+   "fair_fin": 1.23,
    "ladder_fin": [
     [
      6.5,
@@ -5689,249 +5337,17 @@
     ],
     [
      7.5,
-     1.26
+     1.23
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "reason": "fair 1.26",
+   "reason": "fair 1.23",
    "range": [
-    1.71,
-    1.99
-   ]
-  },
-  "v": 2
- },
- "12202985|offsides|unter": {
-  "match_id": "12202985",
-  "home": "Gazisehir Gaziantep FK",
-  "away": "Fenerbahce",
-  "kickoff": "Mo 19:00",
-  "kickoff_ts": 1789405200,
-  "league": "Türkiye Super Lig",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "Mo 11:28",
-  "first_line": 5.5,
-  "first_range": [
-   1.55,
-   1.55
-  ],
-  "last_run": "Mo 12:26",
-  "line": 5.5,
-  "range": [
-   1.55,
-   1.55
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    34,
-    35
-   ],
-   "next_line": 4.5,
-   "next_note": "Fenerbahce 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.903080148490503,
-    0.886155870371011
-   ],
-   "fair": 1.15,
-   "ladder": [
-    [
-     5.5,
-     1.15
-    ],
-    [
-     6.5,
-     1.25
-    ]
-   ],
-   "avg": [
-    3.1,
-    3.5
-   ],
-   "expect": 3.2,
-   "expect_sum": 3.3,
-   "expect_matchup": 3.2,
-   "contrib": [
-    1.1,
-    2.1
-   ],
-   "buffer": 2.3,
-   "fa": [
-    [
-     1.6,
-     1.4
-    ],
-    [
-     1.8,
-     1.3
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.93,
-   "p_emp": {
-    "5.5": 0.8695652173913044,
-    "6.5": 0.8
-   },
-   "p_mod": 0.883,
-   "p_fin": 0.876,
-   "fair_fin": 1.14,
-   "ladder_fin": [
-    [
-     5.5,
-     1.14
-    ],
-    [
-     6.5,
-     1.14
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.14",
-   "range": [
-    1.55,
-    1.55
-   ]
-  },
-  "v": 2
- },
- "12202985|ht_yellowcards|unter": {
-  "match_id": "12202985",
-  "home": "Gazisehir Gaziantep FK",
-  "away": "Fenerbahce",
-  "kickoff": "Mo 19:00",
-  "kickoff_ts": 1789405200,
-  "league": "Türkiye Super Lig",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 11:28",
-  "first_line": 2.5,
-  "first_range": [
-   1.2,
-   1.85
-  ],
-  "last_run": "Mo 12:26",
-  "line": 2.5,
-  "range": [
-   1.22,
-   1.98
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    49
-   ],
-   "next_line": 1.5,
-   "next_note": "Fenerbahce 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "longterm": [
-    0.8324400183259137,
-    0.7954991760626174
-   ],
-   "fair": 1.22,
-   "ladder": [
-    [
-     2.5,
-     1.22
-    ],
-    [
-     3.5,
-     1.24
-    ]
-   ],
-   "avg": [
-    1.5,
-    1.4
-   ],
-   "expect": 1.5,
-   "expect_sum": 1.5,
-   "expect_matchup": 1.6,
-   "contrib": [
-    0.7,
-    0.9
-   ],
-   "buffer": 1.0,
-   "fa": [
-    [
-     0.4,
-     1.5
-    ],
-    [
-     0.7,
-     0.9
-    ]
-   ],
-   "referee": "Mehmet Turkmen: Ø 3.5 Karten (24 Sp.) · Ø 23.0 Fouls (17 Sp.)",
-   "b365": null,
-   "expect_ref": 3.4,
-   "buffer_ref": -0.9,
-   "sd": 1.29,
-   "p_emp": {
-    "2.5": 0.819672131147541,
-    "3.5": 0.8064516129032259
-   },
-   "p_mod": 0.243,
-   "p_fin": 0.531,
-   "fair_fin": 1.88,
-   "ladder_fin": [
-    [
-     2.5,
-     1.88
-    ],
-    [
-     3.5,
-     1.5
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🔴",
-   "reason": "nur 53 % Wahrscheinlichkeit",
-   "range": [
-    1.22,
-    1.98
+    1.343,
+    1.343
    ]
   },
   "v": 2
@@ -5952,7 +5368,7 @@
    1.37,
    1.97
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 8.5,
   "range": [
    1.32,
@@ -6072,7 +5488,7 @@
    1.2,
    1.7
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 4.5,
   "range": [
    1.21,
@@ -6188,7 +5604,7 @@
    1.37,
    1.97
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 3.5,
   "range": [
    1.32,
@@ -6308,7 +5724,7 @@
    1.2,
    1.7
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 2.5,
   "range": [
    1.21,
@@ -6408,6 +5824,938 @@
   },
   "v": 2
  },
+ "12375339|yellowcards|unter": {
+  "match_id": "12375339",
+  "home": "Ceramica Cleopatra",
+  "away": "National Bank",
+  "kickoff": "Mo 19:00",
+  "kickoff_ts": 1789405200,
+  "league": "Egypt Division 1",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 12:26",
+  "first_line": 5.5,
+  "first_range": [
+   1.36,
+   1.99
+  ],
+  "last_run": "Mo 13:27",
+  "line": 5.5,
+  "range": [
+   1.29,
+   1.94
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    46,
+    49
+   ],
+   "next_line": 4.5,
+   "next_note": "Ceramica Cleopatra 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "longterm": [
+    0.8895604844039724,
+    0.8619200650612161
+   ],
+   "fair": 1.18,
+   "ladder": [
+    [
+     5.5,
+     1.18
+    ],
+    [
+     6.5,
+     1.1
+    ]
+   ],
+   "avg": [
+    3.8,
+    3.3
+   ],
+   "expect": 3.5,
+   "expect_sum": 3.6,
+   "expect_matchup": 3.4,
+   "contrib": [
+    2.2,
+    1.2
+   ],
+   "buffer": 2.0,
+   "fa": [
+    [
+     1.8,
+     2.1
+    ],
+    [
+     1.7,
+     1.9
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.86,
+   "p_emp": {
+    "5.5": 0.8474576271186441,
+    "6.5": 0.9090909090909091
+   },
+   "p_mod": 0.859,
+   "p_fin": 0.853,
+   "fair_fin": 1.17,
+   "ladder_fin": [
+    [
+     5.5,
+     1.17
+    ],
+    [
+     6.5,
+     1.08
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.17",
+   "range": [
+    1.29,
+    1.94
+   ]
+  },
+  "v": 2
+ },
+ "12375339|ht_yellowcards|unter": {
+  "match_id": "12375339",
+  "home": "Ceramica Cleopatra",
+  "away": "National Bank",
+  "kickoff": "Mo 19:00",
+  "kickoff_ts": 1789405200,
+  "league": "Egypt Division 1",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 12:26",
+  "first_line": 2.5,
+  "first_range": [
+   1.36,
+   1.99
+  ],
+  "last_run": "Mo 13:27",
+  "line": 2.5,
+  "range": [
+   1.29,
+   1.94
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 16
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    46,
+    49
+   ],
+   "next_line": 1.5,
+   "next_note": "Ceramica Cleopatra 0/2 (3. Lücke) gesamt, 0/2 (3. Lücke) heim",
+   "longterm": [
+    0.8704058945811038,
+    0.833927099467696
+   ],
+   "fair": 1.18,
+   "ladder": [
+    [
+     2.5,
+     1.18
+    ],
+    [
+     3.5,
+     1.21
+    ]
+   ],
+   "avg": [
+    1.4,
+    1.1
+   ],
+   "expect": 1.3,
+   "expect_sum": 1.2,
+   "expect_matchup": 1.3,
+   "contrib": [
+    1.3,
+    0.0
+   ],
+   "buffer": 1.2,
+   "fa": [
+    [
+     0.7,
+     0.8
+    ],
+    [
+     0.3,
+     1.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.1,
+   "p_emp": {
+    "2.5": 0.8474576271186441,
+    "3.5": 0.8264462809917356
+   },
+   "p_mod": 0.862,
+   "p_fin": 0.855,
+   "fair_fin": 1.17,
+   "ladder_fin": [
+    [
+     2.5,
+     1.17
+    ],
+    [
+     3.5,
+     1.11
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.17",
+   "range": [
+    1.29,
+    1.94
+   ]
+  },
+  "v": 2
+ },
+ "12202985|corners|über": {
+  "match_id": "12202985",
+  "home": "Gazisehir Gaziantep FK",
+  "away": "Fenerbahce",
+  "kickoff": "Mo 19:00",
+  "kickoff_ts": 1789405200,
+  "league": "Türkiye Super Lig",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mo 10:29",
+  "first_line": 7.5,
+  "first_range": [
+   1.8,
+   1.98
+  ],
+  "last_run": "Mo 13:27",
+  "line": 7.5,
+  "range": [
+   1.8,
+   1.98
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    46,
+    46
+   ],
+   "next_line": 8.5,
+   "next_note": "Gazisehir Gaziantep FK 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Fenerbahce 3/5 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.8140251093901774,
+    0.7436943927871027
+   ],
+   "fair": 1.33,
+   "ladder": [
+    [
+     6.5,
+     1.4
+    ],
+    [
+     7.5,
+     1.33
+    ]
+   ],
+   "avg": [
+    9.8,
+    11.6
+   ],
+   "expect": 11.2,
+   "expect_sum": 10.7,
+   "expect_matchup": 11.7,
+   "contrib": [
+    5.3,
+    6.4
+   ],
+   "buffer": 3.7,
+   "fa": [
+    [
+     4.9,
+     5.1
+    ],
+    [
+     6.7,
+     4.2
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "8.5",
+    "1.800",
+    "2.000"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.93,
+   "p_emp": {
+    "6.5": 0.7142857142857143,
+    "7.5": 0.7518796992481203
+   },
+   "p_mod": 0.827,
+   "p_fin": 0.789,
+   "fair_fin": 1.27,
+   "ladder_fin": [
+    [
+     6.5,
+     1.25
+    ],
+    [
+     7.5,
+     1.27
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.27",
+   "range": [
+    1.8,
+    1.98
+   ]
+  },
+  "v": 2
+ },
+ "12202985|yellowcards|über": {
+  "match_id": "12202985",
+  "home": "Gazisehir Gaziantep FK",
+  "away": "Fenerbahce",
+  "kickoff": "Mo 19:00",
+  "kickoff_ts": 1789405200,
+  "league": "Türkiye Super Lig",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Mo 11:28",
+  "first_line": 2.5,
+  "first_range": [
+   1.2,
+   1.85
+  ],
+  "last_run": "Mo 13:27",
+  "line": 2.5,
+  "range": [
+   1.22,
+   1.98
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    46,
+    46
+   ],
+   "next_line": 3.5,
+   "next_note": "Gazisehir Gaziantep FK 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Fenerbahce 3/5 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.8392535072539673,
+    0.7219559287221323
+   ],
+   "fair": 1.32,
+   "ladder": [
+    [
+     1.5,
+     1.35
+    ],
+    [
+     2.5,
+     1.32
+    ]
+   ],
+   "avg": [
+    4.5,
+    4.0
+   ],
+   "expect": 4.4,
+   "expect_sum": 4.2,
+   "expect_matchup": 4.6,
+   "contrib": [
+    2.1,
+    2.5
+   ],
+   "buffer": 1.9,
+   "fa": [
+    [
+     2.5,
+     2.7
+    ],
+    [
+     2.2,
+     2.4
+    ]
+   ],
+   "referee": "Mehmet Turkmen: Ø 3.5 Karten (24 Sp.) · Ø 23.0 Fouls (17 Sp.)",
+   "b365": null,
+   "expect_ref": 4.1,
+   "buffer_ref": 1.6,
+   "sd": 2.42,
+   "p_emp": {
+    "1.5": 0.7407407407407407,
+    "2.5": 0.7575757575757576
+   },
+   "p_mod": 0.746,
+   "p_fin": 0.752,
+   "fair_fin": 1.33,
+   "ladder_fin": [
+    [
+     1.5,
+     1.25
+    ],
+    [
+     2.5,
+     1.33
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.33",
+   "range": [
+    1.22,
+    1.98
+   ]
+  },
+  "v": 2
+ },
+ "12202985|yellowcards|unter": {
+  "match_id": "12202985",
+  "home": "Gazisehir Gaziantep FK",
+  "away": "Fenerbahce",
+  "kickoff": "Mo 19:00",
+  "kickoff_ts": 1789405200,
+  "league": "Türkiye Super Lig",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 11:28",
+  "first_line": 6.5,
+  "first_range": [
+   1.2,
+   1.85
+  ],
+  "last_run": "Mo 13:27",
+  "line": 6.5,
+  "range": [
+   1.22,
+   1.98
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    46,
+    46
+   ],
+   "next_line": 5.5,
+   "next_note": "Fenerbahce 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.8334365107853091,
+    0.7372838044614397
+   ],
+   "fair": 1.23,
+   "ladder": [
+    [
+     6.5,
+     1.23
+    ],
+    [
+     7.5,
+     1.3
+    ]
+   ],
+   "avg": [
+    4.5,
+    4.0
+   ],
+   "expect": 4.4,
+   "expect_sum": 4.2,
+   "expect_matchup": 4.6,
+   "contrib": [
+    2.1,
+    2.5
+   ],
+   "buffer": 2.1,
+   "fa": [
+    [
+     2.5,
+     2.7
+    ],
+    [
+     2.2,
+     2.4
+    ]
+   ],
+   "referee": "Mehmet Turkmen: Ø 3.5 Karten (24 Sp.) · Ø 23.0 Fouls (17 Sp.)",
+   "b365": null,
+   "expect_ref": 4.1,
+   "buffer_ref": 2.4,
+   "sd": 2.42,
+   "p_emp": {
+    "6.5": 0.8130081300813008,
+    "7.5": 0.7692307692307692
+   },
+   "p_mod": 0.839,
+   "p_fin": 0.826,
+   "fair_fin": 1.21,
+   "ladder_fin": [
+    [
+     6.5,
+     1.21
+    ],
+    [
+     7.5,
+     1.18
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.21",
+   "range": [
+    1.22,
+    1.98
+   ]
+  },
+  "v": 2
+ },
+ "12202985|on_target|über": {
+  "match_id": "12202985",
+  "home": "Gazisehir Gaziantep FK",
+  "away": "Fenerbahce",
+  "kickoff": "Mo 19:00",
+  "kickoff_ts": 1789405200,
+  "league": "Türkiye Super Lig",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Mo 10:29",
+  "first_line": 7.5,
+  "first_range": [
+   1.32,
+   1.98
+  ],
+  "last_run": "Mo 13:27",
+  "line": 7.5,
+  "range": [
+   1.71,
+   1.99
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    42
+   ],
+   "next_line": 8.5,
+   "next_note": "Fenerbahce 0/2 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.8254450046260257,
+    0.8462634956585924
+   ],
+   "fair": 1.31,
+   "ladder": [
+    [
+     6.5,
+     1.23
+    ],
+    [
+     7.5,
+     1.31
+    ]
+   ],
+   "avg": [
+    9.3,
+    10.5
+   ],
+   "expect": 10.1,
+   "expect_sum": 9.9,
+   "expect_matchup": 10.4,
+   "contrib": [
+    3.8,
+    6.6
+   ],
+   "buffer": 2.6,
+   "fa": [
+    [
+     4.8,
+     4.9
+    ],
+    [
+     6.3,
+     3.7
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.85,
+   "p_emp": {
+    "6.5": 0.8130081300813008,
+    "7.5": 0.7633587786259541
+   },
+   "p_mod": 0.819,
+   "p_fin": 0.791,
+   "fair_fin": 1.26,
+   "ladder_fin": [
+    [
+     6.5,
+     1.17
+    ],
+    [
+     7.5,
+     1.26
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.26",
+   "range": [
+    1.71,
+    1.99
+   ]
+  },
+  "v": 2
+ },
+ "12202985|offsides|unter": {
+  "match_id": "12202985",
+  "home": "Gazisehir Gaziantep FK",
+  "away": "Fenerbahce",
+  "kickoff": "Mo 19:00",
+  "kickoff_ts": 1789405200,
+  "league": "Türkiye Super Lig",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Mo 11:28",
+  "first_line": 5.5,
+  "first_range": [
+   1.55,
+   1.55
+  ],
+  "last_run": "Mo 13:27",
+  "line": 5.5,
+  "range": [
+   1.55,
+   1.55
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    34,
+    35
+   ],
+   "next_line": 4.5,
+   "next_note": "Fenerbahce 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.903080148490503,
+    0.886155870371011
+   ],
+   "fair": 1.15,
+   "ladder": [
+    [
+     5.5,
+     1.15
+    ],
+    [
+     6.5,
+     1.25
+    ]
+   ],
+   "avg": [
+    3.1,
+    3.5
+   ],
+   "expect": 3.2,
+   "expect_sum": 3.3,
+   "expect_matchup": 3.2,
+   "contrib": [
+    1.1,
+    2.1
+   ],
+   "buffer": 2.3,
+   "fa": [
+    [
+     1.6,
+     1.4
+    ],
+    [
+     1.8,
+     1.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.93,
+   "p_emp": {
+    "5.5": 0.8695652173913044,
+    "6.5": 0.8
+   },
+   "p_mod": 0.883,
+   "p_fin": 0.876,
+   "fair_fin": 1.14,
+   "ladder_fin": [
+    [
+     5.5,
+     1.14
+    ],
+    [
+     6.5,
+     1.14
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.14",
+   "range": [
+    1.55,
+    1.55
+   ]
+  },
+  "v": 2
+ },
+ "12202985|ht_yellowcards|unter": {
+  "match_id": "12202985",
+  "home": "Gazisehir Gaziantep FK",
+  "away": "Fenerbahce",
+  "kickoff": "Mo 19:00",
+  "kickoff_ts": 1789405200,
+  "league": "Türkiye Super Lig",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 11:28",
+  "first_line": 2.5,
+  "first_range": [
+   1.2,
+   1.85
+  ],
+  "last_run": "Mo 13:27",
+  "line": 2.5,
+  "range": [
+   1.22,
+   1.98
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    47,
+    49
+   ],
+   "next_line": 1.5,
+   "next_note": "Fenerbahce 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.8324400183259137,
+    0.7954991760626174
+   ],
+   "fair": 1.22,
+   "ladder": [
+    [
+     2.5,
+     1.22
+    ],
+    [
+     3.5,
+     1.24
+    ]
+   ],
+   "avg": [
+    1.5,
+    1.4
+   ],
+   "expect": 1.5,
+   "expect_sum": 1.5,
+   "expect_matchup": 1.6,
+   "contrib": [
+    0.7,
+    0.9
+   ],
+   "buffer": 1.0,
+   "fa": [
+    [
+     0.4,
+     1.5
+    ],
+    [
+     0.7,
+     0.9
+    ]
+   ],
+   "referee": "Mehmet Turkmen: Ø 3.5 Karten (24 Sp.) · Ø 23.0 Fouls (17 Sp.)",
+   "b365": null,
+   "expect_ref": 3.4,
+   "buffer_ref": -0.9,
+   "sd": 1.29,
+   "p_emp": {
+    "2.5": 0.819672131147541,
+    "3.5": 0.8064516129032259
+   },
+   "p_mod": 0.243,
+   "p_fin": 0.531,
+   "fair_fin": 1.88,
+   "ladder_fin": [
+    [
+     2.5,
+     1.88
+    ],
+    [
+     3.5,
+     1.5
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "nur 53 % Wahrscheinlichkeit",
+   "range": [
+    1.22,
+    1.98
+   ]
+  },
+  "v": 2
+ },
  "12077157|yellowcards|über": {
   "match_id": "12077157",
   "home": "Maccabi Tel Aviv",
@@ -6424,7 +6772,7 @@
    1.29,
    1.88
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 2.5,
   "range": [
    1.29,
@@ -6540,7 +6888,7 @@
    1.29,
    1.88
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 6.5,
   "range": [
    1.29,
@@ -6656,7 +7004,7 @@
    1.29,
    1.88
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 0.5,
   "range": [
    1.29,
@@ -6763,7 +7111,7 @@
    1.22,
    1.84
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 5.5,
   "range": [
    1.22,
@@ -6879,7 +7227,7 @@
    1.55,
    2.28
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 11.5,
   "range": [
    1.55,
@@ -6995,7 +7343,7 @@
    1.26,
    1.59
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 3.5,
   "range": [
    1.26,
@@ -7111,7 +7459,7 @@
    1.22,
    1.84
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 2.5,
   "range": [
    1.22,
@@ -7227,7 +7575,7 @@
    1.83,
    1.83
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 8.5,
   "range": [
    1.83,
@@ -7347,7 +7695,7 @@
    1.73,
    1.74
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 2.5,
   "range": [
    1.69,
@@ -7463,7 +7811,7 @@
    1.29,
    1.83
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 6.5,
   "range": [
    1.29,
@@ -7579,7 +7927,7 @@
    1.73,
    1.74
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 2.5,
   "range": [
    1.69,
@@ -7679,800 +8027,6 @@
   },
   "v": 2
  },
- "12456911|yellowcards|über": {
-  "match_id": "12456911",
-  "home": "Esteghlal",
-  "away": "Al Sadd",
-  "kickoff": "Mo 20:15",
-  "kickoff_ts": 1789409700,
-  "league": "AFC Champions League Elite",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "Mo 12:26",
-  "first_line": 2.5,
-  "first_range": [
-   1.32,
-   1.32
-  ],
-  "last_run": "Mo 12:26",
-  "line": 2.5,
-  "range": [
-   1.32,
-   1.32
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    19,
-    42
-   ],
-   "next_line": 3.5,
-   "next_note": "Esteghlal 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Al Sadd 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.9030153236221233,
-    0.6451240144808283
-   ],
-   "fair": 1.43,
-   "ladder": [
-    [
-     1.5,
-     1.34
-    ],
-    [
-     2.5,
-     1.43
-    ]
-   ],
-   "avg": [
-    3.6,
-    3.3
-   ],
-   "expect": 3.3,
-   "expect_sum": 3.5,
-   "expect_matchup": 3.2,
-   "contrib": [
-    1.0,
-    2.1
-   ],
-   "buffer": 0.8,
-   "fa": [
-    [
-     1.7,
-     2.4
-    ],
-    [
-     1.9,
-     1.7
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.91,
-   "p_emp": {
-    "1.5": 0.7462686567164178,
-    "2.5": 0.6993006993006994
-   },
-   "p_mod": 0.662,
-   "p_fin": 0.681,
-   "fair_fin": 1.47,
-   "ladder_fin": [
-    [
-     1.5,
-     1.27
-    ],
-    [
-     2.5,
-     1.47
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.47",
-   "range": [
-    1.32,
-    1.32
-   ]
-  },
-  "v": 2
- },
- "12456911|yellowcards|unter": {
-  "match_id": "12456911",
-  "home": "Esteghlal",
-  "away": "Al Sadd",
-  "kickoff": "Mo 20:15",
-  "kickoff_ts": 1789409700,
-  "league": "AFC Champions League Elite",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 12:26",
-  "first_line": 5.5,
-  "first_range": [
-   1.32,
-   1.32
-  ],
-  "last_run": "Mo 12:26",
-  "line": 5.5,
-  "range": [
-   1.32,
-   1.32
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 16
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    19,
-    42
-   ],
-   "next_line": 4.5,
-   "next_note": "kein Anker — Esteghlal 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Al Sadd 8/10 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
-   "longterm": [
-    0.8266243621930958,
-    0.8492156326972138
-   ],
-   "fair": 1.23,
-   "ladder": [
-    [
-     5.5,
-     1.23
-    ],
-    [
-     6.5,
-     1.1
-    ]
-   ],
-   "avg": [
-    3.6,
-    3.3
-   ],
-   "expect": 3.3,
-   "expect_sum": 3.5,
-   "expect_matchup": 3.2,
-   "contrib": [
-    1.0,
-    2.1
-   ],
-   "buffer": 2.2,
-   "fa": [
-    [
-     1.7,
-     2.4
-    ],
-    [
-     1.9,
-     1.7
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.91,
-   "p_emp": {
-    "5.5": 0.8130081300813008,
-    "6.5": 0.9090909090909091
-   },
-   "p_mod": 0.875,
-   "p_fin": 0.844,
-   "fair_fin": 1.18,
-   "ladder_fin": [
-    [
-     5.5,
-     1.18
-    ],
-    [
-     6.5,
-     1.07
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.18",
-   "range": [
-    1.32,
-    1.32
-   ]
-  },
-  "v": 2
- },
- "12456911|ht_yellowcards|über": {
-  "match_id": "12456911",
-  "home": "Esteghlal",
-  "away": "Al Sadd",
-  "kickoff": "Mo 20:15",
-  "kickoff_ts": 1789409700,
-  "league": "AFC Champions League Elite",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "über",
-  "first_run": "Mo 12:26",
-  "first_line": 0.5,
-  "first_range": [
-   1.32,
-   1.32
-  ],
-  "last_run": "Mo 12:26",
-  "line": 0.5,
-  "range": [
-   1.32,
-   1.32
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "über",
-   "line": 0.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    19,
-    41
-   ],
-   "next_line": 1.5,
-   "next_note": "Esteghlal 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Al Sadd 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
-   "longterm": [
-    0.8558495527870201,
-    0.7498663016577344
-   ],
-   "fair": 1.35,
-   "ladder": [
-    [
-     0.5,
-     1.35
-    ]
-   ],
-   "avg": [
-    1.6,
-    1.0
-   ],
-   "expect": 1.6,
-   "expect_sum": 1.3,
-   "expect_matchup": 1.9,
-   "contrib": [
-    1.9,
-    0.0
-   ],
-   "buffer": 1.1,
-   "fa": [
-    [
-     0.7,
-     0.9
-    ],
-    [
-     0.4,
-     0.9
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 0.95,
-   "p_emp": {
-    "0.5": 0.7407407407407407
-   },
-   "p_mod": 0.877,
-   "p_fin": 0.809,
-   "fair_fin": 1.24,
-   "ladder_fin": [
-    [
-     0.5,
-     1.24
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 74 % vs. Modell 88 %",
-   "range": [
-    1.32,
-    1.32
-   ]
-  },
-  "v": 2
- },
- "12456911|ht_yellowcards|unter": {
-  "match_id": "12456911",
-  "home": "Esteghlal",
-  "away": "Al Sadd",
-  "kickoff": "Mo 20:15",
-  "kickoff_ts": 1789409700,
-  "league": "AFC Champions League Elite",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 12:26",
-  "first_line": 2.5,
-  "first_range": [
-   1.32,
-   1.32
-  ],
-  "last_run": "Mo 12:26",
-  "line": 2.5,
-  "range": [
-   1.32,
-   1.32
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    19,
-    41
-   ],
-   "next_line": 1.5,
-   "next_note": "Esteghlal 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
-   "longterm": [
-    0.8714411363606018,
-    0.9173465068364558
-   ],
-   "fair": 1.14,
-   "ladder": [
-    [
-     2.5,
-     1.14
-    ],
-    [
-     3.5,
-     1.28
-    ]
-   ],
-   "avg": [
-    1.6,
-    1.0
-   ],
-   "expect": 1.6,
-   "expect_sum": 1.3,
-   "expect_matchup": 1.9,
-   "contrib": [
-    1.9,
-    0.0
-   ],
-   "buffer": 0.9,
-   "fa": [
-    [
-     0.7,
-     0.9
-    ],
-    [
-     0.4,
-     0.9
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 0.95,
-   "p_emp": {
-    "2.5": 0.8771929824561404,
-    "3.5": 0.78125
-   },
-   "p_mod": 0.828,
-   "p_fin": 0.853,
-   "fair_fin": 1.17,
-   "ladder_fin": [
-    [
-     2.5,
-     1.17
-    ],
-    [
-     3.5,
-     1.14
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.17",
-   "range": [
-    1.32,
-    1.32
-   ]
-  },
-  "v": 2
- },
- "12457228|yellowcards|unter": {
-  "match_id": "12457228",
-  "home": "Al Qadisiya Al Khubar",
-  "away": "Al Wasl SC",
-  "kickoff": "Mo 20:15",
-  "kickoff_ts": 1789409700,
-  "league": "AFC Champions League Elite",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 12:26",
-  "first_line": 6.5,
-  "first_range": [
-   1.47,
-   1.47
-  ],
-  "last_run": "Mo 12:26",
-  "line": 6.5,
-  "range": [
-   1.47,
-   1.47
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    46
-   ],
-   "next_line": 5.5,
-   "next_note": "Al Qadisiya Al Khubar 0/2 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
-   "longterm": [
-    0.8976289070065805,
-    0.8982496505711175
-   ],
-   "fair": 1.12,
-   "ladder": [
-    [
-     6.5,
-     1.12
-    ],
-    [
-     7.5,
-     1.22
-    ]
-   ],
-   "avg": [
-    4.3,
-    3.9
-   ],
-   "expect": 4.2,
-   "expect_sum": 4.1,
-   "expect_matchup": 4.3,
-   "contrib": [
-    2.0,
-    2.3
-   ],
-   "buffer": 2.3,
-   "fa": [
-    [
-     1.8,
-     2.1
-    ],
-    [
-     1.5,
-     2.1
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.91,
-   "p_emp": {
-    "6.5": 0.8928571428571428,
-    "7.5": 0.819672131147541
-   },
-   "p_mod": 0.886,
-   "p_fin": 0.889,
-   "fair_fin": 1.12,
-   "ladder_fin": [
-    [
-     6.5,
-     1.12
-    ],
-    [
-     7.5,
-     1.13
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.12",
-   "range": [
-    1.47,
-    1.47
-   ]
-  },
-  "v": 2
- },
- "12457228|ht_yellowcards|über": {
-  "match_id": "12457228",
-  "home": "Al Qadisiya Al Khubar",
-  "away": "Al Wasl SC",
-  "kickoff": "Mo 20:15",
-  "kickoff_ts": 1789409700,
-  "league": "AFC Champions League Elite",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "über",
-  "first_run": "Mo 12:26",
-  "first_line": 0.5,
-  "first_range": [
-   1.47,
-   1.47
-  ],
-  "last_run": "Mo 12:26",
-  "line": 0.5,
-  "range": [
-   1.47,
-   1.47
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "über",
-   "line": 0.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    49,
-    46
-   ],
-   "next_line": 1.5,
-   "next_note": "Al Qadisiya Al Khubar 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Al Wasl SC 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "longterm": [
-    0.7782429095942376,
-    0.6827112031876362
-   ],
-   "fair": 1.39,
-   "ladder": [
-    [
-     0.5,
-     1.39
-    ]
-   ],
-   "avg": [
-    1.4,
-    1.2
-   ],
-   "expect": 1.2,
-   "expect_sum": 1.3,
-   "expect_matchup": 1.2,
-   "contrib": [
-    0.6,
-    0.7
-   ],
-   "buffer": 0.7,
-   "fa": [
-    [
-     0.7,
-     0.7
-    ],
-    [
-     0.5,
-     0.7
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.02,
-   "p_emp": {
-    "0.5": 0.7194244604316548
-   },
-   "p_mod": 0.754,
-   "p_fin": 0.737,
-   "fair_fin": 1.36,
-   "ladder_fin": [
-    [
-     0.5,
-     1.36
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.36",
-   "range": [
-    1.47,
-    1.47
-   ]
-  },
-  "v": 2
- },
- "12457228|ht_yellowcards|unter": {
-  "match_id": "12457228",
-  "home": "Al Qadisiya Al Khubar",
-  "away": "Al Wasl SC",
-  "kickoff": "Mo 20:15",
-  "kickoff_ts": 1789409700,
-  "league": "AFC Champions League Elite",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 12:26",
-  "first_line": 2.5,
-  "first_range": [
-   1.47,
-   1.47
-  ],
-  "last_run": "Mo 12:26",
-  "line": 2.5,
-  "range": [
-   1.47,
-   1.47
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    46
-   ],
-   "next_line": 1.5,
-   "next_note": "Al Qadisiya Al Khubar 0/2 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
-   "longterm": [
-    0.8918251109801679,
-    0.8730703886452501
-   ],
-   "fair": 1.15,
-   "ladder": [
-    [
-     2.5,
-     1.15
-    ],
-    [
-     3.5,
-     1.19
-    ]
-   ],
-   "avg": [
-    1.4,
-    1.2
-   ],
-   "expect": 1.2,
-   "expect_sum": 1.3,
-   "expect_matchup": 1.2,
-   "contrib": [
-    0.6,
-    0.7
-   ],
-   "buffer": 1.3,
-   "fa": [
-    [
-     0.7,
-     0.7
-    ],
-    [
-     0.5,
-     0.7
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.02,
-   "p_emp": {
-    "2.5": 0.8695652173913044,
-    "3.5": 0.8403361344537815
-   },
-   "p_mod": 0.899,
-   "p_fin": 0.884,
-   "fair_fin": 1.13,
-   "ladder_fin": [
-    [
-     2.5,
-     1.13
-    ],
-    [
-     3.5,
-     1.09
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.13",
-   "range": [
-    1.47,
-    1.47
-   ]
-  },
-  "v": 2
- },
  "12457706|yellowcards|unter": {
   "match_id": "12457706",
   "home": "Al Ahli Jeddah",
@@ -8489,7 +8043,7 @@
    1.22,
    1.6
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 5.5,
   "range": [
    1.22,
@@ -8605,7 +8159,7 @@
    1.22,
    1.6
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 2.5,
   "range": [
    1.22,
@@ -8705,6 +8259,1384 @@
   },
   "v": 2
  },
+ "12457228|yellowcards|unter": {
+  "match_id": "12457228",
+  "home": "Al Qadisiya Al Khubar",
+  "away": "Al Wasl SC",
+  "kickoff": "Mo 20:15",
+  "kickoff_ts": 1789409700,
+  "league": "AFC Champions League Elite",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 12:26",
+  "first_line": 6.5,
+  "first_range": [
+   1.47,
+   1.47
+  ],
+  "last_run": "Mo 13:27",
+  "line": 6.5,
+  "range": [
+   1.47,
+   1.47
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    46
+   ],
+   "next_line": 5.5,
+   "next_note": "Al Qadisiya Al Khubar 0/2 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "longterm": [
+    0.8976289070065805,
+    0.8982496505711175
+   ],
+   "fair": 1.12,
+   "ladder": [
+    [
+     6.5,
+     1.12
+    ],
+    [
+     7.5,
+     1.22
+    ]
+   ],
+   "avg": [
+    4.3,
+    3.9
+   ],
+   "expect": 4.2,
+   "expect_sum": 4.1,
+   "expect_matchup": 4.3,
+   "contrib": [
+    2.0,
+    2.3
+   ],
+   "buffer": 2.3,
+   "fa": [
+    [
+     1.8,
+     2.1
+    ],
+    [
+     1.5,
+     2.1
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.91,
+   "p_emp": {
+    "6.5": 0.8928571428571428,
+    "7.5": 0.819672131147541
+   },
+   "p_mod": 0.886,
+   "p_fin": 0.889,
+   "fair_fin": 1.12,
+   "ladder_fin": [
+    [
+     6.5,
+     1.12
+    ],
+    [
+     7.5,
+     1.13
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.12",
+   "range": [
+    1.47,
+    1.47
+   ]
+  },
+  "v": 2
+ },
+ "12457228|ht_yellowcards|über": {
+  "match_id": "12457228",
+  "home": "Al Qadisiya Al Khubar",
+  "away": "Al Wasl SC",
+  "kickoff": "Mo 20:15",
+  "kickoff_ts": 1789409700,
+  "league": "AFC Champions League Elite",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "über",
+  "first_run": "Mo 12:26",
+  "first_line": 0.5,
+  "first_range": [
+   1.47,
+   1.47
+  ],
+  "last_run": "Mo 13:27",
+  "line": 0.5,
+  "range": [
+   1.47,
+   1.47
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "über",
+   "line": 0.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    49,
+    46
+   ],
+   "next_line": 1.5,
+   "next_note": "Al Qadisiya Al Khubar 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Al Wasl SC 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.7782429095942376,
+    0.6827112031876362
+   ],
+   "fair": 1.39,
+   "ladder": [
+    [
+     0.5,
+     1.39
+    ]
+   ],
+   "avg": [
+    1.4,
+    1.2
+   ],
+   "expect": 1.2,
+   "expect_sum": 1.3,
+   "expect_matchup": 1.2,
+   "contrib": [
+    0.6,
+    0.7
+   ],
+   "buffer": 0.7,
+   "fa": [
+    [
+     0.7,
+     0.7
+    ],
+    [
+     0.5,
+     0.7
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.02,
+   "p_emp": {
+    "0.5": 0.7194244604316548
+   },
+   "p_mod": 0.754,
+   "p_fin": 0.737,
+   "fair_fin": 1.36,
+   "ladder_fin": [
+    [
+     0.5,
+     1.36
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.36",
+   "range": [
+    1.47,
+    1.47
+   ]
+  },
+  "v": 2
+ },
+ "12457228|ht_yellowcards|unter": {
+  "match_id": "12457228",
+  "home": "Al Qadisiya Al Khubar",
+  "away": "Al Wasl SC",
+  "kickoff": "Mo 20:15",
+  "kickoff_ts": 1789409700,
+  "league": "AFC Champions League Elite",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 12:26",
+  "first_line": 2.5,
+  "first_range": [
+   1.47,
+   1.47
+  ],
+  "last_run": "Mo 13:27",
+  "line": 2.5,
+  "range": [
+   1.47,
+   1.47
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    46
+   ],
+   "next_line": 1.5,
+   "next_note": "Al Qadisiya Al Khubar 0/2 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+   "longterm": [
+    0.8918251109801679,
+    0.8730703886452501
+   ],
+   "fair": 1.15,
+   "ladder": [
+    [
+     2.5,
+     1.15
+    ],
+    [
+     3.5,
+     1.19
+    ]
+   ],
+   "avg": [
+    1.4,
+    1.2
+   ],
+   "expect": 1.2,
+   "expect_sum": 1.3,
+   "expect_matchup": 1.2,
+   "contrib": [
+    0.6,
+    0.7
+   ],
+   "buffer": 1.3,
+   "fa": [
+    [
+     0.7,
+     0.7
+    ],
+    [
+     0.5,
+     0.7
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.02,
+   "p_emp": {
+    "2.5": 0.8695652173913044,
+    "3.5": 0.8403361344537815
+   },
+   "p_mod": 0.899,
+   "p_fin": 0.884,
+   "fair_fin": 1.13,
+   "ladder_fin": [
+    [
+     2.5,
+     1.13
+    ],
+    [
+     3.5,
+     1.09
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.13",
+   "range": [
+    1.47,
+    1.47
+   ]
+  },
+  "v": 2
+ },
+ "12456911|yellowcards|über": {
+  "match_id": "12456911",
+  "home": "Esteghlal",
+  "away": "Al Sadd",
+  "kickoff": "Mo 20:15",
+  "kickoff_ts": 1789409700,
+  "league": "AFC Champions League Elite",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Mo 12:26",
+  "first_line": 2.5,
+  "first_range": [
+   1.32,
+   1.32
+  ],
+  "last_run": "Mo 13:27",
+  "line": 2.5,
+  "range": [
+   1.32,
+   1.32
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    19,
+    42
+   ],
+   "next_line": 3.5,
+   "next_note": "Esteghlal 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Al Sadd 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.9030153236221233,
+    0.6451240144808283
+   ],
+   "fair": 1.43,
+   "ladder": [
+    [
+     1.5,
+     1.34
+    ],
+    [
+     2.5,
+     1.43
+    ]
+   ],
+   "avg": [
+    3.6,
+    3.3
+   ],
+   "expect": 3.3,
+   "expect_sum": 3.5,
+   "expect_matchup": 3.2,
+   "contrib": [
+    1.0,
+    2.1
+   ],
+   "buffer": 0.8,
+   "fa": [
+    [
+     1.7,
+     2.4
+    ],
+    [
+     1.9,
+     1.7
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.91,
+   "p_emp": {
+    "1.5": 0.7462686567164178,
+    "2.5": 0.6993006993006994
+   },
+   "p_mod": 0.662,
+   "p_fin": 0.681,
+   "fair_fin": 1.47,
+   "ladder_fin": [
+    [
+     1.5,
+     1.27
+    ],
+    [
+     2.5,
+     1.47
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.47",
+   "range": [
+    1.32,
+    1.32
+   ]
+  },
+  "v": 2
+ },
+ "12456911|yellowcards|unter": {
+  "match_id": "12456911",
+  "home": "Esteghlal",
+  "away": "Al Sadd",
+  "kickoff": "Mo 20:15",
+  "kickoff_ts": 1789409700,
+  "league": "AFC Champions League Elite",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 12:26",
+  "first_line": 5.5,
+  "first_range": [
+   1.32,
+   1.32
+  ],
+  "last_run": "Mo 13:27",
+  "line": 5.5,
+  "range": [
+   1.32,
+   1.32
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    19,
+    42
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — Esteghlal 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Al Sadd 8/10 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.8266243621930958,
+    0.8492156326972138
+   ],
+   "fair": 1.23,
+   "ladder": [
+    [
+     5.5,
+     1.23
+    ],
+    [
+     6.5,
+     1.1
+    ]
+   ],
+   "avg": [
+    3.6,
+    3.3
+   ],
+   "expect": 3.3,
+   "expect_sum": 3.5,
+   "expect_matchup": 3.2,
+   "contrib": [
+    1.0,
+    2.1
+   ],
+   "buffer": 2.2,
+   "fa": [
+    [
+     1.7,
+     2.4
+    ],
+    [
+     1.9,
+     1.7
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.91,
+   "p_emp": {
+    "5.5": 0.8130081300813008,
+    "6.5": 0.9090909090909091
+   },
+   "p_mod": 0.875,
+   "p_fin": 0.844,
+   "fair_fin": 1.18,
+   "ladder_fin": [
+    [
+     5.5,
+     1.18
+    ],
+    [
+     6.5,
+     1.07
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.18",
+   "range": [
+    1.32,
+    1.32
+   ]
+  },
+  "v": 2
+ },
+ "12456911|ht_yellowcards|über": {
+  "match_id": "12456911",
+  "home": "Esteghlal",
+  "away": "Al Sadd",
+  "kickoff": "Mo 20:15",
+  "kickoff_ts": 1789409700,
+  "league": "AFC Champions League Elite",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "über",
+  "first_run": "Mo 12:26",
+  "first_line": 0.5,
+  "first_range": [
+   1.32,
+   1.32
+  ],
+  "last_run": "Mo 13:27",
+  "line": 0.5,
+  "range": [
+   1.32,
+   1.32
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "über",
+   "line": 0.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    19,
+    41
+   ],
+   "next_line": 1.5,
+   "next_note": "Esteghlal 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Al Sadd 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+   "longterm": [
+    0.8558495527870201,
+    0.7498663016577344
+   ],
+   "fair": 1.35,
+   "ladder": [
+    [
+     0.5,
+     1.35
+    ]
+   ],
+   "avg": [
+    1.6,
+    1.0
+   ],
+   "expect": 1.6,
+   "expect_sum": 1.3,
+   "expect_matchup": 1.9,
+   "contrib": [
+    1.9,
+    0.0
+   ],
+   "buffer": 1.1,
+   "fa": [
+    [
+     0.7,
+     0.9
+    ],
+    [
+     0.4,
+     0.9
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 0.95,
+   "p_emp": {
+    "0.5": 0.7407407407407407
+   },
+   "p_mod": 0.877,
+   "p_fin": 0.809,
+   "fair_fin": 1.24,
+   "ladder_fin": [
+    [
+     0.5,
+     1.24
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 74 % vs. Modell 88 %",
+   "range": [
+    1.32,
+    1.32
+   ]
+  },
+  "v": 2
+ },
+ "12456911|ht_yellowcards|unter": {
+  "match_id": "12456911",
+  "home": "Esteghlal",
+  "away": "Al Sadd",
+  "kickoff": "Mo 20:15",
+  "kickoff_ts": 1789409700,
+  "league": "AFC Champions League Elite",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 12:26",
+  "first_line": 2.5,
+  "first_range": [
+   1.32,
+   1.32
+  ],
+  "last_run": "Mo 13:27",
+  "line": 2.5,
+  "range": [
+   1.32,
+   1.32
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    19,
+    41
+   ],
+   "next_line": 1.5,
+   "next_note": "Esteghlal 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+   "longterm": [
+    0.8714411363606018,
+    0.9173465068364558
+   ],
+   "fair": 1.14,
+   "ladder": [
+    [
+     2.5,
+     1.14
+    ],
+    [
+     3.5,
+     1.28
+    ]
+   ],
+   "avg": [
+    1.6,
+    1.0
+   ],
+   "expect": 1.6,
+   "expect_sum": 1.3,
+   "expect_matchup": 1.9,
+   "contrib": [
+    1.9,
+    0.0
+   ],
+   "buffer": 0.9,
+   "fa": [
+    [
+     0.7,
+     0.9
+    ],
+    [
+     0.4,
+     0.9
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 0.95,
+   "p_emp": {
+    "2.5": 0.8771929824561404,
+    "3.5": 0.78125
+   },
+   "p_mod": 0.828,
+   "p_fin": 0.853,
+   "fair_fin": 1.17,
+   "ladder_fin": [
+    [
+     2.5,
+     1.17
+    ],
+    [
+     3.5,
+     1.14
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.17",
+   "range": [
+    1.32,
+    1.32
+   ]
+  },
+  "v": 2
+ },
+ "12465842|corners|über": {
+  "match_id": "12465842",
+  "home": "Sligo Rovers",
+  "away": "Galway United",
+  "kickoff": "Mo 20:45",
+  "kickoff_ts": 1789411500,
+  "league": "Republic of Ireland Premier Division",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mo 06:27",
+  "first_line": 7.5,
+  "first_range": [
+   1.35,
+   2.05
+  ],
+  "last_run": "Mo 13:27",
+  "line": 7.5,
+  "range": [
+   1.35,
+   2.05
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    42
+   ],
+   "next_line": 8.5,
+   "next_note": "Galway United 6/8 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "longterm": [
+    0.822516857856051,
+    0.7461018717837923
+   ],
+   "fair": 1.32,
+   "ladder": [
+    [
+     6.5,
+     1.31
+    ],
+    [
+     7.5,
+     1.32
+    ]
+   ],
+   "avg": [
+    10.9,
+    11.0
+   ],
+   "expect": 11.5,
+   "expect_sum": 10.9,
+   "expect_matchup": 12.1,
+   "contrib": [
+    6.3,
+    5.7
+   ],
+   "buffer": 4.0,
+   "fa": [
+    [
+     4.5,
+     6.4
+    ],
+    [
+     4.5,
+     6.0
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.825",
+    "1.975"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.73,
+   "p_emp": {
+    "6.5": 0.7633587786259541,
+    "7.5": 0.7575757575757576
+   },
+   "p_mod": 0.858,
+   "p_fin": 0.808,
+   "fair_fin": 1.24,
+   "ladder_fin": [
+    [
+     6.5,
+     1.2
+    ],
+    [
+     7.5,
+     1.24
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.24",
+   "range": [
+    1.35,
+    2.05
+   ]
+  },
+  "v": 2
+ },
+ "11998006|yellowcards|unter": {
+  "match_id": "11998006",
+  "home": "Inter Milan",
+  "away": "Udinese",
+  "kickoff": "Mo 20:45",
+  "kickoff_ts": 1789411500,
+  "league": "Italy Serie A",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 06:27",
+  "first_line": 4.5,
+  "first_range": [
+   1.28,
+   1.52
+  ],
+  "last_run": "Mo 13:27",
+  "line": 4.5,
+  "range": [
+   1.222,
+   1.5
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    47
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — Inter Milan 9/11 (3. Lücke) gesamt, 9/11 (3. Lücke) heim; Udinese 7/9 (3. Lücke) gesamt, 10/12 (3. Lücke) auswärts",
+   "longterm": [
+    0.8777686968511889,
+    0.7833933521103225
+   ],
+   "fair": 1.29,
+   "ladder": [
+    [
+     4.5,
+     1.29
+    ],
+    [
+     5.5,
+     1.16
+    ]
+   ],
+   "avg": [
+    2.6,
+    2.7
+   ],
+   "expect": 2.2,
+   "expect_sum": 2.6,
+   "expect_matchup": 1.8,
+   "contrib": [
+    0.7,
+    1.2
+   ],
+   "buffer": 2.3,
+   "fa": [
+    [
+     1.6,
+     1.4
+    ],
+    [
+     1.8,
+     1.5
+    ]
+   ],
+   "referee": "Luca J. Pairetto: Ø 4.8 Karten (19 Sp.) · Ø 24.3 Fouls (18 Sp.)",
+   "b365": null,
+   "expect_ref": 2.6,
+   "buffer_ref": 1.9,
+   "sd": 1.85,
+   "p_emp": {
+    "4.5": 0.7751937984496123,
+    "5.5": 0.8620689655172414
+   },
+   "p_mod": 0.848,
+   "p_fin": 0.811,
+   "fair_fin": 1.23,
+   "ladder_fin": [
+    [
+     4.5,
+     1.23
+    ],
+    [
+     5.5,
+     1.11
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.23",
+   "range": [
+    1.222,
+    1.5
+   ]
+  },
+  "v": 2
+ },
+ "11998006|on_target|über": {
+  "match_id": "11998006",
+  "home": "Inter Milan",
+  "away": "Udinese",
+  "kickoff": "Mo 20:45",
+  "kickoff_ts": 1789411500,
+  "league": "Italy Serie A",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Mo 06:27",
+  "first_line": 6.5,
+  "first_range": [
+   1.73,
+   1.8
+  ],
+  "last_run": "Mo 13:27",
+  "line": 6.5,
+  "range": [
+   1.48,
+   1.8
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    48,
+    47
+   ],
+   "next_line": 7.5,
+   "next_note": "Inter Milan 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "longterm": [
+    0.7622003373454946,
+    0.6564022737094678
+   ],
+   "fair": 1.4,
+   "ladder": [
+    [
+     5.5,
+     1.37
+    ],
+    [
+     6.5,
+     1.4
+    ]
+   ],
+   "avg": [
+    9.7,
+    8.2
+   ],
+   "expect": 9.0,
+   "expect_sum": 9.0,
+   "expect_matchup": 9.0,
+   "contrib": [
+    5.9,
+    3.1
+   ],
+   "buffer": 2.5,
+   "fa": [
+    [
+     5.6,
+     3.3
+    ],
+    [
+     3.9,
+     4.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.24,
+   "p_emp": {
+    "5.5": 0.7299270072992701,
+    "6.5": 0.7142857142857143
+   },
+   "p_mod": 0.78,
+   "p_fin": 0.747,
+   "fair_fin": 1.34,
+   "ladder_fin": [
+    [
+     5.5,
+     1.26
+    ],
+    [
+     6.5,
+     1.34
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.34",
+   "range": [
+    1.48,
+    1.8
+   ]
+  },
+  "v": 2
+ },
+ "11998006|on_target|unter": {
+  "match_id": "11998006",
+  "home": "Inter Milan",
+  "away": "Udinese",
+  "kickoff": "Mo 20:45",
+  "kickoff_ts": 1789411500,
+  "league": "Italy Serie A",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "unter",
+  "first_run": "Mo 06:27",
+  "first_line": 11.5,
+  "first_range": [
+   1.73,
+   1.8
+  ],
+  "last_run": "Mo 13:27",
+  "line": 11.5,
+  "range": [
+   1.48,
+   1.8
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "unter",
+   "line": 11.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    47
+   ],
+   "next_line": 10.5,
+   "next_note": "Inter Milan 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Udinese 8/10 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+   "longterm": [
+    0.7804931083853472,
+    0.868363387241818
+   ],
+   "fair": 1.24,
+   "ladder": [
+    [
+     11.5,
+     1.24
+    ],
+    [
+     12.5,
+     1.28
+    ]
+   ],
+   "avg": [
+    9.7,
+    8.2
+   ],
+   "expect": 9.0,
+   "expect_sum": 9.0,
+   "expect_matchup": 9.0,
+   "contrib": [
+    5.9,
+    3.1
+   ],
+   "buffer": 2.5,
+   "fa": [
+    [
+     5.6,
+     3.3
+    ],
+    [
+     3.9,
+     4.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.24,
+   "p_emp": {
+    "11.5": 0.8064516129032259,
+    "12.5": 0.78125
+   },
+   "p_mod": 0.78,
+   "p_fin": 0.793,
+   "fair_fin": 1.26,
+   "ladder_fin": [
+    [
+     11.5,
+     1.26
+    ],
+    [
+     12.5,
+     1.22
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.26",
+   "range": [
+    1.48,
+    1.8
+   ]
+  },
+  "v": 2
+ },
+ "11998006|ht_yellowcards|unter": {
+  "match_id": "11998006",
+  "home": "Inter Milan",
+  "away": "Udinese",
+  "kickoff": "Mo 20:45",
+  "kickoff_ts": 1789411500,
+  "league": "Italy Serie A",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 06:27",
+  "first_line": 1.5,
+  "first_range": [
+   1.28,
+   1.52
+  ],
+  "last_run": "Mo 13:27",
+  "line": 1.5,
+  "range": [
+   1.222,
+   1.5
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "unter",
+   "line": 1.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    49,
+    48
+   ],
+   "next_line": 0.5,
+   "next_note": "Inter Milan 0/2 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Udinese 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.7590300547529072,
+    0.7441937008092612
+   ],
+   "fair": 1.4,
+   "ladder": [
+    [
+     1.5,
+     1.4
+    ],
+    [
+     2.5,
+     1.12
+    ]
+   ],
+   "avg": [
+    0.9,
+    0.7
+   ],
+   "expect": 0.6,
+   "expect_sum": 0.8,
+   "expect_matchup": 0.5,
+   "contrib": [
+    0.2,
+    0.3
+   ],
+   "buffer": 0.9,
+   "fa": [
+    [
+     0.5,
+     0.3
+    ],
+    [
+     0.6,
+     0.5
+    ]
+   ],
+   "referee": "Luca J. Pairetto: Ø 4.8 Karten (19 Sp.) · Ø 24.3 Fouls (18 Sp.)",
+   "b365": null,
+   "expect_ref": 1.7,
+   "buffer_ref": -0.2,
+   "sd": 1.06,
+   "p_emp": {
+    "1.5": 0.7142857142857143,
+    "2.5": 0.8928571428571428
+   },
+   "p_mod": 0.425,
+   "p_fin": 0.57,
+   "fair_fin": 1.76,
+   "ladder_fin": [
+    [
+     1.5,
+     1.76
+    ],
+    [
+     2.5,
+     1.2
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "nur 57 % Wahrscheinlichkeit",
+   "range": [
+    1.222,
+    1.5
+   ]
+  },
+  "v": 2
+ },
  "12465844|corners|über": {
   "match_id": "12465844",
   "home": "Shelbourne",
@@ -8721,7 +9653,7 @@
    1.32,
    2.04
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 8.5,
   "range": [
    1.32,
@@ -8841,7 +9773,7 @@
    1.2,
    2.04
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 9.5,
   "range": [
    1.2,
@@ -8961,7 +9893,7 @@
    1.2,
    2.04
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 3.5,
   "range": [
    1.2,
@@ -9065,590 +9997,6 @@
   },
   "v": 2
  },
- "11998006|yellowcards|unter": {
-  "match_id": "11998006",
-  "home": "Inter Milan",
-  "away": "Udinese",
-  "kickoff": "Mo 20:45",
-  "kickoff_ts": 1789411500,
-  "league": "Italy Serie A",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 06:27",
-  "first_line": 4.5,
-  "first_range": [
-   1.28,
-   1.52
-  ],
-  "last_run": "Mo 12:26",
-  "line": 4.5,
-  "range": [
-   1.23,
-   1.5
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 4.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 16
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    47
-   ],
-   "next_line": 3.5,
-   "next_note": "kein Anker — Inter Milan 9/11 (3. Lücke) gesamt, 9/11 (3. Lücke) heim; Udinese 7/9 (3. Lücke) gesamt, 10/12 (3. Lücke) auswärts",
-   "longterm": [
-    0.8777686968511889,
-    0.7833933521103225
-   ],
-   "fair": 1.29,
-   "ladder": [
-    [
-     4.5,
-     1.29
-    ],
-    [
-     5.5,
-     1.16
-    ]
-   ],
-   "avg": [
-    2.6,
-    2.7
-   ],
-   "expect": 2.2,
-   "expect_sum": 2.6,
-   "expect_matchup": 1.8,
-   "contrib": [
-    0.7,
-    1.2
-   ],
-   "buffer": 2.3,
-   "fa": [
-    [
-     1.6,
-     1.4
-    ],
-    [
-     1.8,
-     1.5
-    ]
-   ],
-   "referee": "Luca J. Pairetto: Ø 4.8 Karten (19 Sp.) · Ø 24.3 Fouls (18 Sp.)",
-   "b365": null,
-   "expect_ref": 2.6,
-   "buffer_ref": 1.9,
-   "sd": 1.85,
-   "p_emp": {
-    "4.5": 0.7751937984496123,
-    "5.5": 0.8620689655172414
-   },
-   "p_mod": 0.848,
-   "p_fin": 0.811,
-   "fair_fin": 1.23,
-   "ladder_fin": [
-    [
-     4.5,
-     1.23
-    ],
-    [
-     5.5,
-     1.11
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.23",
-   "range": [
-    1.23,
-    1.5
-   ]
-  },
-  "v": 2
- },
- "11998006|on_target|über": {
-  "match_id": "11998006",
-  "home": "Inter Milan",
-  "away": "Udinese",
-  "kickoff": "Mo 20:45",
-  "kickoff_ts": 1789411500,
-  "league": "Italy Serie A",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "über",
-  "first_run": "Mo 06:27",
-  "first_line": 6.5,
-  "first_range": [
-   1.73,
-   1.8
-  ],
-  "last_run": "Mo 12:26",
-  "line": 6.5,
-  "range": [
-   1.48,
-   1.8
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    48,
-    47
-   ],
-   "next_line": 7.5,
-   "next_note": "Inter Milan 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
-   "longterm": [
-    0.7622003373454946,
-    0.6564022737094678
-   ],
-   "fair": 1.4,
-   "ladder": [
-    [
-     5.5,
-     1.37
-    ],
-    [
-     6.5,
-     1.4
-    ]
-   ],
-   "avg": [
-    9.7,
-    8.2
-   ],
-   "expect": 9.0,
-   "expect_sum": 9.0,
-   "expect_matchup": 9.0,
-   "contrib": [
-    5.9,
-    3.1
-   ],
-   "buffer": 2.5,
-   "fa": [
-    [
-     5.6,
-     3.3
-    ],
-    [
-     3.9,
-     4.0
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.24,
-   "p_emp": {
-    "5.5": 0.7299270072992701,
-    "6.5": 0.7142857142857143
-   },
-   "p_mod": 0.78,
-   "p_fin": 0.747,
-   "fair_fin": 1.34,
-   "ladder_fin": [
-    [
-     5.5,
-     1.26
-    ],
-    [
-     6.5,
-     1.34
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.34",
-   "range": [
-    1.48,
-    1.8
-   ]
-  },
-  "v": 2
- },
- "11998006|on_target|unter": {
-  "match_id": "11998006",
-  "home": "Inter Milan",
-  "away": "Udinese",
-  "kickoff": "Mo 20:45",
-  "kickoff_ts": 1789411500,
-  "league": "Italy Serie A",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "unter",
-  "first_run": "Mo 06:27",
-  "first_line": 11.5,
-  "first_range": [
-   1.73,
-   1.8
-  ],
-  "last_run": "Mo 12:26",
-  "line": 11.5,
-  "range": [
-   1.48,
-   1.8
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "unter",
-   "line": 11.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 16
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    47
-   ],
-   "next_line": 10.5,
-   "next_note": "Inter Milan 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Udinese 8/10 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
-   "longterm": [
-    0.7804931083853472,
-    0.868363387241818
-   ],
-   "fair": 1.24,
-   "ladder": [
-    [
-     11.5,
-     1.24
-    ],
-    [
-     12.5,
-     1.28
-    ]
-   ],
-   "avg": [
-    9.7,
-    8.2
-   ],
-   "expect": 9.0,
-   "expect_sum": 9.0,
-   "expect_matchup": 9.0,
-   "contrib": [
-    5.9,
-    3.1
-   ],
-   "buffer": 2.5,
-   "fa": [
-    [
-     5.6,
-     3.3
-    ],
-    [
-     3.9,
-     4.0
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.24,
-   "p_emp": {
-    "11.5": 0.8064516129032259,
-    "12.5": 0.78125
-   },
-   "p_mod": 0.78,
-   "p_fin": 0.793,
-   "fair_fin": 1.26,
-   "ladder_fin": [
-    [
-     11.5,
-     1.26
-    ],
-    [
-     12.5,
-     1.22
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.26",
-   "range": [
-    1.48,
-    1.8
-   ]
-  },
-  "v": 2
- },
- "11998006|ht_yellowcards|unter": {
-  "match_id": "11998006",
-  "home": "Inter Milan",
-  "away": "Udinese",
-  "kickoff": "Mo 20:45",
-  "kickoff_ts": 1789411500,
-  "league": "Italy Serie A",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 06:27",
-  "first_line": 1.5,
-  "first_range": [
-   1.28,
-   1.52
-  ],
-  "last_run": "Mo 12:26",
-  "line": 1.5,
-  "range": [
-   1.23,
-   1.5
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "unter",
-   "line": 1.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    49,
-    48
-   ],
-   "next_line": 0.5,
-   "next_note": "Inter Milan 0/2 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Udinese 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
-   "longterm": [
-    0.7590300547529072,
-    0.7441937008092612
-   ],
-   "fair": 1.4,
-   "ladder": [
-    [
-     1.5,
-     1.4
-    ],
-    [
-     2.5,
-     1.12
-    ]
-   ],
-   "avg": [
-    0.9,
-    0.7
-   ],
-   "expect": 0.6,
-   "expect_sum": 0.8,
-   "expect_matchup": 0.5,
-   "contrib": [
-    0.2,
-    0.3
-   ],
-   "buffer": 0.9,
-   "fa": [
-    [
-     0.5,
-     0.3
-    ],
-    [
-     0.6,
-     0.5
-    ]
-   ],
-   "referee": "Luca J. Pairetto: Ø 4.8 Karten (19 Sp.) · Ø 24.3 Fouls (18 Sp.)",
-   "b365": null,
-   "expect_ref": 1.7,
-   "buffer_ref": -0.2,
-   "sd": 1.06,
-   "p_emp": {
-    "1.5": 0.7142857142857143,
-    "2.5": 0.8928571428571428
-   },
-   "p_mod": 0.425,
-   "p_fin": 0.57,
-   "fair_fin": 1.76,
-   "ladder_fin": [
-    [
-     1.5,
-     1.76
-    ],
-    [
-     2.5,
-     1.2
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🔴",
-   "reason": "nur 57 % Wahrscheinlichkeit",
-   "range": [
-    1.23,
-    1.5
-   ]
-  },
-  "v": 2
- },
- "12465842|corners|über": {
-  "match_id": "12465842",
-  "home": "Sligo Rovers",
-  "away": "Galway United",
-  "kickoff": "Mo 20:45",
-  "kickoff_ts": 1789411500,
-  "league": "Republic of Ireland Premier Division",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mo 06:27",
-  "first_line": 7.5,
-  "first_range": [
-   1.35,
-   2.05
-  ],
-  "last_run": "Mo 12:26",
-  "line": 7.5,
-  "range": [
-   1.35,
-   2.05
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    42
-   ],
-   "next_line": 8.5,
-   "next_note": "Galway United 6/8 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
-   "longterm": [
-    0.822516857856051,
-    0.7461018717837923
-   ],
-   "fair": 1.32,
-   "ladder": [
-    [
-     6.5,
-     1.31
-    ],
-    [
-     7.5,
-     1.32
-    ]
-   ],
-   "avg": [
-    10.9,
-    11.0
-   ],
-   "expect": 11.5,
-   "expect_sum": 10.9,
-   "expect_matchup": 12.1,
-   "contrib": [
-    6.3,
-    5.7
-   ],
-   "buffer": 4.0,
-   "fa": [
-    [
-     4.5,
-     6.4
-    ],
-    [
-     4.5,
-     6.0
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.0",
-    "1.825",
-    "1.975"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.73,
-   "p_emp": {
-    "6.5": 0.7633587786259541,
-    "7.5": 0.7575757575757576
-   },
-   "p_mod": 0.858,
-   "p_fin": 0.808,
-   "fair_fin": 1.24,
-   "ladder_fin": [
-    [
-     6.5,
-     1.2
-    ],
-    [
-     7.5,
-     1.24
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.24",
-   "range": [
-    1.35,
-    2.05
-   ]
-  },
-  "v": 2
- },
  "13021282|corners|über": {
   "match_id": "13021282",
   "home": "Red Star FC 93",
@@ -9665,7 +10013,7 @@
    1.19,
    2.45
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 8.5,
   "range": [
    1.19,
@@ -9785,7 +10133,7 @@
    1.56,
    1.56
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 2.5,
   "range": [
    1.37,
@@ -9901,7 +10249,7 @@
    1.56,
    1.56
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 4.5,
   "range": [
    1.37,
@@ -10017,7 +10365,7 @@
    1.56,
    1.56
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 2.5,
   "range": [
    1.37,
@@ -10133,10 +10481,10 @@
    1.26,
    1.49
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 5.5,
   "range": [
-   1.26,
+   1.25,
    1.49
   ],
   "signal": {
@@ -10227,7 +10575,7 @@
    "light": "🟡",
    "reason": "Historie 78 % vs. Modell 92 %",
    "range": [
-    1.26,
+    1.25,
     1.49
    ]
   },
@@ -10249,7 +10597,7 @@
    1.45,
    1.52
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 6.5,
   "range": [
    1.45,
@@ -10365,7 +10713,7 @@
    1.45,
    1.52
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 11.5,
   "range": [
    1.45,
@@ -10481,7 +10829,7 @@
    1.6,
    1.92
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 4.5,
   "range": [
    1.6,
@@ -10597,10 +10945,10 @@
    1.26,
    1.49
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 1.5,
   "range": [
-   1.26,
+   1.25,
    1.49
   ],
   "signal": {
@@ -10691,7 +11039,7 @@
    "light": "🔴",
    "reason": "nur 54 % Wahrscheinlichkeit",
    "range": [
-    1.26,
+    1.25,
     1.49
    ]
   },
@@ -10713,7 +11061,7 @@
    1.25,
    1.98
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 7.5,
   "range": [
    1.25,
@@ -10833,11 +11181,11 @@
    1.28,
    1.75
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 4.5,
   "range": [
-   1.285,
-   1.76
+   1.3,
+   1.81
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -10927,8 +11275,8 @@
    "light": "🟢",
    "reason": "fair 1.37",
    "range": [
-    1.285,
-    1.76
+    1.3,
+    1.81
    ]
   },
   "v": 2
@@ -10949,7 +11297,7 @@
    1.36,
    1.74
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 6.5,
   "range": [
    1.36,
@@ -11065,7 +11413,7 @@
    1.75,
    2.009
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 4.5,
   "range": [
    1.6,
@@ -11181,7 +11529,7 @@
    1.25,
    1.98
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 3.5,
   "range": [
    1.25,
@@ -11301,11 +11649,11 @@
    1.28,
    1.75
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 2.5,
   "range": [
-   1.285,
-   1.76
+   1.3,
+   1.81
   ],
   "signal": {
    "metric": "1. HZ Gelbe Karten",
@@ -11395,8 +11743,240 @@
    "light": "🔴",
    "reason": "Historie 87 % und Modell 50 % widersprechen sich",
    "range": [
-    1.285,
-    1.76
+    1.3,
+    1.81
+   ]
+  },
+  "v": 2
+ },
+ "12155212|yellowcards|über": {
+  "match_id": "12155212",
+  "home": "Moreirense",
+  "away": "Maritimo",
+  "kickoff": "Mo 21:15",
+  "kickoff_ts": 1789413300,
+  "league": "Portugal Primeira Liga",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Mo 11:28",
+  "first_line": 2.5,
+  "first_range": [
+   1.59,
+   1.59
+  ],
+  "last_run": "Mo 13:27",
+  "line": 2.5,
+  "range": [
+   1.28,
+   1.82
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    50
+   ],
+   "next_line": 3.5,
+   "next_note": "Moreirense 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "longterm": [
+    0.7977276429548675,
+    0.9911549803620368
+   ],
+   "fair": 1.19,
+   "ladder": [
+    [
+     1.5,
+     1.21
+    ],
+    [
+     2.5,
+     1.19
+    ]
+   ],
+   "avg": [
+    4.3,
+    5.3
+   ],
+   "expect": 5.3,
+   "expect_sum": 4.8,
+   "expect_matchup": 5.9,
+   "contrib": [
+    3.2,
+    2.7
+   ],
+   "buffer": 2.8,
+   "fa": [
+    [
+     2.6,
+     2.2
+    ],
+    [
+     2.8,
+     2.9
+    ]
+   ],
+   "referee": "Fabio Melo: Ø 4.9 Karten (12 Sp.)",
+   "b365": null,
+   "expect_ref": 6.2,
+   "buffer_ref": 3.7,
+   "sd": 2.22,
+   "p_emp": {
+    "1.5": 0.8264462809917356,
+    "2.5": 0.8403361344537815
+   },
+   "p_mod": 0.952,
+   "p_fin": 0.896,
+   "fair_fin": 1.12,
+   "ladder_fin": [
+    [
+     1.5,
+     1.11
+    ],
+    [
+     2.5,
+     1.12
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.12",
+   "range": [
+    1.28,
+    1.82
+   ]
+  },
+  "v": 2
+ },
+ "12155212|yellowcards|unter": {
+  "match_id": "12155212",
+  "home": "Moreirense",
+  "away": "Maritimo",
+  "kickoff": "Mo 21:15",
+  "kickoff_ts": 1789413300,
+  "league": "Portugal Primeira Liga",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 11:28",
+  "first_line": 6.5,
+  "first_range": [
+   1.59,
+   1.59
+  ],
+  "last_run": "Mo 13:27",
+  "line": 6.5,
+  "range": [
+   1.28,
+   1.82
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    50
+   ],
+   "next_line": 5.5,
+   "next_note": "Moreirense 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "longterm": [
+    0.815391357545305,
+    0.7801071934455454
+   ],
+   "fair": 1.22,
+   "ladder": [
+    [
+     6.5,
+     1.22
+    ],
+    [
+     7.5,
+     1.34
+    ]
+   ],
+   "avg": [
+    4.3,
+    5.3
+   ],
+   "expect": 5.3,
+   "expect_sum": 4.8,
+   "expect_matchup": 5.9,
+   "contrib": [
+    3.2,
+    2.7
+   ],
+   "buffer": 1.2,
+   "fa": [
+    [
+     2.6,
+     2.2
+    ],
+    [
+     2.8,
+     2.9
+    ]
+   ],
+   "referee": "Fabio Melo: Ø 4.9 Karten (12 Sp.)",
+   "b365": null,
+   "expect_ref": 6.2,
+   "buffer_ref": 0.3,
+   "sd": 2.22,
+   "p_emp": {
+    "6.5": 0.819672131147541,
+    "7.5": 0.7462686567164178
+   },
+   "p_mod": 0.554,
+   "p_fin": 0.687,
+   "fair_fin": 1.46,
+   "ladder_fin": [
+    [
+     6.5,
+     1.46
+    ],
+    [
+     7.5,
+     1.36
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "Historie 82 % und Modell 55 % widersprechen sich",
+   "range": [
+    1.28,
+    1.82
    ]
   },
   "v": 2
@@ -11417,7 +11997,7 @@
    1.25,
    1.98
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 8.5,
   "range": [
    1.25,
@@ -11537,7 +12117,7 @@
    1.25,
    1.98
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 3.5,
   "range": [
    1.25,
@@ -11641,238 +12221,6 @@
   },
   "v": 2
  },
- "12155212|yellowcards|über": {
-  "match_id": "12155212",
-  "home": "Moreirense",
-  "away": "Maritimo",
-  "kickoff": "Mo 21:15",
-  "kickoff_ts": 1789413300,
-  "league": "Portugal Primeira Liga",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "Mo 11:28",
-  "first_line": 2.5,
-  "first_range": [
-   1.59,
-   1.59
-  ],
-  "last_run": "Mo 12:26",
-  "line": 2.5,
-  "range": [
-   1.28,
-   1.82
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    50
-   ],
-   "next_line": 3.5,
-   "next_note": "Moreirense 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
-   "longterm": [
-    0.7977276429548675,
-    0.9911549803620368
-   ],
-   "fair": 1.19,
-   "ladder": [
-    [
-     1.5,
-     1.21
-    ],
-    [
-     2.5,
-     1.19
-    ]
-   ],
-   "avg": [
-    4.3,
-    5.3
-   ],
-   "expect": 5.3,
-   "expect_sum": 4.8,
-   "expect_matchup": 5.9,
-   "contrib": [
-    3.2,
-    2.7
-   ],
-   "buffer": 2.8,
-   "fa": [
-    [
-     2.6,
-     2.2
-    ],
-    [
-     2.8,
-     2.9
-    ]
-   ],
-   "referee": "Fabio Melo: Ø 4.9 Karten (12 Sp.)",
-   "b365": null,
-   "expect_ref": 6.2,
-   "buffer_ref": 3.7,
-   "sd": 2.22,
-   "p_emp": {
-    "1.5": 0.8264462809917356,
-    "2.5": 0.8403361344537815
-   },
-   "p_mod": 0.952,
-   "p_fin": 0.896,
-   "fair_fin": 1.12,
-   "ladder_fin": [
-    [
-     1.5,
-     1.11
-    ],
-    [
-     2.5,
-     1.12
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.12",
-   "range": [
-    1.28,
-    1.82
-   ]
-  },
-  "v": 2
- },
- "12155212|yellowcards|unter": {
-  "match_id": "12155212",
-  "home": "Moreirense",
-  "away": "Maritimo",
-  "kickoff": "Mo 21:15",
-  "kickoff_ts": 1789413300,
-  "league": "Portugal Primeira Liga",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 11:28",
-  "first_line": 6.5,
-  "first_range": [
-   1.59,
-   1.59
-  ],
-  "last_run": "Mo 12:26",
-  "line": 6.5,
-  "range": [
-   1.28,
-   1.82
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    50
-   ],
-   "next_line": 5.5,
-   "next_note": "Moreirense 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
-   "longterm": [
-    0.815391357545305,
-    0.7801071934455454
-   ],
-   "fair": 1.22,
-   "ladder": [
-    [
-     6.5,
-     1.22
-    ],
-    [
-     7.5,
-     1.34
-    ]
-   ],
-   "avg": [
-    4.3,
-    5.3
-   ],
-   "expect": 5.3,
-   "expect_sum": 4.8,
-   "expect_matchup": 5.9,
-   "contrib": [
-    3.2,
-    2.7
-   ],
-   "buffer": 1.2,
-   "fa": [
-    [
-     2.6,
-     2.2
-    ],
-    [
-     2.8,
-     2.9
-    ]
-   ],
-   "referee": "Fabio Melo: Ø 4.9 Karten (12 Sp.)",
-   "b365": null,
-   "expect_ref": 6.2,
-   "buffer_ref": 0.3,
-   "sd": 2.22,
-   "p_emp": {
-    "6.5": 0.819672131147541,
-    "7.5": 0.7462686567164178
-   },
-   "p_mod": 0.554,
-   "p_fin": 0.687,
-   "fair_fin": 1.46,
-   "ladder_fin": [
-    [
-     6.5,
-     1.46
-    ],
-    [
-     7.5,
-     1.36
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🔴",
-   "reason": "Historie 82 % und Modell 55 % widersprechen sich",
-   "range": [
-    1.28,
-    1.82
-   ]
-  },
-  "v": 2
- },
  "12155217|yellowcards|unter": {
   "match_id": "12155217",
   "home": "Braga",
@@ -11889,7 +12237,7 @@
    1.25,
    1.76
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 6.5,
   "range": [
    1.25,
@@ -12005,11 +12353,11 @@
    1.52,
    1.9
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 9.5,
   "range": [
-   1.28,
-   2.4
+   1.52,
+   1.9
   ],
   "signal": {
    "metric": "Schüsse aufs Tor",
@@ -12099,8 +12447,8 @@
    "light": "🟡",
    "reason": "Historie 65 % vs. Modell 82 %",
    "range": [
-    1.28,
-    2.4
+    1.52,
+    1.9
    ]
   },
   "v": 2
@@ -12121,10 +12469,10 @@
    1.34,
    1.57
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 4.5,
   "range": [
-   1.34,
+   1.31,
    1.57
   ],
   "signal": {
@@ -12215,7 +12563,7 @@
    "light": "🟢",
    "reason": "fair 1.26",
    "range": [
-    1.34,
+    1.31,
     1.57
    ]
   },
@@ -12237,7 +12585,7 @@
    1.25,
    1.76
   ],
-  "last_run": "Mo 12:26",
+  "last_run": "Mo 13:27",
   "line": 2.5,
   "range": [
    1.25,
