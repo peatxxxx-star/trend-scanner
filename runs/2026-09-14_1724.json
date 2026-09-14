@@ -1,0 +1,5026 @@
+{
+ "run_utc": "2026-09-14T17:24:40+00:00",
+ "matches_checked": 56,
+ "requests": 32,
+ "hits": [
+  {
+   "match": {
+    "id": "12077157",
+    "league": "Israel Premier League",
+    "league_id": "230",
+    "home": "Maccabi Tel Aviv",
+    "away": "Hapoel Tel Aviv",
+    "home_id": "1169",
+    "away_id": "1277174",
+    "kickoff": "Mo 19:30",
+    "kickoff_ts": 1789407000,
+    "bet365_id": "200164432"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      34,
+      42
+     ],
+     "next_line": 3.5,
+     "next_note": "Hapoel Tel Aviv 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.8771313148107523,
+      0.8018670505151413
+     ],
+     "fair": 1.28,
+     "ladder": [
+      [
+       1.5,
+       1.35
+      ],
+      [
+       2.5,
+       1.28
+      ]
+     ],
+     "avg": [
+      4.6,
+      4.1
+     ],
+     "expect_sum": 4.3,
+     "expect_matchup": 4.8,
+     "contrib": [
+      2.3,
+      2.6
+     ],
+     "expect": 4.6,
+     "buffer": 2.1,
+     "fa": [
+      [
+       2.4,
+       2.4
+      ],
+      [
+       2.0,
+       2.5
+      ]
+     ],
+     "sd": 2.26,
+     "p_emp": {
+      "1.5": 0.7407407407407407,
+      "2.5": 0.78125
+     },
+     "range": [
+      1.29,
+      1.88
+     ],
+     "p_mod": 0.824,
+     "p_fin": 0.802,
+     "fair_fin": 1.25,
+     "ladder_fin": [
+      [
+       1.5,
+       1.21
+      ],
+      [
+       2.5,
+       1.25
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.25",
+     "first_run": "Mo 12:26"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      34,
+      42
+     ],
+     "next_line": 5.5,
+     "next_note": "Maccabi Tel Aviv 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.8619545493706336,
+      0.8547342619810198
+     ],
+     "fair": 1.16,
+     "ladder": [
+      [
+       6.5,
+       1.16
+      ],
+      [
+       7.5,
+       1.35
+      ]
+     ],
+     "avg": [
+      4.6,
+      4.1
+     ],
+     "expect_sum": 4.3,
+     "expect_matchup": 4.8,
+     "contrib": [
+      2.3,
+      2.6
+     ],
+     "expect": 4.6,
+     "buffer": 1.9,
+     "fa": [
+      [
+       2.4,
+       2.4
+      ],
+      [
+       2.0,
+       2.5
+      ]
+     ],
+     "sd": 2.26,
+     "p_emp": {
+      "6.5": 0.8620689655172414,
+      "7.5": 0.7407407407407407
+     },
+     "range": [
+      1.29,
+      1.88
+     ],
+     "p_mod": 0.8,
+     "p_fin": 0.831,
+     "fair_fin": 1.2,
+     "ladder_fin": [
+      [
+       6.5,
+       1.2
+      ],
+      [
+       7.5,
+       1.22
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.20",
+     "first_run": "Mo 12:26"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      41,
+      45
+     ],
+     "next_line": 1.5,
+     "next_note": "Hapoel Tel Aviv 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.8596097375228492,
+      0.7316217492542715
+     ],
+     "fair": 1.31,
+     "ladder": [
+      [
+       0.5,
+       1.31
+      ]
+     ],
+     "avg": [
+      2.1,
+      1.9
+     ],
+     "expect_sum": 2.0,
+     "expect_matchup": 3.1,
+     "contrib": [
+      2.1,
+      1.0
+     ],
+     "expect": 2.6,
+     "buffer": 2.1,
+     "fa": [
+      [
+       1.2,
+       0.9
+      ],
+      [
+       0.6,
+       1.1
+      ]
+     ],
+     "sd": 1.57,
+     "p_emp": {
+      "0.5": 0.7633587786259541
+     },
+     "range": [
+      1.29,
+      1.88
+     ],
+     "p_mod": 0.909,
+     "p_fin": 0.836,
+     "fair_fin": 1.2,
+     "ladder_fin": [
+      [
+       0.5,
+       1.2
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 76 % vs. Modell 91 %",
+     "first_run": "Mo 12:26"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12155208",
+    "league": "Portugal Primeira Liga",
+    "league_id": "172",
+    "home": "Rio Ave",
+    "away": "Estrela",
+    "home_id": "1336",
+    "away_id": "361317",
+    "kickoff": "Mo 19:45",
+    "kickoff_ts": 1789407900,
+    "bet365_id": "200165240"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      50,
+      49
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Rio Ave 7/9 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Estrela 6/8 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.803051771531675,
+      0.6429910599048578
+     ],
+     "fair": 1.35,
+     "ladder": [
+      [
+       5.5,
+       1.35
+      ],
+      [
+       6.5,
+       1.18
+      ]
+     ],
+     "avg": [
+      3.3,
+      5.2
+     ],
+     "expect_sum": 4.2,
+     "expect_matchup": 4.4,
+     "contrib": [
+      2.3,
+      2.1
+     ],
+     "expect": 4.3,
+     "buffer": 1.2,
+     "fa": [
+      [
+       2.4,
+       2.0
+      ],
+      [
+       2.6,
+       2.3
+      ]
+     ],
+     "sd": 2.25,
+     "p_emp": {
+      "5.5": 0.7407407407407407,
+      "6.5": 0.8474576271186441
+     },
+     "range": [
+      1.22,
+      1.84
+     ],
+     "p_mod": 0.703,
+     "p_fin": 0.722,
+     "fair_fin": 1.39,
+     "ladder_fin": [
+      [
+       5.5,
+       1.39
+      ],
+      [
+       6.5,
+       1.19
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.39",
+     "first_run": "Mo 12:26"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 11.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      48
+     ],
+     "next_line": 10.5,
+     "next_note": "kein Anker — Rio Ave 8/10 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Estrela 3/5 (3. Lücke) gesamt, 14/16 (3. Lücke) auswärts",
+     "longterm": [
+      0.8209584260639866,
+      0.8870628126152345
+     ],
+     "fair": 1.21,
+     "ladder": [
+      [
+       11.5,
+       1.21
+      ],
+      [
+       12.5,
+       1.24
+      ]
+     ],
+     "avg": [
+      9.0,
+      8.2
+     ],
+     "expect_sum": 8.6,
+     "expect_matchup": 8.1,
+     "contrib": [
+      3.9,
+      4.2
+     ],
+     "expect": 8.3,
+     "buffer": 3.2,
+     "fa": [
+      [
+       3.7,
+       5.3
+      ],
+      [
+       3.9,
+       4.7
+      ]
+     ],
+     "sd": 2.79,
+     "p_emp": {
+      "11.5": 0.8264462809917356,
+      "12.5": 0.8064516129032259
+     },
+     "range": [
+      1.55,
+      2.28
+     ],
+     "p_mod": 0.874,
+     "p_fin": 0.85,
+     "fair_fin": 1.18,
+     "ladder_fin": [
+      [
+       11.5,
+       1.18
+      ],
+      [
+       12.5,
+       1.15
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.18",
+     "first_run": "Mo 12:26"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 3.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      40,
+      37
+     ],
+     "next_line": 2.5,
+     "next_note": "Rio Ave 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.641710225980269,
+      0.7326981648182475
+     ],
+     "fair": 1.55,
+     "ladder": [
+      [
+       3.5,
+       1.55
+      ],
+      [
+       4.5,
+       1.23
+      ]
+     ],
+     "avg": [
+      3.1,
+      2.5
+     ],
+     "expect_sum": 2.8,
+     "expect_matchup": 2.3,
+     "contrib": [
+      1.2,
+      1.1
+     ],
+     "expect": 2.5,
+     "buffer": 1.0,
+     "fa": [
+      [
+       1.6,
+       1.5
+      ],
+      [
+       1.7,
+       1.1
+      ]
+     ],
+     "sd": 1.86,
+     "p_emp": {
+      "3.5": 0.6451612903225806,
+      "4.5": 0.8130081300813008
+     },
+     "range": [
+      1.26,
+      1.59
+     ],
+     "p_mod": 0.705,
+     "p_fin": 0.675,
+     "fair_fin": 1.48,
+     "ladder_fin": [
+      [
+       3.5,
+       1.48
+      ],
+      [
+       4.5,
+       1.2
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "67 % knapp",
+     "first_run": "Mo 11:28"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 2.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      48
+     ],
+     "next_line": 1.5,
+     "next_note": "Estrela 6/8 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.8478674250375412,
+      0.7692346491733005
+     ],
+     "fair": 1.22,
+     "ladder": [
+      [
+       2.5,
+       1.22
+      ],
+      [
+       3.5,
+       1.24
+      ]
+     ],
+     "avg": [
+      1.1,
+      2.1
+     ],
+     "expect_sum": 1.6,
+     "expect_matchup": 2.3,
+     "contrib": [
+      2.3,
+      0.0
+     ],
+     "expect": 2.0,
+     "buffer": 0.5,
+     "fa": [
+      [
+       0.8,
+       0.6
+      ],
+      [
+       0.4,
+       1.3
+      ]
+     ],
+     "sd": 1.32,
+     "p_emp": {
+      "2.5": 0.819672131147541,
+      "3.5": 0.8064516129032259
+     },
+     "range": [
+      1.22,
+      1.84
+     ],
+     "p_mod": 0.648,
+     "p_fin": 0.734,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       2.5,
+       1.36
+      ],
+      [
+       3.5,
+       1.19
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 82 % vs. Modell 65 %",
+     "first_run": "Mo 12:26"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12122293",
+    "league": "Romania Liga I",
+    "league_id": "173",
+    "home": "FCSB",
+    "away": "Petrolul Ploiesti",
+    "home_id": "161396",
+    "away_id": "178918",
+    "kickoff": "Mo 20:00",
+    "kickoff_ts": 1789408800,
+    "bet365_id": "200117244"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      44
+     ],
+     "next_line": 9.5,
+     "next_note": "FCSB 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Petrolul Ploiesti 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.658135588345604,
+      0.7046492118542887
+     ],
+     "fair": 1.55,
+     "ladder": [
+      [
+       7.5,
+       1.3
+      ],
+      [
+       8.5,
+       1.55
+      ]
+     ],
+     "avg": [
+      11.2,
+      9.5
+     ],
+     "expect_sum": 10.3,
+     "expect_matchup": 11.9,
+     "contrib": [
+      8.7,
+      3.2
+     ],
+     "expect": 11.1,
+     "buffer": 2.6,
+     "fa": [
+      [
+       5.9,
+       4.2
+      ],
+      [
+       5.2,
+       4.7
+      ]
+     ],
+     "sd": 3.45,
+     "p_emp": {
+      "7.5": 0.7692307692307692,
+      "8.5": 0.6451612903225806
+     },
+     "range": [
+      1.83,
+      1.83
+     ],
+     "b365": [
+      "10.0",
+      "1.825",
+      "1.975"
+     ],
+     "p_mod": 0.774,
+     "p_fin": 0.71,
+     "fair_fin": 1.41,
+     "ladder_fin": [
+      [
+       7.5,
+       1.23
+      ],
+      [
+       8.5,
+       1.41
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 65 % vs. Modell 77 %",
+     "first_run": "Mo 06:27"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      44
+     ],
+     "next_line": 3.5,
+     "next_note": "Petrolul Ploiesti 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.8235382342401908,
+      0.837874926949623
+     ],
+     "fair": 1.26,
+     "ladder": [
+      [
+       1.5,
+       1.28
+      ],
+      [
+       2.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      4.5,
+      4.6
+     ],
+     "expect_sum": 4.5,
+     "expect_matchup": 5.4,
+     "contrib": [
+      2.0,
+      3.4
+     ],
+     "expect": 4.9,
+     "buffer": 2.4,
+     "fa": [
+      [
+       1.8,
+       2.5
+      ],
+      [
+       2.2,
+       2.1
+      ]
+     ],
+     "sd": 2.37,
+     "p_emp": {
+      "1.5": 0.78125,
+      "2.5": 0.7936507936507936
+     },
+     "range": [
+      1.69,
+      1.81
+     ],
+     "referee": "Iulian Calin: Ø 3.9 Karten (15 Sp.) · Ø 22.2 Fouls (11 Sp.)",
+     "expect_ref": 5.0,
+     "buffer_ref": 2.5,
+     "p_mod": 0.854,
+     "p_fin": 0.824,
+     "fair_fin": 1.21,
+     "ladder_fin": [
+      [
+       1.5,
+       1.17
+      ],
+      [
+       2.5,
+       1.21
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.21",
+     "first_run": "Mo 06:27",
+     "change_note": "Quoten vorher 1.73–1.74"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      43
+     ],
+     "next_line": 7.5,
+     "next_note": "Petrolul Ploiesti 5/7 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+     "longterm": [
+      0.8111620840915993,
+      0.8162532107222504
+     ],
+     "fair": 1.28,
+     "ladder": [
+      [
+       5.5,
+       1.28
+      ],
+      [
+       6.5,
+       1.28
+      ]
+     ],
+     "avg": [
+      10.9,
+      10.5
+     ],
+     "expect_sum": 10.7,
+     "expect_matchup": 13.2,
+     "contrib": [
+      9.1,
+      4.1
+     ],
+     "expect": 11.9,
+     "buffer": 5.4,
+     "fa": [
+      [
+       5.7,
+       4.2
+      ],
+      [
+       4.1,
+       4.9
+      ]
+     ],
+     "sd": 3.52,
+     "p_emp": {
+      "5.5": 0.78125,
+      "6.5": 0.78125
+     },
+     "range": [
+      1.27,
+      1.83
+     ],
+     "p_mod": 0.937,
+     "p_fin": 0.859,
+     "fair_fin": 1.16,
+     "ladder_fin": [
+      [
+       5.5,
+       1.14
+      ],
+      [
+       6.5,
+       1.16
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 78 % vs. Modell 94 %",
+     "first_run": "Mo 06:27",
+     "change_note": "Quoten vorher 1.29–1.83"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 2.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      46
+     ],
+     "next_line": 1.5,
+     "next_note": "FCSB 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Petrolul Ploiesti 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.721546820510627,
+      0.8514421545534249
+     ],
+     "fair": 1.25,
+     "ladder": [
+      [
+       2.5,
+       1.25
+      ],
+      [
+       3.5,
+       1.23
+      ]
+     ],
+     "avg": [
+      1.7,
+      1.3
+     ],
+     "expect_sum": 1.5,
+     "expect_matchup": 1.7,
+     "contrib": [
+      0.6,
+      1.1
+     ],
+     "expect": 1.6,
+     "buffer": 0.9,
+     "fa": [
+      [
+       0.6,
+       1.0
+      ],
+      [
+       0.7,
+       0.6
+      ]
+     ],
+     "sd": 1.3,
+     "p_emp": {
+      "2.5": 0.8,
+      "3.5": 0.8130081300813008
+     },
+     "range": [
+      1.69,
+      1.81
+     ],
+     "referee": "Iulian Calin: Ø 3.9 Karten (15 Sp.) · Ø 22.2 Fouls (11 Sp.)",
+     "expect_ref": 3.7,
+     "buffer_ref": -1.2,
+     "p_mod": 0.178,
+     "p_fin": 0.489,
+     "fair_fin": 2.05,
+     "ladder_fin": [
+      [
+       2.5,
+       2.05
+      ],
+      [
+       3.5,
+       1.6
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "nur 49 % Wahrscheinlichkeit",
+     "first_run": "Mo 06:27",
+     "change_note": "Quoten vorher 1.73–1.74"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12457228",
+    "league": "AFC Champions League Elite",
+    "league_id": "38252",
+    "home": "Al Qadisiya Al Khubar",
+    "away": "Al Wasl SC",
+    "home_id": "46668",
+    "away_id": "5928",
+    "kickoff": "Mo 20:15",
+    "kickoff_ts": 1789409700,
+    "bet365_id": "201210226"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      46
+     ],
+     "next_line": 5.5,
+     "next_note": "Al Qadisiya Al Khubar 0/2 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+     "longterm": [
+      0.8976289070065805,
+      0.8982496505711175
+     ],
+     "fair": 1.12,
+     "ladder": [
+      [
+       6.5,
+       1.12
+      ],
+      [
+       7.5,
+       1.22
+      ]
+     ],
+     "avg": [
+      4.3,
+      3.9
+     ],
+     "expect_sum": 4.1,
+     "expect_matchup": 4.3,
+     "contrib": [
+      2.0,
+      2.3
+     ],
+     "expect": 4.2,
+     "buffer": 2.3,
+     "fa": [
+      [
+       1.8,
+       2.1
+      ],
+      [
+       1.5,
+       2.1
+      ]
+     ],
+     "sd": 1.91,
+     "p_emp": {
+      "6.5": 0.8928571428571428,
+      "7.5": 0.819672131147541
+     },
+     "range": [
+      1.47,
+      1.47
+     ],
+     "p_mod": 0.886,
+     "p_fin": 0.889,
+     "fair_fin": 1.12,
+     "ladder_fin": [
+      [
+       6.5,
+       1.12
+      ],
+      [
+       7.5,
+       1.13
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.12",
+     "first_run": "Mo 12:26"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      46
+     ],
+     "next_line": 1.5,
+     "next_note": "Al Qadisiya Al Khubar 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Al Wasl SC 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.7782429095942376,
+      0.6827112031876362
+     ],
+     "fair": 1.39,
+     "ladder": [
+      [
+       0.5,
+       1.39
+      ]
+     ],
+     "avg": [
+      1.4,
+      1.2
+     ],
+     "expect_sum": 1.3,
+     "expect_matchup": 1.2,
+     "contrib": [
+      0.6,
+      0.7
+     ],
+     "expect": 1.2,
+     "buffer": 0.7,
+     "fa": [
+      [
+       0.7,
+       0.7
+      ],
+      [
+       0.5,
+       0.7
+      ]
+     ],
+     "sd": 1.02,
+     "p_emp": {
+      "0.5": 0.7194244604316548
+     },
+     "range": [
+      1.47,
+      1.47
+     ],
+     "p_mod": 0.754,
+     "p_fin": 0.737,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       0.5,
+       1.36
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.36",
+     "first_run": "Mo 12:26"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 2.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      46
+     ],
+     "next_line": 1.5,
+     "next_note": "Al Qadisiya Al Khubar 0/2 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+     "longterm": [
+      0.8918251109801679,
+      0.8730703886452501
+     ],
+     "fair": 1.15,
+     "ladder": [
+      [
+       2.5,
+       1.15
+      ],
+      [
+       3.5,
+       1.19
+      ]
+     ],
+     "avg": [
+      1.4,
+      1.2
+     ],
+     "expect_sum": 1.3,
+     "expect_matchup": 1.2,
+     "contrib": [
+      0.6,
+      0.7
+     ],
+     "expect": 1.2,
+     "buffer": 1.3,
+     "fa": [
+      [
+       0.7,
+       0.7
+      ],
+      [
+       0.5,
+       0.7
+      ]
+     ],
+     "sd": 1.02,
+     "p_emp": {
+      "2.5": 0.8695652173913044,
+      "3.5": 0.8403361344537815
+     },
+     "range": [
+      1.47,
+      1.47
+     ],
+     "p_mod": 0.899,
+     "p_fin": 0.884,
+     "fair_fin": 1.13,
+     "ladder_fin": [
+      [
+       2.5,
+       1.13
+      ],
+      [
+       3.5,
+       1.09
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.13",
+     "first_run": "Mo 12:26"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12457706",
+    "league": "AFC Champions League Elite",
+    "league_id": "38252",
+    "home": "Al Ahli Jeddah",
+    "away": "Pakhtakor Tashkent",
+    "home_id": "47166",
+    "away_id": "181143",
+    "kickoff": "Mo 20:15",
+    "kickoff_ts": 1789409700,
+    "bet365_id": "201106227"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      46,
+      48
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Al Ahli Jeddah 6/8 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; Pakhtakor Tashkent 9/11 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.7690576399225915,
+      0.8998795658728546
+     ],
+     "fair": 1.22,
+     "ladder": [
+      [
+       5.5,
+       1.22
+      ],
+      [
+       6.5,
+       1.1
+      ]
+     ],
+     "avg": [
+      3.2,
+      3.8
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 3.1,
+     "contrib": [
+      1.3,
+      1.8
+     ],
+     "expect": 3.3,
+     "buffer": 2.2,
+     "fa": [
+      [
+       1.8,
+       2.1
+      ],
+      [
+       1.6,
+       1.9
+      ]
+     ],
+     "sd": 2.01,
+     "p_emp": {
+      "5.5": 0.819672131147541,
+      "6.5": 0.9090909090909091
+     },
+     "range": [
+      1.22,
+      1.6
+     ],
+     "p_mod": 0.863,
+     "p_fin": 0.841,
+     "fair_fin": 1.19,
+     "ladder_fin": [
+      [
+       5.5,
+       1.19
+      ],
+      [
+       6.5,
+       1.08
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.19",
+     "first_run": "Mo 12:26"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 2.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      44,
+      47
+     ],
+     "next_line": 1.5,
+     "next_note": "Pakhtakor Tashkent 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.9086243870663578,
+      0.9412934633612254
+     ],
+     "fair": 1.11,
+     "ladder": [
+      [
+       2.5,
+       1.11
+      ],
+      [
+       3.5,
+       1.21
+      ]
+     ],
+     "avg": [
+      0.9,
+      1.1
+     ],
+     "expect_sum": 1.0,
+     "expect_matchup": 0.7,
+     "contrib": [
+      0.4,
+      0.3
+     ],
+     "expect": 0.8,
+     "buffer": 1.7,
+     "fa": [
+      [
+       0.7,
+       0.6
+      ],
+      [
+       0.5,
+       0.6
+      ]
+     ],
+     "sd": 1.02,
+     "p_emp": {
+      "2.5": 0.9009009009009008,
+      "3.5": 0.8264462809917356
+     },
+     "range": [
+      1.22,
+      1.6
+     ],
+     "p_mod": 0.952,
+     "p_fin": 0.927,
+     "fair_fin": 1.08,
+     "ladder_fin": [
+      [
+       2.5,
+       1.08
+      ],
+      [
+       3.5,
+       1.1
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.08",
+     "first_run": "Mo 12:26"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12456911",
+    "league": "AFC Champions League Elite",
+    "league_id": "38252",
+    "home": "Esteghlal",
+    "away": "Al Sadd",
+    "home_id": "43979",
+    "away_id": "46159",
+    "kickoff": "Mo 20:15",
+    "kickoff_ts": 1789409700,
+    "bet365_id": "201106220"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      19,
+      42
+     ],
+     "next_line": 3.5,
+     "next_note": "Esteghlal 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Al Sadd 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.9030153236221233,
+      0.6451240144808283
+     ],
+     "fair": 1.43,
+     "ladder": [
+      [
+       1.5,
+       1.34
+      ],
+      [
+       2.5,
+       1.43
+      ]
+     ],
+     "avg": [
+      3.6,
+      3.3
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 3.2,
+     "contrib": [
+      1.0,
+      2.1
+     ],
+     "expect": 3.3,
+     "buffer": 0.8,
+     "fa": [
+      [
+       1.7,
+       2.4
+      ],
+      [
+       1.9,
+       1.7
+      ]
+     ],
+     "sd": 1.91,
+     "p_emp": {
+      "1.5": 0.7462686567164178,
+      "2.5": 0.6993006993006994
+     },
+     "range": [
+      1.32,
+      1.32
+     ],
+     "p_mod": 0.662,
+     "p_fin": 0.681,
+     "fair_fin": 1.47,
+     "ladder_fin": [
+      [
+       1.5,
+       1.27
+      ],
+      [
+       2.5,
+       1.47
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.47",
+     "first_run": "Mo 12:26"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      19,
+      42
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Esteghlal 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Al Sadd 8/10 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+     "longterm": [
+      0.8266243621930958,
+      0.8492156326972138
+     ],
+     "fair": 1.23,
+     "ladder": [
+      [
+       5.5,
+       1.23
+      ],
+      [
+       6.5,
+       1.1
+      ]
+     ],
+     "avg": [
+      3.6,
+      3.3
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 3.2,
+     "contrib": [
+      1.0,
+      2.1
+     ],
+     "expect": 3.3,
+     "buffer": 2.2,
+     "fa": [
+      [
+       1.7,
+       2.4
+      ],
+      [
+       1.9,
+       1.7
+      ]
+     ],
+     "sd": 1.91,
+     "p_emp": {
+      "5.5": 0.8130081300813008,
+      "6.5": 0.9090909090909091
+     },
+     "range": [
+      1.32,
+      1.32
+     ],
+     "p_mod": 0.875,
+     "p_fin": 0.844,
+     "fair_fin": 1.18,
+     "ladder_fin": [
+      [
+       5.5,
+       1.18
+      ],
+      [
+       6.5,
+       1.07
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.18",
+     "first_run": "Mo 12:26"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      19,
+      41
+     ],
+     "next_line": 1.5,
+     "next_note": "Esteghlal 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Al Sadd 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+     "longterm": [
+      0.8558495527870201,
+      0.7498663016577344
+     ],
+     "fair": 1.35,
+     "ladder": [
+      [
+       0.5,
+       1.35
+      ]
+     ],
+     "avg": [
+      1.6,
+      1.0
+     ],
+     "expect_sum": 1.3,
+     "expect_matchup": 1.9,
+     "contrib": [
+      1.9,
+      0.0
+     ],
+     "expect": 1.6,
+     "buffer": 1.1,
+     "fa": [
+      [
+       0.7,
+       0.9
+      ],
+      [
+       0.4,
+       0.9
+      ]
+     ],
+     "sd": 0.95,
+     "p_emp": {
+      "0.5": 0.7407407407407407
+     },
+     "range": [
+      1.32,
+      1.32
+     ],
+     "p_mod": 0.877,
+     "p_fin": 0.809,
+     "fair_fin": 1.24,
+     "ladder_fin": [
+      [
+       0.5,
+       1.24
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 74 % vs. Modell 88 %",
+     "first_run": "Mo 12:26"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 2.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      19,
+      41
+     ],
+     "next_line": 1.5,
+     "next_note": "Esteghlal 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+     "longterm": [
+      0.8714411363606018,
+      0.9173465068364558
+     ],
+     "fair": 1.14,
+     "ladder": [
+      [
+       2.5,
+       1.14
+      ],
+      [
+       3.5,
+       1.28
+      ]
+     ],
+     "avg": [
+      1.6,
+      1.0
+     ],
+     "expect_sum": 1.3,
+     "expect_matchup": 1.9,
+     "contrib": [
+      1.9,
+      0.0
+     ],
+     "expect": 1.6,
+     "buffer": 0.9,
+     "fa": [
+      [
+       0.7,
+       0.9
+      ],
+      [
+       0.4,
+       0.9
+      ]
+     ],
+     "sd": 0.95,
+     "p_emp": {
+      "2.5": 0.8771929824561404,
+      "3.5": 0.78125
+     },
+     "range": [
+      1.32,
+      1.32
+     ],
+     "p_mod": 0.828,
+     "p_fin": 0.853,
+     "fair_fin": 1.17,
+     "ladder_fin": [
+      [
+       2.5,
+       1.17
+      ],
+      [
+       3.5,
+       1.14
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.17",
+     "first_run": "Mo 12:26"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12465844",
+    "league": "Republic of Ireland Premier Division",
+    "league_id": "398",
+    "home": "Shelbourne",
+    "away": "Drogheda United",
+    "home_id": "5230",
+    "away_id": "45725",
+    "kickoff": "Mo 20:45",
+    "kickoff_ts": 1789411500,
+    "bet365_id": "200562877"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      42,
+      46
+     ],
+     "next_line": 9.5,
+     "next_note": "kein Anker — Shelbourne 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Drogheda United 1/3 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.7174036985447507,
+      0.649678165676055
+     ],
+     "fair": 1.54,
+     "ladder": [
+      [
+       7.5,
+       1.33
+      ],
+      [
+       8.5,
+       1.54
+      ]
+     ],
+     "avg": [
+      10.2,
+      11.5
+     ],
+     "expect_sum": 10.8,
+     "expect_matchup": 12.6,
+     "contrib": [
+      7.7,
+      4.9
+     ],
+     "expect": 11.7,
+     "buffer": 3.2,
+     "fa": [
+      [
+       5.0,
+       5.0
+      ],
+      [
+       4.8,
+       5.5
+      ]
+     ],
+     "sd": 3.49,
+     "p_emp": {
+      "7.5": 0.7518796992481203,
+      "8.5": 0.6493506493506493
+     },
+     "range": [
+      1.32,
+      2.04
+     ],
+     "b365": [
+      "9.5",
+      "1.800",
+      "2.000"
+     ],
+     "p_mod": 0.82,
+     "p_fin": 0.735,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       7.5,
+       1.22
+      ],
+      [
+       8.5,
+       1.36
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 65 % vs. Modell 82 %",
+     "first_run": "Mo 06:27"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12465842",
+    "league": "Republic of Ireland Premier Division",
+    "league_id": "398",
+    "home": "Sligo Rovers",
+    "away": "Galway United",
+    "home_id": "6402",
+    "away_id": "5234",
+    "kickoff": "Mo 20:45",
+    "kickoff_ts": 1789411500,
+    "bet365_id": "200562879"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      42
+     ],
+     "next_line": 8.5,
+     "next_note": "Galway United 6/8 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+     "longterm": [
+      0.822516857856051,
+      0.7461018717837923
+     ],
+     "fair": 1.32,
+     "ladder": [
+      [
+       6.5,
+       1.31
+      ],
+      [
+       7.5,
+       1.32
+      ]
+     ],
+     "avg": [
+      10.9,
+      11.0
+     ],
+     "expect_sum": 10.9,
+     "expect_matchup": 12.1,
+     "contrib": [
+      6.3,
+      5.7
+     ],
+     "expect": 11.5,
+     "buffer": 4.0,
+     "fa": [
+      [
+       4.5,
+       6.4
+      ],
+      [
+       4.5,
+       6.0
+      ]
+     ],
+     "sd": 3.73,
+     "p_emp": {
+      "6.5": 0.7633587786259541,
+      "7.5": 0.7575757575757576
+     },
+     "range": [
+      1.35,
+      2.05
+     ],
+     "b365": [
+      "10.0",
+      "1.825",
+      "1.975"
+     ],
+     "p_mod": 0.858,
+     "p_fin": 0.808,
+     "fair_fin": 1.24,
+     "ladder_fin": [
+      [
+       6.5,
+       1.2
+      ],
+      [
+       7.5,
+       1.24
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.24",
+     "first_run": "Mo 06:27"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11998006",
+    "league": "Italy Serie A",
+    "league_id": "199",
+    "home": "Inter Milan",
+    "away": "Udinese",
+    "home_id": "890",
+    "away_id": "1238",
+    "kickoff": "Mo 20:45",
+    "kickoff_ts": 1789411500,
+    "bet365_id": "200116794"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      47
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — Inter Milan 9/11 (3. Lücke) gesamt, 9/11 (3. Lücke) heim; Udinese 7/9 (3. Lücke) gesamt, 10/12 (3. Lücke) auswärts",
+     "longterm": [
+      0.8777686968511889,
+      0.7833933521103225
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       4.5,
+       1.29
+      ],
+      [
+       5.5,
+       1.16
+      ]
+     ],
+     "avg": [
+      2.6,
+      2.7
+     ],
+     "expect_sum": 2.6,
+     "expect_matchup": 1.8,
+     "contrib": [
+      0.7,
+      1.2
+     ],
+     "expect": 2.2,
+     "buffer": 2.3,
+     "fa": [
+      [
+       1.6,
+       1.4
+      ],
+      [
+       1.8,
+       1.5
+      ]
+     ],
+     "sd": 1.85,
+     "p_emp": {
+      "4.5": 0.7751937984496123,
+      "5.5": 0.8620689655172414
+     },
+     "range": [
+      1.2,
+      1.49
+     ],
+     "referee": "Luca J. Pairetto: Ø 4.8 Karten (19 Sp.) · Ø 24.3 Fouls (18 Sp.)",
+     "expect_ref": 2.6,
+     "buffer_ref": 1.9,
+     "p_mod": 0.848,
+     "p_fin": 0.811,
+     "fair_fin": 1.23,
+     "ladder_fin": [
+      [
+       4.5,
+       1.23
+      ],
+      [
+       5.5,
+       1.11
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.23",
+     "first_run": "Mo 06:27",
+     "change_note": "Quoten vorher 1.28–1.52"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      48,
+      47
+     ],
+     "next_line": 7.5,
+     "next_note": "Inter Milan 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.7622003373454946,
+      0.6564022737094678
+     ],
+     "fair": 1.4,
+     "ladder": [
+      [
+       5.5,
+       1.37
+      ],
+      [
+       6.5,
+       1.4
+      ]
+     ],
+     "avg": [
+      9.7,
+      8.2
+     ],
+     "expect_sum": 9.0,
+     "expect_matchup": 9.0,
+     "contrib": [
+      5.9,
+      3.1
+     ],
+     "expect": 9.0,
+     "buffer": 2.5,
+     "fa": [
+      [
+       5.6,
+       3.3
+      ],
+      [
+       3.9,
+       4.0
+      ]
+     ],
+     "sd": 3.24,
+     "p_emp": {
+      "5.5": 0.7299270072992701,
+      "6.5": 0.7142857142857143
+     },
+     "range": [
+      1.48,
+      1.8
+     ],
+     "p_mod": 0.78,
+     "p_fin": 0.747,
+     "fair_fin": 1.34,
+     "ladder_fin": [
+      [
+       5.5,
+       1.26
+      ],
+      [
+       6.5,
+       1.34
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.34",
+     "first_run": "Mo 06:27",
+     "change_note": "Quoten vorher 1.73–1.80"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 11.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      47
+     ],
+     "next_line": 10.5,
+     "next_note": "Inter Milan 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Udinese 8/10 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+     "longterm": [
+      0.7804931083853472,
+      0.868363387241818
+     ],
+     "fair": 1.24,
+     "ladder": [
+      [
+       11.5,
+       1.24
+      ],
+      [
+       12.5,
+       1.28
+      ]
+     ],
+     "avg": [
+      9.7,
+      8.2
+     ],
+     "expect_sum": 9.0,
+     "expect_matchup": 9.0,
+     "contrib": [
+      5.9,
+      3.1
+     ],
+     "expect": 9.0,
+     "buffer": 2.5,
+     "fa": [
+      [
+       5.6,
+       3.3
+      ],
+      [
+       3.9,
+       4.0
+      ]
+     ],
+     "sd": 3.24,
+     "p_emp": {
+      "11.5": 0.8064516129032259,
+      "12.5": 0.78125
+     },
+     "range": [
+      1.48,
+      1.8
+     ],
+     "p_mod": 0.78,
+     "p_fin": 0.793,
+     "fair_fin": 1.26,
+     "ladder_fin": [
+      [
+       11.5,
+       1.26
+      ],
+      [
+       12.5,
+       1.22
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.26",
+     "first_run": "Mo 06:27",
+     "change_note": "Quoten vorher 1.73–1.80"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 1.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      48
+     ],
+     "next_line": 0.5,
+     "next_note": "Inter Milan 0/2 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Udinese 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.7590300547529072,
+      0.7441937008092612
+     ],
+     "fair": 1.4,
+     "ladder": [
+      [
+       1.5,
+       1.4
+      ],
+      [
+       2.5,
+       1.12
+      ]
+     ],
+     "avg": [
+      0.9,
+      0.7
+     ],
+     "expect_sum": 0.8,
+     "expect_matchup": 0.5,
+     "contrib": [
+      0.2,
+      0.3
+     ],
+     "expect": 0.6,
+     "buffer": 0.9,
+     "fa": [
+      [
+       0.5,
+       0.3
+      ],
+      [
+       0.6,
+       0.5
+      ]
+     ],
+     "sd": 1.06,
+     "p_emp": {
+      "1.5": 0.7142857142857143,
+      "2.5": 0.8928571428571428
+     },
+     "range": [
+      1.2,
+      1.49
+     ],
+     "referee": "Luca J. Pairetto: Ø 4.8 Karten (19 Sp.) · Ø 24.3 Fouls (18 Sp.)",
+     "expect_ref": 1.7,
+     "buffer_ref": -0.2,
+     "p_mod": 0.425,
+     "p_fin": 0.57,
+     "fair_fin": 1.76,
+     "ladder_fin": [
+      [
+       1.5,
+       1.76
+      ],
+      [
+       2.5,
+       1.2
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "nur 57 % Wahrscheinlichkeit",
+     "first_run": "Mo 06:27",
+     "change_note": "Quoten vorher 1.28–1.52"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12465843",
+    "league": "Republic of Ireland Premier Division",
+    "league_id": "398",
+    "home": "Waterford FC",
+    "away": "Derry City",
+    "home_id": "83443",
+    "away_id": "3086",
+    "kickoff": "Mo 20:45",
+    "kickoff_ts": 1789411500,
+    "bet365_id": "200562882"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 9.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      47
+     ],
+     "next_line": 10.5,
+     "next_note": "Waterford FC 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+     "longterm": [
+      0.6990183122361593,
+      0.6386912752779509
+     ],
+     "fair": 1.65,
+     "ladder": [
+      [
+       8.5,
+       1.4
+      ],
+      [
+       9.5,
+       1.65
+      ]
+     ],
+     "avg": [
+      12.1,
+      10.4
+     ],
+     "expect_sum": 11.3,
+     "expect_matchup": 13.5,
+     "contrib": [
+      7.1,
+      6.4
+     ],
+     "expect": 12.4,
+     "buffer": 2.9,
+     "fa": [
+      [
+       5.5,
+       5.8
+      ],
+      [
+       5.7,
+       4.7
+      ]
+     ],
+     "sd": 3.35,
+     "p_emp": {
+      "8.5": 0.7142857142857143,
+      "9.5": 0.6060606060606061
+     },
+     "range": [
+      1.23,
+      2.07
+     ],
+     "b365": [
+      "10.0",
+      "1.825",
+      "1.975"
+     ],
+     "p_mod": 0.807,
+     "p_fin": 0.706,
+     "fair_fin": 1.42,
+     "ladder_fin": [
+      [
+       8.5,
+       1.26
+      ],
+      [
+       9.5,
+       1.42
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 61 % vs. Modell 81 %",
+     "first_run": "Mo 06:27",
+     "change_note": "Quoten vorher 1.20–2.04"
+    },
+    {
+     "metric": "1. HZ Ecken",
+     "metric_key": "ht_corners",
+     "line": 3.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      47
+     ],
+     "next_line": 4.5,
+     "next_note": "Derry City 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.9088881437486297,
+      0.7457621082458419
+     ],
+     "fair": 1.3,
+     "ladder": [
+      [
+       2.5,
+       1.31
+      ],
+      [
+       3.5,
+       1.3
+      ]
+     ],
+     "avg": [
+      5.9,
+      4.5
+     ],
+     "expect_sum": 5.2,
+     "expect_matchup": 6.1,
+     "contrib": [
+      2.7,
+      3.4
+     ],
+     "expect": 5.6,
+     "buffer": 2.1,
+     "fa": [
+      [
+       2.6,
+       3.2
+      ],
+      [
+       2.6,
+       2.0
+      ]
+     ],
+     "sd": 2.47,
+     "p_emp": {
+      "2.5": 0.7633587786259541,
+      "3.5": 0.7692307692307692
+     },
+     "range": [
+      1.23,
+      2.07
+     ],
+     "b365": [
+      "4.5",
+      "1.825",
+      "1.975"
+     ],
+     "p_mod": 0.802,
+     "p_fin": 0.786,
+     "fair_fin": 1.27,
+     "ladder_fin": [
+      [
+       2.5,
+       1.21
+      ],
+      [
+       3.5,
+       1.27
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.27",
+     "first_run": "Mo 06:27",
+     "change_note": "Quoten vorher 1.20–2.04"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13021282",
+    "league": "France Ligue 2",
+    "league_id": "876",
+    "home": "Red Star FC 93",
+    "away": "Metz",
+    "home_id": "5135",
+    "away_id": "43927",
+    "kickoff": "Mo 20:45",
+    "kickoff_ts": 1789411500,
+    "bet365_id": "200116459"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      43
+     ],
+     "next_line": 9.5,
+     "next_note": "Red Star FC 93 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+     "longterm": [
+      0.5887614576039509,
+      0.6194745242028402
+     ],
+     "fair": 1.69,
+     "ladder": [
+      [
+       7.5,
+       1.41
+      ],
+      [
+       8.5,
+       1.69
+      ]
+     ],
+     "avg": [
+      8.2,
+      9.6
+     ],
+     "expect_sum": 8.9,
+     "expect_matchup": 9.0,
+     "contrib": [
+      6.6,
+      2.4
+     ],
+     "expect": 9.0,
+     "buffer": 0.5,
+     "fa": [
+      [
+       5.0,
+       3.6
+      ],
+      [
+       4.3,
+       5.3
+      ]
+     ],
+     "sd": 2.96,
+     "p_emp": {
+      "7.5": 0.7092198581560284,
+      "8.5": 0.591715976331361
+     },
+     "range": [
+      1.24,
+      2.27
+     ],
+     "b365": [
+      "9.5",
+      "1.950",
+      "1.850"
+     ],
+     "p_mod": 0.567,
+     "p_fin": 0.579,
+     "fair_fin": 1.73,
+     "ladder_fin": [
+      [
+       7.5,
+       1.43
+      ],
+      [
+       8.5,
+       1.73
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "nur 58 % Wahrscheinlichkeit",
+     "first_run": "Mo 06:27",
+     "change_note": "Quoten vorher 1.19–2.45"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      43
+     ],
+     "next_line": 3.5,
+     "next_note": "Metz 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.7270056274954463,
+      0.7705969086826081
+     ],
+     "fair": 1.36,
+     "ladder": [
+      [
+       1.5,
+       1.26
+      ],
+      [
+       2.5,
+       1.36
+      ]
+     ],
+     "avg": [
+      3.7,
+      3.5
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 3.3,
+     "contrib": [
+      1.5,
+      1.8
+     ],
+     "expect": 3.4,
+     "buffer": 0.9,
+     "fa": [
+      [
+       1.9,
+       1.8
+      ],
+      [
+       1.6,
+       1.6
+      ]
+     ],
+     "sd": 1.61,
+     "p_emp": {
+      "1.5": 0.7936507936507936,
+      "2.5": 0.7352941176470588
+     },
+     "range": [
+      1.37,
+      1.56
+     ],
+     "referee": "Mickael Leleu: Ø 3.5 Karten (20 Sp.)",
+     "expect_ref": 3.2,
+     "buffer_ref": 0.7,
+     "p_mod": 0.668,
+     "p_fin": 0.702,
+     "fair_fin": 1.43,
+     "ladder_fin": [
+      [
+       1.5,
+       1.21
+      ],
+      [
+       2.5,
+       1.43
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.43",
+     "first_run": "Mo 11:28",
+     "change_note": "Quoten vorher 1.56"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      43
+     ],
+     "next_line": 3.5,
+     "next_note": "Red Star FC 93 0/2 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Metz 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.6183881860918491,
+      0.9127836482138988
+     ],
+     "fair": 1.39,
+     "ladder": [
+      [
+       4.5,
+       1.39
+      ],
+      [
+       5.5,
+       1.16
+      ]
+     ],
+     "avg": [
+      3.7,
+      3.5
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 3.3,
+     "contrib": [
+      1.5,
+      1.8
+     ],
+     "expect": 3.4,
+     "buffer": 1.1,
+     "fa": [
+      [
+       1.9,
+       1.8
+      ],
+      [
+       1.6,
+       1.6
+      ]
+     ],
+     "sd": 1.61,
+     "p_emp": {
+      "4.5": 0.7194244604316548,
+      "5.5": 0.8620689655172414
+     },
+     "range": [
+      1.37,
+      1.56
+     ],
+     "referee": "Mickael Leleu: Ø 3.5 Karten (20 Sp.)",
+     "expect_ref": 3.2,
+     "buffer_ref": 1.3,
+     "p_mod": 0.79,
+     "p_fin": 0.755,
+     "fair_fin": 1.32,
+     "ladder_fin": [
+      [
+       4.5,
+       1.32
+      ],
+      [
+       5.5,
+       1.12
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.32",
+     "first_run": "Mo 11:28",
+     "change_note": "Quoten vorher 1.56"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 2.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      43
+     ],
+     "next_line": 1.5,
+     "next_note": "Metz 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.8315251255283294,
+      0.8328800712305022
+     ],
+     "fair": 1.2,
+     "ladder": [
+      [
+       2.5,
+       1.2
+      ],
+      [
+       3.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      1.2,
+      1.3
+     ],
+     "expect_sum": 1.2,
+     "expect_matchup": 1.2,
+     "contrib": [
+      0.4,
+      0.7
+     ],
+     "expect": 1.2,
+     "buffer": 1.3,
+     "fa": [
+      [
+       0.7,
+       0.8
+      ],
+      [
+       0.6,
+       0.7
+      ]
+     ],
+     "sd": 1.18,
+     "p_emp": {
+      "2.5": 0.8333333333333334,
+      "3.5": 0.7936507936507936
+     },
+     "range": [
+      1.37,
+      1.56
+     ],
+     "referee": "Mickael Leleu: Ø 3.5 Karten (20 Sp.)",
+     "expect_ref": 2.7,
+     "buffer_ref": -0.2,
+     "p_mod": 0.433,
+     "p_fin": 0.633,
+     "fair_fin": 1.58,
+     "ladder_fin": [
+      [
+       2.5,
+       1.58
+      ],
+      [
+       3.5,
+       1.29
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "Historie 83 % und Modell 43 % widersprechen sich",
+     "first_run": "Mo 11:28",
+     "change_note": "Quoten vorher 1.56"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12071065",
+    "league": "England Premier League",
+    "league_id": "94",
+    "home": "Leeds",
+    "away": "Newcastle",
+    "home_id": "17175",
+    "away_id": "23478",
+    "kickoff": "Mo 21:00",
+    "kickoff_ts": 1789412400,
+    "bet365_id": "200110560"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      48
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Leeds 12/14 (3. Lücke) gesamt, 12/14 (3. Lücke) heim; Newcastle 2/4 (3. Lücke) gesamt, 13/15 (3. Lücke) auswärts",
+     "longterm": [
+      0.8151791210921339,
+      0.7418826400280037
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       5.5,
+       1.29
+      ],
+      [
+       6.5,
+       1.13
+      ]
+     ],
+     "avg": [
+      2.6,
+      2.8
+     ],
+     "expect_sum": 2.7,
+     "expect_matchup": 1.9,
+     "contrib": [
+      0.8,
+      1.1
+     ],
+     "expect": 2.3,
+     "buffer": 3.2,
+     "fa": [
+      [
+       1.6,
+       1.8
+      ],
+      [
+       1.9,
+       2.2
+      ]
+     ],
+     "sd": 2.23,
+     "p_emp": {
+      "5.5": 0.7751937984496123,
+      "6.5": 0.8849557522123894
+     },
+     "range": [
+      1.25,
+      1.51
+     ],
+     "referee": "Michael Salisbury: Ø 4.2 Karten (19 Sp.) · Ø 21.1 Fouls (16 Sp.)",
+     "expect_ref": 2.4,
+     "buffer_ref": 3.1,
+     "p_mod": 0.918,
+     "p_fin": 0.846,
+     "fair_fin": 1.18,
+     "ladder_fin": [
+      [
+       5.5,
+       1.18
+      ],
+      [
+       6.5,
+       1.08
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 78 % vs. Modell 92 %",
+     "first_run": "Mo 12:26",
+     "change_note": "Quoten vorher 1.26–1.49"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      47
+     ],
+     "next_line": 7.5,
+     "next_note": "Leeds 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+     "longterm": [
+      0.7363499044909747,
+      0.9030165098900612
+     ],
+     "fair": 1.27,
+     "ladder": [
+      [
+       5.5,
+       1.29
+      ],
+      [
+       6.5,
+       1.27
+      ]
+     ],
+     "avg": [
+      7.8,
+      9.6
+     ],
+     "expect_sum": 8.7,
+     "expect_matchup": 8.3,
+     "contrib": [
+      4.8,
+      3.5
+     ],
+     "expect": 8.5,
+     "buffer": 2.0,
+     "fa": [
+      [
+       4.4,
+       4.1
+      ],
+      [
+       4.9,
+       4.7
+      ]
+     ],
+     "sd": 2.89,
+     "p_emp": {
+      "5.5": 0.7751937984496123,
+      "6.5": 0.7874015748031495
+     },
+     "range": [
+      1.45,
+      1.52
+     ],
+     "p_mod": 0.756,
+     "p_fin": 0.771,
+     "fair_fin": 1.3,
+     "ladder_fin": [
+      [
+       5.5,
+       1.23
+      ],
+      [
+       6.5,
+       1.3
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.30",
+     "first_run": "Mo 12:26"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 11.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 15
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      47
+     ],
+     "next_line": 10.5,
+     "next_note": "kein Anker — Leeds 12/14 (3. Lücke) gesamt, 14/16 (3. Lücke) heim; Newcastle 9/11 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+     "longterm": [
+      0.8640639524993459,
+      0.7640451721565578
+     ],
+     "fair": 1.25,
+     "ladder": [
+      [
+       11.5,
+       1.25
+      ],
+      [
+       12.5,
+       1.29
+      ]
+     ],
+     "avg": [
+      7.8,
+      9.6
+     ],
+     "expect_sum": 8.7,
+     "expect_matchup": 8.3,
+     "contrib": [
+      4.8,
+      3.5
+     ],
+     "expect": 8.5,
+     "buffer": 3.0,
+     "fa": [
+      [
+       4.4,
+       4.1
+      ],
+      [
+       4.9,
+       4.7
+      ]
+     ],
+     "sd": 2.89,
+     "p_emp": {
+      "11.5": 0.8,
+      "12.5": 0.7751937984496123
+     },
+     "range": [
+      1.45,
+      1.52
+     ],
+     "p_mod": 0.85,
+     "p_fin": 0.825,
+     "fair_fin": 1.21,
+     "ladder_fin": [
+      [
+       11.5,
+       1.21
+      ],
+      [
+       12.5,
+       1.18
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.21",
+     "first_run": "Mo 12:26"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      42
+     ],
+     "next_line": 3.5,
+     "next_note": "Leeds 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+     "longterm": [
+      0.654406662021477,
+      0.9404710803354472
+     ],
+     "fair": 1.31,
+     "ladder": [
+      [
+       4.5,
+       1.31
+      ],
+      [
+       5.5,
+       1.19
+      ]
+     ],
+     "avg": [
+      3.4,
+      2.5
+     ],
+     "expect_sum": 3.0,
+     "expect_matchup": 2.5,
+     "contrib": [
+      1.1,
+      1.5
+     ],
+     "expect": 2.8,
+     "buffer": 1.7,
+     "fa": [
+      [
+       1.6,
+       2.3
+      ],
+      [
+       1.8,
+       1.0
+      ]
+     ],
+     "sd": 2.08,
+     "p_emp": {
+      "4.5": 0.7633587786259541,
+      "5.5": 0.8403361344537815
+     },
+     "range": [
+      1.26,
+      2.46
+     ],
+     "p_mod": 0.793,
+     "p_fin": 0.778,
+     "fair_fin": 1.28,
+     "ladder_fin": [
+      [
+       4.5,
+       1.28
+      ],
+      [
+       5.5,
+       1.15
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.28",
+     "first_run": "Mo 12:26",
+     "change_note": "Quoten vorher 1.60–1.92"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 1.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      49
+     ],
+     "next_line": 0.5,
+     "next_note": "Leeds 0/2 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+     "longterm": [
+      0.6498111325472279,
+      0.7402004396425816
+     ],
+     "fair": 1.48,
+     "ladder": [
+      [
+       1.5,
+       1.48
+      ],
+      [
+       2.5,
+       1.15
+      ]
+     ],
+     "avg": [
+      1.1,
+      0.7
+     ],
+     "expect_sum": 0.9,
+     "expect_matchup": 0.6,
+     "contrib": [
+      0.3,
+      0.3
+     ],
+     "expect": 0.7,
+     "buffer": 0.8,
+     "fa": [
+      [
+       0.5,
+       0.7
+      ],
+      [
+       0.5,
+       0.6
+      ]
+     ],
+     "sd": 1.2,
+     "p_emp": {
+      "1.5": 0.6756756756756757,
+      "2.5": 0.8695652173913044
+     },
+     "range": [
+      1.25,
+      1.51
+     ],
+     "referee": "Michael Salisbury: Ø 4.2 Karten (19 Sp.) · Ø 21.1 Fouls (16 Sp.)",
+     "expect_ref": 1.8,
+     "buffer_ref": -0.3,
+     "p_mod": 0.401,
+     "p_fin": 0.538,
+     "fair_fin": 1.86,
+     "ladder_fin": [
+      [
+       1.5,
+       1.86
+      ],
+      [
+       2.5,
+       1.26
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "nur 54 % Wahrscheinlichkeit",
+     "first_run": "Mo 12:26",
+     "change_note": "Quoten vorher 1.26–1.49"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13049116",
+    "league": "Spain La Liga",
+    "league_id": "38223",
+    "home": "Villarreal",
+    "away": "Real Betis",
+    "home_id": "1374",
+    "away_id": "43940",
+    "kickoff": "Mo 21:00",
+    "kickoff_ts": 1789412400,
+    "bet365_id": "200165950"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      48
+     ],
+     "next_line": 8.5,
+     "next_note": "kein Anker — Villarreal 3/5 (3. Lücke) gesamt, 13/15 (3. Lücke) heim; Real Betis 7/9 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.7349398300143516,
+      0.67611449600109
+     ],
+     "fair": 1.43,
+     "ladder": [
+      [
+       6.5,
+       1.4
+      ],
+      [
+       7.5,
+       1.43
+      ]
+     ],
+     "avg": [
+      10.5,
+      9.2
+     ],
+     "expect_sum": 9.8,
+     "expect_matchup": 10.4,
+     "contrib": [
+      5.8,
+      4.5
+     ],
+     "expect": 10.1,
+     "buffer": 2.6,
+     "fa": [
+      [
+       4.6,
+       4.8
+      ],
+      [
+       4.3,
+       4.7
+      ]
+     ],
+     "sd": 3.45,
+     "p_emp": {
+      "6.5": 0.7142857142857143,
+      "7.5": 0.6993006993006994
+     },
+     "range": [
+      1.25,
+      1.99
+     ],
+     "b365": [
+      "10.0",
+      "1.950",
+      "1.850"
+     ],
+     "p_mod": 0.774,
+     "p_fin": 0.737,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       6.5,
+       1.28
+      ],
+      [
+       7.5,
+       1.36
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.36",
+     "first_run": "Mo 11:28",
+     "change_note": "Quoten vorher 1.25–1.98"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      48
+     ],
+     "next_line": 3.5,
+     "next_note": "Villarreal 0/2 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Real Betis 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.7416797173119225,
+      0.6566994219857747
+     ],
+     "fair": 1.47,
+     "ladder": [
+      [
+       4.5,
+       1.47
+      ],
+      [
+       5.5,
+       1.27
+      ]
+     ],
+     "avg": [
+      3.5,
+      3.4
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 3.1,
+     "contrib": [
+      1.4,
+      1.7
+     ],
+     "expect": 3.3,
+     "buffer": 1.2,
+     "fa": [
+      [
+       2.0,
+       1.9
+      ],
+      [
+       2.0,
+       1.9
+      ]
+     ],
+     "sd": 1.94,
+     "p_emp": {
+      "4.5": 0.6802721088435374,
+      "5.5": 0.7874015748031495
+     },
+     "range": [
+      1.23,
+      1.89
+     ],
+     "referee": "Francisco Jose Hernandez Maeso: Ø 3.4 Karten (17 Sp.) · Ø 24.4 Fouls (17 Sp.)",
+     "expect_ref": 3.0,
+     "buffer_ref": 1.5,
+     "p_mod": 0.78,
+     "p_fin": 0.73,
+     "fair_fin": 1.37,
+     "ladder_fin": [
+      [
+       4.5,
+       1.37
+      ],
+      [
+       5.5,
+       1.18
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.37",
+     "first_run": "Mo 11:28",
+     "change_note": "Quoten vorher 1.28–1.75"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      46
+     ],
+     "next_line": 7.5,
+     "next_note": "Real Betis 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.8175507814861563,
+      0.8353404514075305
+     ],
+     "fair": 1.26,
+     "ladder": [
+      [
+       5.5,
+       1.3
+      ],
+      [
+       6.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      9.3,
+      9.1
+     ],
+     "expect_sum": 9.2,
+     "expect_matchup": 9.6,
+     "contrib": [
+      6.0,
+      3.6
+     ],
+     "expect": 9.4,
+     "buffer": 2.9,
+     "fa": [
+      [
+       4.6,
+       4.1
+      ],
+      [
+       4.9,
+       4.6
+      ]
+     ],
+     "sd": 3.1,
+     "p_emp": {
+      "5.5": 0.7692307692307692,
+      "6.5": 0.7936507936507936
+     },
+     "range": [
+      1.64,
+      1.67
+     ],
+     "p_mod": 0.825,
+     "p_fin": 0.809,
+     "fair_fin": 1.24,
+     "ladder_fin": [
+      [
+       5.5,
+       1.2
+      ],
+      [
+       6.5,
+       1.24
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.24",
+     "first_run": "Mo 11:28",
+     "change_note": "Quoten vorher 1.36–1.74"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      46,
+      47
+     ],
+     "next_line": 3.5,
+     "next_note": "Real Betis 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.865829851072759,
+      0.6093529595234378
+     ],
+     "fair": 1.36,
+     "ladder": [
+      [
+       4.5,
+       1.36
+      ],
+      [
+       5.5,
+       1.24
+      ]
+     ],
+     "avg": [
+      2.8,
+      4.5
+     ],
+     "expect_sum": 3.7,
+     "expect_matchup": 3.8,
+     "contrib": [
+      1.8,
+      2.0
+     ],
+     "expect": 3.7,
+     "buffer": 0.8,
+     "fa": [
+      [
+       1.9,
+       1.3
+      ],
+      [
+       1.9,
+       2.4
+      ]
+     ],
+     "sd": 2.25,
+     "p_emp": {
+      "4.5": 0.7352941176470588,
+      "5.5": 0.8064516129032259
+     },
+     "range": [
+      1.35,
+      1.91
+     ],
+     "p_mod": 0.639,
+     "p_fin": 0.687,
+     "fair_fin": 1.46,
+     "ladder_fin": [
+      [
+       4.5,
+       1.46
+      ],
+      [
+       5.5,
+       1.25
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.46",
+     "first_run": "Mo 11:28",
+     "change_note": "Quoten vorher 1.75–2.01"
+    },
+    {
+     "metric": "1. HZ Ecken",
+     "metric_key": "ht_corners",
+     "line": 3.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      48
+     ],
+     "next_line": 4.5,
+     "next_note": "Real Betis 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.6823610116037117,
+      0.6894558650367633
+     ],
+     "fair": 1.49,
+     "ladder": [
+      [
+       2.5,
+       1.35
+      ],
+      [
+       3.5,
+       1.49
+      ]
+     ],
+     "avg": [
+      5.5,
+      4.9
+     ],
+     "expect_sum": 5.2,
+     "expect_matchup": 6.0,
+     "contrib": [
+      3.3,
+      2.7
+     ],
+     "expect": 5.6,
+     "buffer": 2.1,
+     "fa": [
+      [
+       2.3,
+       2.0
+      ],
+      [
+       2.2,
+       2.2
+      ]
+     ],
+     "sd": 2.4,
+     "p_emp": {
+      "2.5": 0.7407407407407407,
+      "3.5": 0.6711409395973155
+     },
+     "range": [
+      1.25,
+      1.99
+     ],
+     "b365": [
+      "4.5",
+      "1.875",
+      "1.925"
+     ],
+     "p_mod": 0.809,
+     "p_fin": 0.74,
+     "fair_fin": 1.35,
+     "ladder_fin": [
+      [
+       2.5,
+       1.22
+      ],
+      [
+       3.5,
+       1.35
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 67 % vs. Modell 81 %",
+     "first_run": "Mo 11:28",
+     "change_note": "Quoten vorher 1.25–1.98"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 2.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      50
+     ],
+     "next_line": 1.5,
+     "next_note": "Villarreal 6/8 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+     "longterm": [
+      0.8512981248084999,
+      0.9150827432039771
+     ],
+     "fair": 1.15,
+     "ladder": [
+      [
+       2.5,
+       1.15
+      ],
+      [
+       3.5,
+       1.21
+      ]
+     ],
+     "avg": [
+      1.4,
+      1.0
+     ],
+     "expect_sum": 1.2,
+     "expect_matchup": 1.1,
+     "contrib": [
+      0.4,
+      0.8
+     ],
+     "expect": 1.2,
+     "buffer": 1.3,
+     "fa": [
+      [
+       0.6,
+       0.6
+      ],
+      [
+       0.6,
+       0.5
+      ]
+     ],
+     "sd": 1.18,
+     "p_emp": {
+      "2.5": 0.8695652173913044,
+      "3.5": 0.8264462809917356
+     },
+     "range": [
+      1.23,
+      1.89
+     ],
+     "referee": "Francisco Jose Hernandez Maeso: Ø 3.4 Karten (17 Sp.) · Ø 24.4 Fouls (17 Sp.)",
+     "expect_ref": 2.5,
+     "buffer_ref": 0.0,
+     "p_mod": 0.5,
+     "p_fin": 0.685,
+     "fair_fin": 1.46,
+     "ladder_fin": [
+      [
+       2.5,
+       1.46
+      ],
+      [
+       3.5,
+       1.23
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "Historie 87 % und Modell 50 % widersprechen sich",
+     "first_run": "Mo 11:28",
+     "change_note": "Quoten vorher 1.28–1.75"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12155212",
+    "league": "Portugal Primeira Liga",
+    "league_id": "172",
+    "home": "Moreirense",
+    "away": "Maritimo",
+    "home_id": "704",
+    "away_id": "705",
+    "kickoff": "Mo 21:15",
+    "kickoff_ts": 1789413300,
+    "bet365_id": "200165235"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "Moreirense 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.7977276429548675,
+      0.9911549803620368
+     ],
+     "fair": 1.19,
+     "ladder": [
+      [
+       1.5,
+       1.21
+      ],
+      [
+       2.5,
+       1.19
+      ]
+     ],
+     "avg": [
+      4.3,
+      5.3
+     ],
+     "expect_sum": 4.8,
+     "expect_matchup": 5.9,
+     "contrib": [
+      3.2,
+      2.7
+     ],
+     "expect": 5.3,
+     "buffer": 2.8,
+     "fa": [
+      [
+       2.6,
+       2.2
+      ],
+      [
+       2.8,
+       2.9
+      ]
+     ],
+     "sd": 2.22,
+     "p_emp": {
+      "1.5": 0.8264462809917356,
+      "2.5": 0.8403361344537815
+     },
+     "range": [
+      1.28,
+      1.82
+     ],
+     "referee": "Fabio Melo: Ø 4.9 Karten (12 Sp.)",
+     "expect_ref": 6.2,
+     "buffer_ref": 3.7,
+     "p_mod": 0.952,
+     "p_fin": 0.896,
+     "fair_fin": 1.12,
+     "ladder_fin": [
+      [
+       1.5,
+       1.11
+      ],
+      [
+       2.5,
+       1.12
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.12",
+     "first_run": "Mo 11:28",
+     "change_note": "Quoten vorher 1.59"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      50
+     ],
+     "next_line": 5.5,
+     "next_note": "Moreirense 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.815391357545305,
+      0.7801071934455454
+     ],
+     "fair": 1.22,
+     "ladder": [
+      [
+       6.5,
+       1.22
+      ],
+      [
+       7.5,
+       1.34
+      ]
+     ],
+     "avg": [
+      4.3,
+      5.3
+     ],
+     "expect_sum": 4.8,
+     "expect_matchup": 5.9,
+     "contrib": [
+      3.2,
+      2.7
+     ],
+     "expect": 5.3,
+     "buffer": 1.2,
+     "fa": [
+      [
+       2.6,
+       2.2
+      ],
+      [
+       2.8,
+       2.9
+      ]
+     ],
+     "sd": 2.22,
+     "p_emp": {
+      "6.5": 0.819672131147541,
+      "7.5": 0.7462686567164178
+     },
+     "range": [
+      1.28,
+      1.82
+     ],
+     "referee": "Fabio Melo: Ø 4.9 Karten (12 Sp.)",
+     "expect_ref": 6.2,
+     "buffer_ref": 0.3,
+     "p_mod": 0.554,
+     "p_fin": 0.687,
+     "fair_fin": 1.46,
+     "ladder_fin": [
+      [
+       6.5,
+       1.46
+      ],
+      [
+       7.5,
+       1.36
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "Historie 82 % und Modell 55 % widersprechen sich",
+     "first_run": "Mo 11:28",
+     "change_note": "Quoten vorher 1.59"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 10.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      50
+     ],
+     "next_line": 9.5,
+     "next_note": "Maritimo 4/6 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+     "longterm": [
+      0.8968748116019097,
+      0.8549676646472436
+     ],
+     "fair": 1.22,
+     "ladder": [
+      [
+       10.5,
+       1.22
+      ],
+      [
+       11.5,
+       1.14
+      ]
+     ],
+     "avg": [
+      7.2,
+      8.3
+     ],
+     "expect_sum": 7.8,
+     "expect_matchup": 6.5,
+     "contrib": [
+      3.2,
+      3.4
+     ],
+     "expect": 7.2,
+     "buffer": 3.3,
+     "fa": [
+      [
+       3.4,
+       4.5
+      ],
+      [
+       4.4,
+       4.1
+      ]
+     ],
+     "sd": 2.58,
+     "p_emp": {
+      "10.5": 0.819672131147541,
+      "11.5": 0.8771929824561404
+     },
+     "range": [
+      1.5,
+      1.5
+     ],
+     "p_mod": 0.9,
+     "p_fin": 0.86,
+     "fair_fin": 1.16,
+     "ladder_fin": [
+      [
+       10.5,
+       1.16
+      ],
+      [
+       11.5,
+       1.09
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.16",
+     "first_run": "Mo 11:28",
+     "change_note": "Quoten vorher 1.49–1.57"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13099410",
+    "league": "Iceland Premier League",
+    "league_id": "222",
+    "home": "Vikingur Reykjavik",
+    "away": "Keflavik",
+    "home_id": "1189",
+    "away_id": "49378",
+    "kickoff": "Mo 21:15",
+    "kickoff_ts": 1789413300,
+    "bet365_id": "200870788"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      48
+     ],
+     "next_line": 9.5,
+     "next_note": "Vikingur Reykjavik 7/9 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+     "longterm": [
+      0.7801465635455409,
+      0.8427007514850476
+     ],
+     "fair": 1.35,
+     "ladder": [
+      [
+       7.5,
+       1.18
+      ],
+      [
+       8.5,
+       1.35
+      ]
+     ],
+     "avg": [
+      10.8,
+      12.3
+     ],
+     "expect_sum": 11.5,
+     "expect_matchup": 14.8,
+     "contrib": [
+      11.1,
+      3.6
+     ],
+     "expect": 13.1,
+     "buffer": 4.6,
+     "fa": [
+      [
+       7.0,
+       4.2
+      ],
+      [
+       6.1,
+       5.6
+      ]
+     ],
+     "sd": 3.22,
+     "p_emp": {
+      "7.5": 0.8474576271186441,
+      "8.5": 0.7407407407407407
+     },
+     "range": [
+      1.25,
+      1.94
+     ],
+     "b365": [
+      "11.5",
+      "1.875",
+      "1.925"
+     ],
+     "p_mod": 0.923,
+     "p_fin": 0.832,
+     "fair_fin": 1.2,
+     "ladder_fin": [
+      [
+       7.5,
+       1.11
+      ],
+      [
+       8.5,
+       1.2
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 74 % vs. Modell 92 %",
+     "first_run": "Mo 06:27",
+     "change_note": "Quoten vorher 1.25–1.98"
+    },
+    {
+     "metric": "1. HZ Ecken",
+     "metric_key": "ht_corners",
+     "line": 3.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      45,
+      47
+     ],
+     "next_line": 4.5,
+     "next_note": "Keflavik 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.8928637417352485,
+      0.7457040629924505
+     ],
+     "fair": 1.31,
+     "ladder": [
+      [
+       2.5,
+       1.25
+      ],
+      [
+       3.5,
+       1.31
+      ]
+     ],
+     "avg": [
+      5.7,
+      5.5
+     ],
+     "expect_sum": 5.6,
+     "expect_matchup": 7.6,
+     "contrib": [
+      6.2,
+      1.4
+     ],
+     "expect": 6.6,
+     "buffer": 3.1,
+     "fa": [
+      [
+       3.6,
+       2.0
+      ],
+      [
+       2.5,
+       2.6
+      ]
+     ],
+     "sd": 2.36,
+     "p_emp": {
+      "2.5": 0.8,
+      "3.5": 0.7633587786259541
+     },
+     "range": [
+      1.25,
+      1.94
+     ],
+     "b365": [
+      "5.5",
+      "1.950",
+      "1.850"
+     ],
+     "p_mod": 0.906,
+     "p_fin": 0.834,
+     "fair_fin": 1.2,
+     "ladder_fin": [
+      [
+       2.5,
+       1.14
+      ],
+      [
+       3.5,
+       1.2
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 76 % vs. Modell 91 %",
+     "first_run": "Mo 06:27",
+     "change_note": "Quoten vorher 1.25–1.98"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12155217",
+    "league": "Portugal Primeira Liga",
+    "league_id": "172",
+    "home": "Braga",
+    "away": "Estoril",
+    "home_id": "44094",
+    "away_id": "43771",
+    "kickoff": "Mo 21:45",
+    "kickoff_ts": 1789415100,
+    "bet365_id": "200165223"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      50
+     ],
+     "next_line": 5.5,
+     "next_note": "Braga 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+     "longterm": [
+      0.8488669663651377,
+      0.8964925919382825
+     ],
+     "fair": 1.14,
+     "ladder": [
+      [
+       6.5,
+       1.14
+      ],
+      [
+       7.5,
+       1.25
+      ]
+     ],
+     "avg": [
+      4.9,
+      4.4
+     ],
+     "expect_sum": 4.7,
+     "expect_matchup": 5.6,
+     "contrib": [
+      2.0,
+      3.7
+     ],
+     "expect": 5.1,
+     "buffer": 1.4,
+     "fa": [
+      [
+       2.2,
+       2.5
+      ],
+      [
+       2.2,
+       1.9
+      ]
+     ],
+     "sd": 2.06,
+     "p_emp": {
+      "6.5": 0.8771929824561404,
+      "7.5": 0.8
+     },
+     "range": [
+      1.23,
+      1.7
+     ],
+     "referee": "David Rafael Oliveira da Silva: Ø 6.0 Karten (32 Sp.) · Ø 29.2 Fouls (18 Sp.)",
+     "expect_ref": 7.3,
+     "buffer_ref": -0.8,
+     "p_mod": 0.349,
+     "p_fin": 0.613,
+     "fair_fin": 1.63,
+     "ladder_fin": [
+      [
+       6.5,
+       1.63
+      ],
+      [
+       7.5,
+       1.49
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "Historie 88 % und Modell 35 % widersprechen sich",
+     "first_run": "Mo 11:28",
+     "change_note": "Quoten vorher 1.25–1.76"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 9.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      39,
+      48
+     ],
+     "next_line": 8.5,
+     "next_note": "kein Anker — Braga 6/8 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; Estoril 0/2 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+     "longterm": [
+      0.8069013411303194,
+      0.5872197160005158
+     ],
+     "fair": 1.54,
+     "ladder": [
+      [
+       9.5,
+       1.54
+      ],
+      [
+       10.5,
+       1.27
+      ]
+     ],
+     "avg": [
+      7.1,
+      8.2
+     ],
+     "expect_sum": 7.6,
+     "expect_matchup": 6.5,
+     "contrib": [
+      3.9,
+      2.6
+     ],
+     "expect": 7.1,
+     "buffer": 2.4,
+     "fa": [
+      [
+       4.1,
+       3.9
+      ],
+      [
+       4.2,
+       4.5
+      ]
+     ],
+     "sd": 2.66,
+     "p_emp": {
+      "9.5": 0.6493506493506493,
+      "10.5": 0.7874015748031495
+     },
+     "range": [
+      1.52,
+      1.9
+     ],
+     "p_mod": 0.817,
+     "p_fin": 0.733,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       9.5,
+       1.36
+      ],
+      [
+       10.5,
+       1.19
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 65 % vs. Modell 82 %",
+     "first_run": "Mo 11:28"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      32,
+      42
+     ],
+     "next_line": 3.5,
+     "next_note": "Estoril 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.7541595514230816,
+      0.8254815946493766
+     ],
+     "fair": 1.3,
+     "ladder": [
+      [
+       4.5,
+       1.3
+      ],
+      [
+       5.5,
+       1.1
+      ]
+     ],
+     "avg": [
+      2.9,
+      3.4
+     ],
+     "expect_sum": 3.2,
+     "expect_matchup": 3.0,
+     "contrib": [
+      1.9,
+      1.1
+     ],
+     "expect": 3.1,
+     "buffer": 1.4,
+     "fa": [
+      [
+       1.3,
+       1.6
+      ],
+      [
+       1.3,
+       2.3
+      ]
+     ],
+     "sd": 1.52,
+     "p_emp": {
+      "4.5": 0.7692307692307692,
+      "5.5": 0.9090909090909091
+     },
+     "range": [
+      1.31,
+      1.57
+     ],
+     "p_mod": 0.821,
+     "p_fin": 0.795,
+     "fair_fin": 1.26,
+     "ladder_fin": [
+      [
+       4.5,
+       1.26
+      ],
+      [
+       5.5,
+       1.08
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.26",
+     "first_run": "Mo 12:26",
+     "change_note": "Quoten vorher 1.34–1.57"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 2.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      44,
+      50
+     ],
+     "next_line": 1.5,
+     "next_note": "Braga 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.7477163989293792,
+      0.8521637084457014
+     ],
+     "fair": 1.23,
+     "ladder": [
+      [
+       2.5,
+       1.23
+      ],
+      [
+       3.5,
+       1.28
+      ]
+     ],
+     "avg": [
+      1.7,
+      1.4
+     ],
+     "expect_sum": 1.6,
+     "expect_matchup": 1.8,
+     "contrib": [
+      0.6,
+      1.2
+     ],
+     "expect": 1.7,
+     "buffer": 0.8,
+     "fa": [
+      [
+       0.6,
+       0.9
+      ],
+      [
+       0.7,
+       0.6
+      ]
+     ],
+     "sd": 1.38,
+     "p_emp": {
+      "2.5": 0.8130081300813008,
+      "3.5": 0.78125
+     },
+     "range": [
+      1.23,
+      1.7
+     ],
+     "referee": "David Rafael Oliveira da Silva: Ø 6.0 Karten (32 Sp.) · Ø 29.2 Fouls (18 Sp.)",
+     "expect_ref": 6.5,
+     "buffer_ref": -4.0,
+     "p_mod": 0.002,
+     "p_fin": 0.407,
+     "fair_fin": 2.45,
+     "ladder_fin": [
+      [
+       2.5,
+       2.45
+      ],
+      [
+       3.5,
+       2.51
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "nur 41 % Wahrscheinlichkeit",
+     "first_run": "Mo 11:28",
+     "change_note": "Quoten vorher 1.25–1.76"
+    }
+   ]
+  }
+ ],
+ "new": [],
+ "changed": [
+  "12122293|yellowcards|über",
+  "12122293|on_target|über",
+  "12122293|ht_yellowcards|unter",
+  "11998006|yellowcards|unter",
+  "11998006|on_target|über",
+  "11998006|on_target|unter",
+  "11998006|ht_yellowcards|unter",
+  "12465843|corners|über",
+  "12465843|ht_corners|über",
+  "13021282|corners|über",
+  "13021282|yellowcards|über",
+  "13021282|yellowcards|unter",
+  "13021282|ht_yellowcards|unter",
+  "12071065|yellowcards|unter",
+  "12071065|offsides|unter",
+  "12071065|ht_yellowcards|unter",
+  "13049116|corners|über",
+  "13049116|yellowcards|unter",
+  "13049116|on_target|über",
+  "13049116|offsides|unter",
+  "13049116|ht_corners|über",
+  "13049116|ht_yellowcards|unter",
+  "12155212|yellowcards|über",
+  "12155212|yellowcards|unter",
+  "12155212|on_target|unter",
+  "13099410|corners|über",
+  "13099410|ht_corners|über",
+  "12155217|yellowcards|unter",
+  "12155217|offsides|unter",
+  "12155217|ht_yellowcards|unter"
+ ],
+ "dropped": [
+  "13108228|corners|über",
+  "12122293|offsides|unter"
+ ]
+}
