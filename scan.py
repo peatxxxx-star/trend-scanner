@@ -305,6 +305,10 @@ METRICS = {
 # EXCLUDED_MARKETS, für Fälle wie "Tore unter 2,5" (60 % im Backtest).
 EXCLUDED_LINES = {("goals", "unter", 1.5), ("goals", "unter", 2.5),
                   ("goals", "über", 4.5),
+                  # 15.09. (Lucio): "über 1,5" und "unter 4,5" lösen bei fast
+                  # jedem Spiel aus (16 % bzw. 18,5 % aller Spiele = Flut) und
+                  # sind mit fair 1,18 für ihn ohnehin nicht spielbar.
+                  ("goals", "über", 1.5), ("goals", "unter", 4.5),
                   # 15.09. (Lucio): 1. HZ Gelbe Karten bleiben drin, aber die
                   # Linie "unter 2,5" muss raus.
                   ("ht_yellowcards", "unter", 2.5)}
@@ -2289,6 +2293,27 @@ def assemble_report(buckets, run_label, new_state=None, deferred_note=None):
     return out
 
 
+def split_message(text: str, limit: int = 3500):
+    """Zerlegt eine lange Nachricht an Zeilengrenzen in Telegram-taugliche
+    Stücke (Grenze dort: 4096 Zeichen). 15.09.: Die Nachricht mit den neuen
+    Märkten war bei 169 Signalen deutlich zu lang und wurde von Telegram
+    komplett abgewiesen — deshalb kam gar nichts an."""
+    if not text:
+        return []
+    parts, cur = [], ""
+    for ln in text.split("\n"):
+        if len(cur) + len(ln) + 1 > limit and cur:
+            parts.append(cur)
+            cur = ln
+        else:
+            cur += ("\n" if cur else "") + ln
+    if cur:
+        parts.append(cur)
+    if len(parts) > 1:
+        parts = [p + f"\n<i>Teil {i}/{len(parts)}</i>" for i, p in enumerate(parts, 1)]
+    return parts
+
+
 def send_telegram(text: str) -> bool:
     if not (TG_TOKEN and TG_CHAT):
         return False
@@ -2981,7 +3006,7 @@ def exoten_backfill(cache):
     # Spielansichten nur für Spiele ohne die neuen Felder
     with _cache_lock:
         need = [eid for eid in events
-                if eid not in cache or "saves" not in cache[eid]]
+                if eid not in cache or cache[eid].get("x") not in CACHE_OK_VERSIONS]
     print(f"{len(events)} Spiele in {len(leagues)} Ligen, {len(need)} Ansichten nachzuladen")
     chunks = [need[i:i + 10] for i in range(0, len(need), 10)]
     got = 0
@@ -3150,9 +3175,12 @@ def tore_backfill(cache):
             for e in evs:
                 events[str(e["id"])] = (lid, e)
     # nur Spiele ohne die neuen Felder holen (Wiederaufnahme möglich)
+    # 15.09.: Maßstab ist die Cache-Fassung, nicht ein einzelnes Feld. Spiele,
+    # die der erste Anlauf mit der strengen (zu strengen) Tor-Prüfung geholt
+    # hat, tragen noch Fassung 3 und werden dadurch korrekt neu geholt.
     with _cache_lock:
         need = [eid for eid in events
-                if eid not in cache or "ht_goals" not in cache[eid]]
+                if eid not in cache or cache[eid].get("x") not in CACHE_OK_VERSIONS]
     need.sort(key=lambda eid: (-prio.get(events[eid][0], 0), -int(events[eid][1].get("time") or 0)))
     print(f"{len(events)} Spiele, {len(need)} Ansichten nachzuladen")
     chunks = [need[i:i + 10] for i in range(0, len(need), 10)]
@@ -4511,10 +4539,10 @@ def _run():
         json.dumps(log, ensure_ascii=False, indent=1))
     team_block = build_team_block(team_hits)
     if team_block:
-        chunks = (chunks or []) + [team_block]
+        chunks = (chunks or []) + split_message(team_block)
     exo_block = build_exo_block(exo_hits)
     if exo_block:
-        chunks = (chunks or []) + [exo_block]
+        chunks = (chunks or []) + split_message(exo_block)
     # --- Bonus-Picks (Sa/So): separate Nachricht, klar als Bonus markiert ---
     if now_berlin().weekday() in BONUS_DAYS:
         try:
@@ -5075,6 +5103,20 @@ def selftest():
         print("FEHLER Fall 15b: Mischung Summen/Beitrag falsch:", s15.get("expect"), s15.get("contrib"))
         ok = False
     _base_means.pop("corners", None)
+
+    # --- Fall 27: lange Nachrichten teilen (15.09.)
+    lang = "\n".join(f"Zeile {i} mit etwas Text" for i in range(400))
+    teile = split_message(lang)
+    if len(teile) < 2 or any(len(t) > 4096 for t in teile):
+        print("FEHLER Fall 27a: lange Nachricht nicht korrekt geteilt:",
+              [len(t) for t in teile])
+        ok = False
+    if "Teil 1/" not in teile[0]:
+        print("FEHLER Fall 27b: Teil-Kennzeichnung fehlt")
+        ok = False
+    if split_message("") or len(split_message("kurz")) != 1:
+        print("FEHLER Fall 27c: kurze Nachricht darf nicht geteilt werden")
+        ok = False
 
     # --- Fall 26: Markt "Tore gesamt" (15.09.)
     import random as _r2
