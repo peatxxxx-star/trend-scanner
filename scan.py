@@ -309,6 +309,10 @@ EXCLUDED_LINES = {("goals", "unter", 1.5), ("goals", "unter", 2.5),
                   # jedem Spiel aus (16 % bzw. 18,5 % aller Spiele = Flut) und
                   # sind mit fair 1,18 für ihn ohnehin nicht spielbar.
                   ("goals", "über", 1.5), ("goals", "unter", 4.5),
+                  # 15.09., Lucios Entscheidung: fürs Erste NUR "über 2,5"
+                  # anzeigen. "über 3,5" (n=68) und "unter 3,5" sind damit
+                  # auch aus — zum Wiedereinschalten diese Zeile entfernen.
+                  ("goals", "über", 3.5), ("goals", "unter", 3.5),
                   # 15.09. (Lucio): 1. HZ Gelbe Karten bleiben drin, aber die
                   # Linie "unter 2,5" muss raus.
                   ("ht_yellowcards", "unter", 2.5)}
