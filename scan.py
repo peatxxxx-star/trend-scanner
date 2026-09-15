@@ -175,6 +175,7 @@ S24_GROUPS = {
 # sie trotzdem weiter.
 EXCLUDED_MARKETS = {("corners", "unter"),
                     ("on_target", "über"), ("on_target", "unter"),
+                    ("ht_goals", "unter"), ("h2_goals", "unter"),
                     ("ht_corners", "unter"), ("ht_corners", "über"),
                     ("shots_total", "über"), ("shots_total", "unter"),
                     ("fouls", "über"), ("fouls", "unter")}
@@ -251,7 +252,8 @@ CONTRA_GAP = 2.0                      # Standard (Ecken, Schüsse)
 # Halbzeit-Signale "auf Krampf"; die Gegenbewegungs-Regel gilt dort voll.
 CONTRA_GAP_BY_METRIC = {"corners": 2.0, "on_target": 2.0, "ht_corners": 1.0, "ht_yellowcards": 1.0, "shots_total": 5.0,
                         "yellowcards": 1.0, "offsides": 1.0, "fouls": 4.0,
-                        "throwins": 8.0, "goalkicks": 4.0, "freekicks": 4.0, "goals": 1.0}
+                        "throwins": 8.0, "goalkicks": 4.0, "freekicks": 4.0, "goals": 1.0,
+                        "ht_goals": 1.0, "h2_goals": 1.0}
 
 
 def contra_gap(metric):
@@ -299,6 +301,12 @@ METRICS = {
     #   unter 4,5: 85,0 % (79,1 %)           · fair 1,18
     # "unter 2,5" fiel mit 60 % durch und ist gesperrt (EXCLUDED_LINES).
     "goals":     ("Tore",             [1.5, 2.5, 3.5, 4.5]),
+    # 15.09. (Lucio): Halbzeit-Tore, nur "über 0,5" — Unter-Tore spielt er
+    # nicht. Backtest an 26.131 Spielen mit Halbzeitstand:
+    #   1. HZ über 0,5: 76,2 % (Grundrate 72,1 %) · 1.325 Signale
+    #   2. HZ über 0,5: 82,5 % (Grundrate 80,1 %) · 2.901 Signale
+    "ht_goals":  ("1. HZ Tore",       [0.5]),
+    "h2_goals":  ("2. HZ Tore",       [0.5]),
 }
 
 # Einzelne Linien sperren (Markt + Richtung + Linie) — feiner als
@@ -319,10 +327,10 @@ EXCLUDED_LINES = {("goals", "unter", 1.5), ("goals", "unter", 2.5),
 
 # Die drei neuen Märkte laufen getrennt vom Kernsystem (eigene Nachricht,
 # 🧪 TEST) — Schalter zum Abstellen: EXO_ENABLED = False.
-EXO_METRICS = ("throwins", "goalkicks", "freekicks", "goals")
+EXO_METRICS = ("throwins", "goalkicks", "freekicks", "goals", "ht_goals", "h2_goals")
 EXO_ZERO_MISSING = ("throwins", "goalkicks", "freekicks")   # 0:0 = keine Daten.
                              # Tore NICHT: 0:0 ist dort ein echtes Ergebnis.
-EXO_NOGATE_OK = ("goals",)   # Tore über/unter bietet JEDER Buchmacher an —
+EXO_NOGATE_OK = ("goals", "ht_goals", "h2_goals")   # Tore über/unter bietet JEDER Buchmacher an —
                              # hier fehlt kein Nachweis, der scores24-Reiter
                              # ist nur für die Nebenmärkte nötig.
 EXO_ENABLED = True
@@ -431,6 +439,10 @@ def _budget_guard():
     """Bleibt unter dem Stundenlimit: notfalls bis zur nächsten Stunde warten
     — außer im Vorwärm-Modus, dort wird sauber abgebrochen."""
     global _hour_started, _hour_requests, _budget_exhausted
+    # 15.09.: Steht das Limit schon fest (HTTP 429 von der API), sofort
+    # abbrechen statt jede weitere Anfrage einzeln auflaufen zu lassen.
+    if _budget_exhausted and _no_wait:
+        raise BudgetExhausted()
     while True:
         with _counter_lock:
             now = time.time()
@@ -466,6 +478,28 @@ def api_get(path: str, **params) -> dict:
             if data.get("success") != 1:
                 raise RuntimeError(f"API-Fehler {data.get('error')} bei {path}")
             return data
+        except urllib.error.HTTPError as exc:
+            # 15.09.: HTTP 429 ("Too Many Requests") ist die verbindliche
+            # Auskunft der API, dass das Stundenlimit voll ist. Der eigene
+            # Zähler kann das nicht wissen — jeder Actions-Lauf startet bei
+            # null, das Limit gilt aber über alle Läufe zusammen. Anlass:
+            # der Tor-Nachlade-Lauf lief in hunderte 429er und musste von
+            # Hand abgebrochen werden.
+            if exc.code == 429:
+                global _budget_exhausted
+                with _counter_lock:
+                    _hour_requests = HOURLY_BUDGET      # eigener Zähler nachziehen
+                if _no_wait:
+                    _budget_exhausted = True
+                    raise BudgetExhausted()
+                print("HTTP 429 – Stundenlimit der API, warte 120s", flush=True)
+                time.sleep(120)
+                last = exc
+                continue
+            last = exc
+            if attempt == 4:
+                raise
+            time.sleep(min(3 * 2 ** attempt, 30))
         except Exception as exc:
             last = exc
             if attempt == 4:
@@ -803,6 +837,8 @@ def slim_event(ev: dict) -> dict:
     stats = ev.get("stats") or {}
     slim = {}
     for key in list(METRICS) + list(EXTRA_STAT_FIELDS):
+        if key == "h2_goals":          # wird aus Halbzeit- und Endstand gerechnet
+            continue
         src = "corner_h" if key == "ht_corners" else key
         pair = stats.get(src)
         try:
@@ -902,9 +938,30 @@ def fetch_team_history(team_id: str, cache: dict, hcache: dict = None):
 # Datenqualität + Regelwerk
 # ----------------------------------------------------------------------------
 
+def _half_goals(stats: dict, half: int):
+    """Tore der 1. bzw. 2. Halbzeit aus Halbzeitstand und Endstand.
+    `ht_goals` ist [Heim, Gast] — oder [Gesamt, -1], wenn der Verlauf die
+    Seiten nicht hergab (dann zählt nur die Summe, was für Gesamtmärkte
+    genügt)."""
+    hg, g = stats.get("ht_goals"), stats.get("goals")
+    if hg is None:
+        return None
+    h1 = hg[0] if len(hg) > 1 and hg[1] == -1 else hg[0] + hg[1]
+    if half == 1:
+        return h1
+    if g is None:
+        return None
+    tot = g[0] + g[1]
+    return tot - h1 if tot >= h1 else None          # unplausibel -> keine Daten
+
+
 def metric_total(match: dict, metric: str):
     """Spielsumme einer Metrik – oder None bei fehlenden/verdächtigen Daten."""
     stats = match.get("stats") or {}
+    if metric == "ht_goals":
+        return _half_goals(stats, 1)
+    if metric == "h2_goals":
+        return _half_goals(stats, 2)
     pair = stats.get(metric)
     if pair is None:
         return None
@@ -1676,7 +1733,8 @@ def pooled_sd(hist_home, hist_away, metric):
 
 SD_FALLBACK = {"corners": 3.0, "yellowcards": 1.9, "on_target": 2.6, "ht_corners": 1.8, "ht_yellowcards": 1.1, "shots_total": 7.5,
                "offsides": 1.8, "fouls": 5.0,
-               "throwins": 11.0, "goalkicks": 4.6, "freekicks": 6.3, "goals": 1.6}
+               "throwins": 11.0, "goalkicks": 4.6, "freekicks": 6.3, "goals": 1.6,
+               "ht_goals": 0.9, "h2_goals": 1.1}
 
 
 def _norm_cdf(z):
@@ -1727,6 +1785,12 @@ CALIBRATION = {
     ("offsides", "unter"): 1.00,
     ("goals", "über"): 0.94,
     ("goals", "unter"): 1.00,
+    # 15.09. gemessen: Bei "1. HZ über 0,5" rechnet sich das Normalverteilungs-
+    # Modell die Sache deutlich schön (86,8 % gesagt, 75,6 % real, n=1.726) —
+    # bei so kleinen Zahlen nahe null passt die Verteilung schlecht. Ohne
+    # Korrektur stünde dort Fair 1,15 statt der ehrlichen 1,32.
+    ("ht_goals", "über"): 0.87,
+    ("h2_goals", "über"): 0.98,
 }
 
 
@@ -3231,9 +3295,12 @@ def tore_backfill(cache):
         view = api_get("/v1/event/view", event_id=",".join(chunk))
         return [(str(ev["id"]), slim_event(ev)) for ev in view.get("results", [])]
 
+    t0 = time.time()
+    done_chunks = 0
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
         futs = [pool.submit(_view, ch) for ch in chunks]
         for fut in as_completed(futs):
+            done_chunks += 1
             try:
                 res = fut.result()
             except BudgetExhausted:
@@ -3247,6 +3314,13 @@ def tore_backfill(cache):
                     slim["t"] = _today_num()
                     cache[eid] = slim
                     got += 1
+            # 15.09.: Fortschritt anzeigen — vorher lief der Modus minutenlang
+            # ohne jede Ausgabe und sah aus, als hinge er.
+            if done_chunks % 25 == 0 or done_chunks == len(chunks):
+                el = time.time() - t0
+                rest = el / done_chunks * (len(chunks) - done_chunks)
+                print(f"  {got}/{len(need)} Spiele geholt · {done_chunks}/{len(chunks)} Pakete · "
+                      f"{_request_count} Anfragen · noch ca. {int(rest)}s", flush=True)
     # Team-Spiellisten für die Offline-Auswertung
     teams = {}
     for eid, (lid, e) in events.items():
@@ -5144,6 +5218,67 @@ def selftest():
         print("FEHLER Fall 15b: Mischung Summen/Beitrag falsch:", s15.get("expect"), s15.get("contrib"))
         ok = False
     _base_means.pop("corners", None)
+
+    # --- Fall 30: Halbzeit-Tore (15.09.)
+    st30 = {"ht_goals": [1, 1], "goals": [3, 1]}
+    if metric_total({"stats": st30}, "ht_goals") != 2 or metric_total({"stats": st30}, "h2_goals") != 2:
+        print("FEHLER Fall 30a: Halbzeit-Tore falsch gerechnet")
+        ok = False
+    st30b = {"ht_goals": [2, -1], "goals": [2, 1]}        # Seiten unbekannt
+    if metric_total({"stats": st30b}, "ht_goals") != 2 or metric_total({"stats": st30b}, "h2_goals") != 1:
+        print("FEHLER Fall 30b: Summen-Fassung ([Gesamt, -1]) falsch behandelt")
+        ok = False
+    if metric_total({"stats": {"goals": [2, 1]}}, "ht_goals") is not None:
+        print("FEHLER Fall 30c: ohne Halbzeitstand keine Daten")
+        ok = False
+    if metric_total({"stats": {"ht_goals": [3, 0], "goals": [1, 0]}}, "h2_goals") is not None:
+        print("FEHLER Fall 30d: unplausible Kombination muss verworfen werden")
+        ok = False
+    if ("ht_goals", "unter") not in EXCLUDED_MARKETS or ("h2_goals", "unter") not in EXCLUDED_MARKETS:
+        print("FEHLER Fall 30e: Unter-Tore dürfen nicht gemeldet werden")
+        ok = False
+    # Kalibrierung: 1. HZ muss deutlich nach unten korrigiert werden
+    if abs(calibrate(0.868, "ht_goals", "über") - 0.868 * 0.87) > 1e-9:
+        print("FEHLER Fall 30f: HZ-Kalibrierung greift nicht")
+        ok = False
+
+    # --- Fall 29: HTTP 429 sauber behandeln (15.09.)
+    import urllib.error as _ue
+    _save = (globals()["_no_wait"], globals()["_budget_exhausted"], globals()["_hour_requests"])
+    globals()["_no_wait"], globals()["_budget_exhausted"], globals()["_hour_requests"] = True, False, 0
+    _calls = [0]
+
+    def _fake429(url, timeout=0):
+        _calls[0] += 1
+        raise _ue.HTTPError(url, 429, "Too Many Requests", {}, None)
+    _orig = urllib.request.urlopen
+    urllib.request.urlopen = _fake429
+    try:
+        try:
+            globals()["api_get"]("/v3/events/ended", day="20260101")
+            print("FEHLER Fall 29a: 429 muss zum Abbruch führen")
+            ok = False
+        except BudgetExhausted:
+            pass
+        except Exception as exc:
+            print("FEHLER Fall 29b: falscher Fehler bei 429:", type(exc).__name__)
+            ok = False
+        if _calls[0] != 1:
+            print("FEHLER Fall 29c: bei 429 darf nicht nachgeschlagen werden:", _calls[0])
+            ok = False
+        # danach bricht jede weitere Anfrage sofort ab (kein Nachschlagen mehr)
+        try:
+            globals()["api_get"]("/v3/events/ended", day="20260102")
+            print("FEHLER Fall 29d: nach erschöpftem Budget muss sofort abgebrochen werden")
+            ok = False
+        except BudgetExhausted:
+            pass
+        if _calls[0] != 1:
+            print("FEHLER Fall 29e: nach 429 wurde erneut angefragt:", _calls[0])
+            ok = False
+    finally:
+        urllib.request.urlopen = _orig
+        globals()["_no_wait"], globals()["_budget_exhausted"], globals()["_hour_requests"] = _save
 
     # --- Fall 28: Kalibrierung je Markt (15.09.)
     if abs(calibrate(0.80, "corners", "über") - 0.76) > 1e-9:
