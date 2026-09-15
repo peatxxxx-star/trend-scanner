@@ -2519,6 +2519,8 @@ def inventory():
 # allen Wochen gespielt haben, sind "nicht bewertbar" (weder OK noch raus).
 # Kosten: Listen ~15-25 Anfragen je Tag + 1 Anfrage je 10 Spielansichten
 # (4 Wochen, 3 Spiele je Liga und Woche, ~800 Ligen -> ~1.500 Anfragen).
+# Spielansichten laufen parallel mit WORKERS Threads (15.09., Lucio: "wie
+# viele Worker sind dran?" — vorher sequentiell, ~20 Min.; jetzt ~2-3 Min.).
 # Ergebnis: runs/abdeckung_<Datum>.csv (Liga x Feld: 4 Wochenwerte + Urteil),
 # runs/abdeckung_<Datum>.txt und Kurzfassung per Telegram.
 # ----------------------------------------------------------------------------
@@ -2555,42 +2557,51 @@ def coverage():
     global _no_wait
     _no_wait = True
     now = now_berlin()
-    # 1) beendete Spiele je Woche, mit Liga
+    # 1) beendete Spiele je Woche, mit Liga — die 28 Tage parallel (je Tag
+    #    bis zu 40 Seiten hintereinander), Zählung im Hauptfaden
     per_lw = defaultdict(list)              # (liga, liga_id, woche) -> [event]
     n_list = 0
-    for w in range(COV_WEEKS):
-        for d in range(7):
-            day = (now - timedelta(days=1 + w * 7 + d)).astimezone(timezone.utc).strftime("%Y%m%d")
-            page = 1
-            while page <= 40:
-                try:
-                    data = api_get("/v3/events/ended", sport_id=1, day=day,
-                                   per_page=100, page=page, skip_esports=1)
-                except BudgetExhausted:
-                    print("Stundenbudget erschöpft (Spiellisten)")
-                    page = 99
-                    break
-                except Exception as exc:
-                    print(f"  Liste {day}/{page}: {exc}")
-                    break
-                results = data.get("results", [])
-                if not results:
-                    break
-                for e in results:
-                    lg = (e.get("league") or {})
-                    name = lg.get("name", "?")
-                    if "esoccer" in name.lower():
-                        continue
-                    if str(e.get("time_status")) != "3":     # nur regulär beendete
-                        continue
-                    per_lw[(name, str(lg.get("id") or ""), w)].append(e)
-                    n_list += 1
-                total = int((data.get("pager") or {}).get("total", 0))
-                if page * 100 >= total:
-                    break
-                page += 1
-            if page == 99:
+    budget_hit = [False]
+
+    def _day(w, d):
+        day = (now - timedelta(days=1 + w * 7 + d)).astimezone(timezone.utc).strftime("%Y%m%d")
+        out = []
+        page = 1
+        while page <= 40:
+            try:
+                data = api_get("/v3/events/ended", sport_id=1, day=day,
+                               per_page=100, page=page, skip_esports=1)
+            except BudgetExhausted:
+                budget_hit[0] = True
                 break
+            except Exception as exc:
+                print(f"  Liste {day}/{page}: {exc}")
+                break
+            results = data.get("results", [])
+            if not results:
+                break
+            for e in results:
+                lg = (e.get("league") or {})
+                name = lg.get("name", "?")
+                if "esoccer" in name.lower():
+                    continue
+                if str(e.get("time_status")) != "3":     # nur regulär beendete
+                    continue
+                out.append(((name, str(lg.get("id") or ""), w), e))
+            total = int((data.get("pager") or {}).get("total", 0))
+            if page * 100 >= total:
+                break
+            page += 1
+        return out
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(_day, w, d) for w in range(COV_WEEKS) for d in range(7)]
+        for fut in as_completed(futs):
+            for key, e in fut.result():
+                per_lw[key].append(e)
+                n_list += 1
+    if budget_hit[0]:
+        print("Stundenbudget erschöpft (Spiellisten) — Auswertung mit Teilstichprobe")
     # 2) Stichprobe je Liga und Woche
     sample = []
     for key, evs in per_lw.items():
@@ -2604,31 +2615,44 @@ def coverage():
     n_lw = Counter()
     ids = {eid: key for key, eid in sample}
     order = [eid for _, eid in sample]
-    partial = False
-    for i in range(0, len(order), 10):
-        chunk = order[i:i + 10]
-        try:
-            view = api_get("/v1/event/view", event_id=",".join(chunk))
-        except BudgetExhausted:
-            print("Stundenbudget erschöpft (Spielansichten) — Auswertung mit Teilstichprobe")
-            partial = True
-            break
-        except Exception as exc:
-            print(f"  Ansicht {i // 10 + 1}: {exc}")
-            continue
+    partial = budget_hit[0]
+
+    def _view(chunk):
+        """holt 10 Spielansichten, gibt je Spiel (Schlüssel, gefüllte Felder)"""
+        out = []
+        view = api_get("/v1/event/view", event_id=",".join(chunk))
         for ev in view.get("results", []):
             key = ids.get(str(ev.get("id")))
             if key is None:
                 continue
             st = ev.get("stats") or {}
-            n_lw[key] += 1
-            for f in COV_FIELDS:
-                if _cov_present(st, f):
-                    hits[key][f] += 1
+            present = {f for f in COV_FIELDS if _cov_present(st, f)}
             if ((ev.get("extra") or {}).get("referee") or {}).get("id"):
-                hits[key]["referee"] += 1
+                present.add("referee")
             if parse_ht_cards(ev) is not None:
-                hits[key]["ht_cards"] += 1
+                present.add("ht_cards")
+            out.append((key, present))
+        return out
+
+    # parallel wie der normale Scan (WORKERS); Zählung im Hauptfaden
+    chunks = [order[i:i + 10] for i in range(0, len(order), 10)]
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futures = {pool.submit(_view, ch): n for n, ch in enumerate(chunks, 1)}
+        for fut in as_completed(futures):
+            try:
+                res = fut.result()
+            except BudgetExhausted:
+                partial = True
+                continue
+            except Exception as exc:
+                print(f"  Ansicht {futures[fut]}: {exc}")
+                continue
+            for key, present in res:
+                n_lw[key] += 1
+                for f in present:
+                    hits[key][f] += 1
+    if partial:
+        print("Stundenbudget erschöpft (Spielansichten) — Auswertung mit Teilstichprobe")
     n_view = sum(n_lw.values())
     if not n_view:
         send_telegram("📊 ABDECKUNG: keine Spielansichten erhalten — später erneut starten.")
