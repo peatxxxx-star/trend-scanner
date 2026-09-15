@@ -290,7 +290,12 @@ def metric_allowed_for_league(metric: str, league: str) -> bool:
 # Modus "exoten" lädt sie für die Ligen mit Abdeckung gezielt nach.
 EXTRA_STAT_FIELDS = ("redcards", "saves", "throwins", "goalkicks", "freekicks")
 EXO_FIELDS = ("saves", "throwins", "goalkicks", "freekicks")
-EXO_WEEKS = 12               # so weit zurück lädt "exoten" je Liga nach
+EXO_WEEKS = 30               # so weit zurück lädt "exoten" je Liga nach.
+                             # 15.09.: 12 Wochen waren zu kurz — die Anker-Regel
+                             # (10 von 12) braucht je Team 12+ Spiele VOR dem
+                             # Prüfspiel, sonst gibt es keine Signale. Der Lauf
+                             # holt nur, was noch fehlt; bricht das Stundenlimit
+                             # ab, einfach eine Stunde später erneut starten.
 EXO_HISTORY_FILE = Path(__file__).parent / "cache" / "exoten_history.json"
 
 CACHE_FILE = Path(__file__).parent / "cache" / "stats.json.gz"    # komprimiert (06.09.)
@@ -2796,7 +2801,7 @@ def exoten_backfill(cache):
     def _league(lid):
         evs = []
         page = 1
-        while page <= 5:
+        while page <= 12:
             data = api_get("/v3/events/ended", sport_id=1, league_id=lid,
                            per_page=100, page=page, skip_esports=1)
             res = data.get("results", [])
