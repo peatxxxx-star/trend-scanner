@@ -1702,6 +1702,42 @@ EV_GREEN = 0.03           # Erwartungswert (Markt x p - 1) ab dem es Grün gibt
 EV_RED = -0.05            # darunter Rot (nur bei exakter/umgerechneter Quote)
 
 
+# ----------------------------------------------------------------------------
+# KALIBRIERUNG je Markt (15.09.): Am Cache gemessen, wie oft das Modell recht
+# behält. Über alle Märkte zusammen stimmt es fast genau (Abweichung 0,6-1,4
+# Punkte je Quotenklasse) — die Abweichung sitzt im einzelnen MARKT:
+#
+#   Markt              Modell    real     Faktor
+#   Ecken über          76,8 %   73,3 %    0,95
+#   Gelbe Karten über   80,5 %   76,3 %    0,95
+#   Gelbe Karten unter  83,1 %   84,5 %    1,02
+#   Abseits             83,8 %   84,0 %    1,00
+#   Tore über           77,1 %   72,5 %    0,94
+#
+# Der Faktor wird auf die kombinierte Wahrscheinlichkeit angewendet, BEVOR
+# daraus die faire Quote wird. Damit stimmt Lucios Regel "Bookie-Quote muss
+# über fair liegen" wieder ohne Kopfrechnen. Märkte ohne eigene Messung
+# (1. HZ Karten, Einwürfe/Abstöße/Freistöße) laufen mit 1,00 mit, bis genug
+# Fälle da sind — lieber unkorrigiert als geraten.
+CALIBRATION = {
+    ("corners", "über"): 0.95,
+    ("yellowcards", "über"): 0.95,
+    ("yellowcards", "unter"): 1.02,
+    ("offsides", "über"): 1.00,
+    ("offsides", "unter"): 1.00,
+    ("goals", "über"): 0.94,
+    ("goals", "unter"): 1.00,
+}
+
+
+def calibrate(p, metric, direction):
+    """Modell-Wahrscheinlichkeit auf das gemessene Niveau ziehen."""
+    f = CALIBRATION.get((metric, direction))
+    if not f or p is None:
+        return p
+    return max(0.02, min(0.985, p * f))
+
+
 def assess_signal(s):
     """Kombiniert alles zu EINER Bewertung. Setzt: p_mod, p_fin, fair_fin,
     ladder_fin, market, market_src, ev, light, reason."""
@@ -1714,15 +1750,16 @@ def assess_signal(s):
         s["light"], s["reason"] = "🟡", "zu wenig Daten für die Rechnung"
         return s
     p_mod = model_prob(mean, sd, line, direction)
-    p_fin = 0.5 * p_emp + 0.5 * p_mod
+    p_fin = calibrate(0.5 * p_emp + 0.5 * p_mod, metric, direction)
     s["p_mod"], s["p_fin"] = round(p_mod, 3), round(p_fin, 3)
+    s["kal"] = CALIBRATION.get((metric, direction))
     s["fair_fin"] = round(1 / p_fin, 2) if p_fin > 0.02 else None
     # kombinierte Leiter
     lad = []
     for L, _ in (s.get("ladder") or []):
         pe = p_emp_map.get(str(L))
         pm = model_prob(mean, sd, L, direction)
-        pf = 0.5 * pe + 0.5 * pm if pe else pm
+        pf = calibrate(0.5 * pe + 0.5 * pm if pe else pm, metric, direction)
         lad.append([L, round(1 / pf, 2) if pf > 0.02 else None])
     s["ladder_fin"] = lad
     # Markt-Referenz
@@ -5107,6 +5144,27 @@ def selftest():
         print("FEHLER Fall 15b: Mischung Summen/Beitrag falsch:", s15.get("expect"), s15.get("contrib"))
         ok = False
     _base_means.pop("corners", None)
+
+    # --- Fall 28: Kalibrierung je Markt (15.09.)
+    if abs(calibrate(0.80, "corners", "über") - 0.76) > 1e-9:
+        print("FEHLER Fall 28a: Ecken-Faktor greift nicht:", calibrate(0.80, "corners", "über"))
+        ok = False
+    if abs(calibrate(0.80, "yellowcards", "unter") - 0.816) > 1e-9:
+        print("FEHLER Fall 28b: Karten-unter-Faktor greift nicht")
+        ok = False
+    if calibrate(0.80, "throwins", "über") != 0.80:
+        print("FEHLER Fall 28c: ungemessene Märkte bleiben unkorrigiert")
+        ok = False
+    if calibrate(0.99, "goals", "über") > 0.985 or calibrate(0.01, "goals", "über") < 0.02:
+        print("FEHLER Fall 28d: Kalibrierung muss im gültigen Bereich bleiben")
+        ok = False
+    # faire Quote steigt bei Ecken über, sinkt bei Karten unter
+    _s28 = {"line": 8.5, "direction": "über", "metric_key": "corners", "expect": 10.0,
+            "sd": 3.0, "fair": 1.30, "p_emp": {"8.5": 0.77}, "ladder": [[7.5, 1.15], [8.5, 1.30]]}
+    assess_signal(_s28)
+    if not _s28.get("fair_fin") or _s28["fair_fin"] < 1.33:
+        print("FEHLER Fall 28e: Ecken-Fair müsste nach Kalibrierung höher liegen:", _s28.get("fair_fin"))
+        ok = False
 
     # --- Fall 27: lange Nachrichten teilen (15.09.)
     lang = "\n".join(f"Zeile {i} mit etwas Text" for i in range(400))
