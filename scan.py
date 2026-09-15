@@ -174,14 +174,16 @@ S24_GROUPS = {
 # "alle unter-Ecken-Märkte raus"). Für die Gegenbewegungs-Prüfung zählen
 # sie trotzdem weiter.
 EXCLUDED_MARKETS = {("corners", "unter"),
-                    ("on_target", "über"),
+                    ("on_target", "über"), ("on_target", "unter"),
                     ("ht_corners", "unter"), ("ht_corners", "über"),
-                    ("ht_yellowcards", "unter"), ("ht_yellowcards", "über"),
                     ("shots_total", "über"), ("shots_total", "unter"),
                     ("fouls", "über"), ("fouls", "unter")}
-# 13.09. (Lucio, Bereinigung): "Schüsse aufs Tor über" raus, ALLE Halbzeit-
-# Märkte raus (auch 1. HZ Gelbe Karten). Gespielt wird nur noch:
-# Ecken über · Gelbe Karten über/unter · Schüsse aufs Tor unter · Abseits über/unter.
+# 15.09. (Lucio): "Schüsse aufs Tor" KOMPLETT raus (vorher nur "über").
+# 15.09. (Korrektur): 1. HZ GELBE KARTEN bleiben drin — nur die Linie
+# "unter 2,5" ist gesperrt (EXCLUDED_LINES). 1. HZ Ecken bleiben raus.
+# Kernsystem: Ecken über · Gelbe Karten über/unter · 1. HZ Gelbe Karten
+#             über/unter (ohne unter 2,5) · Abseits über/unter.
+# Dazu getrennt gemeldet (Test): Tore gesamt, Einwürfe, Abstöße, Freistöße.
 # 13.09.: 1. HZ ECKEN komplett raus (Lucio: "gefällt mir nicht", 6/12 über zwei
 # Wochen, gestern 2/5; im Backtest der schwächste Markt — die erste Halbzeit
 # ist zu kurz, da entscheidet der Zufall: "zur Halbzeit 2 Ecken, am Ende 8").
@@ -206,12 +208,20 @@ EXCLUDED_MARKETS = {("corners", "unter"),
 # Verfügbarkeits-Näherung, keine Werte). Der bet365-Zweig (B365_AS_PROOF)
 # ist aus. Cache-Version 2 nötig ("nachladen").
 HT_METRICS = {"ht_corners", "ht_yellowcards"}
-CACHE_VERSION = 3          # 3: + Schüsse gesamt (06.09.)
-                           # 4 war der Anlauf mit korrigierten Schusszahlen
-                           #   (11.09.) — der Markt ist inzwischen raus, die
-                           #   damals geholten Einträge bleiben aber gültig.
-CACHE_OK_VERSIONS = {3, 4} # diese Fassungen gelten als aktuell; alles andere
-                           # wird bei Bedarf neu geholt
+CACHE_VERSION = 5          # 3: + Schüsse gesamt (06.09.) · 4: korrigierte
+                           # Schusszahlen (11.09.) · 5 (15.09.): + Endstand,
+                           # Halbzeit-Tore, Paraden, Einwürfe, Abstöße,
+                           # Freistöße.
+STALE_PER_TEAM = 20        # so viele veraltete Spiele je Team und Lauf
+                           # nachladen (Rest folgt im nächsten Lauf)
+CACHE_OK_VERSIONS = {5}    # nur Fassung 5 ist vollständig. WICHTIG: Ältere
+                           # Einträge werden NICHT weggeworfen — sie bleiben
+                           # für Ecken/Karten/Abseits gültig und werden beim
+                           # nächsten Mal, wenn das Team drankommt, von selbst
+                           # aufgefrischt (fetch_team_history holt "missing"
+                           # zuerst, "stale" danach). Damit heilt sich der
+                           # Cache über die stündlichen Läufe selbst; die
+                           # ersten ein, zwei Läufe dauern länger.
 
 # Quoten-Nachweis über die bet365-Linie (Oder-Regel). Hinweis: bet365 führt
 # Ecken bis in Randligen, die Lucios Bookie nicht hat — der Zweig kann
@@ -294,7 +304,10 @@ METRICS = {
 # Einzelne Linien sperren (Markt + Richtung + Linie) — feiner als
 # EXCLUDED_MARKETS, für Fälle wie "Tore unter 2,5" (60 % im Backtest).
 EXCLUDED_LINES = {("goals", "unter", 1.5), ("goals", "unter", 2.5),
-                  ("goals", "über", 4.5)}
+                  ("goals", "über", 4.5),
+                  # 15.09. (Lucio): 1. HZ Gelbe Karten bleiben drin, aber die
+                  # Linie "unter 2,5" muss raus.
+                  ("ht_yellowcards", "unter", 2.5)}
 
 # Die drei neuen Märkte laufen getrennt vom Kernsystem (eigene Nachricht,
 # 🧪 TEST) — Schalter zum Abstellen: EXO_ENABLED = False.
@@ -844,8 +857,12 @@ def fetch_team_history(team_id: str, cache: dict, hcache: dict = None):
                  if e["id"] in cache and cache[e["id"]].get("x") not in CACHE_OK_VERSIONS]
         # Erst die Spiele holen, die uns ganz fehlen, danach erst die, die nur
         # in alter Fassung vorliegen (11.09.): Geht das Stundenlimit zu Ende,
-        # fehlt dann höchstens "Schüsse gesamt", nicht die ganze Historie.
-        need = missing + stale
+        # fehlt dann höchstens ein Zusatzfeld, nicht die ganze Historie.
+        # 15.09.: Von den veralteten nur die JÜNGSTEN STALE_PER_TEAM je Lauf.
+        # Die Serienregeln schauen ohnehin nur auf die letzten ~15 Spiele —
+        # so bleibt ein Lauf schnell, und der Rest wird über die nächsten
+        # Läufe nachgezogen (die Liste ist nach Datum sortiert, neueste zuerst).
+        need = missing + stale[:STALE_PER_TEAM]
         if need:
             _cold_teams[0] += 1
     for i in range(0, len(need), 10):
@@ -2361,11 +2378,16 @@ def backfill(cache, hcache=None):
             continue                       # Liste unbekannt -> holt der normale Lauf
         for e in entry["events"]:
             slim = cache.get(e["id"])
-            if slim is not None and slim.get("x") not in CACHE_OK_VERSIONS:
+            if slim is None:
+                continue
+            # veraltete Cache-Fassung ODER die neuen Felder fehlen noch
+            # (15.09.: Endstand/Halbzeit-Tore für die Tor-Märkte)
+            if slim.get("x") not in CACHE_OK_VERSIONS or "ht_goals" not in slim \
+                    or slim.get("goals") is None:
                 need_set.add(e["id"])
     need = sorted(need_set)
-    print(f"NACHLADEN: {len(need)} veraltete Spiele für {len(teams)} Teams (heute+morgen), "
-          f"Cache gesamt {len(cache)}")
+    print(f"NACHLADEN: {len(need)} Spiele aufzufrischen für {len(teams)} Teams "
+          f"(heute+morgen), Cache gesamt {len(cache)}")
     chunks = [need[i:i + 10] for i in range(0, len(need), 10)]
     done = 0
 
