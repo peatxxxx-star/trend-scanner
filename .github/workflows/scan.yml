@@ -30,10 +30,10 @@ on:
         type: string
         default: ""
       modus:
-        description: "scan = normaler Lauf · nachladen = Historien der Teams von heute/morgen neu laden · inventar = welche Märkte/Daten liefert die API pre-match? · abdeckung = welche Statistik-Felder gibt es je Liga (CSV)? · schuesse = Schusszahlen von gestern roh ausgeben · backtest = einen vergangenen Tag nachrechnen"
+        description: "scan = normaler Lauf · nachladen = Historien der Teams von heute/morgen neu laden · inventar = welche Märkte/Daten liefert die API pre-match? · abdeckung = welche Statistik-Felder gibt es je Liga (CSV)? · exoten = Paraden/Einwürfe/Abstöße/Freistöße für die Ligen mit Abdeckung nachladen · schuesse = Schusszahlen von gestern roh ausgeben · backtest = einen vergangenen Tag nachrechnen"
         type: choice
         default: scan
-        options: [scan, nachladen, inventar, abdeckung, schuesse, backtest]
+        options: [scan, nachladen, inventar, abdeckung, exoten, schuesse, backtest]
 
 concurrency:
   group: trend-scan
@@ -62,6 +62,7 @@ jobs:
           BACKFILL: ${{ inputs.modus == 'nachladen' && '1' || '0' }}
           INVENTORY: ${{ inputs.modus == 'inventar' && '1' || '0' }}
           COVERAGE: ${{ inputs.modus == 'abdeckung' && '1' || '0' }}
+          EXOTEN: ${{ inputs.modus == 'exoten' && '1' || '0' }}
           SHOTSCHECK: ${{ inputs.modus == 'schuesse' && '1' || '0' }}
           BACKTEST: ${{ inputs.modus == 'backtest' && '1' || '0' }}
           BACKTEST_TAG: ${{ inputs.datum }}
