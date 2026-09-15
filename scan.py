@@ -668,6 +668,56 @@ def parse_ht_cards(ev: dict):
     return [h, a] if seen else None
 
 
+def parse_goal_events(ev: dict):
+    """Tore aus dem Ereignis-Verlauf: (Halbzeit-Tore [Heim, Gast],
+    Minutenliste [[Minute, 0=Heim/1=Gast], ...]) oder None.
+
+    15.09.: Der Verlauf kommt in derselben API-Antwort wie die Statistiken,
+    kostet also nichts. Weil das Textformat nicht garantiert ist, wird das
+    Ergebnis GEGEN DEN ENDSTAND geprüft: stimmen die gezählten Tore je Seite
+    nicht mit dem Endstand überein, gilt der Verlauf als unbrauchbar und es
+    wird nichts gespeichert (lieber keine Daten als falsche)."""
+    evs = ev.get("events") or []
+    if not evs:
+        return None
+    try:
+        ss = (ev.get("ss") or "").split("-")
+        final = [int(ss[0]), int(ss[1])]
+    except (TypeError, ValueError, IndexError):
+        return None
+    away = ((ev.get("away") or {}).get("name") or "").strip().lower()
+    ht = [0, 0]
+    mins = []
+    count = [0, 0]
+    first_half = True
+    for x in evs:
+        txt = (x.get("text") or "")
+        if "Score After First Half" in txt:
+            first_half = False
+            continue
+        low = txt.lower()
+        if "goal" not in low or "no goal" in low or "disallowed" in low:
+            continue
+        m = re.search(r"\(([^()]*)\)\s*$", txt)
+        team = (m.group(1) if m else "").strip().lower()
+        side = 1 if (team and team == away) else 0
+        if "own goal" in low:                 # Eigentor zählt für die andere Seite
+            side = 1 - side
+        count[side] += 1
+        if first_half:
+            ht[side] += 1
+        mm = re.search(r"(\d{1,3})\s*'", txt) or re.search(r"\b(\d{1,3})\b", txt)
+        try:
+            minute = int(mm.group(1)) if mm else None
+        except (TypeError, ValueError):
+            minute = None
+        if minute is not None and 0 <= minute <= 130:
+            mins.append([minute, side])
+    if count != final:                        # Selbstprüfung gegen den Endstand
+        return None
+    return ht, mins
+
+
 def _pair(stats, key):
     pair = stats.get(key)
     try:
@@ -722,6 +772,11 @@ def slim_event(ev: dict) -> dict:
         slim["goals"] = [int(ss[0]), int(ss[1])] if len(ss) == 2 else None
     except (TypeError, ValueError):
         slim["goals"] = None
+    # 15.09.: Halbzeit-Tore aus demselben Verlauf (kostenlos) — Grundlage für
+    # 1. HZ Tore und 2. HZ Tore. Die Torminuten werden NICHT gespeichert:
+    # Zeitpunkt-Märkte hat Lucio als "zu heikel" gestrichen.
+    ge = parse_goal_events(ev)
+    slim["ht_goals"] = ge[0] if ge else None
     slim["shots_total"] = total_shots(stats)
     extra = ev.get("extra") or {}
     ref = extra.get("referee") or {}
@@ -2941,6 +2996,173 @@ def exoten_backfill(cache):
     send_telegram(text)
 
 
+# ----------------------------------------------------------------------------
+# TOR-DATEN NACHLADEN (15.09., Lucio): Die Halbzeit-Tore stehen im
+# Ereignis-Verlauf, den die API ohnehin mitliefert — sie wurden bisher nur
+# nicht gespeichert. Dieser Modus lädt für die Ligen mit Verlauf-Abdeckung
+# (laut letzter Abdeckungs-CSV) die beendeten Spiele der letzten TORE_WEEKS
+# Wochen nach, damit für die Tor-Märkte sofort Historie da ist.
+# Reihenfolge: zuerst die Ligen, in denen Lucio tatsächlich Signale bekommt
+# (aus runs/), dann der Rest. Bricht am Stundenlimit sauber ab und kann
+# einfach erneut gestartet werden — fertige Spiele werden übersprungen.
+# ----------------------------------------------------------------------------
+TORE_WEEKS = 20
+TORE_HISTORY_FILE = Path(__file__).parent / "cache" / "tore_history.json"
+
+
+def _tore_leagues_from_csv():
+    """Liga-IDs mit Ereignis-Verlauf (Spalte „HZ-Karten (Verlauf)")."""
+    files = sorted(RUNS_DIR.glob("abdeckung_*.csv"))
+    if not files:
+        return {}, None
+    import csv as _csv
+    col = "HZ-Karten (Verlauf)"
+    out = {}
+    with open(files[-1], encoding="utf-8") as fh:
+        for r in _csv.DictReader(fh, delimiter=";"):
+            lid = r.get("Liga-ID") or ""
+            if not lid:
+                continue
+            verdict = r.get(f"{col} Urteil", "")
+            wk = [r.get(f"{col} W{w}", "") for w in range(1, COV_WEEKS + 1)]
+            played = [float(x) for x in wk if x != ""]
+            if verdict == "OK" or (verdict == "n.b." and len(played) == COV_WEEKS - 1
+                                   and all(x >= 100 * COV_WEEK_MIN for x in played)):
+                out[lid] = r.get("Liga", "?")
+    return out, files[-1].name
+
+
+def _league_priority():
+    """Wie oft tauchte eine Liga zuletzt in den Lauf-Protokollen auf?"""
+    from collections import Counter
+    cnt = Counter()
+    for f in sorted(RUNS_DIR.glob("2026-*.json"))[-200:]:
+        try:
+            d = json.loads(f.read_text())
+        except Exception:
+            continue
+        for h in d.get("hits", []):
+            lid = str((h.get("match") or {}).get("league_id") or "")
+            if lid:
+                cnt[lid] += 1
+    return cnt
+
+
+def tore_backfill(cache):
+    from collections import Counter
+    global _no_wait
+    _no_wait = True
+    now = now_berlin()
+    leagues, src = _tore_leagues_from_csv()
+    if not leagues:
+        send_telegram("⚽ TOR-DATEN: keine Abdeckungs-CSV in runs/ — erst „abdeckung“ laufen lassen.")
+        return
+    prio = _league_priority()
+    order = sorted(leagues, key=lambda l: (-prio.get(l, 0), l))
+    cutoff_ts = int((now - timedelta(weeks=TORE_WEEKS)).timestamp())
+    print(f"{len(leagues)} Ligen mit Ereignis-Verlauf aus {src}")
+    budget_hit = [False]
+
+    def _league(lid):
+        evs = []
+        page = 1
+        while page <= 8:
+            data = api_get("/v3/events/ended", sport_id=1, league_id=lid,
+                           per_page=100, page=page, skip_esports=1)
+            res = data.get("results", [])
+            if not res:
+                break
+            stop = False
+            for e in res:
+                if str(e.get("time_status")) != "3":
+                    continue
+                if int(e.get("time") or 0) < cutoff_ts:
+                    stop = True
+                    break
+                evs.append(e)
+            total = int((data.get("pager") or {}).get("total", 0))
+            if stop or page * 100 >= total:
+                break
+            page += 1
+        return lid, evs
+
+    events = {}
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(_league, lid) for lid in order]
+        for fut in as_completed(futs):
+            try:
+                lid, evs = fut.result()
+            except BudgetExhausted:
+                budget_hit[0] = True
+                continue
+            except Exception as exc:
+                print(f"  Liga-Liste: {exc}")
+                continue
+            for e in evs:
+                events[str(e["id"])] = (lid, e)
+    # nur Spiele ohne die neuen Felder holen (Wiederaufnahme möglich)
+    with _cache_lock:
+        need = [eid for eid in events
+                if eid not in cache or "ht_goals" not in cache[eid]]
+    need.sort(key=lambda eid: (-prio.get(events[eid][0], 0), -int(events[eid][1].get("time") or 0)))
+    print(f"{len(events)} Spiele, {len(need)} Ansichten nachzuladen")
+    chunks = [need[i:i + 10] for i in range(0, len(need), 10)]
+    got = 0
+
+    def _view(chunk):
+        view = api_get("/v1/event/view", event_id=",".join(chunk))
+        return [(str(ev["id"]), slim_event(ev)) for ev in view.get("results", [])]
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(_view, ch) for ch in chunks]
+        for fut in as_completed(futs):
+            try:
+                res = fut.result()
+            except BudgetExhausted:
+                budget_hit[0] = True
+                continue
+            except Exception as exc:
+                print(f"  Ansicht: {exc}")
+                continue
+            with _cache_lock:
+                for eid, slim in res:
+                    slim["t"] = _today_num()
+                    cache[eid] = slim
+                    got += 1
+    # Team-Spiellisten für die Offline-Auswertung
+    teams = {}
+    for eid, (lid, e) in events.items():
+        home, away = e.get("home") or {}, e.get("away") or {}
+        lbl = f'{home.get("name", "?")} - {away.get("name", "?")}'
+        for tid, is_home in ((str(home.get("id")), True), (str(away.get("id")), False)):
+            t = teams.setdefault(tid, {"name": (home if is_home else away).get("name", "?"),
+                                       "events": []})
+            t["events"].append({"id": eid, "h": is_home, "l": lbl,
+                                "time": int(e.get("time") or 0), "league_id": lid})
+    for t in teams.values():
+        t["events"].sort(key=lambda x: -x["time"])
+    TORE_HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
+    TORE_HISTORY_FILE.write_text(json.dumps(teams, ensure_ascii=False, separators=(",", ":")))
+    have = Counter()
+    with _cache_lock:
+        for eid in events:
+            sl = cache.get(eid) or {}
+            if sl.get("goals") is not None:
+                have["Endstand"] += 1
+            if sl.get("ht_goals") is not None:
+                have["Halbzeit-Tore"] += 1
+    lines = [f"⚽ <b>TOR-DATEN nachgeladen</b> · {now.strftime('%d.%m.%Y %H:%M')}",
+             f"{len(leagues)} Ligen · {len(events)} Spiele der letzten {TORE_WEEKS} Wochen · "
+             f"{got} Ansichten geholt" + (" · TEILWEISE (Budget) — bitte später erneut starten" if budget_hit[0] else ""),
+             f"{len(teams)} Teams in cache/tore_history.json", ""]
+    for k in ("Endstand", "Halbzeit-Tore"):
+        lines.append(f"{k}: {have[k]}/{len(events)} Spiele")
+    lines.append(f"\n{_request_count} Anfragen.")
+    text = "\n".join(lines)
+    print(text)
+    send_telegram(text)
+
+
 def is_prewarm_run() -> bool:
     if os.environ.get("PREWARM") == "1":
         return True
@@ -3988,6 +4210,10 @@ def _run():
         exoten_backfill(cache)
         save_cache(cache)
         return
+    if os.environ.get("TORE") == "1":
+        tore_backfill(cache)
+        save_cache(cache)
+        return
     if os.environ.get("SHOTSCHECK") == "1":
         shots_check()
         return
@@ -4720,6 +4946,38 @@ def selftest():
         print("FEHLER Fall 15b: Mischung Summen/Beitrag falsch:", s15.get("expect"), s15.get("contrib"))
         ok = False
     _base_means.pop("corners", None)
+
+    # --- Fall 25: Tore aus dem Ereignis-Verlauf (15.09.)
+    ev25 = {"ss": "2-1", "away": {"name": "Gast FC"}, "events": [
+        {"text": "Goal - 12' Meier (Heim FC)"},
+        {"text": "Yellow Card - 30' X (Gast FC)"},
+        {"text": "Goal - 41' Schulz (Gast FC)"},
+        {"text": "Score After First Half - 1-1"},
+        {"text": "Goal - 78' Braun (Heim FC)"}]}
+    g25 = parse_goal_events(ev25)
+    if not g25 or g25[0] != [1, 1] or [m for m, _ in g25[1]] != [12, 41, 78]:
+        print("FEHLER Fall 25a: Halbzeit-Tore/Minuten falsch:", g25)
+        ok = False
+    if parse_goal_events(dict(ev25, ss="3-1")) is not None:
+        print("FEHLER Fall 25b: Verlauf muss zum Endstand passen, sonst verwerfen")
+        ok = False
+    g25c = parse_goal_events({"ss": "1-0", "away": {"name": "Gast FC"},
+                              "events": [{"text": "Own Goal - 55' Klein (Gast FC)"},
+                                         {"text": "Score After First Half - 0-0"}]})
+    if not g25c or g25c[0] != [1, 0]:
+        print("FEHLER Fall 25c: Eigentor muss der anderen Seite zufallen:", g25c)
+        ok = False
+    if parse_goal_events({"ss": "1-0", "events": []}) is not None:
+        print("FEHLER Fall 25d: ohne Verlauf keine Tordaten")
+        ok = False
+    sl25 = slim_event({"ss": "2-1", "away": {"name": "Gast FC"}, "extra": {},
+                       "stats": {"corners": ["5", "4"]}, "events": ev25["events"]})
+    if sl25.get("ht_goals") != [1, 1]:
+        print("FEHLER Fall 25e: Halbzeit-Tore landen nicht im Cache-Eintrag:", sl25.get("ht_goals"))
+        ok = False
+    if "goal_min" in sl25:
+        print("FEHLER Fall 25f: Torminuten dürfen nicht gespeichert werden (gestrichen)")
+        ok = False
 
     # --- Fall 24: neue Märkte Einwürfe/Abstöße/Freistöße (15.09.)
     import random as _rnd
