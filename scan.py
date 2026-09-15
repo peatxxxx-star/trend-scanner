@@ -241,7 +241,7 @@ CONTRA_GAP = 2.0                      # Standard (Ecken, Schüsse)
 # Halbzeit-Signale "auf Krampf"; die Gegenbewegungs-Regel gilt dort voll.
 CONTRA_GAP_BY_METRIC = {"corners": 2.0, "on_target": 2.0, "ht_corners": 1.0, "ht_yellowcards": 1.0, "shots_total": 5.0,
                         "yellowcards": 1.0, "offsides": 1.0, "fouls": 4.0,
-                        "throwins": 8.0, "goalkicks": 4.0, "freekicks": 4.0}
+                        "throwins": 8.0, "goalkicks": 4.0, "freekicks": 4.0, "goals": 1.0}
 
 
 def contra_gap(metric):
@@ -280,11 +280,30 @@ METRICS = {
     "throwins":  ("Einwürfe",         [30.5, 34.5, 38.5, 42.5, 46.5, 50.5, 54.5]),
     "goalkicks": ("Abstöße",          [12.5, 14.5, 16.5, 18.5, 20.5, 22.5, 24.5]),
     "freekicks": ("Freistöße",        [16.5, 18.5, 20.5, 22.5, 24.5, 26.5, 28.5]),
+    # 15.09. (Lucio): TORE GESAMT. Backtest an 40.796 Spielen mit Endstand,
+    # Serienregel unverändert:
+    #   über 1,5:  84,5 % (Grundrate 77,9 %) · fair 1,18
+    #   über 2,5:  75,0 % (57,1 %)           · fair 1,33   <- stärkste Hebung
+    #   über 3,5:  73,5 % (35,9 %, n=68)     · fair 1,36
+    #   unter 3,5: 75,1 % (64,1 %)           · fair 1,33
+    #   unter 4,5: 85,0 % (79,1 %)           · fair 1,18
+    # "unter 2,5" fiel mit 60 % durch und ist gesperrt (EXCLUDED_LINES).
+    "goals":     ("Tore",             [1.5, 2.5, 3.5, 4.5]),
 }
+
+# Einzelne Linien sperren (Markt + Richtung + Linie) — feiner als
+# EXCLUDED_MARKETS, für Fälle wie "Tore unter 2,5" (60 % im Backtest).
+EXCLUDED_LINES = {("goals", "unter", 1.5), ("goals", "unter", 2.5),
+                  ("goals", "über", 4.5)}
 
 # Die drei neuen Märkte laufen getrennt vom Kernsystem (eigene Nachricht,
 # 🧪 TEST) — Schalter zum Abstellen: EXO_ENABLED = False.
-EXO_METRICS = ("throwins", "goalkicks", "freekicks")
+EXO_METRICS = ("throwins", "goalkicks", "freekicks", "goals")
+EXO_ZERO_MISSING = ("throwins", "goalkicks", "freekicks")   # 0:0 = keine Daten.
+                             # Tore NICHT: 0:0 ist dort ein echtes Ergebnis.
+EXO_NOGATE_OK = ("goals",)   # Tore über/unter bietet JEDER Buchmacher an —
+                             # hier fehlt kein Nachweis, der scores24-Reiter
+                             # ist nur für die Nebenmärkte nötig.
 EXO_ENABLED = True
 EXO_TEST = True              # 🧪 bis der Preisvergleich beim Bookie steht
 EXO_SHOW = 14
@@ -713,8 +732,14 @@ def parse_goal_events(ev: dict):
             minute = None
         if minute is not None and 0 <= minute <= 130:
             mins.append([minute, side])
-    if count != final:                        # Selbstprüfung gegen den Endstand
+    # Selbstprüfung gegen den Endstand. Geprüft wird die GESAMTZAHL, nicht die
+    # Seitenzuordnung: Lucio spielt nur Gesamtmärkte, und die Zuordnung "(Team)"
+    # am Zeilenende ist nicht in jeder Liga vorhanden. Stimmt die Summe nicht,
+    # wird nichts gespeichert.
+    if sum(count) != sum(final):
         return None
+    if count != final:                        # Summe stimmt, Seiten unsicher
+        ht = [ht[0] + ht[1], -1]              # -1 = Seitenaufteilung unbekannt
     return ht, mins
 
 
@@ -867,7 +892,7 @@ def metric_total(match: dict, metric: str):
     # 15.09.: Einwürfe/Abstöße/Freistöße kommen bei fehlender Erfassung als
     # 0:0 durch. Ein Spiel ohne Einwurf gibt es nicht — 0:0 heißt "keine
     # Daten" und wird übersprungen (weder Treffer noch Lücke).
-    if metric in EXO_METRICS and pair[0] == 0 and pair[1] == 0:
+    if metric in EXO_ZERO_MISSING and pair[0] == 0 and pair[1] == 0:
         return None
     return pair[0] + pair[1]
 
@@ -1626,7 +1651,7 @@ def pooled_sd(hist_home, hist_away, metric):
 
 SD_FALLBACK = {"corners": 3.0, "yellowcards": 1.9, "on_target": 2.6, "ht_corners": 1.8, "ht_yellowcards": 1.1, "shots_total": 7.5,
                "offsides": 1.8, "fouls": 5.0,
-               "throwins": 11.0, "goalkicks": 4.6, "freekicks": 6.3}
+               "throwins": 11.0, "goalkicks": 4.6, "freekicks": 6.3, "goals": 1.6}
 
 
 def _norm_cdf(z):
@@ -1744,6 +1769,8 @@ def evaluate_match(match, hist_home, hist_away, market_odds=None):
             if (metric, direction) in EXCLUDED_MARKETS:
                 continue
             for line in lines:
+                if (metric, direction, line) in EXCLUDED_LINES:
+                    continue
                 a_home, o_home, v_home = team_qualifies(hist_home, metric, line, direction, "home")
                 a_away, o_away, v_away = team_qualifies(hist_away, metric, line, direction, "away")
                 if not ((a_home or o_home) and (a_away or o_away)):
@@ -3163,6 +3190,61 @@ def tore_backfill(cache):
     send_telegram(text)
 
 
+def tore_diagnose():
+    """Zeigt, wie der Ereignis-Verlauf wirklich aussieht (15.09.): holt ein paar
+    beendete Spiele von gestern und schreibt Endstand + die ersten Zeilen des
+    Verlaufs heraus. Damit lässt sich der Tor-Parser gegen das echte Format
+    prüfen, statt zu raten. Kostet ~10 Anfragen."""
+    global _no_wait
+    _no_wait = True
+    now = now_berlin()
+    day = (now - timedelta(days=1)).astimezone(timezone.utc).strftime("%Y%m%d")
+    try:
+        data = api_get("/v3/events/ended", sport_id=1, day=day, per_page=100,
+                       page=1, skip_esports=1)
+    except Exception as exc:
+        send_telegram(f"🔎 DIAGNOSE fehlgeschlagen: {esc(str(exc)[:120])}")
+        return
+    ids = [str(e["id"]) for e in data.get("results", [])
+           if str(e.get("time_status")) == "3"][:40]
+    lines = [f"TOR-DIAGNOSE · {now.strftime('%d.%m.%Y %H:%M')} · {len(ids)} Spiele von {day}", ""]
+    stats = {"mit Verlauf": 0, "Tor-Zeilen gefunden": 0, "Summe passt": 0}
+    for i in range(0, len(ids), 10):
+        try:
+            view = api_get("/v1/event/view", event_id=",".join(ids[i:i + 10]))
+        except Exception as exc:
+            lines.append(f"Ansicht {i}: {exc}")
+            continue
+        for ev in view.get("results", []):
+            evs = ev.get("events") or []
+            ss = ev.get("ss") or "?"
+            home = ((ev.get("home") or {}).get("name") or "?")
+            away = ((ev.get("away") or {}).get("name") or "?")
+            lines.append(f"--- {home} - {away} · Endstand {ss} · {len(evs)} Verlauf-Zeilen")
+            if evs:
+                stats["mit Verlauf"] += 1
+            goal_lines = [x.get("text") or "" for x in evs if "goal" in (x.get("text") or "").lower()]
+            if goal_lines:
+                stats["Tor-Zeilen gefunden"] += 1
+            ge = parse_goal_events(ev)
+            if ge:
+                stats["Summe passt"] += 1
+            lines.append(f"    Parser: {ge if ge else 'KEIN ERGEBNIS'} · Tor-Zeilen {len(goal_lines)}")
+            for t in (goal_lines or [x.get("text") or "" for x in evs])[:6]:
+                lines.append(f"    | {t[:160]}")
+            if evs and not goal_lines:
+                keys = sorted({k for x in evs for k in x})
+                lines.append(f"    Felder je Zeile: {keys}")
+            lines.append("")
+    lines.append(f"Zusammenfassung: {stats} von {len(ids)} Spielen · {_request_count} Anfragen.")
+    text = "\n".join(lines)
+    print(text)
+    RUNS_DIR.mkdir(exist_ok=True)
+    (RUNS_DIR / f"tore_diagnose_{now.strftime('%Y-%m-%d_%H%M')}.txt").write_text(text, encoding="utf-8")
+    send_telegram("🔎 <b>TOR-DIAGNOSE</b> geschrieben nach runs/ — "
+                  f"<pre>{esc(str(stats))}</pre>")
+
+
 def is_prewarm_run() -> bool:
     if os.environ.get("PREWARM") == "1":
         return True
@@ -4014,18 +4096,18 @@ def build_exo_block(rows):
        steht, Preisvergleich fehlt -> 🧪 TEST."""
     if not rows:
         return None
+    tore = [(m, sg) for m, sg in rows if sg["metric_key"] in EXO_NOGATE_OK]
+    neben = [(m, sg) for m, sg in rows if sg["metric_key"] not in EXO_NOGATE_OK]
     lines = [f"{SEP}",
-             "🆕 <b>NEUE MÄRKTE</b> — Einwürfe · Abstöße · Freistöße"
-             + (" · 🧪 <b>TEST</b>" if EXO_TEST else ""), f"{SEP}"]
-    if EXO_TEST:
-        lines.append("<i>⚠️ Verfügbarkeit NICHT über scores24 geprüft (kein Reiter) — "
-                     "bitte im Konto selbst nachsehen, ob es den Markt gibt. "
-                     "Backtest 15.813 Spiele: 80–88 % je nach Linie, "
-                     "Grundrate 51–70 % — die Serie trägt hier also wirklich.</i>")
-    lines += ["<i>Serienregel wie immer: beide Teams im Trend, mindestens einer "
-              "mit Anker. Nur Ligen, für die es die Zahlen durchgehend gibt.</i>", ""]
+             "🆕 <b>NEUE MÄRKTE</b>" + (" · 🧪 <b>TEST</b>" if EXO_TEST else ""), f"{SEP}"]
+    if tore:
+        lines += ["⚽ <b>TORE GESAMT</b>",
+                  "<i>Backtest 40.796 Spiele: über 2,5 = 75 % (Grundrate 57 %), "
+                  "unter 3,5 = 75 % (64 %), über 1,5 = 85 % (78 %), unter 4,5 = 85 % (79 %). "
+                  "Tore bietet jeder Buchmacher an — aber es ist der am schärfsten "
+                  "bepreiste Markt, die Quote muss wirklich über fair liegen.</i>", ""]
     per = {}
-    for m, sig in rows:
+    for m, sig in tore:
         per.setdefault(m["id"], (m, []))[1].append(sig)
     test = " 🧪" if EXO_TEST else ""
     for m, sigs in sorted(per.values(), key=lambda x: (x[0].get("kickoff_ts", 0), x[0]["home"])):
@@ -4041,6 +4123,27 @@ def build_exo_block(rows):
                              f" · Puffer {sg['buffer']:+.1f}"
                              + (f" · 📊 {sg['valid'][0]}/{sg['valid'][1]} Spiele" if sg.get("valid") else ""))
         lines.append("")
+    if neben:
+        lines += [f"{SEP}", "🤾 <b>EINWÜRFE · ABSTÖSSE · FREISTÖSSE</b>",
+                  "<i>⚠️ Verfügbarkeit NICHT über scores24 geprüft (kein Reiter) — "
+                  "bitte im Konto selbst nachsehen, ob es den Markt gibt. "
+                  "Backtest 15.813 Spiele: 80–88 % je nach Linie, Grundrate 51–70 %.</i>", ""]
+        per2 = {}
+        for m, sig in neben:
+            per2.setdefault(m["id"], (m, []))[1].append(sig)
+        for m, sigs in sorted(per2.values(), key=lambda x: (x[0].get("kickoff_ts", 0), x[0]["home"])):
+            lines.append(f"{m['kickoff']} {esc(m['home'])} – {esc(m['away'])} · <i>{esc(m.get('league', ''))}</i>")
+            for sg in sorted(sigs, key=lambda x: (x["metric_key"], x["direction"], x["line"])):
+                fair = sg.get("fair_fin") or sg.get("fair")
+                lines.append(f"   <b>{esc(sg['metric'])} {sg['direction']} {sg['line']}</b>{test}"
+                             + (f" · Fair <b>{fair:.2f}</b>" if fair else ""))
+                lines.append(f"   {esc(m['home'])} {fmt_series(sg['home_series'], sg['home_is_anchor'])}"
+                             f" · {esc(m['away'])} {fmt_series(sg['away_series'], sg['away_is_anchor'])}")
+                if sg.get("expect") is not None:
+                    lines.append(f"   🎯 Erwartung {sg['expect']} (Ø {sg['avg'][0]} / {sg['avg'][1]})"
+                                 f" · Puffer {sg['buffer']:+.1f}"
+                                 + (f" · 📊 {sg['valid'][0]}/{sg['valid'][1]} Spiele" if sg.get("valid") else ""))
+            lines.append("")
     return "\n".join(lines)
 
 
@@ -4214,6 +4317,9 @@ def _run():
         tore_backfill(cache)
         save_cache(cache)
         return
+    if os.environ.get("TOREDIAG") == "1":
+        tore_diagnose()
+        return
     if os.environ.get("SHOTSCHECK") == "1":
         shots_check()
         return
@@ -4298,7 +4404,8 @@ def _run():
                        if (s.get("fair_fin") or s.get("fair") or 0) >= MIN_FAIR]
         for sg in exo:
             assess_signal(sg)
-            sg["no_odds_check"] = True
+            if sg["metric_key"] not in EXO_NOGATE_OK:
+                sg["no_odds_check"] = True
         exo = [sg for sg in exo
                if (sg.get("fair_fin") or sg.get("fair") or 0) >= MIN_FAIR
                and sg.get("light") != "🔴"]
@@ -4946,6 +5053,35 @@ def selftest():
         print("FEHLER Fall 15b: Mischung Summen/Beitrag falsch:", s15.get("expect"), s15.get("contrib"))
         ok = False
     _base_means.pop("corners", None)
+
+    # --- Fall 26: Markt "Tore gesamt" (15.09.)
+    import random as _r2
+    _r2.seed(5)
+    def _gh(n, viel):
+        out = []
+        for i in range(n):
+            g = [_r2.randint(1, 3), _r2.randint(1, 3)] if viel else [0, _r2.randint(0, 1)]
+            out.append({"stats": {"goals": g, "corners": [5, 4]},
+                        "is_home": (i % 2 == 0), "label": "X - Y"})
+        return out
+    m26 = {"id": "26", "league": "Spain La Liga", "home": "H", "away": "G",
+           "home_id": "1", "away_id": "2", "kickoff": "x", "kickoff_ts": 1}
+    s26 = [x for x in evaluate_match(m26, _gh(24, True), _gh(24, True)) if x["metric_key"] == "goals"]
+    if not any(x["direction"] == "über" and x["line"] >= 2.5 for x in s26):
+        print("FEHLER Fall 26a: torreiche Teams -> kein Über-Signal:", [(x["direction"], x["line"]) for x in s26])
+        ok = False
+    lo26 = [x for x in evaluate_match(m26, _gh(24, False), _gh(24, False)) if x["metric_key"] == "goals"]
+    if any(x["direction"] == "unter" and x["line"] <= 2.5 for x in lo26):
+        print("FEHLER Fall 26b: 'Tore unter 2,5' ist gesperrt (60 % im Backtest)")
+        ok = False
+    # 0:0 ist ein echtes Ergebnis, kein fehlender Wert
+    if metric_total({"stats": {"goals": [0, 0]}}, "goals") != 0:
+        print("FEHLER Fall 26c: 0:0 muss als Ergebnis zählen")
+        ok = False
+    # Tore brauchen keinen scores24-Nachweis, die Nebenmärkte schon
+    if "goals" not in EXO_NOGATE_OK or "throwins" in EXO_NOGATE_OK:
+        print("FEHLER Fall 26d: Nachweis-Ausnahme falsch gesetzt")
+        ok = False
 
     # --- Fall 25: Tore aus dem Ereignis-Verlauf (15.09.)
     ev25 = {"ss": "2-1", "away": {"name": "Gast FC"}, "events": [
