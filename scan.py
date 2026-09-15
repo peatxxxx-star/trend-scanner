@@ -175,7 +175,9 @@ S24_GROUPS = {
 # sie trotzdem weiter.
 EXCLUDED_MARKETS = {("corners", "unter"),
                     ("on_target", "über"), ("on_target", "unter"),
-                    ("ht_goals", "unter"), ("h2_goals", "unter"),
+                    # 15.09. abends (Lucio): Halbzeit-Tore wieder komplett raus.
+                    ("ht_goals", "über"), ("ht_goals", "unter"),
+                    ("h2_goals", "über"), ("h2_goals", "unter"),
                     ("ht_corners", "unter"), ("ht_corners", "über"),
                     ("shots_total", "über"), ("shots_total", "unter"),
                     ("fouls", "über"), ("fouls", "unter")}
