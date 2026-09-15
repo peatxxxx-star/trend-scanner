@@ -283,8 +283,15 @@ def metric_allowed_for_league(metric: str, league: str) -> bool:
     low = (league or "").lower()
     return any(pat in low for pat in pats)
 
-# Zusätzlich gecachte Felder (nicht als Markt, nur für die Gewichtung)
-EXTRA_STAT_FIELDS = ("redcards",)
+# Zusätzlich gecachte Felder (nicht als Markt, nur für die Gewichtung).
+# 15.09. (Lucio): Exoten-Datensammlung — Paraden, Einwürfe, Abstöße,
+# Freistöße werden ab jetzt mitgespeichert (kostet keine Anfrage, kommt in
+# derselben Antwort). Alte Cache-Einträge haben die Felder nicht; der
+# Modus "exoten" lädt sie für die Ligen mit Abdeckung gezielt nach.
+EXTRA_STAT_FIELDS = ("redcards", "saves", "throwins", "goalkicks", "freekicks")
+EXO_FIELDS = ("saves", "throwins", "goalkicks", "freekicks")
+EXO_WEEKS = 12               # so weit zurück lädt "exoten" je Liga nach
+EXO_HISTORY_FILE = Path(__file__).parent / "cache" / "exoten_history.json"
 
 CACHE_FILE = Path(__file__).parent / "cache" / "stats.json.gz"    # komprimiert (06.09.)
 CACHE_FILE_LEGACY = Path(__file__).parent / "cache" / "stats.json"
@@ -2736,6 +2743,162 @@ def coverage():
         send_telegram(f"{ch}\n<i>Teil {i}/{len(chunks)}</i>" if len(chunks) > 1 else ch)
 
 
+# ----------------------------------------------------------------------------
+# EXOTEN-NACHLADEN (15.09., Lucio): Für die Ligen, die laut letzter
+# Abdeckungs-CSV bei Paraden/Einwürfen/Abstößen/Freistößen konstant liefern
+# (OK über 4 Wochen oder OK über 3 gespielte Wochen), werden die beendeten
+# Spiele der letzten EXO_WEEKS Wochen geholt und in den Cache geschrieben —
+# damit die Historie für einen Backtest sofort da ist statt in 3 Wochen.
+# Nebenprodukt: cache/exoten_history.json = je Team die Spielliste dieser
+# Ligen (nur für die Offline-Auswertung; das Live-System bleibt unberührt).
+# Kosten: ~2 Anfragen je Liga für die Listen + 1 je 10 Spielansichten.
+# ----------------------------------------------------------------------------
+
+def _exo_leagues_from_csv():
+    """Liga-IDs aus der jüngsten runs/abdeckung_*.csv, je Feld OK/3-Wochen-OK."""
+    files = sorted(RUNS_DIR.glob("abdeckung_*.csv"))
+    if not files:
+        return {}, None
+    import csv as _csv
+    names = {f: STAT_FIELD_NAMES.get(f, f) for f in EXO_FIELDS}
+    out = {}
+    with open(files[-1], encoding="utf-8") as fh:
+        for r in _csv.DictReader(fh, delimiter=";"):
+            lid = r.get("Liga-ID") or ""
+            if not lid:
+                continue
+            fields_ok = []
+            for f, nm in names.items():
+                verdict = r.get(f"{nm} Urteil", "")
+                wk = [r.get(f"{nm} W{w}", "") for w in range(1, COV_WEEKS + 1)]
+                played = [float(x) for x in wk if x != ""]
+                ok = verdict == "OK" or (verdict == "n.b." and len(played) == COV_WEEKS - 1
+                                         and all(x >= 100 * COV_WEEK_MIN for x in played))
+                if ok:
+                    fields_ok.append(f)
+            if fields_ok:
+                out[lid] = (r.get("Liga", "?"), fields_ok)
+    return out, files[-1].name
+
+
+def exoten_backfill(cache):
+    from collections import Counter
+    global _no_wait
+    _no_wait = True
+    now = now_berlin()
+    leagues, src = _exo_leagues_from_csv()
+    if not leagues:
+        send_telegram("🧪 EXOTEN: keine Abdeckungs-CSV in runs/ gefunden — erst den Modus „abdeckung“ laufen lassen.")
+        return
+    cutoff_ts = int((now - timedelta(weeks=EXO_WEEKS)).timestamp())
+    print(f"{len(leagues)} Ligen aus {src}")
+
+    def _league(lid):
+        evs = []
+        page = 1
+        while page <= 5:
+            data = api_get("/v3/events/ended", sport_id=1, league_id=lid,
+                           per_page=100, page=page, skip_esports=1)
+            res = data.get("results", [])
+            if not res:
+                break
+            stop = False
+            for e in res:
+                if str(e.get("time_status")) != "3":
+                    continue
+                t = int(e.get("time") or 0)
+                if t < cutoff_ts:
+                    stop = True
+                    break
+                evs.append(e)
+            total = int((data.get("pager") or {}).get("total", 0))
+            if stop or page * 100 >= total:
+                break
+            page += 1
+        return lid, evs
+
+    events = {}
+    budget_hit = [False]
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(_league, lid) for lid in leagues]
+        for fut in as_completed(futs):
+            try:
+                lid, evs = fut.result()
+            except BudgetExhausted:
+                budget_hit[0] = True
+                continue
+            except Exception as exc:
+                print(f"  Liga-Liste: {exc}")
+                continue
+            for e in evs:
+                events[str(e["id"])] = (lid, e)
+    # Spielansichten nur für Spiele ohne die neuen Felder
+    with _cache_lock:
+        need = [eid for eid in events
+                if eid not in cache or "saves" not in cache[eid]]
+    print(f"{len(events)} Spiele in {len(leagues)} Ligen, {len(need)} Ansichten nachzuladen")
+    chunks = [need[i:i + 10] for i in range(0, len(need), 10)]
+    got = 0
+
+    def _view(chunk):
+        view = api_get("/v1/event/view", event_id=",".join(chunk))
+        return [(str(ev["id"]), slim_event(ev)) for ev in view.get("results", [])]
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(_view, ch) for ch in chunks]
+        for fut in as_completed(futs):
+            try:
+                res = fut.result()
+            except BudgetExhausted:
+                budget_hit[0] = True
+                continue
+            except Exception as exc:
+                print(f"  Ansicht: {exc}")
+                continue
+            with _cache_lock:
+                for eid, slim in res:
+                    slim["t"] = _today_num()
+                    cache[eid] = slim
+                    got += 1
+    # Team-Spiellisten dieser Ligen (nur für den Offline-Backtest)
+    teams = {}
+    for eid, (lid, e) in events.items():
+        home, away = e.get("home") or {}, e.get("away") or {}
+        lbl = f'{home.get("name", "?")} - {away.get("name", "?")}'
+        for tid, is_home in ((str(home.get("id")), True), (str(away.get("id")), False)):
+            t = teams.setdefault(tid, {"name": (home if is_home else away).get("name", "?"),
+                                       "events": []})
+            t["events"].append({"id": eid, "h": is_home, "l": lbl,
+                                "time": int(e.get("time") or 0), "league_id": lid})
+    for t in teams.values():
+        t["events"].sort(key=lambda x: -x["time"])
+    EXO_HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
+    EXO_HISTORY_FILE.write_text(json.dumps(teams, ensure_ascii=False, separators=(",", ":")))
+    # Abdeckung der neuen Felder im Ergebnis
+    cov = Counter()
+    with _cache_lock:
+        for eid in events:
+            sl = cache.get(eid) or {}
+            for f in EXO_FIELDS:
+                if _cov_present(sl, f):
+                    cov[f] += 1
+    per_field = Counter()
+    for lid, (name, fields_ok) in leagues.items():
+        for f in fields_ok:
+            per_field[f] += 1
+    lines = [f"🧪 <b>EXOTEN nachgeladen</b> · {now.strftime('%d.%m.%Y %H:%M')}",
+             f"{len(leagues)} Ligen aus {esc(src)} · {len(events)} Spiele der letzten {EXO_WEEKS} Wochen · "
+             f"{got} Ansichten neu geholt" + (" · TEILWEISE (Budget)" if budget_hit[0] else ""),
+             f"{len(teams)} Teams in cache/exoten_history.json", ""]
+    for f in EXO_FIELDS:
+        lines.append(f"{STAT_FIELD_NAMES.get(f, f)}: {per_field[f]} Ligen · "
+                     f"{cov[f]}/{len(events)} Spiele mit Werten")
+    lines.append(f"\n{_request_count} Anfragen.")
+    text = "\n".join(lines)
+    print(text)
+    send_telegram(text)
+
+
 def is_prewarm_run() -> bool:
     if os.environ.get("PREWARM") == "1":
         return True
@@ -3739,6 +3902,10 @@ def _run():
         return
     if os.environ.get("COVERAGE") == "1":
         coverage()
+        return
+    if os.environ.get("EXOTEN") == "1":
+        exoten_backfill(cache)
+        save_cache(cache)
         return
     if os.environ.get("SHOTSCHECK") == "1":
         shots_check()
