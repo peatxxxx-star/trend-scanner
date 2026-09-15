@@ -240,7 +240,8 @@ CONTRA_GAP = 2.0                      # Standard (Ecken, Schüsse)
 # Halbzeit-Märkte: Korridor 1 wie bei Karten/Abseits — Lucio will keine
 # Halbzeit-Signale "auf Krampf"; die Gegenbewegungs-Regel gilt dort voll.
 CONTRA_GAP_BY_METRIC = {"corners": 2.0, "on_target": 2.0, "ht_corners": 1.0, "ht_yellowcards": 1.0, "shots_total": 5.0,
-                        "yellowcards": 1.0, "offsides": 1.0, "fouls": 4.0}
+                        "yellowcards": 1.0, "offsides": 1.0, "fouls": 4.0,
+                        "throwins": 8.0, "goalkicks": 4.0, "freekicks": 4.0}
 
 
 def contra_gap(metric):
@@ -266,14 +267,44 @@ METRICS = {
     "ht_corners": ("1. HZ Ecken",     [3.5, 4.5, 5.5, 6.5]),
     "ht_yellowcards": ("1. HZ Gelbe Karten", [0.5, 1.5, 2.5]),
     "shots_total": ("Schüsse gesamt",  [18.5, 20.5, 22.5, 24.5, 26.5, 28.5, 30.5]),
+    # 15.09. (Lucio): NEUE Märkte aus der Exoten-Datensammlung. Linien aus dem
+    # Backtest an 15.813 Spielen (30 Wochen, Serienregel wie immer) — gemeldet
+    # wird nur, was dort >= 70 % traf UND deutlich über der Grundrate lag:
+    #   Einwürfe  über 38,5: 87 % (Grundrate 66 %) · über 42,5: 80 % (53 %)
+    #             unter 46,5: 86 % (60 %) · unter 50,5: 86 % (70 %)
+    #   Abstöße   über 16,5: 83 % (65 %) · unter 20,5: 81 % (67 %)
+    #   Freistöße über 20,5: 86 % (62 %) · über 22,5: 85 % (51 %)
+    #             unter 26,5: 88 % (70 %)
+    # Paraden NICHT aufgenommen: dort hebt die Serie kaum über die Grundrate
+    # (unter 8,5: 84 % vs. 82 %) — da weiß der Buchmacher dasselbe wie wir.
+    "throwins":  ("Einwürfe",         [30.5, 34.5, 38.5, 42.5, 46.5, 50.5, 54.5]),
+    "goalkicks": ("Abstöße",          [12.5, 14.5, 16.5, 18.5, 20.5, 22.5, 24.5]),
+    "freekicks": ("Freistöße",        [16.5, 18.5, 20.5, 22.5, 24.5, 26.5, 28.5]),
 }
+
+# Die drei neuen Märkte laufen getrennt vom Kernsystem (eigene Nachricht,
+# 🧪 TEST) — Schalter zum Abstellen: EXO_ENABLED = False.
+EXO_METRICS = ("throwins", "goalkicks", "freekicks")
+EXO_ENABLED = True
+EXO_TEST = True              # 🧪 bis der Preisvergleich beim Bookie steht
+EXO_SHOW = 14
 
 # Liga-Beschränkung je Markt (06.09.): "Schüsse gesamt" führt Lucios Bookie
 # nur in großen Ligen / UEFA-Wettbewerben — Spiele anderer Ligen werden für
 # diesen Markt gar nicht erst geprüft. Muster = Teil des Liganamens (ohne
 # Groß/Klein). Bei Bedarf ergänzen.
-METRIC_LEAGUES = {}        # 06.09.: keine Liga-Beschränkung (Lucio) — Nachweis
-                           # läuft wie überall über den scores24-Reiter
+METRIC_LEAGUES = {         # 06.09.: für die Kernmärkte keine Beschränkung —
+                           # Nachweis läuft über den scores24-Reiter.
+    # 15.09.: Einwürfe/Abstöße/Freistöße liefert die Datenquelle NUR für
+    # diese Ligen durchgehend (Abdeckungslauf + 30-Wochen-Historie). Überall
+    # sonst gibt es die Zahlen gar nicht — also erst gar nicht prüfen.
+    "throwins":  ["russia", "russian matches", "belarus", "estonia ii liiga",
+                  "england premier league", "slovenia league women"],
+    "goalkicks": ["russia", "russian matches", "belarus", "estonia ii liiga",
+                  "england premier league", "slovenia league women"],
+    "freekicks": ["russia", "russian matches", "belarus", "estonia ii liiga",
+                  "england premier league", "slovenia league women"],
+}
 
 
 def metric_allowed_for_league(metric: str, league: str) -> bool:
@@ -777,6 +808,11 @@ def metric_total(match: dict, metric: str):
     if metric in ("fouls", "offsides") and fouls_suspect:
         return None
     if metric in ("on_target", "shots_total") and pair[0] == 0 and pair[1] == 0:
+        return None
+    # 15.09.: Einwürfe/Abstöße/Freistöße kommen bei fehlender Erfassung als
+    # 0:0 durch. Ein Spiel ohne Einwurf gibt es nicht — 0:0 heißt "keine
+    # Daten" und wird übersprungen (weder Treffer noch Lücke).
+    if metric in EXO_METRICS and pair[0] == 0 and pair[1] == 0:
         return None
     return pair[0] + pair[1]
 
@@ -1534,7 +1570,8 @@ def pooled_sd(hist_home, hist_away, metric):
 
 
 SD_FALLBACK = {"corners": 3.0, "yellowcards": 1.9, "on_target": 2.6, "ht_corners": 1.8, "ht_yellowcards": 1.1, "shots_total": 7.5,
-               "offsides": 1.8, "fouls": 5.0}
+               "offsides": 1.8, "fouls": 5.0,
+               "throwins": 11.0, "goalkicks": 4.6, "freekicks": 6.3}
 
 
 def _norm_cdf(z):
@@ -3746,6 +3783,45 @@ def team_signals(match, hist_home, hist_away):
     return out
 
 
+def build_exo_block(rows):
+    """Eigene Nachricht für die neuen Märkte (Einwürfe, Abstöße, Freistöße).
+    Getrennt vom Kernsystem, weil hier zwei Dinge anders sind:
+    1. scores24 hat für diese Märkte KEINEN Reiter — die Verfügbarkeit kann
+       der Scanner nicht prüfen, das muss Lucio im Konto selbst tun.
+    2. Es ist eine neue Marktfamilie (Prüfpflicht, Abschnitt 12): Backtest
+       steht, Preisvergleich fehlt -> 🧪 TEST."""
+    if not rows:
+        return None
+    lines = [f"{SEP}",
+             "🆕 <b>NEUE MÄRKTE</b> — Einwürfe · Abstöße · Freistöße"
+             + (" · 🧪 <b>TEST</b>" if EXO_TEST else ""), f"{SEP}"]
+    if EXO_TEST:
+        lines.append("<i>⚠️ Verfügbarkeit NICHT über scores24 geprüft (kein Reiter) — "
+                     "bitte im Konto selbst nachsehen, ob es den Markt gibt. "
+                     "Backtest 15.813 Spiele: 80–88 % je nach Linie, "
+                     "Grundrate 51–70 % — die Serie trägt hier also wirklich.</i>")
+    lines += ["<i>Serienregel wie immer: beide Teams im Trend, mindestens einer "
+              "mit Anker. Nur Ligen, für die es die Zahlen durchgehend gibt.</i>", ""]
+    per = {}
+    for m, sig in rows:
+        per.setdefault(m["id"], (m, []))[1].append(sig)
+    test = " 🧪" if EXO_TEST else ""
+    for m, sigs in sorted(per.values(), key=lambda x: (x[0].get("kickoff_ts", 0), x[0]["home"])):
+        lines.append(f"{m['kickoff']} {esc(m['home'])} – {esc(m['away'])} · <i>{esc(m.get('league', ''))}</i>")
+        for sg in sorted(sigs, key=lambda x: (x["metric_key"], x["direction"], x["line"])):
+            fair = sg.get("fair_fin") or sg.get("fair")
+            lines.append(f"   <b>{esc(sg['metric'])} {sg['direction']} {sg['line']}</b>{test}"
+                         + (f" · Fair <b>{fair:.2f}</b>" if fair else ""))
+            lines.append(f"   {esc(m['home'])} {fmt_series(sg['home_series'], sg['home_is_anchor'])}"
+                         f" · {esc(m['away'])} {fmt_series(sg['away_series'], sg['away_is_anchor'])}")
+            if sg.get("expect") is not None:
+                lines.append(f"   🎯 Erwartung {sg['expect']} (Ø {sg['avg'][0]} / {sg['avg'][1]})"
+                             f" · Puffer {sg['buffer']:+.1f}"
+                             + (f" · 📊 {sg['valid'][0]}/{sg['valid'][1]} Spiele" if sg.get("valid") else ""))
+        lines.append("")
+    return "\n".join(lines)
+
+
 def build_team_block(rows):
     if not rows:
         return None
@@ -3955,6 +4031,13 @@ def _run():
         hist_home = fetch_team_history(match["home_id"], cache, hcache)
         hist_away = fetch_team_history(match["away_id"], cache, hcache)
         signals = evaluate_match(match, hist_home, hist_away)
+        # Neue Märkte (Einwürfe/Abstöße/Freistöße) laufen getrennt: für sie
+        # gibt es bei scores24 keinen Reiter, sie würden am Gate hängen
+        # bleiben. Sie bekommen dieselbe Bewertung, aber eine eigene Nachricht.
+        exo = []
+        if EXO_ENABLED:
+            exo = [s for s in signals if s["metric_key"] in EXO_METRICS]
+            signals = [s for s in signals if s["metric_key"] not in EXO_METRICS]
         gated_out, unverifiable = [], []
         before = {signal_key(match, s) for s in signals}
         groups = None
@@ -3987,10 +4070,17 @@ def _run():
                 assess_signal(s)
             signals = [s for s in signals
                        if (s.get("fair_fin") or s.get("fair") or 0) >= MIN_FAIR]
-        return signals, gated_out, unverifiable, who, team
+        for sg in exo:
+            assess_signal(sg)
+            sg["no_odds_check"] = True
+        exo = [sg for sg in exo
+               if (sg.get("fair_fin") or sg.get("fair") or 0) >= MIN_FAIR
+               and sg.get("light") != "🔴"]
+        return signals, gated_out, unverifiable, who, team, exo
 
     who_hits = []
     team_hits = []
+    exo_hits = []
     done = 0
     t_start = time.time()
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
@@ -3999,7 +4089,7 @@ def _run():
             match = futures[fut]
             done += 1
             try:
-                signals, gated_out, unverif, who, team = fut.result()
+                signals, gated_out, unverif, who, team, exo = fut.result()
             except BudgetExhausted:
                 deferred.append(match)
                 continue
@@ -4018,6 +4108,8 @@ def _run():
                 who_hits.append((match, w))
             for t_ in team or []:
                 team_hits.append((match, t_))
+            for e_ in exo or []:
+                exo_hits.append((match, e_))
             if done % 100 == 0:
                 save_cache(cache)
                 save_history_cache(hcache)
@@ -4059,11 +4151,15 @@ def _run():
                              deferred_note=(len(deferred), deferred[0]["kickoff"]) if deferred else None)
     # --- Team-Märkte (täglich): eigene Nachricht, 🧪 bis zum Preisvergleich ---
     log["team_totals"] = [{"match": m, "signal": t_} for m, t_ in team_hits]
+    log["neue_maerkte"] = [{"match": m, "signal": e_} for m, e_ in exo_hits]
     (RUNS_DIR / f"{now:%Y-%m-%d_%H%M}.json").write_text(
         json.dumps(log, ensure_ascii=False, indent=1))
     team_block = build_team_block(team_hits)
     if team_block:
         chunks = (chunks or []) + [team_block]
+    exo_block = build_exo_block(exo_hits)
+    if exo_block:
+        chunks = (chunks or []) + [exo_block]
     # --- Bonus-Picks (Sa/So): separate Nachricht, klar als Bonus markiert ---
     if now_berlin().weekday() in BONUS_DAYS:
         try:
@@ -4624,6 +4720,47 @@ def selftest():
         print("FEHLER Fall 15b: Mischung Summen/Beitrag falsch:", s15.get("expect"), s15.get("contrib"))
         ok = False
     _base_means.pop("corners", None)
+
+    # --- Fall 24: neue Märkte Einwürfe/Abstöße/Freistöße (15.09.)
+    import random as _rnd
+    _rnd.seed(11)
+    def _exo_hist(n, mean):
+        out = []
+        for i in range(n):
+            tw = max(10, int(_rnd.gauss(mean, 5)))
+            out.append({"stats": {"throwins": [tw // 2, tw - tw // 2], "corners": [5, 4]},
+                        "is_home": (i % 2 == 0), "label": "X - Y"})
+        return out
+    m24 = {"id": "24", "league": "Russia Premier League", "home": "A", "away": "B",
+           "home_id": "1", "away_id": "2", "kickoff": "x", "kickoff_ts": 1}
+    h24, a24 = _exo_hist(24, 56), _exo_hist(24, 54)
+    e24 = [x for x in evaluate_match(m24, h24, a24) if x["metric_key"] in EXO_METRICS]
+    if not any(x["metric_key"] == "throwins" and x["direction"] == "über" for x in e24):
+        print("FEHLER Fall 24a: Einwurf-Signal fehlt:", [(x["metric_key"], x["direction"], x["line"]) for x in e24])
+        ok = False
+    # Liga ohne Datenabdeckung -> gar kein Signal
+    m24b = dict(m24, league="Germany Bundesliga I")
+    if [x for x in evaluate_match(m24b, h24, a24) if x["metric_key"] in EXO_METRICS]:
+        print("FEHLER Fall 24b: neue Märkte nur in den Ligen mit Abdeckung")
+        ok = False
+    # 0:0 heißt "nicht erfasst", nicht "null Einwürfe"
+    if metric_total({"stats": {"throwins": [0, 0]}}, "throwins") is not None:
+        print("FEHLER Fall 24c: 0:0 muss als fehlender Wert gelten")
+        ok = False
+    h24z = [dict(x, stats=dict(x["stats"], throwins=[0, 0])) for x in h24]
+    if [x for x in evaluate_match(m24, h24z, a24) if x["metric_key"] == "throwins"]:
+        print("FEHLER Fall 24d: ohne Datenbasis darf es kein Signal geben")
+        ok = False
+    # Anzeige: eigener Block, nie im Kernsystem
+    for x in e24:
+        assess_signal(x)
+    blk24 = build_exo_block([(m24, x) for x in e24])
+    if not blk24 or "NEUE MÄRKTE" not in blk24 or "🧪" not in blk24:
+        print("FEHLER Fall 24e: Block fehlt oder ohne Test-Kennzeichnung")
+        ok = False
+    if build_exo_block([]) is not None:
+        print("FEHLER Fall 24f: ohne Kandidaten kein Block")
+        ok = False
 
     # --- Fall 23: Team-Märkte (13.09.)
     _team_base.clear()
