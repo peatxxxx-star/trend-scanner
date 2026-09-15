@@ -178,9 +178,11 @@ EXCLUDED_MARKETS = {("corners", "unter"),
                     # 15.09. abends (Lucio): Halbzeit-Tore wieder komplett raus.
                     ("ht_goals", "über"), ("ht_goals", "unter"),
                     ("h2_goals", "über"), ("h2_goals", "unter"),
-                    ("ht_corners", "unter"), ("ht_corners", "über"),
+                    ("ht_corners", "unter"),          # "über" 15.09. wieder frei
+                    ("offsides", "über"), ("offsides", "unter"),
                     ("shots_total", "über"), ("shots_total", "unter"),
                     ("fouls", "über"), ("fouls", "unter")}
+# 15.09. spät (Lucio): 1. HZ ECKEN ÜBER wieder rein, ABSEITS komplett raus.
 # 15.09. (Lucio): "Schüsse aufs Tor" KOMPLETT raus (vorher nur "über").
 # 15.09. (Korrektur): 1. HZ GELBE KARTEN bleiben drin — nur die Linie
 # "unter 2,5" ist gesperrt (EXCLUDED_LINES). 1. HZ Ecken bleiben raus.
@@ -329,12 +331,14 @@ EXCLUDED_LINES = {("goals", "unter", 1.5), ("goals", "unter", 2.5),
 
 # Die drei neuen Märkte laufen getrennt vom Kernsystem (eigene Nachricht,
 # 🧪 TEST) — Schalter zum Abstellen: EXO_ENABLED = False.
-EXO_METRICS = ("throwins", "goalkicks", "freekicks", "goals", "ht_goals", "h2_goals")
+EXO_METRICS = ("throwins", "goalkicks", "freekicks")
+# 15.09. (Lucio): "Tore über 2,5" läuft ab jetzt in der NORMALEN Liste mit,
+# nicht mehr im Extra-Block. Für diese Märkte gibt es bei scores24 keinen
+# eigenen Reiter — sie brauchen aber auch keinen: Tore über/unter bietet
+# jeder Buchmacher an. Deshalb sind sie vom Verfügbarkeits-Gate ausgenommen.
+GATE_EXEMPT = ("goals", "ht_goals", "h2_goals")
 EXO_ZERO_MISSING = ("throwins", "goalkicks", "freekicks")   # 0:0 = keine Daten.
                              # Tore NICHT: 0:0 ist dort ein echtes Ergebnis.
-EXO_NOGATE_OK = ("goals", "ht_goals", "h2_goals")   # Tore über/unter bietet JEDER Buchmacher an —
-                             # hier fehlt kein Nachweis, der scores24-Reiter
-                             # ist nur für die Nebenmärkte nötig.
 EXO_ENABLED = True
 EXO_TEST = True              # 🧪 bis der Preisvergleich beim Bookie steht
 EXO_SHOW = 14
@@ -1344,6 +1348,10 @@ def apply_s24_gate(signals, groups):
         # zugehörige Vollzeit-Reiter (Ecken bzw. Karten) muss Quoten haben —
         # wer Ecken anbietet, hat i.d.R. auch HZ-Ecken; wer keine Karten
         # anbietet, hat sicher keine HZ-Karten.
+        if s["metric_key"] in GATE_EXEMPT:
+            s["no_odds_check"] = True     # kein scores24-Reiter nötig
+            kept.append(s)
+            continue
         g = groups.get(S24_GROUPS.get(s["metric_key"], ""))
         if not g:
             if B365_AS_PROOF and s["metric_key"] in ("corners", "ht_corners"):
@@ -1793,6 +1801,13 @@ CALIBRATION = {
     # Korrektur stünde dort Fair 1,15 statt der ehrlichen 1,32.
     ("ht_goals", "über"): 0.87,
     ("h2_goals", "über"): 0.98,
+    # 15.09. nachgemessen, nachdem beide Märkte wieder aktiv sind:
+    #   1. HZ Ecken über 3,5:  Modell 75,5 % / real 69,1 % (n=7.271) -> 0,92
+    #   1. HZ Karten über 0,5: Modell 81,9 % / real 79,2 % (n=22.463) -> 0,97
+    #   1. HZ Karten unter:    Modell 77,7 % / real 78,1 % (n=11.212) -> 1,00
+    ("ht_corners", "über"): 0.92,
+    ("ht_yellowcards", "über"): 0.97,
+    ("ht_yellowcards", "unter"): 1.00,
 }
 
 
@@ -2228,23 +2243,13 @@ def merge_by_kickoff(buckets):
         slot["entries"].append(("dropped", entry, reason))
     order = {"new": 0, "changed": 1, "same": 2, "dropped": 3}
     result = []
-    # 12.09. (Lucio, zweite Fassung): LIGA-BLÖCKE über den ganzen Tag.
-    # Alle Spiele einer Liga stehen zusammen, innerhalb der Liga aufsteigend
-    # nach Anstoßzeit. Die Blöcke selbst sind nach dem frühesten Spiel der
-    # jeweiligen Liga sortiert, damit die Liste grob chronologisch bleibt und
-    # die nächste anstehende Liga oben steht. Grund: er arbeitet im
-    # Buchmacher-Konto Liga für Liga ab, jeder Ligawechsel kostet Zeit.
-    first_kick = {}
-    for slot in per_match.values():
-        lg = (slot["match"].get("league") or "").lower()
-        ts = slot["match"].get("kickoff_ts", 0)
-        if lg not in first_kick or ts < first_kick[lg]:
-            first_kick[lg] = ts
-
+    # 15.09. (Lucio, dritte und aktuelle Fassung): ZUERST NACH ANSTOSSZEIT,
+    # und innerhalb derselben Anstoßzeit stehen die Spiele einer Liga
+    # untereinander. (Die Liga-Blöcke über den ganzen Tag vom 12.09. sind
+    # damit wieder abgelöst.)
     def _sortkey(x):
         lg = (x["match"].get("league") or "").lower()
-        return (first_kick.get(lg, 0), lg, x["match"].get("kickoff_ts", 0),
-                x["match"]["home"])
+        return (x["match"].get("kickoff_ts", 0), lg, x["match"]["home"])
 
     for slot in sorted(per_match.values(), key=_sortkey):
         slot["entries"].sort(key=lambda e: (order[e[0]], e[1].get("metric", "")))
@@ -2282,19 +2287,11 @@ def day_list(buckets, new_state):
     order = {"new": 0, "known": 1}
     lorder = {"🟢": 0, "🟡": 1, "🔴": 2}
     result = []
-    # 12.09.: Liga-Blöcke (siehe merge_by_kickoff). Das ist die Sortierung,
-    # die in Telegram landet.
-    first_kick = {}
-    for slot in per_match.values():
-        lg = (slot["match"].get("league") or "").lower()
-        ts = slot["match"].get("kickoff_ts", 0)
-        if lg not in first_kick or ts < first_kick[lg]:
-            first_kick[lg] = ts
-
+    # 15.09.: Anstoßzeit zuerst, gleiche Zeit -> Ligen untereinander
+    # (siehe merge_by_kickoff). Das ist die Sortierung, die in Telegram landet.
     def _sortkey(x):
         lg = (x["match"].get("league") or "").lower()
-        return (first_kick.get(lg, 0), lg, x["match"].get("kickoff_ts", 0),
-                x["match"]["home"])
+        return (x["match"].get("kickoff_ts", 0), lg, x["match"]["home"])
 
     for slot in sorted(per_match.values(), key=_sortkey):
         slot["entries"].sort(key=lambda e: (lorder.get(e[1].get("light"), 1),
@@ -4260,24 +4257,24 @@ def build_exo_block(rows):
     1. scores24 hat für diese Märkte KEINEN Reiter — die Verfügbarkeit kann
        der Scanner nicht prüfen, das muss Lucio im Konto selbst tun.
     2. Es ist eine neue Marktfamilie (Prüfpflicht, Abschnitt 12): Backtest
-       steht, Preisvergleich fehlt -> 🧪 TEST."""
+       steht, Preisvergleich fehlt -> 🧪 TEST.
+    Tore über 2,5 lief bis 15.09. ebenfalls hier; seitdem steht es ganz normal
+    in der Hauptliste (Abschnitt 10d)."""
     if not rows:
         return None
-    tore = [(m, sg) for m, sg in rows if sg["metric_key"] in EXO_NOGATE_OK]
-    neben = [(m, sg) for m, sg in rows if sg["metric_key"] not in EXO_NOGATE_OK]
-    lines = [f"{SEP}",
-             "🆕 <b>NEUE MÄRKTE</b>" + (" · 🧪 <b>TEST</b>" if EXO_TEST else ""), f"{SEP}"]
-    if tore:
-        lines += ["⚽ <b>TORE GESAMT</b>",
-                  "<i>Backtest 40.796 Spiele: über 2,5 = 75 % (Grundrate 57 %), "
-                  "unter 3,5 = 75 % (64 %), über 1,5 = 85 % (78 %), unter 4,5 = 85 % (79 %). "
-                  "Tore bietet jeder Buchmacher an — aber es ist der am schärfsten "
-                  "bepreiste Markt, die Quote muss wirklich über fair liegen.</i>", ""]
-    per = {}
-    for m, sig in tore:
-        per.setdefault(m["id"], (m, []))[1].append(sig)
     test = " 🧪" if EXO_TEST else ""
-    for m, sigs in sorted(per.values(), key=lambda x: (x[0].get("kickoff_ts", 0), x[0]["home"])):
+    lines = [f"{SEP}",
+             "🆕 <b>NEUE MÄRKTE</b>" + (" · 🧪 <b>TEST</b>" if EXO_TEST else ""), f"{SEP}",
+             "🤾 <b>EINWÜRFE · ABSTÖSSE · FREISTÖSSE</b>",
+             "<i>⚠️ Verfügbarkeit NICHT über scores24 geprüft (kein Reiter) — "
+             "bitte im Konto selbst nachsehen, ob es den Markt gibt. "
+             "Backtest 15.813 Spiele: 80–88 % je nach Linie, Grundrate 51–70 %.</i>", ""]
+    per = {}
+    for m, sig in rows:
+        per.setdefault(m["id"], (m, []))[1].append(sig)
+    for m, sigs in sorted(per.values(), key=lambda x: (x[0].get("kickoff_ts", 0),
+                                                       (x[0].get("league") or "").lower(),
+                                                       x[0]["home"])):
         lines.append(f"{m['kickoff']} {esc(m['home'])} – {esc(m['away'])} · <i>{esc(m.get('league', ''))}</i>")
         for sg in sorted(sigs, key=lambda x: (x["metric_key"], x["direction"], x["line"])):
             fair = sg.get("fair_fin") or sg.get("fair")
@@ -4290,27 +4287,6 @@ def build_exo_block(rows):
                              f" · Puffer {sg['buffer']:+.1f}"
                              + (f" · 📊 {sg['valid'][0]}/{sg['valid'][1]} Spiele" if sg.get("valid") else ""))
         lines.append("")
-    if neben:
-        lines += [f"{SEP}", "🤾 <b>EINWÜRFE · ABSTÖSSE · FREISTÖSSE</b>",
-                  "<i>⚠️ Verfügbarkeit NICHT über scores24 geprüft (kein Reiter) — "
-                  "bitte im Konto selbst nachsehen, ob es den Markt gibt. "
-                  "Backtest 15.813 Spiele: 80–88 % je nach Linie, Grundrate 51–70 %.</i>", ""]
-        per2 = {}
-        for m, sig in neben:
-            per2.setdefault(m["id"], (m, []))[1].append(sig)
-        for m, sigs in sorted(per2.values(), key=lambda x: (x[0].get("kickoff_ts", 0), x[0]["home"])):
-            lines.append(f"{m['kickoff']} {esc(m['home'])} – {esc(m['away'])} · <i>{esc(m.get('league', ''))}</i>")
-            for sg in sorted(sigs, key=lambda x: (x["metric_key"], x["direction"], x["line"])):
-                fair = sg.get("fair_fin") or sg.get("fair")
-                lines.append(f"   <b>{esc(sg['metric'])} {sg['direction']} {sg['line']}</b>{test}"
-                             + (f" · Fair <b>{fair:.2f}</b>" if fair else ""))
-                lines.append(f"   {esc(m['home'])} {fmt_series(sg['home_series'], sg['home_is_anchor'])}"
-                             f" · {esc(m['away'])} {fmt_series(sg['away_series'], sg['away_is_anchor'])}")
-                if sg.get("expect") is not None:
-                    lines.append(f"   🎯 Erwartung {sg['expect']} (Ø {sg['avg'][0]} / {sg['avg'][1]})"
-                                 f" · Puffer {sg['buffer']:+.1f}"
-                                 + (f" · 📊 {sg['valid'][0]}/{sg['valid'][1]} Spiele" if sg.get("valid") else ""))
-            lines.append("")
     return "\n".join(lines)
 
 
@@ -4560,8 +4536,10 @@ def _run():
             attach_extras(match, signals)
             # 3) Oder-Regel: weder scores24 noch bet365 -> raus
             if GATE_ENABLED:
-                unverifiable = [signal_key(match, s) for s in signals if not s.get("range")]
-                signals = [s for s in signals if s.get("range")]
+                unverifiable = [signal_key(match, s) for s in signals
+                                if not s.get("range") and s["metric_key"] not in GATE_EXEMPT]
+                signals = [s for s in signals
+                           if s.get("range") or s["metric_key"] in GATE_EXEMPT]
                 gated_out = sorted(before - {signal_key(match, s) for s in signals}
                                    - set(unverifiable))
             # 4) Bewertung + Mindest-Fair
@@ -4571,8 +4549,7 @@ def _run():
                        if (s.get("fair_fin") or s.get("fair") or 0) >= MIN_FAIR]
         for sg in exo:
             assess_signal(sg)
-            if sg["metric_key"] not in EXO_NOGATE_OK:
-                sg["no_odds_check"] = True
+            sg["no_odds_check"] = True   # kein scores24-Reiter -> Lucio prüft selbst
         exo = [sg for sg in exo
                if (sg.get("fair_fin") or sg.get("fair") or 0) >= MIN_FAIR
                and sg.get("light") != "🔴"]
@@ -5088,6 +5065,11 @@ def selftest():
         return h
     pal = _off([5, 5, 5, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5], [H, A] * 7 + [H])
     man = _off([3] * 15, [A, H] * 7 + [A])
+    # 15.09.: Abseits ist als Markt gestrichen — für die Mechanik-Prüfung wird
+    # die Sperre hier vorübergehend aufgehoben, geprüft wird die LOGIK.
+    _prev_excl = set(EXCLUDED_MARKETS)
+    EXCLUDED_MARKETS.discard(("offsides", "über"))
+    EXCLUDED_MARKETS.discard(("offsides", "unter"))
     CONTRA_ENABLED = True                     # Sperre nur für diesen Test an
     sig11 = [s for s in evaluate_match(dict(match), pal, man) if s["metric"] == "Abseits"]
     CONTRA_ENABLED = _prev_contra
@@ -5110,6 +5092,11 @@ def selftest():
               if s["metric"] == "Abseits" and s["direction"] == "unter"]
     if not sig11c or sig11c[0]["line"] != 5.5:
         print("FEHLER Fall 11c: marktabhängiger Korridor (Abseits=1) greift nicht:", sig11c)
+        ok = False
+    EXCLUDED_MARKETS.clear()
+    EXCLUDED_MARKETS.update(_prev_excl)
+    if [s for s in evaluate_match(dict(match), pal2, man2) if s["metric"] == "Abseits"]:
+        print("FEHLER Fall 11d: Abseits ist gestrichen und darf nicht mehr melden")
         ok = False
 
     # --- Fall 13: Ampel-Rechnung
@@ -5179,9 +5166,9 @@ def selftest():
     hA = _ht([5, 4, 6, 5, 4, 5, 6, 4, 5, 5, 4, 6, 5, 4, 5], [H, H, A, A] * 4)
     hB = _ht([4, 5, 4, 6, 5, 4, 5, 4, 6, 5, 4, 5, 4, 5, 6], [A, A, H, H] * 4)
     sig14 = [s for s in evaluate_match(dict(match), hA, hB) if s["metric_key"] == "ht_corners"]
-    # 13.09.: HZ-Ecken sind komplett gestrichen -> es darf KEIN Signal mehr kommen
-    if sig14:
-        print("FEHLER Fall 14c: HZ-Ecken sind gestrichen, dürfen nicht melden:", [(s["direction"], s["line"]) for s in sig14])
+    # 15.09.: "1. HZ Ecken über" ist auf Lucios Wunsch wieder frei (unter bleibt raus)
+    if not any(s["direction"] == "über" for s in sig14):
+        print("FEHLER Fall 14c: HZ-Ecken über fehlt:", [(s["direction"], s["line"]) for s in sig14])
         ok = False
     if any(s["metric_key"] == "ht_corners" and s["direction"] == "unter"
            for s in evaluate_match(dict(match), hA, hB)):
@@ -5342,8 +5329,25 @@ def selftest():
         print("FEHLER Fall 26c: 0:0 muss als Ergebnis zählen")
         ok = False
     # Tore brauchen keinen scores24-Nachweis, die Nebenmärkte schon
-    if "goals" not in EXO_NOGATE_OK or "throwins" in EXO_NOGATE_OK:
+    if "goals" not in GATE_EXEMPT or "throwins" in GATE_EXEMPT:
         print("FEHLER Fall 26d: Nachweis-Ausnahme falsch gesetzt")
+        ok = False
+    if "goals" in EXO_METRICS:
+        print("FEHLER Fall 26e: Tore laufen in der normalen Liste, nicht im Extra-Block")
+        ok = False
+    _g26 = apply_s24_gate([{"metric_key": "goals", "direction": "über", "line": 2.5}],
+                          {"corners": (3, 1.5, 2.0)})
+    if len(_g26) != 1 or not _g26[0].get("no_odds_check"):
+        print("FEHLER Fall 26f: Tore müssen das scores24-Gate passieren")
+        ok = False
+    # 26g: das Tor-Signal muss im GANZ NORMALEN Spielblock stehen (15.09.)
+    _sig26 = dict(s26[0], light="🟢", fair=1.45, no_odds_check=True)
+    _blk26 = build_match_block(m26, [("new", _sig26, "")])
+    if "Tore" not in _blk26 or "Quote selbst prüfen" not in _blk26:
+        print("FEHLER Fall 26g: Tore erscheinen nicht im normalen Spielblock")
+        ok = False
+    if build_exo_block([(m26, _sig26)]) and "TORE GESAMT" in build_exo_block([(m26, _sig26)]):
+        print("FEHLER Fall 26h: Extra-Block darf keine Tore mehr führen")
         ok = False
 
     # --- Fall 25: Tore aus dem Ereignis-Verlauf (15.09.)
@@ -5633,7 +5637,7 @@ def selftest():
         print("FEHLER Fall 19b: Anker-Gegenserie muss Ecken kippen")
         ok = False
 
-    # --- Fall 18: gleiche Anstoßzeit -> nach Liga gruppiert (12.09.)
+    # --- Fall 18: zuerst nach Anstoßzeit, bei gleicher Zeit Ligen zusammen (15.09.)
     def _mm(mid, home, league, ts):
         return {"match_id": mid, "home": home, "away": "X", "kickoff": "Sa 16:00",
                 "kickoff_ts": ts, "league": league,
@@ -5648,14 +5652,14 @@ def selftest():
     st18["k6"] = _mm("m6", "F-Team", "England Championship", 3000)
     got18 = [(m["league"], m["kickoff_ts"]) for m, _ in
              day_list({"new": [], "changed": [], "same": [], "dropped": []}, st18)]
-    want18 = [("Spain LaLiga 2", 500),                  # Liga mit dem frühesten Spiel
-              ("England Championship", 1000),           # dann Championship, Zeit aufsteigend
+    want18 = [("Spain LaLiga 2", 500),                  # frühestes Spiel zuerst
+              ("England Championship", 1000),           # 1000er-Gruppe: Ligen untereinander
               ("England Championship", 1000),
-              ("England Championship", 3000),
               ("Germany Bundesliga 2", 1000),
-              ("Germany Bundesliga 2", 2000)]
+              ("Germany Bundesliga 2", 2000),
+              ("England Championship", 3000)]
     if got18 != want18:
-        print("FEHLER Fall 18: Liga-Blöcke falsch sortiert:", got18)
+        print("FEHLER Fall 18: Sortierung falsch (Zeit zuerst, dann Liga):", got18)
         ok = False
 
     # --- Fall 17: Backtest schneidet die Historie an der richtigen Stelle ab
