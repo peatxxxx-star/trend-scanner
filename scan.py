@@ -173,9 +173,18 @@ S24_GROUPS = {
 # Märkte, die grundsätzlich NICHT gemeldet werden (Lucios Vorgabe 05.09.:
 # "alle unter-Ecken-Märkte raus"). Für die Gegenbewegungs-Prüfung zählen
 # sie trotzdem weiter.
-EXCLUDED_MARKETS = {("corners", "unter"), ("ht_corners", "unter"),
+EXCLUDED_MARKETS = {("corners", "unter"),
+                    ("on_target", "über"),
+                    ("ht_corners", "unter"), ("ht_corners", "über"),
+                    ("ht_yellowcards", "unter"), ("ht_yellowcards", "über"),
                     ("shots_total", "über"), ("shots_total", "unter"),
                     ("fouls", "über"), ("fouls", "unter")}
+# 13.09. (Lucio, Bereinigung): "Schüsse aufs Tor über" raus, ALLE Halbzeit-
+# Märkte raus (auch 1. HZ Gelbe Karten). Gespielt wird nur noch:
+# Ecken über · Gelbe Karten über/unter · Schüsse aufs Tor unter · Abseits über/unter.
+# 13.09.: 1. HZ ECKEN komplett raus (Lucio: "gefällt mir nicht", 6/12 über zwei
+# Wochen, gestern 2/5; im Backtest der schwächste Markt — die erste Halbzeit
+# ist zu kurz, da entscheidet der Zufall: "zur Halbzeit 2 Ecken, am Ende 8").
 # 12.09.: FOULS komplett raus (Lucio). Das Modell ist dort systematisch zu
 # optimistisch — im Backtest sagte es 82 % (faire Quote 1,22), tatsächlich
 # waren es 76 % (faire Quote 1,32). Eine Bookie-Quote von 1,28 sieht damit
@@ -2500,6 +2509,209 @@ def inventory():
         send_telegram(f"{ch}\n<i>Teil {i}/{len(chunks)}</i>" if len(chunks) > 1 else ch)
 
 
+# ----------------------------------------------------------------------------
+# ABDECKUNG (15.09., Lucios Vorgabe): In welchen Ligen gibt es für die
+# "Exoten"-Felder eine KONSTANTE Datenabdeckung? Geprüft werden COV_WEEKS
+# Wochen rückwärts, je Liga und Woche eine Stichprobe beendeter Spiele.
+# Regel: Ein Feld gilt in einer Liga als abgedeckt, wenn es in JEDER der
+# Wochen bei mindestens COV_WEEK_MIN der Stichprobe gefüllt ist. Reißt eine
+# Woche aus, ist die Liga für dieses Feld gestrichen. Ligen, die nicht in
+# allen Wochen gespielt haben, sind "nicht bewertbar" (weder OK noch raus).
+# Kosten: Listen ~15-25 Anfragen je Tag + 1 Anfrage je 10 Spielansichten
+# (4 Wochen, 3 Spiele je Liga und Woche, ~800 Ligen -> ~1.500 Anfragen).
+# Ergebnis: runs/abdeckung_<Datum>.csv (Liga x Feld: 4 Wochenwerte + Urteil),
+# runs/abdeckung_<Datum>.txt und Kurzfassung per Telegram.
+# ----------------------------------------------------------------------------
+COV_WEEKS = 4
+COV_PER_LEAGUE_WEEK = 3
+COV_WEEK_MIN = 0.75
+COV_FIELDS = ["corners", "corner_h", "yellowcards", "redcards", "on_target",
+              "off_target", "shots_blocked", "goalattempts", "fouls", "offsides",
+              "saves", "possession_rt", "goalkicks", "throwins", "freekicks",
+              "penalties", "crosses", "attacks", "dangerous_attacks", "xg",
+              "passing_accuracy", "key_passes", "substitutions", "injuries"]
+COV_KNOWN = {"corners", "corner_h", "yellowcards", "redcards", "on_target",
+             "off_target", "shots_blocked", "goalattempts", "fouls", "offsides"}
+COV_ZERO_OK = {"redcards", "penalties", "injuries", "offsides", "corner_h"}
+
+
+def _cov_present(stats: dict, key: str) -> bool:
+    """Feld gilt als erfasst, wenn es ein Zahlenpaar ist — und (außer bei
+    Feldern, die legitim 0:0 sein können) nicht 0:0."""
+    raw = (stats or {}).get(key)
+    try:                                   # xG/Passquote kommen als Dezimalzahl
+        pair = [float(raw[0]), float(raw[1])]
+    except (TypeError, ValueError, IndexError):
+        return False
+    if key in COV_ZERO_OK:
+        return True
+    return pair[0] + pair[1] > 0
+
+
+def coverage():
+    """Abdeckungs-Abfrage: welche Statistik-Felder liefert die API je Liga,
+    und zwar konstant über COV_WEEKS Wochen?"""
+    from collections import Counter, defaultdict
+    global _no_wait
+    _no_wait = True
+    now = now_berlin()
+    # 1) beendete Spiele je Woche, mit Liga
+    per_lw = defaultdict(list)              # (liga, liga_id, woche) -> [event]
+    n_list = 0
+    for w in range(COV_WEEKS):
+        for d in range(7):
+            day = (now - timedelta(days=1 + w * 7 + d)).astimezone(timezone.utc).strftime("%Y%m%d")
+            page = 1
+            while page <= 40:
+                try:
+                    data = api_get("/v3/events/ended", sport_id=1, day=day,
+                                   per_page=100, page=page, skip_esports=1)
+                except BudgetExhausted:
+                    print("Stundenbudget erschöpft (Spiellisten)")
+                    page = 99
+                    break
+                except Exception as exc:
+                    print(f"  Liste {day}/{page}: {exc}")
+                    break
+                results = data.get("results", [])
+                if not results:
+                    break
+                for e in results:
+                    lg = (e.get("league") or {})
+                    name = lg.get("name", "?")
+                    if "esoccer" in name.lower():
+                        continue
+                    if str(e.get("time_status")) != "3":     # nur regulär beendete
+                        continue
+                    per_lw[(name, str(lg.get("id") or ""), w)].append(e)
+                    n_list += 1
+                total = int((data.get("pager") or {}).get("total", 0))
+                if page * 100 >= total:
+                    break
+                page += 1
+            if page == 99:
+                break
+    # 2) Stichprobe je Liga und Woche
+    sample = []
+    for key, evs in per_lw.items():
+        evs.sort(key=lambda e: -int(e.get("time") or 0))
+        for e in evs[:COV_PER_LEAGUE_WEEK]:
+            sample.append((key, str(e["id"])))
+    leagues = sorted({(k[0], k[1]) for k in per_lw})
+    print(f"{n_list} beendete Spiele, {len(leagues)} Ligen, Stichprobe {len(sample)} Spielansichten")
+    # 3) Spielansichten in 10er-Paketen
+    hits = defaultdict(Counter)             # (liga, id, woche) -> Counter(feld)
+    n_lw = Counter()
+    ids = {eid: key for key, eid in sample}
+    order = [eid for _, eid in sample]
+    partial = False
+    for i in range(0, len(order), 10):
+        chunk = order[i:i + 10]
+        try:
+            view = api_get("/v1/event/view", event_id=",".join(chunk))
+        except BudgetExhausted:
+            print("Stundenbudget erschöpft (Spielansichten) — Auswertung mit Teilstichprobe")
+            partial = True
+            break
+        except Exception as exc:
+            print(f"  Ansicht {i // 10 + 1}: {exc}")
+            continue
+        for ev in view.get("results", []):
+            key = ids.get(str(ev.get("id")))
+            if key is None:
+                continue
+            st = ev.get("stats") or {}
+            n_lw[key] += 1
+            for f in COV_FIELDS:
+                if _cov_present(st, f):
+                    hits[key][f] += 1
+            if ((ev.get("extra") or {}).get("referee") or {}).get("id"):
+                hits[key]["referee"] += 1
+            if parse_ht_cards(ev) is not None:
+                hits[key]["ht_cards"] += 1
+    n_view = sum(n_lw.values())
+    if not n_view:
+        send_telegram("📊 ABDECKUNG: keine Spielansichten erhalten — später erneut starten.")
+        return
+    cols = COV_FIELDS + ["referee", "ht_cards"]
+    names = dict(STAT_FIELD_NAMES)
+    names.update({"referee": "Schiedsrichter", "ht_cards": "HZ-Karten (Verlauf)"})
+    # 4) Urteil je Liga und Feld: OK / raus / nicht bewertbar
+    verdict = {}                            # (liga, id) -> {feld: "OK"/"raus"/"n.b."}
+    weekly = {}                             # (liga, id) -> {feld: [w0..w3] in %}
+    for lg in leagues:
+        weeks_played = [w for w in range(COV_WEEKS) if n_lw[(lg[0], lg[1], w)] > 0]
+        verdict[lg] = {}
+        weekly[lg] = {}
+        for c in cols:
+            vals = []
+            for w in range(COV_WEEKS):
+                n = n_lw[(lg[0], lg[1], w)]
+                vals.append(None if n == 0 else hits[(lg[0], lg[1], w)][c] / n)
+            weekly[lg][c] = vals
+            if len(weeks_played) < COV_WEEKS:
+                verdict[lg][c] = "n.b."
+            elif all(v is not None and v >= COV_WEEK_MIN for v in vals):
+                verdict[lg][c] = "OK"
+            else:
+                verdict[lg][c] = "raus"
+    # 5) CSV: Liga x Feld (Wochenwerte + Urteil)
+    RUNS_DIR.mkdir(exist_ok=True)
+    tag = now.strftime('%Y-%m-%d')
+    csv_path = RUNS_DIR / f"abdeckung_{tag}.csv"
+    with open(csv_path, "w", encoding="utf-8") as fh:
+        head = ["Liga", "Liga-ID", "Spiele gesamt", "Wochen mit Spielen"]
+        for c in cols:
+            head += [f"{names.get(c, c)} W{w + 1}" for w in range(COV_WEEKS)] + [f"{names.get(c, c)} Urteil"]
+        fh.write(";".join(head) + "\n")
+        for lg in sorted(leagues, key=lambda l: (-sum(n_lw[(l[0], l[1], w)] for w in range(COV_WEEKS)), l[0])):
+            tot = sum(n_lw[(lg[0], lg[1], w)] for w in range(COV_WEEKS))
+            if tot == 0:
+                continue
+            wp = sum(1 for w in range(COV_WEEKS) if n_lw[(lg[0], lg[1], w)] > 0)
+            row = [lg[0], lg[1], str(tot), str(wp)]
+            for c in cols:
+                row += ["" if v is None else f"{100 * v:.0f}" for v in weekly[lg][c]] + [verdict[lg][c]]
+            fh.write(";".join(row) + "\n")
+    # 6) Kurzfassung: je Feld Anzahl Ligen OK / raus / n.b. (+ Beispiele)
+    rated = [lg for lg in leagues if sum(n_lw[(lg[0], lg[1], w)] for w in range(COV_WEEKS)) > 0]
+    lines = [f"ABDECKUNG · {now.strftime('%d.%m.%Y %H:%M')} · {COV_WEEKS} Wochen, "
+             f"{COV_PER_LEAGUE_WEEK} Spiele je Liga und Woche, Schwelle {int(COV_WEEK_MIN * 100)} % je Woche",
+             f"{n_list} beendete Spiele · {len(rated)} Ligen · {n_view} Spielansichten geprüft"
+             + (" · TEILSTICHPROBE (Budget)" if partial else ""), "",
+             "EXOTEN-FELDER            OK   raus  n.b.   Beispiele (OK)"]
+    def _line(c):
+        ok = [lg[0] for lg in rated if verdict[lg][c] == "OK"]
+        out = sum(1 for lg in rated if verdict[lg][c] == "raus")
+        nb = sum(1 for lg in rated if verdict[lg][c] == "n.b.")
+        ex = ", ".join(ok[:3]) + (" …" if len(ok) > 3 else "")
+        return f"{names.get(c, c):22s} {len(ok):4d}  {out:4d}  {nb:4d}   {ex}"
+    for c in cols:
+        if c not in COV_KNOWN:
+            lines.append(_line(c))
+    lines.append("")
+    lines.append("BEKANNTE FELDER (Vergleich)")
+    for c in cols:
+        if c in COV_KNOWN:
+            lines.append(_line(c))
+    lines.append("")
+    lines.append(f"Je Liga mit Wochenwerten: {csv_path.name} im Repo (runs/). {_request_count} Anfragen.")
+    text = "\n".join(lines)
+    print("\n" + text)
+    (RUNS_DIR / f"abdeckung_{tag}.txt").write_text(text, encoding="utf-8")
+    tg = "📊 <b>ABDECKUNG der API-Daten</b>\n<pre>" + esc("\n".join(lines[1:])) + "</pre>"
+    chunks, cur = [], ""
+    for ln in tg.split("\n"):
+        if len(cur) + len(ln) + 1 > 3300:
+            chunks.append(cur + "</pre>")
+            cur = "<pre>" + ln
+        else:
+            cur += ("\n" if cur else "") + ln
+    chunks.append(cur)
+    for i, ch in enumerate(chunks, 1):
+        send_telegram(f"{ch}\n<i>Teil {i}/{len(chunks)}</i>" if len(chunks) > 1 else ch)
+
+
 def is_prewarm_run() -> bool:
     if os.environ.get("PREWARM") == "1":
         return True
@@ -2875,7 +3087,11 @@ def backtest(cache, hcache):
 # Marge je Bein 4 % statt 8 % macht dabei ~13 EUR Unterschied.
 # ----------------------------------------------------------------------------
 
-BONUS_DAYS = {5, 6}          # Samstag, Sonntag (Montag = 0)
+BONUS_DAYS = set()           # 13.09.: Bonus KOMPLETT verworfen (Lucio: "bindet mich zu
+                             # sehr für zu wenig Ertrag") — keine 🥇-Siegwetten, keine
+                             # 1X2-Liste, keine Quoten-Abfragen mehr. Zum Reaktivieren:
+                             # {5, 6} = Samstag, Sonntag (Montag = 0).
+BONUS_1X2 = False            # 1X2-/Doppelte-Chance-Liste (nur relevant, wenn BONUS_DAYS gesetzt)
 BONUS_HORIZON_H = 14         # nur Spiele, die in den nächsten x Stunden anfangen
 BONUS_ODDS_TTL = 2 * 3600    # 1X2-Quoten so lange zwischenspeichern
 BONUS_MAX_REQ = 400          # Obergrenze an Quoten-Abfragen je Lauf
@@ -2978,9 +3194,8 @@ def bonus_selections(odds):
 # keine Verbesserung gegenüber der Grundrate) -> nicht aufgenommen.
 # ----------------------------------------------------------------------------
 
-WHO_METRICS = {"corners": 1.06, "on_target": 1.08, "ht_corners": 1.08}
-WHO_NAMES = {"corners": "Meiste Ecken", "on_target": "Meiste Schüsse aufs Tor",
-             "ht_corners": "Meiste Ecken 1. HZ"}
+WHO_METRICS = {"corners": 1.06, "on_target": 1.08}     # HZ-Ecken raus (13.09.)
+WHO_NAMES = {"corners": "Meiste Ecken", "on_target": "Meiste Schüsse aufs Tor"}
 WHO_TEST = True              # 12.09.: neue Marktfamilie läuft als TEST mit.
                              # Solange True, trägt jedes Signal 🧪 und der Kopf
                              # sagt klar, dass die Preise beim Bookie noch nicht
@@ -3003,7 +3218,9 @@ WHO_SIDE_PLAUSI = (0.45, 2.0)  # UND jede Seite einzeln: 45-200 % des Schnitts j
 WHO_LOPSIDED = 1.6           # Ab diesem Verhältnis der Erwartungen gilt: starke
 WHO_LOPSIDED_VALID = 12      # Behauptung braucht mehr Belege -> 12 statt 8
                              # gewertete Spiele je Team.
-WHO_MIN_P = 0.55             # 12.09. gelockert (Lucio: "Fair-Restriktion spült
+WHO_MIN_P = 0.50             # Modell darf nicht in die Gegenrichtung zeigen —
+                             # die Auswahl selbst treffen die SERIEN (siehe who_more).
+                             # Vorgeschichte: 12.09. gelockert (Lucio: "Fair-Restriktion spült
                              # Fehler des Bookies mit raus" — dasselbe Argument
                              # wie bei MIN_FAIR am 06.09.). Keine Obergrenze mehr.
                              # Die 55 % sind KEINE Geschmacksgrenze: in der
@@ -3137,21 +3354,26 @@ def who_more(match, hist_home, hist_away):
         if not pr:
             continue
         ph, pe, pa = pr
-        if ph >= pa:
-            side, p, name = "heim", ph, match["home"]
-        else:
-            side, p, name = "gast", pa, match["away"]
+        # 12.09. (Lucio: "dachte, die Auswahl-Logik ist wie beim normalen
+        # Modell"): Die SERIEN entscheiden, ob es ein Signal gibt — beide
+        # Seiten müssen den Trend zeigen (Favorit "mehr", Gegner "weniger"),
+        # mindestens eine davon als Anker. Das Modell liefert danach nur die
+        # faire Quote. Backtest: Ecken 70,9 % (55 Signale je 3.700 Spiele),
+        # Schüsse 78,8 % (66) — gegenüber 64-66 % beim reinen Modell-Signal.
+        cands = []
+        for side, fav_h, fav_role, opp_h, opp_role, name, p in (
+                ("heim", hist_home, "home", hist_away, "away", match["home"], ph),
+                ("gast", hist_away, "away", hist_home, "home", match["away"], pa)):
+            a_fav, o_fav, _ = who_series(fav_h, metric, True, fav_role)
+            a_opp, o_opp, _ = who_series(opp_h, metric, False, opp_role)
+            if (a_fav or o_fav) and (a_opp or o_opp) and (a_fav or a_opp):
+                cands.append((side, name, p, a_fav, o_fav, a_opp, o_opp))
+        if len(cands) != 1:
+            continue                     # keine oder widersprüchliche Qualifikation
+        side, name, p, a_fav, o_fav, a_opp, o_opp = cands[0]
         if p < WHO_MIN_P:
-            continue
+            continue                     # Modell zeigt in die Gegenrichtung
         rest = ph + pa
-        # Serien beider Seiten: der Favorit muss "mehr" gehabt haben,
-        # der Gegner "weniger" — dieselbe Beide-Teams-Logik wie sonst.
-        if side == "heim":
-            a_fav, o_fav, _ = who_series(hist_home, metric, True, "home")
-            a_opp, o_opp, _ = who_series(hist_away, metric, False, "away")
-        else:
-            a_fav, o_fav, _ = who_series(hist_away, metric, True, "away")
-            a_opp, o_opp, _ = who_series(hist_home, metric, False, "home")
         out.append({"metric_key": metric, "metric": WHO_NAMES[metric],
                     "seite": side, "team": name,
                     "p": round(p, 4), "fair": round(1 / p, 2),
@@ -3186,7 +3408,7 @@ def build_who_block(rows):
              "Nachweis wie immer über den scores24-Reiter.</i>", ""]
     for m, s in rows[:WHO_SHOW]:
         bonus = " 🎁" if s["fair"] >= 1.40 else ""
-        anker = " ⚓" if s["anker"] else ""
+        anker = " ⚓" if s["anker"] else (" (Gegner ⚓)" if s.get("gegner_anker") else "")
         test = " 🧪" if WHO_TEST else ""
         lines.append(f"{m['kickoff']} {esc(m['home'])} – {esc(m['away'])}")
         lines.append(f"   <i>{esc(m.get('league', ''))}</i>")
@@ -3201,9 +3423,162 @@ def build_who_block(rows):
                 txt += f" · Gegner weniger in {sg['hits']}/{sg['window']} ({sg['kind']})"
             lines.append(f"   {txt}")
         lines.append("")
-    lines.append("<i>⚓ = Anker-Serie (10 von ≤12, bzw. 15 in der Rolle) — traf im "
-                 "Backtest 76,7 % statt 66,2 %. 🎁 = faire Quote über 1,40, also "
-                 "als Bonus-Bein brauchbar.</i>")
+    lines.append("<i>Auswahl nach deiner Serienregel: beide Teams im Trend, mindestens "
+                 "einer mit Anker (⚓ = 10 von ≤12 bzw. 15 in der Rolle). Fair kommt "
+                 "aus dem Erwartungsmodell. 🎁 = faire Quote über 1,40, also als "
+                 "Bonus-Bein brauchbar.</i>")
+    return "\n".join(lines)
+
+
+
+# ----------------------------------------------------------------------------
+# TEAM-MÄRKTE (13.09., Lucios Fund auf scores24): "Individuell Gesamtzahl" —
+# eine Mannschaft über/unter x Ecken, Karten, Schüsse. Dieselbe Anker-Logik,
+# nur auf EIN Team angewendet. Sein Beispiel: Seattle Sounders unter 2,5
+# Gelbe Karten, "weil ich sonst einfach nichts hatte".
+#
+# Backtest (Cache, 3.700 Spiele, beide Seiten): der Anker hebt die
+# Trefferquote deutlich über die Grundrate —
+#   Karten unter 1,5   74,9 % (299 Signale)  statt 46,4 %
+#   Karten unter 2,5   79,8 % (1.937)        statt 72,7 %
+#   Ecken über 4,5     66,8 % (244)          statt 48,6 %
+#   Ecken über 3,5     72,7 % (989)          statt 63,8 %
+#   Schüsse über 3,5   70,4 % (760)          statt 59,3 %
+#   Schüsse unter 4,5  69,8 % (490)          statt 55,1 %
+# Trefferquoten liegen etwas unter dem Kernsystem (keine Bestätigung durch
+# das zweite Team). Läuft als 🧪 TEST bis zum Preisvergleich (Regelwerk 12).
+# ----------------------------------------------------------------------------
+
+TEAM_METRICS = {"corners": [3.5, 4.5, 5.5, 6.5],
+                "yellowcards": [1.5, 2.5],
+                "on_target": [3.5, 4.5, 5.5]}
+TEAM_NAMES = {"corners": "Ecken", "yellowcards": "Gelbe Karten", "on_target": "Schüsse aufs Tor"}
+TEAM_MAX_MISSES = 0          # Anker LÜCKENLOS (10 von 10 gesamt; in der Rolle 15 mit
+TEAM_MAX_MISSES_ROLE = 1     # max. 1 Lücke). Lucio wörtlich: "letzte 10 Spiele IMMER
+                             # mehr gehabt". Backtest: 10 von <=12 -> 1,8 Signale je
+                             # Spiel bei 71,7 %; lückenlos -> 0,4 je Spiel bei 78,2 %,
+                             # also Kernsystem-Niveau statt Flut.
+TEAM_TRIVIAL_BASE = 0.70     # Linien, die ohnehin meist eintreten, nicht melden:
+                             # Ecken unter 6,5 (Grundrate 77 %) fliegt raus, Karten
+                             # unter 2,5 (68 %, Lucios Seattle-Fall) bleibt drin.
+TEAM_ENABLED = False         # 13.09.: AUS bis Lucio sie ausdrücklich freigibt — war zu
+                             # voreilig eingebaut (Prüfpflicht 12 nur teilweise erfüllt:
+                             # Backtest ja, Preisvergleich und Marktnachweis je Team nein).
+TEAM_TEST = True             # 🧪 bis der Preisvergleich steht
+TEAM_SHOW = 14
+_team_base = {}              # {(metric, line, direction): Grundrate je Team-Seite}
+
+
+def compute_team_base(cache):
+    rates = {}
+    for metric, lines in TEAM_METRICS.items():
+        vals = []
+        for slim in cache.values():
+            if metric_total({"stats": slim}, metric) is None:
+                continue
+            pair = slim.get(metric)
+            if pair:
+                vals.extend(pair)
+        for L in lines:
+            if vals:
+                over = sum(1 for v in vals if v > L) / len(vals)
+            else:
+                over = 0.5
+            rates[(metric, L, "über")] = over
+            rates[(metric, L, "unter")] = 1 - over
+    return rates
+
+
+def team_sequence(history, metric, line, direction, venue=None):
+    """Trefferfolge 'eigene Zahl über/unter line', jüngstes Spiel zuerst,
+    dazu die eigenen Zahlen (für Erwartung/Streuung) und Gewichte."""
+    seq, own_vals, weights = [], [], []
+    for i, m in enumerate(history):
+        if venue == "home" and not m["is_home"]:
+            continue
+        if venue == "away" and m["is_home"]:
+            continue
+        if metric_total(m, metric) is None:
+            continue
+        pair = (m.get("stats") or {}).get(metric)
+        if not pair:
+            continue
+        own = pair[0] if m["is_home"] else pair[1]
+        seq.append(own > line if direction == "über" else own < line)
+        own_vals.append(own)
+        weights.append(game_weight(i, m))
+    return seq, own_vals, weights
+
+
+def team_signals(match, hist_home, hist_away):
+    out = []
+    for side, hist, role, name in (("heim", hist_home, "home", match["home"]),
+                                   ("gast", hist_away, "away", match["away"])):
+        for metric, lines in TEAM_METRICS.items():
+            for direction in ("über", "unter"):
+                # strengste qualifizierende Linie (über: höchste, unter: niedrigste)
+                order = sorted(lines, reverse=(direction == "über"))
+                for L in order:
+                    base = _team_base.get((metric, L, direction), 0.5)
+                    if base >= TEAM_TRIVIAL_BASE:
+                        continue
+                    seq_all, vals, w = team_sequence(hist, metric, L, direction)
+                    if len(seq_all) < MIN_VALID_MATCHES:
+                        break
+                    seq_role, _, _ = team_sequence(hist, metric, L, direction, venue=role)
+                    a = series(seq_all, ANCHOR_HITS_OVERALL, TEAM_MAX_MISSES, fresh=FRESH_GAMES)
+                    kind = "gesamt"
+                    if not a:
+                        a = series(seq_role, ANCHOR_HITS_VENUE, TEAM_MAX_MISSES_ROLE, fresh=FRESH_GAMES)
+                        kind = "heim" if role == "home" else "auswärts"
+                    if not a:
+                        continue
+                    # faire Quote: gewichtete Historie zur Grundrate geschrumpft,
+                    # gemischt mit Normalverteilungs-Modell der eigenen Zahlen
+                    W = sum(w)
+                    hits_w = sum(wi for h, wi in zip(seq_all, w) if h)
+                    p_emp = (hits_w + PRIOR_WEIGHT * base) / (W + PRIOR_WEIGHT)
+                    mean = sum(v * wi for v, wi in zip(vals, w)) / W
+                    var = sum(wi * (v - mean) ** 2 for v, wi in zip(vals, w)) / W
+                    sd = max(math.sqrt(var), 0.7)
+                    p_mod = model_prob(mean, sd, L, direction)
+                    p = 0.5 * p_emp + 0.5 * p_mod
+                    out.append({"metric_key": metric, "metric": TEAM_NAMES[metric],
+                                "seite": side, "team": name, "line": L,
+                                "direction": direction,
+                                "serie": {"kind": kind, "hits": a[0], "window": a[1]},
+                                "p": round(p, 4), "fair": round(1 / p, 2),
+                                "p_emp": round(p_emp, 3), "p_mod": round(p_mod, 3),
+                                "erwartet": round(mean, 1), "basis": len(seq_all)})
+                    break                  # nur die strengste Linie je Richtung
+    return out
+
+
+def build_team_block(rows):
+    if not rows:
+        return None
+    lines = [f"{SEP}",
+             "🏷 <b>TEAM-MÄRKTE</b> — eine Mannschaft über/unter"
+             + (" · 🧪 <b>TEST</b>" if TEAM_TEST else ""), f"{SEP}"]
+    if TEAM_TEST:
+        lines.append("<i>⚠️ Neue Marktfamilie, noch nicht gegen echte Bookie-Preise "
+                     "geprüft. Backtest: lückenloser 10er-Anker trifft 78 % "
+                     "(Grundrate je nach Linie 42–70 %).</i>")
+    lines += ["<i>Beim Bookie: „Individuell Gesamtzahl“. Ein Team, letzte 10 Spiele "
+              "ohne Ausreißer (bzw. 15 in der Rolle). Nachweis über den scores24-Reiter.</i>", ""]
+    # je Spiel EIN Block mit allen qualifizierenden Team-Linien (sonst Flut)
+    per = {}
+    for m, s in rows:
+        per.setdefault(m["id"], (m, []))[1].append(s)
+    test = " 🧪" if TEAM_TEST else ""
+    for m, sigs in sorted(per.values(), key=lambda x: (x[0].get("kickoff_ts", 0), x[0]["home"])):
+        lines.append(f"{m['kickoff']} {esc(m['home'])} – {esc(m['away'])} · <i>{esc(m.get('league', ''))}</i>")
+        for s in sorted(sigs, key=lambda x: (x["seite"], x["metric"], x["direction"])):
+            sr = s["serie"]
+            lines.append(f"   <b>{esc(s['team'])}: {esc(s['metric'])} {s['direction']} {s['line']}</b>"
+                         f"{test} · Fair <b>{s['fair']:.2f}</b> · {sr['hits']}/{sr['window']} "
+                         f"({sr['kind']}) · Ø {s['erwartet']:.1f}")
+        lines.append("")
     return "\n".join(lines)
 
 
@@ -3331,11 +3706,15 @@ def _run():
     _base_rates.update(compute_base_rates(cache))
     _ref_stats.update(compute_referee_stats(cache))
     _base_means.update(compute_base_means(cache))
+    _team_base.update(compute_team_base(cache))
     if os.environ.get("BACKFILL") == "1":
         backfill(cache, hcache)
         return
     if os.environ.get("INVENTORY") == "1":
         inventory()
+        return
+    if os.environ.get("COVERAGE") == "1":
+        coverage()
         return
     if os.environ.get("SHOTSCHECK") == "1":
         shots_check()
@@ -3386,12 +3765,15 @@ def _run():
         # 0) "Wer hat mehr" (nur Sa/So): Modell ist rechnerisch billig, der
         #    scores24-Nachweis wird nur für Kandidaten geholt.
         who = who_more(match, hist_home, hist_away) if who_day else []
+        team = team_signals(match, hist_home, hist_away) if TEAM_ENABLED else []
         # 1) scores24: Verfügbarkeits-Näherung je Marktfamilie (keine Werte).
         #    Ecken/HZ-Ecken ohne Reiter bleiben markiert (zweite Chance bet365).
-        if (signals or who) and GATE_ENABLED:
+        if (signals or who or team) and GATE_ENABLED:
             groups = s24_fetch_groups(match)
         if who and GATE_ENABLED:
             who = [w for w in who if S24_GROUPS.get(w["metric_key"]) in (groups or set())]
+        if team and GATE_ENABLED:
+            team = [t for t in team if S24_GROUPS.get(t["metric_key"]) in (groups or set())]
         if signals and GATE_ENABLED:
             signals = apply_s24_gate(signals, groups)
         if signals:
@@ -3409,9 +3791,10 @@ def _run():
                 assess_signal(s)
             signals = [s for s in signals
                        if (s.get("fair_fin") or s.get("fair") or 0) >= MIN_FAIR]
-        return signals, gated_out, unverifiable, who
+        return signals, gated_out, unverifiable, who, team
 
     who_hits = []
+    team_hits = []
     done = 0
     t_start = time.time()
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
@@ -3420,7 +3803,7 @@ def _run():
             match = futures[fut]
             done += 1
             try:
-                signals, gated_out, unverif, who = fut.result()
+                signals, gated_out, unverif, who, team = fut.result()
             except BudgetExhausted:
                 deferred.append(match)
                 continue
@@ -3437,6 +3820,8 @@ def _run():
                 print(f"  TREFFER: {match['home']} – {match['away']} ({len(signals)})")
             for w in who or []:
                 who_hits.append((match, w))
+            for t_ in team or []:
+                team_hits.append((match, t_))
             if done % 100 == 0:
                 save_cache(cache)
                 save_history_cache(hcache)
@@ -3448,6 +3833,7 @@ def _run():
     # feste Sortierung nach Anstoßzeit (Parallelverarbeitung mischt sonst)
     all_hits.sort(key=lambda h: h[0].get("kickoff_ts", 0))
     who_hits.sort(key=lambda h: -h[1]["p"])
+    team_hits.sort(key=lambda h: (h[0].get("kickoff_ts", 0), h[0]["home"]))
 
     # Lauf-Vergleich mit dem Gedächtnis des Vortags/Vorlaufs
     now = datetime.now(timezone.utc)
@@ -3475,12 +3861,21 @@ def _run():
               f"(frühester Anstoß {deferred[0]['kickoff']})")
     chunks = assemble_report(buckets, run_label, new_state,
                              deferred_note=(len(deferred), deferred[0]["kickoff"]) if deferred else None)
+    # --- Team-Märkte (täglich): eigene Nachricht, 🧪 bis zum Preisvergleich ---
+    log["team_totals"] = [{"match": m, "signal": t_} for m, t_ in team_hits]
+    (RUNS_DIR / f"{now:%Y-%m-%d_%H%M}.json").write_text(
+        json.dumps(log, ensure_ascii=False, indent=1))
+    team_block = build_team_block(team_hits)
+    if team_block:
+        chunks = (chunks or []) + [team_block]
     # --- Bonus-Picks (Sa/So): separate Nachricht, klar als Bonus markiert ---
     if now_berlin().weekday() in BONUS_DAYS:
         try:
-            ocache = load_odds_cache()
-            brows = bonus_picks(matches, ocache)
-            save_odds_cache(ocache)
+            brows = []
+            if BONUS_1X2:
+                ocache = load_odds_cache()
+                brows = bonus_picks(matches, ocache)
+                save_odds_cache(ocache)
             log["bonus"] = [{"match": r["match"], "margin": r["margin"],
                              "odds": r["odds"], "pick": r["pick"],
                              "sel": r["sel"]} for r in brows]
@@ -3992,8 +4387,9 @@ def selftest():
     hA = _ht([5, 4, 6, 5, 4, 5, 6, 4, 5, 5, 4, 6, 5, 4, 5], [H, H, A, A] * 4)
     hB = _ht([4, 5, 4, 6, 5, 4, 5, 4, 6, 5, 4, 5, 4, 5, 6], [A, A, H, H] * 4)
     sig14 = [s for s in evaluate_match(dict(match), hA, hB) if s["metric_key"] == "ht_corners"]
-    if not sig14 or sig14[0]["direction"] != "über" or sig14[0]["line"] != 3.5:
-        print("FEHLER Fall 14c: HZ-Ecken-Signal fehlt/falsch:", [(s["direction"], s["line"]) for s in sig14])
+    # 13.09.: HZ-Ecken sind komplett gestrichen -> es darf KEIN Signal mehr kommen
+    if sig14:
+        print("FEHLER Fall 14c: HZ-Ecken sind gestrichen, dürfen nicht melden:", [(s["direction"], s["line"]) for s in sig14])
         ok = False
     if any(s["metric_key"] == "ht_corners" and s["direction"] == "unter"
            for s in evaluate_match(dict(match), hA, hB)):
@@ -4033,6 +4429,51 @@ def selftest():
         ok = False
     _base_means.pop("corners", None)
 
+    # --- Fall 23: Team-Märkte (13.09.)
+    _team_base.clear()
+    _team_base.update({("yellowcards", 1.5, "unter"): 0.46, ("yellowcards", 2.5, "unter"): 0.73,
+                       ("yellowcards", 1.5, "über"): 0.54, ("yellowcards", 2.5, "über"): 0.27,
+                       ("corners", 3.5, "über"): 0.64, ("corners", 4.5, "über"): 0.49,
+                       ("corners", 5.5, "über"): 0.35, ("corners", 6.5, "über"): 0.24,
+                       ("corners", 3.5, "unter"): 0.36, ("corners", 4.5, "unter"): 0.51,
+                       ("corners", 5.5, "unter"): 0.65, ("corners", 6.5, "unter"): 0.76})
+    def _team_hist(cards, corners, homes):
+        h = []
+        for c, k, is_home in zip(cards, corners, homes):
+            st = {"yellowcards": [c, 2] if is_home else [2, c],
+                  "corners": [k, 5] if is_home else [5, k],
+                  "on_target": [4, 4], "fouls": [10, 10], "offsides": [1, 1]}
+            h.append({"stats": st, "is_home": is_home, "label": "t"})
+        return h
+    # Heimteam: 1 Karte in 12 Spielen, 6 Ecken in 12 Spielen -> Anker unter 1,5 / über 5,5
+    th = _team_hist([1] * 12 + [3, 3], [6] * 12 + [3, 3], [H, A] * 7)
+    ta = _team_hist([2, 3, 1, 4, 2, 3, 2, 1, 3, 2, 4, 2, 3, 2], [5, 4, 6, 5, 4, 5, 6, 4, 5, 5, 4, 6, 5, 4], [A, H] * 7)
+    t23 = team_signals(dict(match), th, ta)
+    got = {(x["seite"], x["metric_key"], x["direction"], x["line"]) for x in t23}
+    if ("heim", "yellowcards", "unter", 1.5) not in got:
+        print("FEHLER Fall 23a: Team-Karten unter 1,5 fehlt:", got)
+        ok = False
+    if ("heim", "corners", "über", 5.5) not in got:
+        print("FEHLER Fall 23b: strengste Ecken-Linie (über 5,5) fehlt:", got)
+        ok = False
+    if ("gast", "yellowcards", "unter", 1.5) in got or ("gast", "corners", "über", 5.5) in got:
+        print("FEHLER Fall 23c: Gast ohne passende Serie darf dort kein Signal haben:", got)
+        ok = False
+    # triviale Linie: Grundrate >= 85 % -> nicht melden
+    _team_base[("corners", 6.5, "unter")] = 0.9
+    t23b = team_signals(dict(match), ta, ta)
+    if any(x["metric_key"] == "corners" and x["direction"] == "unter" and x["line"] == 6.5 for x in t23b):
+        print("FEHLER Fall 23d: triviale Linie darf nicht gemeldet werden")
+        ok = False
+    for x in t23:
+        if not (1.0 < x["fair"] < 3.0) or x["basis"] < MIN_VALID_MATCHES:
+            print("FEHLER Fall 23e: Kennzahlen unplausibel:", x)
+            ok = False
+    if build_team_block([]) is not None:
+        print("FEHLER Fall 23f: ohne Kandidaten kein Block")
+        ok = False
+    _team_base.clear()
+
     # --- Fall 22: "Wer hat mehr" (12.09.)
     pr = skellam_probs(5.0, 5.0)
     if not pr or abs(pr[0] - pr[2]) > 1e-9 or abs(sum(pr) - 1.0) > 1e-9:
@@ -4068,6 +4509,15 @@ def selftest():
     if ec and not (ec[0]["serie_gegner"] and ec[0]["gegner_anker"]):
         print("FEHLER Fall 22h: Gegen-Serie des Gegners nicht erkannt:", ec[0])
         ok = False
+    # ohne Serien-Qualifikation kein Signal, auch wenn das Modell klar ist
+    # (Heim holt viele Ecken, aber nur in 5 der letzten 12 MEHR als der Gegner)
+    lose = _who_hist(6, 4, [H, A] * 7)
+    for i in (0, 2, 3, 5, 7, 9, 11):
+        lose[i]["stats"]["corners"] = [4, 6] if lose[i]["is_home"] else [6, 4]
+    if who_more(dict(match), lose, ha22):
+        print("FEHLER Fall 22m: ohne Serie darf es kein Signal geben")
+        ok = False
+
     # dünne Datenlage muss das Signal verhindern (Neman-Grodno-Fall, 12.09.)
     thin = [{"stats": {"corners": [6, 4]}, "is_home": True, "label": "t"}] * 4
     if who_more(dict(match), thin, thin):
