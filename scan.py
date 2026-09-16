@@ -174,6 +174,9 @@ S24_GROUPS = {
 # "alle unter-Ecken-Märkte raus"). Für die Gegenbewegungs-Prüfung zählen
 # sie trotzdem weiter.
 EXCLUDED_MARKETS = {("corners", "unter"),
+                    # 16.09. (Lucio): Freistöße gibt es bei seinem Buchmacher
+                    # nicht — Daten und Backtest bleiben, die Meldung entfällt.
+                    ("freekicks", "über"), ("freekicks", "unter"),
                     ("on_target", "über"), ("on_target", "unter"),
                     # 15.09. abends (Lucio): Halbzeit-Tore wieder komplett raus.
                     ("ht_goals", "über"), ("ht_goals", "unter"),
@@ -329,18 +332,20 @@ EXCLUDED_LINES = {("goals", "unter", 1.5), ("goals", "unter", 2.5),
                   # Linie "unter 2,5" muss raus.
                   ("ht_yellowcards", "unter", 2.5)}
 
-# Die drei neuen Märkte laufen getrennt vom Kernsystem (eigene Nachricht,
-# 🧪 TEST) — Schalter zum Abstellen: EXO_ENABLED = False.
-EXO_METRICS = ("throwins", "goalkicks", "freekicks")
-# 15.09. (Lucio): "Tore über 2,5" läuft ab jetzt in der NORMALEN Liste mit,
-# nicht mehr im Extra-Block. Für diese Märkte gibt es bei scores24 keinen
-# eigenen Reiter — sie brauchen aber auch keinen: Tore über/unter bietet
-# jeder Buchmacher an. Deshalb sind sie vom Verfügbarkeits-Gate ausgenommen.
-GATE_EXEMPT = ("goals", "ht_goals", "h2_goals")
+# 16.09. (Lucio): Der Extra-Block "NEUE MÄRKTE" ist Geschichte. Nach dem ersten
+# echten Preisvergleich (Abstöße über 14,5 zu 1,51 und über 12,5 zu 1,41, beide
+# getroffen) laufen Einwürfe und Abstöße ganz normal in der Hauptliste mit —
+# ohne 🧪. Freistöße sind gestrichen, die führt sein Buchmacher nicht.
+EXO_METRICS = ()              # leer = kein Extra-Block mehr
+# Märkte OHNE scores24-Reiter: sie gehen unverändert durch das Verfügbarkeits-
+# Gate und durch die Oder-Regel, werden aber mit "Quote selbst prüfen"
+# gekennzeichnet. Tore bietet jeder Buchmacher an; Einwürfe und Abstöße hat
+# Lucio im Konto selbst nachgesehen.
+GATE_EXEMPT = ("goals", "ht_goals", "h2_goals", "throwins", "goalkicks")
 EXO_ZERO_MISSING = ("throwins", "goalkicks", "freekicks")   # 0:0 = keine Daten.
                              # Tore NICHT: 0:0 ist dort ein echtes Ergebnis.
-EXO_ENABLED = True
-EXO_TEST = True              # 🧪 bis der Preisvergleich beim Bookie steht
+EXO_ENABLED = False          # Extra-Block abgeschaltet (16.09.)
+EXO_TEST = False             # 🧪 weg: Preisvergleich steht
 EXO_SHOW = 14
 
 # Liga-Beschränkung je Markt (06.09.): "Schüsse gesamt" führt Lucios Bookie
@@ -2184,7 +2189,8 @@ def build_match_block(match, entries):
                 continue
             fair = s.get("fair_fin") or s.get("fair")
             check = " · <i>Quote selbst prüfen</i>" if s.get("no_odds_check") else ""
-            lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + check)
+            lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + check
+                         + buffer_evidence(s, short=True))
             lines.append(f"   {esc(match['home'])} {fmt_series(s['home_series'], s['home_is_anchor'])}"
                          f" · {esc(match['away'])} {fmt_series(s['away_series'], s['away_is_anchor'])}")
             continue                          # keine Leiter mehr (Lucio, 05.09.)
@@ -4251,6 +4257,44 @@ def team_signals(match, hist_home, hist_away):
     return out
 
 
+# Belastbarkeit der Datenlage je Puffer (16.09.). Aus dem Backtest über 2.415
+# Signale der neuen Märkte: der Puffer wird durch die Streuung geteilt (z), damit
+# Einwürfe, Abstöße und Freistöße trotz völlig unterschiedlicher Größenordnung
+# vergleichbar sind. Die Tabelle ist reine ANZEIGE — sie filtert nichts weg.
+# Lucio (16.09.): "Das passt so learning by doing" — dünn belegte Puffer werden
+# markiert, nicht gesperrt, weil genau dort die spielbaren Quoten liegen.
+# (z-Grenze, Fälle im Backtest, reale Trefferquote oder None wenn zu dünn)
+EXO_EVIDENCE = [(0.50,  111, None),
+                (0.75,  329, 0.751),
+                (1.00,  551, 0.837),
+                (1.50, 1046, 0.857),
+                (99.0,  378, 0.926)]
+
+
+EVIDENCE_METRICS = ("throwins", "goalkicks")   # für diese gilt die Tabelle
+
+
+def buffer_evidence(s, short=False):
+    """Kurzer Hinweis, wie gut der Puffer DIESES Signals im Backtest belegt ist.
+    short=True: Kurzform für die Hauptliste (16.09.) — meldet sich NUR, wenn der
+    Puffer im kaum getesteten Bereich liegt, damit die Zeile am Handy kurz bleibt.
+    Leerer String, wenn sich das nicht berechnen lässt."""
+    sd = s.get("sd")
+    buf = s.get("buffer_ref") if s.get("buffer_ref") is not None else s.get("buffer")
+    if not sd or buf is None:
+        return ""
+    if short and s.get("metric_key") not in EVIDENCE_METRICS:
+        return ""
+    z = buf / sd
+    for hi, n, tq in EXO_EVIDENCE:
+        if z < hi:
+            if tq is None:
+                return (" · ⚠️ dünner Puffer" if short
+                        else f" · ⚠️ dünn getestet ({n} Fälle)")
+            return "" if short else f" · ✓ {n} Fälle · {100 * tq:.0f} %"
+    return ""
+
+
 def build_exo_block(rows):
     """Eigene Nachricht für die neuen Märkte (Einwürfe, Abstöße, Freistöße).
     Getrennt vom Kernsystem, weil hier zwei Dinge anders sind:
@@ -4284,7 +4328,7 @@ def build_exo_block(rows):
                          f" · {esc(m['away'])} {fmt_series(sg['away_series'], sg['away_is_anchor'])}")
             if sg.get("expect") is not None:
                 lines.append(f"   🎯 Erwartung {sg['expect']} (Ø {sg['avg'][0]} / {sg['avg'][1]})"
-                             f" · Puffer {sg['buffer']:+.1f}"
+                             f" · Puffer {sg['buffer']:+.1f}" + buffer_evidence(sg)
                              + (f" · 📊 {sg['valid'][0]}/{sg['valid'][1]} Spiele" if sg.get("valid") else ""))
         lines.append("")
     return "\n".join(lines)
@@ -5329,7 +5373,7 @@ def selftest():
         print("FEHLER Fall 26c: 0:0 muss als Ergebnis zählen")
         ok = False
     # Tore brauchen keinen scores24-Nachweis, die Nebenmärkte schon
-    if "goals" not in GATE_EXEMPT or "throwins" in GATE_EXEMPT:
+    if "goals" not in GATE_EXEMPT or "corners" in GATE_EXEMPT:
         print("FEHLER Fall 26d: Nachweis-Ausnahme falsch gesetzt")
         ok = False
     if "goals" in EXO_METRICS:
@@ -5382,7 +5426,7 @@ def selftest():
         print("FEHLER Fall 25f: Torminuten dürfen nicht gespeichert werden (gestrichen)")
         ok = False
 
-    # --- Fall 24: neue Märkte Einwürfe/Abstöße/Freistöße (15.09.)
+    # --- Fall 24: Einwürfe/Abstöße — seit 16.09. in der normalen Liste
     import random as _rnd
     _rnd.seed(11)
     def _exo_hist(n, mean):
@@ -5395,13 +5439,14 @@ def selftest():
     m24 = {"id": "24", "league": "Russia Premier League", "home": "A", "away": "B",
            "home_id": "1", "away_id": "2", "kickoff": "x", "kickoff_ts": 1}
     h24, a24 = _exo_hist(24, 56), _exo_hist(24, 54)
-    e24 = [x for x in evaluate_match(m24, h24, a24) if x["metric_key"] in EXO_METRICS]
+    NEU24 = ("throwins", "goalkicks")
+    e24 = [x for x in evaluate_match(m24, h24, a24) if x["metric_key"] in NEU24]
     if not any(x["metric_key"] == "throwins" and x["direction"] == "über" for x in e24):
         print("FEHLER Fall 24a: Einwurf-Signal fehlt:", [(x["metric_key"], x["direction"], x["line"]) for x in e24])
         ok = False
     # Liga ohne Datenabdeckung -> gar kein Signal
     m24b = dict(m24, league="Germany Bundesliga I")
-    if [x for x in evaluate_match(m24b, h24, a24) if x["metric_key"] in EXO_METRICS]:
+    if [x for x in evaluate_match(m24b, h24, a24) if x["metric_key"] in NEU24]:
         print("FEHLER Fall 24b: neue Märkte nur in den Ligen mit Abdeckung")
         ok = False
     # 0:0 heißt "nicht erfasst", nicht "null Einwürfe"
@@ -5412,15 +5457,32 @@ def selftest():
     if [x for x in evaluate_match(m24, h24z, a24) if x["metric_key"] == "throwins"]:
         print("FEHLER Fall 24d: ohne Datenbasis darf es kein Signal geben")
         ok = False
-    # Anzeige: eigener Block, nie im Kernsystem
     for x in e24:
         assess_signal(x)
-    blk24 = build_exo_block([(m24, x) for x in e24])
-    if not blk24 or "NEUE MÄRKTE" not in blk24 or "🧪" not in blk24:
-        print("FEHLER Fall 24e: Block fehlt oder ohne Test-Kennzeichnung")
+    # 24e: Puffer-Belastbarkeit (16.09.) — reine Anzeige, filtert nichts
+    if buffer_evidence({"sd": 5.0, "buffer": 1.4}) .find("dünn") < 0:
+        print("FEHLER Fall 24e: dünner Puffer muss als dünn markiert werden")
         ok = False
-    if build_exo_block([]) is not None:
-        print("FEHLER Fall 24f: ohne Kandidaten kein Block")
+    if "364" in buffer_evidence({"sd": 5.0, "buffer": 5.2}) or \
+            "%" not in buffer_evidence({"sd": 5.0, "buffer": 5.2}):
+        print("FEHLER Fall 24f: dicker Puffer braucht Fallzahl und Trefferquote")
+        ok = False
+    if buffer_evidence({"buffer": 3.0}) or buffer_evidence({"sd": 4.0}):
+        print("FEHLER Fall 24g: ohne Streuung oder Puffer kein Hinweis")
+        ok = False
+    # 24h: Einwürfe/Abstöße stehen im NORMALEN Spielblock, mit "Quote selbst
+    #      prüfen" (kein scores24-Reiter) — und der Extra-Block ist abgeschaltet.
+    _s24 = dict(e24[0], light="🟢", fair=1.42, no_odds_check=True, sd=5.0, buffer=1.4)
+    _b24 = build_match_block(m24, [("new", _s24, "")])
+    if "Quote selbst prüfen" not in _b24 or "dünner Puffer" not in _b24:
+        print("FEHLER Fall 24h: neue Märkte fehlen im normalen Spielblock")
+        ok = False
+    if EXO_METRICS or EXO_ENABLED or EXO_TEST:
+        print("FEHLER Fall 24i: Extra-Block muss abgeschaltet sein")
+        ok = False
+    # 24j: Freistöße sind gestrichen (Buchmacher führt sie nicht)
+    if [x for x in evaluate_match(m24, h24, a24) if x["metric_key"] == "freekicks"]:
+        print("FEHLER Fall 24j: Freistöße dürfen nicht mehr gemeldet werden")
         ok = False
 
     # --- Fall 23: Team-Märkte (13.09.)
