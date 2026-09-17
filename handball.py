@@ -1328,6 +1328,10 @@ def quoten_probe():
             haupt = event_xb([e["id"] for e in kandidaten])
         except Exception as exc:
             zf.append(f"{name}: event: {exc}"); continue
+        # our_event_id steht nur in der Spielplan-Liste, nicht in der Markt-Antwort
+        bruecke = {str(e.get("id")): e.get("our_event_id") for e in alle}
+        for r_ in haupt:
+            r_["our_event_id"] = bruecke.get(str(r_.get("id")))
         raw["haupt"][sid] = haupt
         for r_ in haupt:
             val = r_.get("Value") or {}
@@ -1342,19 +1346,8 @@ def quoten_probe():
             try:
                 unter = event_xb([x["I"] for x in wahl])
                 if not unter:
-                    # Variante: einzeln, und mit dem Hauptspiel als Anker
-                    x0 = wahl[0]
-                    for params in ({"event_id": x0["I"]}, {"event_id": r_.get("id"), "sub_id": x0["I"]},
-                                   {"event_id": r_.get("id"), "sub": 1}):
-                        try:
-                            d = api_get("/v1/1xbet/event", **params)
-                            got = d.get("results") or []
-                            zf.append(f"      Variante {params}: {len(got)} Ergebnisse"
-                                      + (f", Value-Keys {sorted((got[0].get('Value') or {}).keys())[:10]}, SG={len((got[0].get('Value') or {}).get('SG') or [])}" if got else ""))
-                            if got and str(got[0].get("id")) == str(x0["I"]):
-                                unter = got; break
-                        except Exception as exc:
-                            zf.append(f"      Variante {params}: {exc}")
+                    zf.append("      Unterspiele über /v1/1xbet/event nicht abrufbar (0 Ergebnisse; "
+                              "Zusatzparameter werden ignoriert — am 17.09. geprüft)")
             except Exception as exc:
                 zf.append(f"      Unterspiel-Abruf: {exc}"); continue
             raw["unter"][str(r_.get("id"))] = unter
