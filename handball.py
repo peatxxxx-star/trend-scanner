@@ -41,6 +41,7 @@ Umgebung: BETSAPI_TOKEN, optional TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID
 """
 import json
 import os
+import re
 import statistics as st
 import sys
 import time
@@ -768,8 +769,11 @@ HOCKEY_TOP = ("khl", "nhl", "shl", "liiga", "del", "extraliga", "nla", "national
 
 
 def hockey_top(liga: str) -> bool:
+    """Nur ganze Wörter vergleichen — "nla" steckt sonst auch in "Finland"."""
     l = (liga or "").lower()
-    return any(k in l for k in HOCKEY_TOP) and not any(j in l for j in ("u20", "u18", "u16", "junior", "women", "mhl"))
+    toks = set(re.findall(r"[a-z]+", l))
+    hit = any((k in l) if " " in k else (k in toks) for k in HOCKEY_TOP)
+    return hit and not any(j in l for j in ("u20", "u18", "u16", "junior", "women", "mhl"))
 
 
 def hockey_reg(e):
