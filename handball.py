@@ -1384,6 +1384,66 @@ def quoten_probe():
                 zf.append(f"   event/odds {oid}: Märkte {mk} · Beispiel {json.dumps(first)[:500]}")
             except Exception as exc:
                 zf.append(f"   event/odds {oid}: {exc}")
+    # Stufe 4 (17.09., Lucio: "bet365 ist der Maßstab — wenn es da nichts gibt,
+    # dann nirgendwo"): voller bet365-Marktkatalog je Spiel (/v1/bet365/prematch).
+    raw["b365"] = {}
+    B365_SPORT = {1: "Fußball", 17: "Eishockey", 18: "Basketball"}
+
+    def walk(node, out, pfad="", depth=0):
+        """Alle Märkte einer bet365-Prematch-Antwort: Abschnitt → Marktname → Beispiel-Quoten."""
+        if depth > 8:
+            return
+        if isinstance(node, dict):
+            sp = node.get("sp")
+            if isinstance(sp, dict):
+                for mk, mv in sp.items():
+                    if isinstance(mv, dict):
+                        odds = mv.get("odds") or []
+                        bsp = [(o.get("name"), o.get("header"), o.get("handicap"), o.get("odds")) for o in odds[:6] if isinstance(o, dict)]
+                        out.append((pfad, mv.get("name") or mk, len(odds), bsp))
+                    elif isinstance(mv, list):
+                        out.append((pfad, mk, len(mv), [(o.get("name"), o.get("header"), o.get("handicap"), o.get("odds")) for o in mv[:6] if isinstance(o, dict)]))
+            for k, v in node.items():
+                if k != "sp":
+                    walk(v, out, f"{pfad}/{k}" if pfad else str(k), depth + 1)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v, out, pfad, depth + 1)
+
+    for sid, name in B365_SPORT.items():
+        try:
+            alle = []
+            for d in tage[:2]:
+                for page in (1, 2, 3):
+                    r = api_get("/v1/bet365/upcoming", sport_id=sid, day=d, page=page)
+                    res = r.get("results") or []
+                    alle += res
+                    if len(res) < 50:
+                        break
+        except Exception as exc:
+            zf.append(f"bet365 {name}: upcoming: {exc}"); continue
+        if sid == 1:
+            gross = [e for e in alle if any(k in ((e.get("league") or {}).get("name") or "").lower().replace(" - ", ". ")
+                                             for k in ("premier league", "bundesliga", "laliga", "la liga", "serie a", "ligue 1", "champions league", "europa league", "eredivisie", "championship", "russia"))]
+            kand = (gross or alle)[:3]
+        else:
+            kand = sorted(alle, key=lambda e: int(e.get("time") or 0))[:2]
+        zf.append(f"bet365 {name}: {len(alle)} Spiele (2 Tage), {sum(1 for e in alle if e.get('our_event_id'))} mit our_event_id; Beispiele: "
+                  + "; ".join(f"{(e.get('home') or {}).get('name')}–{(e.get('away') or {}).get('name')} [{(e.get('league') or {}).get('name')}] FI={e.get('id')} our={e.get('our_event_id')}" for e in kand))
+        for e in kand:
+            try:
+                pm = api_get("/v1/bet365/prematch", FI=e.get("id"))
+            except Exception as exc:
+                zf.append(f"   prematch FI={e.get('id')}: {exc}"); continue
+            raw["b365"][str(e.get("id"))] = pm
+            maerkte = []
+            walk(pm.get("results") or [], maerkte)
+            zf.append(f"   {(e.get('home') or {}).get('name')} – {(e.get('away') or {}).get('name')}: {len(maerkte)} Märkte, Abschnitte: "
+                      + ", ".join(sorted({m[0].split('/')[0] for m in maerkte})))
+            for pfad, mname, n, bsp in maerkte:
+                low = (str(pfad) + " " + str(mname)).lower()
+                if any(k in low for k in ("corner", "card", "booking", "shot", "offside", "foul", "throw", "goal kick", "goal_kick", "total", "team")):
+                    zf.append(f"      [{pfad}] {mname} ({n}): {bsp}")
     OUT.mkdir(exist_ok=True)
     (OUT / f"quoten_probe2_{heute:%Y-%m-%d}.json").write_text(json.dumps(raw, ensure_ascii=False), encoding="utf-8")
     text = "\n".join(zf)
