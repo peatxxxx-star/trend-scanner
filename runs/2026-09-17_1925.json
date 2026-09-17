@@ -1,0 +1,548 @@
+{
+ "run_utc": "2026-09-17T19:25:08+00:00",
+ "matches_checked": 29,
+ "requests": 68,
+ "hits": [
+  {
+   "match": {
+    "id": "13113081",
+    "league": "Copa Libertadores",
+    "league_id": "3514",
+    "home": "Flamengo",
+    "away": "Independiente del Valle",
+    "home_id": "1339",
+    "away_id": "37492",
+    "kickoff": "Fr 02:30",
+    "kickoff_ts": 1789691400,
+    "bet365_id": "200205310"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      42
+     ],
+     "next_line": 8.5,
+     "next_note": "Flamengo 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Independiente del Valle 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.6516893821100659,
+      0.7722919520246959
+     ],
+     "fair": 1.43,
+     "ladder": [
+      [
+       6.5,
+       1.44
+      ],
+      [
+       7.5,
+       1.43
+      ]
+     ],
+     "avg": [
+      10.5,
+      9.2
+     ],
+     "expect_sum": 9.8,
+     "expect_matchup": 10.2,
+     "contrib": [
+      6.9,
+      3.3
+     ],
+     "expect": 10.0,
+     "buffer": 2.5,
+     "fa": [
+      [
+       5.4,
+       4.2
+      ],
+      [
+       6.0,
+       3.6
+      ]
+     ],
+     "sd": 3.67,
+     "p_emp": {
+      "6.5": 0.6944444444444444,
+      "7.5": 0.6993006993006994
+     },
+     "range": [
+      1.42,
+      2.47
+     ],
+     "b365": [
+      "9.0",
+      "1.800",
+      "2.000"
+     ],
+     "p_mod": 0.752,
+     "p_fin": 0.689,
+     "kal": 0.95,
+     "fair_fin": 1.45,
+     "ladder_fin": [
+      [
+       6.5,
+       1.38
+      ],
+      [
+       7.5,
+       1.45
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.45",
+     "first_run": "Do 20:32"
+    },
+    {
+     "metric": "1. HZ Ecken",
+     "metric_key": "ht_corners",
+     "line": 3.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      41
+     ],
+     "next_line": 4.5,
+     "next_note": "Independiente del Valle 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.8129423458303907,
+      0.7769597055043553
+     ],
+     "fair": 1.35,
+     "ladder": [
+      [
+       2.5,
+       1.28
+      ],
+      [
+       3.5,
+       1.35
+      ]
+     ],
+     "avg": [
+      5.5,
+      4.7
+     ],
+     "expect_sum": 5.1,
+     "expect_matchup": 4.9,
+     "contrib": [
+      2.9,
+      2.0
+     ],
+     "expect": 5.0,
+     "buffer": 1.5,
+     "fa": [
+      [
+       2.9,
+       2.0
+      ],
+      [
+       3.6,
+       1.3
+      ]
+     ],
+     "sd": 1.98,
+     "p_emp": {
+      "2.5": 0.78125,
+      "3.5": 0.7407407407407407
+     },
+     "range": [
+      1.42,
+      2.47
+     ],
+     "b365": [
+      "4.5",
+      "2.050",
+      "1.750"
+     ],
+     "p_mod": 0.776,
+     "p_fin": 0.698,
+     "kal": 0.92,
+     "fair_fin": 1.43,
+     "ladder_fin": [
+      [
+       2.5,
+       1.3
+      ],
+      [
+       3.5,
+       1.43
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.43",
+     "first_run": "Do 20:32"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13112610",
+    "league": "Copa Sudamericana",
+    "league_id": "445",
+    "home": "Torque",
+    "away": "Cienciano",
+    "home_id": "28749",
+    "away_id": "1356",
+    "kickoff": "Fr 02:30",
+    "kickoff_ts": 1789691400,
+    "bet365_id": "199946619"
+   },
+   "signals": [
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      46,
+      48
+     ],
+     "next_line": 1.5,
+     "next_note": "Torque 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Cienciano 0/2 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.8697965662617296,
+      0.6857810434688536
+     ],
+     "fair": 1.33,
+     "ladder": [
+      [
+       0.5,
+       1.33
+      ]
+     ],
+     "avg": [
+      1.6,
+      1.9
+     ],
+     "expect_sum": 1.7,
+     "expect_matchup": 2.3,
+     "contrib": [
+      1.7,
+      0.6
+     ],
+     "expect": 2.0,
+     "buffer": 1.5,
+     "fa": [
+      [
+       0.5,
+       1.0
+      ],
+      [
+       0.8,
+       0.9
+      ]
+     ],
+     "sd": 1.35,
+     "p_emp": {
+      "0.5": 0.7518796992481203
+     },
+     "range": [
+      1.7,
+      1.86
+     ],
+     "referee": "Maximiliano Ramirez: Ø 4.6 Karten (7 Sp.) · Ø 21.3 Fouls (7 Sp.)",
+     "expect_ref": 4.3,
+     "buffer_ref": 3.8,
+     "p_mod": 0.998,
+     "p_fin": 0.848,
+     "kal": 0.97,
+     "fair_fin": 1.18,
+     "ladder_fin": [
+      [
+       0.5,
+       1.18
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 75 % vs. Modell 100 %",
+     "first_run": "Do 20:32"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13041238",
+    "league": "CONCACAF Central American Cup",
+    "league_id": "33813",
+    "home": "Alajuelense",
+    "away": "CD Marathon",
+    "home_id": "1361",
+    "away_id": "46642",
+    "kickoff": "Fr 02:30",
+    "kickoff_ts": 1789691400,
+    "bet365_id": "201315020"
+   },
+   "signals": [
+    {
+     "metric": "1. HZ Ecken",
+     "metric_key": "ht_corners",
+     "line": 3.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      43,
+      45
+     ],
+     "next_line": 4.5,
+     "next_note": "Alajuelense 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; CD Marathon 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.8169009322519093,
+      0.7522970719787855
+     ],
+     "fair": 1.36,
+     "ladder": [
+      [
+       2.5,
+       1.36
+      ],
+      [
+       3.5,
+       1.36
+      ]
+     ],
+     "avg": [
+      5.9,
+      4.6
+     ],
+     "expect_sum": 5.3,
+     "expect_matchup": 6.2,
+     "contrib": [
+      3.5,
+      2.7
+     ],
+     "expect": 5.7,
+     "buffer": 2.2,
+     "fa": [
+      [
+       3.3,
+       2.8
+      ],
+      [
+       2.5,
+       2.2
+      ]
+     ],
+     "sd": 2.43,
+     "p_emp": {
+      "2.5": 0.7352941176470588,
+      "3.5": 0.7352941176470588
+     },
+     "range": [
+      1.194,
+      1.73
+     ],
+     "b365": [
+      "4.5",
+      "1.875",
+      "1.925"
+     ],
+     "p_mod": 0.817,
+     "p_fin": 0.714,
+     "kal": 0.92,
+     "fair_fin": 1.4,
+     "ladder_fin": [
+      [
+       2.5,
+       1.32
+      ],
+      [
+       3.5,
+       1.4
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.40",
+     "first_run": "Do 20:32"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13137889",
+    "league": "Panama Liga Prom",
+    "league_id": "25079",
+    "home": "Champions FC Academy",
+    "away": "Chorrillo",
+    "home_id": "301595",
+    "away_id": "6492",
+    "kickoff": "Fr 03:00",
+    "kickoff_ts": 1789693200,
+    "bet365_id": "201349758"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "Chorrillo 1/3 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.8023916081618295,
+      0.5738523218850221
+     ],
+     "fair": 1.54,
+     "ladder": [
+      [
+       1.5,
+       1.29
+      ],
+      [
+       2.5,
+       1.54
+      ]
+     ],
+     "avg": [
+      4.8,
+      3.6
+     ],
+     "expect_sum": 4.2,
+     "expect_matchup": 5.5,
+     "contrib": [
+      2.8,
+      2.7
+     ],
+     "expect": 4.9,
+     "buffer": 2.4,
+     "fa": [
+      [
+       1.5,
+       2.8
+      ],
+      [
+       1.3,
+       1.9
+      ]
+     ],
+     "sd": 2.3,
+     "p_emp": {
+      "1.5": 0.7751937984496123,
+      "2.5": 0.6493506493506493
+     },
+     "unchecked": true,
+     "p_mod": 0.852,
+     "p_fin": 0.705,
+     "kal": 0.94,
+     "fair_fin": 1.42,
+     "ladder_fin": [
+      [
+       1.5,
+       1.25
+      ],
+      [
+       2.5,
+       1.42
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 65 % vs. Modell 85 %",
+     "first_run": "Do 20:32",
+     "change_note": "Linie vorher 1.5"
+    }
+   ]
+  }
+ ],
+ "new": [],
+ "changed": [
+  "13137889|goals|über"
+ ],
+ "dropped": [
+  "13020822|goals|über",
+  "13086924|goals|über",
+  "13133527|goals|über",
+  "13133278|goals|über",
+  "12371600|goals|über",
+  "11990792|corners|über",
+  "12099630|goals|über",
+  "12371585|goals|über",
+  "13113081|goals|über",
+  "12222305|goals|über",
+  "13138951|goals|über",
+  "13041108|goals|über"
+ ],
+ "team_totals": [],
+ "neue_maerkte": []
+}
