@@ -2049,7 +2049,7 @@ _SNAPSHOT_KEYS = ("metric", "metric_key", "direction", "line", "home_series",
                   "expect", "expect_sum", "expect_matchup", "contrib", "buffer", "fa",
                   "referee", "b365", "expect_ref", "buffer_ref",
                   "sd", "p_emp", "p_mod", "p_fin", "fair_fin", "ladder_fin", "market",
-                  "market_src", "ev", "light", "reason", "b365_quote", "b365_checked")
+                  "market_src", "ev", "light", "reason", "b365_quote", "b365_checked", "b365_near", "b365_lines")
 
 
 def signal_snapshot(s):
@@ -2606,16 +2606,45 @@ def b365_quotes(prematch) -> dict:
     return out
 
 
-def play_flag(s):
-    """Lucios Regel auf die bet365-Quote: (Symbol, Text) oder None ohne Quote."""
-    q = s.get("b365_quote")
-    if not q:
+def b365_nearest(quotes, metric, direction, line):
+    """Nachbarlinie, wenn bet365 die exakte Linie nicht führt: (Linie, Quote,
+    Lage) mit Lage 'unter' (bet365-Linie ist lockerer: unsere Quote läge HÖHER)
+    oder 'über' (strenger: unsere Quote läge NIEDRIGER). Nächste Linie im
+    Abstand bis 2 gewinnt. None, wenn nichts da ist."""
+    cands = [(L, q) for (m, d, L), q in quotes.items() if m == metric and d == direction and abs(L - line) <= 2.0 + 1e-9]
+    if not cands:
         return None
+    L, q = min(cands, key=lambda x: (abs(x[0] - line), x[0]))
+    if abs(L - line) < 1e-9:
+        return (L, q, "exakt")
+    lockerer = (L < line) if direction == "über" else (L > line)
+    return (L, q, "unter" if lockerer else "über")
+
+
+def play_flag(s):
+    """Lucios Regel auf die bet365-Quote: (Symbol, Text) oder None ohne Quote.
+    Exakte Linie: ✔ ab Fair × 1,05 und ≥ 1,30, sonst ✘. Nachbarlinie: nur,
+    wenn die Schlussfolgerung sicher ist — lockerere Linie schon spielbar →
+    unsere strengere erst recht (✔); strengere Linie schon zu billig → unsere
+    lockerere erst recht (✘); sonst '?'."""
     fair = s.get("fair_fin") or s.get("fair")
-    if not fair:
-        return ("💰", f"b365 {q:.2f}")
-    ok = q >= fair * PLAY_FAIR_FACTOR and q >= PLAY_MIN_ODDS
-    return ("✔", f"b365 {q:.2f}") if ok else ("✘", f"b365 {q:.2f}")
+    q = s.get("b365_quote")
+    if q:
+        if not fair:
+            return ("💰", f"b365 {q:.2f}")
+        ok = q >= fair * PLAY_FAIR_FACTOR and q >= PLAY_MIN_ODDS
+        return ("✔", f"b365 {q:.2f}") if ok else ("✘", f"b365 {q:.2f}")
+    near = s.get("b365_near")
+    if near and fair:
+        L, nq, lage = near
+        txt = f"b365 ({L:g}) {nq:.2f}"
+        ok = nq >= fair * PLAY_FAIR_FACTOR and nq >= PLAY_MIN_ODDS
+        if lage == "unter" and ok:
+            return ("✔", txt)
+        if lage == "über" and not ok:
+            return ("✘", txt)
+        return ("?", txt)
+    return None
 
 
 def fmt_b365(s) -> str:
@@ -2644,7 +2673,11 @@ def attach_extras(match, signals):
             for s in signals:
                 s["b365_checked"] = True
                 try:
-                    s["b365_quote"] = q.get((s["metric_key"], s["direction"], float(s["line"])))
+                    line = float(s["line"])
+                    s["b365_quote"] = q.get((s["metric_key"], s["direction"], line))
+                    near = b365_nearest(q, s["metric_key"], s["direction"], line)
+                    s["b365_near"] = None if (near is None or near[2] == "exakt") else list(near)
+                    s["b365_lines"] = sorted(L for (m, d, L) in q if m == s["metric_key"] and d == s["direction"])
                 except (TypeError, ValueError):
                     s["b365_quote"] = None
         except BudgetExhausted:
@@ -5728,6 +5761,19 @@ def selftest():
         print("FEHLER Fall 27d: unter 1,30 nie spielbar"); ok = False
     if play_flag({"b365_checked": True}) is not None or fmt_b365({"b365_checked": True}) != " · 💰 b365 –":
         print("FEHLER Fall 27e: ohne Quote muss 'b365 –' stehen"); ok = False
+    # Nachbarlinien: Signal Ecken über 8,5, bet365 nur 9,5 zu 2,00 (strenger) bzw. 7,5 zu 1,60 (lockerer)
+    n1 = b365_nearest({("corners", "über", 9.5): 2.0}, "corners", "über", 8.5)
+    n2 = b365_nearest({("corners", "über", 7.5): 1.6}, "corners", "über", 8.5)
+    if n1 != (9.5, 2.0, "über") or n2 != (7.5, 1.6, "unter"):
+        print("FEHLER Fall 27f: Nachbarlinie falsch:", n1, n2); ok = False
+    if play_flag({"b365_near": [9.5, 1.40, "über"], "fair_fin": 1.44})[0] != "✘":
+        print("FEHLER Fall 27g: strengere Linie zu billig → ✘"); ok = False
+    if play_flag({"b365_near": [7.5, 1.60, "unter"], "fair_fin": 1.44})[0] != "✔":
+        print("FEHLER Fall 27h: lockerere Linie schon spielbar → ✔"); ok = False
+    if play_flag({"b365_near": [9.5, 2.00, "über"], "fair_fin": 1.44})[0] != "?":
+        print("FEHLER Fall 27i: strengere Linie spielbar sagt nichts über unsere → ?"); ok = False
+    if b365_nearest({("corners", "über", 12.5): 3.0}, "corners", "über", 8.5) is not None:
+        print("FEHLER Fall 27j: Linien weiter als 2 entfernt zählen nicht"); ok = False
 
     # --- Fall 23: Team-Märkte (13.09.)
     _team_base.clear()

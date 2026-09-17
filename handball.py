@@ -1163,12 +1163,32 @@ def b365_sport_quotes(pm) -> dict:
     return out
 
 
-def b365_tail(q, fair, checked):
-    """Anzeige nach Lucios Regel: ✔ ab Fair × 1,05 und ≥ 1,30, sonst ✘; ohne Quote 'b365 –'."""
+def b365_tail(q, fair, checked, near=None):
+    """Anzeige nach Lucios Regel: ✔ ab Fair × 1,05 und ≥ 1,30, sonst ✘; ohne
+    Quote 'b365 –'. Nachbarlinie (Linie, Quote, Lage) nur mit sicherer Aussage:
+    lockerere Linie schon spielbar → ✔, strengere Linie schon zu billig → ✘,
+    sonst '?'."""
     if q:
         ok = q >= fair * PLAY_FAIR_FACTOR and q >= PLAY_MIN_ODDS
         return f" · 💰 b365 {q:.2f} {'✔' if ok else '✘'}"
+    if near:
+        L, nq, lage = near
+        ok = nq >= fair * PLAY_FAIR_FACTOR and nq >= PLAY_MIN_ODDS
+        sym = "✔" if (lage == "unter" and ok) else ("✘" if (lage == "über" and not ok) else "?")
+        return f" · 💰 b365 ({L:g}) {nq:.2f} {sym}"
     return " · 💰 b365 –" if checked else ""
+
+
+def b365_near(qb, part, side, line):
+    """Nächste bet365-Linie (Abstand ≤ 2 bzw. ≤ 6 Punkte im Basketball) mit Lage."""
+    grenze = 6.0 if SPORT_KEY == "basketball" else 2.0
+    cands = [(L, q) for (pt, sd, L), q in qb.items() if pt == part and sd == side and abs(L - line) <= grenze + 1e-9]
+    if not cands:
+        return None
+    L, q = min(cands, key=lambda x: (abs(x[0] - line), x[0]))
+    if abs(L - line) < 1e-9:
+        return None
+    return (L, q, "unter" if L < line else "über")
 
 
 def serien_scan():
@@ -1350,9 +1370,10 @@ def serien_scan():
             fair = 1 / q
             part = B365_PART.get(base)
             bq = qb.get((part, side, float(L))) if (qb and part is not None) else None
-            ot = " <i>(inkl. OT)</i>" if (bq and SPORT_KEY == "eishockey") else ""
+            near = b365_near(qb, part, side, float(L)) if (qb and part is not None and not bq) else None
+            ot = " <i>(inkl. OT)</i>" if ((bq or near) and SPORT_KEY == "eishockey") else ""
             block.append(f"✅ <b>{mk} über {L}</b> · Fair {fair:.2f} · {rule} ({100 * q:.0f} %, n={n})"
-                         f"{b365_tail(bq, fair, qb is not None)}{ot} · <i>Quote selbst prüfen</i>")
+                         f"{b365_tail(bq, fair, qb is not None, near)}{ot} · <i>Quote selbst prüfen</i>")
             block.append(f"   {detail}")
         lines_out += block + [""]
     if not treffer:
