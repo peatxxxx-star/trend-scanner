@@ -1270,77 +1270,91 @@ def hockey_signal(hist, quoten, m, jetzt):
 # ausgewertet werden können. Aufruf: python3 handball.py quoten
 # ---------------------------------------------------------------------------
 XB_SPORTS = {1: "Fußball", 2: "Eishockey", 3: "Basketball"}
-SUCH = ("corner", "card", "half", "period", "quarter", "ecke", "karte", "1st", "2nd", "3rd", "foul", "offside", "throw", "goal kick", "shots")
+GROSS = ("england. premier league", "germany. bundesliga", "spain. laliga", "spain. la liga", "italy. serie a",
+         "france. ligue 1", "uefa champions league", "uefa europa league", "netherlands. eredivisie",
+         "portugal. primeira", "turkey. super lig", "russia. premier league", "belgium. pro league",
+         "scotland. premiership", "england. championship")
+WUNSCH = ("corner", "yellow", "card", "1st half", "2nd half", "offside", "foul", "throw", "goal kick", "shot",
+          "1st period", "2nd period", "3rd period", "1st quarter", "1 half", "2 half")
+
+
+def _markt_kurz(val):
+    """Kurzfassung der Total-/Team-Total-Gruppen eines 1xBet-Events."""
+    out = {}
+    for g in val.get("GE") or []:
+        G = str(g.get("G"))
+        if G in ("17", "15", "62", "6"):
+            flat = [x for row in (g.get("E") or []) for x in row]
+            out[G] = [(x.get("T"), x.get("P"), x.get("C")) for x in flat][:24]
+    return out
 
 
 def quoten_probe():
+    """Stufe 2 (17.09. abends): Unterspiele (Ecken, Karten, Halbzeit, Drittel,
+    Viertel) über ihre SG-Kennung abrufen — geht das über /v1/1xbet/event?"""
     heute = datetime.now(timezone.utc).date()
-    tage = [(heute + timedelta(days=i)).strftime("%Y%m%d") for i in range(2)]
-    raw = {"upcoming": {}, "events": {}, "inplay": {}}
-    zusammenfassung = []
-    for sid, name in XB_SPORTS.items():
+    tage = [(heute + timedelta(days=i)).strftime("%Y%m%d") for i in range(3)]
+    raw = {"haupt": {}, "unter": {}}
+    zf = []
+
+    def upcoming_xb(sid, seiten=6):
         alle = []
         for d in tage:
-            for page in (1, 2, 3):
-                try:
-                    r = api_get("/v1/1xbet/upcoming", sport_id=sid, day=d, page=page)
-                except Exception as exc:
-                    zusammenfassung.append(f"{name}: upcoming {d} S.{page}: {exc}"); break
+            for page in range(1, seiten + 1):
+                r = api_get("/v1/1xbet/upcoming", sport_id=sid, day=d, page=page)
                 res = r.get("results") or []
                 alle += res
-                if page == 1:
-                    raw["upcoming"][f"{sid}_{d}"] = {"pager": r.get("pager"), "erste": res[:5]}
                 if len(res) < 50:
                     break
-        raw["upcoming"][f"{sid}_alle_n"] = len(alle)
-        # Sehen Unterspiele wie eigene Events aus?
-        treffer = [e for e in alle if any(k in json.dumps(e, ensure_ascii=False).lower() for k in SUCH)]
-        raw["upcoming"][f"{sid}_unterspiele"] = treffer[:20]
-        mit_our = sum(1 for e in alle if e.get("our_event_id"))
-        zusammenfassung.append(f"{name}: {len(alle)} Spiele in 2 Tagen, {mit_our} mit our_event_id, "
-                               f"{len(treffer)} Einträge mit Nebenmarkt-Wörtern im Namen")
-        # Märkte von 3 Spielen (die nächsten, damit möglichst viele Märkte offen sind)
-        alle.sort(key=lambda e: int(e.get("time") or 0))
-        ids = [str(e.get("id")) for e in alle[:3] if e.get("id")]
-        if ids:
+        return alle
+
+    def event_xb(ids):
+        return (api_get("/v1/1xbet/event", event_id=",".join(str(i) for i in ids)).get("results") or [])
+
+    for sid, name in XB_SPORTS.items():
+        try:
+            alle = upcoming_xb(sid, 6 if sid == 1 else 3)
+        except Exception as exc:
+            zf.append(f"{name}: upcoming: {exc}"); continue
+        alle = [e for e in alle if (e.get("home") or {}).get("name") not in ("Home", None)]
+        if sid == 1:
+            gross = [e for e in alle if any(k in ((e.get("league") or {}).get("name") or "").lower() for k in GROSS)]
+            zf.append(f"{name}: {len(alle)} Spiele, davon {len(gross)} in großen Ligen: "
+                      + "; ".join(f"{(e.get('home') or {}).get('name')}–{(e.get('away') or {}).get('name')} ({(e.get('league') or {}).get('name')})" for e in gross[:6]))
+            kandidaten = (gross or alle)[:3]
+        else:
+            kandidaten = sorted(alle, key=lambda e: int(e.get("time") or 0))[:2]
+        try:
+            haupt = event_xb([e["id"] for e in kandidaten])
+        except Exception as exc:
+            zf.append(f"{name}: event: {exc}"); continue
+        raw["haupt"][sid] = haupt
+        for r_ in haupt:
+            val = r_.get("Value") or {}
+            sg = val.get("SG") or []
+            namen = [(x.get("PN") or "?", x.get("I")) for x in sg]
+            zf.append(f"   {name} {(r_.get('home') or {}).get('name')} – {(r_.get('away') or {}).get('name')} "
+                      f"[{(r_.get('league') or {}).get('name')}] our_event_id={r_.get('our_event_id')} · Unterspiele: {namen}")
+            zf.append(f"      Hauptmärkte: {json.dumps(_markt_kurz(val))[:500]}")
+            wahl = [x for x in sg if any(k in (x.get("PN") or "").lower() for k in WUNSCH)][:8]
+            if not wahl:
+                continue
             try:
-                ev = api_get("/v1/1xbet/event", event_id=",".join(ids))
-                raw["events"][sid] = ev
-                for r_ in ev.get("results") or []:
-                    val = r_.get("Value") or {}
-                    ge = val.get("GE") or []
-                    gruppen = sorted({str(g.get("G")) for g in ge})
-                    typen = sorted({str(x.get("T")) for g in ge for row in (g.get("E") or []) for x in row})
-                    sg = val.get("SG") or r_.get("SG") or []
-                    zusammenfassung.append(
-                        f"   {name} {r_.get('home', {}).get('name') if isinstance(r_.get('home'), dict) else r_.get('home')} – "
-                        f"{r_.get('away', {}).get('name') if isinstance(r_.get('away'), dict) else r_.get('away')}: "
-                        f"Value-Schlüssel {sorted(val.keys())[:15]} · {len(ge)} Marktgruppen (G: {', '.join(gruppen[:25])}) · "
-                        f"Typen T: {', '.join(typen[:40])} · SG/Unterspiele: {len(sg)}")
-                    if sg:
-                        zusammenfassung.append(f"      erste Unterspiele: {json.dumps(sg[:6], ensure_ascii=False)[:600]}")
+                unter = event_xb([x["I"] for x in wahl])
             except Exception as exc:
-                zusammenfassung.append(f"   {name} event: {exc}")
-        try:
-            ip = api_get("/v1/1xbet/inplay", sport_id=sid)
-            raw["inplay"][sid] = {"pager": ip.get("pager"), "erste": (ip.get("results") or [])[:3]}
-            zusammenfassung.append(f"   {name} inplay: {len(ip.get('results') or [])} laufende Spiele")
-        except Exception as exc:
-            zusammenfassung.append(f"   {name} inplay: {exc}")
+                zf.append(f"      Unterspiel-Abruf: {exc}"); continue
+            raw["unter"][str(r_.get("id"))] = unter
+            for u in unter:
+                uv = u.get("Value") or {}
+                zf.append(f"      ↳ Unterspiel {u.get('id')} PN={uv.get('PN')!r} N={uv.get('N')} TG={uv.get('TG')!r} "
+                          f"SN={uv.get('SN')!r} keys={sorted(uv.keys())[:12]}")
+                zf.append(f"         Märkte: {json.dumps(_markt_kurz(uv))[:600]}")
     OUT.mkdir(exist_ok=True)
-    (OUT / f"quoten_probe_{heute:%Y-%m-%d}.json").write_text(json.dumps(raw, ensure_ascii=False), encoding="utf-8")
-    text = "\n".join(zusammenfassung)
-    (OUT / f"quoten_probe_{heute:%Y-%m-%d}.txt").write_text(text, encoding="utf-8")
+    (OUT / f"quoten_probe2_{heute:%Y-%m-%d}.json").write_text(json.dumps(raw, ensure_ascii=False), encoding="utf-8")
+    text = "\n".join(zf)
+    (OUT / f"quoten_probe2_{heute:%Y-%m-%d}.txt").write_text(text, encoding="utf-8")
     print(text)
-    print(f"\n{_requests} Anfragen · Rohdaten: runs/quoten_probe_{heute:%Y-%m-%d}.json")
-    if TG_TOKEN and TG_CHAT:
-        try:
-            req = urllib.request.Request(
-                f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage",
-                data=urllib.parse.urlencode({"chat_id": TG_CHAT, "text": "🔎 Quoten-Probe (1xBet-API) durch — Rohdaten liegen im Repo, Auswertung folgt."}).encode(), method="POST")
-            urllib.request.urlopen(req, timeout=30).read()
-        except Exception as exc:
-            print(f"Telegram: {exc}")
+    print(f"\n{_requests} Anfragen")
 
 
 def main():
