@@ -30,10 +30,10 @@ on:
         type: string
         default: ""
       modus:
-        description: "scan = normaler Lauf · nachladen = Historien der Teams von heute/morgen neu laden · inventar = welche Märkte/Daten liefert die API pre-match? · abdeckung = welche Statistik-Felder gibt es je Liga (CSV)? · exoten = Paraden/Einwürfe/Abstöße/Freistöße nachladen · tore = Halbzeit-Tore nachladen · tordiagnose = Ereignis-Verlauf im Rohformat ansehen · schuesse = Schusszahlen von gestern roh ausgeben · backtest = einen vergangenen Tag nachrechnen"
+        description: "scan = normaler Lauf · nachladen = Historien der Teams von heute/morgen neu laden · inventar = welche Märkte/Daten liefert die API pre-match? · abdeckung = welche Statistik-Felder gibt es je Liga (CSV)? · exoten = Paraden/Einwürfe/Abstöße/Freistöße nachladen · tore = Halbzeit-Tore nachladen · tordiagnose = Ereignis-Verlauf im Rohformat ansehen · schuesse = Schusszahlen von gestern roh ausgeben · backtest = einen vergangenen Tag nachrechnen · handball = Erkundung Handball (eigenes Skript, rührt den Fußball-Scanner nicht an)"
         type: choice
         default: scan
-        options: [scan, nachladen, inventar, abdeckung, exoten, tore, tordiagnose, schuesse, backtest]
+        options: [scan, nachladen, inventar, abdeckung, exoten, tore, tordiagnose, schuesse, backtest, handball]
 
 concurrency:
   group: trend-scan
@@ -53,7 +53,17 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Handball-Erkundung
+        if: inputs.modus == 'handball'
+        env:
+          BETSAPI_TOKEN: ${{ secrets.BETSAPI_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          PYTHONUNBUFFERED: "1"
+        run: python handball.py ${{ inputs.datum || '4' }}
+
       - name: Scan ausführen
+        if: inputs.modus != 'handball'
         env:
           BETSAPI_TOKEN: ${{ secrets.BETSAPI_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
