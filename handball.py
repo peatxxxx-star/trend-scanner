@@ -1094,6 +1094,15 @@ def sr_stats_view(chunk):
 # Verlängerung — unsere Regeln laufen auf reguläre Zeit; die Quote wird
 # trotzdem gezeigt (Über-Wetten profitieren von OT), mit Hinweis.
 B365_TOKEN = os.environ.get("BETSAPI_TOKEN_B365") or TOKEN
+# 17.09. abends (Lucio): 1xBet zusätzlich (Totals + Team-Totals mit voller
+# Leiter, keine Halbzeiten/Drittel/Viertel) — um zu sehen, ob die Abdeckung
+# dort besser ist. 1xBet-Sportkennungen laut BetsAPI-Doku: 1 Fußball,
+# 2 Eishockey, 3 Basketball, 6 Volleyball; Handball ist nicht dokumentiert
+# (Versuch mit 8, sonst bleibt 1xBet dort leer).
+XB_TOKEN = os.environ.get("BETSAPI_TOKEN_1XBET") or TOKEN
+XB_SPORT_ID = {"basketball": 3, "eishockey": 2, "handball": 8, "volleyball": 6}
+# Zeitfenster (Lucio 17.09.): nur bis morgen früh 06:00 deutscher Zeit
+FENSTER_ENDE_STUNDE = 6
 PLAY_MIN_ODDS = 1.30
 PLAY_FAIR_FACTOR = 1.05
 B365_PART = {"Punkte": "", "1. HZ Punkte": "1. HZ", "Q1 Punkte": "Q1",
@@ -1163,20 +1172,44 @@ def b365_sport_quotes(pm) -> dict:
     return out
 
 
-def b365_tail(q, fair, checked, near=None):
+def b365_tail(q, fair, checked, near=None, label="b365"):
     """Anzeige nach Lucios Regel: ✔ ab Fair × 1,05 und ≥ 1,30, sonst ✘; ohne
-    Quote 'b365 –'. Nachbarlinie (Linie, Quote, Lage) nur mit sicherer Aussage:
+    Quote '<label> –'. Nachbarlinie (Linie, Quote, Lage) nur mit sicherer Aussage:
     lockerere Linie schon spielbar → ✔, strengere Linie schon zu billig → ✘,
     sonst '?'."""
     if q:
         ok = q >= fair * PLAY_FAIR_FACTOR and q >= PLAY_MIN_ODDS
-        return f" · 💰 b365 {q:.2f} {'✔' if ok else '✘'}"
+        return f" · 💰 {label} {q:.2f} {'✔' if ok else '✘'}"
     if near:
         L, nq, lage = near
         ok = nq >= fair * PLAY_FAIR_FACTOR and nq >= PLAY_MIN_ODDS
         sym = "✔" if (lage == "unter" and ok) else ("✘" if (lage == "über" and not ok) else "?")
-        return f" · 💰 b365 ({L:g}) {nq:.2f} {sym}"
-    return " · 💰 b365 –" if checked else ""
+        return f" · 💰 {label} ({L:g}) {nq:.2f} {sym}"
+    return f" · 💰 {label} –" if checked else ""
+
+
+def xb_quotes(ev) -> dict:
+    """1xBet-Event (Value.GE) → {(Abschnitt '', 'sum'|'Heim'|'Gast', Linie): Über-Quote}.
+    Nur halbe Linien (X,5) — ganze Linien sind Asian-Totals mit Rückzahlung."""
+    out = {}
+    for g in (ev.get("Value") or {}).get("GE") or []:
+        G = str(g.get("G"))
+        if G not in ("17", "15", "62"):
+            continue
+        side = {"17": "sum", "15": "Heim", "62": "Gast"}[G]
+        want = {"17": 9, "15": 11, "62": 13}[G]
+        for row in g.get("E") or []:
+            for x in row:
+                if x.get("T") != want or x.get("P") is None:
+                    continue
+                try:
+                    L = float(x["P"]); q = float(x.get("C") or 0)
+                except (TypeError, ValueError):
+                    continue
+                if abs(L - int(L) - 0.5) > 1e-9 or q <= 1.0:
+                    continue
+                out.setdefault(("", side, L), q)
+    return out
 
 
 def b365_near(qb, part, side, line):
@@ -1207,8 +1240,14 @@ def serien_scan():
     print(f"Historie: {hfiles[-1].name} ({len(hist)} Teams) · Statistik: {len(stats)} Spiele", flush=True)
     heute = datetime.now(timezone.utc).date()
 
-    # 1) anstehende Spiele
-    tage = [(heute + timedelta(days=i)).strftime("%Y%m%d") for i in range(SCAN_TAGE)]
+    # 1) anstehende Spiele — bis morgen früh 06:00 deutscher Zeit (Lucio 17.09.)
+    berlin = timezone(timedelta(hours=2))
+    jetzt_dt = datetime.now(berlin)
+    ende_dt = jetzt_dt.replace(hour=FENSTER_ENDE_STUNDE, minute=0, second=0, microsecond=0)
+    if jetzt_dt.hour >= FENSTER_ENDE_STUNDE:
+        ende_dt += timedelta(days=1)
+    ende_ts = int(ende_dt.timestamp())
+    tage = [(heute + timedelta(days=i)).strftime("%Y%m%d") for i in range(2)]
     spiele = []
     for d in tage:
         try:
@@ -1222,10 +1261,10 @@ def serien_scan():
         print(f"  inplay: {exc}", flush=True); live = []
     raus = HOCKEY_LIGA_RAUS if SPORT_KEY == "eishockey" else ()
     spiele = [m for m in spiele + live if not is_junk(m)
-              and (m.get("_live") or int(m.get("time") or 0) > jetzt)
+              and (m.get("_live") or jetzt < int(m.get("time") or 0) <= ende_ts)
               and not any(k in ((m.get("league") or {}).get("name") or "").lower() for k in raus)]
     n_live = sum(1 for m in spiele if m.get("_live"))
-    print(f"{len(spiele)} Spiele (davon {n_live} gerade laufend; ohne E-Sport{'/Testspiele' if raus else ''})", flush=True)
+    print(f"{len(spiele)} Spiele bis {ende_dt:%a %H:%M} (davon {n_live} gerade laufend; ohne E-Sport{'/Testspiele' if raus else ''})", flush=True)
 
     # 2) Historien aller beteiligten Teams auffrischen (neueste 50 Spiele) und
     #    mit der Datei zusammenführen (Vereinigung nach Spiel-ID)
@@ -1348,12 +1387,54 @@ def serien_scan():
     n_b365 = sum(1 for v in quoten_b365.values() if v)
     print(f"bet365-Katalog für {n_b365} von {len(treffer)} Spielen mit Signalen geholt", flush=True)
 
+    # 5c) 1xBet: Brücke über den 1xBet-Spielplan (our_event_id), dann Events zu zehnt
+    quoten_1x = {}
+    xb_sid = XB_SPORT_ID.get(SPORT_KEY)
+    if treffer and xb_sid:
+        bruecke_1x = {}
+        try:
+            for d in tage:
+                for page in range(1, 12):
+                    r = api_get("/v1/1xbet/upcoming", sport_id=xb_sid, day=d, page=page, _token=XB_TOKEN)
+                    res = r.get("results") or []
+                    for e in res:
+                        if e.get("our_event_id"):
+                            bruecke_1x[str(e["our_event_id"])] = str(e.get("id"))
+                    if len(res) < 50:
+                        break
+            try:
+                for e in api_get("/v1/1xbet/inplay", sport_id=xb_sid, _token=XB_TOKEN).get("results") or []:
+                    if e.get("our_event_id"):
+                        bruecke_1x[str(e["our_event_id"])] = str(e.get("id"))
+            except Exception:
+                pass
+        except urllib.error.HTTPError as exc:
+            print(f"  1xBet-Spielplan nicht verfügbar (HTTP {exc.code})", flush=True)
+        except Exception as exc:
+            print(f"  1xBet-Spielplan: {exc}", flush=True)
+        ids_1x = {bruecke_1x[str(m.get("id"))]: str(m.get("id")) for m, _, _ in treffer if bruecke_1x.get(str(m.get("id")))}
+        chunks = [list(ids_1x)[i:i + 10] for i in range(0, len(ids_1x), 10)]
+        def _hole_1x(chunk):
+            try:
+                return api_get("/v1/1xbet/event", event_id=",".join(chunk), _token=XB_TOKEN).get("results") or []
+            except Exception as exc:
+                print(f"  1xBet-Events: {exc}", flush=True); return []
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            for f in as_completed([pool.submit(_hole_1x, c) for c in chunks]):
+                for ev in f.result():
+                    mid = ids_1x.get(str(ev.get("id")))
+                    if mid:
+                        quoten_1x[mid] = xb_quotes(ev)
+        for m, _, _ in treffer:
+            quoten_1x.setdefault(str(m.get("id")), {} if bruecke_1x.get(str(m.get("id"))) else None)
+        print(f"1xBet: Brücke {len(bruecke_1x)} Spiele, Märkte für {sum(1 for v in quoten_1x.values() if v)} von {len(treffer)} Spielen mit Signalen", flush=True)
+
     # 6) Nachricht: Zeit zuerst, gleiche Zeit nach Liga, dann Heimteam
     treffer.sort(key=lambda x: (int(x[0].get("time") or 0), x[1].lower(), (x[0].get("home") or {}).get("name", "")))
     berlin = timezone(timedelta(hours=2))
     WD = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
     em = cfg["emoji"]
-    lines_out = [f"{em} <b>{SPORT['name'].upper()}-SCAN</b> · heute (auch laufende Spiele) + 2 Tage · 🧪 <i>Test</i>",
+    lines_out = [f"{em} <b>{SPORT['name'].upper()}-SCAN</b> · bis {ende_dt:%a %H:%M} (auch laufende Spiele) · 🧪 <i>Test</i>",
                  "<i>Serien-Regel: beide Teams 9/10 (A) bzw. 8/10 (B) über der Linie, Team-Märkte 9/10 · "
                  f"Fair = gemessene Trefferquote dieser Linie · nur über · Fenster 75 % bis Fair {SR_MIN_FAIR:.2f}</i>", ""]
     n_sig = 0
@@ -1365,6 +1446,7 @@ def serien_scan():
         block = [f"{em} <b>{scan.esc(home)} – {scan.esc(away)}</b>",
                  f"🕒 {WD[t.weekday()]} {t:%H:%M} · {scan.esc(liga)}{top}{live}"]
         qb = quoten_b365.get(str(m.get("id")))
+        qx = quoten_1x.get(str(m.get("id")))
         for mk, L, rule, n, q, detail, side, base in sigs:
             n_sig += 1
             fair = 1 / q
@@ -1372,8 +1454,13 @@ def serien_scan():
             bq = qb.get((part, side, float(L))) if (qb and part is not None) else None
             near = b365_near(qb, part, side, float(L)) if (qb and part is not None and not bq) else None
             ot = " <i>(inkl. OT)</i>" if ((bq or near) and SPORT_KEY == "eishockey") else ""
+            xq = xnear = None
+            if qx is not None and part == "":            # 1xBet: nur Gesamtspiel (keine Unterspiele)
+                xq = qx.get(("", side, float(L)))
+                xnear = b365_near(qx, "", side, float(L)) if not xq else None
             block.append(f"✅ <b>{mk} über {L}</b> · Fair {fair:.2f} · {rule} ({100 * q:.0f} %, n={n})"
-                         f"{b365_tail(bq, fair, qb is not None, near)}{ot} · <i>Quote selbst prüfen</i>")
+                         f"{b365_tail(bq, fair, qb is not None, near)}{ot}"
+                         f"{b365_tail(xq, fair, qx is not None and part == '', xnear, label='1xBet')} · <i>Quote selbst prüfen</i>")
             block.append(f"   {detail}")
         lines_out += block + [""]
     if not treffer:
