@@ -69,6 +69,10 @@ jobs:
         if: ${{ !contains(fromJSON('["handball","handball-scan","basketball","basketball-scan","eishockey","eishockey-scan","volleyball","eishockey-stats","basketball-stats","basketball-liga","quoten-probe"]'), inputs.modus) }}
         env:
           BETSAPI_TOKEN: ${{ secrets.BETSAPI_TOKEN }}
+          # 17.09.: bet365-Katalog (Quotenvergleich) — liegt das Paket auf einem
+          # anderen Konto, dessen Token als Secret BETSAPI_TOKEN_B365 eintragen;
+          # sonst wird der Test-Token bzw. der Fußball-Token genommen.
+          BETSAPI_TOKEN_B365: ${{ secrets.BETSAPI_TOKEN_B365 || secrets.BETSAPI_TOKEN_TRIAL || secrets.BETSAPI_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           PYTHONUNBUFFERED: "1"

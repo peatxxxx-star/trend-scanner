@@ -517,7 +517,7 @@ def _budget_guard():
 def api_get(path: str, **params) -> dict:
     global _request_count, _hour_requests
     _budget_guard()
-    params["token"] = TOKEN
+    params["token"] = params.pop("_token", None) or TOKEN
     url = f"{API}{path}?{urllib.parse.urlencode(params)}"
     # 12.09.: 5 Versuche statt 3, Zeitlimit 45 s statt 30, Wartezeit wächst
     # (3/6/12/24 s). Anlass: ein einzelner hängender Aufruf auf
@@ -552,6 +552,8 @@ def api_get(path: str, **params) -> dict:
                 last = exc
                 continue
             last = exc
+            if exc.code in (401, 403, 404):
+                raise                       # 17.09.: kein Paket / falscher Pfad — Wiederholen bringt nichts
             if attempt == 4:
                 raise
             time.sleep(min(3 * 2 ** attempt, 30))
@@ -2234,7 +2236,7 @@ def build_match_block(match, entries):
                 continue
             fair = s.get("fair_fin") or s.get("fair")
             check = " · <i>Quote selbst prüfen</i>" if s.get("no_odds_check") else ""
-            lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + check
+            lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + fmt_b365(s) + check
                          + buffer_evidence(s, short=True))
             lines.append(f"   {esc(match['home'])} {fmt_series(s['home_series'], s['home_is_anchor'])}"
                          f" · {esc(match['away'])} {fmt_series(s['away_series'], s['away_is_anchor'])}")
@@ -2488,13 +2490,164 @@ def send_telegram(text: str) -> bool:
 # Hauptlauf
 # ----------------------------------------------------------------------------
 
+# ----------------------------------------------------------------------------
+# bet365-Quoten je Linie (17.09. abends, Lucio: "bet365 ist der Maßstab —
+# wenn es da nichts gibt, dann nirgendwo"; nur bet365, "bin kein Millionär")
+# Der Prematch-Katalog (/v1/bet365/prematch?FI=…) liefert je Spiel ganze
+# Leitern: Ecken (2-Wege und 3-Wege "Over N / Exactly / Under N" — Over N
+# gewinnt ab N+1, entspricht also über N,5), Tore (goals_over_under +
+# alternative_total_goals), Halbzeit-Tore, Karten (nur größere Ligen),
+# 1. HZ Ecken. Zu jedem Signal wird die bet365-Quote GENAU dieser Linie
+# gesucht und nach Lucios Regel bewertet: spielbar, wenn Quote >= Fair × 1,05
+# und >= 1,30. Die Quote ist ein Maßstab, nicht sein Preis — BetLabel prüft
+# er weiterhin selbst, aber nur noch dort, wo bet365 überhaupt Luft zeigt.
+# Kosten: eine Anfrage je Spiel mit Signalen.
+# ----------------------------------------------------------------------------
+B365_PREMATCH = True
+# Der bet365-Katalog kann auf einem anderen BetsAPI-Konto liegen als das
+# Fußball-Paket → eigener Token (Secret BETSAPI_TOKEN_B365), sonst der normale.
+B365_TOKEN = os.environ.get("BETSAPI_TOKEN_B365") or os.environ.get("BETSAPI_TOKEN", "")
+_b365_tot = False          # wird True, sobald die API den Katalog verweigert (kein Paket)
+PLAY_MIN_ODDS = 1.30
+PLAY_FAIR_FACTOR = 1.05
+# Marktschlüssel im bet365-Katalog je Metrik; Reihenfolge = Vorrang.
+# ("2way" = Linien wie 9.5 mit Over/Under; "3way" = ganze Linien N mit
+# Over/Exactly/Under, Over N == über N,5.)
+B365_MARKETS = {
+    "corners":        ("corners_2_way", "asian_total_corners", "asian_corners", "alternative_corners", "corners"),
+    "ht_corners":     ("1st_half_corners", "1st_half_asian_corners"),
+    "goals":          ("goals_over_under", "alternative_total_goals", "goal_line", "alternative_goal_line"),
+    "ht_goals":       ("1st_half_goals", "1st_half_goal_line", "alternative_1st_half_goal_line"),
+    "h2_goals":       ("2nd_half_goals",),
+    "yellowcards":    ("cards_over_under", "alternative_cards", "cards", "total_cards", "cards_2_way"),
+    "ht_yellowcards": ("1st_half_cards", "1st_half_cards_over_under"),
+    "on_target":      ("shots_on_target_over_under", "total_shots_on_target", "shots_on_target"),
+    "offsides":       ("offsides_over_under", "total_offsides", "offsides"),
+    "fouls":          ("fouls_over_under", "total_fouls", "fouls"),
+    "throwins":       ("throw_ins_over_under", "total_throw_ins", "throw_ins"),
+    "goalkicks":      ("goal_kicks_over_under", "total_goal_kicks", "goal_kicks"),
+}
+
+
+def _b365_ladder(entries):
+    """Ein bet365-Markt als {(richtung, linie): quote}. Aufbau der Liste:
+    erst die Zeilen (header ' ', name = Linie), dann je Spalte (header
+    Over/Under/Exactly) die Quoten in Zeilenreihenfolge. Alternativ Einträge
+    mit eigenem 'handicap'."""
+    out = {}
+    if not isinstance(entries, list):
+        return out
+    rows = [e for e in entries if isinstance(e, dict) and (e.get("header") or " ").strip() == "" and e.get("name") is not None]
+    cols = {}
+    for e in entries:
+        if not isinstance(e, dict):
+            continue
+        h = (e.get("header") or "").strip()
+        if h and h not in ("Over", "Under", "Exactly", "Yes", "No") and e.get("handicap") is None:
+            continue
+        if h in ("Over", "Under"):
+            cols.setdefault(h, []).append(e)
+    dreiweg = any((e.get("header") or "").strip() == "Exactly" for e in entries if isinstance(e, dict))
+    for h, lst in cols.items():
+        for i, e in enumerate(lst):
+            try:
+                q = float(e.get("odds") or 0)
+            except (TypeError, ValueError):
+                continue
+            if q <= 1.0:
+                continue
+            hc = e.get("handicap")
+            if hc not in (None, ""):
+                try:
+                    line = float(str(hc).replace(",", "."))
+                except ValueError:
+                    continue
+            elif i < len(rows):
+                try:
+                    line = float(str(rows[i].get("name")).replace(",", "."))
+                except ValueError:
+                    continue
+            else:
+                continue
+            if dreiweg and line == int(line):
+                line = line + 0.5 if h == "Over" else line - 0.5   # Over 9 == über 9,5; Under 9 == unter 8,5
+            out[("über" if h == "Over" else "unter", line)] = q
+    return out
+
+
+def b365_quotes(prematch) -> dict:
+    """{(metric_key, richtung, linie): quote} aus einer Prematch-Antwort."""
+    res = prematch.get("results") if isinstance(prematch, dict) else prematch
+    if isinstance(res, list):
+        res = res[0] if res else {}
+    if not isinstance(res, dict):
+        return {}
+    # alle sp-Märkte über alle Abschnitte einsammeln (erster Fund je Schlüssel gewinnt)
+    maerkte = {}
+    for sec, node in res.items():
+        if isinstance(node, dict) and isinstance(node.get("sp"), dict):
+            for mk, mv in node["sp"].items():
+                maerkte.setdefault(mk, mv)
+    out = {}
+    for metric, keys in B365_MARKETS.items():
+        for k in keys:
+            mv = maerkte.get(k)
+            if mv is None:
+                continue
+            for (richtung, line), q in _b365_ladder(mv if isinstance(mv, list) else mv.get("odds") if isinstance(mv, dict) else []).items():
+                out.setdefault((metric, richtung, line), q)
+    return out
+
+
+def play_flag(s):
+    """Lucios Regel auf die bet365-Quote: (Symbol, Text) oder None ohne Quote."""
+    q = s.get("b365_quote")
+    if not q:
+        return None
+    fair = s.get("fair_fin") or s.get("fair")
+    if not fair:
+        return ("💰", f"b365 {q:.2f}")
+    ok = q >= fair * PLAY_FAIR_FACTOR and q >= PLAY_MIN_ODDS
+    return ("✔", f"b365 {q:.2f}") if ok else ("✘", f"b365 {q:.2f}")
+
+
+def fmt_b365(s) -> str:
+    f = play_flag(s)
+    if f:
+        return f" · 💰 {f[1]} {f[0]}"
+    if s.get("b365_checked"):
+        return " · 💰 b365 –"
+    return ""
+
+
 def attach_extras(match, signals):
     """Zusatzinfos, die nur für Spiele mit Signalen Anfragen kosten:
     - Ecken-Signale: bet365-Hauptlinie mit Quote (Markt 1_4 "Asian Corners")
     - Karten/Fouls-Signale: angesetzter Schiedsrichter + sein Profil aus dem Cache
     Fehler hier dürfen den Lauf nie stoppen."""
+    global _b365_tot
     keys = {s["metric_key"] for s in signals}
-    if keys & {"corners", "ht_corners"}:
+    if B365_PREMATCH and match.get("bet365_id") and not _b365_tot:
+        try:
+            pm = api_get("/v1/bet365/prematch", FI=match["bet365_id"], _token=B365_TOKEN)
+            q = b365_quotes(pm)
+            for s in signals:
+                s["b365_checked"] = True
+                try:
+                    s["b365_quote"] = q.get((s["metric_key"], s["direction"], float(s["line"])))
+                except (TypeError, ValueError):
+                    s["b365_quote"] = None
+        except BudgetExhausted:
+            raise
+        except urllib.error.HTTPError as exc:
+            if exc.code in (401, 403, 404):
+                _b365_tot = True            # bet365 nicht im Paket — für diesen Lauf nicht weiter probieren
+                print(f"  bet365-Katalog nicht verfügbar (HTTP {exc.code}) — Quotenvergleich in diesem Lauf aus", flush=True)
+            else:
+                print(f"  bet365-Katalog {match['home']}–{match['away']}: {exc}")
+        except Exception as exc:
+            print(f"  bet365-Katalog {match['home']}–{match['away']}: {exc}")
+    if keys & {"corners", "ht_corners"} and not B365_PREMATCH:
         try:
             odds = api_get("/v2/event/odds", event_id=match["id"])
             allodds = (odds.get("results") or {}).get("odds") or {}
@@ -5537,6 +5690,34 @@ def selftest():
     if [x for x in evaluate_match(m24, h24, a24) if x["metric_key"] == "freekicks"]:
         print("FEHLER Fall 24j: Freistöße dürfen nicht mehr gemeldet werden")
         ok = False
+
+    # --- Fall 27: bet365-Quoten je Linie (17.09. abends)
+    pm27 = {"results": [{"FI": "1", "corners": {"sp": {
+        "corners_2_way": [{"odds": "", "id": "PC1", "name": "9.5", "header": " "},
+                          {"odds": "2.00", "id": "1", "header": "Over"}, {"odds": "1.72", "id": "2", "header": "Under"}],
+        "alternative_corners": [{"odds": "", "name": "7", "header": " "}, {"odds": "", "name": "8", "header": " "},
+                                {"odds": "1.30", "header": "Over"}, {"odds": "1.55", "header": "Over"},
+                                {"odds": "9.00", "header": "Exactly"}, {"odds": "8.00", "header": "Exactly"},
+                                {"odds": "4.50", "header": "Under"}, {"odds": "3.10", "header": "Under"}]}},
+        "main": {"sp": {"goals_over_under": [{"odds": "", "name": "2.5", "header": " "},
+                                             {"odds": "1.57", "header": "Over"}, {"odds": "2.35", "header": "Under"}]}},
+        "asian_lines": {"sp": {"goal_line": [{"odds": "1.90", "header": "Over", "handicap": "3.0"},
+                                             {"odds": "1.90", "header": "Under", "handicap": "3.0"}]}}}]}
+    q27 = b365_quotes(pm27)
+    if q27.get(("corners", "über", 9.5)) != 2.0 or q27.get(("corners", "über", 7.5)) != 1.3 \
+            or q27.get(("corners", "über", 8.5)) != 1.55 or q27.get(("goals", "über", 2.5)) != 1.57 \
+            or q27.get(("goals", "über", 3.0)) != 1.9 or ("corners", "unter", 6.5) not in q27:
+        print("FEHLER Fall 27a: bet365-Leiter falsch gelesen:", q27)
+        ok = False
+    s27 = {"b365_quote": 1.55, "fair_fin": 1.40}
+    if play_flag(s27)[0] != "✔":
+        print("FEHLER Fall 27b: 1,55 bei Fair 1,40 muss spielbar sein"); ok = False
+    if play_flag({"b365_quote": 1.45, "fair_fin": 1.40})[0] != "✘":
+        print("FEHLER Fall 27c: 1,45 bei Fair 1,40 liegt unter Fair × 1,05"); ok = False
+    if play_flag({"b365_quote": 1.28, "fair_fin": 1.15})[0] != "✘":
+        print("FEHLER Fall 27d: unter 1,30 nie spielbar"); ok = False
+    if play_flag({"b365_checked": True}) is not None or fmt_b365({"b365_checked": True}) != " · 💰 b365 –":
+        print("FEHLER Fall 27e: ohne Quote muss 'b365 –' stehen"); ok = False
 
     # --- Fall 23: Team-Märkte (13.09.)
     _team_base.clear()
