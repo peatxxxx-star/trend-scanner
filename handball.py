@@ -1100,6 +1100,9 @@ B365_TOKEN = os.environ.get("BETSAPI_TOKEN_B365") or TOKEN
 # 2 Eishockey, 3 Basketball, 6 Volleyball; Handball ist nicht dokumentiert
 # (Versuch mit 8, sonst bleibt 1xBet dort leer).
 XB_TOKEN = os.environ.get("BETSAPI_TOKEN_1XBET") or TOKEN
+# 17.09. abends (Lucio): 1xBet "total nutzlos" (nur Gesamtspiel-Märkte) — aus,
+# nur noch bet365. Code bleibt; XB_ENABLED=1 in der Umgebung schaltet es wieder an.
+XB_ENABLED = os.environ.get("XB_ENABLED", "0") == "1"
 XB_SPORT_ID = {"basketball": 3, "eishockey": 2, "handball": 8, "volleyball": 6}
 # Zeitfenster (Lucio 17.09.): nur bis morgen früh 06:00 deutscher Zeit
 FENSTER_ENDE_STUNDE = 6
@@ -1404,9 +1407,11 @@ def serien_scan():
     # Rohkataloge von zwei Spielen ablegen, damit Marktschlüssel nachgeprüft werden können
     try:
         probe = {}
-        for m, _, _ in treffer[:2]:
+        for m, _, _ in treffer[:25]:
             if m.get("bet365_id") and not _b365_tot:
-                probe[str(m.get("id"))] = api_get("/v1/bet365/prematch", FI=m["bet365_id"], _token=B365_TOKEN)
+                pm_ = api_get("/v1/bet365/prematch", FI=m["bet365_id"], _token=B365_TOKEN)
+                pm_["_spiel"] = f"{(m.get('home') or {}).get('name')} – {(m.get('away') or {}).get('name')} [{(m.get('league') or {}).get('name')}]"
+                probe[str(m.get("id"))] = pm_
         if probe:
             (OUT / f"{SPORT_KEY}_b365_probe_{heute:%Y-%m-%d}.json").write_text(json.dumps(probe), encoding="utf-8")
     except Exception as exc:
@@ -1414,7 +1419,7 @@ def serien_scan():
 
     # 5c) 1xBet: Brücke über den 1xBet-Spielplan (our_event_id), dann Events zu zehnt
     quoten_1x = {}
-    xb_sid = XB_SPORT_ID.get(SPORT_KEY)
+    xb_sid = XB_SPORT_ID.get(SPORT_KEY) if XB_ENABLED else None
     if treffer and xb_sid:
         bruecke_1x = {}
         try:
@@ -1471,8 +1476,8 @@ def serien_scan():
     lines_out = [f"{em} <b>{SPORT['name'].upper()}-SCAN</b> · bis {ende_dt:%a %H:%M} (auch laufende Spiele) · 🧪 <i>Test</i>",
                  "<i>Serien-Regel: beide Teams 9/10 (A) bzw. 8/10 (B) über der Linie, Team-Märkte 9/10 · "
                  f"Fair = gemessene Trefferquote dieser Linie · nur über · Fenster 75 % bis Fair {SR_MIN_FAIR:.2f}</i>",
-                 f"<i>Quoten: bet365 für {n_b365}/{len(treffer)} Spiele mit Signalen · 1xBet für {n_x}/{len(treffer)} "
-                 f"(nur Gesamtspiel: Punkte/Tore und Team-Totals, keine Halbzeiten/Viertel/Drittel)</i>", ""]
+                 f"<i>Quoten: bet365 für {n_b365}/{len(treffer)} Spiele mit Signalen"
+                 + (f" · 1xBet für {n_x}/{len(treffer)} (nur Gesamtspiel)" if XB_ENABLED else "") + "</i>", ""]
     n_sig = 0
     for m, liga, sigs in treffer:
         t = datetime.fromtimestamp(int(m.get("time") or 0), berlin)
@@ -1496,7 +1501,7 @@ def serien_scan():
                 xnear = b365_near(qx, "", side, float(L)) if not xq else None
             block.append(f"✅ <b>{mk} über {L}</b> · Fair {fair:.2f} · {rule} ({100 * q:.0f} %, n={n})"
                          f"{b365_tail(bq, fair, qb is not None, near)}{ot}"
-                         f"{b365_tail(xq, fair, qx is not None, xnear, label='1xBet')} · <i>Quote selbst prüfen</i>")
+                         f"{b365_tail(xq, fair, qx is not None, xnear, label='1xBet') if XB_ENABLED else ''} · <i>Quote selbst prüfen</i>")
             block.append(f"   {detail}")
         lines_out += block + [""]
     if not treffer:
