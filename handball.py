@@ -1467,9 +1467,12 @@ def serien_scan():
     berlin = timezone(timedelta(hours=2))
     WD = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
     em = cfg["emoji"]
+    n_x = sum(1 for v in quoten_1x.values() if v)
     lines_out = [f"{em} <b>{SPORT['name'].upper()}-SCAN</b> · bis {ende_dt:%a %H:%M} (auch laufende Spiele) · 🧪 <i>Test</i>",
                  "<i>Serien-Regel: beide Teams 9/10 (A) bzw. 8/10 (B) über der Linie, Team-Märkte 9/10 · "
-                 f"Fair = gemessene Trefferquote dieser Linie · nur über · Fenster 75 % bis Fair {SR_MIN_FAIR:.2f}</i>", ""]
+                 f"Fair = gemessene Trefferquote dieser Linie · nur über · Fenster 75 % bis Fair {SR_MIN_FAIR:.2f}</i>",
+                 f"<i>Quoten: bet365 für {n_b365}/{len(treffer)} Spiele mit Signalen · 1xBet für {n_x}/{len(treffer)} "
+                 f"(nur Gesamtspiel: Punkte/Tore und Team-Totals, keine Halbzeiten/Viertel/Drittel)</i>", ""]
     n_sig = 0
     for m, liga, sigs in treffer:
         t = datetime.fromtimestamp(int(m.get("time") or 0), berlin)
@@ -1493,7 +1496,7 @@ def serien_scan():
                 xnear = b365_near(qx, "", side, float(L)) if not xq else None
             block.append(f"✅ <b>{mk} über {L}</b> · Fair {fair:.2f} · {rule} ({100 * q:.0f} %, n={n})"
                          f"{b365_tail(bq, fair, qb is not None, near)}{ot}"
-                         f"{b365_tail(xq, fair, qx is not None and part == '', xnear, label='1xBet')} · <i>Quote selbst prüfen</i>")
+                         f"{b365_tail(xq, fair, qx is not None, xnear, label='1xBet')} · <i>Quote selbst prüfen</i>")
             block.append(f"   {detail}")
         lines_out += block + [""]
     if not treffer:
