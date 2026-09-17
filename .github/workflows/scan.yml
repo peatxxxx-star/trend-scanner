@@ -85,10 +85,32 @@ jobs:
 
       - name: Cache, Lauf-Gedächtnis und Protokoll sichern
         if: always()
+        # 17.09.: Zwei Läufe, die dieselbe Tagesdatei schreiben (z.B. zweimal
+        # handball-scan), liefen beim "pull --rebase" in einen Konflikt, der
+        # Rebase blieb halb fertig stehen ("not currently on a branch"), der
+        # Push scheiterte — Ergebnis war da, wurde aber nicht gesichert.
+        # Jetzt: bei Konflikten gewinnt die Fassung DIESES Laufs für die
+        # Dateien, die er geschrieben hat; alles andere kommt von origin.
+        # Dazu bis zu vier Anläufe, falls parallel ein anderer Lauf pusht.
         run: |
           git config user.name "trend-scanner"
           git config user.email "actions@users.noreply.github.com"
+          BASE=$(git rev-parse HEAD)
           for d in cache runs state; do [ -d "$d" ] && git add "$d"; done; true
-          git diff --cached --quiet || git commit -m "Scan $(date -u +'%Y-%m-%d %H:%M') UTC"
-          git pull --rebase origin main || true
-          git push
+          if git diff --cached --quiet; then echo "nichts zu sichern"; exit 0; fi
+          MSG="Scan $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git commit -q -m "$MSG"
+          for i in 1 2 3 4; do
+            OURS=$(git rev-parse HEAD)
+            git fetch -q origin main
+            if ! git rebase -q -X theirs origin/main; then
+              git rebase --abort || true
+              git checkout -q -B main origin/main
+              git diff --name-only --diff-filter=ACMR "$BASE" "$OURS" | xargs -r git checkout -q "$OURS" --
+              for d in cache runs state; do [ -d "$d" ] && git add "$d"; done; true
+              git diff --cached --quiet || git commit -q -m "$MSG"
+            fi
+            if git push -q origin HEAD:main; then echo "gesichert"; exit 0; fi
+            sleep $((i * 10))
+          done
+          echo "Sichern nach 4 Anläufen gescheitert"; exit 1
