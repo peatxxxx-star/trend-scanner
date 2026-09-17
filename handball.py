@@ -1149,19 +1149,58 @@ def _side_of(team: str, home: str, away: str, order_idx: int):
     return "Heim" if order_idx == 0 else "Gast"
 
 
+# Plausible Linienbereiche je Sportart — alles außerhalb ist ein Fremdmarkt
+# (17.09.: "player_goals" mit Linie 6,5 landete als Handball-Gesamtzahl → ✔ falsch)
+RANGE_TAB = {"basketball": {("", "sum"): (100, 320), ("1. HZ", "sum"): (50, 160), ("Q1", "sum"): (20, 90),
+                            ("", "team"): (40, 160), ("1. HZ", "team"): (20, 90), ("Q1", "team"): (8, 45)},
+             "handball":   {("", "sum"): (38, 95), ("1. HZ", "sum"): (16, 48), ("", "team"): (16, 48), ("1. HZ", "team"): (7, 26)},
+             "eishockey":  {("", "sum"): (2, 12), ("P1", "sum"): (0.4, 5), ("P2", "sum"): (0.4, 5), ("P3", "sum"): (0.4, 5),
+                            ("", "team"): (0.4, 7)}}
+B365_SECTIONS_OK = ("main", "game", "half", "quarter", "team", "main_props", "totals", "goals", "period")
+
+
+def _plausibel(part, side, L):
+    lo, hi = RANGE_TAB.get(SPORT_KEY, {}).get((part, "sum" if side == "sum" else "team"), (0, 1e9))
+    return lo <= L <= hi
+
+
 def b365_sport_quotes(pm, home="", away="") -> dict:
     """{(Abschnitt, 'sum'|'Heim'|'Gast', Linie): Über-Quote} aus einer Prematch-Antwort."""
     res = pm.get("results") if isinstance(pm, dict) else None
     res = res[0] if isinstance(res, list) and res else (res if isinstance(res, dict) else {})
-    out = {}
+    raw = {}
     for sec, node in res.items():
         if not (isinstance(node, dict) and isinstance(node.get("sp"), dict)):
             continue
+        if str(sec).lower() not in B365_SECTIONS_OK:
+            continue                                   # Spieler-Wetten u. ä. (player, assists, rebounds …)
         for mk, mv in node["sp"].items():
             lst = mv if isinstance(mv, list) else (mv.get("odds") if isinstance(mv, dict) else None)
             if not lst:
                 continue
             key = mk.lower()
+            if "player" in key or "margin" in key or "race" in key or "odd_even" in key or "to_score" in key:
+                continue
+            out = raw   # alle Zweige unten schreiben in dieselbe Sammlung
+            # Handball-Aufbau: Zeilen "Handicap / Total / To Win", dann je Team ein Block in Zeilenreihenfolge
+            zeilen = [e.get("name") for e in lst if (e.get("header") or " ").strip() == "" and e.get("name")]
+            if "Total" in zeilen and not any((e.get("header") or "").strip() == "Total" for e in lst):
+                part = _part_of(key) if _part_of(key) is not None else ("1. HZ" if "1st_half" in key else "")
+                idx = zeilen.index("Total")
+                bloecke = {}
+                for e in lst:
+                    h = (e.get("header") or "").strip()
+                    if h and e.get("name") is None:
+                        bloecke.setdefault(h, []).append(e)
+                teams = list(bloecke)
+                if teams:
+                    ers = bloecke[teams[0]]
+                    if idx < len(ers) and ers[idx].get("handicap") not in (None, ""):
+                        try:
+                            out.setdefault((part, "sum", float(ers[idx]["handicap"])), float(ers[idx].get("odds") or 0))
+                        except (TypeError, ValueError):
+                            pass
+                continue
             if "team_total" in key and "odd" not in key:
                 part = "1. HZ" if "half" in key else ("Q1" if "1st_quarter" in key else "")
                 if "alternative" in key or any(e.get("name") not in (None, "") and (e.get("header") or "").strip() not in ("", "Over", "Under") for e in lst):
@@ -1227,7 +1266,7 @@ def b365_sport_quotes(pm, home="", away="") -> dict:
                         continue
                     if q > 1.0:
                         out.setdefault((part, "sum", L), q)
-    return out
+    return {k: v for k, v in raw.items() if v and v > 1.0 and _plausibel(k[0], k[1], k[2])}
 
 
 def b365_tail(q, fair, checked, near=None, label="b365", schaetz=None):
