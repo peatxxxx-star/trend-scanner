@@ -183,18 +183,33 @@ S24_GROUPS = {
 UNTER_RAUS = ("yellowcards", "ht_yellowcards", "throwins", "goalkicks",
               "corners", "ht_corners", "goals", "offsides", "on_target",
               "shots_total", "fouls", "freekicks", "ht_goals", "h2_goals")
+# 17.09. abends (Lucio): "alles einschalten, auch beim Fußball — alle
+# Über-Märkte, bei denen die Trefferquote der Strategie mindestens 75 % lag,
+# Anzeige ab Fair 1,15". Backtest dazu (36.616 Spiele, 48.492 Über-Signale
+# der Serien-Regel, Cache-Stand 17.09.), Trefferquote je Markt/Linie:
+#   Fouls über 18,5/20,5/22,5/24,5 = 81/79/77/75 %   → wieder rein
+#   Schüsse aufs Tor über 6,5/7,5 = 79/75 %          → wieder rein
+#   Abseits über 2,5/3,5 = 78/75 %                    → wieder rein
+#   1. HZ Tore über 0,5 = 77 %, 2. HZ Tore über 0,5 = 81 % → wieder rein
+#   Tore über 1,5 = 82 %, über 3,5 = 65 % (n=69)      → 1,5 rein, 3,5 rein
+#   Ecken über 7,5/8,5 = 74/70 %, Karten über 2,5/3,5 = 77/71 %, 1. HZ Ecken
+#   über 3,5 = 71 %, Tore über 2,5 = 72 % — unter 75 %, bleiben aber drin:
+#   im Fußball ist die faire Quote je Spiel gerechnet und kalibriert, die
+#   angezeigte Fair trifft dort die echte Quote (Ecken 8,5: 1,44 angezeigt,
+#   1,44 real). Rausgenommen wurden nur Linien, bei denen die Anzeige zu
+#   optimistisch ist (siehe EXCLUDED_LINES).
+#   Draußen bleiben: Schüsse gesamt (Datenfeld unbrauchbar, 11.09.) und
+#   Freistöße (kein Markt beim Buchmacher, 16.09.); alle Unter-Märkte.
 EXCLUDED_MARKETS = {(m, "unter") for m in UNTER_RAUS} | {("corners", "unter"),
                     # 16.09. (Lucio): Freistöße gibt es bei seinem Buchmacher
                     # nicht — Daten und Backtest bleiben, die Meldung entfällt.
                     ("freekicks", "über"), ("freekicks", "unter"),
-                    ("on_target", "über"), ("on_target", "unter"),
-                    # 15.09. abends (Lucio): Halbzeit-Tore wieder komplett raus.
-                    ("ht_goals", "über"), ("ht_goals", "unter"),
-                    ("h2_goals", "über"), ("h2_goals", "unter"),
-                    ("ht_corners", "unter"),          # "über" 15.09. wieder frei
-                    ("offsides", "über"), ("offsides", "unter"),
+                    ("on_target", "unter"),
+                    ("ht_goals", "unter"), ("h2_goals", "unter"),
+                    ("ht_corners", "unter"),
+                    ("offsides", "unter"),
                     ("shots_total", "über"), ("shots_total", "unter"),
-                    ("fouls", "über"), ("fouls", "unter")}
+                    ("fouls", "unter")}
 # 15.09. spät (Lucio): 1. HZ ECKEN ÜBER wieder rein, ABSEITS komplett raus.
 # 15.09. (Lucio): "Schüsse aufs Tor" KOMPLETT raus (vorher nur "über").
 # 15.09. (Korrektur): 1. HZ GELBE KARTEN bleiben drin — nur die Linie
@@ -329,18 +344,25 @@ METRICS = {
 # Einzelne Linien sperren (Markt + Richtung + Linie) — feiner als
 # EXCLUDED_MARKETS, für Fälle wie "Tore unter 2,5" (60 % im Backtest).
 EXCLUDED_LINES = {("goals", "unter", 1.5), ("goals", "unter", 2.5),
-                  ("goals", "über", 4.5),
-                  # 15.09. (Lucio): "über 1,5" und "unter 4,5" lösen bei fast
-                  # jedem Spiel aus (16 % bzw. 18,5 % aller Spiele = Flut) und
-                  # sind mit fair 1,18 für ihn ohnehin nicht spielbar.
-                  ("goals", "über", 1.5), ("goals", "unter", 4.5),
-                  # 15.09., Lucios Entscheidung: fürs Erste NUR "über 2,5"
-                  # anzeigen. "über 3,5" (n=68) und "unter 3,5" sind damit
-                  # auch aus — zum Wiedereinschalten diese Zeile entfernen.
-                  ("goals", "über", 3.5), ("goals", "unter", 3.5),
+                  ("goals", "über", 4.5),             # zu wenig Fälle für eine Quote
+                  ("goals", "unter", 4.5), ("goals", "unter", 3.5),
+                  # 17.09. abends: "über 1,5" und "über 3,5" wieder frei (Lucio:
+                  # alles mit >= 75 % rein; die Fair-Grenze 1,15 hält die
+                  # 1,05er-Fälle von "über 1,5" ohnehin aus der Anzeige).
                   # 15.09. (Lucio): 1. HZ Gelbe Karten bleiben drin, aber die
                   # Linie "unter 2,5" muss raus.
-                  ("ht_yellowcards", "unter", 2.5)}
+                  ("ht_yellowcards", "unter", 2.5),
+                  # 17.09. Backtest: Linien, bei denen die angezeigte faire Quote
+                  # deutlich zu optimistisch ist (real vs. angezeigt):
+                  #   1. HZ Karten über 1,5: 55 % real, 1,45 angezeigt (69 %)
+                  #   Gelbe Karten über 4,5: 61 % real, 1,43 angezeigt (70 %)
+                  #   Schüsse aufs Tor über 9,5/10,5: 65/69 % real, 1,39/1,37 angezeigt
+                  #   Ecken über 9,5: 60 % real, 1,50 angezeigt (67 %)
+                  # Auf solche Anzeigen kann er sich nicht verlassen → raus.
+                  ("ht_yellowcards", "über", 1.5), ("ht_yellowcards", "über", 2.5),
+                  ("yellowcards", "über", 4.5), ("yellowcards", "über", 5.5), ("yellowcards", "über", 6.5),
+                  ("on_target", "über", 9.5), ("on_target", "über", 10.5), ("on_target", "über", 11.5),
+                  ("corners", "über", 9.5), ("corners", "über", 10.5), ("corners", "über", 11.5), ("corners", "über", 12.5)}
 
 # 16.09. (Lucio): Der Extra-Block "NEUE MÄRKTE" ist Geschichte. Nach dem ersten
 # echten Preisvergleich (Abstöße über 14,5 zu 1,51 und über 12,5 zu 1,41, beide
@@ -1785,10 +1807,11 @@ def model_prob(mean, sd, line, direction):
 
 
 # --- Die eine schlüssige Rechnung: Historie + Modell -> Fair -> Markt -> Ampel
-MIN_FAIR = 1.0            # Mindest-Fair-Filter AUS (06.09., Lucio: "einmal alle wieder
-                          # rein, ich checke es") — alle ✅-Märkte werden gemeldet, er
-                          # spielt nur, wo der Bookie über fair UND >= 1,30 liegt.
-                          # Zum Reaktivieren z.B. 1.20 setzen.
+MIN_FAIR = 1.15           # 17.09. abends (Lucio): Anzeige ab Fair 1,15 — wie bei den
+                          # neuen Sportarten ("das können wir so beibehalten, aber mehr
+                          # dann auch nicht"). Vorher AUS (06.09., "einmal alle wieder
+                          # rein"); Fälle unter 1,15 kann kein Bookie zu 1,30 geben.
+                          # Seine Spielregel bleibt: Bookie >= Fair × 1,05 und >= 1,30.
 GREEN_MIN_P = 0.68        # Mindest-Wahrscheinlichkeit (kombiniert) für Grün
 RED_MAX_P = 0.58          # darunter Rot
 AGREE_OK = 0.12           # max. Abstand Historie/Modell für Grün
@@ -5705,12 +5728,17 @@ def selftest():
             if s["metric"] == "Ecken"]:
         print("FEHLER Fall 20b: ohne Sperre muss das Ecken-Signal stehen bleiben")
         ok = False
-    # Fouls sind komplett ausgeschlossen
+    # 17.09. abends: Fouls ÜBER wieder drin (81 % im Backtest), Fouls UNTER
+    # bleiben draußen (keine Unter-Märkte).
     fo = _mk([[14, 13]] * 15, [H, A] * 7 + [H])
     for m_ in fo:
         m_["stats"]["fouls"] = [14, 13]
-    if any(s["metric_key"] == "fouls" for s in evaluate_match(dict(match), fo, [dict(x) for x in fo])):
-        print("FEHLER Fall 20c: Fouls müssen ausgeschlossen sein")
+    fo_sigs = evaluate_match(dict(match), fo, [dict(x) for x in fo])
+    if any(s["metric_key"] == "fouls" and s["direction"] == "unter" for s in fo_sigs):
+        print("FEHLER Fall 20c: Fouls unter müssen ausgeschlossen sein")
+        ok = False
+    if not any(s["metric_key"] == "fouls" and s["direction"] == "über" for s in fo_sigs):
+        print("FEHLER Fall 20d: Fouls über müssen wieder gemeldet werden")
         ok = False
 
     # --- Fall 19: Gegenbewegung bei Ecken nur noch mit Anker (12.09.)
