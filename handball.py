@@ -40,6 +40,7 @@ Aufruf:  python3 handball.py [wochen]      (Vorgabe: 4)
 Umgebung: BETSAPI_TOKEN, optional TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID
 """
 import json
+import math
 import os
 import re
 import statistics as st
@@ -1131,7 +1132,24 @@ def _part_of(key: str):
     return None
 
 
-def b365_sport_quotes(pm) -> dict:
+def _norm_team(n: str) -> set:
+    import unicodedata
+    n = unicodedata.normalize("NFKD", str(n or "")).encode("ascii", "ignore").decode().lower()
+    for junk in ("(w)", "(women)", "women", "(m)", " bk", " sc", " fc", " ic", " hc", "-", "."):
+        n = n.replace(junk, " ")
+    return {t for t in n.split() if len(t) >= 3}
+
+
+def _side_of(team: str, home: str, away: str, order_idx: int):
+    """'Heim'/'Gast' per Namensabgleich (Token-Überschneidung), sonst nach Reihenfolge."""
+    t, h, a = _norm_team(team), _norm_team(home), _norm_team(away)
+    sh, sa = len(t & h), len(t & a)
+    if sh != sa:
+        return "Heim" if sh > sa else "Gast"
+    return "Heim" if order_idx == 0 else "Gast"
+
+
+def b365_sport_quotes(pm, home="", away="") -> dict:
     """{(Abschnitt, 'sum'|'Heim'|'Gast', Linie): Über-Quote} aus einer Prematch-Antwort."""
     res = pm.get("results") if isinstance(pm, dict) else None
     res = res[0] if isinstance(res, list) and res else (res if isinstance(res, dict) else {})
@@ -1146,6 +1164,28 @@ def b365_sport_quotes(pm) -> dict:
             key = mk.lower()
             if "team_total" in key and "odd" not in key:
                 part = "1. HZ" if "half" in key else ("Q1" if "1st_quarter" in key else "")
+                if "alternative" in key or any(e.get("name") not in (None, "") and (e.get("header") or "").strip() not in ("", "Over", "Under") for e in lst):
+                    # Blockleiter: je Team Zeilen (name = Linie, header = Team), dann Over-, dann Under-Spalte
+                    teams, blocks, cur = [], [], None
+                    for e in lst:
+                        h = (e.get("header") or "").strip()
+                        if e.get("name") not in (None, "") and h not in ("Over", "Under"):
+                            if cur is None or cur["team"] != h or cur["overs"]:
+                                cur = {"team": h, "rows": [], "overs": []}; blocks.append(cur)
+                                if h not in teams:
+                                    teams.append(h)
+                            cur["rows"].append(e.get("name"))
+                        elif h == "Over" and cur is not None:
+                            cur["overs"].append(e.get("odds"))
+                    for b in blocks:
+                        side = _side_of(b["team"], home, away, teams.index(b["team"]) if b["team"] in teams else 1)
+                        for L, q in zip(b["rows"], b["overs"]):
+                            try:
+                                if float(q) > 1.0:
+                                    out.setdefault((part, side, float(str(L).replace(",", "."))), float(q))
+                            except (TypeError, ValueError):
+                                pass
+                    continue
                 teams, by = [], {}
                 for e in lst:
                     h, hc = e.get("header"), e.get("handicap")
@@ -1157,7 +1197,7 @@ def b365_sport_quotes(pm) -> dict:
                 for (h, hc), es in by.items():
                     if len(es) < 2 or h not in teams[:2]:
                         continue
-                    side = "Heim" if teams.index(h) == 0 else "Gast"
+                    side = _side_of(h, home, away, teams.index(h))
                     try:
                         out.setdefault((part, side, float(hc)), float(es[0].get("odds")))
                     except (TypeError, ValueError):
@@ -1190,19 +1230,25 @@ def b365_sport_quotes(pm) -> dict:
     return out
 
 
-def b365_tail(q, fair, checked, near=None, label="b365"):
+def b365_tail(q, fair, checked, near=None, label="b365", schaetz=None):
     """Anzeige nach Lucios Regel: ✔ ab Fair × 1,05 und ≥ 1,30, sonst ✘; ohne
-    Quote '<label> –'. Nachbarlinie (Linie, Quote, Lage) nur mit sicherer Aussage:
-    lockerere Linie schon spielbar → ✔, strengere Linie schon zu billig → ✘,
-    sonst '?'."""
+    Quote '<label> –'. Nachbarlinie (Linie, Quote, Lage) mit sicherer Aussage:
+    lockerere Linie schon spielbar → ✔, strengere Linie schon zu billig → ✘;
+    sonst die aus den bet365-Linien GESCHÄTZTE Quote an unserer Linie (≈)."""
     if q:
         ok = q >= fair * PLAY_FAIR_FACTOR and q >= PLAY_MIN_ODDS
         return f" · 💰 {label} {q:.2f} {'✔' if ok else '✘'}"
     if near:
         L, nq, lage = near
         ok = nq >= fair * PLAY_FAIR_FACTOR and nq >= PLAY_MIN_ODDS
-        sym = "✔" if (lage == "unter" and ok) else ("✘" if (lage == "über" and not ok) else "?")
-        return f" · 💰 {label} ({L:g}) {nq:.2f} {sym}"
+        if lage == "unter" and ok:
+            return f" · 💰 {label} ({L:g}) {nq:.2f} ✔"
+        if lage == "über" and not ok:
+            return f" · 💰 {label} ({L:g}) {nq:.2f} ✘"
+        if schaetz:
+            ok2 = schaetz >= fair * PLAY_FAIR_FACTOR and schaetz >= PLAY_MIN_ODDS
+            return f" · 💰 {label} ({L:g}) {nq:.2f} → ≈{schaetz:.2f} {'✔' if ok2 else '✘'}"
+        return f" · 💰 {label} ({L:g}) {nq:.2f} ?"
     return f" · 💰 {label} –" if checked else ""
 
 
@@ -1230,10 +1276,63 @@ def xb_quotes(ev) -> dict:
     return out
 
 
+# Streuung je Markt (Punkte/Tore), um aus bet365-Linien den Preis an UNSERER
+# Linie zu schätzen: bet365 setzt die Hauptlinie etwa auf den Median, die
+# Quote sagt, wie weit die Linie vom Median liegt. Daraus Median schätzen,
+# dann die Wahrscheinlichkeit für unsere Linie, plus 5 % Marge → "≈ Quote".
+SD_TAB = {"basketball": {("", "sum"): 16.0, ("1. HZ", "sum"): 10.0, ("Q1", "sum"): 6.0,
+                         ("", "team"): 11.0, ("1. HZ", "team"): 7.0, ("Q1", "team"): 4.5},
+          "handball":   {("", "sum"): 6.0, ("1. HZ", "sum"): 4.0, ("", "team"): 4.0, ("1. HZ", "team"): 3.0},
+          "eishockey":  {("", "sum"): 1.9, ("P1", "sum"): 1.0, ("P2", "sum"): 1.0, ("P3", "sum"): 1.0, ("", "team"): 1.5}}
+
+
+def _phi(z):
+    return 0.5 * (1.0 + math.erf(z / math.sqrt(2.0)))
+
+
+def _phi_inv(p):
+    # Näherung (Acklam) reicht hier völlig
+    p = min(max(p, 1e-6), 1 - 1e-6)
+    a = [-3.969683028665376e+01, 2.209460984245205e+02, -2.759285104469687e+02, 1.383577518672690e+02, -3.066479806614716e+01, 2.506628277459239e+00]
+    b = [-5.447609879822406e+01, 1.615858368580409e+02, -1.556989798598866e+02, 6.680131188771972e+01, -1.328068155288572e+01]
+    c = [-7.784894002430293e-03, -3.223964580411365e-01, -2.400758277161838e+00, -2.549732539343734e+00, 4.374664141464968e+00, 2.938163982698783e+00]
+    d = [7.784695709041462e-03, 3.224671290700398e-01, 2.445134137142996e+00, 3.754408661907416e+00]
+    if p < 0.02425:
+        q = math.sqrt(-2 * math.log(p))
+        return (((((c[0] * q + c[1]) * q + c[2]) * q + c[3]) * q + c[4]) * q + c[5]) / ((((d[0] * q + d[1]) * q + d[2]) * q + d[3]) * q + 1)
+    if p > 1 - 0.02425:
+        q = math.sqrt(-2 * math.log(1 - p))
+        return -(((((c[0] * q + c[1]) * q + c[2]) * q + c[3]) * q + c[4]) * q + c[5]) / ((((d[0] * q + d[1]) * q + d[2]) * q + d[3]) * q + 1)
+    q = p - 0.5; r = q * q
+    return (((((a[0] * r + a[1]) * r + a[2]) * r + a[3]) * r + a[4]) * r + a[5]) * q / (((((b[0] * r + b[1]) * r + b[2]) * r + b[3]) * r + b[4]) * r + 1)
+
+
+def b365_schaetzung(qb, part, side, line):
+    """Geschätzte bet365-Quote an unserer Linie aus allen bet365-Linien desselben
+    Markts (Median-Schätzung über die Normalverteilung). None ohne Streuungswert."""
+    sd = SD_TAB.get(SPORT_KEY, {}).get((part, "sum" if side == "sum" else "team"))
+    if not sd:
+        return None
+    mus = []
+    for (pt, sdx, L), q in qb.items():
+        if pt != part or sdx != side or not q or q <= 1.0:
+            continue
+        p = min(0.98, (1.0 / q) / 1.05)          # Marge (~5 %) raus
+        mus.append(L + sd * _phi_inv(p))         # P(X > L) = p  →  μ = L + sd·Φ⁻¹(p)
+    if not mus:
+        return None
+    mu = sum(mus) / len(mus)
+    p_ours = _phi((mu - line) / sd)
+    if p_ours <= 0.02:
+        return 30.0
+    return max(1.01, (1.0 / p_ours) / 1.05)     # Marge wieder drauf
+
+
 def b365_near(qb, part, side, line):
-    """Nächste bet365-Linie (Abstand ≤ 2 bzw. ≤ 6 Punkte im Basketball) mit Lage."""
-    grenze = 6.0 if SPORT_KEY == "basketball" else 2.0
-    cands = [(L, q) for (pt, sd, L), q in qb.items() if pt == part and sd == side and abs(L - line) <= grenze + 1e-9]
+    """Nächste bet365-Linie mit Lage — ohne Abstandsgrenze: die Schlüsse
+    (lockerere Linie schon spielbar → ✔, strengere schon zu billig → ✘) gelten
+    in jeder Entfernung; nur das '?' wird mit dem Abstand unschärfer."""
+    cands = [(L, q) for (pt, sd, L), q in qb.items() if pt == part and sd == side]
     if not cands:
         return None
     L, q = min(cands, key=lambda x: (abs(x[0] - line), x[0]))
@@ -1389,7 +1488,8 @@ def serien_scan():
         if not fi or _b365_tot:
             return str(m.get("id")), ({} if fi else None)
         try:
-            return str(m.get("id")), b365_sport_quotes(api_get("/v1/bet365/prematch", FI=fi, _token=B365_TOKEN))
+            return str(m.get("id")), b365_sport_quotes(api_get("/v1/bet365/prematch", FI=fi, _token=B365_TOKEN),
+                                                       (m.get("home") or {}).get("name", ""), (m.get("away") or {}).get("name", ""))
         except urllib.error.HTTPError as exc:
             if exc.code in (401, 403, 404):
                 _b365_tot = True
@@ -1494,13 +1594,14 @@ def serien_scan():
             part = B365_PART.get(base)
             bq = qb.get((part, side, float(L))) if (qb and part is not None) else None
             near = b365_near(qb, part, side, float(L)) if (qb and part is not None and not bq) else None
+            schaetz = b365_schaetzung(qb, part, side, float(L)) if near else None
             ot = " <i>(inkl. OT)</i>" if ((bq or near) and SPORT_KEY == "eishockey") else ""
             xq = xnear = None
             if qx is not None and part == "":            # 1xBet: nur Gesamtspiel (keine Unterspiele)
                 xq = qx.get(("", side, float(L)))
                 xnear = b365_near(qx, "", side, float(L)) if not xq else None
             block.append(f"✅ <b>{mk} über {L}</b> · Fair {fair:.2f} · {rule} ({100 * q:.0f} %, n={n})"
-                         f"{b365_tail(bq, fair, qb is not None, near)}{ot}"
+                         f"{b365_tail(bq, fair, qb is not None, near, schaetz=schaetz)}{ot}"
                          f"{b365_tail(xq, fair, qx is not None, xnear, label='1xBet') if XB_ENABLED else ''} · <i>Quote selbst prüfen</i>")
             block.append(f"   {detail}")
         lines_out += block + [""]
