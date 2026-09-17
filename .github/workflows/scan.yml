@@ -59,6 +59,7 @@ jobs:
           # 17.09.: eigener Token für den Test-Tag (Secret BETSAPI_TOKEN_TRIAL);
           # fehlt er, fällt es auf den normalen Fußball-Token zurück.
           BETSAPI_TOKEN: ${{ secrets.BETSAPI_TOKEN_TRIAL || secrets.BETSAPI_TOKEN }}
+          BETSAPI_TOKEN_B365: ${{ secrets.BETSAPI_TOKEN_B365 || secrets.BETSAPI_TOKEN_TRIAL || secrets.BETSAPI_TOKEN }}
           SPORT: ${{ inputs.modus == 'handball-scan' && 'handball' || inputs.modus == 'quoten-probe' && 'handball' || startsWith(inputs.modus, 'eishockey') && 'eishockey' || startsWith(inputs.modus, 'basketball') && 'basketball' || inputs.modus }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

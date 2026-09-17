@@ -109,7 +109,7 @@ def api_get(path: str, **params) -> dict:
     with _lock:
         if _requests >= HOURLY_BUDGET:
             raise BudgetExhausted()
-    params["token"] = TOKEN
+    params["token"] = params.pop("_token", None) or TOKEN
     url = f"{API}{path}?{urllib.parse.urlencode(params)}"
     last = None
     for attempt in range(5):
@@ -135,6 +135,8 @@ def api_get(path: str, **params) -> dict:
                     _requests = HOURLY_BUDGET      # alle wartenden Aufrufe scheitern sofort
                 raise BudgetExhausted()
             last = exc
+            if exc.code in (401, 403, 404):
+                raise                       # kein Paket / falscher Pfad — Wiederholen bringt nichts
             if attempt == 4:
                 raise
             time.sleep(min(3 * 2 ** attempt, 30))
@@ -1046,7 +1048,7 @@ def sr_signale(per_team, bt, cfg, m, esc):
                 if ch >= k and ca >= k:
                     n, q = sr_quote(bt, (mk, L, rule))
                     if q:
-                        found = (mk, L, rule, n, q, f"Heim {ch}/10 (Ø {st.mean(H):.1f}) · Gast {ca}/10 (Ø {st.mean(A):.1f})")
+                        found = (mk, L, rule, n, q, f"Heim {ch}/10 (Ø {st.mean(H):.1f}) · Gast {ca}/10 (Ø {st.mean(A):.1f})", "sum", mk)
                         break
                     if n >= SR_MIN_BT and (bt[(mk, L, rule)][1] / n) > SR_MIN_HIT:
                         break                    # Fair unter der Grenze — tiefer wird es nur billiger
@@ -1063,7 +1065,7 @@ def sr_signale(per_team, bt, cfg, m, esc):
                     key = (side + "-Team " + mk, L, "eigene 9/10")
                     n, q = sr_quote(bt, key)
                     if q:
-                        sigs.append((f"{esc(name)} {mk}", L, "eigene 9/10", n, q, f"{c}/10 (Ø {st.mean(O):.1f})"))
+                        sigs.append((f"{esc(name)} {mk}", L, "eigene 9/10", n, q, f"{c}/10 (Ø {st.mean(O):.1f})", side, mk))
                         break
                     if n >= SR_MIN_BT and (bt[key][1] / n) > SR_MIN_HIT:
                         break
@@ -1081,6 +1083,92 @@ def sr_stats_view(chunk):
                 slim[k] = p
         out[str(ev.get("id"))] = slim
     return out
+
+
+# --- bet365-Quoten für die Serien-Signale (17.09. abends) ------------------
+# US-Aufbau des bet365-Katalogs bei Basketball/Eishockey/Handball: "game_lines",
+# "1st_half", "1st_quarter" … mit Zeilen (Teamnamen) und Spalten Spread/Total/
+# Money Line — beim Total sind je Linie zwei Einträge: erst Over, dann Under.
+# "team_totals" (auch 1st_half_/1st_quarter_): header = Teamname, handicap =
+# Linie, wieder Over vor Under. Eishockey-Totals bei bet365 sind inkl.
+# Verlängerung — unsere Regeln laufen auf reguläre Zeit; die Quote wird
+# trotzdem gezeigt (Über-Wetten profitieren von OT), mit Hinweis.
+B365_TOKEN = os.environ.get("BETSAPI_TOKEN_B365") or TOKEN
+PLAY_MIN_ODDS = 1.30
+PLAY_FAIR_FACTOR = 1.05
+B365_PART = {"Punkte": "", "1. HZ Punkte": "1. HZ", "Q1 Punkte": "Q1",
+             "Tore": "", "1. HZ Tore": "1. HZ",
+             "Tore (regulär)": "", "1. Drittel Tore": "P1", "2. Drittel Tore": "P2", "3. Drittel Tore": "P3"}
+_b365_tot = False
+
+
+def _part_of(key: str):
+    k = key.lower()
+    if "1st_half" in k or k == "1st_half":
+        return "1. HZ"
+    if "1st_quarter" in k:
+        return "Q1"
+    if "1st_period" in k:
+        return "P1"
+    if "2nd_period" in k:
+        return "P2"
+    if "3rd_period" in k:
+        return "P3"
+    if k in ("game_lines", "game_total", "totals", "total", "game_totals") or "alternative" in k and "total" in k:
+        return ""
+    return None
+
+
+def b365_sport_quotes(pm) -> dict:
+    """{(Abschnitt, 'sum'|'Heim'|'Gast', Linie): Über-Quote} aus einer Prematch-Antwort."""
+    res = pm.get("results") if isinstance(pm, dict) else None
+    res = res[0] if isinstance(res, list) and res else (res if isinstance(res, dict) else {})
+    out = {}
+    for sec, node in res.items():
+        if not (isinstance(node, dict) and isinstance(node.get("sp"), dict)):
+            continue
+        for mk, mv in node["sp"].items():
+            lst = mv if isinstance(mv, list) else (mv.get("odds") if isinstance(mv, dict) else None)
+            if not lst:
+                continue
+            key = mk.lower()
+            if "team_total" in key and "odd" not in key:
+                part = "1. HZ" if "half" in key else ("Q1" if "1st_quarter" in key else "")
+                teams, by = [], {}
+                for e in lst:
+                    h, hc = e.get("header"), e.get("handicap")
+                    if not h or hc in (None, "") or not str(h).strip():
+                        continue
+                    if h not in teams:
+                        teams.append(h)
+                    by.setdefault((h, str(hc)), []).append(e)
+                for (h, hc), es in by.items():
+                    if len(es) < 2 or h not in teams[:2]:
+                        continue
+                    side = "Heim" if teams.index(h) == 0 else "Gast"
+                    try:
+                        out.setdefault((part, side, float(hc)), float(es[0].get("odds")))
+                    except (TypeError, ValueError):
+                        pass
+                continue
+            part = _part_of(key)
+            if part is None:
+                continue
+            tot = [e for e in lst if (e.get("header") or "").strip() == "Total" and e.get("handicap") not in (None, "")]
+            for i in range(0, len(tot) - 1, 2):
+                try:
+                    out.setdefault((part, "sum", float(tot[i]["handicap"])), float(tot[i]["odds"]))
+                except (TypeError, ValueError):
+                    continue
+    return out
+
+
+def b365_tail(q, fair, checked):
+    """Anzeige nach Lucios Regel: ✔ ab Fair × 1,05 und ≥ 1,30, sonst ✘; ohne Quote 'b365 –'."""
+    if q:
+        ok = q >= fair * PLAY_FAIR_FACTOR and q >= PLAY_MIN_ODDS
+        return f" · 💰 b365 {q:.2f} {'✔' if ok else '✘'}"
+    return " · 💰 b365 –" if checked else ""
 
 
 def serien_scan():
@@ -1192,6 +1280,54 @@ def serien_scan():
         if sigs:
             treffer.append((m, (m.get("league") or {}).get("name") or "?", sigs))
 
+    # 5b) bet365-Quoten je Spiel mit Signalen (eine Anfrage je Spiel)
+    global _b365_tot
+    quoten_b365 = {}
+    if treffer and not any(m.get("bet365_id") for m, _, _ in treffer):
+        # Spielplan ohne bet365-Kennung → Brücke über den bet365-Spielplan (our_event_id)
+        bruecke = {}
+        try:
+            for d in tage:
+                for page in (1, 2, 3, 4):
+                    r = api_get("/v1/bet365/upcoming", sport_id=SPORT_HANDBALL, day=d, page=page, _token=B365_TOKEN)
+                    res = r.get("results") or []
+                    for e in res:
+                        if e.get("our_event_id"):
+                            bruecke[str(e["our_event_id"])] = e.get("id")
+                    if len(res) < 50:
+                        break
+        except urllib.error.HTTPError as exc:
+            if exc.code in (401, 403, 404):
+                _b365_tot = True
+                print(f"  bet365-Spielplan nicht verfügbar (HTTP {exc.code})", flush=True)
+        except Exception as exc:
+            print(f"  bet365-Spielplan: {exc}", flush=True)
+        for m, _, _ in treffer:
+            if bruecke.get(str(m.get("id"))):
+                m["bet365_id"] = bruecke[str(m.get("id"))]
+        print(f"bet365-Brücke: {len(bruecke)} Spiele, {sum(1 for m, _, _ in treffer if m.get('bet365_id'))} davon mit Signalen", flush=True)
+    def _hole(m):
+        global _b365_tot
+        fi = m.get("bet365_id")
+        if not fi or _b365_tot:
+            return str(m.get("id")), ({} if fi else None)
+        try:
+            return str(m.get("id")), b365_sport_quotes(api_get("/v1/bet365/prematch", FI=fi, _token=B365_TOKEN))
+        except urllib.error.HTTPError as exc:
+            if exc.code in (401, 403, 404):
+                _b365_tot = True
+                print(f"  bet365-Katalog nicht verfügbar (HTTP {exc.code}) — Quotenvergleich in diesem Lauf aus", flush=True)
+            return str(m.get("id")), None
+        except Exception as exc:
+            print(f"  bet365 {(m.get('home') or {}).get('name')}: {exc}", flush=True)
+            return str(m.get("id")), None
+    with ThreadPoolExecutor(max_workers=min(WORKERS, 12)) as pool:
+        for f in as_completed([pool.submit(_hole, m) for m, _, _ in treffer]):
+            mid, q = f.result()
+            quoten_b365[mid] = q
+    n_b365 = sum(1 for v in quoten_b365.values() if v)
+    print(f"bet365-Katalog für {n_b365} von {len(treffer)} Spielen mit Signalen geholt", flush=True)
+
     # 6) Nachricht: Zeit zuerst, gleiche Zeit nach Liga, dann Heimteam
     treffer.sort(key=lambda x: (int(x[0].get("time") or 0), x[1].lower(), (x[0].get("home") or {}).get("name", "")))
     berlin = timezone(timedelta(hours=2))
@@ -1208,9 +1344,15 @@ def serien_scan():
         live = " · 🔴 läuft bereits" if m.get("_live") else ""
         block = [f"{em} <b>{scan.esc(home)} – {scan.esc(away)}</b>",
                  f"🕒 {WD[t.weekday()]} {t:%H:%M} · {scan.esc(liga)}{top}{live}"]
-        for mk, L, rule, n, q, detail in sigs:
+        qb = quoten_b365.get(str(m.get("id")))
+        for mk, L, rule, n, q, detail, side, base in sigs:
             n_sig += 1
-            block.append(f"✅ <b>{mk} über {L}</b> · Fair {1 / q:.2f} · {rule} ({100 * q:.0f} %, n={n}) · <i>Quote selbst prüfen</i>")
+            fair = 1 / q
+            part = B365_PART.get(base)
+            bq = qb.get((part, side, float(L))) if (qb and part is not None) else None
+            ot = " <i>(inkl. OT)</i>" if (bq and SPORT_KEY == "eishockey") else ""
+            block.append(f"✅ <b>{mk} über {L}</b> · Fair {fair:.2f} · {rule} ({100 * q:.0f} %, n={n})"
+                         f"{b365_tail(bq, fair, qb is not None)}{ot} · <i>Quote selbst prüfen</i>")
             block.append(f"   {detail}")
         lines_out += block + [""]
     if not treffer:
@@ -1254,7 +1396,8 @@ def hockey_signal(hist, quoten, m, jetzt):
     q = q * HOCKEY_SICHERHEIT
     r10 = sum(c > HOCKEY_LINIE for c in a_kas[:10])
     return (f"{home.get('name', '?')} Tore (regulär) — Gast-Abwehr-Regel", HOCKEY_LINIE, f"Stufe {stufe}", n, q,
-            f"Gast kassiert Ø {st.mean(a_kas[:HOCKEY_N]):.1f} (letzte {HOCKEY_N}), {r10}/10 mit 3+ · Heim schießt Ø {st.mean(h_eig[:HOCKEY_N]):.1f}")
+            f"Gast kassiert Ø {st.mean(a_kas[:HOCKEY_N]):.1f} (letzte {HOCKEY_N}), {r10}/10 mit 3+ · Heim schießt Ø {st.mean(h_eig[:HOCKEY_N]):.1f}",
+            "Heim", "Tore (regulär)")
 
 
 # ---------------------------------------------------------------------------
