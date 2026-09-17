@@ -1161,6 +1161,8 @@ def b365_sport_quotes(pm) -> dict:
                         pass
                 continue
             part = _part_of(key)
+            if part is None and ("over_under" in key or "goals" in key or "points" in key):
+                part = "1. HZ" if "1st_half" in key else ("" if "2nd_half" not in key and "quarter" not in key else None)
             if part is None:
                 continue
             tot = [e for e in lst if (e.get("header") or "").strip() == "Total" and e.get("handicap") not in (None, "")]
@@ -1169,6 +1171,19 @@ def b365_sport_quotes(pm) -> dict:
                     out.setdefault((part, "sum", float(tot[i]["handicap"])), float(tot[i]["odds"]))
                 except (TypeError, ValueError):
                     continue
+            if not tot:
+                # Zeilen/Spalten-Aufbau wie im Fußball: Zeilen = Linien, Spalte "Over"
+                rows = [e for e in lst if (e.get("header") or " ").strip() == "" and e.get("name") is not None]
+                overs = [e for e in lst if (e.get("header") or "").strip() == "Over"]
+                for i, e in enumerate(overs):
+                    hc = e.get("handicap")
+                    try:
+                        L = float(str(hc).replace(",", ".")) if hc not in (None, "") else float(str(rows[i].get("name")).replace(",", "."))
+                        q = float(e.get("odds") or 0)
+                    except (TypeError, ValueError, IndexError):
+                        continue
+                    if q > 1.0:
+                        out.setdefault((part, "sum", L), q)
     return out
 
 
@@ -1386,6 +1401,16 @@ def serien_scan():
             quoten_b365[mid] = q
     n_b365 = sum(1 for v in quoten_b365.values() if v)
     print(f"bet365-Katalog für {n_b365} von {len(treffer)} Spielen mit Signalen geholt", flush=True)
+    # Rohkataloge von zwei Spielen ablegen, damit Marktschlüssel nachgeprüft werden können
+    try:
+        probe = {}
+        for m, _, _ in treffer[:2]:
+            if m.get("bet365_id") and not _b365_tot:
+                probe[str(m.get("id"))] = api_get("/v1/bet365/prematch", FI=m["bet365_id"], _token=B365_TOKEN)
+        if probe:
+            (OUT / f"{SPORT_KEY}_b365_probe_{heute:%Y-%m-%d}.json").write_text(json.dumps(probe), encoding="utf-8")
+    except Exception as exc:
+        print(f"  bet365-Probe: {exc}", flush=True)
 
     # 5c) 1xBet: Brücke über den 1xBet-Spielplan (our_event_id), dann Events zu zehnt
     quoten_1x = {}
@@ -1412,6 +1437,14 @@ def serien_scan():
             print(f"  1xBet-Spielplan nicht verfügbar (HTTP {exc.code})", flush=True)
         except Exception as exc:
             print(f"  1xBet-Spielplan: {exc}", flush=True)
+        if not bruecke_1x:
+            # Welche Sportart steckt hinter der Kennung? Ligen der ersten Treffer ausgeben.
+            try:
+                r = api_get("/v1/1xbet/upcoming", sport_id=xb_sid, day=tage[0], _token=XB_TOKEN)
+                ligen = sorted({(e.get("league") or {}).get("name") or "?" for e in (r.get("results") or [])[:50]})
+                print(f"  1xBet sport_id {xb_sid}: {len(r.get('results') or [])} Einträge, Ligen z. B. {ligen[:8]}", flush=True)
+            except Exception as exc:
+                print(f"  1xBet sport_id {xb_sid}: {exc}", flush=True)
         ids_1x = {bruecke_1x[str(m.get("id"))]: str(m.get("id")) for m, _, _ in treffer if bruecke_1x.get(str(m.get("id")))}
         chunks = [list(ids_1x)[i:i + 10] for i in range(0, len(ids_1x), 10)]
         def _hole_1x(chunk):
