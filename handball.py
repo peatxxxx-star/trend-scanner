@@ -130,11 +130,46 @@ def half_time(ev):
     return None
 
 
+def wochen_aus_argv() -> int:
+    """Das Workflow-Feld heißt 'datum' und wird hier als WOCHENZAHL benutzt.
+    Steht etwas anderes drin (z. B. ein Datum), nicht abstürzen, sondern die
+    Vorgabe nehmen und es sagen."""
+    if len(sys.argv) < 2 or not sys.argv[1].strip():
+        return 4
+    roh = sys.argv[1].strip()
+    try:
+        w = int(roh)
+    except ValueError:
+        print(f"'{roh}' ist keine Wochenzahl — nehme 4 Wochen.", flush=True)
+        return 4
+    if not 1 <= w <= 26:
+        print(f"{w} Wochen sind außerhalb von 1–26 — nehme 4.", flush=True)
+        return 4
+    return w
+
+
 def main():
     if not TOKEN:
-        sys.exit("BETSAPI_TOKEN fehlt")
-    wochen = int(sys.argv[1]) if len(sys.argv) > 1 else 4
+        sys.exit("BETSAPI_TOKEN fehlt — ist das Repository-Secret gesetzt?")
+    wochen = wochen_aus_argv()
     tage = wochen * 7
+
+    # Probelauf: liefert der Zugang Handball überhaupt? Lieber hier mit einer
+    # klaren Meldung scheitern als 28-mal dieselbe Fehlerzeile drucken.
+    probe_tag = (datetime.now(timezone.utc).date() - timedelta(days=1)).strftime("%Y%m%d")
+    try:
+        d = api_get("/v3/events/ended", sport_id=SPORT_HANDBALL, day=probe_tag, page=1)
+        n = len(d.get("results") or [])
+        print(f"Probelauf ok: {n} Handballspiele am {probe_tag}", flush=True)
+        if n == 0:
+            print("  (null Spiele an einem einzelnen Tag ist normal, weiter geht es)",
+                  flush=True)
+    except Exception as exc:
+        print(f"\nProbelauf fehlgeschlagen: {exc}")
+        print("Mögliche Ursachen:")
+        print("  - der API-Zugang umfasst nur Fußball (BetsAPI verkauft je Sportart)")
+        print("  - das Stundenlimit ist voll, weil der Fußball-Scanner gerade lief")
+        sys.exit("Abbruch — ohne Handball-Daten hat der Lauf keinen Zweck.")
     heute = datetime.now(timezone.utc).date()
     days = [(heute - timedelta(days=i + 1)).strftime("%Y%m%d") for i in range(tage)]
 
