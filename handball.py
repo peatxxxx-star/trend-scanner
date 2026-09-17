@@ -972,6 +972,307 @@ def eishockey_scan():
             scan.send_telegram(stueck)
 
 
+# ---------------------------------------------------------------------------
+# BASKETBALL-SCAN (17.09.) — Lucios Serien-Regel, reine Trefferquote
+#
+# Lucio: "ich guck mir sowieso jedes einzelne Spiel und jeden einzelnen Markt
+# an, dann kann ich das gleich mitchecken" — also keine Modell-Vorauswahl,
+# sondern seine Regel auf alle erfassten Märkte, mit der gemessenen
+# Trefferquote als faire Quote. Nachjustieren (Ligen/Märkte ohne Quoten)
+# kommt später über seine Rückmeldung.
+#   Summen-Märkte (beide Teams zusammen): beide Teams lagen in 9 (Stufe A)
+#   bzw. 8 (Stufe B) ihrer letzten 10 Spiele über der Linie.
+#   Team-Märkte: das Team selbst in 9 seiner letzten 10.
+#   Nur "über", je Markt nur die strengste Linie, die die Regel erfüllt
+#   (keine Leiter). Fair = 1 / Trefferquote genau dieser Linie+Regel aus der
+#   Historie (mindestens 100 Fälle, sonst eine Linie tiefer).
+# Statistikfelder (3er, Fouls, Freiwürfe) kommen aus dem Statistikblock der
+# Einzelspiel-Abfrage (zehn Spiele je Anfrage); Punkte/Halbzeit/Viertel aus
+# den Abschnitten (1=Q1, 2=Q2, 3=Halbzeitstand, 4=Q3, 5=Q4).
+# Aufruf: SPORT=basketball python3 handball.py scan
+# ---------------------------------------------------------------------------
+def _lines(a, b, step):
+    return [x + 0.5 for x in range(a, b + 1, step)]
+
+
+BB_SUM = {"Punkte": ("pts", _lines(150, 235, 5)),
+          "1. HZ Punkte": ("h1", _lines(70, 115, 3)),
+          "Q1 Punkte": ("q1", _lines(36, 58, 2)),
+          "3er": ("t3", _lines(14, 30, 2)),
+          "Fouls": ("f", _lines(26, 44, 3)),
+          "Freiwürfe": ("ft", _lines(24, 56, 4))}
+BB_TEAM = {"Punkte": ("pts", _lines(75, 125, 5)),
+           "1. HZ Punkte": ("h1", _lines(36, 60, 3)),
+           "3er": ("t3", _lines(6, 15, 1))}
+BB_N = 10            # Serienfenster
+BB_MIN_BT = 100      # Mindestfälle in der Historie für eine faire Quote
+# Anzeige-Untergrenze: die strengste Serien-Linie liegt im Basketball oft noch
+# weit unter dem Schnitt (95 %+, Fair 1,05) — das kann kein Bookie zu 1,30
+# geben. Ab Fair 1,15 wird gemeldet; 1.0 = alles zeigen.
+BB_MIN_FAIR = float(os.environ.get("BB_MIN_FAIR", "1.15"))
+BB_STATS = {"t3": "3points", "f": "fouls", "ft": "free_throws"}
+
+
+def bb_game(e, stats):
+    """Ein Spiel der Historie als flache Werte je Seite; fehlende Felder fehlen."""
+    if not (e.get("tore") and e.get("heim_id") and e.get("gast_id") and e.get("time") and e.get("id")):
+        return None
+    g = {"id": e["id"], "t": int(e["time"]), "liga": e.get("liga") or "",
+         "hid": str(e["heim_id"]), "aid": str(e["gast_id"]),
+         "pts_h": int(e["tore"][0]), "pts_a": int(e["tore"][1])}
+    p = e.get("perioden") or []
+    if len(p) >= 5:
+        g["q1_h"], g["q1_a"] = int(p[0][0]), int(p[0][1])
+        g["h1_h"], g["h1_a"] = int(p[0][0]) + int(p[1][0]), int(p[0][1]) + int(p[1][1])
+    s = stats.get(str(e["id"])) or {}
+    for k, feld in BB_STATS.items():
+        v = s.get(feld)
+        if v and len(v) == 2:
+            g[k + "_h"], g[k + "_a"] = int(v[0]), int(v[1])
+    return g
+
+
+def bb_games(hist, stats):
+    games = {}
+    for t in hist.values():
+        for e in t.get("events") or []:
+            g = bb_game(e, stats)
+            if g:
+                games[g["id"]] = g
+    return games
+
+
+def bb_letzte(per_team, tid, feld, vor_ts, n=BB_N, side_of=None):
+    """Die letzten n Werte eines Teams vor vor_ts: Spielsumme (side_of=None)
+    oder eigener Wert (side_of='own'). Neueste zuerst."""
+    out = []
+    for g in reversed(per_team.get(tid) or []):
+        if g["t"] >= vor_ts:
+            continue
+        if feld + "_h" not in g:
+            continue
+        if side_of == "own":
+            out.append(g[feld + "_h"] if g["hid"] == tid else g[feld + "_a"])
+        else:
+            out.append(g[feld + "_h"] + g[feld + "_a"])
+        if len(out) >= n:
+            break
+    return out
+
+
+def bb_backtest(games):
+    """Trefferquoten je (Markt, Linie, Regel) aus der Historie: {key: [n, treffer]}."""
+    per_team = defaultdict(list)
+    for g in games.values():
+        per_team[g["hid"]].append(g); per_team[g["aid"]].append(g)
+    for v in per_team.values():
+        v.sort(key=lambda g: g["t"])
+    bt = defaultdict(lambda: [0, 0])
+    for g in games.values():
+        for mk, (feld, lines) in BB_SUM.items():
+            if feld + "_h" not in g:
+                continue
+            H = bb_letzte(per_team, g["hid"], feld, g["t"]); A = bb_letzte(per_team, g["aid"], feld, g["t"])
+            if len(H) < BB_N or len(A) < BB_N:
+                continue
+            y = g[feld + "_h"] + g[feld + "_a"]
+            for L in lines:
+                ch = sum(v > L for v in H); ca = sum(v > L for v in A)
+                for rule, k in (("9/10", 9), ("8/10", 8)):
+                    if ch >= k and ca >= k:
+                        bt[(mk, L, rule)][0] += 1; bt[(mk, L, rule)][1] += int(y > L)
+        for mk, (feld, lines) in BB_TEAM.items():
+            if feld + "_h" not in g:
+                continue
+            for side, tid in (("Heim", g["hid"]), ("Gast", g["aid"])):
+                O = bb_letzte(per_team, tid, feld, g["t"], side_of="own")
+                if len(O) < BB_N:
+                    continue
+                y = g[feld + ("_h" if side == "Heim" else "_a")]
+                for L in lines:
+                    if sum(v > L for v in O) >= 9:
+                        bt[(side + "-Team " + mk, L, "eigene 9/10")][0] += 1
+                        bt[(side + "-Team " + mk, L, "eigene 9/10")][1] += int(y > L)
+    return bt
+
+
+def bb_stats_view(chunk):
+    d = api_get("/v1/event/view", event_id=",".join(chunk))
+    out = {}
+    for ev in d.get("results") or []:
+        slim = {}
+        for k, v in (ev.get("stats") or {}).items():
+            p = _num_pair(v)
+            if p is not None:
+                slim[k] = p
+        out[str(ev.get("id"))] = slim
+    return out
+
+
+def basketball_scan():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("scan", Path(__file__).parent / "scan.py")
+    scan = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(scan)
+
+    hfiles = sorted(OUT.glob("basketball_historie_*.json"))
+    sfiles = sorted(OUT.glob("basketball_stats_*.json"))
+    if not hfiles:
+        sys.exit("keine Basketball-Historie gefunden — erst basketball-liga laufen lassen")
+    hist = json.loads(hfiles[-1].read_text(encoding="utf-8"))
+    stats = json.loads(sfiles[-1].read_text(encoding="utf-8")) if sfiles else {}
+    print(f"Historie: {hfiles[-1].name} ({len(hist)} Teams) · Statistik: {len(stats)} Spiele", flush=True)
+    heute = datetime.now(timezone.utc).date()
+
+    # 1) anstehende Spiele
+    tage = [(heute + timedelta(days=i)).strftime("%Y%m%d") for i in range(SCAN_TAGE)]
+    spiele = []
+    for d in tage:
+        try:
+            spiele += upcoming(d)
+        except Exception as exc:
+            print(f"  upcoming {d}: {exc}", flush=True)
+    jetzt = int(time.time())
+    spiele = [m for m in spiele if not is_junk(m) and int(m.get("time") or 0) > jetzt]
+    print(f"{len(spiele)} anstehende Spiele (ohne E-Sport)", flush=True)
+
+    # 2) Historien aller beteiligten Teams auffrischen (neueste 50 Spiele) und
+    #    mit der Datei zusammenführen (Vereinigung nach Spiel-ID)
+    ids = {}
+    for m in spiele:
+        for side in ("home", "away"):
+            t = m.get(side) or {}
+            if t.get("id"):
+                ids[str(t["id"])] = t.get("name") or "?"
+    print(f"{len(ids)} Teams beteiligt → Historien auffrischen", flush=True)
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = {pool.submit(team_history, tid): tid for tid in ids}
+        for f in as_completed(futs):
+            tid = futs[f]
+            try:
+                neu = f.result()
+            except BudgetExhausted:
+                print("  Stundenbudget erschöpft — Rest mit alter Historie", flush=True); continue
+            except Exception as exc:
+                print(f"  Team {ids[tid]}: {exc}", flush=True); continue
+            alt = {e["id"]: e for e in (hist.get(tid) or {}).get("events") or [] if e.get("id")}
+            for e in neu:
+                if e.get("id"):
+                    alt[e["id"]] = e
+            hist[tid] = {"name": ids[tid], "events": sorted(alt.values(), key=lambda e: int(e.get("time") or 0))}
+    print(f"Historien aktualisiert ({_requests} Anfragen)", flush=True)
+
+    # 3) Statistikblöcke für die letzten Spiele der beteiligten Teams nachladen
+    todo = set()
+    for tid in ids:
+        ev = sorted((hist.get(tid) or {}).get("events") or [], key=lambda e: -int(e.get("time") or 0))
+        for e in [x for x in ev if x.get("tore")][:BB_N + 5]:
+            if str(e["id"]) not in stats:
+                todo.add(str(e["id"]))
+    todo = sorted(todo)
+    print(f"{len(todo)} Spiele ohne Statistikblock → {(len(todo) + 9) // 10} Anfragen", flush=True)
+    chunks = [todo[i:i + 10] for i in range(0, len(todo), 10)]
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(bb_stats_view, c) for c in chunks]
+        for f in as_completed(futs):
+            try:
+                stats.update(f.result())
+            except BudgetExhausted:
+                pass
+            except Exception as exc:
+                print(f"  Block: {exc}", flush=True)
+    OUT.mkdir(exist_ok=True)
+    (OUT / f"basketball_historie_{heute:%Y-%m-%d}.json").write_text(json.dumps(hist), encoding="utf-8")
+    (OUT / f"basketball_stats_{heute:%Y-%m-%d}.json").write_text(json.dumps(stats), encoding="utf-8")
+
+    # 4) Trefferquoten aus der (aufgefrischten) Historie
+    games = bb_games(hist, stats)
+    bt = bb_backtest(games)
+    print(f"Trefferquoten aus {len(games)} Spielen gerechnet ({len(bt)} Markt/Linie/Regel-Kombinationen)", flush=True)
+    per_team = defaultdict(list)
+    for g in games.values():
+        per_team[g["hid"]].append(g); per_team[g["aid"]].append(g)
+    for v in per_team.values():
+        v.sort(key=lambda g: g["t"])
+
+    def quote(key):
+        """(n, Trefferquote) — None, wenn zu wenig Fälle oder Fair unter der Anzeige-Grenze
+        (dann lohnt auch keine tiefere Linie: die wäre noch sicherer und noch billiger)."""
+        n, h = bt.get(key, [0, 0])
+        if n < BB_MIN_BT or not h:
+            return n, None
+        return (n, h / n) if 1 / (h / n) >= BB_MIN_FAIR else (n, None)
+
+    # 5) Regel anwenden — je Markt die strengste Linie
+    treffer = []
+    for m in spiele:
+        home, away = m.get("home") or {}, m.get("away") or {}
+        hid, aid = str(home.get("id")), str(away.get("id"))
+        ts_ = int(m.get("time") or 0)
+        sigs = []
+        for mk, (feld, lines) in BB_SUM.items():
+            H = bb_letzte(per_team, hid, feld, ts_); A = bb_letzte(per_team, aid, feld, ts_)
+            if len(H) < BB_N or len(A) < BB_N:
+                continue
+            for rule, k in (("9/10", 9), ("8/10", 8)):
+                found = None
+                for L in sorted(lines, reverse=True):
+                    ch = sum(v > L for v in H); ca = sum(v > L for v in A)
+                    if ch >= k and ca >= k:
+                        n, q = quote((mk, L, rule))
+                        if q:
+                            found = (mk, L, rule, n, q, f"Heim {ch}/10 (Ø {st.mean(H):.0f}) · Gast {ca}/10 (Ø {st.mean(A):.0f})")
+                            break
+                        if n >= BB_MIN_BT:
+                            break                    # Fair unter der Grenze — tiefer wird es nur billiger
+                if found:
+                    sigs.append(found); break            # 9/10 gefunden → 8/10 nicht mehr nötig
+        for mk, (feld, lines) in BB_TEAM.items():
+            for side, tid, name in (("Heim", hid, home.get("name", "?")), ("Gast", aid, away.get("name", "?"))):
+                O = bb_letzte(per_team, tid, feld, ts_, side_of="own")
+                if len(O) < BB_N:
+                    continue
+                for L in sorted(lines, reverse=True):
+                    c = sum(v > L for v in O)
+                    if c >= 9:
+                        n, q = quote((side + "-Team " + mk, L, "eigene 9/10"))
+                        if q:
+                            sigs.append((f"{scan.esc(name)} {mk}", L, "eigene 9/10", n, q, f"{c}/10 (Ø {st.mean(O):.0f})"))
+                            break
+                        if n >= BB_MIN_BT:
+                            break
+        if sigs:
+            treffer.append((m, (m.get("league") or {}).get("name") or "?", sigs))
+
+    # 6) Nachricht: Zeit zuerst, gleiche Zeit nach Liga, dann Heimteam
+    treffer.sort(key=lambda x: (int(x[0].get("time") or 0), x[1].lower(), (x[0].get("home") or {}).get("name", "")))
+    berlin = timezone(timedelta(hours=2))
+    WD = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+    lines_out = ["🏀 <b>BASKETBALL-SCAN</b> · nächste 3 Tage · 🧪 <i>Test</i>",
+                 "<i>Serien-Regel: beide Teams 9/10 (A) bzw. 8/10 (B) über der Linie, Team-Märkte 9/10 · "
+                 "Fair = gemessene Trefferquote dieser Linie · nur über</i>", ""]
+    n_sig = 0
+    for m, liga, sigs in treffer:
+        t = datetime.fromtimestamp(int(m.get("time") or 0), berlin)
+        home = (m.get("home") or {}).get("name", "?"); away = (m.get("away") or {}).get("name", "?")
+        block = [f"🏀 <b>{scan.esc(home)} – {scan.esc(away)}</b>",
+                 f"🕒 {WD[t.weekday()]} {t:%H:%M} · {scan.esc(liga)}"]
+        for mk, L, rule, n, q, detail in sigs:
+            n_sig += 1
+            block.append(f"✅ <b>{mk} über {L}</b> · Fair {1 / q:.2f} · {rule} ({100 * q:.0f} %, n={n}) · <i>Quote selbst prüfen</i>")
+            block.append(f"   {detail}")
+        lines_out += block + [""]
+    if not treffer:
+        lines_out.append("keine Signale in den nächsten 3 Tagen")
+    text = "\n".join(lines_out)
+    print("\n" + text.replace("<b>", "").replace("</b>", "").replace("<i>", "").replace("</i>", ""))
+    (OUT / f"basketball_scan_{heute:%Y-%m-%d}.txt").write_text(text, encoding="utf-8")
+    print(f"\n{n_sig} Signale in {len(treffer)} Spielen · {_requests} Anfragen")
+    if TG_TOKEN and TG_CHAT:
+        for stueck in scan.split_message(text):
+            scan.send_telegram(stueck)
+
+
 def main():
     if len(sys.argv) > 1 and sys.argv[1].strip().lower() == "liga":
         if not TOKEN:
@@ -989,8 +1290,11 @@ def main():
         if SPORT_KEY == "eishockey":
             eishockey_scan()
             return
+        if SPORT_KEY == "basketball":
+            basketball_scan()
+            return
         if SPORT_KEY != "handball":
-            sys.exit("der Scan-Modus gibt es bisher nur für Handball und Eishockey")
+            sys.exit("der Scan-Modus gibt es bisher nur für Handball, Eishockey und Basketball")
         scan_modus()
         return
     if not TOKEN:
