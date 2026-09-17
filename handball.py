@@ -665,12 +665,23 @@ def main():
             t = ev.get(side) or {}
             if t.get("id"):
                 teams[str(t["id"])] = t.get("name") or "?"
-    print(f"\nSchritt 2: Historien für {len(teams)} Teams aus {len(ziel_ligen)} Ligen "
-          f"(je 1–2 Anfragen)", flush=True)
+    # Wiederaufnahme (17.09.): ist von heute schon eine Historie da, werden nur
+    # die Teams geholt, die darin fehlen. So kostet ein zweiter Lauf nach dem
+    # Stundenlimit nur den Rest — und nicht nochmal alles.
+    hpfad = OUT / f"{SPORT_KEY}_historie_{heute:%Y-%m-%d}.json"
     hist = {}
+    if hpfad.exists():
+        try:
+            hist = json.loads(hpfad.read_text(encoding="utf-8"))
+            print(f"Wiederaufnahme: {len(hist)} Teams schon vorhanden aus {hpfad.name}", flush=True)
+        except Exception:
+            hist = {}
+    fehlend = {tid: n for tid, n in teams.items() if tid not in hist}
+    print(f"\nSchritt 2: Historien für {len(fehlend)} von {len(teams)} Teams aus "
+          f"{len(ziel_ligen)} Ligen (je 1–2 Anfragen)", flush=True)
     knapp = 0
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
-        futs = {pool.submit(team_history, tid): tid for tid in teams}
+        futs = {pool.submit(team_history, tid): tid for tid in fehlend}
         for i, f in enumerate(as_completed(futs), 1):
             tid = futs[f]
             try:
@@ -687,7 +698,6 @@ def main():
         print(f"Stundenlimit erreicht: {knapp} Teams ohne Historie — gespeichert wird, "
               f"was da ist; ein zweiter Lauf in der nächsten Stunde holt den Rest.",
               flush=True)
-    hpfad = OUT / f"{SPORT_KEY}_historie_{heute:%Y-%m-%d}.json"
     hpfad.write_text(json.dumps(hist, ensure_ascii=False), encoding="utf-8")
     n_ev = sum(len(v["events"]) for v in hist.values())
     mit_hz = sum(1 for v in hist.values() for e in v["events"] if e.get("hz"))
