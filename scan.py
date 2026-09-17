@@ -173,7 +173,17 @@ S24_GROUPS = {
 # Märkte, die grundsätzlich NICHT gemeldet werden (Lucios Vorgabe 05.09.:
 # "alle unter-Ecken-Märkte raus"). Für die Gegenbewegungs-Prüfung zählen
 # sie trotzdem weiter.
-EXCLUDED_MARKETS = {("corners", "unter"),
+# 17.09. (Lucio): ALLE Unter-Märkte raus. Begründung ist nicht die Trefferquote
+# — Karten unter war mit 84,5 % real gegen 83,1 % angezeigt der bestkalibrierte
+# Markt überhaupt (14.208 Signale) —, sondern der Verlauf: eine Unter-Wette
+# steht 90 Minuten auf Gewinn und kann nur noch sterben. 53 % der verlorenen
+# Karten-unter-Wetten gingen um genau eine Karte daneben. Bewusste Entscheidung
+# gegen den Nervenaufwand, nicht gegen die Zahlen. Zum Wiedereinschalten: die
+# Einträge in UNTER_RAUS entfernen.
+UNTER_RAUS = ("yellowcards", "ht_yellowcards", "throwins", "goalkicks",
+              "corners", "ht_corners", "goals", "offsides", "on_target",
+              "shots_total", "fouls", "freekicks", "ht_goals", "h2_goals")
+EXCLUDED_MARKETS = {(m, "unter") for m in UNTER_RAUS} | {("corners", "unter"),
                     # 16.09. (Lucio): Freistöße gibt es bei seinem Buchmacher
                     # nicht — Daten und Backtest bleiben, die Meldung entfällt.
                     ("freekicks", "über"), ("freekicks", "unter"),
