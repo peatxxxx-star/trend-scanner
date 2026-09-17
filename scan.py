@@ -365,14 +365,26 @@ EXO_SHOW = 14
 METRIC_LEAGUES = {         # 06.09.: für die Kernmärkte keine Beschränkung —
                            # Nachweis läuft über den scores24-Reiter.
     # 15.09.: Einwürfe/Abstöße/Freistöße liefert die Datenquelle NUR für
-    # diese Ligen durchgehend (Abdeckungslauf + 30-Wochen-Historie). Überall
-    # sonst gibt es die Zahlen gar nicht — also erst gar nicht prüfen.
-    "throwins":  ["russia", "russian matches", "belarus", "estonia ii liiga",
-                  "england premier league", "slovenia league women"],
-    "goalkicks": ["russia", "russian matches", "belarus", "estonia ii liiga",
-                  "england premier league", "slovenia league women"],
-    "freekicks": ["russia", "russian matches", "belarus", "estonia ii liiga",
-                  "england premier league", "slovenia league women"],
+    # wenige Ligen durchgehend. Nachgezählt am 17.09. direkt im Cache, Anteil
+    # der Spiele mit gefülltem Feld:
+    #   Russia Premier League 97 % · England Premier League 88 %
+    #   Netherlands Eredivisie 14 % (Lieferant fängt dort offenbar gerade an,
+    #                                in ein paar Wochen nochmal prüfen)
+    #   Ligue 1 / La Liga / Serie A / Bundesliga: 0 % über 17–50 Spiele —
+    #   kein Stichprobenfehler, die Felder existieren dort schlicht nicht.
+    #
+    # 17.09. (Lucio): ZUSÄTZLICH auf die Ligen eingedampft, in denen sein
+    # Buchmacher den Markt auch wirklich führt. Russland 2./3. Liga haben
+    # perfekte Daten, aber BetLabel bietet dort nichts an — das hat am 17.09.
+    # einen ganzen Lauf ohne spielbaren Pick erzeugt. Datenabdeckung und
+    # Bookie-Angebot sind zwei verschiedene Dinge; hier zählt der Schnitt.
+    # Ergänzen, sobald Lucio den Markt anderswo im Konto findet.
+    "throwins":  ["russia premier league", "england premier league",
+                  "belarus premier league"],
+    "goalkicks": ["russia premier league", "england premier league",
+                  "belarus premier league"],
+    "freekicks": ["russia premier league", "england premier league",
+                  "belarus premier league"],
 }
 
 
@@ -5490,6 +5502,14 @@ def selftest():
     if EXO_METRICS or EXO_ENABLED or EXO_TEST:
         print("FEHLER Fall 24i: Extra-Block muss abgeschaltet sein")
         ok = False
+    # 24k: Liga-Schnitt (17.09.) — nur noch die jeweils höchste Liga
+    for _lg, _soll in (("Russia Premier League", True), ("England Premier League", True),
+                       ("Belarus Premier League", True), ("Russia Division 3", False),
+                       ("Russia Regional League", False), ("Belarus Division 1", False),
+                       ("Estonia II Liiga", False), ("Spain La Liga", False)):
+        if metric_allowed_for_league("goalkicks", _lg) != _soll:
+            print(f"FEHLER Fall 24k: Liga-Schnitt falsch für {_lg}")
+            ok = False
     # 24j: Freistöße sind gestrichen (Buchmacher führt sie nicht)
     if [x for x in evaluate_match(m24, h24, a24) if x["metric_key"] == "freekicks"]:
         print("FEHLER Fall 24j: Freistöße dürfen nicht mehr gemeldet werden")
