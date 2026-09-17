@@ -200,16 +200,22 @@ UNTER_RAUS = ("yellowcards", "ht_yellowcards", "throwins", "goalkicks",
 #   optimistisch ist (siehe EXCLUDED_LINES).
 #   Draußen bleiben: Schüsse gesamt (Datenfeld unbrauchbar, 11.09.) und
 #   Freistöße (kein Markt beim Buchmacher, 16.09.); alle Unter-Märkte.
+# 17.09. spät (Lucio): "Mach bitte alles wieder normal wie vorher — nur meine
+# Fußball-Tipps mit den gewohnten Märkten, ohne Quoten, nur die faire wie sonst."
+# Die Halbzeit-Tore "nerven nur". Also zurück auf den Stand vom Nachmittag:
+# Ecken über, Gelbe Karten über, 1. HZ Ecken über, 1. HZ Karten über,
+# Einwürfe/Abstöße über (Russland, England, Belarus), Tore über 2,5.
 EXCLUDED_MARKETS = {(m, "unter") for m in UNTER_RAUS} | {("corners", "unter"),
                     # 16.09. (Lucio): Freistöße gibt es bei seinem Buchmacher
                     # nicht — Daten und Backtest bleiben, die Meldung entfällt.
                     ("freekicks", "über"), ("freekicks", "unter"),
-                    ("on_target", "unter"),
-                    ("ht_goals", "unter"), ("h2_goals", "unter"),
+                    ("on_target", "über"), ("on_target", "unter"),
+                    ("ht_goals", "über"), ("ht_goals", "unter"),
+                    ("h2_goals", "über"), ("h2_goals", "unter"),
                     ("ht_corners", "unter"),
-                    ("offsides", "unter"),
+                    ("offsides", "über"), ("offsides", "unter"),
                     ("shots_total", "über"), ("shots_total", "unter"),
-                    ("fouls", "unter")}
+                    ("fouls", "über"), ("fouls", "unter")}
 # 15.09. spät (Lucio): 1. HZ ECKEN ÜBER wieder rein, ABSEITS komplett raus.
 # 15.09. (Lucio): "Schüsse aufs Tor" KOMPLETT raus (vorher nur "über").
 # 15.09. (Korrektur): 1. HZ GELBE KARTEN bleiben drin — nur die Linie
@@ -344,11 +350,10 @@ METRICS = {
 # Einzelne Linien sperren (Markt + Richtung + Linie) — feiner als
 # EXCLUDED_MARKETS, für Fälle wie "Tore unter 2,5" (60 % im Backtest).
 EXCLUDED_LINES = {("goals", "unter", 1.5), ("goals", "unter", 2.5),
-                  ("goals", "über", 4.5),             # zu wenig Fälle für eine Quote
+                  ("goals", "über", 4.5),
                   ("goals", "unter", 4.5), ("goals", "unter", 3.5),
-                  # 17.09. abends: "über 1,5" und "über 3,5" wieder frei (Lucio:
-                  # alles mit >= 75 % rein; die Fair-Grenze 1,15 hält die
-                  # 1,05er-Fälle von "über 1,5" ohnehin aus der Anzeige).
+                  # 17.09. spät: wieder wie vorher — nur "Tore über 2,5"
+                  ("goals", "über", 1.5), ("goals", "über", 3.5),
                   # 15.09. (Lucio): 1. HZ Gelbe Karten bleiben drin, aber die
                   # Linie "unter 2,5" muss raus.
                   ("ht_yellowcards", "unter", 2.5),
@@ -1809,10 +1814,9 @@ def model_prob(mean, sd, line, direction):
 
 
 # --- Die eine schlüssige Rechnung: Historie + Modell -> Fair -> Markt -> Ampel
-MIN_FAIR = 1.15           # 17.09. abends (Lucio): Anzeige ab Fair 1,15 — wie bei den
-                          # neuen Sportarten ("das können wir so beibehalten, aber mehr
-                          # dann auch nicht"). Vorher AUS (06.09., "einmal alle wieder
-                          # rein"); Fälle unter 1,15 kann kein Bookie zu 1,30 geben.
+MIN_FAIR = 1.0            # 17.09. spät (Lucio): "alles wieder normal wie vorher" —
+                          # Mindest-Fair-Filter wieder AUS (06.09.: "einmal alle wieder
+                          # rein, ich checke es"). Kurz war 1,15 aktiv (17.09. abends).
                           # Seine Spielregel bleibt: Bookie >= Fair × 1,05 und >= 1,30.
 GREEN_MIN_P = 0.68        # Mindest-Wahrscheinlichkeit (kombiniert) für Grün
 RED_MAX_P = 0.58          # darunter Rot
@@ -2510,7 +2514,8 @@ def send_telegram(text: str) -> bool:
 # er weiterhin selbst, aber nur noch dort, wo bet365 überhaupt Luft zeigt.
 # Kosten: eine Anfrage je Spiel mit Signalen.
 # ----------------------------------------------------------------------------
-B365_PREMATCH = True
+B365_PREMATCH = False     # 17.09. spät (Lucio): "ohne Quoten, nur die faire wie sonst auch"
+                          # — der Quotenvergleich bleibt im Code, ist aber AUS.
 # Der bet365-Katalog kann auf einem anderen BetsAPI-Konto liegen als das
 # Fußball-Paket → eigener Token (Secret BETSAPI_TOKEN_B365), sonst der normale.
 B365_TOKEN = os.environ.get("BETSAPI_TOKEN_B365") or os.environ.get("BETSAPI_TOKEN", "")
@@ -2723,6 +2728,8 @@ def play_flag(s):
 
 
 def fmt_b365(s) -> str:
+    if not B365_PREMATCH:
+        return ""                     # auch gespeicherte Einträge von heute zeigen nichts mehr
     f = play_flag(s)
     if f:
         return f" · 💰 {f[1]} {f[0]}"
@@ -5872,8 +5879,8 @@ def selftest():
         print("FEHLER Fall 27c: 1,45 bei Fair 1,40 liegt unter Fair × 1,05"); ok = False
     if play_flag({"b365_quote": 1.28, "fair_fin": 1.15})[0] != "✘":
         print("FEHLER Fall 27d: unter 1,30 nie spielbar"); ok = False
-    if play_flag({"b365_checked": True}) is not None or fmt_b365({"b365_checked": True}) != " · 💰 b365 –":
-        print("FEHLER Fall 27e: ohne Quote muss 'b365 –' stehen"); ok = False
+    if play_flag({"b365_checked": True}) is not None or fmt_b365({"b365_checked": True}) != (" · 💰 b365 –" if B365_PREMATCH else ""):
+        print("FEHLER Fall 27e: ohne Quote muss 'b365 –' stehen (bzw. nichts, wenn der Vergleich aus ist)"); ok = False
     # Nachbarlinien: Signal Ecken über 8,5, bet365 nur 9,5 zu 2,00 (strenger) bzw. 7,5 zu 1,60 (lockerer)
     n1 = b365_nearest({("corners", "über", 9.5): 2.0}, "corners", "über", 8.5)
     n2 = b365_nearest({("corners", "über", 7.5): 1.6}, "corners", "über", 8.5)
@@ -6085,17 +6092,12 @@ def selftest():
             if s["metric"] == "Ecken"]:
         print("FEHLER Fall 20b: ohne Sperre muss das Ecken-Signal stehen bleiben")
         ok = False
-    # 17.09. abends: Fouls ÜBER wieder drin (81 % im Backtest), Fouls UNTER
-    # bleiben draußen (keine Unter-Märkte).
+    # 17.09. spät: Fouls wieder komplett ausgeschlossen (Lucio: alles wie vorher)
     fo = _mk([[14, 13]] * 15, [H, A] * 7 + [H])
     for m_ in fo:
         m_["stats"]["fouls"] = [14, 13]
-    fo_sigs = evaluate_match(dict(match), fo, [dict(x) for x in fo])
-    if any(s["metric_key"] == "fouls" and s["direction"] == "unter" for s in fo_sigs):
-        print("FEHLER Fall 20c: Fouls unter müssen ausgeschlossen sein")
-        ok = False
-    if not any(s["metric_key"] == "fouls" and s["direction"] == "über" for s in fo_sigs):
-        print("FEHLER Fall 20d: Fouls über müssen wieder gemeldet werden")
+    if any(s["metric_key"] == "fouls" for s in evaluate_match(dict(match), fo, [dict(x) for x in fo])):
+        print("FEHLER Fall 20c: Fouls müssen ausgeschlossen sein")
         ok = False
 
     # --- Fall 19: Gegenbewegung bei Ecken nur noch mit Anker (12.09.)
