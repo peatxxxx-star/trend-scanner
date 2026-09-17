@@ -30,10 +30,10 @@ on:
         type: string
         default: ""
       modus:
-        description: "scan = normaler Lauf · nachladen = Historien der Teams von heute/morgen neu laden · inventar = welche Märkte/Daten liefert die API pre-match? · abdeckung = welche Statistik-Felder gibt es je Liga (CSV)? · exoten = Paraden/Einwürfe/Abstöße/Freistöße nachladen · tore = Halbzeit-Tore nachladen · tordiagnose = Ereignis-Verlauf im Rohformat ansehen · schuesse = Schusszahlen von gestern roh ausgeben · backtest = einen vergangenen Tag nachrechnen · handball / basketball / eishockey / volleyball = Erkundung der Sportart (Abdeckung + Historien, Test-Token) · handball-scan / eishockey-scan / basketball-scan = Signale der Sportart für die nächsten 3 Tage (Eishockey: Heim über 2,5 Tore gegen löchrige Gast-Abwehr · Basketball: Serien-Regel auf Punkte/HZ/Q1/3er/Fouls/Freiwürfe/Team-Märkte) · eishockey-stats / basketball-stats = Statistikblock für die Spiele der großen Ligen nachladen · basketball-liga = ganze Ligen (NBA, EuroLeague, ACB …) am Stück, letzte 400 Tage, danach gleich die Statistiken"
+        description: "scan = normaler Lauf · nachladen = Historien der Teams von heute/morgen neu laden · inventar = welche Märkte/Daten liefert die API pre-match? · abdeckung = welche Statistik-Felder gibt es je Liga (CSV)? · exoten = Paraden/Einwürfe/Abstöße/Freistöße nachladen · tore = Halbzeit-Tore nachladen · tordiagnose = Ereignis-Verlauf im Rohformat ansehen · schuesse = Schusszahlen von gestern roh ausgeben · backtest = einen vergangenen Tag nachrechnen · handball / basketball / eishockey / volleyball = Erkundung der Sportart (Abdeckung + Historien, Test-Token) · handball-scan / eishockey-scan / basketball-scan = Signale der Sportart für die nächsten 3 Tage (Eishockey: Heim über 2,5 Tore gegen löchrige Gast-Abwehr · Basketball: Serien-Regel auf Punkte/HZ/Q1/3er/Fouls/Freiwürfe/Team-Märkte) · eishockey-stats / basketball-stats = Statistikblock für die Spiele der großen Ligen nachladen · basketball-liga = ganze Ligen (NBA, EuroLeague, ACB …) am Stück, letzte 400 Tage, danach gleich die Statistiken · quoten-probe = 1xBet-Quoten-API erkunden (Rohdaten nach runs/)"
         type: choice
         default: scan
-        options: [scan, nachladen, inventar, abdeckung, exoten, tore, tordiagnose, schuesse, backtest, handball, handball-scan, basketball, basketball-scan, eishockey, eishockey-scan, volleyball, eishockey-stats, basketball-stats, basketball-liga]
+        options: [scan, nachladen, inventar, abdeckung, exoten, tore, tordiagnose, schuesse, backtest, handball, handball-scan, basketball, basketball-scan, eishockey, eishockey-scan, volleyball, eishockey-stats, basketball-stats, basketball-liga, quoten-probe]
 
 concurrency:
   group: trend-scan
@@ -54,19 +54,19 @@ jobs:
           python-version: "3.12"
 
       - name: Erkundung neue Sportart
-        if: contains(fromJSON('["handball","handball-scan","basketball","basketball-scan","eishockey","eishockey-scan","volleyball","eishockey-stats","basketball-stats","basketball-liga"]'), inputs.modus)
+        if: contains(fromJSON('["handball","handball-scan","basketball","basketball-scan","eishockey","eishockey-scan","volleyball","eishockey-stats","basketball-stats","basketball-liga","quoten-probe"]'), inputs.modus)
         env:
           # 17.09.: eigener Token für den Test-Tag (Secret BETSAPI_TOKEN_TRIAL);
           # fehlt er, fällt es auf den normalen Fußball-Token zurück.
           BETSAPI_TOKEN: ${{ secrets.BETSAPI_TOKEN_TRIAL || secrets.BETSAPI_TOKEN }}
-          SPORT: ${{ inputs.modus == 'handball-scan' && 'handball' || startsWith(inputs.modus, 'eishockey') && 'eishockey' || startsWith(inputs.modus, 'basketball') && 'basketball' || inputs.modus }}
+          SPORT: ${{ inputs.modus == 'handball-scan' && 'handball' || inputs.modus == 'quoten-probe' && 'handball' || startsWith(inputs.modus, 'eishockey') && 'eishockey' || startsWith(inputs.modus, 'basketball') && 'basketball' || inputs.modus }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           PYTHONUNBUFFERED: "1"
-        run: python handball.py ${{ endsWith(inputs.modus, '-scan') && 'scan' || endsWith(inputs.modus, '-stats') && 'stats' || endsWith(inputs.modus, '-liga') && 'liga' || inputs.datum || '4' }}
+        run: python handball.py ${{ inputs.modus == 'quoten-probe' && 'quoten' || endsWith(inputs.modus, '-scan') && 'scan' || endsWith(inputs.modus, '-stats') && 'stats' || endsWith(inputs.modus, '-liga') && 'liga' || inputs.datum || '4' }}
 
       - name: Scan ausführen
-        if: ${{ !contains(fromJSON('["handball","handball-scan","basketball","basketball-scan","eishockey","eishockey-scan","volleyball","eishockey-stats","basketball-stats","basketball-liga"]'), inputs.modus) }}
+        if: ${{ !contains(fromJSON('["handball","handball-scan","basketball","basketball-scan","eishockey","eishockey-scan","volleyball","eishockey-stats","basketball-stats","basketball-liga","quoten-probe"]'), inputs.modus) }}
         env:
           BETSAPI_TOKEN: ${{ secrets.BETSAPI_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

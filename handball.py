@@ -1257,7 +1257,98 @@ def hockey_signal(hist, quoten, m, jetzt):
             f"Gast kassiert Ø {st.mean(a_kas[:HOCKEY_N]):.1f} (letzte {HOCKEY_N}), {r10}/10 mit 3+ · Heim schießt Ø {st.mean(h_eig[:HOCKEY_N]):.1f}")
 
 
+# ---------------------------------------------------------------------------
+# QUOTEN-PROBE (17.09.) — 1xBet-Quoten-API von BetsAPI erkunden
+# Lucio: "wenn wir eine Odds-API hätten, könnten wir alle direkt vergleichen".
+# BetLabel läuft auf der 1xBet-Plattform; BetsAPI liefert 1xBet-Quoten
+# (/v1/1xbet/upcoming → Spiele mit our_event_id, /v1/1xbet/event → Märkte im
+# 1xBet-Rohformat: Value.GE[].E[][] mit G=Gruppe, T=Wett-Typ, P=Linie,
+# C=Quote; T 9/10 = Total über/unter, 11/12 bzw. 13/14 = Team-Total 1/2,
+# 83/84 = 1. HZ Total). Unklar ist, wie Nebenmärkte (Ecken, Karten, Drittel,
+# Viertel) auftauchen — bei 1xBet sind das eigene Unterspiele. Die Probe
+# zieht deshalb Rohdaten und legt sie unter runs/ ab, damit sie hier
+# ausgewertet werden können. Aufruf: python3 handball.py quoten
+# ---------------------------------------------------------------------------
+XB_SPORTS = {1: "Fußball", 2: "Eishockey", 3: "Basketball"}
+SUCH = ("corner", "card", "half", "period", "quarter", "ecke", "karte", "1st", "2nd", "3rd", "foul", "offside", "throw", "goal kick", "shots")
+
+
+def quoten_probe():
+    heute = datetime.now(timezone.utc).date()
+    tage = [(heute + timedelta(days=i)).strftime("%Y%m%d") for i in range(2)]
+    raw = {"upcoming": {}, "events": {}, "inplay": {}}
+    zusammenfassung = []
+    for sid, name in XB_SPORTS.items():
+        alle = []
+        for d in tage:
+            for page in (1, 2, 3):
+                try:
+                    r = api_get("/v1/1xbet/upcoming", sport_id=sid, day=d, page=page)
+                except Exception as exc:
+                    zusammenfassung.append(f"{name}: upcoming {d} S.{page}: {exc}"); break
+                res = r.get("results") or []
+                alle += res
+                if page == 1:
+                    raw["upcoming"][f"{sid}_{d}"] = {"pager": r.get("pager"), "erste": res[:5]}
+                if len(res) < 50:
+                    break
+        raw["upcoming"][f"{sid}_alle_n"] = len(alle)
+        # Sehen Unterspiele wie eigene Events aus?
+        treffer = [e for e in alle if any(k in json.dumps(e, ensure_ascii=False).lower() for k in SUCH)]
+        raw["upcoming"][f"{sid}_unterspiele"] = treffer[:20]
+        mit_our = sum(1 for e in alle if e.get("our_event_id"))
+        zusammenfassung.append(f"{name}: {len(alle)} Spiele in 2 Tagen, {mit_our} mit our_event_id, "
+                               f"{len(treffer)} Einträge mit Nebenmarkt-Wörtern im Namen")
+        # Märkte von 3 Spielen (die nächsten, damit möglichst viele Märkte offen sind)
+        alle.sort(key=lambda e: int(e.get("time") or 0))
+        ids = [str(e.get("id")) for e in alle[:3] if e.get("id")]
+        if ids:
+            try:
+                ev = api_get("/v1/1xbet/event", event_id=",".join(ids))
+                raw["events"][sid] = ev
+                for r_ in ev.get("results") or []:
+                    val = r_.get("Value") or {}
+                    ge = val.get("GE") or []
+                    gruppen = sorted({str(g.get("G")) for g in ge})
+                    typen = sorted({str(x.get("T")) for g in ge for row in (g.get("E") or []) for x in row})
+                    sg = val.get("SG") or r_.get("SG") or []
+                    zusammenfassung.append(
+                        f"   {name} {r_.get('home', {}).get('name') if isinstance(r_.get('home'), dict) else r_.get('home')} – "
+                        f"{r_.get('away', {}).get('name') if isinstance(r_.get('away'), dict) else r_.get('away')}: "
+                        f"Value-Schlüssel {sorted(val.keys())[:15]} · {len(ge)} Marktgruppen (G: {', '.join(gruppen[:25])}) · "
+                        f"Typen T: {', '.join(typen[:40])} · SG/Unterspiele: {len(sg)}")
+                    if sg:
+                        zusammenfassung.append(f"      erste Unterspiele: {json.dumps(sg[:6], ensure_ascii=False)[:600]}")
+            except Exception as exc:
+                zusammenfassung.append(f"   {name} event: {exc}")
+        try:
+            ip = api_get("/v1/1xbet/inplay", sport_id=sid)
+            raw["inplay"][sid] = {"pager": ip.get("pager"), "erste": (ip.get("results") or [])[:3]}
+            zusammenfassung.append(f"   {name} inplay: {len(ip.get('results') or [])} laufende Spiele")
+        except Exception as exc:
+            zusammenfassung.append(f"   {name} inplay: {exc}")
+    OUT.mkdir(exist_ok=True)
+    (OUT / f"quoten_probe_{heute:%Y-%m-%d}.json").write_text(json.dumps(raw, ensure_ascii=False), encoding="utf-8")
+    text = "\n".join(zusammenfassung)
+    (OUT / f"quoten_probe_{heute:%Y-%m-%d}.txt").write_text(text, encoding="utf-8")
+    print(text)
+    print(f"\n{_requests} Anfragen · Rohdaten: runs/quoten_probe_{heute:%Y-%m-%d}.json")
+    if TG_TOKEN and TG_CHAT:
+        try:
+            req = urllib.request.Request(
+                f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage",
+                data=urllib.parse.urlencode({"chat_id": TG_CHAT, "text": "🔎 Quoten-Probe (1xBet-API) durch — Rohdaten liegen im Repo, Auswertung folgt."}).encode(), method="POST")
+            urllib.request.urlopen(req, timeout=30).read()
+        except Exception as exc:
+            print(f"Telegram: {exc}")
+
+
 def main():
+    if len(sys.argv) > 1 and sys.argv[1].strip().lower() == "quoten":
+        if not TOKEN:
+            sys.exit("BETSAPI_TOKEN fehlt")
+        quoten_probe()
+        return
     if len(sys.argv) > 1 and sys.argv[1].strip().lower() == "liga":
         if not TOKEN:
             sys.exit("BETSAPI_TOKEN fehlt")
