@@ -2725,6 +2725,35 @@ def fmt_b365(s) -> str:
     return ""
 
 
+_b365_probe = {}
+_b365_probe_lock = threading.Lock()
+
+
+def _b365_probe_merken(match, pm):
+    """Rohkataloge (max. 30 je Lauf) für die Diagnose der Marktschlüssel —
+    17.09.: Real Sociedad – Bournemouth ohne Karten/2.-HZ-Quote, obwohl bet365
+    das sicher führt → die Schlüssel für Karten & Co. waren geraten."""
+    with _b365_probe_lock:
+        if len(_b365_probe) >= 30:
+            return
+        try:
+            eintrag = dict(pm)
+            eintrag["_spiel"] = f"{match.get('home')} – {match.get('away')} [{match.get('league', '')}]"
+            _b365_probe[str(match.get("id"))] = eintrag
+        except Exception:
+            pass
+
+
+def b365_probe_sichern():
+    if not _b365_probe:
+        return
+    try:
+        RUNS_DIR.mkdir(exist_ok=True)
+        (RUNS_DIR / f"fussball_b365_probe_{time.strftime('%Y-%m-%d')}.json").write_text(json.dumps(_b365_probe), encoding="utf-8")
+    except Exception as exc:
+        print(f"  bet365-Probe sichern: {exc}")
+
+
 def attach_extras(match, signals):
     """Zusatzinfos, die nur für Spiele mit Signalen Anfragen kosten:
     - Ecken-Signale: bet365-Hauptlinie mit Quote (Markt 1_4 "Asian Corners")
@@ -2739,6 +2768,7 @@ def attach_extras(match, signals):
         try:
             pm = api_get("/v1/bet365/prematch", FI=match["bet365_id"], _token=B365_TOKEN)
             q = b365_quotes(pm)
+            _b365_probe_merken(match, pm)
             for s in signals:
                 s["b365_checked"] = True
                 try:
@@ -4969,6 +4999,7 @@ def _run():
         int(now.timestamp()), run_label, gate_dropped, unverifiable)
 
     RUNS_DIR.mkdir(parents=True, exist_ok=True)
+    b365_probe_sichern()
     log = {
         "run_utc": now.isoformat(timespec="seconds"),
         "matches_checked": len(matches),
