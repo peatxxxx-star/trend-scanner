@@ -2049,7 +2049,7 @@ _SNAPSHOT_KEYS = ("metric", "metric_key", "direction", "line", "home_series",
                   "expect", "expect_sum", "expect_matchup", "contrib", "buffer", "fa",
                   "referee", "b365", "expect_ref", "buffer_ref",
                   "sd", "p_emp", "p_mod", "p_fin", "fair_fin", "ladder_fin", "market",
-                  "market_src", "ev", "light", "reason", "b365_quote", "b365_checked", "b365_near", "b365_lines")
+                  "market_src", "ev", "light", "reason", "b365_quote", "b365_checked", "b365_near", "b365_lines", "b365_est")
 
 
 def signal_snapshot(s):
@@ -2611,7 +2611,7 @@ def b365_nearest(quotes, metric, direction, line):
     Lage) mit Lage 'unter' (bet365-Linie ist lockerer: unsere Quote läge HÖHER)
     oder 'über' (strenger: unsere Quote läge NIEDRIGER). Nächste Linie im
     Abstand bis 2 gewinnt. None, wenn nichts da ist."""
-    cands = [(L, q) for (m, d, L), q in quotes.items() if m == metric and d == direction and abs(L - line) <= 2.0 + 1e-9]
+    cands = [(L, q) for (m, d, L), q in quotes.items() if m == metric and d == direction]
     if not cands:
         return None
     L, q = min(cands, key=lambda x: (abs(x[0] - line), x[0]))
@@ -2619,6 +2619,70 @@ def b365_nearest(quotes, metric, direction, line):
         return (L, q, "exakt")
     lockerer = (L < line) if direction == "über" else (L > line)
     return (L, q, "unter" if lockerer else "über")
+
+
+# Streuung je Markt (17.09. spät, wie bei den anderen Sportarten): aus den
+# bet365-Linien den Preis an UNSERER Linie schätzen, wenn die exakte Linie
+# fehlt und die Nachbarlinie keinen sicheren Schluss erlaubt. bet365 setzt die
+# Hauptlinie etwa auf den Median; die Quote sagt, wie weit die Linie vom
+# Median liegt → Median schätzen → Wahrscheinlichkeit für unsere Linie → Quote
+# (+5 % Marge). Unsicher ("?"), wenn keine Stützlinie nahe am Median liegt
+# oder das Urteil bei ±30 % Streuung kippt.
+B365_SD = {"goals": 1.6, "ht_goals": 0.9, "h2_goals": 1.0, "corners": 3.3, "ht_corners": 2.0,
+           "yellowcards": 2.0, "ht_yellowcards": 1.3, "on_target": 3.0, "offsides": 1.8, "fouls": 5.0,
+           "throwins": 6.0, "goalkicks": 4.0}
+
+
+def _phi(z):
+    return 0.5 * (1.0 + math.erf(z / math.sqrt(2.0)))
+
+
+def _phi_inv(p):
+    p = min(max(p, 1e-6), 1 - 1e-6)
+    a = [-3.969683028665376e+01, 2.209460984245205e+02, -2.759285104469687e+02, 1.383577518672690e+02, -3.066479806614716e+01, 2.506628277459239e+00]
+    b = [-5.447609879822406e+01, 1.615858368580409e+02, -1.556989798598866e+02, 6.680131188771972e+01, -1.328068155288572e+01]
+    c = [-7.784894002430293e-03, -3.223964580411365e-01, -2.400758277161838e+00, -2.549732539343734e+00, 4.374664141464968e+00, 2.938163982698783e+00]
+    d = [7.784695709041462e-03, 3.224671290700398e-01, 2.445134137142996e+00, 3.754408661907416e+00]
+    if p < 0.02425:
+        q = math.sqrt(-2 * math.log(p))
+        return (((((c[0] * q + c[1]) * q + c[2]) * q + c[3]) * q + c[4]) * q + c[5]) / ((((d[0] * q + d[1]) * q + d[2]) * q + d[3]) * q + 1)
+    if p > 1 - 0.02425:
+        q = math.sqrt(-2 * math.log(1 - p))
+        return -(((((c[0] * q + c[1]) * q + c[2]) * q + c[3]) * q + c[4]) * q + c[5]) / ((((d[0] * q + d[1]) * q + d[2]) * q + d[3]) * q + 1)
+    q = p - 0.5; r = q * q
+    return (((((a[0] * r + a[1]) * r + a[2]) * r + a[3]) * r + a[4]) * r + a[5]) * q / (((((b[0] * r + b[1]) * r + b[2]) * r + b[3]) * r + b[4]) * r + 1)
+
+
+def _b365_schaetz_sd(quotes, metric, line, sd):
+    mus, qs = [], []
+    for (m, d, L), q in quotes.items():
+        if m != metric or d != "über" or not q or q <= 1.0:
+            continue
+        p = min(0.98, (1.0 / q) / 1.05)
+        mus.append(L + sd * _phi_inv(p)); qs.append(q)
+    if not mus:
+        return None, qs
+    mu = sum(mus) / len(mus)
+    p_ours = _phi((mu - line) / sd)
+    if p_ours <= 0.02:
+        return 30.0, qs
+    return max(1.01, (1.0 / p_ours) / 1.05), qs
+
+
+def b365_schaetzung(quotes, metric, line, fair):
+    """(geschätzte Quote, sicher) oder None."""
+    sd = B365_SD.get(metric)
+    if not sd or not fair:
+        return None
+    est, qs = _b365_schaetz_sd(quotes, metric, line, sd)
+    if est is None:
+        return None
+    def urteil(x):
+        return x >= fair * PLAY_FAIR_FACTOR and x >= PLAY_MIN_ODDS
+    lo, _ = _b365_schaetz_sd(quotes, metric, line, sd * 0.7)
+    hi, _ = _b365_schaetz_sd(quotes, metric, line, sd * 1.3)
+    sicher = any(q >= 1.25 for q in qs) and (lo is not None and hi is not None and urteil(lo) == urteil(hi) == urteil(est))
+    return est, sicher
 
 
 def play_flag(s):
@@ -2643,6 +2707,11 @@ def play_flag(s):
             return ("✔", txt)
         if lage == "über" and not ok:
             return ("✘", txt)
+        sch = s.get("b365_est")
+        if sch:
+            est, sicher = sch
+            ok2 = est >= fair * PLAY_FAIR_FACTOR and est >= PLAY_MIN_ODDS
+            return (("✔" if ok2 else "✘") if sicher else "?", f"{txt} → ≈{est:.2f}")
         return ("?", txt)
     return None
 
@@ -2678,6 +2747,7 @@ def attach_extras(match, signals):
                     near = b365_nearest(q, s["metric_key"], s["direction"], line)
                     s["b365_near"] = None if (near is None or near[2] == "exakt") else list(near)
                     s["b365_lines"] = sorted(L for (m, d, L) in q if m == s["metric_key"] and d == s["direction"])
+                    s["b365_ladder"] = {f"{L:g}": qq for (m, d, L), qq in q.items() if m == s["metric_key"] and d == "über"}
                 except (TypeError, ValueError):
                     s["b365_quote"] = None
         except BudgetExhausted:
@@ -4830,6 +4900,12 @@ def _run():
             # 4) Bewertung + Mindest-Fair
             for s in signals:
                 assess_signal(s)
+                if s.get("b365_near") and s.get("b365_ladder") and not s.get("b365_quote"):
+                    try:
+                        qmap = {(s["metric_key"], "über", float(k)): v for k, v in s["b365_ladder"].items()}
+                        s["b365_est"] = b365_schaetzung(qmap, s["metric_key"], float(s["line"]), s.get("fair_fin") or s.get("fair"))
+                    except (TypeError, ValueError):
+                        s["b365_est"] = None
             signals = [s for s in signals
                        if (s.get("fair_fin") or s.get("fair") or 0) >= MIN_FAIR]
         for sg in exo:
@@ -5772,8 +5848,15 @@ def selftest():
         print("FEHLER Fall 27h: lockerere Linie schon spielbar → ✔"); ok = False
     if play_flag({"b365_near": [9.5, 2.00, "über"], "fair_fin": 1.44})[0] != "?":
         print("FEHLER Fall 27i: strengere Linie spielbar sagt nichts über unsere → ?"); ok = False
-    if b365_nearest({("corners", "über", 12.5): 3.0}, "corners", "über", 8.5) is not None:
-        print("FEHLER Fall 27j: Linien weiter als 2 entfernt zählen nicht"); ok = False
+    if b365_nearest({("corners", "über", 12.5): 3.0}, "corners", "über", 8.5) != (12.5, 3.0, "über"):
+        print("FEHLER Fall 27j: auch entfernte Linien liefern die Lage"); ok = False
+    # Schätzung: Hauptlinie Ecken 9,5 zu 1,90/1,90 → über 6,5 ist fast sicher (≈1,0x) → ✘
+    est27 = b365_schaetzung({("corners", "über", 9.5): 1.9}, "corners", 6.5, 1.30)
+    if not est27 or est27[0] > 1.2 or not est27[1]:
+        print("FEHLER Fall 27k: Schätzung über 6,5 bei Hauptlinie 9,5 muss klar unter 1,2 und sicher sein:", est27); ok = False
+    est27b = b365_schaetzung({("corners", "über", 9.5): 1.9}, "corners", 12.5, 1.30)
+    if not est27b or est27b[0] < 2.5:
+        print("FEHLER Fall 27l: Schätzung über 12,5 bei Hauptlinie 9,5 muss deutlich über 2,5 liegen:", est27b); ok = False
 
     # --- Fall 23: Team-Märkte (13.09.)
     _team_base.clear()
