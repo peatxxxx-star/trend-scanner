@@ -26,6 +26,16 @@ Endstand und Halbzeitstand. Eine Anfrage je Team. Ergebnis liegt danach im
 Repo und reicht für einen kompletten Offline-Backtest, ohne dass das
 Monatspaket gekauft sein muss.
 
+Schritt 3 (17.09., Lucio: "nur Märkte, die sich wirklich qualifizieren"):
+    python3 handball.py scan
+Meldet für die Spiele der nächsten 3 Tage die Tore-Signale — NUR ÜBER,
+Lucios Regel vom 17.09. gilt hier genauso (eine Unter-Wette stirbt 60 Minuten
+lang vor den Augen). Ganze Spielzeit und 1. Halbzeit. Serienregel und Rechenweg sind EXAKT die
+des Fußball-Scanners (importiert aus scan.py): beide Teams im Trend,
+mindestens ein Anker, gewichtete Historie + Normalmodell, Schrumpfung zur
+Grundrate, Ampel. Keine Leiter — nur die strengste Linie je Richtung, die
+sich qualifiziert. Kalibrierung: noch keine (kein echter Preisvergleich).
+
 Aufruf:  python3 handball.py [wochen]      (Vorgabe: 4)
 Umgebung: BETSAPI_TOKEN, optional TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID
 """
@@ -195,7 +205,227 @@ def wochen_aus_argv() -> int:
     return w
 
 
+# ---------------------------------------------------------------------------
+# Schritt 3: SCAN — Signale für die nächsten Tage, Rechenweg aus scan.py
+# ---------------------------------------------------------------------------
+SCAN_TAGE = 3
+LINIEN = {"goals": [x + 0.5 for x in range(43, 72, 2)],      # 43,5 … 71,5
+          "ht_goals": [x + 0.5 for x in range(19, 37)]}       # 19,5 … 36,5
+MARKT_NAME = {"goals": "Tore", "ht_goals": "1. HZ Tore"}
+RICHTUNGEN = ("über",)       # 17.09. (Lucio): keine Unter-Märkte — auch hier nicht
+MIN_LIGA_SPIELE = 150        # Ligen mit weniger Spielen in der Historie: nicht melden
+
+
+def upcoming(day: str) -> list:
+    out, page = [], 1
+    while True:
+        d = api_get("/v3/events/upcoming", sport_id=SPORT_HANDBALL, day=day, page=page)
+        res = d.get("results") or []
+        out += res
+        if len(out) >= int((d.get("pager") or {}).get("total", 0)) or not res or page >= 20:
+            break
+        page += 1
+    return out
+
+
+def as_scan_history(events: list) -> list:
+    """Historie im Format, das scan.py erwartet: [{"stats": {...}, "is_home": bool}]."""
+    out = []
+    for e in events:
+        if not e.get("tore"):
+            continue
+        stats = {"goals": e["tore"]}
+        if e.get("hz"):
+            stats["ht_goals"] = e["hz"]
+        out.append({"stats": stats, "is_home": bool(e.get("h")), "label": e.get("liga") or ""})
+    return out
+
+
+def league_base_rates(hist: dict, liga: str) -> dict:
+    """Grundraten je Linie NUR aus Spielen dieser Liga — Handball-Ligen liegen
+    im Schnitt zwischen 44 und 67 Toren, ein globaler Wert wäre Unsinn."""
+    seen, tot, ht = set(), [], []
+    for t in hist.values():
+        for e in t["events"]:
+            if e.get("liga") != liga or e["id"] in seen or not e.get("tore"):
+                continue
+            seen.add(e["id"]); tot.append(e["tore"][0] + e["tore"][1])
+            if e.get("hz"):
+                ht.append(e["hz"][0] + e["hz"][1])
+    rates = {}
+    for metric, werte in (("goals", tot), ("ht_goals", ht)):
+        for L in LINIEN[metric]:
+            over = sum(1 for x in werte if x > L) / len(werte) if werte else 0.5
+            rates[(metric, L, "über")] = over
+            rates[(metric, L, "unter")] = 1 - over
+    return rates, len(tot)
+
+
+def bewerte(scan, hh, ha, metric, line, direction):
+    """Faire Quote und Ampel — dieselben Bausteine wie assess_signal in scan.py,
+    ohne Schiedsrichter, ohne bet365, ohne Kalibrierung."""
+    fair = scan.fair_odds(hh, ha, metric, line, direction)
+    if not fair:
+        return None
+    p_emp = 1 / fair
+    _, _, avg_h = scan.weighted_stats(hh, metric, line, direction, "home")
+    _, _, avg_a = scan.weighted_stats(ha, metric, line, direction, "away")
+    if avg_h is None:
+        _, _, avg_h = scan.weighted_stats(hh, metric, line, direction)
+    if avg_a is None:
+        _, _, avg_a = scan.weighted_stats(ha, metric, line, direction)
+    if avg_h is None or avg_a is None:
+        return None
+    expect = (avg_h + avg_a) / 2
+    mu = scan.matchup_expectation(hh, ha, metric)
+    if mu:
+        expect = (expect + mu[0]) / 2
+    sd = scan.pooled_sd(hh, ha, metric)
+    p_mod = scan.model_prob(expect, sd, line, direction)
+    p = 0.5 * p_emp + 0.5 * p_mod
+    buffer = expect - line if direction == "über" else line - expect
+    agree = abs(p_emp - p_mod)
+    if p >= scan.GREEN_MIN_P and agree <= scan.AGREE_OK and buffer >= 0:
+        light = "🟢"
+    elif p < scan.RED_MAX_P or buffer < -2 or agree > 0.25:
+        light = "🔴"
+    else:
+        light = "🟡"
+    return {"p": p, "fair": round(1 / p, 2), "p_emp": p_emp, "p_mod": p_mod,
+            "expect": round(expect, 1), "sd": round(sd, 2), "buffer": round(buffer, 1),
+            "light": light}
+
+
+def scan_modus():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("scan", Path(__file__).parent / "scan.py")
+    scan = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(scan)
+
+    hfiles = sorted(OUT.glob("handball_historie_*.json"))
+    if not hfiles:
+        sys.exit("keine Historie gefunden — erst den Abdeckungslauf machen")
+    hist = json.loads(hfiles[-1].read_text(encoding="utf-8"))
+    print(f"Historie: {hfiles[-1].name}, {len(hist)} Teams", flush=True)
+
+    # Ligen mit genug Substanz
+    liga_n = Counter()
+    seen = set()
+    for t in hist.values():
+        for e in t["events"]:
+            if e["id"] not in seen and e.get("tore"):
+                seen.add(e["id"]); liga_n[e.get("liga")] += 1
+    ok_ligen = {L for L, n in liga_n.items() if n >= MIN_LIGA_SPIELE}
+    print(f"{len(ok_ligen)} Ligen mit >= {MIN_LIGA_SPIELE} Spielen", flush=True)
+
+    heute = datetime.now(timezone.utc).date()
+    tage = [(heute + timedelta(days=i)).strftime("%Y%m%d") for i in range(SCAN_TAGE)]
+    spiele = []
+    for d in tage:
+        try:
+            spiele += upcoming(d)
+        except Exception as exc:
+            print(f"  upcoming {d}: {exc}", flush=True)
+    spiele = [m for m in spiele if ((m.get("league") or {}).get("name") in ok_ligen)]
+    print(f"{len(spiele)} anstehende Spiele in den Ziel-Ligen", flush=True)
+
+    # Historien der beteiligten Teams frisch holen (1 Anfrage je Team)
+    ids = {}
+    for m in spiele:
+        for side in ("home", "away"):
+            t = m.get(side) or {}
+            if t.get("id"):
+                ids[str(t["id"])] = t.get("name") or "?"
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = {pool.submit(team_history, tid): tid for tid in ids}
+        for f in as_completed(futs):
+            tid = futs[f]
+            try:
+                hist[tid] = {"name": ids[tid], "events": f.result()}
+            except Exception as exc:
+                print(f"  Team {ids[tid]}: {exc}", flush=True)
+    print(f"Historien aktualisiert ({_requests} Anfragen)", flush=True)
+
+    rates_cache = {}
+    treffer = []
+    for m in spiele:
+        home, away = m.get("home") or {}, m.get("away") or {}
+        hid, aid = str(home.get("id")), str(away.get("id"))
+        if hid not in hist or aid not in hist:
+            continue
+        liga = (m.get("league") or {}).get("name") or "?"
+        if liga not in rates_cache:
+            rates_cache[liga] = league_base_rates(hist, liga)
+        scan._base_rates.clear()
+        scan._base_rates.update(rates_cache[liga][0])
+        hh = as_scan_history(hist[hid]["events"])
+        ha = as_scan_history(hist[aid]["events"])
+        if len(hh) < scan.MIN_VALID_MATCHES or len(ha) < scan.MIN_VALID_MATCHES:
+            continue
+        sigs = []
+        for metric, lines in LINIEN.items():
+            for direction in RICHTUNGEN:
+                order = sorted(lines, reverse=(direction == "über"))
+                for L in order:              # strengste Linie zuerst, EIN Signal je Richtung
+                    a_h, o_h, v_h = scan.team_qualifies(hh, metric, L, direction, "home")
+                    a_a, o_a, v_a = scan.team_qualifies(ha, metric, L, direction, "away")
+                    if (a_h or o_h) and (a_a or o_a) and (a_h or a_a):
+                        b = bewerte(scan, hh, ha, metric, L, direction)
+                        if b:
+                            b.update({"metric": metric, "line": L, "direction": direction,
+                                      "home_series": a_h or o_h, "away_series": a_a or o_a,
+                                      "home_is_anchor": bool(a_h), "away_is_anchor": bool(a_a),
+                                      "valid": (v_h, v_a)})
+                            sigs.append(b)
+                        break
+        if sigs:
+            treffer.append((m, liga, sigs))
+
+    # --- Nachricht: Zeit zuerst, gleiche Zeit nach Liga (wie im Fußball) --------
+    def ts(m):
+        return int(m.get("time") or 0)
+    treffer.sort(key=lambda x: (ts(x[0]), x[1].lower(), (x[0].get("home") or {}).get("name", "")))
+    berlin = timezone(timedelta(hours=2))
+    WD = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+    lines_out = ["🤾 <b>HANDBALL-SCAN</b> · nächste 3 Tage · <i>Test, noch ohne Kalibrierung</i>", ""]
+    n_sig = 0
+    for m, liga, sigs in treffer:
+        t = datetime.fromtimestamp(ts(m), berlin)
+        home = (m.get("home") or {}).get("name", "?"); away = (m.get("away") or {}).get("name", "?")
+        block = [f"🤾 <b>{scan.esc(home)} – {scan.esc(away)}</b>",
+                 f"🕒 {WD[t.weekday()]} {t:%H:%M} · {scan.esc(liga)}"]
+        for sg in sorted(sigs, key=lambda x: (x["metric"], x["direction"])):
+            if sg["light"] == "🔴":
+                continue
+            n_sig += 1
+            mark = "✅" if sg["light"] == "🟢" else "⚪"
+            block.append("")
+            block.append(f"{mark} <b>{MARKT_NAME[sg['metric']]} {sg['direction']} {sg['line']}</b>"
+                         f" · Fair {sg['fair']:.2f} · <i>Quote selbst prüfen</i>")
+            block.append(f"   {scan.esc(home)} {scan.fmt_series(sg['home_series'], sg['home_is_anchor'])}"
+                         f" · {scan.esc(away)} {scan.fmt_series(sg['away_series'], sg['away_is_anchor'])}")
+            block.append(f"   🎯 Erwartung {sg['expect']} · Puffer {sg['buffer']:+.1f}"
+                         f" · 📊 {sg['valid'][0]}/{sg['valid'][1]} Spiele")
+        if len(block) > 2:
+            lines_out += block + [""]
+    if n_sig == 0:
+        lines_out.append("keine Signale in den nächsten 3 Tagen")
+    text = "\n".join(lines_out)
+    print("\n" + text.replace("<b>", "").replace("</b>", "").replace("<i>", "").replace("</i>", ""))
+    OUT.mkdir(exist_ok=True)
+    (OUT / f"handball_scan_{heute:%Y-%m-%d}.txt").write_text(text, encoding="utf-8")
+    print(f"\n{n_sig} Signale in {len(treffer)} Spielen · {_requests} Anfragen")
+    if TG_TOKEN and TG_CHAT:
+        for stueck in scan.split_message(text):
+            scan.send_telegram(stueck)
+
+
 def main():
+    if len(sys.argv) > 1 and sys.argv[1].strip().lower() == "scan":
+        if not TOKEN:
+            sys.exit("BETSAPI_TOKEN fehlt")
+        scan_modus()
+        return
     if not TOKEN:
         sys.exit("BETSAPI_TOKEN fehlt — ist das Repository-Secret gesetzt?")
     wochen = wochen_aus_argv()
