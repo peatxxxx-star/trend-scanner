@@ -587,7 +587,154 @@ def stats_modus():
             print(f"Telegram: {exc}")
 
 
+# ---------------------------------------------------------------------------
+# LIGA — ganze Ligen am Stück (17.09., für Basketball)
+# Die Tag-für-Tag-Abfrage erstickt bei 26 Wochen an tausenden Ebasketball-
+# Spielen (werden zwar verworfen, kosten aber Seiten). Stattdessen: Ligenliste
+# holen, Zielligen per Schlüsselwort wählen, je Liga die beendeten Spiele
+# (neueste zuerst) bis zum Stichtag. Die Saison einer Liga IST die Historie
+# aller ihrer Teams — daraus wird dieselbe historie-Datei gebaut wie sonst,
+# damit Backtest und stats-Modus unverändert laufen.
+# Aufruf: SPORT=basketball python3 handball.py liga
+# ---------------------------------------------------------------------------
+LIGA_KEYS = {
+    "basketball": ["nba", "euroleague", "eurocup", "acb", "bbl", "lega a", "pro a",
+                   "vtb", "champions league", "bsl", "greece a1", "adriatic", "aba league",
+                   "australia nbl", "b league", "b.league", "china cba", "kbl", "pba",
+                   "lkl", "argentina lnb", "nbb", "israel super league", "energa",
+                   "serbia kls", "bsn", "lnbp", "fiba europe cup", "basketligaen",
+                   "bnxt", "lnb pro", "liga endesa", "betclic elite"],
+    "handball":   ["bundesliga", "handboldligaen", "asobal", "eliteserien", "starligue",
+                   "handbollsligan", "champions league", "european league"],
+    "eishockey":  ["nhl", "khl", "del", "shl", "liiga", "extraliga", "nla", "ice hockey league"],
+    "volleyball": ["superlega", "plusliga", "bundesliga", "super league", "champions league"],
+}
+LIGA_TAGE = int(os.environ.get("LIGA_TAGE", "400"))       # Stichtag: so weit zurück
+LIGA_SEITEN = int(os.environ.get("LIGA_SEITEN", "30"))    # je Liga höchstens (à 50 Spiele)
+AUSSCHLUSS = ("u16", "u17", "u18", "u19", "u20", "u21", "u23", "youth", "junior",
+              "reserve", "college", "ncaa", "summer league", "preseason", "pre-season",
+              "friendl", "all-star", "all star")
+
+
+def alle_ligen():
+    """Alle Ligen der Sportart über /v3/league (Blättern über max_id)."""
+    out, max_id, guard = [], None, 0
+    while guard < 80:
+        guard += 1
+        params = {"sport_id": SPORT_HANDBALL}
+        if max_id:
+            params["max_id"] = max_id
+        d = api_get("/v3/league", **params)
+        res = d.get("results") or []
+        out += res
+        mn = (d.get("pager") or {}).get("min_id")
+        if not res or not mn or int(mn) <= 0:
+            break
+        max_id = int(mn)
+    return out
+
+
+def liga_spiele(league_id, cutoff_ts):
+    """Beendete Spiele einer Liga, neueste zuerst, bis zum Stichtag."""
+    out, page = [], 1
+    while page <= LIGA_SEITEN:
+        d = api_get("/v3/events/ended", sport_id=SPORT_HANDBALL, league_id=league_id,
+                    per_page=50, page=page)
+        res = d.get("results") or []
+        if not res:
+            break
+        out += res
+        if int(res[-1].get("time") or 0) < cutoff_ts:
+            break
+        total = int((d.get("pager") or {}).get("total", 0))
+        if page * 50 >= total:
+            break
+        page += 1
+    return [e for e in out if int(e.get("time") or 0) >= cutoff_ts and not is_junk(e)]
+
+
+def liga_modus():
+    heute = datetime.now(timezone.utc).date()
+    cutoff = int((datetime.now(timezone.utc) - timedelta(days=LIGA_TAGE)).timestamp())
+    keys = [k.strip().lower() for k in os.environ.get("LIGEN", "").split(",") if k.strip()] \
+        or LIGA_KEYS.get(SPORT_KEY, [])
+    ligen = alle_ligen()
+    print(f"{len(ligen)} Ligen für {SPORT['name']} gelistet ({_requests} Anfragen)", flush=True)
+    ziel = []
+    for lg in ligen:
+        name = (lg.get("name") or "").lower()
+        if any(k in name for k in keys) and not any(a in name for a in AUSSCHLUSS) \
+                and not is_junk({"league": lg}):
+            ziel.append(lg)
+    print(f"{len(ziel)} Zielligen:", flush=True)
+    for lg in ziel:
+        print(f"   {lg.get('id')}  {lg.get('name')}  ({lg.get('cc')})", flush=True)
+
+    spiele = {}
+    with ThreadPoolExecutor(max_workers=min(WORKERS, 12)) as pool:
+        futs = {pool.submit(liga_spiele, lg["id"], cutoff): lg for lg in ziel}
+        for f in as_completed(futs):
+            lg = futs[f]
+            try:
+                res = f.result()
+            except BudgetExhausted:
+                print("Stundenlimit — Ligen unvollständig", flush=True)
+                continue
+            except Exception as exc:
+                print(f"  {lg.get('name')}: {exc}", flush=True)
+                continue
+            for ev in res:
+                spiele[str(ev.get("id"))] = ev
+            print(f"  {lg.get('name'):40s} {len(res):5d} Spiele", flush=True)
+    print(f"{len(spiele)} Spiele aus {len(ziel)} Ligen ({_requests} Anfragen)", flush=True)
+
+    # historie-Datei aus den Ligaspielen bauen (Team -> Spiele, neueste zuerst)
+    hist = {}
+    for ev in spiele.values():
+        sc = final_score(ev); ht = half_time(ev)
+        home, away = ev.get("home") or {}, ev.get("away") or {}
+        slim = {"id": ev.get("id"), "time": ev.get("time"),
+                "liga": (ev.get("league") or {}).get("name"),
+                "heim": home.get("name"), "gast": away.get("name"),
+                "heim_id": home.get("id"), "gast_id": away.get("id"),
+                "tore": list(sc) if sc else None, "hz": list(ht) if ht else None,
+                "perioden": perioden(ev)}
+        for tid, name in ((str(home.get("id")), home.get("name")),
+                          (str(away.get("id")), away.get("name"))):
+            if tid == "None":
+                continue
+            hist.setdefault(tid, {"name": name, "events": []})
+            hist[tid]["events"].append(dict(slim, h=(tid == str(home.get("id")))))
+    for t in hist.values():
+        t["events"].sort(key=lambda e: -int(e.get("time") or 0))
+    OUT.mkdir(exist_ok=True)
+    hpfad = OUT / f"{SPORT_KEY}_historie_{heute:%Y-%m-%d}.json"
+    hpfad.write_text(json.dumps(hist, ensure_ascii=False), encoding="utf-8")
+    mit_p = sum(1 for e in spiele.values() if len(perioden(e)) >= 2)
+    print(f"gespeichert: {hpfad} — {len(hist)} Teams, {len(spiele)} Spiele, "
+          f"{mit_p} mit Abschnittsständen, {_requests} Anfragen")
+    if TG_TOKEN and TG_CHAT:
+        txt = (f"<b>{SPORT['name'].upper()} — Ligen</b>\n{len(ziel)} Ligen · {len(spiele)} Spiele · "
+               f"{len(hist)} Teams · {_requests} Anfragen\n"
+               + "\n".join(f"{lg.get('name')}" for lg in ziel[:40]))
+        try:
+            req = urllib.request.Request(
+                f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage",
+                data=urllib.parse.urlencode({"chat_id": TG_CHAT, "text": txt,
+                                             "parse_mode": "HTML"}).encode(), method="POST")
+            urllib.request.urlopen(req, timeout=30).read()
+        except Exception as exc:
+            print(f"Telegram: {exc}")
+    # direkt weiter mit den Statistikblöcken, solange Budget da ist
+    stats_modus()
+
+
 def main():
+    if len(sys.argv) > 1 and sys.argv[1].strip().lower() == "liga":
+        if not TOKEN:
+            sys.exit("BETSAPI_TOKEN fehlt")
+        liga_modus()
+        return
     if len(sys.argv) > 1 and sys.argv[1].strip().lower() == "stats":
         if not TOKEN:
             sys.exit("BETSAPI_TOKEN fehlt")
