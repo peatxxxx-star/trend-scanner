@@ -2049,7 +2049,7 @@ _SNAPSHOT_KEYS = ("metric", "metric_key", "direction", "line", "home_series",
                   "expect", "expect_sum", "expect_matchup", "contrib", "buffer", "fa",
                   "referee", "b365", "expect_ref", "buffer_ref",
                   "sd", "p_emp", "p_mod", "p_fin", "fair_fin", "ladder_fin", "market",
-                  "market_src", "ev", "light", "reason")
+                  "market_src", "ev", "light", "reason", "b365_quote", "b365_checked")
 
 
 def signal_snapshot(s):
@@ -2125,8 +2125,15 @@ def classify_signals(state, all_hits, checked_ids, window_ids, now_ts, run_label
                 if notes:
                     s["change_note"] = "; ".join(notes)
                     per["changed"].append(s)
+                elif s.get("b365_checked") and not prev.get("b365_done"):
+                    # 17.09. abends (Lucio: "muss die Quote jetzt schon bei allen
+                    # sehen"): schon gemeldete Signale bekommen die bet365-Quote
+                    # EINMAL nachgereicht — als 🆕, damit sie in der Liste stehen.
+                    per["new"].append(s)
                 else:
                     per["same"].append(s)
+            if s.get("b365_checked"):
+                entry["b365_done"] = True
             new_state[key] = entry
         for bucket, sigs in per.items():
             if sigs:
@@ -2627,6 +2634,9 @@ def attach_extras(match, signals):
     Fehler hier dürfen den Lauf nie stoppen."""
     global _b365_tot
     keys = {s["metric_key"] for s in signals}
+    if B365_PREMATCH and not match.get("bet365_id"):
+        for s in signals:
+            s["b365_checked"] = True        # bet365 führt das Spiel gar nicht → "b365 –"
     if B365_PREMATCH and match.get("bet365_id") and not _b365_tot:
         try:
             pm = api_get("/v1/bet365/prematch", FI=match["bet365_id"], _token=B365_TOKEN)
