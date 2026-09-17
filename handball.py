@@ -19,6 +19,13 @@ Dieses Skript entscheidet NICHTS. Es beantwortet vier Fragen:
 
 Erst wenn das steht, reden wir über eine Serienregel.
 
+Schritt 2 (17.09., derselbe Lauf): der Zugang ist ein Eintages-Test für 1 $,
+also holt der Lauf gleich die Historien nach — für jedes Team aus jeder Liga
+mit mindestens 20 Spielen im Fenster die letzten 50 beendeten Spiele, samt
+Endstand und Halbzeitstand. Eine Anfrage je Team. Ergebnis liegt danach im
+Repo und reicht für einen kompletten Offline-Backtest, ohne dass das
+Monatspaket gekauft sein muss.
+
 Aufruf:  python3 handball.py [wochen]      (Vorgabe: 4)
 Umgebung: BETSAPI_TOKEN, optional TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID
 """
@@ -41,9 +48,14 @@ TOKEN = os.environ.get("BETSAPI_TOKEN", "")
 TG_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TG_CHAT = os.environ.get("TELEGRAM_CHAT_ID", "")
 SPORT_HANDBALL = 78          # laut BetsAPI-Glossar
-WORKERS = 24
-HOURLY_BUDGET = 3000         # Puffer zum Limit von 3600, der Fußball-Scanner
-                             # läuft stündlich und braucht auch etwas
+WORKERS = 48                 # 17.09. (Lucio): "zügig" — die API drosselt nicht
+                             # pro Sekunde, nur pro Stunde; also breit parallel
+# 17.09.: Der Zugang läuft über den "Everything API One Day Trial" (2 $) —
+# der hat nur 1.800 Anfragen je Stunde, nicht 3.600. Ob sich Test und
+# Fußball-Paket das Limit teilen, wissen wir nicht; deshalb vorsichtig.
+# Reicht es nicht in einer Stunde, sichert der Lauf, was da ist, und ein
+# zweiter Lauf eine Stunde später holt den Rest (der Test gilt einen Tag).
+HOURLY_BUDGET = int(os.environ.get("HANDBALL_BUDGET", "1700"))
 OUT = Path("runs")
 
 _requests = 0
@@ -76,10 +88,17 @@ def api_get(path: str, **params) -> dict:
             return data
         except urllib.error.HTTPError as exc:
             if exc.code == 429:
-                print("HTTP 429 – Stundenlimit, warte 120 s", flush=True)
-                time.sleep(120)
-                last = exc
-                continue
+                # Stundenlimit voll. EINMAL kurz warten (vielleicht war es nur
+                # der Fußball-Scanner in derselben Minute), danach nicht ewig
+                # hängen, sondern sauber abbrechen und sichern, was da ist.
+                if attempt == 0:
+                    print("HTTP 429 – Stundenlimit, warte 60 s", flush=True)
+                    time.sleep(60)
+                    last = exc
+                    continue
+                with _lock:
+                    _requests = HOURLY_BUDGET      # alle wartenden Aufrufe scheitern sofort
+                raise BudgetExhausted()
             last = exc
             if attempt == 4:
                 raise
@@ -128,6 +147,34 @@ def half_time(ev):
             except (TypeError, ValueError):
                 return None
     return None
+
+
+def team_history(team_id: str, depth: int = 50) -> list:
+    """Die letzten `depth` beendeten Spiele eines Teams, kompakt. Der Endpunkt
+    liefert Endstand und Halbzeitstand direkt mit — keine zweite Abfrage nötig."""
+    out, page = [], 1
+    while len(out) < depth and page <= 2:
+        d = api_get("/v3/events/ended", sport_id=SPORT_HANDBALL, team_id=team_id,
+                    per_page=50, page=page)
+        res = d.get("results") or []
+        out += res
+        total = int((d.get("pager") or {}).get("total", 0))
+        if page * 50 >= total or not res:
+            break
+        page += 1
+    slim = []
+    for ev in out[:depth]:
+        sc = split_score(ev.get("ss"))
+        ht = half_time(ev)
+        home, away = ev.get("home") or {}, ev.get("away") or {}
+        slim.append({"id": ev.get("id"), "time": ev.get("time"),
+                     "liga": (ev.get("league") or {}).get("name"),
+                     "h": str(home.get("id")) == str(team_id),
+                     "heim": home.get("name"), "gast": away.get("name"),
+                     "heim_id": home.get("id"), "gast_id": away.get("id"),
+                     "tore": list(sc) if sc else None,
+                     "hz": list(ht) if ht else None})
+    return slim
 
 
 def wochen_aus_argv() -> int:
@@ -216,18 +263,21 @@ def main():
     probe_ids = [ev["id"] for ev in events[:12] if ev.get("id")]
     stat_felder = Counter()
     beispiel = None
-    for eid in probe_ids:
-        try:
-            r = (api_get("/v1/event/view", event_id=eid).get("results") or [None])[0]
-        except Exception:
-            continue
-        if not r:
-            continue
-        stats = r.get("stats") or {}
-        for k in stats:
-            stat_felder[k] += 1
-        if stats and beispiel is None:
-            beispiel = (r.get("league", {}).get("name"), dict(list(stats.items())[:12]))
+    def _view(eid):
+        return (api_get("/v1/event/view", event_id=eid).get("results") or [None])[0]
+    with ThreadPoolExecutor(max_workers=12) as pool:
+        for f in as_completed([pool.submit(_view, e) for e in probe_ids]):
+            try:
+                r = f.result()
+            except Exception:
+                continue
+            if not r:
+                continue
+            stats = r.get("stats") or {}
+            for k in stats:
+                stat_felder[k] += 1
+            if stats and beispiel is None:
+                beispiel = (r.get("league", {}).get("name"), dict(list(stats.items())[:12]))
 
     # --- Bericht -----------------------------------------------------------
     L = []
@@ -309,6 +359,50 @@ def main():
                         "hz": list(ht) if ht else None})
     roh.write_text(json.dumps(schlank, ensure_ascii=False), encoding="utf-8")
     print(f"gespeichert: {roh} ({len(schlank)} Spiele)")
+
+    # --- Schritt 2: Historien aller Teams der brauchbaren Ligen ----------------
+    # "brauchbar" hier bewusst weit: mindestens 20 Spiele im Fenster. Die
+    # strengere Abdeckungsregel (alle Wochen, Endstand) legen wir später
+    # offline an — die Daten kosten jetzt einen Dollar, später zehn im Monat.
+    ziel_ligen = {name for name, d in liga.items() if d["n"] >= 20}
+    teams = {}
+    for ev in events:
+        if ((ev.get("league") or {}).get("name") or "?") not in ziel_ligen:
+            continue
+        for side in ("home", "away"):
+            t = ev.get(side) or {}
+            if t.get("id"):
+                teams[str(t["id"])] = t.get("name") or "?"
+    print(f"\nSchritt 2: Historien für {len(teams)} Teams aus {len(ziel_ligen)} Ligen "
+          f"(je 1–2 Anfragen)", flush=True)
+    hist = {}
+    knapp = 0
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = {pool.submit(team_history, tid): tid for tid in teams}
+        for i, f in enumerate(as_completed(futs), 1):
+            tid = futs[f]
+            try:
+                hist[tid] = {"name": teams[tid], "events": f.result()}
+            except BudgetExhausted:
+                # NICHT abbrechen: die schon fertigen Ergebnisse weiter
+                # einsammeln, die restlichen scheitern ohnehin sofort.
+                knapp += 1
+            except Exception as exc:
+                print(f"  Team {teams[tid]}: {exc}", flush=True)
+            if i % 100 == 0:
+                print(f"  ... {i}/{len(teams)} Teams, {_requests} Anfragen", flush=True)
+    if knapp:
+        print(f"Stundenlimit erreicht: {knapp} Teams ohne Historie — gespeichert wird, "
+              f"was da ist; ein zweiter Lauf in der nächsten Stunde holt den Rest.",
+              flush=True)
+    hpfad = OUT / f"handball_historie_{heute:%Y-%m-%d}.json"
+    hpfad.write_text(json.dumps(hist, ensure_ascii=False), encoding="utf-8")
+    n_ev = sum(len(v["events"]) for v in hist.values())
+    mit_hz = sum(1 for v in hist.values() for e in v["events"] if e.get("hz"))
+    print(f"gespeichert: {hpfad} — {len(hist)} Teams, {n_ev} Spiele, "
+          f"{mit_hz} davon mit Halbzeitstand, {_requests} Anfragen gesamt")
+    bericht += (f"\n\n5) HISTORIEN: {len(hist)} Teams · {n_ev} Spiele · "
+                f"{mit_hz} mit Halbzeitstand · {_requests} Anfragen gesamt")
 
     if TG_TOKEN and TG_CHAT:
         kopf = "🤾 <b>HANDBALL — Abdeckung</b>\n<pre>"
