@@ -2526,13 +2526,19 @@ B365_MARKETS = {
     "goals":          ("goals_over_under", "alternative_total_goals", "goal_line", "alternative_goal_line"),
     "ht_goals":       ("1st_half_goals", "1st_half_goal_line", "alternative_1st_half_goal_line"),
     "h2_goals":       ("2nd_half_goals",),
-    "yellowcards":    ("cards_over_under", "alternative_cards", "cards", "total_cards", "cards_2_way"),
-    "ht_yellowcards": ("1st_half_cards", "1st_half_cards_over_under"),
-    "on_target":      ("shots_on_target_over_under", "total_shots_on_target", "shots_on_target"),
-    "offsides":       ("offsides_over_under", "total_offsides", "offsides"),
-    "fouls":          ("fouls_over_under", "total_fouls", "fouls"),
-    "throwins":       ("throw_ins_over_under", "total_throw_ins", "throw_ins"),
-    "goalkicks":      ("goal_kicks_over_under", "total_goal_kicks", "goal_kicks"),
+    # 17.09. abends, aus 30 echten Katalogen (Europa League, EFL Cup …) abgelesen:
+    # Karten heißen bei bet365 "number_of_cards_in_match" (Abschnitt cards_fouls,
+    # nur Hauptlinie 2,5/3,5, zählt alle Karten). Halbzeit-Tore gibt es NICHT als
+    # über/unter, nur als "goals_range"-Raster ohne Spaltenbezeichnung — das
+    # wird bewusst nicht geraten. Schüsse aufs Tor und Fouls führt bet365 nur
+    # als Spielerwetten, Abseits/Einwürfe/Abstöße gar nicht → bleibt "–".
+    "yellowcards":    ("number_of_cards_in_match", "cards", "alternative_cards", "total_cards"),
+    "ht_yellowcards": ("1st_half_cards", "1st_half_number_of_cards"),
+    "on_target":      ("team_shots_on_target", "match_shots_on_target"),
+    "offsides":       ("offsides_over_under", "total_offsides"),
+    "fouls":          ("fouls_over_under", "total_fouls"),
+    "throwins":       ("throw_ins_over_under", "total_throw_ins"),
+    "goalkicks":      ("goal_kicks_over_under", "total_goal_kicks"),
 }
 
 
