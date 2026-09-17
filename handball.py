@@ -57,7 +57,27 @@ API = "https://api.b365api.com"
 TOKEN = os.environ.get("BETSAPI_TOKEN", "")
 TG_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TG_CHAT = os.environ.get("TELEGRAM_CHAT_ID", "")
-SPORT_HANDBALL = 78          # laut BetsAPI-Glossar
+# Sportarten laut BetsAPI-Glossar. 17.09. (Lucio): "wenn wir die API schon
+# gekauft haben, können wir sie bis morgen auch vollwertig nutzen" — deshalb
+# ist das Skript sportartfähig: SPORT=basketball python3 handball.py
+# "abschnitt" = welche Perioden den ersten Spielabschnitt bilden (Halbzeit,
+# 1. Drittel, 1.+2. Viertel = Halbzeit, 1. Satz), "punkte" = ob das Ergebnis
+# aus den Satzständen summiert werden muss (Volleyball: "ss" sind Sätze).
+SPORTS = {
+    "handball":   {"id": 78, "name": "Handball",   "abschnitt": ["1"],      "punkte": False,
+                   "abschnitt_name": "HZ"},
+    "basketball": {"id": 18, "name": "Basketball", "abschnitt": ["1", "2"], "punkte": False,
+                   "abschnitt_name": "HZ"},
+    "eishockey":  {"id": 17, "name": "Eishockey",  "abschnitt": ["1"],      "punkte": False,
+                   "abschnitt_name": "1.Dr"},
+    "volleyball": {"id": 91, "name": "Volleyball", "abschnitt": ["1"],      "punkte": True,
+                   "abschnitt_name": "Satz1"},
+}
+SPORT_KEY = os.environ.get("SPORT", "handball").strip().lower()
+if SPORT_KEY not in SPORTS:
+    sys.exit(f"unbekannte Sportart '{SPORT_KEY}' — bekannt: {', '.join(SPORTS)}")
+SPORT = SPORTS[SPORT_KEY]
+SPORT_HANDBALL = SPORT["id"]     # Name aus historischen Gründen; ist die aktive Sportart
 WORKERS = 48                 # 17.09. (Lucio): "zügig" — die API drosselt nicht
                              # pro Sekunde, nur pro Stunde; also breit parallel
 # 17.09.: Der Zugang läuft über den "Everything API One Day Trial" (2 $) —
@@ -146,17 +166,44 @@ def split_score(ss):
         return None
 
 
-def half_time(ev):
-    """Halbzeitstand aus dem scores-Block, falls vorhanden."""
-    sc = ev.get("scores") or {}
-    for key in ("1", 1):
-        p = sc.get(key)
-        if isinstance(p, dict) and p.get("home") is not None:
-            try:
-                return int(p["home"]), int(p["away"])
-            except (TypeError, ValueError):
-                return None
+def _period(sc, key):
+    if not isinstance(sc, dict):
+        return None
+    p = sc.get(key)
+    if p is None and key.isdigit():
+        p = sc.get(int(key))
+    if isinstance(p, dict) and p.get("home") is not None:
+        try:
+            return int(p["home"]), int(p["away"])
+        except (TypeError, ValueError):
+            return None
     return None
+
+
+def final_score(ev):
+    """Endstand als (heim, gast). Volleyball: Punkte über alle Sätze summiert,
+    weil "ss" dort nur die Sätze zählt."""
+    if SPORT["punkte"]:
+        sc = ev.get("scores") or {}
+        h = a = n = 0
+        for k in ("1", "2", "3", "4", "5"):
+            p = _period(sc, k)
+            if p:
+                h += p[0]; a += p[1]; n += 1
+        return (h, a) if n >= 3 else None       # unter 3 Sätzen ist es kein Ergebnis
+    return split_score(ev.get("ss"))
+
+
+def half_time(ev):
+    """Erster Spielabschnitt (Halbzeit / 1. Drittel / 1. Satz) als (heim, gast)."""
+    sc = ev.get("scores") or {}
+    h = a = 0
+    for k in SPORT["abschnitt"]:
+        p = _period(sc, k)
+        if not p:
+            return None
+        h += p[0]; a += p[1]
+    return h, a
 
 
 def team_history(team_id: str, depth: int = 50) -> list:
@@ -174,7 +221,7 @@ def team_history(team_id: str, depth: int = 50) -> list:
         page += 1
     slim = []
     for ev in out[:depth]:
-        sc = split_score(ev.get("ss"))
+        sc = final_score(ev)
         ht = half_time(ev)
         home, away = ev.get("home") or {}, ev.get("away") or {}
         slim.append({"id": ev.get("id"), "time": ev.get("time"),
@@ -302,7 +349,7 @@ def scan_modus():
     scan = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(scan)
 
-    hfiles = sorted(OUT.glob("handball_historie_*.json"))
+    hfiles = sorted(OUT.glob(f"{SPORT_KEY}_historie_*.json"))
     if not hfiles:
         sys.exit("keine Historie gefunden — erst den Abdeckungslauf machen")
     hist = json.loads(hfiles[-1].read_text(encoding="utf-8"))
@@ -424,6 +471,8 @@ def main():
     if len(sys.argv) > 1 and sys.argv[1].strip().lower() == "scan":
         if not TOKEN:
             sys.exit("BETSAPI_TOKEN fehlt")
+        if SPORT_KEY != "handball":
+            sys.exit("der Scan-Modus ist bisher nur für Handball gebaut (Linien, Backtest)")
         scan_modus()
         return
     if not TOKEN:
@@ -437,7 +486,7 @@ def main():
     try:
         d = api_get("/v3/events/ended", sport_id=SPORT_HANDBALL, day=probe_tag, page=1)
         n = len(d.get("results") or [])
-        print(f"Probelauf ok: {n} Handballspiele am {probe_tag}", flush=True)
+        print(f"Probelauf ok: {n} {SPORT['name']}-Spiele am {probe_tag}", flush=True)
         if n == 0:
             print("  (null Spiele an einem einzelnen Tag ist normal, weiter geht es)",
                   flush=True)
@@ -450,7 +499,7 @@ def main():
     heute = datetime.now(timezone.utc).date()
     days = [(heute - timedelta(days=i + 1)).strftime("%Y%m%d") for i in range(tage)]
 
-    print(f"Handball-Abdeckung: {wochen} Wochen ({tage} Tage), {WORKERS} Worker", flush=True)
+    print(f"{SPORT['name']}-Abdeckung: {wochen} Wochen ({tage} Tage), {WORKERS} Worker", flush=True)
     events = []
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
         futs = {pool.submit(ended_day, d): d for d in days}
@@ -480,7 +529,7 @@ def main():
         ts = int(ev.get("time") or 0)
         if ts:
             d["wochen"][datetime.fromtimestamp(ts, timezone.utc).isocalendar()[1]] += 1
-        sc = split_score(ev.get("ss"))
+        sc = final_score(ev)
         if sc:
             d["mit_endstand"] += 1
             d["totals"].append(sc[0] + sc[1])
@@ -511,7 +560,7 @@ def main():
 
     # --- Bericht -----------------------------------------------------------
     L = []
-    L.append(f"HANDBALL-ABDECKUNG · {wochen} Wochen · Stand {heute:%d.%m.%Y}")
+    L.append(f"{SPORT['name'].upper()}-ABDECKUNG · {wochen} Wochen · Stand {heute:%d.%m.%Y}")
     L.append(f"{len(events)} beendete Spiele · {len(liga)} Ligen · {_requests} API-Anfragen")
     L.append("")
     L.append("1) STATISTIKFELDER (Stichprobe aus 12 Spielen über /v1/event/view)")
@@ -525,8 +574,9 @@ def main():
         L.append("   Heißt: Tore-Totals sind die einzige Zählgröße. Mehr geht nicht.")
     L.append("")
     L.append("2) LIGEN mit mindestens 20 Spielen, nach Spielzahl")
-    L.append(f"   {'Liga':38s} {'Spiele':>6} {'Wo':>3} {'Endst.':>7} {'HZ':>6} "
-             f"{'Ø Tore':>7} {'SD':>5} {'Ø HZ':>6}")
+    ab = SPORT["abschnitt_name"]
+    L.append(f"   {'Liga':38s} {'Spiele':>6} {'Wo':>3} {'Endst.':>7} {ab:>6} "
+             f"{'Ø Pkt':>7} {'SD':>5} {'Ø '+ab:>7}")
     gross = sorted((d for d in liga.items() if d[1]["n"] >= 20),
                    key=lambda x: -x[1]["n"])
     for name, d in gross:
@@ -546,10 +596,11 @@ def main():
         if len(t) < 30 or len(d["wochen"]) < wochen:
             continue
         m = st.mean(t)
-        # Linien rund um den Ligaschnitt, in Zweierschritten
-        basis = round(m / 2) * 2
-        linien = [basis - 6.5, basis - 4.5, basis - 2.5, basis - 0.5,
-                  basis + 1.5, basis + 3.5, basis + 5.5]
+        sd = st.pstdev(t) if len(t) > 1 else 1.0
+        # Linien rund um den Ligaschnitt, Schrittweite ~ ein Drittel Streuung
+        step = max(1, round(sd / 3))
+        basis = round(m / step) * step
+        linien = [basis + k * step + 0.5 for k in range(-3, 4)]
         teile = " · ".join(f"{ln:.1f}: {100*sum(1 for x in t if x > ln)/len(t):.0f}%"
                            for ln in linien)
         L.append(f"   {name[:36]:36s} (n={len(t)}, Ø {m:.1f}) {teile}")
@@ -568,15 +619,15 @@ def main():
     print("\n" + bericht)
 
     OUT.mkdir(exist_ok=True)
-    pfad = OUT / f"handball_abdeckung_{heute:%Y-%m-%d}.txt"
+    pfad = OUT / f"{SPORT_KEY}_abdeckung_{heute:%Y-%m-%d}.txt"
     pfad.write_text(bericht, encoding="utf-8")
     print(f"\ngespeichert: {pfad}")
 
     # Rohdaten für die spätere Auswertung — je Spiel eine Zeile
-    roh = OUT / f"handball_spiele_{heute:%Y-%m-%d}.json"
+    roh = OUT / f"{SPORT_KEY}_spiele_{heute:%Y-%m-%d}.json"
     schlank = []
     for ev in events:
-        sc = split_score(ev.get("ss"))
+        sc = final_score(ev)
         ht = half_time(ev)
         schlank.append({"id": ev.get("id"), "time": ev.get("time"),
                         "liga": (ev.get("league") or {}).get("name"),
@@ -625,7 +676,7 @@ def main():
         print(f"Stundenlimit erreicht: {knapp} Teams ohne Historie — gespeichert wird, "
               f"was da ist; ein zweiter Lauf in der nächsten Stunde holt den Rest.",
               flush=True)
-    hpfad = OUT / f"handball_historie_{heute:%Y-%m-%d}.json"
+    hpfad = OUT / f"{SPORT_KEY}_historie_{heute:%Y-%m-%d}.json"
     hpfad.write_text(json.dumps(hist, ensure_ascii=False), encoding="utf-8")
     n_ev = sum(len(v["events"]) for v in hist.values())
     mit_hz = sum(1 for v in hist.values() for e in v["events"] if e.get("hz"))
@@ -635,7 +686,7 @@ def main():
                 f"{mit_hz} mit Halbzeitstand · {_requests} Anfragen gesamt")
 
     if TG_TOKEN and TG_CHAT:
-        kopf = "🤾 <b>HANDBALL — Abdeckung</b>\n<pre>"
+        kopf = f"<b>{SPORT['name'].upper()} — Abdeckung</b>\n<pre>"
         rest = bericht
         teile, grenze = [], 3500
         while rest:
