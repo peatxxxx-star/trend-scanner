@@ -67,6 +67,10 @@ TG_CHAT = os.environ.get("TELEGRAM_CHAT_ID", "")
 SPORTS = {
     "handball":   {"id": 78, "name": "Handball",   "abschnitt": ["1"],      "punkte": False,
                    "abschnitt_name": "HZ"},
+    # Basketball-Falle (17.09. beim Auswerten gefunden): die Abschnitte der API
+    # sind 1 = Q1, 2 = Q2, 3 = HALBZEITSTAND (Q1+Q2), 4 = Q3, 5 = Q4, danach OT.
+    # "perioden" speichert das so roh; wer Viertel summiert, muss Schlüssel 3
+    # überspringen (Q4 = perioden[4], reguläre Punkte = [0]+[1]+[3]+[4]).
     "basketball": {"id": 18, "name": "Basketball", "abschnitt": ["1", "2"], "punkte": False,
                    "abschnitt_name": "HZ"},
     "eishockey":  {"id": 17, "name": "Eishockey",  "abschnitt": ["1"],      "punkte": False,
