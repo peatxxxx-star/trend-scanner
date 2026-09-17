@@ -729,6 +729,241 @@ def liga_modus():
     stats_modus()
 
 
+# ---------------------------------------------------------------------------
+# EISHOCKEY-SCAN (17.09.) — "Heim über 2,5 eigene Tore" (reguläre Zeit, ohne OT)
+#
+# Lucios Auftrag: "du drehst solange, bis du was gebaut hast mit min. 75 %".
+# Ergebnis der Suche über 59 Märkte × 7 Regeln auf 589 Teams (eine Saison):
+# Tor-Serien des Heimteams selbst sagen nichts (Rückkehr zum Mittel), die
+# LÖCHRIGKEIT DES GASTES sagt alles — und eine schwache Abwehr ist auswärts
+# noch schwächer (Spiegelregel "Gast über 2,5" bringt gegenüber dem
+# Matchup-Modell genau null, die Heim-Fassung +7 Punkte).
+#
+# Regel (alle Werte aus den letzten 15 Spielen, nur reguläre Zeit = 3 Drittel):
+#   Heim schießt selbst Ø >= 2,6                       (darunter nur 70 %)
+#   und  Stufe A: Gast kassiert Ø >= 4,5
+#   oder Stufe B: Gast kassiert Ø >= 4,0 ODER 9 der letzten 10 Spiele 3+
+#                 Gegentore, dann aber Heim Ø >= 3,2   (sonst nur 70 %)
+# Backtest: 575 Signale, 84,9 % (Zeit-Split 86,4 / 83,3), Topligen 57 → 94,7 %;
+# Poisson-Matchup-Modell sagt 77,7 %, reiner Team-Schnitt 69,2 %.
+# In der Saison rund 19 Signale je Woche, davon ~2 in Topligen — der Rest ist
+# Kazakhstan MHL, Sweden U20, British Elite League, NLB, Norway, Slovakia 1.
+# Testspiele fliegen raus (69,7 %), sonst keine Liga-Feinjustierung.
+# Faire Quote = 1 / (Trefferquote der Stufe × 0,97 Sicherheitsabschlag, weil
+# die Regel auf denselben Daten gefunden wurde). Die Trefferquoten werden
+# bei jedem Lauf frisch aus der Historie-Datei gerechnet (kein API-Aufwand).
+# Aufruf: SPORT=eishockey python3 handball.py scan
+# ---------------------------------------------------------------------------
+HOCKEY_N = 15                # Spiele je Team für die Schnitte
+HOCKEY_MIN_HEIM = 2.6        # Heim schießt selbst mindestens Ø 2,6
+HOCKEY_GAST_A = 4.5          # Stufe A: Gast kassiert Ø >= 4,5
+HOCKEY_GAST_B = 4.0          # Stufe B: Gast kassiert Ø >= 4,0 ODER 9/10 mit 3+ …
+HOCKEY_HEIM_B = 3.2          # … und Heim schießt Ø >= 3,2
+HOCKEY_LINIE = 2.5
+HOCKEY_SICHERHEIT = 0.97
+HOCKEY_LIGA_RAUS = ("friendl", "test")
+HOCKEY_TOP = ("khl", "nhl", "shl", "liiga", "del", "extraliga", "nla", "national league",
+              "elite league", "eliteserien", "allsvenskan", "vhl", "ice hockey league",
+              "ebel", "ehl", "metal ligaen", "tipos")
+
+
+def hockey_top(liga: str) -> bool:
+    l = (liga or "").lower()
+    return any(k in l for k in HOCKEY_TOP) and not any(j in l for j in ("u20", "u18", "u16", "junior", "women", "mhl"))
+
+
+def hockey_reg(e):
+    """Regulärer Endstand (heim, gast) = Summe der ersten drei Drittel. None,
+    wenn keine drei Drittel gespeichert sind (dann auch kein OT-Wissen)."""
+    p = e.get("perioden") or []
+    if len(p) < 3:
+        return None
+    return sum(int(x[0]) for x in p[:3]), sum(int(x[1]) for x in p[:3])
+
+
+def hockey_stufe(heim_eigene: list, gast_kassiert: list):
+    """Stufe 'A' / 'B' oder None. Listen: neueste zuerst, mindestens HOCKEY_N Werte."""
+    if len(heim_eigene) < HOCKEY_N or len(gast_kassiert) < HOCKEY_N:
+        return None
+    mu_s = st.mean(heim_eigene[:HOCKEY_N])
+    mu_d = st.mean(gast_kassiert[:HOCKEY_N])
+    r9 = sum(c > HOCKEY_LINIE for c in gast_kassiert[:10]) >= 9
+    if mu_s < HOCKEY_MIN_HEIM:
+        return None
+    if mu_d >= HOCKEY_GAST_A:
+        return "A"
+    if (mu_d >= HOCKEY_GAST_B or r9) and mu_s >= HOCKEY_HEIM_B:
+        return "B"
+    return None
+
+
+def hockey_spiele(hist: dict) -> dict:
+    """Alle Spiele der Historie mit drei Dritteln und beiden Team-IDs, dedupliziert."""
+    games = {}
+    for t in hist.values():
+        for e in t.get("events") or []:
+            r = hockey_reg(e)
+            if r and e.get("heim_id") and e.get("gast_id") and e.get("id"):
+                games[e["id"]] = {"t": int(e.get("time") or 0), "liga": e.get("liga") or "",
+                                  "hid": str(e["heim_id"]), "aid": str(e["gast_id"]),
+                                  "h": r[0], "a": r[1]}
+    return games
+
+
+def hockey_backtest(games: dict) -> dict:
+    """Trefferquote der Regel je Stufe aus der Historie: {'A': (n, quote), 'B': …, 'alle': …}."""
+    per_team = defaultdict(list)
+    for g in games.values():
+        per_team[g["hid"]].append(g); per_team[g["aid"]].append(g)
+    for v in per_team.values():
+        v.sort(key=lambda g: g["t"])
+    treffer = defaultdict(lambda: [0, 0])
+    for g in games.values():
+        H, A = per_team[g["hid"]], per_team[g["aid"]]
+        hi = next(i for i, x in enumerate(H) if x is g)
+        ai = next(i for i, x in enumerate(A) if x is g)
+        if hi < HOCKEY_N or ai < HOCKEY_N or any(k in g["liga"].lower() for k in HOCKEY_LIGA_RAUS):
+            continue
+        eigene = [(x["h"] if x["hid"] == g["hid"] else x["a"]) for x in H[hi - HOCKEY_N:hi][::-1]]
+        kass = [(x["a"] if x["hid"] == g["aid"] else x["h"]) for x in A[ai - HOCKEY_N:ai][::-1]]
+        stufe = hockey_stufe(eigene, kass)
+        if not stufe:
+            continue
+        y = int(g["h"] > HOCKEY_LINIE)
+        for k in (stufe, "alle"):
+            treffer[k][0] += 1; treffer[k][1] += y
+    return {k: (n, (h / n if n else 0.0)) for k, (n, h) in treffer.items()}
+
+
+def eishockey_scan():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("scan", Path(__file__).parent / "scan.py")
+    scan = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(scan)
+
+    hfiles = sorted(OUT.glob("eishockey_historie_*.json"))
+    if not hfiles:
+        sys.exit("keine Eishockey-Historie gefunden — erst den Erkundungslauf machen")
+    hist = json.loads(hfiles[-1].read_text(encoding="utf-8"))
+    print(f"Historie: {hfiles[-1].name}, {len(hist)} Teams", flush=True)
+
+    # 1) Regel auf der Historie nachrechnen — daraus kommen die fairen Quoten
+    games = hockey_spiele(hist)
+    quoten = hockey_backtest(games)
+    print(f"Regel-Backtest auf {len(games)} Spielen:", flush=True)
+    for k in ("A", "B", "alle"):
+        n, q = quoten.get(k, (0, 0.0))
+        print(f"   Stufe {k}: n={n}  {100 * q:.1f} %", flush=True)
+    if quoten.get("alle", (0, 0))[0] < 200:
+        sys.exit("zu wenig Spiele für die Regel — Historie zu dünn")
+
+    # 2) anstehende Spiele
+    heute = datetime.now(timezone.utc).date()
+    tage = [(heute + timedelta(days=i)).strftime("%Y%m%d") for i in range(SCAN_TAGE)]
+    spiele = []
+    for d in tage:
+        try:
+            spiele += upcoming(d)
+        except Exception as exc:
+            print(f"  upcoming {d}: {exc}", flush=True)
+    jetzt = int(time.time())
+    spiele = [m for m in spiele if not is_junk(m) and int(m.get("time") or 0) > jetzt
+              and not any(k in ((m.get("league") or {}).get("name") or "").lower() for k in HOCKEY_LIGA_RAUS)]
+    print(f"{len(spiele)} anstehende Spiele (ohne Testspiele/E-Sport)", flush=True)
+
+    # 3) Historien nur für Teams holen, die noch fehlen (die Datei ist von heute)
+    ids = {}
+    for m in spiele:
+        for side in ("home", "away"):
+            t = m.get(side) or {}
+            if t.get("id"):
+                ids[str(t["id"])] = t.get("name") or "?"
+    fehlt = [tid for tid in ids if tid not in hist]
+    print(f"{len(ids)} Teams beteiligt, {len(fehlt)} ohne Historie → werden geholt", flush=True)
+    if fehlt:
+        with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+            futs = {pool.submit(team_history, tid): tid for tid in fehlt}
+            for f in as_completed(futs):
+                tid = futs[f]
+                try:
+                    hist[tid] = {"name": ids[tid], "events": f.result()}
+                except BudgetExhausted:
+                    print("  Stundenbudget erschöpft — Rest ohne Historie", flush=True)
+                except Exception as exc:
+                    print(f"  Team {ids[tid]}: {exc}", flush=True)
+        print(f"Historien geholt ({_requests} Anfragen)", flush=True)
+
+    def letzte(tid: str):
+        """Reguläre Endstände der letzten HOCKEY_N Spiele eines Teams als
+        (eigene, kassiert), neueste zuerst — nur Spiele vor jetzt."""
+        ev = [e for e in (hist.get(tid) or {}).get("events") or [] if int(e.get("time") or 0) < jetzt]
+        ev.sort(key=lambda e: int(e.get("time") or 0), reverse=True)
+        eigene, kass = [], []
+        for e in ev:
+            r = hockey_reg(e)
+            if not r:
+                continue
+            if e.get("h"):
+                eigene.append(r[0]); kass.append(r[1])
+            else:
+                eigene.append(r[1]); kass.append(r[0])
+            if len(eigene) >= HOCKEY_N:
+                break
+        return eigene, kass
+
+    # 4) Regel anwenden
+    treffer = []
+    for m in spiele:
+        home, away = m.get("home") or {}, m.get("away") or {}
+        hid, aid = str(home.get("id")), str(away.get("id"))
+        h_eig, _ = letzte(hid)
+        _, a_kas = letzte(aid)
+        stufe = hockey_stufe(h_eig, a_kas)
+        if not stufe:
+            continue
+        n, q = quoten.get(stufe, (0, 0.0))
+        if n < 80:
+            n, q = quoten["alle"]
+        p = q * HOCKEY_SICHERHEIT
+        treffer.append({"m": m, "liga": (m.get("league") or {}).get("name") or "?",
+                        "stufe": stufe, "n": n, "q": q, "fair": 1 / p if p else 0.0,
+                        "mu_s": st.mean(h_eig[:HOCKEY_N]), "mu_d": st.mean(a_kas[:HOCKEY_N]),
+                        "r10": sum(c > HOCKEY_LINIE for c in a_kas[:10]),
+                        "top": hockey_top((m.get("league") or {}).get("name"))})
+
+    # 5) Nachricht: Zeit zuerst, gleiche Zeit nach Liga, dann Heimteam
+    def ts(m):
+        return int(m.get("time") or 0)
+    treffer.sort(key=lambda x: (ts(x["m"]), x["liga"].lower(), (x["m"].get("home") or {}).get("name", "")))
+    berlin = timezone(timedelta(hours=2))
+    WD = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+    n_a, q_a = quoten.get("A", (0, 0.0)); n_b, q_b = quoten.get("B", (0, 0.0))
+    lines_out = ["🏒 <b>EISHOCKEY-SCAN</b> · nächste 3 Tage · 🧪 <i>Test</i>",
+                 f"<i>Regel: Heim über {HOCKEY_LINIE} eigene Tore (reguläre Zeit) gegen löchrige Gast-Abwehr · "
+                 f"Backtest A {100 * q_a:.0f} % ({n_a}) · B {100 * q_b:.0f} % ({n_b})</i>", ""]
+    for x in treffer:
+        m = x["m"]
+        t = datetime.fromtimestamp(ts(m), berlin)
+        home = (m.get("home") or {}).get("name", "?"); away = (m.get("away") or {}).get("name", "?")
+        lines_out += [f"🏒 <b>{scan.esc(home)} – {scan.esc(away)}</b>",
+                      f"🕒 {WD[t.weekday()]} {t:%H:%M} · {scan.esc(x['liga'])}{' · ⭐ Topliga' if x['top'] else ''}",
+                      f"✅ <b>{scan.esc(home)} über {HOCKEY_LINIE} Tore</b> · Fair {x['fair']:.2f}"
+                      f" · Stufe {x['stufe']} · <i>Quote selbst prüfen</i>",
+                      f"   Gast kassiert Ø {x['mu_d']:.1f} (letzte {HOCKEY_N}), {x['r10']}/10 mit 3+"
+                      f" · Heim schießt Ø {x['mu_s']:.1f}",
+                      ""]
+    if not treffer:
+        lines_out.append("keine Signale in den nächsten 3 Tagen")
+    text = "\n".join(lines_out)
+    print("\n" + text.replace("<b>", "").replace("</b>", "").replace("<i>", "").replace("</i>", ""))
+    OUT.mkdir(exist_ok=True)
+    (OUT / f"eishockey_scan_{heute:%Y-%m-%d}.txt").write_text(text, encoding="utf-8")
+    print(f"\n{len(treffer)} Signale in {len(spiele)} Spielen · {_requests} Anfragen")
+    if TG_TOKEN and TG_CHAT:
+        for stueck in scan.split_message(text):
+            scan.send_telegram(stueck)
+
+
 def main():
     if len(sys.argv) > 1 and sys.argv[1].strip().lower() == "liga":
         if not TOKEN:
@@ -743,8 +978,11 @@ def main():
     if len(sys.argv) > 1 and sys.argv[1].strip().lower() == "scan":
         if not TOKEN:
             sys.exit("BETSAPI_TOKEN fehlt")
+        if SPORT_KEY == "eishockey":
+            eishockey_scan()
+            return
         if SPORT_KEY != "handball":
-            sys.exit("der Scan-Modus ist bisher nur für Handball gebaut (Linien, Backtest)")
+            sys.exit("der Scan-Modus gibt es bisher nur für Handball und Eishockey")
         scan_modus()
         return
     if not TOKEN:
