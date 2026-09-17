@@ -205,6 +205,19 @@ def final_score(ev):
     return split_score(ev.get("ss"))
 
 
+def perioden(ev):
+    """Alle Spielabschnitte als Liste [[heim, gast], ...] — 17.09. (Lucio):
+    "bevor wir abbrechen noch 2. und 3. Drittel". Leer, wenn keine da sind."""
+    sc = ev.get("scores") or {}
+    out = []
+    for k in ("1", "2", "3", "4", "5", "6", "7"):
+        p = _period(sc, k)
+        if not p:
+            break
+        out.append([p[0], p[1]])
+    return out
+
+
 def half_time(ev):
     """Erster Spielabschnitt (Halbzeit / 1. Drittel / 1. Satz) als (heim, gast)."""
     sc = ev.get("scores") or {}
@@ -241,7 +254,8 @@ def team_history(team_id: str, depth: int = 50) -> list:
                      "heim": home.get("name"), "gast": away.get("name"),
                      "heim_id": home.get("id"), "gast_id": away.get("id"),
                      "tore": list(sc) if sc else None,
-                     "hz": list(ht) if ht else None})
+                     "hz": list(ht) if ht else None,
+                     "perioden": perioden(ev)})
     return slim
 
 
@@ -478,7 +492,107 @@ def scan_modus():
             scan.send_telegram(stueck)
 
 
+# ---------------------------------------------------------------------------
+# STATS — Statistikblock je Spiel nachladen (17.09.)
+# Die Team-Historie liefert nur Spielstände. Nebenmärkte (Schüsse, Strafen,
+# Paraden …) stehen im Statistikblock der Einzelspiel-Abfrage, die zehn Spiele
+# auf einmal nimmt. Für die Spiele der großen Ligen aus der Historie: bei
+# 3.000 Spielen 300 Anfragen. Aufruf: SPORT=eishockey python3 handball.py stats
+# Ergebnis: runs/<sport>_stats_<datum>.json  {spiel_id: {feld: [heim, gast]}}
+# ---------------------------------------------------------------------------
+STATS_MIN_LIGA = int(os.environ.get("STATS_MIN_LIGA", "150"))   # Spiele je Liga in der Historie
+STATS_MAX = int(os.environ.get("STATS_MAX", "12000"))            # Obergrenze Spiele je Lauf
+
+
+def _num_pair(v):
+    if isinstance(v, (list, tuple)) and len(v) == 2:
+        try:
+            return [int(float(v[0])), int(float(v[1]))]
+        except (TypeError, ValueError):
+            return None
+    return None
+
+
+def stats_modus():
+    hfiles = sorted(OUT.glob(f"{SPORT_KEY}_historie_*.json"))
+    if not hfiles:
+        sys.exit("keine Historie gefunden — erst den Abdeckungslauf machen")
+    hist = json.loads(hfiles[-1].read_text(encoding="utf-8"))
+    heute = datetime.now(timezone.utc).date()
+    spfad = OUT / f"{SPORT_KEY}_stats_{heute:%Y-%m-%d}.json"
+    stats = {}
+    if spfad.exists():
+        try:
+            stats = json.loads(spfad.read_text(encoding="utf-8"))
+            print(f"Wiederaufnahme: {len(stats)} Spiele schon mit Statistik", flush=True)
+        except Exception:
+            stats = {}
+    # Spiele der großen Ligen, neueste zuerst
+    liga_n = Counter(); spiele = {}
+    for t in hist.values():
+        for e in t["events"]:
+            if e["id"] not in spiele and e.get("tore"):
+                spiele[e["id"]] = e; liga_n[e.get("liga")] += 1
+    ok_ligen = {L for L, n in liga_n.items() if n >= STATS_MIN_LIGA}
+    todo = [eid for eid, e in sorted(spiele.items(), key=lambda x: -int(x[1].get("time") or 0))
+            if e.get("liga") in ok_ligen and eid not in stats][:STATS_MAX]
+    print(f"{len(spiele)} Spiele in der Historie · {len(ok_ligen)} Ligen mit >= {STATS_MIN_LIGA} · "
+          f"{len(todo)} Spiele zu laden ({(len(todo) + 9) // 10} Anfragen)", flush=True)
+    chunks = [todo[i:i + 10] for i in range(0, len(todo), 10)]
+    felder = Counter(); knapp = 0
+    def _view(chunk):
+        d = api_get("/v1/event/view", event_id=",".join(chunk))
+        out = {}
+        for ev in d.get("results") or []:
+            st_ = ev.get("stats") or {}
+            slim = {}
+            for k, v in st_.items():
+                p = _num_pair(v)
+                if p is not None:
+                    slim[k] = p
+            out[str(ev.get("id"))] = slim
+        return out
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futs = [pool.submit(_view, c) for c in chunks]
+        for i, f in enumerate(as_completed(futs), 1):
+            try:
+                got = f.result()
+                stats.update(got)
+                for slim in got.values():
+                    felder.update(slim.keys())
+            except BudgetExhausted:
+                knapp += 1
+            except Exception as exc:
+                print(f"  Block: {exc}", flush=True)
+            if i % 50 == 0:
+                print(f"  ... {i}/{len(chunks)} Blöcke, {_requests} Anfragen", flush=True)
+                spfad.write_text(json.dumps(stats), encoding="utf-8")
+    spfad.write_text(json.dumps(stats), encoding="utf-8")
+    if knapp:
+        print(f"Stundenlimit: {knapp} Blöcke fehlen — nächste Stunde nochmal starten", flush=True)
+    print(f"gespeichert: {spfad} — {len(stats)} Spiele mit Statistik, {_requests} Anfragen")
+    print("Felder (Anzahl Spiele, in denen sie vorkommen):")
+    for k, c in felder.most_common(30):
+        print(f"   {k}: {c}")
+    if TG_TOKEN and TG_CHAT:
+        txt = (f"<b>{SPORT['name'].upper()} — Statistiken</b>\n{len(stats)} Spiele · "
+               + " · ".join(f"{k} {c}" for k, c in felder.most_common(12)))
+        try:
+            req = urllib.request.Request(
+                f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage",
+                data=urllib.parse.urlencode({"chat_id": TG_CHAT, "text": txt,
+                                             "parse_mode": "HTML"}).encode(), method="POST")
+            urllib.request.urlopen(req, timeout=30).read()
+        except Exception as exc:
+            print(f"Telegram: {exc}")
+
+
 def main():
+    if len(sys.argv) > 1 and sys.argv[1].strip().lower() == "stats":
+        if not TOKEN:
+            sys.exit("BETSAPI_TOKEN fehlt")
+        stats_modus()
+        return
     if len(sys.argv) > 1 and sys.argv[1].strip().lower() == "scan":
         if not TOKEN:
             sys.exit("BETSAPI_TOKEN fehlt")
@@ -676,7 +790,10 @@ def main():
             print(f"Wiederaufnahme: {len(hist)} Teams schon vorhanden aus {hpfad.name}", flush=True)
         except Exception:
             hist = {}
-    fehlend = {tid: n for tid, n in teams.items() if tid not in hist}
+    def _komplett(tid):
+        ev = (hist.get(tid) or {}).get("events") or []
+        return bool(ev) and "perioden" in ev[0]
+    fehlend = {tid: n for tid, n in teams.items() if not _komplett(tid)}
     print(f"\nSchritt 2: Historien für {len(fehlend)} von {len(teams)} Teams aus "
           f"{len(ziel_ligen)} Ligen (je 1–2 Anfragen)", flush=True)
     knapp = 0
