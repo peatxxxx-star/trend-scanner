@@ -1336,11 +1336,25 @@ def quoten_probe():
             zf.append(f"   {name} {(r_.get('home') or {}).get('name')} – {(r_.get('away') or {}).get('name')} "
                       f"[{(r_.get('league') or {}).get('name')}] our_event_id={r_.get('our_event_id')} · Unterspiele: {namen}")
             zf.append(f"      Hauptmärkte: {json.dumps(_markt_kurz(val))[:500]}")
-            wahl = [x for x in sg if any(k in (x.get("PN") or "").lower() for k in WUNSCH)][:8]
+            wahl = [x for x in sg if any(k in ((x.get("TG") or "") + " " + (x.get("PN") or "")).lower() for k in WUNSCH)][:8]
             if not wahl:
                 continue
             try:
                 unter = event_xb([x["I"] for x in wahl])
+                if not unter:
+                    # Variante: einzeln, und mit dem Hauptspiel als Anker
+                    x0 = wahl[0]
+                    for params in ({"event_id": x0["I"]}, {"event_id": r_.get("id"), "sub_id": x0["I"]},
+                                   {"event_id": r_.get("id"), "sub": 1}):
+                        try:
+                            d = api_get("/v1/1xbet/event", **params)
+                            got = d.get("results") or []
+                            zf.append(f"      Variante {params}: {len(got)} Ergebnisse"
+                                      + (f", Value-Keys {sorted((got[0].get('Value') or {}).keys())[:10]}, SG={len((got[0].get('Value') or {}).get('SG') or [])}" if got else ""))
+                            if got and str(got[0].get("id")) == str(x0["I"]):
+                                unter = got; break
+                        except Exception as exc:
+                            zf.append(f"      Variante {params}: {exc}")
             except Exception as exc:
                 zf.append(f"      Unterspiel-Abruf: {exc}"); continue
             raw["unter"][str(r_.get("id"))] = unter
@@ -1349,6 +1363,34 @@ def quoten_probe():
                 zf.append(f"      ↳ Unterspiel {u.get('id')} PN={uv.get('PN')!r} N={uv.get('N')} TG={uv.get('TG')!r} "
                           f"SN={uv.get('SN')!r} keys={sorted(uv.keys())[:12]}")
                 zf.append(f"         Märkte: {json.dumps(_markt_kurz(uv))[:600]}")
+    # Stufe 3: liefert die Sport-API selbst 1xBet-Quoten (odds_summary / event/odds)?
+    raw["summary"] = {}; raw["odds"] = {}
+    for sid, haupt in raw["haupt"].items():
+        for r_ in haupt[:2]:
+            oid = r_.get("our_event_id")
+            if not oid:
+                continue
+            try:
+                summ = api_get("/v1/event/odds_summary", event_id=oid)
+                res = summ.get("results") or {}
+                raw["summary"][str(oid)] = res
+                bk = {b: sorted((n.get("odds") or {}).keys()) for b, n in res.items() if isinstance(n, dict)}
+                zf.append(f"   odds_summary {oid} ({(r_.get('home') or {}).get('name')} – {(r_.get('away') or {}).get('name')}): "
+                          + "; ".join(f"{b}: {', '.join(m)}" for b, m in bk.items()))
+                for b, n in res.items():
+                    if isinstance(n, dict) and ("1x" in b.lower() or "xbet" in b.lower()):
+                        zf.append(f"      {b} Rohdaten: {json.dumps(n)[:700]}")
+            except Exception as exc:
+                zf.append(f"   odds_summary {oid}: {exc}")
+            try:
+                od = api_get("/v2/event/odds", event_id=oid)
+                res = od.get("results") or {}
+                raw["odds"][str(oid)] = res
+                mk = {k: len(v) for k, v in (res.get("odds") or {}).items()}
+                first = {k: v[0] for k, v in (res.get("odds") or {}).items() if v}
+                zf.append(f"   event/odds {oid}: Märkte {mk} · Beispiel {json.dumps(first)[:500]}")
+            except Exception as exc:
+                zf.append(f"   event/odds {oid}: {exc}")
     OUT.mkdir(exist_ok=True)
     (OUT / f"quoten_probe2_{heute:%Y-%m-%d}.json").write_text(json.dumps(raw, ensure_ascii=False), encoding="utf-8")
     text = "\n".join(zf)
