@@ -2,11 +2,11 @@ EISHOCKEY-ABDECKUNG · 4 Wochen · Stand 17.09.2026
 1403 beendete Spiele · 50 Ligen · 54 API-Anfragen
 
 1) STATISTIKFELDER (Stichprobe aus 12 Spielen über /v1/event/view)
-   shots: 4/12
-   penalties: 4/12
-   goals_on_power_play: 4/12
-   s7: 4/12
-   Beispiel (Club Friendlies (Regulation Only)): {"shots": [null, null], "penalties": ["3", "2"], "goals_on_power_play": ["0", "0"], "s7": ["0 / 2", "0 / 3"]}
+   shots: 7/12
+   penalties: 7/12
+   goals_on_power_play: 7/12
+   s7: 7/12
+   Beispiel (Club Friendlies Women (Regulation Only)): {"shots": [null, null], "penalties": ["2", "1"], "goals_on_power_play": ["0", "50"], "s7": ["0 / 1", "1 / 2"]}
 
 2) LIGEN mit mindestens 20 Spielen, nach Spielzahl
    Liga                                   Spiele  Wo  Endst.   1.Dr   Ø Pkt    SD  Ø 1.Dr
@@ -25,8 +25,8 @@ EISHOCKEY-ABDECKUNG · 4 Wochen · Stand 17.09.2026
    Czechia 1. Liga                            28   2     96%    96%     5.4  2.02    1.8
    Slovakia Extraliga U20                     26   2    100%   100%     7.1  2.39    2.0
    Kazakhstan MHL                             24   2    100%   100%     7.4  2.48    2.2
-   Belarus Extraliga                          21   2    100%   100%     6.9  3.16    2.2
    Kazakhstan Cup U20                         21   2    100%    90%     7.7  2.55    1.8
+   Belarus Extraliga                          21   2    100%   100%     6.9  3.16    2.2
 
 3) GRUNDRATEN je Liga (Anteil der Spiele ÜBER der Linie)
    Nur Ligen mit mindestens 30 Spielen und Daten in allen Wochen.
