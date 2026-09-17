@@ -1,27 +1,28 @@
 BASKETBALL-ABDECKUNG · 4 Wochen · Stand 17.09.2026
-9029 beendete Spiele · 127 Ligen · 207 API-Anfragen
+1967 beendete Spiele · 114 Ligen · 235 API-Anfragen
 
 1) STATISTIKFELDER (Stichprobe aus 12 Spielen über /v1/event/view)
    2points: 12/12
    3points: 12/12
    fouls: 12/12
    free_throws: 12/12
-   free_throws_rate: 12/12
-   time_outs: 12/12
-   Beispiel (Ebasketball H2H GG League - 4x5mins): {"2points": ["10", "7"], "3points": ["1", "3"], "fouls": ["0", "0"], "free_throws": ["0", "0"], "free_throws_rate": ["0", "0"], "time_outs": ["5", "5"]}
+   biggest_lead: 11/12
+   free_throws_rate: 11/12
+   lead_changes: 11/12
+   maxpoints_inarow: 11/12
+   possession: 11/12
+   success_attempts: 11/12
+   timespent_inlead: 11/12
+   time_outs: 11/12
+   Beispiel (FIBA World Cup Qualification): {"2points": ["23", "19"], "3points": ["8", "5"], "biggest_lead": ["15", "4"], "fouls": ["14", "15"], "free_throws": ["6", "14"], "free_throws_rate": ["46.2", "58.3"], "lead_changes": ["5", "4"], "maxpoints_inarow": ["8", "6"], "possession": ["55", "45"], "success_attempts": ["37", "38"], "timespent_
 
 2) LIGEN mit mindestens 20 Spielen, nach Spielzahl
    Liga                                   Spiele  Wo  Endst.     HZ   Ø Pkt    SD    Ø HZ
-   Ebasketball H2H GG League - 4x5mins      5345   5     99%    98%   109.5 17.60   55.1
-   Ebasketball Battle - 4x5mins             1293   5     99%    98%   136.1 19.96   68.7
    Club Friendlies                           490   5     95%    87%   159.1 29.75   82.4
    Chile Liga Desarrollo U21                 108   4     98%    95%   129.3 28.25   66.0
-   FIBA 3x3 Challenger                       102   2     98%     0%    34.3  4.14      –
-   FIBA 3x3 Series Women                      93   3    100%     0%    32.2  4.79      –
    FIBA World Cup Qualification               66   2    100%   100%   168.3 20.56   84.4
    Philippines MPBL                           63   5     78%    70%   166.0 25.66   77.3
    Mexico LNBP                                62   5    100%   100%   171.6 17.85   87.4
-   FIBA 3x3 U23 Nations League                58   2    100%     0%    32.9  4.74      –
    China NWBC Women                           53   2    100%    96%   142.3 21.87   73.8
    Club Friendlies Women                      44   4     98%    93%   137.4 19.68   70.6
    FIBA World Cup Women                       36   2    100%   100%   150.0 17.84   76.9
@@ -29,36 +30,26 @@ BASKETBALL-ABDECKUNG · 4 Wochen · Stand 17.09.2026
    WNBA                                       33   3    100%   100%   169.7 19.86   85.6
    Paraguay Primera                           28   5    100%    96%   163.2 38.09   88.2
    Brazil LDB U22                             28   2    100%    50%   146.5 21.18   79.6
-   Basketball Matches                         27   5    100%   100%   109.2 32.43   54.7
    FIBA Asia Cup Pre-Qualifiers               27   2    100%    96%   155.8 25.37   75.6
+   Basketball Matches                         27   5    100%   100%   109.2 32.43   54.7
    Mexico CIBAPAC                             26   4     96%    96%   161.5 25.71   81.3
-   FIBA 3x3 World Tour                        25   1    100%     0%    36.2  2.95      –
    Mozambique LMB Women                       24   3    100%    96%    95.1 25.29   51.5
-   FIBA 3x3 U23 Nations League Women          24   1    100%     0%    28.8  4.77      –
    Brazil Camp Interclubes U23 Women          24   2    100%   100%   116.5 16.04   59.5
-   Mozambique LMB                             23   2    100%    96%   119.6 30.03   63.5
    Coupe De France                            23   2     91%    91%   160.5 15.76   84.4
+   Mozambique LMB                             23   2    100%    96%   119.6 30.03   63.5
    Greece ESKA-ESKANA Cup                     22   3    100%   100%   135.9 19.73   68.5
    Asian Games                                22   2    100%   100%   161.7 18.34   78.6
-   British NBL Div 1 Trophy                   21   2    100%    90%   136.3 55.66   81.2
    Brazil FPB                                 21   4     95%    95%   160.0 16.92   79.8
-   China CBA Summer League                    21   1    100%   100%   158.5 14.09   83.0
    El Salvador Liga Mayor                     21   3    100%   100%   160.8 24.52   84.1
-   International                              21   2    100%    95%   172.6 20.33   86.5
+   British NBL Div 1 Trophy                   21   2    100%    90%   136.3 55.66   81.2
    Arab Club Champs Women                     21   2    100%    95%   151.4 26.45   79.6
-   FIBA 3x3 U21 Nations League                21   1    100%     0%    34.3  4.46      –
-   FIBA 3x3 U21 Nations League Women          21   1    100%     0%    29.2  4.48      –
+   China CBA Summer League                    21   1    100%   100%   158.5 14.09   83.0
+   International                              21   2    100%    95%   172.6 20.33   86.5
    Kenya Premier League                       20   5    100%    90%   118.4 40.86   66.7
    Brazil Paulista FPB U20                    20   4     95%    95%   151.8 14.88   75.5
-   FIBA 3x3 U23 World Cup                     20   1     85%     0%    20.2 13.17      –
-   FIBA 3x3 U23 World Cup Women               20   1     95%     0%    18.1 11.27      –
-   FIBA 3x3 Europe Cup                        20   1    100%     0%    34.2  3.36      –
-   FIBA 3x3 Europe Cup Women                  20   1    100%     0%    30.8  4.26      –
 
 3) GRUNDRATEN je Liga (Anteil der Spiele ÜBER der Linie)
    Nur Ligen mit mindestens 30 Spielen und Daten in allen Wochen.
-   Ebasketball H2H GG League - 4x5mins  (n=5292, Ø 109.5) 90.5: 92% · 96.5: 83% · 102.5: 69% · 108.5: 54% · 114.5: 36% · 120.5: 22% · 126.5: 13%
-   Ebasketball Battle - 4x5mins         (n=1278, Ø 136.1) 112.5: 95% · 119.5: 87% · 126.5: 73% · 133.5: 58% · 140.5: 40% · 147.5: 24% · 154.5: 13%
    Club Friendlies                      (n=466, Ø 159.1) 130.5: 94% · 140.5: 86% · 150.5: 71% · 160.5: 50% · 170.5: 34% · 180.5: 17% · 190.5: 9%
    Chile Liga Desarrollo U21            (n=106, Ø 129.3) 99.5: 92% · 108.5: 87% · 117.5: 73% · 126.5: 62% · 135.5: 46% · 144.5: 25% · 153.5: 14%
    Philippines MPBL                     (n=49, Ø 166.0) 135.5: 84% · 144.5: 73% · 153.5: 63% · 162.5: 55% · 171.5: 49% · 180.5: 35% · 189.5: 18%
@@ -67,4 +58,4 @@ BASKETBALL-ABDECKUNG · 4 Wochen · Stand 17.09.2026
    Uruguay Liga de Ascenso              (n=34, Ø 156.5) 133.5: 94% · 140.5: 85% · 147.5: 74% · 154.5: 56% · 161.5: 29% · 168.5: 18% · 175.5: 15%
 
 4) WOCHENVERTEILUNG — wann wird gespielt?
-   Mo 1040 (12%) · Di 1224 (14%) · Mi 1301 (14%) · Do 1275 (14%) · Fr 1360 (15%) · Sa 1502 (17%) · So 1327 (15%)
+   Mo 175 (9%) · Di 201 (10%) · Mi 253 (13%) · Do 236 (12%) · Fr 310 (16%) · Sa 415 (21%) · So 377 (19%)
