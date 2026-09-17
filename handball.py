@@ -141,13 +141,24 @@ def api_get(path: str, **params) -> dict:
     raise last if last else RuntimeError("unreachable")
 
 
+# 17.09.: Basketball-Lauf bestand zu zwei Dritteln aus "Ebasketball" —
+# Videospiel-Simulationen (4x5 Minuten), keine Mannschaften. Dazu 3x3 ohne
+# Halbzeit. Beides fliegt raus, bevor es in eine Historie wandert.
+JUNK = ("ebasketball", "esoccer", "ehockey", "evolleyball", "esports", "e-sports", "cyber", "3x3", "simulated", "srl", "virtual")
+
+
+def is_junk(ev) -> bool:
+    name = ((ev.get("league") or {}).get("name") or "").lower()
+    return any(k in name for k in JUNK)
+
+
 def ended_day(day: str) -> list:
-    """Alle beendeten Handballspiele eines Tages (Format YYYYMMDD)."""
+    """Alle beendeten Spiele der Sportart an einem Tag (Format YYYYMMDD)."""
     out, page = [], 1
     while True:
         d = api_get("/v3/events/ended", sport_id=SPORT_HANDBALL, day=day, page=page)
         res = d.get("results") or []
-        out += res
+        out += [e for e in res if not is_junk(e)]
         pager = d.get("pager") or {}
         if len(out) >= int(pager.get("total", 0)) or not res or page >= 40:
             break
@@ -214,7 +225,7 @@ def team_history(team_id: str, depth: int = 50) -> list:
         d = api_get("/v3/events/ended", sport_id=SPORT_HANDBALL, team_id=team_id,
                     per_page=50, page=page)
         res = d.get("results") or []
-        out += res
+        out += [e for e in res if not is_junk(e)]
         total = int((d.get("pager") or {}).get("total", 0))
         if page * 50 >= total or not res:
             break
