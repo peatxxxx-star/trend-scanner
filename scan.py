@@ -2111,6 +2111,9 @@ def signal_snapshot(s):
     return snap
 
 
+PURGE_EXCLUDED = True   # gesperrte Märkte/Linien aus dem Gedächtnis werfen (18.09.)
+
+
 def classify_signals(state, all_hits, checked_ids, window_ids, now_ts, run_label,
                      gate_dropped=frozenset(), unverifiable=frozenset()):
     """Vergleicht die Signale dieses Laufs mit dem Lauf-Gedächtnis.
@@ -2193,6 +2196,15 @@ def classify_signals(state, all_hits, checked_ids, window_ids, now_ts, run_label
             continue
         if int(prev.get("kickoff_ts", 0)) <= now_ts:
             continue                                   # angepfiffen -> vergessen
+        # 18.09. (Lucio: "1,5 sind alle noch drin, bitte alle wieder raus"):
+        # wird ein Markt oder eine Linie gesperrt, fliegen die schon
+        # gemerkten Signale dazu sofort aus dem Gedächtnis — sonst stünden
+        # sie bis zum Anpfiff weiter in der Tagesliste.
+        mk = prev.get("metric_key"); dr = prev.get("direction")
+        if PURGE_EXCLUDED and ((mk, dr) in EXCLUDED_MARKETS
+                               or (mk, dr, prev.get("line")) in EXCLUDED_LINES):
+            buckets["dropped"].append((prev, "Markt/Linie gesperrt"))
+            continue
         mid = prev.get("match_id")
         if mid in checked_ids:
             if key in gate_dropped:
@@ -5382,6 +5394,10 @@ def selftest():
         ok = False
 
     # --- Fall 9: Lauf-Vergleich (neu / geändert / unverändert / weggefallen)
+    # (Fixture von vor UNTER_RAUS: nutzt heute gesperrte Unter-Märkte; die
+    #  Gedächtnis-Bereinigung vom 18.09. ist dafür hier abgeschaltet.)
+    global PURGE_EXCLUDED
+    PURGE_EXCLUDED = False
     def sig(metric_key, direction, line, rng=None, unchecked=False):
         s = {"metric": METRICS[metric_key][0], "metric_key": metric_key,
              "direction": direction, "line": line,
@@ -5759,6 +5775,20 @@ def selftest():
         ok = False
     if split_message("") or len(split_message("kurz")) != 1:
         print("FEHLER Fall 27c: kurze Nachricht darf nicht geteilt werden")
+        ok = False
+
+    PURGE_EXCLUDED = True
+
+    # --- Fall 25z: gesperrte Linie fliegt aus dem Gedächtnis (18.09.)
+    st25 = {"k1": {"match_id": "m1", "home": "A", "away": "B", "kickoff": "x",
+                   "kickoff_ts": 10 ** 10, "metric_key": "goals", "direction": "über",
+                   "line": 1.5, "metric": "Tore"},
+            "k2": {"match_id": "m1", "home": "A", "away": "B", "kickoff": "x",
+                   "kickoff_ts": 10 ** 10, "metric_key": "goals", "direction": "über",
+                   "line": 2.5, "metric": "Tore"}}
+    b25, ns25 = classify_signals(st25, [], set(), {"m1"}, 0, "t")
+    if "k1" in ns25 or "k2" not in ns25 or not any(r == "Markt/Linie gesperrt" for _, r in b25["dropped"]):
+        print("FEHLER Fall 25z: gesperrte Linie muss aus dem Gedächtnis fliegen, erlaubte bleiben")
         ok = False
 
     # --- Fall 26: Markt "Tore gesamt" (15.09.)
