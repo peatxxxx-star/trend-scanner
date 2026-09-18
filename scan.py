@@ -392,6 +392,9 @@ GOALS_LIGA_RAUS = ("u17", "u18", "u19", "u20", "u21", "u23", "youth", "junior", 
                    "amateur", "1.liga classic", "esiliiga", "4. liga", "5. liga", "division 3", "3rd division")
 
 
+GOALS_LIGA_FILTER = False   # 18.09. (Lucio): keine pauschale Liga-Sperre
+
+
 def goals_liga_ok(league: str, home: str = "", away: str = "") -> bool:
     txt = f" {league or ''} ".lower()
     if any(k in txt for k in GOALS_LIGA_RAUS):
@@ -4959,9 +4962,12 @@ def _run():
             who = [w for w in who if S24_GROUPS.get(w["metric_key"]) in (groups or set())]
         if team and GATE_ENABLED:
             team = [t for t in team if S24_GROUPS.get(t["metric_key"]) in (groups or set())]
-        signals = [s for s in signals
-                   if s["metric_key"] not in ("goals", "ht_goals", "h2_goals")
-                   or goals_liga_ok(match.get("league", ""), match.get("home", ""), match.get("away", ""))]
+        # 18.09. (Lucio): "bitte nichts pauschal rausnehmen" — Liga-Sperre für
+        # Tore wieder aus; es zählt allein der Tore-Reiter bei scores24.
+        if GOALS_LIGA_FILTER:
+            signals = [s for s in signals
+                       if s["metric_key"] not in ("goals", "ht_goals", "h2_goals")
+                       or goals_liga_ok(match.get("league", ""), match.get("home", ""), match.get("away", ""))]
         if signals and GATE_ENABLED:
             signals = apply_s24_gate(signals, groups)
         if signals:
