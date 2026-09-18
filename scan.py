@@ -379,6 +379,23 @@ EXO_METRICS = ()              # leer = kein Extra-Block mehr
 # gekennzeichnet. Tore bietet jeder Buchmacher an; Einwürfe und Abstöße hat
 # Lucio im Konto selbst nachgesehen.
 GATE_EXEMPT = ("goals", "ht_goals", "h2_goals", "throwins", "goalkicks")
+# 18.09. (Lucio): "die über-2,5er aus diesen Randligen, zum Beispiel Oberliga
+# Bremen — bei meinem Bookie wird das Spiel überhaupt nicht angezeigt". scores24
+# kennt für solche Spiele zwar einen Tore-Reiter (irgendein Buchmacher führt
+# sie), BetLabel aber nicht. Deshalb für TORE zusätzlich: keine Amateur-,
+# Jugend-, Reserve- und Frauenligen. Ecken/Karten bleiben wie gehabt (dort
+# entscheidet der Reiter-Nachweis, Lucio wollte Reserve-/Jugendligen behalten).
+GOALS_LIGA_RAUS = ("u17", "u18", "u19", "u20", "u21", "u23", "youth", "junior", "reserve", " ii", " b)", "(w)", "women",
+                   "frauen", "oberliga", "landesliga", "regionalliga", "verbandsliga", "bezirksliga", "kreisliga",
+                   "amateur", "1.liga classic", "esiliiga", "4. liga", "5. liga", "division 3", "3rd division")
+
+
+def goals_liga_ok(league: str, home: str = "", away: str = "") -> bool:
+    txt = f" {league or ''} ".lower()
+    if any(k in txt for k in GOALS_LIGA_RAUS):
+        return False
+    teams = f" {home or ''} | {away or ''} ".lower()
+    return not any(k in teams for k in ("u19", "u21", "u23", " ii ", " ii|", "reserves", "(w)", "women"))
 EXO_ZERO_MISSING = ("throwins", "goalkicks", "freekicks")   # 0:0 = keine Daten.
                              # Tore NICHT: 0:0 ist dort ein echtes Ergebnis.
 EXO_ENABLED = False          # Extra-Block abgeschaltet (16.09.)
@@ -1417,8 +1434,8 @@ def apply_s24_gate(signals, groups):
             # und landeten deshalb in Reserve-/Jugend-/Randligen, die kein
             # Buchmacher führt. Jetzt: Tor-Signale nur, wenn scores24 für das
             # Spiel überhaupt Quoten-Reiter kennt (irgendeinen mit Quoten).
-            if s["metric_key"] in ("goals", "ht_goals", "h2_goals") and not groups:
-                continue
+            if s["metric_key"] in ("goals", "ht_goals", "h2_goals") and not groups.get("totals"):
+                continue                      # 18.09. abends: es muss der Tore-Reiter ("totals") sein
             s["no_odds_check"] = True     # kein eigener scores24-Reiter nötig
             kept.append(s)
             continue
@@ -4940,6 +4957,9 @@ def _run():
             who = [w for w in who if S24_GROUPS.get(w["metric_key"]) in (groups or set())]
         if team and GATE_ENABLED:
             team = [t for t in team if S24_GROUPS.get(t["metric_key"]) in (groups or set())]
+        signals = [s for s in signals
+                   if s["metric_key"] not in ("goals", "ht_goals", "h2_goals")
+                   or goals_liga_ok(match.get("league", ""), match.get("home", ""), match.get("away", ""))]
         if signals and GATE_ENABLED:
             signals = apply_s24_gate(signals, groups)
         if signals:
@@ -5755,10 +5775,19 @@ def selftest():
     if "goals" in EXO_METRICS:
         print("FEHLER Fall 26e: Tore laufen in der normalen Liste, nicht im Extra-Block")
         ok = False
+    # 18.09.: Tore brauchen den scores24-Tore-Reiter ("totals"); ohne ihn fliegen sie
     _g26 = apply_s24_gate([{"metric_key": "goals", "direction": "über", "line": 2.5}],
-                          {"corners": (3, 1.5, 2.0)})
+                          {"corners": (3, 1.5, 2.0), "totals": (5, 1.4, 2.6)})
     if len(_g26) != 1 or not _g26[0].get("no_odds_check"):
-        print("FEHLER Fall 26f: Tore müssen das scores24-Gate passieren")
+        print("FEHLER Fall 26f: Tore müssen mit Tore-Reiter das scores24-Gate passieren")
+        ok = False
+    if apply_s24_gate([{"metric_key": "goals", "direction": "über", "line": 2.5}], {"corners": (3, 1.5, 2.0)}) \
+            or apply_s24_gate([{"metric_key": "goals", "direction": "über", "line": 2.5}], None):
+        print("FEHLER Fall 26i: Tore ohne Tore-Reiter (oder ohne Seite) müssen rausfliegen")
+        ok = False
+    if goals_liga_ok("Germany Oberliga Bremen") or goals_liga_ok("England Premier League 2", "Birmingham U21", "Arsenal U21") \
+            or not goals_liga_ok("Germany Bundesliga I", "Bayern Munich", "Union Berlin"):
+        print("FEHLER Fall 26j: Amateur-/Jugendligen dürfen keine Tor-Signale liefern")
         ok = False
     # 26g: das Tor-Signal muss im GANZ NORMALEN Spielblock stehen (15.09.)
     _sig26 = dict(s26[0], light="🟢", fair=1.45, no_odds_check=True)
