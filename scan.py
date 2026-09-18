@@ -393,6 +393,7 @@ GOALS_LIGA_RAUS = ("u17", "u18", "u19", "u20", "u21", "u23", "youth", "junior", 
 
 
 GOALS_LIGA_FILTER = False   # 18.09. (Lucio): keine pauschale Liga-Sperre
+GOALS_S24_GATE = False      # 18.09. (Lucio): Tore ohne Nachweis melden, er prüft selbst
 
 
 def goals_liga_ok(league: str, home: str = "", away: str = "") -> bool:
@@ -1422,9 +1423,12 @@ def apply_s24_gate(signals, groups):
         # genau die Spiele, die es beim Buchmacher nicht gibt.
         out = []
         for s in signals:
-            if s["metric_key"] in ("goals", "ht_goals", "h2_goals"):
+            if GOALS_S24_GATE and s["metric_key"] in ("goals", "ht_goals", "h2_goals"):
                 continue
-            s["unchecked"] = True
+            if s["metric_key"] in GATE_EXEMPT:
+                s["no_odds_check"] = True
+            else:
+                s["unchecked"] = True
             out.append(s)
         return out
     kept = []
@@ -1439,8 +1443,10 @@ def apply_s24_gate(signals, groups):
             # und landeten deshalb in Reserve-/Jugend-/Randligen, die kein
             # Buchmacher führt. Jetzt: Tor-Signale nur, wenn scores24 für das
             # Spiel überhaupt Quoten-Reiter kennt (irgendeinen mit Quoten).
-            if s["metric_key"] in ("goals", "ht_goals", "h2_goals") and not groups.get("totals"):
-                continue                      # 18.09. abends: es muss der Tore-Reiter ("totals") sein
+            # 18.09. (Lucio, final): "das muss drin bleiben, ich checke es lieber separat"
+            # — Tore laufen wieder ganz ohne scores24-Nachweis, wie vor dem 18.09.
+            if GOALS_S24_GATE and s["metric_key"] in ("goals", "ht_goals", "h2_goals") and not groups.get("totals"):
+                continue
             s["no_odds_check"] = True     # kein eigener scores24-Reiter nötig
             kept.append(s)
             continue
@@ -5789,9 +5795,12 @@ def selftest():
     if len(_g26) != 1 or not _g26[0].get("no_odds_check"):
         print("FEHLER Fall 26f: Tore müssen mit Tore-Reiter das scores24-Gate passieren")
         ok = False
-    if apply_s24_gate([{"metric_key": "goals", "direction": "über", "line": 2.5}], {"corners": (3, 1.5, 2.0)}) \
-            or apply_s24_gate([{"metric_key": "goals", "direction": "über", "line": 2.5}], None):
-        print("FEHLER Fall 26i: Tore ohne Tore-Reiter (oder ohne Seite) müssen rausfliegen")
+    _g26i = apply_s24_gate([{"metric_key": "goals", "direction": "über", "line": 2.5}], {"corners": (3, 1.5, 2.0)})
+    if GOALS_S24_GATE and _g26i:
+        print("FEHLER Fall 26i: Tore ohne Tore-Reiter müssen rausfliegen (Gate an)")
+        ok = False
+    if not GOALS_S24_GATE and len(_g26i) != 1:
+        print("FEHLER Fall 26i: Tore müssen ohne Nachweis durchgehen (Gate aus)")
         ok = False
     if goals_liga_ok("Germany Oberliga Bremen") or goals_liga_ok("England Premier League 2", "Birmingham U21", "Arsenal U21") \
             or not goals_liga_ok("Germany Bundesliga I", "Bayern Munich", "Union Berlin") \
