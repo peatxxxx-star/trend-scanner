@@ -353,9 +353,10 @@ EXCLUDED_LINES = {("goals", "unter", 1.5), ("goals", "unter", 2.5),
                   ("goals", "über", 4.5),
                   ("goals", "unter", 4.5), ("goals", "unter", 3.5),
                   # 17.09. spät: wieder wie vorher — nur "Tore über 2,5".
-                  # 18.09. (Lucio): "Tore über 1,5" wieder drin (Backtest
-                  # 82,2 % in 5.886 Fällen, Fair ≈ 1,22); über 3,5 bleibt aus.
-                  ("goals", "über", 3.5),
+                  # 18.09.: "Tore über 1,5" kurz drin (Backtest 82,2 % in
+                  # 5.886 Fällen, Fair ≈ 1,22), am selben Tag wieder raus —
+                  # Lucio: "das müllt nur" (Meldung von 4 auf 15 Seiten).
+                  ("goals", "über", 1.5), ("goals", "über", 3.5),
                   # 15.09. (Lucio): 1. HZ Gelbe Karten bleiben drin, aber die
                   # Linie "unter 2,5" muss raus.
                   ("ht_yellowcards", "unter", 2.5),
