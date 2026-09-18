@@ -180,7 +180,10 @@ S24_GROUPS = {
 # Karten-unter-Wetten gingen um genau eine Karte daneben. Bewusste Entscheidung
 # gegen den Nervenaufwand, nicht gegen die Zahlen. Zum Wiedereinschalten: die
 # Einträge in UNTER_RAUS entfernen.
-UNTER_RAUS = ("yellowcards", "ht_yellowcards", "throwins", "goalkicks",
+# 18.09. (Lucio): "Karten unter 5,5 und unter 6,5 wieder rein" — Gelbe Karten
+# unter läuft wieder, aber nur diese beiden Linien (2,5/3,5/4,5 unter bleiben
+# in EXCLUDED_LINES gesperrt).
+UNTER_RAUS = ("ht_yellowcards", "throwins", "goalkicks",
               "corners", "ht_corners", "goals", "offsides", "on_target",
               "shots_total", "fouls", "freekicks", "ht_goals", "h2_goals")
 # 17.09. abends (Lucio): "alles einschalten, auch beim Fußball — alle
@@ -360,6 +363,9 @@ EXCLUDED_LINES = {("goals", "unter", 1.5), ("goals", "unter", 2.5),
                   # 15.09. (Lucio): 1. HZ Gelbe Karten bleiben drin, aber die
                   # Linie "unter 2,5" muss raus.
                   ("ht_yellowcards", "unter", 2.5),
+                  # 18.09. (Lucio): Gelbe Karten unter nur 5,5 und 6,5
+                  ("yellowcards", "unter", 2.5), ("yellowcards", "unter", 3.5),
+                  ("yellowcards", "unter", 4.5),
                   # 17.09. Backtest: Linien, bei denen die angezeigte faire Quote
                   # deutlich zu optimistisch ist (real vs. angezeigt):
                   #   1. HZ Karten über 1,5: 55 % real, 1,45 angezeigt (69 %)
