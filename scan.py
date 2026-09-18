@@ -1345,13 +1345,14 @@ def s24_fetch_groups(match):
         groups = {}                      # {reiter-name: (anzahl, min, max)}
         for g in data:
             name = g.get("name")
-            if name not in wanted_groups:
-                continue
             count = int(g.get("count") or 0)
             lo = float(g.get("min_odd") or 0)
             hi = float(g.get("max_odd") or lo)
-            if count > 0:
+            # 18.09.: ALLE Reiter merken (nicht nur die Nebenmarkt-Familien) — die
+            # Tor-Märkte brauchen als Nachweis, dass das Spiel überhaupt Quoten hat.
+            if count > 0 and name:
                 groups[name] = (count, lo, hi)
+                _s24_stats.setdefault("reiter", {})[name] = _s24_stats.get("reiter", {}).get(name, 0) + 1
         _s24_stats["ok"] += 1
         return groups
     if candidates:
@@ -1395,9 +1396,15 @@ def apply_s24_gate(signals, groups):
         # Seite nicht zuordenbar: alles als "scores24 fehlt" markieren.
         # Ecken/HZ-Ecken können noch über die bet365-Linie bestehen
         # (Oder-Regel, Lucio 06.09.), der Rest fliegt danach.
+        # 18.09.: Tor-Signale ohne zuordenbare Seite fliegen sofort — das sind
+        # genau die Spiele, die es beim Buchmacher nicht gibt.
+        out = []
         for s in signals:
+            if s["metric_key"] in ("goals", "ht_goals", "h2_goals"):
+                continue
             s["unchecked"] = True
-        return signals
+            out.append(s)
+        return out
     kept = []
     for s in signals:
         # Halbzeit-Märkte: scores24 kennt keine HZ-Reiter. Nachweis = der
@@ -1405,7 +1412,14 @@ def apply_s24_gate(signals, groups):
         # wer Ecken anbietet, hat i.d.R. auch HZ-Ecken; wer keine Karten
         # anbietet, hat sicher keine HZ-Karten.
         if s["metric_key"] in GATE_EXEMPT:
-            s["no_odds_check"] = True     # kein scores24-Reiter nötig
+            # 18.09. (Lucio): "die über-2,5-Signale sind fast alles Spiele, die ich
+            # bei meinem Bookie gar nicht finde" — Tore liefen ganz ohne Nachweis
+            # und landeten deshalb in Reserve-/Jugend-/Randligen, die kein
+            # Buchmacher führt. Jetzt: Tor-Signale nur, wenn scores24 für das
+            # Spiel überhaupt Quoten-Reiter kennt (irgendeinen mit Quoten).
+            if s["metric_key"] in ("goals", "ht_goals", "h2_goals") and not groups:
+                continue
+            s["no_odds_check"] = True     # kein eigener scores24-Reiter nötig
             kept.append(s)
             continue
         g = groups.get(S24_GROUPS.get(s["metric_key"], ""))
@@ -5018,6 +5032,7 @@ def _run():
         "matches_checked": len(matches),
         "requests": _request_count,
         "hits": [{"match": m, "signals": s} for m, s in all_hits],
+        "s24_reiter": _s24_stats.get("reiter", {}),
         "new": [signal_key(m, s) for m, sigs in buckets["new"] for s in sigs],
         "changed": [signal_key(m, s) for m, sigs in buckets["changed"] for s in sigs],
         "dropped": [f"{e['match_id']}|{e['metric_key']}|{e['direction']}"
