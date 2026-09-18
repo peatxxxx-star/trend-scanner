@@ -930,6 +930,13 @@ SR_MIN_HIT = 0.75    # Lucio: nur Märkte/Linien mit mindestens 75 % Trefferquot
 # Schnitt (95 %+, Fair 1,05) — das kann kein Bookie zu 1,30 geben. Ab Fair
 # 1,15 wird gemeldet (Lucio 17.09.: "passt, beibehalten, aber mehr nicht").
 SR_MIN_FAIR = float(os.environ.get("BB_MIN_FAIR", os.environ.get("SR_MIN_FAIR", "1.15")))
+# 18.09. (Lucio, Rückblick auf den Testtag): "extreme Exoten dabei — der Bookie
+# führt den Markt oder gleich das ganze Spiel nicht". Deshalb: nur Spiele, die
+# bet365 im Programm hat (führt bet365 ein Spiel, hat BetLabel es fast sicher
+# auch). Und beim Eishockey nur die eine gefundene Regel (Gast-Abwehr), keine
+# Serien-Leiter dazu — "wenn man irgendwas hat, das funktioniert".
+NUR_B365 = os.environ.get("NUR_B365", "1") == "1"
+NUR_REGEL = os.environ.get("NUR_REGEL", "1") == "1"      # gilt nur für Eishockey
 
 
 def flat_game(e, stats):
@@ -1289,7 +1296,7 @@ def b365_tail(q, fair, checked, near=None, label="b365", schaetz=None):
             ok2 = est >= fair * PLAY_FAIR_FACTOR and est >= PLAY_MIN_ODDS
             return f" · 💰 {label} ({L:g}) {nq:.2f} → ≈{est:.2f} {('✔' if ok2 else '✘') if sicher else '?'}"
         return f" · 💰 {label} ({L:g}) {nq:.2f} ?"
-    return f" · 💰 {label} –" if checked else ""
+    return ""                                   # 18.09.: kein "b365 –"-Rauschen mehr
 
 
 def xb_quotes(ev) -> dict:
@@ -1508,7 +1515,7 @@ def serien_scan():
     # 5) Regel anwenden — je Markt die strengste Linie
     treffer = []
     for m in spiele:
-        sigs = sr_signale(per_team, bt, cfg, m, scan.esc)
+        sigs = [] if (SPORT_KEY == "eishockey" and NUR_REGEL) else sr_signale(per_team, bt, cfg, m, scan.esc)
         if SPORT_KEY == "eishockey" and hockey_q:
             x = hockey_signal(hist, hockey_q, m, jetzt)
             if x:
@@ -1564,6 +1571,10 @@ def serien_scan():
             quoten_b365[mid] = q
     n_b365 = sum(1 for v in quoten_b365.values() if v)
     print(f"bet365-Katalog für {n_b365} von {len(treffer)} Spielen mit Signalen geholt", flush=True)
+    if NUR_B365 and not _b365_tot:
+        vorher = len(treffer)
+        treffer = [t for t in treffer if t[0].get("bet365_id")]
+        print(f"Exoten-Filter: {vorher - len(treffer)} Spiele ohne bet365-Programm verworfen, {len(treffer)} bleiben", flush=True)
     # Rohkataloge von zwei Spielen ablegen, damit Marktschlüssel nachgeprüft werden können
     try:
         probe = {}
@@ -1633,10 +1644,14 @@ def serien_scan():
     WD = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
     em = cfg["emoji"]
     n_x = sum(1 for v in quoten_1x.values() if v)
+    regel_text = ("<i>Gast-Abwehr-Regel: Heim über 2,5 eigene Tore (reguläre Zeit), wenn der Gast Ø ≥ 4,5 kassiert (A) "
+                  "oder Ø ≥ 4,0 bzw. 9/10 mit 3+ und Heim Ø ≥ 3,2 (B) · Fair = gemessene Trefferquote der Stufe</i>"
+                  if (SPORT_KEY == "eishockey" and NUR_REGEL) else
+                  "<i>Serien-Regel: beide Teams 9/10 (A) bzw. 8/10 (B) über der Linie, Team-Märkte 9/10 · "
+                  f"Fair = gemessene Trefferquote dieser Linie · nur über · Fenster 75 % bis Fair {SR_MIN_FAIR:.2f}</i>")
     lines_out = [f"{em} <b>{SPORT['name'].upper()}-SCAN</b> · bis {ende_dt:%a %H:%M} (auch laufende Spiele) · 🧪 <i>Test</i>",
-                 "<i>Serien-Regel: beide Teams 9/10 (A) bzw. 8/10 (B) über der Linie, Team-Märkte 9/10 · "
-                 f"Fair = gemessene Trefferquote dieser Linie · nur über · Fenster 75 % bis Fair {SR_MIN_FAIR:.2f}</i>",
-                 f"<i>Quoten: bet365 für {n_b365}/{len(treffer)} Spiele mit Signalen"
+                 regel_text,
+                 f"<i>Nur Spiele im bet365-Programm{' (Exoten raus)' if NUR_B365 else ''} · bet365-Quote bei {n_b365}/{len(treffer)} Spielen"
                  + (f" · 1xBet für {n_x}/{len(treffer)} (nur Gesamtspiel)" if XB_ENABLED else "") + "</i>", ""]
     n_sig = 0
     for m, liga, sigs in treffer:
