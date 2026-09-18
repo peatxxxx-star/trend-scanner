@@ -385,8 +385,10 @@ GATE_EXEMPT = ("goals", "ht_goals", "h2_goals", "throwins", "goalkicks")
 # sie), BetLabel aber nicht. Deshalb für TORE zusätzlich: keine Amateur-,
 # Jugend-, Reserve- und Frauenligen. Ecken/Karten bleiben wie gehabt (dort
 # entscheidet der Reiter-Nachweis, Lucio wollte Reserve-/Jugendligen behalten).
-GOALS_LIGA_RAUS = ("u17", "u18", "u19", "u20", "u21", "u23", "youth", "junior", "reserve", " ii", " b)", "(w)", "women",
-                   "frauen", "oberliga", "landesliga", "regionalliga", "verbandsliga", "bezirksliga", "kreisliga",
+# Frauenligen bleiben drin — Lucio hat am 18.09. Crusaders – Larne (IFA
+# Premiership Frauen) bei BetLabel mit Tor-Markt gefunden und gespielt.
+GOALS_LIGA_RAUS = ("u17", "u18", "u19", "u20", "u21", "u23", "youth", "junior", "reserve", " ii", " b)",
+                   "oberliga", "landesliga", "regionalliga", "verbandsliga", "bezirksliga", "kreisliga",
                    "amateur", "1.liga classic", "esiliiga", "4. liga", "5. liga", "division 3", "3rd division")
 
 
@@ -395,7 +397,7 @@ def goals_liga_ok(league: str, home: str = "", away: str = "") -> bool:
     if any(k in txt for k in GOALS_LIGA_RAUS):
         return False
     teams = f" {home or ''} | {away or ''} ".lower()
-    return not any(k in teams for k in ("u19", "u21", "u23", " ii ", " ii|", "reserves", "(w)", "women"))
+    return not any(k in teams for k in ("u19", "u21", "u23", " ii ", " ii|", "reserves"))
 EXO_ZERO_MISSING = ("throwins", "goalkicks", "freekicks")   # 0:0 = keine Daten.
                              # Tore NICHT: 0:0 ist dort ein echtes Ergebnis.
 EXO_ENABLED = False          # Extra-Block abgeschaltet (16.09.)
@@ -5786,7 +5788,8 @@ def selftest():
         print("FEHLER Fall 26i: Tore ohne Tore-Reiter (oder ohne Seite) müssen rausfliegen")
         ok = False
     if goals_liga_ok("Germany Oberliga Bremen") or goals_liga_ok("England Premier League 2", "Birmingham U21", "Arsenal U21") \
-            or not goals_liga_ok("Germany Bundesliga I", "Bayern Munich", "Union Berlin"):
+            or not goals_liga_ok("Germany Bundesliga I", "Bayern Munich", "Union Berlin") \
+            or not goals_liga_ok("Northern Ireland Premier League Women", "Crusaders (W)", "Larne (W)"):
         print("FEHLER Fall 26j: Amateur-/Jugendligen dürfen keine Tor-Signale liefern")
         ok = False
     # 26g: das Tor-Signal muss im GANZ NORMALEN Spielblock stehen (15.09.)
