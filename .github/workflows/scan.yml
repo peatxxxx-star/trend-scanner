@@ -14,11 +14,11 @@ on:
     # der 21:17-Lauf ist der letzte des Tages.
     # 19.09.: Actions-Minuten sind seit dem Pro-Upgrade das knappe Gut (ein
     # Lauf dauert 15–21 min; 25 Läufe/Tag = ~450 min/Tag, 3.000 min/Monat
-    # wären nach einer Woche weg). Deshalb: vormittags alle 2 Stunden, ab
-    # 13:17 deutscher Zeit stündlich (da kommen die meisten Nebenmärkte rein),
-    # letzter Lauf 21:17. Vorher: stündlich 06:17–21:17.
-    # (Winter: "17 5,7,9,12-20 * * *")
-    - cron: "17 4,6,8,11-19 * * *"
+    # wären nach einer Woche weg). Deshalb (Lucio: "alle 2 reicht"): alle
+    # zwei Stunden 06:17–20:17 deutscher Zeit, dazu 21:17 als letzter Lauf.
+    # Vorher: stündlich 06:17–21:17.
+    # (Winter: "17 5,7,9,11,13,15,17,19,20 * * *")
+    - cron: "17 4,6,8,10,12,14,16,18,19 * * *"
     # Freitag + Samstag noch einmal später: 20:05 UTC = 22:05 deutscher
     # Sommerzeit (an diesen Tagen bleibt Lucio länger wach).
     # (Winter: "5 21 * * 5,6")
