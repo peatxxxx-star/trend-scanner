@@ -1256,6 +1256,16 @@ def s24_day_links():
 
 _s24_index = None
 _cold_teams = [0]          # Teams, für die in diesem Lauf Spiele nachgeladen wurden
+# 19.09.: Wo geht die Zeit hin? Summen über alle Threads (Sekunden) — landen
+# im Lauf-Protokoll unter "zeit", damit man sieht, was einen Lauf 15–20 min
+# dauern lässt (Actions-Minuten sind seit dem Pro-Upgrade das knappe Gut).
+_zeit = {"historie": 0.0, "pruefung": 0.0, "scores24": 0.0, "extras": 0.0}
+_zeit_lock = threading.Lock()
+
+
+def _zeit_add(k, dt):
+    with _zeit_lock:
+        _zeit[k] = _zeit.get(k, 0.0) + dt
 
 
 def s24_link_index():
@@ -4898,6 +4908,7 @@ def run():
 def _run():
     if not TOKEN:
         sys.exit("BETSAPI_TOKEN fehlt")
+    _t_run = time.time()                  # 19.09.: Gesamtdauer fürs Protokoll
     cache = load_cache()
     hcache = load_history_cache()
     _base_rates.update(compute_base_rates(cache))
@@ -4964,9 +4975,12 @@ def _run():
     who_day = now_berlin().weekday() in BONUS_DAYS
 
     def check(match):
+        _t = time.time()
         hist_home = fetch_team_history(match["home_id"], cache, hcache)
         hist_away = fetch_team_history(match["away_id"], cache, hcache)
+        _zeit_add("historie", time.time() - _t); _t = time.time()
         signals = evaluate_match(match, hist_home, hist_away)
+        _zeit_add("pruefung", time.time() - _t)
         # Neue Märkte (Einwürfe/Abstöße/Freistöße) laufen getrennt: für sie
         # gibt es bei scores24 keinen Reiter, sie würden am Gate hängen
         # bleiben. Sie bekommen dieselbe Bewertung, aber eine eigene Nachricht.
@@ -4984,7 +4998,9 @@ def _run():
         # 1) scores24: Verfügbarkeits-Näherung je Marktfamilie (keine Werte).
         #    Ecken/HZ-Ecken ohne Reiter bleiben markiert (zweite Chance bet365).
         if (signals or who or team) and GATE_ENABLED:
+            _t = time.time()
             groups = s24_fetch_groups(match)
+            _zeit_add("scores24", time.time() - _t)
         if who and GATE_ENABLED:
             who = [w for w in who if S24_GROUPS.get(w["metric_key"]) in (groups or set())]
         if team and GATE_ENABLED:
@@ -5000,7 +5016,9 @@ def _run():
         if signals:
             # 2) Zusatzabfragen: bet365-Linie (kann den Nachweis liefern),
             #    Schiedsrichter-Profil
+            _t = time.time()
             attach_extras(match, signals)
+            _zeit_add("extras", time.time() - _t)
             # 3) Oder-Regel: weder scores24 noch bet365 -> raus
             if GATE_ENABLED:
                 unverifiable = [signal_key(match, s) for s in signals
@@ -5088,6 +5106,13 @@ def _run():
         "requests": _request_count,
         "hits": [{"match": m, "signals": s} for m, s in all_hits],
         "s24_reiter": _s24_stats.get("reiter", {}),
+        # 19.09.: Laufzeit-Diagnose — Gesamtdauer, Thread-Summen je Phase,
+        # nachgeladene Teams und scores24-Zähler (ok / kein Link / Abruf-Fehler / HTTP-Codes)
+        "dauer_s": int(time.time() - _t_run),
+        "zeit": dict({k: int(v) for k, v in _zeit.items()},
+                     vorlauf=int(t_start - _t_run), spiele=int(time.time() - t_start)),
+        "teams_nachgeladen": _cold_teams[0],
+        "s24": {k: v for k, v in _s24_stats.items() if k not in ("reiter", "last_error")},
         "new": [signal_key(m, s) for m, sigs in buckets["new"] for s in sigs],
         "changed": [signal_key(m, s) for m, sigs in buckets["changed"] for s in sigs],
         "dropped": [f"{e['match_id']}|{e['metric_key']}|{e['direction']}"
