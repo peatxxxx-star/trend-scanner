@@ -4579,9 +4579,11 @@ def build_who_block(rows):
 # das zweite Team). Läuft als 🧪 TEST bis zum Preisvergleich (Regelwerk 12).
 # ----------------------------------------------------------------------------
 
-# 20.09. (Lucio): "nur Karten und Ecken" — Schüsse aufs Tor bleiben draußen.
+# 20.09. (Lucio): "nur Karten und Ecken" — Schüsse aufs Tor bleiben draußen;
+# "Unter Ecken auch hier raus" — Team-Ecken nur über, Team-Karten über und unter.
 TEAM_METRICS = {"corners": [3.5, 4.5, 5.5, 6.5],
                 "yellowcards": [1.5, 2.5]}
+TEAM_EXCLUDED = {("corners", "unter")}
 TEAM_NAMES = {"corners": "Ecken", "yellowcards": "Gelbe Karten", "on_target": "Schüsse aufs Tor"}
 TEAM_MAX_MISSES = 0          # Anker LÜCKENLOS (10 von 10 gesamt; in der Rolle 15 mit
 TEAM_MAX_MISSES_ROLE = 1     # max. 1 Lücke). Lucio wörtlich: "letzte 10 Spiele IMMER
@@ -4648,6 +4650,8 @@ def team_signals(match, hist_home, hist_away):
                                    ("gast", hist_away, "away", match["away"])):
         for metric, lines in TEAM_METRICS.items():
             for direction in ("über", "unter"):
+                if (metric, direction) in TEAM_EXCLUDED:
+                    continue
                 # strengste qualifizierende Linie (über: höchste, unter: niedrigste)
                 order = sorted(lines, reverse=(direction == "über"))
                 for L in order:
