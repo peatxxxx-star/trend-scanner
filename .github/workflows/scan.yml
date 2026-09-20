@@ -31,6 +31,12 @@ on:
     # 19.09.: zwei statt vier Vorwärm-Läufe (23:17 und 03:17 deutscher Zeit).
     # (Winter: "17 22,2 * * *")
     - cron: "17 21,1 * * *"
+  # 20.09.: Start per Push auf die Datei "scan_now" (Inhalt egal) — damit
+  # ein Lauf auch ohne den "Run workflow"-Knopf ausgelöst werden kann
+  # (z.B. von Claude aus, wenn der Zeitplan ausfällt).
+  push:
+    branches: [main]
+    paths: ["scan_now"]
   workflow_dispatch:      # manueller Start über den "Run workflow"-Knopf
     inputs:
       datum:
