@@ -4579,9 +4579,9 @@ def build_who_block(rows):
 # das zweite Team). Läuft als 🧪 TEST bis zum Preisvergleich (Regelwerk 12).
 # ----------------------------------------------------------------------------
 
+# 20.09. (Lucio): "nur Karten und Ecken" — Schüsse aufs Tor bleiben draußen.
 TEAM_METRICS = {"corners": [3.5, 4.5, 5.5, 6.5],
-                "yellowcards": [1.5, 2.5],
-                "on_target": [3.5, 4.5, 5.5]}
+                "yellowcards": [1.5, 2.5]}
 TEAM_NAMES = {"corners": "Ecken", "yellowcards": "Gelbe Karten", "on_target": "Schüsse aufs Tor"}
 TEAM_MAX_MISSES = 0          # Anker LÜCKENLOS (10 von 10 gesamt; in der Rolle 15 mit
 TEAM_MAX_MISSES_ROLE = 1     # max. 1 Lücke). Lucio wörtlich: "letzte 10 Spiele IMMER
@@ -4591,9 +4591,11 @@ TEAM_MAX_MISSES_ROLE = 1     # max. 1 Lücke). Lucio wörtlich: "letzte 10 Spiel
 TEAM_TRIVIAL_BASE = 0.70     # Linien, die ohnehin meist eintreten, nicht melden:
                              # Ecken unter 6,5 (Grundrate 77 %) fliegt raus, Karten
                              # unter 2,5 (68 %, Lucios Seattle-Fall) bleibt drin.
-TEAM_ENABLED = False         # 13.09.: AUS bis Lucio sie ausdrücklich freigibt — war zu
-                             # voreilig eingebaut (Prüfpflicht 12 nur teilweise erfüllt:
-                             # Backtest ja, Preisvergleich und Marktnachweis je Team nein).
+TEAM_ENABLED = True          # 13.09.: AUS bis Lucio sie ausdrücklich freigibt (Prüfpflicht
+                             # 12 nur teilweise erfüllt: Backtest ja, Preisvergleich und
+                             # Marktnachweis je Team nein). 20.09. (Lucio): "Bitte nur Karten
+                             # und Ecken, checke heute mal mit durch" — AN als 🧪-Block;
+                             # Lucio prüft am Bookie Markt und Preis.
 TEAM_TEST = True             # 🧪 bis der Preisvergleich steht
 TEAM_SHOW = 14
 _team_base = {}              # {(metric, line, direction): Grundrate je Team-Seite}
