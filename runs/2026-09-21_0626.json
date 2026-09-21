@@ -1,0 +1,604 @@
+{
+ "run_utc": "2026-09-21T06:26:18+00:00",
+ "matches_checked": 161,
+ "requests": 53,
+ "hits": [
+  {
+   "match": {
+    "id": "12126177",
+    "league": "Bulgaria Second League",
+    "league_id": "30612",
+    "home": "Sportist Svoge",
+    "away": "Vihren Sandanski",
+    "home_id": "360013",
+    "away_id": "180642",
+    "kickoff": "Mo 16:00",
+    "kickoff_ts": 1789999200,
+    "bet365_id": "200500929"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      38,
+      44
+     ],
+     "next_line": 8.5,
+     "next_note": "Sportist Svoge 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Vihren Sandanski 5/7 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.7670477379931837,
+      0.7895556870338403
+     ],
+     "fair": 1.34,
+     "ladder": [
+      [
+       6.5,
+       1.39
+      ],
+      [
+       7.5,
+       1.34
+      ]
+     ],
+     "avg": [
+      8.6,
+      9.0
+     ],
+     "expect_sum": 8.8,
+     "expect_matchup": 8.3,
+     "contrib": [
+      4.5,
+      3.8
+     ],
+     "expect": 8.6,
+     "buffer": 1.1,
+     "fa": [
+      [
+       4.8,
+       5.0
+      ],
+      [
+       5.0,
+       4.7
+      ]
+     ],
+     "sd": 3.36,
+     "p_emp": {
+      "6.5": 0.7194244604316548,
+      "7.5": 0.7462686567164178
+     },
+     "range": [
+      1.3,
+      1.3
+     ],
+     "p_mod": 0.628,
+     "p_fin": 0.653,
+     "kal": 0.95,
+     "fair_fin": 1.53,
+     "ladder_fin": [
+      [
+       6.5,
+       1.45
+      ],
+      [
+       7.5,
+       1.53
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "65 % knapp",
+     "first_run": "Mo 08:18"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12111813",
+    "league": "Romania Liga I",
+    "league_id": "173",
+    "home": "Otelul Galati",
+    "away": "CS Corvinul Hunedoara",
+    "home_id": "186579",
+    "away_id": "754206",
+    "kickoff": "Mo 17:00",
+    "kickoff_ts": 1790002800,
+    "bet365_id": "200649001"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      47
+     ],
+     "next_line": 3.5,
+     "next_note": "Otelul Galati 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.7113402841950851,
+      0.7381075453261957
+     ],
+     "fair": 1.4,
+     "ladder": [
+      [
+       1.5,
+       1.34
+      ],
+      [
+       2.5,
+       1.4
+      ]
+     ],
+     "avg": [
+      4.7,
+      4.5
+     ],
+     "expect_sum": 4.6,
+     "expect_matchup": 5.4,
+     "contrib": [
+      2.5,
+      2.9
+     ],
+     "expect": 5.0,
+     "buffer": 2.5,
+     "fa": [
+      [
+       2.1,
+       2.1
+      ],
+      [
+       1.7,
+       1.9
+      ]
+     ],
+     "sd": 2.21,
+     "p_emp": {
+      "1.5": 0.7462686567164178,
+      "2.5": 0.7142857142857143
+     },
+     "range": [
+      1.71,
+      2.02
+     ],
+     "referee": "Rares George Vidican: Ø 5.1 Karten (24 Sp.) · Ø 23.2 Fouls (18 Sp.)",
+     "expect_ref": 6.2,
+     "buffer_ref": 3.7,
+     "p_mod": 0.953,
+     "p_fin": 0.792,
+     "kal": 0.95,
+     "fair_fin": 1.26,
+     "ladder_fin": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.26
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 71 % vs. Modell 95 %",
+     "first_run": "Mo 08:18"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      47
+     ],
+     "next_line": 5.5,
+     "next_note": "CS Corvinul Hunedoara 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.8280188978598667,
+      0.8926824880894654
+     ],
+     "fair": 1.16,
+     "ladder": [
+      [
+       6.5,
+       1.16
+      ],
+      [
+       7.5,
+       1.25
+      ]
+     ],
+     "avg": [
+      4.7,
+      4.5
+     ],
+     "expect_sum": 4.6,
+     "expect_matchup": 5.4,
+     "contrib": [
+      2.5,
+      2.9
+     ],
+     "expect": 5.0,
+     "buffer": 1.5,
+     "fa": [
+      [
+       2.1,
+       2.1
+      ],
+      [
+       1.7,
+       1.9
+      ]
+     ],
+     "sd": 2.21,
+     "p_emp": {
+      "6.5": 0.8620689655172414,
+      "7.5": 0.8
+     },
+     "range": [
+      1.71,
+      2.02
+     ],
+     "referee": "Rares George Vidican: Ø 5.1 Karten (24 Sp.) · Ø 23.2 Fouls (18 Sp.)",
+     "expect_ref": 6.2,
+     "buffer_ref": 0.3,
+     "p_mod": 0.554,
+     "p_fin": 0.722,
+     "kal": 1.02,
+     "fair_fin": 1.38,
+     "ladder_fin": [
+      [
+       6.5,
+       1.38
+      ],
+      [
+       7.5,
+       1.29
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "Historie 86 % und Modell 55 % widersprechen sich",
+     "first_run": "Mo 08:18"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11354633",
+    "league": "Sweden 1.div Norra",
+    "league_id": "92",
+    "home": "Vasalunds IF",
+    "away": "Assyriska Föreningen",
+    "home_id": "7100",
+    "away_id": "163627",
+    "kickoff": "Mo 19:00",
+    "kickoff_ts": 1790010000,
+    "bet365_id": "201308397"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      48
+     ],
+     "next_line": 8.5,
+     "next_note": "Vasalunds IF 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+     "longterm": [
+      0.7307170892660192,
+      0.781060162514534
+     ],
+     "fair": 1.36,
+     "ladder": [
+      [
+       6.5,
+       1.31
+      ],
+      [
+       7.5,
+       1.36
+      ]
+     ],
+     "avg": [
+      10.1,
+      11.0
+     ],
+     "expect_sum": 10.5,
+     "expect_matchup": 11.9,
+     "contrib": [
+      5.4,
+      6.5
+     ],
+     "expect": 11.2,
+     "buffer": 3.7,
+     "fa": [
+      [
+       4.7,
+       5.0
+      ],
+      [
+       5.8,
+       5.4
+      ]
+     ],
+     "sd": 3.38,
+     "p_emp": {
+      "6.5": 0.7633587786259541,
+      "7.5": 0.7352941176470588
+     },
+     "range": [
+      1.376,
+      1.658
+     ],
+     "b365": [
+      "10.0",
+      "1.900",
+      "1.900"
+     ],
+     "p_mod": 0.863,
+     "p_fin": 0.759,
+     "kal": 0.95,
+     "fair_fin": 1.32,
+     "ladder_fin": [
+      [
+       6.5,
+       1.25
+      ],
+      [
+       7.5,
+       1.32
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 74 % vs. Modell 86 %",
+     "first_run": "Mo 08:18"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12331134",
+    "league": "Italy Serie C Group A",
+    "league_id": "170",
+    "home": "AC Dolomiti Bellunesi",
+    "away": "Lumezzane",
+    "home_id": "563521",
+    "away_id": "6397",
+    "kickoff": "Mo 20:30",
+    "kickoff_ts": 1790015400,
+    "bet365_id": "200557165"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      46,
+      49
+     ],
+     "next_line": 8.5,
+     "next_note": "AC Dolomiti Bellunesi 2/4 (3. Lücke) gesamt, 0/2 (3. Lücke) heim",
+     "longterm": [
+      0.7632306981747121,
+      0.8100045249512561
+     ],
+     "fair": 1.32,
+     "ladder": [
+      [
+       6.5,
+       1.36
+      ],
+      [
+       7.5,
+       1.32
+      ]
+     ],
+     "avg": [
+      9.1,
+      10.0
+     ],
+     "expect_sum": 9.6,
+     "expect_matchup": 9.7,
+     "contrib": [
+      5.0,
+      4.6
+     ],
+     "expect": 9.6,
+     "buffer": 2.1,
+     "fa": [
+      [
+       3.5,
+       5.8
+      ],
+      [
+       4.2,
+       5.7
+      ]
+     ],
+     "sd": 3.24,
+     "p_emp": {
+      "6.5": 0.7352941176470588,
+      "7.5": 0.7575757575757576
+     },
+     "range": [
+      1.214,
+      1.587
+     ],
+     "b365": [
+      "9.0",
+      "1.825",
+      "1.975"
+     ],
+     "p_mod": 0.742,
+     "p_fin": 0.712,
+     "kal": 0.95,
+     "fair_fin": 1.4,
+     "ladder_fin": [
+      [
+       6.5,
+       1.34
+      ],
+      [
+       7.5,
+       1.4
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.40",
+     "first_run": "Mo 08:18"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "results": 60,
+  "doublechance": 82,
+  "totals": 93,
+  "handicaps": 23,
+  "btts": 31,
+  "correctscore": 7,
+  "corners": 18,
+  "cards": 1,
+  "shots": 2,
+  "offsides": 2,
+  "fouls": 2
+ },
+ "dauer_s": 32,
+ "zeit": {
+  "historie": 0,
+  "pruefung": 0,
+  "scores24": 66,
+  "extras": 12,
+  "vorlauf": 7,
+  "spiele": 25
+ },
+ "teams_nachgeladen": 0,
+ "s24": {
+  "ok": 93,
+  "no_link": 26,
+  "fetch_fail": 18
+ },
+ "new": [],
+ "changed": [],
+ "dropped": [],
+ "team_totals": [
+  {
+   "match": {
+    "id": "11354700",
+    "league": "Sweden 1.div Södra",
+    "league_id": "162",
+    "home": "Jonkopings Sodra",
+    "away": "Skövde AIK",
+    "home_id": "355",
+    "away_id": "46786",
+    "kickoff": "Mo 19:00",
+    "kickoff_ts": 1790010000,
+    "bet365_id": "201308536"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Jonkopings Sodra",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7576,
+    "fair": 1.32,
+    "p_emp": 0.719,
+    "p_mod": 0.797,
+    "erwartet": 6.0,
+    "basis": 48
+   }
+  }
+ ],
+ "neue_maerkte": []
+}
