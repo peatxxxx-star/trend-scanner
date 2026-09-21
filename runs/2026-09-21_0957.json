@@ -1,0 +1,1108 @@
+{
+ "run_utc": "2026-09-21T09:57:37+00:00",
+ "matches_checked": 154,
+ "requests": 114,
+ "hits": [
+  {
+   "match": {
+    "id": "12126177",
+    "league": "Bulgaria Second League",
+    "league_id": "30612",
+    "home": "Sportist Svoge",
+    "away": "Vihren Sandanski",
+    "home_id": "360013",
+    "away_id": "180642",
+    "kickoff": "Mo 16:00",
+    "kickoff_ts": 1789999200,
+    "bet365_id": "200500929"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      38,
+      44
+     ],
+     "next_line": 8.5,
+     "next_note": "Sportist Svoge 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Vihren Sandanski 5/7 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.7670477379931837,
+      0.7895556870338403
+     ],
+     "fair": 1.34,
+     "ladder": [
+      [
+       6.5,
+       1.39
+      ],
+      [
+       7.5,
+       1.34
+      ]
+     ],
+     "avg": [
+      8.6,
+      9.0
+     ],
+     "expect_sum": 8.8,
+     "expect_matchup": 8.3,
+     "contrib": [
+      4.5,
+      3.8
+     ],
+     "expect": 8.6,
+     "buffer": 1.1,
+     "fa": [
+      [
+       4.8,
+       5.0
+      ],
+      [
+       5.0,
+       4.7
+      ]
+     ],
+     "sd": 3.36,
+     "p_emp": {
+      "6.5": 0.7194244604316548,
+      "7.5": 0.7462686567164178
+     },
+     "range": [
+      1.3,
+      1.3
+     ],
+     "p_mod": 0.628,
+     "p_fin": 0.653,
+     "kal": 0.95,
+     "fair_fin": 1.53,
+     "ladder_fin": [
+      [
+       6.5,
+       1.45
+      ],
+      [
+       7.5,
+       1.53
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "65 % knapp",
+     "first_run": "Mo 08:18"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12111813",
+    "league": "Romania Liga I",
+    "league_id": "173",
+    "home": "Otelul Galati",
+    "away": "CS Corvinul Hunedoara",
+    "home_id": "186579",
+    "away_id": "754206",
+    "kickoff": "Mo 17:00",
+    "kickoff_ts": 1790002800,
+    "bet365_id": "200649001"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      47
+     ],
+     "next_line": 3.5,
+     "next_note": "Otelul Galati 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.7113402841950851,
+      0.7381075453261957
+     ],
+     "fair": 1.4,
+     "ladder": [
+      [
+       1.5,
+       1.34
+      ],
+      [
+       2.5,
+       1.4
+      ]
+     ],
+     "avg": [
+      4.7,
+      4.5
+     ],
+     "expect_sum": 4.6,
+     "expect_matchup": 5.4,
+     "contrib": [
+      2.5,
+      2.9
+     ],
+     "expect": 5.0,
+     "buffer": 2.5,
+     "fa": [
+      [
+       2.1,
+       2.1
+      ],
+      [
+       1.7,
+       1.9
+      ]
+     ],
+     "sd": 2.21,
+     "p_emp": {
+      "1.5": 0.7462686567164178,
+      "2.5": 0.7142857142857143
+     },
+     "range": [
+      1.36,
+      1.83
+     ],
+     "referee": "Rares George Vidican: Ø 5.1 Karten (24 Sp.) · Ø 23.2 Fouls (18 Sp.)",
+     "expect_ref": 6.2,
+     "buffer_ref": 3.7,
+     "p_mod": 0.953,
+     "p_fin": 0.792,
+     "kal": 0.95,
+     "fair_fin": 1.26,
+     "ladder_fin": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.26
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 71 % vs. Modell 95 %",
+     "first_run": "Mo 08:18",
+     "change_note": "Quoten vorher 1.71–2.02"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      47
+     ],
+     "next_line": 5.5,
+     "next_note": "CS Corvinul Hunedoara 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.8280188978598667,
+      0.8926824880894654
+     ],
+     "fair": 1.16,
+     "ladder": [
+      [
+       6.5,
+       1.16
+      ],
+      [
+       7.5,
+       1.25
+      ]
+     ],
+     "avg": [
+      4.7,
+      4.5
+     ],
+     "expect_sum": 4.6,
+     "expect_matchup": 5.4,
+     "contrib": [
+      2.5,
+      2.9
+     ],
+     "expect": 5.0,
+     "buffer": 1.5,
+     "fa": [
+      [
+       2.1,
+       2.1
+      ],
+      [
+       1.7,
+       1.9
+      ]
+     ],
+     "sd": 2.21,
+     "p_emp": {
+      "6.5": 0.8620689655172414,
+      "7.5": 0.8
+     },
+     "range": [
+      1.36,
+      1.83
+     ],
+     "referee": "Rares George Vidican: Ø 5.1 Karten (24 Sp.) · Ø 23.2 Fouls (18 Sp.)",
+     "expect_ref": 6.2,
+     "buffer_ref": 0.3,
+     "p_mod": 0.554,
+     "p_fin": 0.722,
+     "kal": 1.02,
+     "fair_fin": 1.38,
+     "ladder_fin": [
+      [
+       6.5,
+       1.38
+      ],
+      [
+       7.5,
+       1.29
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "Historie 86 % und Modell 55 % widersprechen sich",
+     "first_run": "Mo 08:18",
+     "change_note": "Quoten vorher 1.71–2.02"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11292332",
+    "league": "Georgia Erovnuli Liga",
+    "league_id": "942",
+    "home": "FC Spaeri",
+    "away": "Dila Gori",
+    "home_id": "257931",
+    "away_id": "43995",
+    "kickoff": "Mo 19:00",
+    "kickoff_ts": 1790010000,
+    "bet365_id": "201593774"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      37,
+      38
+     ],
+     "next_line": 8.5,
+     "next_note": "FC Spaeri 6/8 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+     "longterm": [
+      0.847528005637201,
+      0.6681459192086526
+     ],
+     "fair": 1.36,
+     "ladder": [
+      [
+       6.5,
+       1.33
+      ],
+      [
+       7.5,
+       1.36
+      ]
+     ],
+     "avg": [
+      9.5,
+      9.8
+     ],
+     "expect_sum": 9.6,
+     "expect_matchup": 9.8,
+     "contrib": [
+      4.7,
+      5.1
+     ],
+     "expect": 9.7,
+     "buffer": 2.2,
+     "fa": [
+      [
+       4.6,
+       4.9
+      ],
+      [
+       5.2,
+       3.8
+      ]
+     ],
+     "sd": 2.72,
+     "p_emp": {
+      "6.5": 0.7518796992481203,
+      "7.5": 0.7352941176470588
+     },
+     "range": [
+      1.31,
+      1.81
+     ],
+     "p_mod": 0.791,
+     "p_fin": 0.725,
+     "kal": 0.95,
+     "fair_fin": 1.38,
+     "ladder_fin": [
+      [
+       6.5,
+       1.29
+      ],
+      [
+       7.5,
+       1.38
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.38"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11354633",
+    "league": "Sweden 1.div Norra",
+    "league_id": "92",
+    "home": "Vasalunds IF",
+    "away": "Assyriska Föreningen",
+    "home_id": "7100",
+    "away_id": "163627",
+    "kickoff": "Mo 19:00",
+    "kickoff_ts": 1790010000,
+    "bet365_id": "201308397"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      48
+     ],
+     "next_line": 8.5,
+     "next_note": "Vasalunds IF 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+     "longterm": [
+      0.7307170892660192,
+      0.781060162514534
+     ],
+     "fair": 1.36,
+     "ladder": [
+      [
+       6.5,
+       1.31
+      ],
+      [
+       7.5,
+       1.36
+      ]
+     ],
+     "avg": [
+      10.1,
+      11.0
+     ],
+     "expect_sum": 10.5,
+     "expect_matchup": 11.9,
+     "contrib": [
+      5.4,
+      6.5
+     ],
+     "expect": 11.2,
+     "buffer": 3.7,
+     "fa": [
+      [
+       4.7,
+       5.0
+      ],
+      [
+       5.8,
+       5.4
+      ]
+     ],
+     "sd": 3.38,
+     "p_emp": {
+      "6.5": 0.7633587786259541,
+      "7.5": 0.7352941176470588
+     },
+     "range": [
+      1.376,
+      1.658
+     ],
+     "b365": [
+      "10.0",
+      "1.900",
+      "1.900"
+     ],
+     "p_mod": 0.863,
+     "p_fin": 0.759,
+     "kal": 0.95,
+     "fair_fin": 1.32,
+     "ladder_fin": [
+      [
+       6.5,
+       1.25
+      ],
+      [
+       7.5,
+       1.32
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 74 % vs. Modell 86 %",
+     "first_run": "Mo 08:18"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12122289",
+    "league": "Romania Liga I",
+    "league_id": "173",
+    "home": "Petrolul Ploiesti",
+    "away": "FK Csikszereda Miercurea Ciuc",
+    "home_id": "178918",
+    "away_id": "44964",
+    "kickoff": "Mo 20:00",
+    "kickoff_ts": 1790013600,
+    "bet365_id": "200649006"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      45
+     ],
+     "next_line": 3.5,
+     "next_note": "Petrolul Ploiesti 6/8 (3. Lücke) gesamt, 8/10 (3. Lücke) heim",
+     "longterm": [
+      0.8539433210182981,
+      0.8137161629862705
+     ],
+     "fair": 1.26,
+     "ladder": [
+      [
+       1.5,
+       1.24
+      ],
+      [
+       2.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      4.5,
+      4.3
+     ],
+     "expect_sum": 4.4,
+     "expect_matchup": 5.1,
+     "contrib": [
+      2.0,
+      3.1
+     ],
+     "expect": 4.7,
+     "buffer": 2.2,
+     "fa": [
+      [
+       2.2,
+       2.1
+      ],
+      [
+       2.4,
+       2.1
+      ]
+     ],
+     "sd": 2.11,
+     "p_emp": {
+      "1.5": 0.8064516129032259,
+      "2.5": 0.7936507936507936
+     },
+     "range": [
+      1.67,
+      1.67
+     ],
+     "referee": "Sorin Dan Vadana: Ø 4.4 Karten (5 Sp.) · Ø 24.8 Fouls (5 Sp.)",
+     "expect_ref": 5.0,
+     "buffer_ref": 2.5,
+     "p_mod": 0.882,
+     "p_fin": 0.796,
+     "kal": 0.95,
+     "fair_fin": 1.26,
+     "ladder_fin": [
+      [
+       1.5,
+       1.2
+      ],
+      [
+       2.5,
+       1.26
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.26"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      44,
+      45
+     ],
+     "next_line": 5.5,
+     "next_note": "Petrolul Ploiesti 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+     "longterm": [
+      0.8158410662677056,
+      0.9017026534816903
+     ],
+     "fair": 1.16,
+     "ladder": [
+      [
+       6.5,
+       1.16
+      ],
+      [
+       7.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      4.5,
+      4.3
+     ],
+     "expect_sum": 4.4,
+     "expect_matchup": 5.1,
+     "contrib": [
+      2.0,
+      3.1
+     ],
+     "expect": 4.7,
+     "buffer": 1.8,
+     "fa": [
+      [
+       2.2,
+       2.1
+      ],
+      [
+       2.4,
+       2.1
+      ]
+     ],
+     "sd": 2.11,
+     "p_emp": {
+      "6.5": 0.8620689655172414,
+      "7.5": 0.7936507936507936
+     },
+     "range": [
+      1.67,
+      1.67
+     ],
+     "referee": "Sorin Dan Vadana: Ø 4.4 Karten (5 Sp.) · Ø 24.8 Fouls (5 Sp.)",
+     "expect_ref": 5.0,
+     "buffer_ref": 1.5,
+     "p_mod": 0.761,
+     "p_fin": 0.828,
+     "kal": 1.02,
+     "fair_fin": 1.21,
+     "ladder_fin": [
+      [
+       6.5,
+       1.21
+      ],
+      [
+       7.5,
+       1.17
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.21"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      46,
+      46
+     ],
+     "next_line": 1.5,
+     "next_note": "FK Csikszereda Miercurea Ciuc 0/2 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.7621875156760038,
+      0.7360363999434623
+     ],
+     "fair": 1.37,
+     "ladder": [
+      [
+       0.5,
+       1.37
+      ]
+     ],
+     "avg": [
+      1.8,
+      1.3
+     ],
+     "expect_sum": 1.6,
+     "expect_matchup": 1.8,
+     "contrib": [
+      0.8,
+      1.0
+     ],
+     "expect": 1.7,
+     "buffer": 1.2,
+     "fa": [
+      [
+       0.7,
+       0.7
+      ],
+      [
+       0.6,
+       0.7
+      ]
+     ],
+     "sd": 1.19,
+     "p_emp": {
+      "0.5": 0.7299270072992701
+     },
+     "range": [
+      1.67,
+      1.67
+     ],
+     "referee": "Sorin Dan Vadana: Ø 4.4 Karten (5 Sp.) · Ø 24.8 Fouls (5 Sp.)",
+     "expect_ref": 3.2,
+     "buffer_ref": 2.7,
+     "p_mod": 0.988,
+     "p_fin": 0.833,
+     "kal": 0.97,
+     "fair_fin": 1.2,
+     "ladder_fin": [
+      [
+       0.5,
+       1.2
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "Historie 73 % und Modell 99 % widersprechen sich"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12331134",
+    "league": "Italy Serie C Group A",
+    "league_id": "170",
+    "home": "AC Dolomiti Bellunesi",
+    "away": "Lumezzane",
+    "home_id": "563521",
+    "away_id": "6397",
+    "kickoff": "Mo 20:30",
+    "kickoff_ts": 1790015400,
+    "bet365_id": "200557165"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      46,
+      49
+     ],
+     "next_line": 8.5,
+     "next_note": "AC Dolomiti Bellunesi 2/4 (3. Lücke) gesamt, 0/2 (3. Lücke) heim",
+     "longterm": [
+      0.7632306981747121,
+      0.8100045249512561
+     ],
+     "fair": 1.32,
+     "ladder": [
+      [
+       6.5,
+       1.36
+      ],
+      [
+       7.5,
+       1.32
+      ]
+     ],
+     "avg": [
+      9.1,
+      10.0
+     ],
+     "expect_sum": 9.6,
+     "expect_matchup": 9.7,
+     "contrib": [
+      5.0,
+      4.6
+     ],
+     "expect": 9.6,
+     "buffer": 2.1,
+     "fa": [
+      [
+       3.5,
+       5.8
+      ],
+      [
+       4.2,
+       5.7
+      ]
+     ],
+     "sd": 3.24,
+     "p_emp": {
+      "6.5": 0.7352941176470588,
+      "7.5": 0.7575757575757576
+     },
+     "range": [
+      1.214,
+      1.587
+     ],
+     "b365": [
+      "9.0",
+      "1.825",
+      "1.975"
+     ],
+     "p_mod": 0.742,
+     "p_fin": 0.712,
+     "kal": 0.95,
+     "fair_fin": 1.4,
+     "ladder_fin": [
+      [
+       6.5,
+       1.34
+      ],
+      [
+       7.5,
+       1.4
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.40",
+     "first_run": "Mo 08:18"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13134369",
+    "league": "Ecuador LigaPro Serie A",
+    "league_id": "34423",
+    "home": "Manta FC",
+    "away": "Orense",
+    "home_id": "1111",
+    "away_id": "200257",
+    "kickoff": "Mo 21:00",
+    "kickoff_ts": 1790017200,
+    "bet365_id": "201319815"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 15
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      45
+     ],
+     "next_line": 5.5,
+     "next_note": "kein Anker — Manta FC 6/8 (3. Lücke) gesamt, 13/15 (3. Lücke) heim; Orense 9/11 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+     "longterm": [
+      0.8635303297866695,
+      0.8991134476655828
+     ],
+     "fair": 1.14,
+     "ladder": [
+      [
+       6.5,
+       1.14
+      ],
+      [
+       7.5,
+       1.22
+      ]
+     ],
+     "avg": [
+      3.6,
+      4.0
+     ],
+     "expect_sum": 3.8,
+     "expect_matchup": 3.7,
+     "contrib": [
+      1.9,
+      1.9
+     ],
+     "expect": 3.8,
+     "buffer": 2.7,
+     "fa": [
+      [
+       2.6,
+       1.7
+      ],
+      [
+       2.4,
+       2.1
+      ]
+     ],
+     "sd": 2.06,
+     "p_emp": {
+      "6.5": 0.8771929824561404,
+      "7.5": 0.819672131147541
+     },
+     "range": [
+      1.32,
+      1.35
+     ],
+     "p_mod": 0.905,
+     "p_fin": 0.909,
+     "kal": 1.02,
+     "fair_fin": 1.1,
+     "ladder_fin": [
+      [
+       6.5,
+       1.1
+      ],
+      [
+       7.5,
+       1.1
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.10"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "totals": 88,
+  "handicaps": 21,
+  "btts": 29,
+  "results": 60,
+  "doublechance": 78,
+  "correctscore": 7,
+  "corners": 20,
+  "cards": 3,
+  "shots": 2,
+  "offsides": 2,
+  "fouls": 2
+ },
+ "dauer_s": 37,
+ "zeit": {
+  "historie": 41,
+  "pruefung": 0,
+  "scores24": 80,
+  "extras": 11,
+  "vorlauf": 7,
+  "spiele": 30
+ },
+ "teams_nachgeladen": 18,
+ "s24": {
+  "ok": 88,
+  "no_link": 27,
+  "fetch_fail": 18
+ },
+ "new": [
+  "11292332|corners|über",
+  "12122289|yellowcards|über",
+  "12122289|yellowcards|unter",
+  "12122289|ht_yellowcards|über",
+  "13134369|yellowcards|unter"
+ ],
+ "changed": [
+  "12111813|yellowcards|über",
+  "12111813|yellowcards|unter"
+ ],
+ "dropped": [],
+ "team_totals": [
+  {
+   "match": {
+    "id": "11354700",
+    "league": "Sweden 1.div Södra",
+    "league_id": "162",
+    "home": "Jonkopings Sodra",
+    "away": "Skövde AIK",
+    "home_id": "355",
+    "away_id": "46786",
+    "kickoff": "Mo 19:00",
+    "kickoff_ts": 1790010000,
+    "bet365_id": "201308536"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Jonkopings Sodra",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7576,
+    "fair": 1.32,
+    "p_emp": 0.719,
+    "p_mod": 0.797,
+    "erwartet": 6.0,
+    "basis": 48
+   }
+  }
+ ],
+ "neue_maerkte": []
+}
