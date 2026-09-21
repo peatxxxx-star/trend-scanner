@@ -49,9 +49,12 @@ on:
         default: scan
         options: [scan, nachladen, inventar, abdeckung, exoten, tore, tordiagnose, schuesse, backtest, handball, handball-scan, basketball, basketball-scan, eishockey, eishockey-scan, volleyball, eishockey-stats, basketball-stats, basketball-liga, quoten-probe]
 
-concurrency:
-  group: trend-scan
-  cancel-in-progress: false
+# 21.09.: Sperre "nur ein Lauf gleichzeitig" ENTFERNT. GitHub hält bei
+# concurrency nur EINEN wartenden Lauf — kommt ein dritter dazu, wird der
+# wartende stillschweigend abgebrochen. Genau so sind geplante Läufe
+# verschwunden, wenn nebenher ein Lauf von Hand angestoßen wurde. Der
+# Commit-Schritt ist seit 17.09. konfliktfest (rebase -X theirs, 4 Anläufe),
+# parallele Läufe sind damit unkritisch.
 
 permissions:
   contents: write
