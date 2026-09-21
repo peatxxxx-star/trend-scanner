@@ -216,6 +216,9 @@ EXCLUDED_MARKETS = {(m, "unter") for m in UNTER_RAUS} | {("corners", "unter"),
                     ("ht_goals", "über"), ("ht_goals", "unter"),
                     ("h2_goals", "über"), ("h2_goals", "unter"),
                     ("ht_corners", "unter"),
+                    # 21.09. (Lucio): "Die über Märkte für Tore können raus" —
+                    # Tore komplett aus der Meldung (Daten laufen weiter in den Cache).
+                    ("goals", "über"),
                     ("offsides", "über"), ("offsides", "unter"),
                     ("shots_total", "über"), ("shots_total", "unter"),
                     ("fouls", "über"), ("fouls", "unter")}
@@ -5821,14 +5824,16 @@ def selftest():
                    "kickoff_ts": 10 ** 10, "metric_key": "goals", "direction": "über",
                    "line": 1.5, "metric": "Tore"},
             "k2": {"match_id": "m1", "home": "A", "away": "B", "kickoff": "x",
-                   "kickoff_ts": 10 ** 10, "metric_key": "goals", "direction": "über",
-                   "line": 2.5, "metric": "Tore"}}
+                   "kickoff_ts": 10 ** 10, "metric_key": "corners", "direction": "über",
+                   "line": 7.5, "metric": "Ecken"}}
     b25, ns25 = classify_signals(st25, [], set(), {"m1"}, 0, "t")
     if "k1" in ns25 or "k2" not in ns25 or not any(r == "Markt/Linie gesperrt" for _, r in b25["dropped"]):
         print("FEHLER Fall 25z: gesperrte Linie muss aus dem Gedächtnis fliegen, erlaubte bleiben")
         ok = False
 
     # --- Fall 26: Markt "Tore gesamt" (15.09.)
+    # (21.09.: Tore sind gesperrt — die Logik bleibt geprüft, dafür hier kurz frei.)
+    EXCLUDED_MARKETS.discard(("goals", "über"))
     import random as _r2
     _r2.seed(5)
     def _gh(n, viel):
@@ -5885,6 +5890,10 @@ def selftest():
         ok = False
     if build_exo_block([(m26, _sig26)]) and "TORE GESAMT" in build_exo_block([(m26, _sig26)]):
         print("FEHLER Fall 26h: Extra-Block darf keine Tore mehr führen")
+        ok = False
+    EXCLUDED_MARKETS.add(("goals", "über"))
+    if [x for x in evaluate_match(m26, _gh(24, True), _gh(24, True)) if x["metric_key"] == "goals"]:
+        print("FEHLER Fall 26k: Tore sind gesperrt und dürfen kein Signal liefern")
         ok = False
 
     # --- Fall 25: Tore aus dem Ereignis-Verlauf (15.09.)
