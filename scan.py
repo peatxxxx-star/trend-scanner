@@ -219,6 +219,11 @@ EXCLUDED_MARKETS = {(m, "unter") for m in UNTER_RAUS} | {("corners", "unter"),
                     # 21.09. (Lucio): "Die über Märkte für Tore können raus" —
                     # Tore komplett aus der Meldung (Daten laufen weiter in den Cache).
                     ("goals", "über"),
+                    # 21.09. nach der Markt-Auswertung seiner Wett-Historie:
+                    # Abseits raus (unter 9/14, Rendite -8 %); 1. HZ Ecken über raus
+                    # ("find ich eigentlich ganz nett, aber die Zahlen gehen gar
+                    # nicht" — 8/15 = 53 %, Rendite -26 %).
+                    ("offsides", "über"), ("ht_corners", "über"),
                     ("offsides", "über"), ("offsides", "unter"),
                     ("shots_total", "über"), ("shots_total", "unter"),
                     ("fouls", "über"), ("fouls", "unter")}
@@ -5678,8 +5683,11 @@ def selftest():
         return h
     hA = _ht([5, 4, 6, 5, 4, 5, 6, 4, 5, 5, 4, 6, 5, 4, 5], [H, H, A, A] * 4)
     hB = _ht([4, 5, 4, 6, 5, 4, 5, 4, 6, 5, 4, 5, 4, 5, 6], [A, A, H, H] * 4)
+    # 21.09.: "1. HZ Ecken über" ist gesperrt — die Erkennung bleibt geprüft,
+    # dafür hier kurz frei (Sperre steht in EXCLUDED_MARKETS).
+    EXCLUDED_MARKETS.discard(("ht_corners", "über"))
     sig14 = [s for s in evaluate_match(dict(match), hA, hB) if s["metric_key"] == "ht_corners"]
-    # 15.09.: "1. HZ Ecken über" ist auf Lucios Wunsch wieder frei (unter bleibt raus)
+    EXCLUDED_MARKETS.add(("ht_corners", "über"))
     if not any(s["direction"] == "über" for s in sig14):
         print("FEHLER Fall 14c: HZ-Ecken über fehlt:", [(s["direction"], s["line"]) for s in sig14])
         ok = False
