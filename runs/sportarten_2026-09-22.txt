@@ -1,61 +1,64 @@
 🔎 SPORTARTEN-RUNDGANG — was liefert die API je Sportart?
-Stichtag 20260923 · Quellen: /v3/events/upcoming, /v1/bet365/upcoming, /v1/bet365/prematch, /v3/events/ended + /v1/event/view
+Stichtag 20260922 · Quellen: /v3/events/upcoming, /v1/bet365/upcoming, /v1/bet365/prematch, /v3/events/ended + /v1/event/view
 
-Fußball              326 Spiele · bet365    70
-   Märkte: —
+Fußball              513 Spiele · bet365   694
+   Märkte: goals_over_under, 1st_half_goals_range, 2nd_half_goals_range, half_time_correct_score, full_time_result, correct_score, draw_no_bet, main, corners, alternative_corners, alternative_total_goals, both_teams_to_score, both_teams_to_score_in_1st_half, both_teams_t
    Statistik: attacks, corner_f, corner_h, corners, dangerous_attacks, goals, off_target, on_target, penalties, redcards, scores/Abschnitte, substitutions, yellowcards
 
-Basketball            49 Spiele · bet365    21
-   Märkte: —
+Basketball            49 Spiele · bet365   176
+   Märkte: 1st_quarter, 1st_half, result_and_both_teams_to_score_'x'_points, double_result, winning_margin, 1st_half_team_totals, 1st_half_both_teams_to_score_x_points, 1st_half_team_to_score_x_points, team_totals, 1st_quarter_team_totals, game_lines, match_result_and_to
    Statistik: 2points, 3points, fouls, free_throws, free_throws_rate, scores/Abschnitte, time_outs
 
-Tennis               366 Spiele · bet365   234
-   Märkte: —
+Tennis               306 Spiele · bet365   476
+   Märkte: 1st_set_winner, to_win_match, first_kanon_sawashiro_service_game_winners, first_kanon_sawashiro_service_game_score, first_kanon_sawashiro_service_game_to_win_to, first_remika_ohashi_service_game_winners, first_remika_ohashi_service_game_score, first_remika_oha
    Statistik: aces, break_point_conversions, double_faults, scores/Abschnitte, win_1st_serve
 
-Eishockey             86 Spiele · bet365    24
-   Märkte: —
+Eishockey             56 Spiele · bet365    46
+   Märkte: winning_margin, game_lines, 3_way, team_to_score_(goals)
    Statistik: goals_on_power_play, penalties, s7, scores/Abschnitte, shots
 
-Baseball              34 Spiele · bet365     7
-   Märkte: —
+Baseball              23 Spiele · bet365    26
+   Märkte: game_lines, a_run_in_the_1st_inning, 1st_inning_runs, 1st_inning_winner, 5_innings, pitcher_strikeouts, run_line, team_alternative_totals, 3_way, player_first_home_run_hit, player_first_rbi_run, 1st_inning_total_hits, number_of_batters_to_the_plate, 3_innings
    Statistik: —
 
 American Football  — morgen keine Spiele
-Handball              63 Spiele · bet365    19
-   Märkte: —
+Handball              14 Spiele · bet365    17
+   Märkte: game_lines, winning_margin, team_totals, game_lines_3_way, double_result
    Statistik: last_10_mins_score, possession, scores/Abschnitte
 
-Volleyball            14 Spiele · bet365     4
-   Märkte: —
+Volleyball            16 Spiele · bet365    21
+   Märkte: game_lines, match_total_odd_even
    Statistik: —
 
-Tischtennis           81 Spiele · bet365    51
-   Märkte: —
+Tischtennis          496 Spiele · bet365   655
+   Märkte: 1st_game, match_lines, 1st_game_winner_and_total_double, 1st_game_race_to, 1st_game_player_totals, handicap_betting_points, game_betting, correct_score_after_2_games, correct_score_after_3_games
    Statistik: scores/Abschnitte
 
-Cricket                4 Spiele · bet365     3
-   Märkte: —
+Cricket               11 Spiele · bet365    13
+   Märkte: team_top_batter, 1st_innings_score, player_performance, total_match_runs, to_win_the_toss, 1st_over_total_runs, 1st_over_of_match_total_runs_team, 1st_over_of_match, 1st_over_of_match_4_scored_team, wicket_in_1st_over_team, 1st_over_total_runs_odd_even, to_win
    Statistik: —
 
 Rugby Union        — morgen keine Spiele
 Rugby League       — morgen keine Spiele
 Aussie Rules       — morgen keine Spiele
 Darts              — morgen keine Spiele
-Snooker               16 Spiele · bet365     0
-   Märkte: —
+Snooker               12 Spiele · bet365     7
+   Märkte: to_win_match, match_handicap, total_frames_2_way, correct_score, 1st_frame_winner, leader_after_1st_four_frames
    Statistik: scores/Abschnitte
 
 Badminton          — morgen keine Spiele
 Beachvolleyball    — morgen keine Spiele
 Wasserball         — morgen keine Spiele
-Bowls                 12 Spiele · bet365     3
-   Märkte: —
+Bowls                  2 Spiele · bet365     5
+   Märkte: game_lines, 3_way
    Statistik: —
 
-MMA                — morgen keine Spiele
-E-Sports               7 Spiele · bet365     7
-   Märkte: —
+MMA                    5 Spiele · bet365    10
+   Märkte: fight_lines
+   Statistik: —
+
+E-Sports              41 Spiele · bet365    46
+   Märkte: map_1_totals, map_1_first_team_to, match_lines, map_1_total_kills_odd_even, map_1_handicaps, map_1_map_duration_2_way, map_1_race_to_#_kills, map_1_both_teams_to, map_1_first_dragon_to_spawn, map_1_either_team_to, map_1_winner, map_1_kill_handicap, map_1_tower
    Statistik: —
 
 Futsal             — morgen keine Spiele
