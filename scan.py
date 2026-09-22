@@ -183,8 +183,11 @@ S24_GROUPS = {
 # 18.09. (Lucio): "Karten unter 5,5 und unter 6,5 wieder rein" — Gelbe Karten
 # unter läuft wieder, aber nur diese beiden Linien (2,5/3,5/4,5 unter bleiben
 # in EXCLUDED_LINES gesperrt).
+# 22.09. (Lucio): "Abseits unter wieder rein" — in seiner eigenen Wett-Historie
+# 9/11 = 82 % bei +18 % Rendite; mein Rauswurf am 21.09. beruhte auf einer
+# Zahl, die über und unter zusammengeworfen hatte.
 UNTER_RAUS = ("ht_yellowcards", "throwins", "goalkicks",
-              "corners", "ht_corners", "goals", "offsides", "on_target",
+              "corners", "ht_corners", "goals", "on_target",
               "shots_total", "fouls", "freekicks", "ht_goals", "h2_goals")
 # 17.09. abends (Lucio): "alles einschalten, auch beim Fußball — alle
 # Über-Märkte, bei denen die Trefferquote der Strategie mindestens 75 % lag,
@@ -216,15 +219,14 @@ EXCLUDED_MARKETS = {(m, "unter") for m in UNTER_RAUS} | {("corners", "unter"),
                     ("ht_goals", "über"), ("ht_goals", "unter"),
                     ("h2_goals", "über"), ("h2_goals", "unter"),
                     ("ht_corners", "unter"),
-                    # 21.09. (Lucio): "Die über Märkte für Tore können raus" —
-                    # Tore komplett aus der Meldung (Daten laufen weiter in den Cache).
-                    ("goals", "über"),
+                    # 21.09.: Tore über raus — am 22.09. auf Lucios Wunsch wieder
+                    # rein (in seiner Historie 30/40 = 75 %, +5 %); gemeldet wird
+                    # weiterhin nur "über 2,5" (siehe EXCLUDED_LINES).
                     # 21.09. nach der Markt-Auswertung seiner Wett-Historie:
-                    # Abseits raus (unter 9/14, Rendite -8 %); 1. HZ Ecken über raus
+                    # Abseits ÜBER raus (unter bleibt drin, s.o.); 1. HZ Ecken über raus
                     # ("find ich eigentlich ganz nett, aber die Zahlen gehen gar
                     # nicht" — 8/15 = 53 %, Rendite -26 %).
                     ("offsides", "über"), ("ht_corners", "über"),
-                    ("offsides", "über"), ("offsides", "unter"),
                     ("shots_total", "über"), ("shots_total", "unter"),
                     ("fouls", "über"), ("fouls", "unter")}
 # 15.09. spät (Lucio): 1. HZ ECKEN ÜBER wieder rein, ABSEITS komplett raus.
@@ -4919,9 +4921,42 @@ def run():
         raise
 
 
+# 22.09.: GitHub lässt geplante Läufe regelmäßig aus oder verschiebt sie um
+# Stunden (Lucio: "gestern gar kein Abendscan, heute nur der um 8:27"). Lösung:
+# der Zeitplan feuert jetzt STÜNDLICH, und der Lauf entscheidet selbst, ob er
+# arbeitet — liegt der letzte echte Lauf weniger als MIN_ABSTAND_MIN zurück,
+# bricht er nach wenigen Sekunden ab. Fällt eine Stunde aus, holt die nächste
+# sie nach. FORCE=1 (letzter Lauf des Tages, Handstart) umgeht die Sperre.
+MIN_ABSTAND_MIN = int(os.environ.get("MIN_ABSTAND_MIN", "100"))
+
+
+def letzter_lauf_min() -> float:
+    """Minuten seit dem letzten echten Lauf (Vorwärmläufe zählen nicht);
+    None, wenn es keinen gibt."""
+    neuste = None
+    for f in RUNS_DIR.glob("*.json"):
+        if f.name.endswith("_prewarm.json"):
+            continue
+        try:
+            ts = datetime.strptime(f.name[:15], "%Y-%m-%d_%H%M").replace(tzinfo=timezone.utc)
+        except ValueError:
+            continue
+        if neuste is None or ts > neuste:
+            neuste = ts
+    if neuste is None:
+        return None
+    return (datetime.now(timezone.utc) - neuste).total_seconds() / 60
+
+
 def _run():
     if not TOKEN:
         sys.exit("BETSAPI_TOKEN fehlt")
+    if os.environ.get("FORCE") != "1" and not is_prewarm_run():
+        seit = letzter_lauf_min()
+        if seit is not None and seit < MIN_ABSTAND_MIN:
+            print(f"Letzter Lauf vor {int(seit)} min – Mindestabstand {MIN_ABSTAND_MIN} min "
+                  f"noch nicht erreicht, Lauf übersprungen.")
+            return
     _t_run = time.time()                  # 19.09.: Gesamtdauer fürs Protokoll
     cache = load_cache()
     hcache = load_history_cache()
@@ -5613,8 +5648,10 @@ def selftest():
         ok = False
     EXCLUDED_MARKETS.clear()
     EXCLUDED_MARKETS.update(_prev_excl)
-    if [s for s in evaluate_match(dict(match), pal2, man2) if s["metric"] == "Abseits"]:
-        print("FEHLER Fall 11d: Abseits ist gestrichen und darf nicht mehr melden")
+    # 22.09.: Abseits UNTER läuft wieder, ÜBER bleibt gestrichen.
+    if [s for s in evaluate_match(dict(match), pal2, man2)
+            if s["metric"] == "Abseits" and s["direction"] == "über"]:
+        print("FEHLER Fall 11d: Abseits über ist gestrichen und darf nicht mehr melden")
         ok = False
 
     # --- Fall 13: Ampel-Rechnung
@@ -5826,6 +5863,28 @@ def selftest():
         ok = False
 
     PURGE_EXCLUDED = True
+
+    # --- Fall 30: Mindestabstand zwischen Läufen (22.09.)
+    import tempfile as _tf
+    _prev_runs = globals()["RUNS_DIR"]
+    with _tf.TemporaryDirectory() as _d:
+        globals()["RUNS_DIR"] = Path(_d)
+        if letzter_lauf_min() is not None:
+            print("FEHLER Fall 30a: ohne Läufe darf es keinen Abstand geben")
+            ok = False
+        _jetzt = datetime.now(timezone.utc)
+        (Path(_d) / f"{_jetzt - timedelta(minutes=30):%Y-%m-%d_%H%M}.json").write_text("{}")
+        _m = letzter_lauf_min()
+        if _m is None or not 28 <= _m <= 32:
+            print("FEHLER Fall 30b: Abstand falsch berechnet:", _m)
+            ok = False
+        # Vorwärm-Dateien zählen nicht
+        (Path(_d) / f"{_jetzt - timedelta(minutes=1):%Y-%m-%d_%H%M}_prewarm.json").write_text("{}")
+        _m2 = letzter_lauf_min()
+        if _m2 is None or not 28 <= _m2 <= 32:
+            print("FEHLER Fall 30c: Vorwärmlauf darf den Abstand nicht zurücksetzen:", _m2)
+            ok = False
+    globals()["RUNS_DIR"] = _prev_runs
 
     # --- Fall 25z: gesperrte Linie fliegt aus dem Gedächtnis (18.09.)
     st25 = {"k1": {"match_id": "m1", "home": "A", "away": "B", "kickoff": "x",

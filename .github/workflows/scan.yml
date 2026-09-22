@@ -14,11 +14,20 @@ on:
     # der 21:17-Lauf ist der letzte des Tages.
     # 19.09.: Actions-Minuten sind seit dem Pro-Upgrade das knappe Gut (ein
     # Lauf dauert 15–21 min; 25 Läufe/Tag = ~450 min/Tag, 3.000 min/Monat
-    # wären nach einer Woche weg). Deshalb (Lucio: "alle 2 reicht"): alle
-    # zwei Stunden 06:17–20:17 deutscher Zeit, dazu 21:17 als letzter Lauf.
-    # Vorher: stündlich 06:17–21:17.
-    # (Winter: "17 5,7,9,11,13,15,17,19,20 * * *")
-    - cron: "17 4,6,8,10,12,14,16,18,19 * * *"
+    # wären nach einer Woche weg). Deshalb (Lucio: "alle 2 reicht"): Ziel-Takt
+    # sind zwei Stunden.
+    # 22.09.: GitHub lässt geplante Läufe regelmäßig aus (Lucio: "gestern gar
+    # kein Abendscan"). Der Zeitplan feuert deshalb STÜNDLICH 06:17–21:17
+    # deutscher Zeit; scan.py bricht sofort ab, wenn der letzte echte Lauf
+    # weniger als 100 Minuten her ist (MIN_ABSTAND_MIN). Ergebnis: echter
+    # Zwei-Stunden-Takt, und eine ausgefallene Stunde wird von der nächsten
+    # nachgeholt. Übersprungene Läufe kosten ~15 Sekunden.
+    # (Winter: "17 5-20 * * *")
+    - cron: "17 4-19 * * *"
+    # Letzter Lauf des Tages, 21:17 deutscher Zeit: läuft IMMER (FORCE),
+    # egal wie kurz der vorige her ist — der Abendscan darf nie ausfallen.
+    # (Winter: "17 20 * * *")
+    - cron: "17 19 * * *"
     # Freitag + Samstag noch einmal später: 20:05 UTC = 22:05 deutscher
     # Sommerzeit (an diesen Tagen bleibt Lucio länger wach).
     # (Winter: "5 21 * * 5,6")
@@ -106,6 +115,9 @@ jobs:
           SHOTSCHECK: ${{ inputs.modus == 'schuesse' && '1' || '0' }}
           BACKTEST: ${{ inputs.modus == 'backtest' && '1' || '0' }}
           BACKTEST_TAG: ${{ inputs.datum }}
+          # FORCE=1 = Mindestabstand ignorieren: beim letzten Lauf des Tages
+          # (21:17 deutscher Zeit) und bei jedem Start von Hand / per scan_now.
+          FORCE: ${{ (github.event_name != 'schedule' || github.event.schedule == '17 19 * * *') && '1' || '0' }}
         run: python scan.py
 
       - name: Cache, Lauf-Gedächtnis und Protokoll sichern
