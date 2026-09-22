@@ -838,8 +838,48 @@ def hockey_spiele(hist: dict) -> dict:
     return games
 
 
+def hockey_faelle(games: dict) -> list:
+    """Alle Spiele, auf die die Regel zutrifft, als Liste
+    [{"t": Zeit, "stufe": "A"/"B", "hit": 0/1, "liga": …}].
+    WICHTIG: immer über ALLE Spiele rechnen — wer vorher filtert, nimmt den
+    Teams ihre Vorgeschichte und bekommt keine Fälle mehr (22.09.)."""
+    per_team = defaultdict(list)
+    for g in games.values():
+        per_team[g["hid"]].append(g); per_team[g["aid"]].append(g)
+    for v in per_team.values():
+        v.sort(key=lambda g: g["t"])
+    out = []
+    for g in games.values():
+        H, A = per_team[g["hid"]], per_team[g["aid"]]
+        hi = next(i for i, x in enumerate(H) if x is g)
+        ai = next(i for i, x in enumerate(A) if x is g)
+        if hi < HOCKEY_N or ai < HOCKEY_N or any(k in g["liga"].lower() for k in HOCKEY_LIGA_RAUS):
+            continue
+        eigene = [(x["h"] if x["hid"] == g["hid"] else x["a"]) for x in H[hi - HOCKEY_N:hi][::-1]]
+        kass = [(x["a"] if x["hid"] == g["aid"] else x["h"]) for x in A[ai - HOCKEY_N:ai][::-1]]
+        stufe = hockey_stufe(eigene, kass)
+        if not stufe:
+            continue
+        out.append({"t": g["t"], "stufe": stufe, "liga": g["liga"],
+                    "hit": int(g["h"] > HOCKEY_LINIE)})
+    return out
+
+
+def hockey_quoten(faelle: list) -> dict:
+    """Aus Fällen die Trefferquote je Stufe: {'A': (n, quote), 'B': …, 'alle': …}."""
+    t = defaultdict(lambda: [0, 0])
+    for f in faelle:
+        for k in (f["stufe"], "alle"):
+            t[k][0] += 1; t[k][1] += f["hit"]
+    return {k: (n, (h / n if n else 0.0)) for k, (n, h) in t.items()}
+
+
 def hockey_backtest(games: dict) -> dict:
     """Trefferquote der Regel je Stufe aus der Historie: {'A': (n, quote), 'B': …, 'alle': …}."""
+    return hockey_quoten(hockey_faelle(games))
+
+
+def _hockey_backtest_alt(games: dict) -> dict:
     per_team = defaultdict(list)
     for g in games.values():
         per_team[g["hid"]].append(g); per_team[g["aid"]].append(g)
@@ -1920,7 +1960,65 @@ def quoten_probe():
     print(f"\n{_requests} Anfragen")
 
 
+def regel_modus():
+    """22.09.: Die Eishockey-Gast-Abwehr-Regel gegen echte Daten nachrechnen —
+    einmal über das ganze geladene Fenster und einmal getrennt ab dem Stichtag,
+    an dem die Regel festgelegt wurde (17.09.). Alles ab dem Stichtag ist
+    echter Nachtest, davor ist es der Backtest, aus dem sie stammt.
+    Aufruf: SPORT=eishockey python3 handball.py regel [stichtag JJJJ-MM-TT]
+    Braucht eine Historie aus dem Erkundungs-Lauf (runs/eishockey_historie_*.json).
+    """
+    hfiles = sorted(OUT.glob("eishockey_historie_*.json"))
+    if not hfiles:
+        sys.exit("keine Eishockey-Historie in runs/ — erst den Modus 'eishockey' laufen lassen")
+    hist = json.loads(hfiles[-1].read_text(encoding="utf-8"))
+    stich = "2026-09-17"
+    for a in sys.argv[2:]:
+        if re.fullmatch(r"\d{4}-\d{2}-\d{2}", a.strip()):
+            stich = a.strip()
+    grenze = int(datetime.strptime(stich, "%Y-%m-%d").replace(tzinfo=timezone.utc).timestamp())
+    games = hockey_spiele(hist)
+    faelle = hockey_faelle(games)
+    zeiten = [g["t"] for g in games.values() if g["t"]]
+    lines = [f"🏒 <b>EISHOCKEY — Gast-Abwehr-Regel nachgerechnet</b>",
+             f"Quelle: {hfiles[-1].name} · {len(hist)} Teams · {len(games)} Spiele",
+             (f"Zeitraum: {datetime.fromtimestamp(min(zeiten), timezone.utc):%d.%m.} – "
+              f"{datetime.fromtimestamp(max(zeiten), timezone.utc):%d.%m.%Y}" if zeiten else ""),
+             f"Regel: Heim über {HOCKEY_LINIE} eigene Tore (reguläre Zeit), "
+             f"Stufe A = Gast kassiert Ø ≥ {HOCKEY_GAST_A}; Stufe B = Ø ≥ {HOCKEY_GAST_B} "
+             f"bzw. 9/10 mit 3+ und Heim Ø ≥ {HOCKEY_HEIM_B}", ""]
+    for label, teil in (("GESAMT", faelle),
+                        (f"bis {stich} (Backtest)", [f for f in faelle if f["t"] < grenze]),
+                        (f"ab {stich} (Nachtest)", [f for f in faelle if f["t"] >= grenze])):
+        q = hockey_quoten(teil)
+        lines.append(f"<b>{label}</b> · {len(teil)} Signale")
+        for k in ("A", "B", "alle"):
+            n, p = q.get(k, (0, 0.0))
+            if n:
+                fair = 1 / p if p else 0
+                lines.append(f"   Stufe {k}: n={n}  {100 * p:.1f} %  → fair {fair:.2f}" if p
+                             else f"   Stufe {k}: n={n}  0 %")
+            else:
+                lines.append(f"   Stufe {k}: keine Fälle")
+        lines.append("")
+    txt = "\n".join(lines)
+    print(re.sub(r"<[^>]+>", "", txt))
+    (OUT / f"eishockey_regel_{datetime.now(timezone.utc):%Y-%m-%d}.txt").write_text(
+        re.sub(r"<[^>]+>", "", txt), encoding="utf-8")
+    try:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("scan", Path(__file__).parent / "scan.py")
+        scan = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(scan)
+        scan.send_telegram(txt)
+    except Exception as exc:
+        print("Telegram:", exc)
+
+
 def main():
+    if len(sys.argv) > 1 and sys.argv[1].strip().lower() == "regel":
+        regel_modus()
+        return
     if len(sys.argv) > 1 and sys.argv[1].strip().lower() == "quoten":
         if not TOKEN:
             sys.exit("BETSAPI_TOKEN fehlt")
