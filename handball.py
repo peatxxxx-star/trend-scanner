@@ -1980,8 +1980,14 @@ ALLE_SPORTS = [(1, "Fußball"), (18, "Basketball"), (13, "Tennis"), (17, "Eishoc
 
 
 def sportarten_rundgang():
-    from datetime import date as _date
-    tag = (datetime.now(timezone.utc) + timedelta(days=1)).strftime("%Y%m%d")
+    # 22.09. (Lucio): HEUTE prüfen, nicht morgen — für morgige Spiele sind die
+    # Nebenmärkte oft noch gar nicht veröffentlicht, die Abdeckung sähe dann
+    # künstlich schlecht aus. Mit dem Feld "datum" lässt sich ein anderer Tag
+    # setzen (JJJJMMTT).
+    tag = datetime.now(timezone.utc).strftime("%Y%m%d")
+    for a in sys.argv[2:]:
+        if re.fullmatch(r"\d{8}", a.strip()):
+            tag = a.strip()
     zeilen = ["🔎 SPORTARTEN-RUNDGANG — was liefert die API je Sportart?",
               f"Stichtag {tag} · Quellen: /v3/events/upcoming, /v1/bet365/upcoming,"
               f" /v1/bet365/prematch, /v3/events/ended + /v1/event/view", ""]
