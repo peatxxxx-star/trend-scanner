@@ -1,0 +1,2433 @@
+{
+ "run_utc": "2026-09-22T18:10:37+00:00",
+ "matches_checked": 145,
+ "requests": 252,
+ "hits": [
+  {
+   "match": {
+    "id": "12263742",
+    "league": "Scotland League Challenge Cup",
+    "league_id": "612",
+    "home": "East Kilbride",
+    "away": "Celtic B",
+    "home_id": "3952",
+    "away_id": "523227",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1790102700,
+    "bet365_id": "201525474"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      47,
+      49
+     ],
+     "next_line": 3.5,
+     "next_note": "East Kilbride 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+     "longterm": [
+      0.7932582360729923,
+      0.7759732919335018
+     ],
+     "fair": 1.38,
+     "ladder": [
+      [
+       1.5,
+       1.14
+      ],
+      [
+       2.5,
+       1.38
+      ]
+     ],
+     "avg": [
+      4.3,
+      4.2
+     ],
+     "expect_sum": 4.3,
+     "expect_matchup": 6.1,
+     "contrib": [
+      4.5,
+      1.5
+     ],
+     "expect": 5.2,
+     "buffer": 2.7,
+     "fa": [
+      [
+       2.3,
+       1.4
+      ],
+      [
+       2.3,
+       1.8
+      ]
+     ],
+     "sd": 1.98,
+     "p_emp": {
+      "1.5": 0.8771929824561404,
+      "2.5": 0.7246376811594204
+     },
+     "no_odds_check": true,
+     "p_mod": 0.914,
+     "p_fin": 0.77,
+     "kal": 0.94,
+     "fair_fin": 1.3,
+     "ladder_fin": [
+      [
+       1.5,
+       1.15
+      ],
+      [
+       2.5,
+       1.3
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 72 % vs. Modell 91 %",
+     "first_run": "Di 10:00"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12261920",
+    "league": "Scotland League Challenge Cup",
+    "league_id": "612",
+    "home": "Kelty Hearts",
+    "away": "Hearts B",
+    "home_id": "227556",
+    "away_id": "547616",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1790102700,
+    "bet365_id": "201525499"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      48
+     ],
+     "next_line": 3.5,
+     "next_note": "Hearts B 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.6468911650202867,
+      0.6937979784075654
+     ],
+     "fair": 1.56,
+     "ladder": [
+      [
+       1.5,
+       1.19
+      ],
+      [
+       2.5,
+       1.56
+      ]
+     ],
+     "avg": [
+      3.7,
+      4.4
+     ],
+     "expect_sum": 4.0,
+     "expect_matchup": 5.1,
+     "contrib": [
+      2.9,
+      2.2
+     ],
+     "expect": 4.6,
+     "buffer": 2.1,
+     "fa": [
+      [
+       1.3,
+       2.0
+      ],
+      [
+       1.5,
+       2.2
+      ]
+     ],
+     "sd": 2.0,
+     "p_emp": {
+      "1.5": 0.8403361344537815,
+      "2.5": 0.641025641025641
+     },
+     "no_odds_check": true,
+     "p_mod": 0.853,
+     "p_fin": 0.702,
+     "kal": 0.94,
+     "fair_fin": 1.42,
+     "ladder_fin": [
+      [
+       1.5,
+       1.2
+      ],
+      [
+       2.5,
+       1.42
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 64 % vs. Modell 85 %",
+     "first_run": "Di 10:00"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12261876",
+    "league": "Scotland League Challenge Cup",
+    "league_id": "612",
+    "home": "Gala Fairydean",
+    "away": "Spartans",
+    "home_id": "3949",
+    "away_id": "60157",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1790102700,
+    "bet365_id": "201525497"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      43,
+      40
+     ],
+     "next_line": 8.5,
+     "next_note": "Spartans 0/2 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.8191914834811637,
+      0.6235214184681609
+     ],
+     "fair": 1.42,
+     "ladder": [
+      [
+       6.5,
+       1.38
+      ],
+      [
+       7.5,
+       1.42
+      ]
+     ],
+     "avg": [
+      9.2,
+      10.9
+     ],
+     "expect_sum": 10.1,
+     "expect_matchup": 10.7,
+     "contrib": [
+      5.2,
+      5.5
+     ],
+     "expect": 10.4,
+     "buffer": 2.9,
+     "fa": [
+      [
+       3.6,
+       6.0
+      ],
+      [
+       5.0,
+       4.6
+      ]
+     ],
+     "sd": 3.66,
+     "p_emp": {
+      "6.5": 0.7246376811594204,
+      "7.5": 0.7042253521126761
+     },
+     "range": [
+      1.77,
+      1.77
+     ],
+     "p_mod": 0.786,
+     "p_fin": 0.708,
+     "kal": 0.95,
+     "fair_fin": 1.41,
+     "ladder_fin": [
+      [
+       6.5,
+       1.33
+      ],
+      [
+       7.5,
+       1.41
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.41",
+     "first_run": "Di 08:11"
+    },
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      50,
+      42
+     ],
+     "next_line": 3.5,
+     "next_note": "Gala Fairydean 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Spartans 5/7 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+     "longterm": [
+      0.8348011442197608,
+      0.6616676600317855
+     ],
+     "fair": 1.43,
+     "ladder": [
+      [
+       1.5,
+       1.11
+      ],
+      [
+       2.5,
+       1.43
+      ]
+     ],
+     "avg": [
+      4.0,
+      3.1
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 3.9,
+     "contrib": [
+      1.4,
+      2.6
+     ],
+     "expect": 3.7,
+     "buffer": 1.2,
+     "fa": [
+      [
+       1.7,
+       2.3
+      ],
+      [
+       1.8,
+       1.4
+      ]
+     ],
+     "sd": 1.66,
+     "p_emp": {
+      "1.5": 0.9009009009009008,
+      "2.5": 0.6993006993006994
+     },
+     "no_odds_check": true,
+     "p_mod": 0.765,
+     "p_fin": 0.688,
+     "kal": 0.94,
+     "fair_fin": 1.45,
+     "ladder_fin": [
+      [
+       1.5,
+       1.18
+      ],
+      [
+       2.5,
+       1.45
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.45",
+     "first_run": "Di 10:00"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13168561",
+    "league": "England Isthmian Division One South",
+    "league_id": "733",
+    "home": "Binfield",
+    "away": "Moneyfields",
+    "home_id": "193699",
+    "away_id": "188762",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1790102700,
+    "bet365_id": "201627064"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      47,
+      42
+     ],
+     "next_line": 3.5,
+     "next_note": "Binfield 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+     "longterm": [
+      0.6904524035103855,
+      0.7580339387434535
+     ],
+     "fair": 1.47,
+     "ladder": [
+      [
+       1.5,
+       1.2
+      ],
+      [
+       2.5,
+       1.47
+      ]
+     ],
+     "avg": [
+      2.8,
+      5.6
+     ],
+     "expect_sum": 4.2,
+     "expect_matchup": 5.0,
+     "contrib": [
+      2.3,
+      2.7
+     ],
+     "expect": 4.6,
+     "buffer": 2.1,
+     "fa": [
+      [
+       1.7,
+       1.6
+      ],
+      [
+       1.9,
+       2.4
+      ]
+     ],
+     "sd": 3.03,
+     "p_emp": {
+      "1.5": 0.8333333333333334,
+      "2.5": 0.6802721088435374
+     },
+     "no_odds_check": true,
+     "p_mod": 0.756,
+     "p_fin": 0.675,
+     "kal": 0.94,
+     "fair_fin": 1.48,
+     "ladder_fin": [
+      [
+       1.5,
+       1.27
+      ],
+      [
+       2.5,
+       1.48
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "67 % knapp",
+     "first_run": "Di 10:00"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13169684",
+    "league": "England Isthmian Division One North",
+    "league_id": "732",
+    "home": "Hashtag United",
+    "away": "Walthamstow",
+    "home_id": "361572",
+    "away_id": "235172",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1790102700,
+    "bet365_id": "201626973"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      44
+     ],
+     "next_line": 3.5,
+     "next_note": "Hashtag United 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Walthamstow 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+     "longterm": [
+      0.6856212405302243,
+      0.5640622968801507
+     ],
+     "fair": 1.63,
+     "ladder": [
+      [
+       1.5,
+       1.27
+      ],
+      [
+       2.5,
+       1.63
+      ]
+     ],
+     "avg": [
+      3.8,
+      2.9
+     ],
+     "expect_sum": 3.4,
+     "expect_matchup": 3.6,
+     "contrib": [
+      2.3,
+      1.3
+     ],
+     "expect": 3.5,
+     "buffer": 1.0,
+     "fa": [
+      [
+       1.6,
+       1.8
+      ],
+      [
+       1.4,
+       1.5
+      ]
+     ],
+     "sd": 1.84,
+     "p_emp": {
+      "1.5": 0.7874015748031495,
+      "2.5": 0.6134969325153374
+     },
+     "no_odds_check": true,
+     "p_mod": 0.707,
+     "p_fin": 0.62,
+     "kal": 0.94,
+     "fair_fin": 1.61,
+     "ladder_fin": [
+      [
+       1.5,
+       1.29
+      ],
+      [
+       2.5,
+       1.61
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "62 % knapp",
+     "first_run": "Di 10:00"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12261924",
+    "league": "Scotland League Challenge Cup",
+    "league_id": "612",
+    "home": "Clyde",
+    "away": "Rangers B",
+    "home_id": "17572",
+    "away_id": "541850",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1790102700,
+    "bet365_id": "201525466"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      44,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "Rangers B 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.7317332161632176,
+      0.8575734481566947
+     ],
+     "fair": 1.36,
+     "ladder": [
+      [
+       1.5,
+       1.13
+      ],
+      [
+       2.5,
+       1.36
+      ]
+     ],
+     "avg": [
+      3.7,
+      3.8
+     ],
+     "expect_sum": 3.8,
+     "expect_matchup": 4.5,
+     "contrib": [
+      2.8,
+      1.7
+     ],
+     "expect": 4.1,
+     "buffer": 1.6,
+     "fa": [
+      [
+       1.7,
+       1.6
+      ],
+      [
+       2.4,
+       1.7
+      ]
+     ],
+     "sd": 1.58,
+     "p_emp": {
+      "1.5": 0.8849557522123894,
+      "2.5": 0.7352941176470588
+     },
+     "no_odds_check": true,
+     "p_mod": 0.844,
+     "p_fin": 0.742,
+     "kal": 0.94,
+     "fair_fin": 1.35,
+     "ladder_fin": [
+      [
+       1.5,
+       1.16
+      ],
+      [
+       2.5,
+       1.35
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.35",
+     "first_run": "Di 10:00"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13088413",
+    "league": "UEFA Women's Champions League",
+    "league_id": "38927",
+    "home": "Juventus (W)",
+    "away": "Benfica (W)",
+    "home_id": "1177718",
+    "away_id": "1185849",
+    "kickoff": "Di 21:00",
+    "kickoff_ts": 1790103600,
+    "bet365_id": "201583905"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Juventus (W) 39/41 (3. Lücke) gesamt, 27/28 heim; Benfica (W) 32/34 (3. Lücke) gesamt, 19/21 (3. Lücke) auswärts",
+     "longterm": [
+      1.0,
+      0.9545844337597811
+     ],
+     "fair": 1.08,
+     "ladder": [
+      [
+       5.5,
+       1.08
+      ],
+      [
+       6.5,
+       1.04
+      ]
+     ],
+     "avg": [
+      2.1,
+      1.8
+     ],
+     "expect_sum": 1.9,
+     "expect_matchup": 1.0,
+     "contrib": [
+      0.3,
+      0.7
+     ],
+     "expect": 1.5,
+     "buffer": 4.0,
+     "fa": [
+      [
+       1.0,
+       1.3
+      ],
+      [
+       1.5,
+       1.3
+      ]
+     ],
+     "sd": 1.51,
+     "p_emp": {
+      "5.5": 0.9259259259259258,
+      "6.5": 0.9615384615384615
+     },
+     "range": [
+      1.45,
+      2.1
+     ],
+     "referee": "Lina Lehtovaara (noch keine Daten)",
+     "p_mod": 0.996,
+     "p_fin": 0.98,
+     "kal": 1.02,
+     "fair_fin": 1.02,
+     "ladder_fin": [
+      [
+       5.5,
+       1.02
+      ],
+      [
+       6.5,
+       1.02
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.02",
+     "first_run": "Di 10:00",
+     "change_note": "Quoten vorher 1.46–2.10"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      8,
+      13
+     ],
+     "next_line": 4.5,
+     "next_note": "Juventus (W) 6/8 gesamt, 4/5 heim; Benfica (W) 7/9 (3. Lücke) gesamt, 4/6 auswärts",
+     "longterm": [
+      0.8639768888435015,
+      0.9373420174807574
+     ],
+     "fair": 1.16,
+     "ladder": [
+      [
+       5.5,
+       1.16
+      ],
+      [
+       6.5,
+       1.44
+      ]
+     ],
+     "avg": [
+      3.3,
+      3.3
+     ],
+     "expect_sum": 3.3,
+     "expect_matchup": 2.9,
+     "contrib": [
+      1.8,
+      1.1
+     ],
+     "expect": 3.1,
+     "buffer": 2.4,
+     "fa": [
+      [
+       2.6,
+       1.0
+      ],
+      [
+       1.7,
+       1.7
+      ]
+     ],
+     "sd": 2.14,
+     "p_emp": {
+      "5.5": 0.8620689655172414,
+      "6.5": 0.6944444444444444
+     },
+     "range": [
+      1.26,
+      1.39
+     ],
+     "p_mod": 0.869,
+     "p_fin": 0.866,
+     "kal": 1.0,
+     "fair_fin": 1.16,
+     "ladder_fin": [
+      [
+       5.5,
+       1.16
+      ],
+      [
+       6.5,
+       1.22
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.16",
+     "first_run": "Di 15:28"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13083809",
+    "league": "UEFA Women's Champions League",
+    "league_id": "38927",
+    "home": "Real Madrid (W)",
+    "away": "PSG (W)",
+    "home_id": "1177728",
+    "away_id": "1177490",
+    "kickoff": "Di 21:00",
+    "kickoff_ts": 1790103600,
+    "bet365_id": "201583910"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      48,
+      45
+     ],
+     "next_line": 9.5,
+     "next_note": "Real Madrid (W) 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; PSG (W) 6/8 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.6681875322627981,
+      0.7052666438182438
+     ],
+     "fair": 1.53,
+     "ladder": [
+      [
+       7.5,
+       1.38
+      ],
+      [
+       8.5,
+       1.53
+      ]
+     ],
+     "avg": [
+      9.9,
+      10.2
+     ],
+     "expect_sum": 10.0,
+     "expect_matchup": 10.6,
+     "contrib": [
+      7.7,
+      2.9
+     ],
+     "expect": 10.3,
+     "buffer": 1.8,
+     "fa": [
+      [
+       6.1,
+       3.3
+      ],
+      [
+       6.2,
+       3.9
+      ]
+     ],
+     "sd": 3.42,
+     "p_emp": {
+      "7.5": 0.7246376811594204,
+      "8.5": 0.6535947712418301
+     },
+     "range": [
+      1.63,
+      1.74
+     ],
+     "b365": [
+      "9.0",
+      "1.825",
+      "1.975"
+     ],
+     "p_mod": 0.701,
+     "p_fin": 0.643,
+     "kal": 0.95,
+     "fair_fin": 1.55,
+     "ladder_fin": [
+      [
+       7.5,
+       1.39
+      ],
+      [
+       8.5,
+       1.55
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "64 % knapp",
+     "first_run": "Di 08:11",
+     "change_note": "Quoten vorher 1.77–2.08"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      45
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Real Madrid (W) 20/22 (3. Lücke) gesamt, 24/26 heim; PSG (W) 13/15 (3. Lücke) gesamt, 10/12 (3. Lücke) auswärts",
+     "longterm": [
+      0.9259455050715129,
+      0.9060385724936691
+     ],
+     "fair": 1.14,
+     "ladder": [
+      [
+       5.5,
+       1.14
+      ],
+      [
+       6.5,
+       1.07
+      ]
+     ],
+     "avg": [
+      2.2,
+      3.0
+     ],
+     "expect_sum": 2.6,
+     "expect_matchup": 1.8,
+     "contrib": [
+      0.8,
+      1.0
+     ],
+     "expect": 2.2,
+     "buffer": 3.3,
+     "fa": [
+      [
+       1.5,
+       1.3
+      ],
+      [
+       1.7,
+       1.4
+      ]
+     ],
+     "sd": 1.78,
+     "p_emp": {
+      "5.5": 0.8771929824561404,
+      "6.5": 0.9345794392523364
+     },
+     "range": [
+      1.31,
+      1.6
+     ],
+     "referee": "Ivana Projkovska: Ø 3.0 Karten (2 Sp.) · Ø 23.0 Fouls (1 Sp.)",
+     "expect_ref": 2.1,
+     "buffer_ref": 3.4,
+     "p_mod": 0.972,
+     "p_fin": 0.943,
+     "kal": 1.02,
+     "fair_fin": 1.06,
+     "ladder_fin": [
+      [
+       5.5,
+       1.06
+      ],
+      [
+       6.5,
+       1.02
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.06",
+     "first_run": "Di 10:00",
+     "change_note": "Quoten vorher 1.28–1.61"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13172117",
+    "league": "Honduras Reserve League",
+    "league_id": "29195",
+    "home": "Real Espana Reserves",
+    "away": "Lobos UPNFM Reserves",
+    "home_id": "678423",
+    "away_id": "681150",
+    "kickoff": "Di 23:00",
+    "kickoff_ts": 1790110800,
+    "bet365_id": "201634853"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "Real Espana Reserves 0/2 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+     "longterm": [
+      0.6742507048130105,
+      0.9199482161234366
+     ],
+     "fair": 1.37,
+     "ladder": [
+      [
+       1.5,
+       1.19
+      ],
+      [
+       2.5,
+       1.37
+      ]
+     ],
+     "avg": [
+      3.0,
+      4.6
+     ],
+     "expect_sum": 3.8,
+     "expect_matchup": 4.7,
+     "contrib": [
+      3.7,
+      1.0
+     ],
+     "expect": 4.3,
+     "buffer": 1.8,
+     "fa": [
+      [
+       2.0,
+       1.4
+      ],
+      [
+       2.3,
+       2.0
+      ]
+     ],
+     "sd": 2.16,
+     "p_emp": {
+      "1.5": 0.8403361344537815,
+      "2.5": 0.7299270072992701
+     },
+     "no_odds_check": true,
+     "p_mod": 0.798,
+     "p_fin": 0.718,
+     "kal": 0.94,
+     "fair_fin": 1.39,
+     "ladder_fin": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.39
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.39",
+     "first_run": "Di 10:00"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12177636",
+    "league": "Colombia Primera B",
+    "league_id": "255",
+    "home": "Atletico Cali FC",
+    "away": "Tigres FC",
+    "home_id": "1386",
+    "away_id": "6411",
+    "kickoff": "Di 23:00",
+    "kickoff_ts": 1790110800,
+    "bet365_id": "201443279"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      48,
+      45
+     ],
+     "next_line": 8.5,
+     "next_note": "Tigres FC 8/10 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.7790755702208136,
+      0.7105578623658528
+     ],
+     "fair": 1.37,
+     "ladder": [
+      [
+       6.5,
+       1.39
+      ],
+      [
+       7.5,
+       1.37
+      ]
+     ],
+     "avg": [
+      9.9,
+      10.0
+     ],
+     "expect_sum": 10.0,
+     "expect_matchup": 8.6,
+     "contrib": [
+      5.5,
+      3.2
+     ],
+     "expect": 9.3,
+     "buffer": 1.8,
+     "fa": [
+      [
+       3.3,
+       6.2
+      ],
+      [
+       3.2,
+       5.8
+      ]
+     ],
+     "sd": 3.48,
+     "p_emp": {
+      "6.5": 0.7194244604316548,
+      "7.5": 0.7299270072992701
+     },
+     "range": [
+      1.77,
+      2.07
+     ],
+     "b365": [
+      "8.5",
+      "1.775",
+      "2.025"
+     ],
+     "p_mod": 0.698,
+     "p_fin": 0.678,
+     "kal": 0.95,
+     "fair_fin": 1.47,
+     "ladder_fin": [
+      [
+       6.5,
+       1.4
+      ],
+      [
+       7.5,
+       1.47
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "68 % knapp",
+     "first_run": "Di 08:11",
+     "change_note": "Quoten vorher 1.33–1.80"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13151573",
+    "league": "USA College Championship",
+    "league_id": "536",
+    "home": "Campbell",
+    "away": "Winthrop Eagles",
+    "home_id": "937766",
+    "away_id": "1080087",
+    "kickoff": "Mi 00:00",
+    "kickoff_ts": 1790114400,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      28,
+      25
+     ],
+     "next_line": 3.5,
+     "next_note": "Campbell 0/2 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; Winthrop Eagles 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.7433100041766822,
+      0.6639611688355573
+     ],
+     "fair": 1.51,
+     "ladder": [
+      [
+       1.5,
+       1.2
+      ],
+      [
+       2.5,
+       1.51
+      ]
+     ],
+     "avg": [
+      3.3,
+      3.1
+     ],
+     "expect_sum": 3.2,
+     "expect_matchup": 3.4,
+     "contrib": [
+      2.3,
+      1.0
+     ],
+     "expect": 3.3,
+     "buffer": 0.8,
+     "fa": [
+      [
+       1.8,
+       1.5
+      ],
+      [
+       1.1,
+       2.0
+      ]
+     ],
+     "sd": 1.9,
+     "p_emp": {
+      "1.5": 0.8333333333333334,
+      "2.5": 0.6622516556291391
+     },
+     "no_odds_check": true,
+     "p_mod": 0.663,
+     "p_fin": 0.623,
+     "kal": 0.94,
+     "fair_fin": 1.61,
+     "ladder_fin": [
+      [
+       1.5,
+       1.28
+      ],
+      [
+       2.5,
+       1.61
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "62 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13151570",
+    "league": "USA College Championship",
+    "league_id": "536",
+    "home": "East Tennessee State",
+    "away": "Presbyterian",
+    "home_id": "1079249",
+    "away_id": "937769",
+    "kickoff": "Mi 00:00",
+    "kickoff_ts": 1790114400,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      27,
+      30
+     ],
+     "next_line": 3.5,
+     "next_note": "East Tennessee State 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.6230737582289018,
+      0.6044489218060835
+     ],
+     "fair": 1.66,
+     "ladder": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.66
+      ]
+     ],
+     "avg": [
+      4.1,
+      3.6
+     ],
+     "expect_sum": 3.9,
+     "expect_matchup": 4.5,
+     "contrib": [
+      3.2,
+      1.3
+     ],
+     "expect": 4.2,
+     "buffer": 1.7,
+     "fa": [
+      [
+       1.5,
+       2.0
+      ],
+      [
+       1.1,
+       2.0
+      ]
+     ],
+     "sd": 2.07,
+     "p_emp": {
+      "1.5": 0.819672131147541,
+      "2.5": 0.6024096385542169
+     },
+     "no_odds_check": true,
+     "p_mod": 0.794,
+     "p_fin": 0.656,
+     "kal": 0.94,
+     "fair_fin": 1.52,
+     "ladder_fin": [
+      [
+       1.5,
+       1.23
+      ],
+      [
+       2.5,
+       1.52
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "66 % knapp; Historie 60 % vs. Modell 79 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13130247",
+    "league": "Colombia Primera A",
+    "league_id": "254",
+    "home": "Independiente Medellin",
+    "away": "Jaguares de Cordoba",
+    "home_id": "1430",
+    "away_id": "1454",
+    "kickoff": "Mi 01:00",
+    "kickoff_ts": 1790118000,
+    "bet365_id": "200540620"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      47
+     ],
+     "next_line": 5.5,
+     "next_note": "Independiente Medellin 7/9 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Jaguares de Cordoba 1/3 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+     "longterm": [
+      0.806257119635981,
+      0.6911182770749381
+     ],
+     "fair": 1.27,
+     "ladder": [
+      [
+       6.5,
+       1.27
+      ],
+      [
+       7.5,
+       1.36
+      ]
+     ],
+     "avg": [
+      4.4,
+      5.4
+     ],
+     "expect_sum": 4.9,
+     "expect_matchup": 6.2,
+     "contrib": [
+      2.8,
+      3.4
+     ],
+     "expect": 5.6,
+     "buffer": 0.9,
+     "fa": [
+      [
+       2.5,
+       2.2
+      ],
+      [
+       3.1,
+       2.6
+      ]
+     ],
+     "sd": 2.31,
+     "p_emp": {
+      "6.5": 0.7874015748031495,
+      "7.5": 0.7352941176470588
+     },
+     "range": [
+      1.36,
+      1.77
+     ],
+     "referee": "Andres Rojas: Ø 5.4 Karten (34 Sp.) · Ø 24.6 Fouls (22 Sp.)",
+     "expect_ref": 7.5,
+     "buffer_ref": -1.0,
+     "p_mod": 0.333,
+     "p_fin": 0.571,
+     "kal": 1.02,
+     "fair_fin": 1.75,
+     "ladder_fin": [
+      [
+       6.5,
+       1.75
+      ],
+      [
+       7.5,
+       1.59
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "nur 57 % Wahrscheinlichkeit"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      47
+     ],
+     "next_line": 1.5,
+     "next_note": "Independiente Medellin 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.7608411838728975,
+      0.9168244906729359
+     ],
+     "fair": 1.25,
+     "ladder": [
+      [
+       0.5,
+       1.25
+      ]
+     ],
+     "avg": [
+      1.4,
+      2.1
+     ],
+     "expect_sum": 1.8,
+     "expect_matchup": 2.3,
+     "contrib": [
+      0.9,
+      1.3
+     ],
+     "expect": 2.0,
+     "buffer": 1.5,
+     "fa": [
+      [
+       1.0,
+       0.8
+      ],
+      [
+       1.0,
+       1.0
+      ]
+     ],
+     "sd": 1.24,
+     "p_emp": {
+      "0.5": 0.8
+     },
+     "range": [
+      1.36,
+      1.77
+     ],
+     "referee": "Andres Rojas: Ø 5.4 Karten (34 Sp.) · Ø 24.6 Fouls (22 Sp.)",
+     "expect_ref": 7.1,
+     "buffer_ref": 6.6,
+     "p_mod": 1.0,
+     "p_fin": 0.873,
+     "kal": 0.97,
+     "fair_fin": 1.15,
+     "ladder_fin": [
+      [
+       0.5,
+       1.15
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 80 % vs. Modell 100 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12099621",
+    "league": "Colombia Primera A",
+    "league_id": "254",
+    "home": "Independiente Santa Fe",
+    "away": "Deportivo Cali",
+    "home_id": "1492",
+    "away_id": "4122",
+    "kickoff": "Mi 03:00",
+    "kickoff_ts": 1790125200,
+    "bet365_id": "200540672"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 3.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      39,
+      41
+     ],
+     "next_line": 4.5,
+     "next_note": "Independiente Santa Fe 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+     "longterm": [
+      0.6942207359863362,
+      0.8104778458004318
+     ],
+     "fair": 1.49,
+     "ladder": [
+      [
+       2.5,
+       1.25
+      ],
+      [
+       3.5,
+       1.49
+      ]
+     ],
+     "avg": [
+      4.3,
+      5.9
+     ],
+     "expect_sum": 5.1,
+     "expect_matchup": 6.6,
+     "contrib": [
+      3.1,
+      3.5
+     ],
+     "expect": 5.9,
+     "buffer": 2.4,
+     "fa": [
+      [
+       2.1,
+       2.6
+      ],
+      [
+       2.8,
+       3.4
+      ]
+     ],
+     "sd": 2.54,
+     "p_emp": {
+      "2.5": 0.8,
+      "3.5": 0.6711409395973155
+     },
+     "range": [
+      1.37,
+      1.9
+     ],
+     "p_mod": 0.828,
+     "p_fin": 0.712,
+     "kal": 0.95,
+     "fair_fin": 1.4,
+     "ladder_fin": [
+      [
+       2.5,
+       1.23
+      ],
+      [
+       3.5,
+       1.4
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 67 % vs. Modell 83 %"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      41,
+      41
+     ],
+     "next_line": 1.5,
+     "next_note": "Independiente Santa Fe 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Deportivo Cali 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8021763783307498,
+      0.826599069932975
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       0.5,
+       1.29
+      ]
+     ],
+     "avg": [
+      1.7,
+      1.8
+     ],
+     "expect_sum": 1.8,
+     "expect_matchup": 2.4,
+     "contrib": [
+      1.0,
+      1.3
+     ],
+     "expect": 2.1,
+     "buffer": 1.6,
+     "fa": [
+      [
+       0.8,
+       0.7
+      ],
+      [
+       1.0,
+       1.2
+      ]
+     ],
+     "sd": 1.22,
+     "p_emp": {
+      "0.5": 0.7751937984496123
+     },
+     "range": [
+      1.37,
+      1.9
+     ],
+     "p_mod": 0.905,
+     "p_fin": 0.815,
+     "kal": 0.97,
+     "fair_fin": 1.23,
+     "ladder_fin": [
+      [
+       0.5,
+       1.23
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 78 % vs. Modell 91 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13005062",
+    "league": "Asian Games",
+    "league_id": "28913",
+    "home": "China U23",
+    "away": "UAE U23",
+    "home_id": "160496",
+    "away_id": "160188",
+    "kickoff": "Mi 07:30",
+    "kickoff_ts": 1790141400,
+    "bet365_id": "201627329"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      42,
+      42
+     ],
+     "next_line": 4.5,
+     "next_note": "UAE U23 8/10 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+     "longterm": [
+      0.8668799175646363,
+      0.8714168598542423
+     ],
+     "fair": 1.19,
+     "ladder": [
+      [
+       5.5,
+       1.19
+      ],
+      [
+       6.5,
+       1.09
+      ]
+     ],
+     "avg": [
+      3.0,
+      3.3
+     ],
+     "expect_sum": 3.2,
+     "expect_matchup": 2.6,
+     "contrib": [
+      1.3,
+      1.3
+     ],
+     "expect": 2.9,
+     "buffer": 2.6,
+     "fa": [
+      [
+       1.9,
+       1.4
+      ],
+      [
+       1.7,
+       1.9
+      ]
+     ],
+     "sd": 1.84,
+     "p_emp": {
+      "5.5": 0.8403361344537815,
+      "6.5": 0.9174311926605504
+     },
+     "range": [
+      1.28,
+      1.37
+     ],
+     "p_mod": 0.921,
+     "p_fin": 0.898,
+     "kal": 1.02,
+     "fair_fin": 1.11,
+     "ladder_fin": [
+      [
+       5.5,
+       1.11
+      ],
+      [
+       6.5,
+       1.04
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.11"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13175497",
+    "league": "India Mumbai Super Division",
+    "league_id": "9433",
+    "home": "CFCI U19",
+    "away": "Kopana FC",
+    "home_id": "255646",
+    "away_id": "921655",
+    "kickoff": "Mi 08:00",
+    "kickoff_ts": 1790143200,
+    "bet365_id": "201635453"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      27,
+      20
+     ],
+     "next_line": 3.5,
+     "next_note": "Kopana FC 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.9769070386579285,
+      0.7357183336871986
+     ],
+     "fair": 1.31,
+     "ladder": [
+      [
+       1.5,
+       1.1
+      ],
+      [
+       2.5,
+       1.31
+      ]
+     ],
+     "avg": [
+      5.1,
+      4.3
+     ],
+     "expect_sum": 4.7,
+     "expect_matchup": 7.0,
+     "contrib": [
+      4.2,
+      2.8
+     ],
+     "expect": 5.8,
+     "buffer": 3.3,
+     "fa": [
+      [
+       2.9,
+       1.9
+      ],
+      [
+       2.1,
+       2.0
+      ]
+     ],
+     "sd": 2.06,
+     "p_emp": {
+      "1.5": 0.9090909090909091,
+      "2.5": 0.7633587786259541
+     },
+     "no_odds_check": true,
+     "p_mod": 0.945,
+     "p_fin": 0.803,
+     "kal": 0.94,
+     "fair_fin": 1.25,
+     "ladder_fin": [
+      [
+       1.5,
+       1.13
+      ],
+      [
+       2.5,
+       1.25
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 76 % vs. Modell 95 %"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "doublechance": 66,
+  "totals": 74,
+  "handicaps": 37,
+  "results": 49,
+  "correctscore": 9,
+  "corners": 23,
+  "btts": 36,
+  "cards": 5,
+  "shots": 2,
+  "offsides": 2,
+  "fouls": 2
+ },
+ "dauer_s": 137,
+ "zeit": {
+  "historie": 769,
+  "pruefung": 0,
+  "scores24": 41,
+  "extras": 44,
+  "vorlauf": 64,
+  "spiele": 72
+ },
+ "teams_nachgeladen": 88,
+ "s24": {
+  "ok": 74,
+  "no_link": 13,
+  "fetch_fail": 9
+ },
+ "new": [
+  "13151573|goals|über",
+  "13151570|goals|über",
+  "13130247|yellowcards|unter",
+  "13130247|ht_yellowcards|über",
+  "12099621|yellowcards|über",
+  "12099621|ht_yellowcards|über",
+  "13005062|yellowcards|unter",
+  "13175497|goals|über"
+ ],
+ "changed": [
+  "13088413|yellowcards|unter",
+  "13083809|corners|über",
+  "13083809|yellowcards|unter",
+  "12177636|corners|über"
+ ],
+ "dropped": [],
+ "team_totals": [
+  {
+   "match": {
+    "id": "12263742",
+    "league": "Scotland League Challenge Cup",
+    "league_id": "612",
+    "home": "East Kilbride",
+    "away": "Celtic B",
+    "home_id": "3952",
+    "away_id": "523227",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1790102700,
+    "bet365_id": "201525474"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "East Kilbride",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7522,
+    "fair": 1.33,
+    "p_emp": 0.708,
+    "p_mod": 0.796,
+    "erwartet": 5.6,
+    "basis": 44
+   }
+  },
+  {
+   "match": {
+    "id": "12263722",
+    "league": "Scotland League Challenge Cup",
+    "league_id": "612",
+    "home": "Fraserburgh",
+    "away": "Cove Rangers",
+    "home_id": "3975",
+    "away_id": "45639",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1790102700,
+    "bet365_id": "201525494"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Fraserburgh",
+    "line": 4.5,
+    "direction": "über",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7026,
+    "fair": 1.42,
+    "p_emp": 0.619,
+    "p_mod": 0.786,
+    "erwartet": 7.2,
+    "basis": 36
+   }
+  },
+  {
+   "match": {
+    "id": "13088413",
+    "league": "UEFA Women's Champions League",
+    "league_id": "38927",
+    "home": "Juventus (W)",
+    "away": "Benfica (W)",
+    "home_id": "1177718",
+    "away_id": "1185849",
+    "kickoff": "Di 21:00",
+    "kickoff_ts": 1790103600,
+    "bet365_id": "201583905"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "heim",
+    "team": "Juventus (W)",
+    "line": 1.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.6771,
+    "fair": 1.48,
+    "p_emp": 0.626,
+    "p_mod": 0.728,
+    "erwartet": 1.0,
+    "basis": 49
+   }
+  },
+  {
+   "match": {
+    "id": "13088413",
+    "league": "UEFA Women's Champions League",
+    "league_id": "38927",
+    "home": "Juventus (W)",
+    "away": "Benfica (W)",
+    "home_id": "1177718",
+    "away_id": "1185849",
+    "kickoff": "Di 21:00",
+    "kickoff_ts": 1790103600,
+    "bet365_id": "201583905"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "gast",
+    "team": "Benfica (W)",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.8342,
+    "fair": 1.2,
+    "p_emp": 0.784,
+    "p_mod": 0.884,
+    "erwartet": 1.0,
+    "basis": 49
+   }
+  },
+  {
+   "match": {
+    "id": "13083809",
+    "league": "UEFA Women's Champions League",
+    "league_id": "38927",
+    "home": "Real Madrid (W)",
+    "away": "PSG (W)",
+    "home_id": "1177728",
+    "away_id": "1177490",
+    "kickoff": "Di 21:00",
+    "kickoff_ts": 1790103600,
+    "bet365_id": "201583910"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Real Madrid (W)",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7675,
+    "fair": 1.3,
+    "p_emp": 0.739,
+    "p_mod": 0.796,
+    "erwartet": 6.4,
+    "basis": 48
+   }
+  },
+  {
+   "match": {
+    "id": "13083809",
+    "league": "UEFA Women's Champions League",
+    "league_id": "38927",
+    "home": "Real Madrid (W)",
+    "away": "PSG (W)",
+    "home_id": "1177728",
+    "away_id": "1177490",
+    "kickoff": "Di 21:00",
+    "kickoff_ts": 1790103600,
+    "bet365_id": "201583910"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "heim",
+    "team": "Real Madrid (W)",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.8015,
+    "fair": 1.25,
+    "p_emp": 0.786,
+    "p_mod": 0.817,
+    "erwartet": 1.3,
+    "basis": 48
+   }
+  },
+  {
+   "match": {
+    "id": "13083809",
+    "league": "UEFA Women's Champions League",
+    "league_id": "38927",
+    "home": "Real Madrid (W)",
+    "away": "PSG (W)",
+    "home_id": "1177728",
+    "away_id": "1177490",
+    "kickoff": "Di 21:00",
+    "kickoff_ts": 1790103600,
+    "bet365_id": "201583910"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "gast",
+    "team": "PSG (W)",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7736,
+    "fair": 1.29,
+    "p_emp": 0.758,
+    "p_mod": 0.79,
+    "erwartet": 1.6,
+    "basis": 45
+   }
+  },
+  {
+   "match": {
+    "id": "11417105",
+    "league": "Brazil Serie B",
+    "league_id": "328",
+    "home": "Criciuma",
+    "away": "Operario PR",
+    "home_id": "3164",
+    "away_id": "160517",
+    "kickoff": "Mi 00:30",
+    "kickoff_ts": 1790116200,
+    "bet365_id": "200932968"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Criciuma",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.8333,
+    "fair": 1.2,
+    "p_emp": 0.762,
+    "p_mod": 0.905,
+    "erwartet": 6.6,
+    "basis": 50
+   }
+  }
+ ],
+ "neue_maerkte": []
+}
