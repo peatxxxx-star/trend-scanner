@@ -1897,7 +1897,9 @@ def quoten_probe():
     raw["b365"] = {}
     B365_SPORT = {1: "Fußball", 17: "Eishockey", 18: "Basketball"}
 
-    def walk(node, out, pfad="", depth=0):
+    walk = b365_walk
+
+    def _unused_walk(node, out, pfad="", depth=0):
         """Alle Märkte einer bet365-Prematch-Antwort: Abschnitt → Marktname → Beispiel-Quoten."""
         if depth > 8:
             return
@@ -1970,6 +1972,32 @@ def quoten_probe():
 #      eine Serien-Regel überhaupt aufsetzen)?
 # Kostet rund 10 Anfragen je Sportart. Aufruf: python3 handball.py sportarten
 # ---------------------------------------------------------------------------
+def b365_walk(node, out, pfad="", depth=0):
+    """Alle Märkte einer bet365-Prematch-Antwort einsammeln:
+    (Abschnitt, Marktname, Anzahl Quoten, Beispiele). Modulweit nutzbar (22.09.)."""
+    if depth > 8:
+        return
+    if isinstance(node, dict):
+        sp = node.get("sp")
+        if isinstance(sp, dict):
+            for mk, mv in sp.items():
+                if isinstance(mv, dict):
+                    odds = mv.get("odds") or []
+                    bsp = [(o.get("name"), o.get("header"), o.get("handicap"), o.get("odds"))
+                           for o in odds[:6] if isinstance(o, dict)]
+                    out.append((pfad, mv.get("name") or mk, len(odds), bsp))
+                elif isinstance(mv, list):
+                    out.append((pfad, mk, len(mv),
+                                [(o.get("name"), o.get("header"), o.get("handicap"), o.get("odds"))
+                                 for o in mv[:6] if isinstance(o, dict)]))
+        for k, v in node.items():
+            if k != "sp":
+                b365_walk(v, out, f"{pfad}/{k}" if pfad else str(k), depth + 1)
+    elif isinstance(node, list):
+        for v in node:
+            b365_walk(v, out, pfad, depth + 1)
+
+
 ALLE_SPORTS = [(1, "Fußball"), (18, "Basketball"), (13, "Tennis"), (17, "Eishockey"),
                (16, "Baseball"), (12, "American Football"), (78, "Handball"),
                (91, "Volleyball"), (92, "Tischtennis"), (3, "Cricket"),
@@ -2006,16 +2034,21 @@ def sportarten_rundgang():
             bl = api_get("/v1/bet365/upcoming", sport_id=sid, day=tag, page=1, _token=b365)
             res = bl.get("results") or []
             n_b365 = int((bl.get("pager") or {}).get("total") or len(res))
-            for ev in res[:3]:
-                fi = ev.get("bet365_id") or ev.get("id")
+            fehler = ""
+            for ev in sorted(res, key=lambda e: int(e.get("time") or 0))[:3]:
+                fi = ev.get("id")
                 try:
                     pm = api_get("/v1/bet365/prematch", FI=fi, _token=b365)
-                    for blk in (pm.get("results") or []):
-                        for sec in (blk if isinstance(blk, list) else [blk]):
-                            for k in (sec.get("sp") or {}):
-                                maerkte[k] += 1
-                except Exception:
-                    pass
+                    gef = []
+                    b365_walk(pm.get("results") or [], gef)
+                    for _pfad, mname, n_odds, _bsp in gef:
+                        if n_odds:
+                            maerkte[str(mname)] += 1
+                except Exception as exc:
+                    fehler = f"{type(exc).__name__}: {str(exc)[:60]}"
+            if not maerkte and fehler:
+                zeilen.append(f"{name:18} {n_up:5} Spiele · bet365 {n_b365:5} · Katalog-Fehler {fehler}")
+                continue
         except Exception as exc:
             zeilen.append(f"{name:18} {n_up:5} Spiele · bet365: kein Zugriff ({str(exc)[:40]})"); continue
         # Statistikfelder eines beendeten Spiels
@@ -2030,7 +2063,7 @@ def sportarten_rundgang():
                     if e.get("scores"): felder.add("scores/Abschnitte")
         except Exception:
             pass
-        top = ", ".join(k for k, _ in maerkte.most_common(12)) or "—"
+        top = ", ".join(f"{k}" for k, _ in maerkte.most_common(14)) or "— (keine Quoten im Katalog)"
         zeilen.append(f"{name:18} {n_up:5} Spiele · bet365 {n_b365:5}")
         zeilen.append(f"   Märkte: {top[:260]}")
         zeilen.append(f"   Statistik: {', '.join(sorted(felder)[:16]) or '—'}")
