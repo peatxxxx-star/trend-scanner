@@ -1960,6 +1960,90 @@ def quoten_probe():
     print(f"\n{_requests} Anfragen")
 
 
+# ---------------------------------------------------------------------------
+# SPORTARTEN-RUNDGANG (22.09.) — Lucio: "haben wir Quoten mit in der API, will
+# dass du alle Sportarten mal abklapperst". Für JEDE Sportart von BetsAPI:
+#   1) wie viele Spiele stehen morgen an?
+#   2) führt bet365 sie (Brücke über /v1/bet365/upcoming)?
+#   3) welche Marktfamilien liefert der bet365-Prematch-Katalog?
+#   4) welche Statistikfelder liefert ein beendetes Spiel (= worauf könnte
+#      eine Serien-Regel überhaupt aufsetzen)?
+# Kostet rund 10 Anfragen je Sportart. Aufruf: python3 handball.py sportarten
+# ---------------------------------------------------------------------------
+ALLE_SPORTS = [(1, "Fußball"), (18, "Basketball"), (13, "Tennis"), (17, "Eishockey"),
+               (16, "Baseball"), (12, "American Football"), (78, "Handball"),
+               (91, "Volleyball"), (92, "Tischtennis"), (3, "Cricket"),
+               (8, "Rugby Union"), (19, "Rugby League"), (36, "Aussie Rules"),
+               (75, "Darts"), (14, "Snooker"), (94, "Badminton"),
+               (95, "Beachvolleyball"), (107, "Wasserball"), (110, "Bowls"),
+               (162, "MMA"), (151, "E-Sports"), (66, "Futsal")]
+
+
+def sportarten_rundgang():
+    from datetime import date as _date
+    tag = (datetime.now(timezone.utc) + timedelta(days=1)).strftime("%Y%m%d")
+    zeilen = ["🔎 SPORTARTEN-RUNDGANG — was liefert die API je Sportart?",
+              f"Stichtag {tag} · Quellen: /v3/events/upcoming, /v1/bet365/upcoming,"
+              f" /v1/bet365/prematch, /v3/events/ended + /v1/event/view", ""]
+    b365 = os.environ.get("BETSAPI_TOKEN_B365") or TOKEN
+    for sid, name in ALLE_SPORTS:
+        try:
+            up = api_get("/v3/events/upcoming", sport_id=sid, day=tag, page=1)
+            n_up = int((up.get("pager") or {}).get("total") or len(up.get("results") or []))
+        except Exception as exc:
+            zeilen.append(f"{name:18} — kein Zugriff ({str(exc)[:60]})"); continue
+        if not n_up:
+            zeilen.append(f"{name:18} — morgen keine Spiele"); continue
+        # bet365-Brücke
+        n_b365, maerkte = 0, Counter()
+        try:
+            bl = api_get("/v1/bet365/upcoming", sport_id=sid, day=tag, page=1, _token=b365)
+            res = bl.get("results") or []
+            n_b365 = int((bl.get("pager") or {}).get("total") or len(res))
+            for ev in res[:3]:
+                fi = ev.get("bet365_id") or ev.get("id")
+                try:
+                    pm = api_get("/v1/bet365/prematch", FI=fi, _token=b365)
+                    for blk in (pm.get("results") or []):
+                        for sec in (blk if isinstance(blk, list) else [blk]):
+                            for k in (sec.get("sp") or {}):
+                                maerkte[k] += 1
+                except Exception:
+                    pass
+        except Exception as exc:
+            zeilen.append(f"{name:18} {n_up:5} Spiele · bet365: kein Zugriff ({str(exc)[:40]})"); continue
+        # Statistikfelder eines beendeten Spiels
+        felder = set()
+        try:
+            gestern = (datetime.now(timezone.utc) - timedelta(days=1)).strftime("%Y%m%d")
+            en = api_get("/v3/events/ended", sport_id=sid, day=gestern, page=1).get("results") or []
+            for ev in en[:2]:
+                v = api_get("/v1/event/view", event_id=ev.get("id")).get("results") or []
+                for e in v:
+                    felder |= set((e.get("stats") or {}).keys())
+                    if e.get("scores"): felder.add("scores/Abschnitte")
+        except Exception:
+            pass
+        top = ", ".join(k for k, _ in maerkte.most_common(12)) or "—"
+        zeilen.append(f"{name:18} {n_up:5} Spiele · bet365 {n_b365:5}")
+        zeilen.append(f"   Märkte: {top[:260]}")
+        zeilen.append(f"   Statistik: {', '.join(sorted(felder)[:16]) or '—'}")
+        zeilen.append("")
+        print(zeilen[-4], flush=True)
+    txt = "\n".join(zeilen)
+    print(txt)
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / f"sportarten_{datetime.now(timezone.utc):%Y-%m-%d}.txt").write_text(txt, encoding="utf-8")
+    try:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("scan", Path(__file__).parent / "scan.py")
+        scan = importlib.util.module_from_spec(spec); spec.loader.exec_module(scan)
+        for teil in scan.split_message("<pre>" + scan.esc(txt) + "</pre>"):
+            scan.send_telegram(teil)
+    except Exception as exc:
+        print("Telegram:", exc)
+
+
 def regel_modus():
     """22.09.: Die Eishockey-Gast-Abwehr-Regel gegen echte Daten nachrechnen —
     einmal über das ganze geladene Fenster und einmal getrennt ab dem Stichtag,
@@ -2016,6 +2100,11 @@ def regel_modus():
 
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1].strip().lower() == "sportarten":
+        if not TOKEN:
+            sys.exit("BETSAPI_TOKEN fehlt")
+        sportarten_rundgang()
+        return
     if len(sys.argv) > 1 and sys.argv[1].strip().lower() == "regel":
         regel_modus()
         return
