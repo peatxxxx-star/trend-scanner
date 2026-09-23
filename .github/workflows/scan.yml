@@ -115,6 +115,11 @@ jobs:
           SHOTSCHECK: ${{ inputs.modus == 'schuesse' && '1' || '0' }}
           BACKTEST: ${{ inputs.modus == 'backtest' && '1' || '0' }}
           BACKTEST_TAG: ${{ inputs.datum }}
+          # 23.09.: Token-Check — ein Push mit "Tokencheck" in der Commit-Nachricht
+          # testet alle hinterlegten Tokens und meldet nur OK/Fehler.
+          TOKENCHECK: ${{ contains(github.event.head_commit.message, 'Tokencheck') && '1' || '0' }}
+          BETSAPI_TOKEN_TRIAL_RAW: ${{ secrets.BETSAPI_TOKEN_TRIAL }}
+          BETSAPI_TOKEN_B365_RAW: ${{ secrets.BETSAPI_TOKEN_B365 }}
           # FORCE=1 = Mindestabstand ignorieren: beim letzten Lauf des Tages
           # (21:17 deutscher Zeit) und bei jedem Start von Hand / per scan_now.
           FORCE: ${{ (github.event_name != 'schedule' || github.event.schedule == '17 19 * * *') && '1' || '0' }}

@@ -4948,7 +4948,36 @@ def letzter_lauf_min() -> float:
     return (datetime.now(timezone.utc) - neuste).total_seconds() / 60
 
 
+def token_check():
+    """23.09.: Welcher hinterlegte Token funktioniert noch? Testet jeden einmal
+    gegen einen billigen Endpunkt und meldet nur OK / Fehlercode — nie den Wert."""
+    zeilen = ["🔑 <b>TOKEN-CHECK</b>"]
+    for name in ("BETSAPI_TOKEN", "BETSAPI_TOKEN_TRIAL_RAW", "BETSAPI_TOKEN_B365_RAW"):
+        tok = os.environ.get(name, "")
+        anzeige = name.replace("_RAW", "")
+        if not tok:
+            zeilen.append(f"{anzeige}: nicht gesetzt"); continue
+        url = f"{API}/v3/events/upcoming?sport_id=1&page=1&token={urllib.parse.quote(tok)}"
+        try:
+            with urllib.request.urlopen(url, timeout=30) as r:
+                d = json.loads(r.read().decode("utf-8"))
+            if d.get("success") == 1:
+                zeilen.append(f"{anzeige}: ✅ funktioniert ({len(d.get('results') or [])} Spiele)")
+            else:
+                zeilen.append(f"{anzeige}: ❌ API-Fehler {d.get('error')}")
+        except urllib.error.HTTPError as exc:
+            zeilen.append(f"{anzeige}: ❌ HTTP {exc.code}")
+        except Exception as exc:
+            zeilen.append(f"{anzeige}: ❌ {type(exc).__name__}")
+    txt = "\n".join(zeilen)
+    print(re.sub(r"<[^>]+>", "", txt))
+    send_telegram(txt)
+
+
 def _run():
+    if os.environ.get("TOKENCHECK") == "1":
+        token_check()
+        return
     if not TOKEN:
         sys.exit("BETSAPI_TOKEN fehlt")
     if os.environ.get("FORCE") != "1" and not is_prewarm_run():
