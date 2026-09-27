@@ -1,0 +1,1630 @@
+{
+ "run_utc": "2026-09-27T19:02:16+00:00",
+ "matches_checked": 108,
+ "requests": 191,
+ "hits": [
+  {
+   "match": {
+    "id": "12309578",
+    "league": "Chile Segunda",
+    "league_id": "686",
+    "home": "AC Colina",
+    "away": "Real Juventud San Joaquin",
+    "home_id": "7400",
+    "away_id": "6483",
+    "kickoff": "So 22:00",
+    "kickoff_ts": 1790539200,
+    "bet365_id": "201819882"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      50,
+      46
+     ],
+     "next_line": 9.5,
+     "next_note": "Real Juventud San Joaquin 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.7418603246328966,
+      0.5251432154629465
+     ],
+     "fair": 1.63,
+     "ladder": [
+      [
+       7.5,
+       1.4
+      ],
+      [
+       8.5,
+       1.63
+      ]
+     ],
+     "avg": [
+      12.6,
+      9.8
+     ],
+     "expect_sum": 11.2,
+     "expect_matchup": 12.6,
+     "contrib": [
+      7.1,
+      5.5
+     ],
+     "expect": 11.9,
+     "buffer": 3.4,
+     "fa": [
+      [
+       6.2,
+       4.6
+      ],
+      [
+       5.1,
+       4.0
+      ]
+     ],
+     "sd": 3.73,
+     "p_emp": {
+      "7.5": 0.7142857142857143,
+      "8.5": 0.6134969325153374
+     },
+     "range": [
+      1.69,
+      1.69
+     ],
+     "b365": [
+      "10.0",
+      "2.000",
+      "1.800"
+     ],
+     "p_mod": 0.819,
+     "p_fin": 0.68,
+     "kal": 0.95,
+     "fair_fin": 1.47,
+     "ladder_fin": [
+      [
+       7.5,
+       1.32
+      ],
+      [
+       8.5,
+       1.47
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 61 % vs. Modell 82 %",
+     "first_run": "So 08:39"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13191167",
+    "league": "International Match",
+    "league_id": "250",
+    "home": "Bolivia",
+    "away": "Paraguay",
+    "home_id": "4541",
+    "away_id": "4602",
+    "kickoff": "So 22:30",
+    "kickoff_ts": 1790541000,
+    "bet365_id": "201815799"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      50
+     ],
+     "next_line": 4.5,
+     "next_note": "Bolivia 2/4 (3. Lücke) gesamt, 8/10 (3. Lücke) heim",
+     "longterm": [
+      0.8523959878992957,
+      0.7596981502001432
+     ],
+     "fair": 1.26,
+     "ladder": [
+      [
+       5.5,
+       1.26
+      ],
+      [
+       6.5,
+       1.12
+      ]
+     ],
+     "avg": [
+      3.4,
+      3.5
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 3.2,
+     "contrib": [
+      1.2,
+      2.0
+     ],
+     "expect": 3.4,
+     "buffer": 2.1,
+     "fa": [
+      [
+       1.8,
+       1.5
+      ],
+      [
+       2.0,
+       1.8
+      ]
+     ],
+     "sd": 2.09,
+     "p_emp": {
+      "5.5": 0.7936507936507936,
+      "6.5": 0.8928571428571428
+     },
+     "range": [
+      1.19,
+      2.26
+     ],
+     "p_mod": 0.842,
+     "p_fin": 0.834,
+     "kal": 1.02,
+     "fair_fin": 1.2,
+     "ladder_fin": [
+      [
+       5.5,
+       1.2
+      ],
+      [
+       6.5,
+       1.08
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.20",
+     "first_run": "So 12:10"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12099981",
+    "league": "Colombia Primera A",
+    "league_id": "254",
+    "home": "Jaguares de Cordoba",
+    "away": "Alianza",
+    "home_id": "1454",
+    "away_id": "969634",
+    "kickoff": "So 23:00",
+    "kickoff_ts": 1790542800,
+    "bet365_id": "200540728"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      47,
+      43
+     ],
+     "next_line": 8.5,
+     "next_note": "Alianza 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.6936191019122092,
+      0.672444829990133
+     ],
+     "fair": 1.47,
+     "ladder": [
+      [
+       6.5,
+       1.42
+      ],
+      [
+       7.5,
+       1.47
+      ]
+     ],
+     "avg": [
+      10.1,
+      8.9
+     ],
+     "expect_sum": 9.5,
+     "expect_matchup": 9.6,
+     "contrib": [
+      5.8,
+      3.8
+     ],
+     "expect": 9.6,
+     "buffer": 2.1,
+     "fa": [
+      [
+       3.9,
+       4.8
+      ],
+      [
+       4.2,
+       4.6
+      ]
+     ],
+     "sd": 3.1,
+     "p_emp": {
+      "6.5": 0.7042253521126761,
+      "7.5": 0.6802721088435374
+     },
+     "range": [
+      1.23,
+      1.775
+     ],
+     "b365": [
+      "8.5",
+      "1.775",
+      "2.025"
+     ],
+     "p_mod": 0.751,
+     "p_fin": 0.68,
+     "kal": 0.95,
+     "fair_fin": 1.47,
+     "ladder_fin": [
+      [
+       6.5,
+       1.36
+      ],
+      [
+       7.5,
+       1.47
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "68 % knapp",
+     "first_run": "So 08:39"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11068600",
+    "league": "USA MLS",
+    "league_id": "242",
+    "home": "Columbus Crew",
+    "away": "Inter Miami CF",
+    "home_id": "6562",
+    "away_id": "324462",
+    "kickoff": "Mo 01:00",
+    "kickoff_ts": 1790550000,
+    "bet365_id": "200870890"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      46,
+      48
+     ],
+     "next_line": 4.5,
+     "next_note": "Columbus Crew 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Inter Miami CF 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.912924897287496,
+      0.7527405019087386
+     ],
+     "fair": 1.23,
+     "ladder": [
+      [
+       5.5,
+       1.23
+      ],
+      [
+       6.5,
+       1.11
+      ]
+     ],
+     "avg": [
+      3.7,
+      3.9
+     ],
+     "expect_sum": 3.8,
+     "expect_matchup": 3.8,
+     "contrib": [
+      1.5,
+      2.4
+     ],
+     "expect": 3.8,
+     "buffer": 1.7,
+     "fa": [
+      [
+       1.3,
+       1.8
+      ],
+      [
+       2.4,
+       1.8
+      ]
+     ],
+     "sd": 2.07,
+     "p_emp": {
+      "5.5": 0.8130081300813008,
+      "6.5": 0.9009009009009008
+     },
+     "range": [
+      1.22,
+      2.18
+     ],
+     "referee": "Victor Rivas: Ø 4.6 Karten (28 Sp.) · Ø 20.7 Fouls (26 Sp.)",
+     "expect_ref": 4.4,
+     "buffer_ref": 1.1,
+     "p_mod": 0.702,
+     "p_fin": 0.773,
+     "kal": 1.02,
+     "fair_fin": 1.29,
+     "ladder_fin": [
+      [
+       5.5,
+       1.29
+      ],
+      [
+       6.5,
+       1.12
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.29"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      42
+     ],
+     "next_line": 3.5,
+     "next_note": "Columbus Crew 0/2 (3. Lücke) gesamt, 0/2 (3. Lücke) heim",
+     "longterm": [
+      0.6817817762769262,
+      0.8966967039361908
+     ],
+     "fair": 1.31,
+     "ladder": [
+      [
+       4.5,
+       1.31
+      ],
+      [
+       5.5,
+       1.16
+      ]
+     ],
+     "avg": [
+      3.2,
+      2.6
+     ],
+     "expect_sum": 2.9,
+     "expect_matchup": 2.3,
+     "contrib": [
+      1.3,
+      1.0
+     ],
+     "expect": 2.6,
+     "buffer": 1.9,
+     "fa": [
+      [
+       2.2,
+       1.7
+      ],
+      [
+       1.5,
+       1.2
+      ]
+     ],
+     "sd": 2.03,
+     "p_emp": {
+      "4.5": 0.7633587786259541,
+      "5.5": 0.8620689655172414
+     },
+     "range": [
+      1.31,
+      2.1
+     ],
+     "p_mod": 0.825,
+     "p_fin": 0.794,
+     "kal": 1.0,
+     "fair_fin": 1.26,
+     "ladder_fin": [
+      [
+       4.5,
+       1.26
+      ],
+      [
+       5.5,
+       1.12
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.26"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13187837",
+    "league": "El Salvador Reserves League",
+    "league_id": "637",
+    "home": "Municipal Limeno Reserves",
+    "away": "CD FAS Reserves",
+    "home_id": "25324",
+    "away_id": "24953",
+    "kickoff": "Mo 01:00",
+    "kickoff_ts": 1790550000,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "CD FAS Reserves 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.5958742395709113,
+      0.6613467572058063
+     ],
+     "fair": 1.63,
+     "ladder": [
+      [
+       1.5,
+       1.25
+      ],
+      [
+       2.5,
+       1.63
+      ]
+     ],
+     "avg": [
+      4.2,
+      3.4
+     ],
+     "expect_sum": 3.8,
+     "expect_matchup": 4.4,
+     "contrib": [
+      1.9,
+      2.5
+     ],
+     "expect": 4.1,
+     "buffer": 1.6,
+     "fa": [
+      [
+       1.2,
+       2.1
+      ],
+      [
+       1.8,
+       1.4
+      ]
+     ],
+     "sd": 1.89,
+     "p_emp": {
+      "1.5": 0.8,
+      "2.5": 0.6134969325153374
+     },
+     "no_odds_check": true,
+     "p_mod": 0.801,
+     "p_fin": 0.665,
+     "kal": 0.94,
+     "fair_fin": 1.5,
+     "ladder_fin": [
+      [
+       1.5,
+       1.24
+      ],
+      [
+       2.5,
+       1.5
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "66 % knapp; Historie 61 % vs. Modell 80 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11285061",
+    "league": "USA NWSL Women",
+    "league_id": "259",
+    "home": "Utah Royals (W)",
+    "away": "North Carolina Courage (W)",
+    "home_id": "1178934",
+    "away_id": "1178247",
+    "kickoff": "Mo 01:00",
+    "kickoff_ts": 1790550000,
+    "bet365_id": "201724462"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "Utah Royals (W) 0/2 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; North Carolina Courage (W) 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.6275001678246578,
+      0.7257150920866562
+     ],
+     "fair": 1.54,
+     "ladder": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.54
+      ]
+     ],
+     "avg": [
+      2.9,
+      3.5
+     ],
+     "expect_sum": 3.2,
+     "expect_matchup": 3.2,
+     "contrib": [
+      1.6,
+      1.7
+     ],
+     "expect": 3.2,
+     "buffer": 0.7,
+     "fa": [
+      [
+       1.3,
+       1.5
+      ],
+      [
+       1.7,
+       1.5
+      ]
+     ],
+     "sd": 1.66,
+     "p_emp": {
+      "1.5": 0.819672131147541,
+      "2.5": 0.6493506493506493
+     },
+     "no_odds_check": true,
+     "p_mod": 0.663,
+     "p_fin": 0.617,
+     "kal": 0.94,
+     "fair_fin": 1.62,
+     "ladder_fin": [
+      [
+       1.5,
+       1.28
+      ],
+      [
+       2.5,
+       1.62
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "62 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13151460",
+    "league": "USA College Championship",
+    "league_id": "536",
+    "home": "Presbyterian",
+    "away": "UNC Asheville Bulldogs",
+    "home_id": "937769",
+    "away_id": "1079926",
+    "kickoff": "Mo 01:00",
+    "kickoff_ts": 1790550000,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      31,
+      28
+     ],
+     "next_line": 3.5,
+     "next_note": "Presbyterian 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; UNC Asheville Bulldogs 0/2 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.6265461325592285,
+      0.6513748778869992
+     ],
+     "fair": 1.62,
+     "ladder": [
+      [
+       1.5,
+       1.24
+      ],
+      [
+       2.5,
+       1.62
+      ]
+     ],
+     "avg": [
+      2.8,
+      3.1
+     ],
+     "expect_sum": 3.0,
+     "expect_matchup": 2.9,
+     "contrib": [
+      1.0,
+      1.9
+     ],
+     "expect": 2.9,
+     "buffer": 0.4,
+     "fa": [
+      [
+       1.1,
+       2.2
+      ],
+      [
+       2.1,
+       1.4
+      ]
+     ],
+     "sd": 2.57,
+     "p_emp": {
+      "1.5": 0.8064516129032259,
+      "2.5": 0.6172839506172839
+     },
+     "no_odds_check": true,
+     "p_mod": 0.562,
+     "p_fin": 0.554,
+     "kal": 0.94,
+     "fair_fin": 1.8,
+     "ladder_fin": [
+      [
+       1.5,
+       1.41
+      ],
+      [
+       2.5,
+       1.8
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "nur 55 % Wahrscheinlichkeit"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13194283",
+    "league": "Honduras Liga de Ascenso",
+    "league_id": "25185",
+    "home": "Cruz Azul Opoa",
+    "away": "Pumas FC",
+    "home_id": "1173601",
+    "away_id": "1100097",
+    "kickoff": "Mo 01:30",
+    "kickoff_ts": 1790551800,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      27,
+      47
+     ],
+     "next_line": 3.5,
+     "next_note": "Cruz Azul Opoa 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Pumas FC 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.646211937621654,
+      0.4980841463538434
+     ],
+     "fair": 1.76,
+     "ladder": [
+      [
+       1.5,
+       1.29
+      ],
+      [
+       2.5,
+       1.76
+      ]
+     ],
+     "avg": [
+      3.1,
+      2.3
+     ],
+     "expect_sum": 2.7,
+     "expect_matchup": 2.2,
+     "contrib": [
+      0.9,
+      1.3
+     ],
+     "expect": 2.4,
+     "buffer": -0.1,
+     "fa": [
+      [
+       1.2,
+       1.8
+      ],
+      [
+       1.4,
+       1.0
+      ]
+     ],
+     "sd": 1.67,
+     "p_emp": {
+      "1.5": 0.7751937984496123,
+      "2.5": 0.5681818181818182
+     },
+     "no_odds_check": true,
+     "p_mod": 0.476,
+     "p_fin": 0.491,
+     "kal": 0.94,
+     "fair_fin": 2.04,
+     "ladder_fin": [
+      [
+       1.5,
+       1.44
+      ],
+      [
+       2.5,
+       2.04
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "nur 49 % Wahrscheinlichkeit"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12321870",
+    "league": "Mexico Liga MX Femenil",
+    "league_id": "6298",
+    "home": "Tigres UANL (W)",
+    "away": "Atletico San Luis (W)",
+    "home_id": "1177946",
+    "away_id": "1177943",
+    "kickoff": "Mo 02:06",
+    "kickoff_ts": 1790553960,
+    "bet365_id": "201741569"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      47,
+      50
+     ],
+     "next_line": 8.5,
+     "next_note": "kein Anker — Tigres UANL (W) 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Atletico San Luis (W) 11/13 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+     "longterm": [
+      0.7443012110014604,
+      0.7704127516278936
+     ],
+     "fair": 1.36,
+     "ladder": [
+      [
+       6.5,
+       1.3
+      ],
+      [
+       7.5,
+       1.36
+      ]
+     ],
+     "avg": [
+      9.4,
+      10.2
+     ],
+     "expect_sum": 9.8,
+     "expect_matchup": 10.7,
+     "contrib": [
+      8.1,
+      2.7
+     ],
+     "expect": 10.3,
+     "buffer": 2.8,
+     "fa": [
+      [
+       5.3,
+       4.3
+      ],
+      [
+       4.4,
+       5.8
+      ]
+     ],
+     "sd": 3.17,
+     "p_emp": {
+      "6.5": 0.7692307692307692,
+      "7.5": 0.7352941176470588
+     },
+     "range": [
+      1.7,
+      1.89
+     ],
+     "b365": [
+      "10.5",
+      "2.000",
+      "1.800"
+     ],
+     "p_mod": 0.811,
+     "p_fin": 0.735,
+     "kal": 0.95,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       6.5,
+       1.27
+      ],
+      [
+       7.5,
+       1.36
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.36"
+    },
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "Tigres UANL (W) 2/4 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; Atletico San Luis (W) 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.700894747106479,
+      0.6643514868666588
+     ],
+     "fair": 1.53,
+     "ladder": [
+      [
+       1.5,
+       1.17
+      ],
+      [
+       2.5,
+       1.53
+      ]
+     ],
+     "avg": [
+      3.6,
+      3.4
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 4.3,
+     "contrib": [
+      3.7,
+      0.6
+     ],
+     "expect": 3.9,
+     "buffer": 1.4,
+     "fa": [
+      [
+       2.8,
+       1.0
+      ],
+      [
+       1.4,
+       1.8
+      ]
+     ],
+     "sd": 2.05,
+     "p_emp": {
+      "1.5": 0.8547008547008548,
+      "2.5": 0.6535947712418301
+     },
+     "no_odds_check": true,
+     "p_mod": 0.753,
+     "p_fin": 0.661,
+     "kal": 0.94,
+     "fair_fin": 1.51,
+     "ladder_fin": [
+      [
+       1.5,
+       1.23
+      ],
+      [
+       2.5,
+       1.51
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "66 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13207177",
+    "league": "Panama Liga de Futbol Nacional",
+    "league_id": "40713",
+    "home": "Olympic Colon FC",
+    "away": "Alianza West",
+    "home_id": "1179902",
+    "away_id": "1177092",
+    "kickoff": "Mo 02:30",
+    "kickoff_ts": 1790555400,
+    "bet365_id": "201870978"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      26,
+      20
+     ],
+     "next_line": 3.5,
+     "next_note": "Olympic Colon FC 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.5821604836543854,
+      0.6683484828230539
+     ],
+     "fair": 1.66,
+     "ladder": [
+      [
+       1.5,
+       1.19
+      ],
+      [
+       2.5,
+       1.66
+      ]
+     ],
+     "avg": [
+      3.7,
+      3.4
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 4.2,
+     "contrib": [
+      3.1,
+      1.1
+     ],
+     "expect": 3.9,
+     "buffer": 1.4,
+     "fa": [
+      [
+       1.5,
+       1.7
+      ],
+      [
+       1.4,
+       2.5
+      ]
+     ],
+     "sd": 2.09,
+     "p_emp": {
+      "1.5": 0.8403361344537815,
+      "2.5": 0.6024096385542169
+     },
+     "no_odds_check": true,
+     "p_mod": 0.749,
+     "p_fin": 0.635,
+     "kal": 0.94,
+     "fair_fin": 1.57,
+     "ladder_fin": [
+      [
+       1.5,
+       1.24
+      ],
+      [
+       2.5,
+       1.57
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "63 % knapp; Historie 60 % vs. Modell 75 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12027330",
+    "league": "Mexico Liga MX",
+    "league_id": "32373",
+    "home": "Leon",
+    "away": "Juarez FC",
+    "home_id": "1466",
+    "away_id": "5373",
+    "kickoff": "Mo 03:00",
+    "kickoff_ts": 1790557200,
+    "bet365_id": "200563424"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      48
+     ],
+     "next_line": 8.5,
+     "next_note": "Juarez FC 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.8888040438467533,
+      0.7308603933583817
+     ],
+     "fair": 1.3,
+     "ladder": [
+      [
+       6.5,
+       1.31
+      ],
+      [
+       7.5,
+       1.3
+      ]
+     ],
+     "avg": [
+      10.2,
+      10.8
+     ],
+     "expect_sum": 10.5,
+     "expect_matchup": 12.1,
+     "contrib": [
+      8.4,
+      3.7
+     ],
+     "expect": 11.3,
+     "buffer": 3.8,
+     "fa": [
+      [
+       4.9,
+       5.3
+      ],
+      [
+       4.0,
+       5.5
+      ]
+     ],
+     "sd": 3.53,
+     "p_emp": {
+      "6.5": 0.7633587786259541,
+      "7.5": 0.7692307692307692
+     },
+     "range": [
+      1.2,
+      1.9
+     ],
+     "b365": [
+      "10.5",
+      "1.900",
+      "1.900"
+     ],
+     "p_mod": 0.859,
+     "p_fin": 0.773,
+     "kal": 0.95,
+     "fair_fin": 1.29,
+     "ladder_fin": [
+      [
+       6.5,
+       1.26
+      ],
+      [
+       7.5,
+       1.29
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.29"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12027329",
+    "league": "Mexico Liga MX",
+    "league_id": "32373",
+    "home": "Necaxa",
+    "away": "Club America",
+    "home_id": "43588",
+    "away_id": "37303",
+    "kickoff": "Mo 05:10",
+    "kickoff_ts": 1790565000,
+    "bet365_id": "200563426"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      48
+     ],
+     "next_line": 9.5,
+     "next_note": "Necaxa 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+     "longterm": [
+      0.7351664822213831,
+      0.7291191054803003
+     ],
+     "fair": 1.46,
+     "ladder": [
+      [
+       7.5,
+       1.33
+      ],
+      [
+       8.5,
+       1.46
+      ]
+     ],
+     "avg": [
+      11.0,
+      10.7
+     ],
+     "expect_sum": 10.9,
+     "expect_matchup": 12.4,
+     "contrib": [
+      4.6,
+      7.9
+     ],
+     "expect": 11.6,
+     "buffer": 3.1,
+     "fa": [
+      [
+       5.0,
+       5.1
+      ],
+      [
+       5.9,
+       3.8
+      ]
+     ],
+     "sd": 3.33,
+     "p_emp": {
+      "7.5": 0.7518796992481203,
+      "8.5": 0.684931506849315
+     },
+     "range": [
+      1.35,
+      1.9
+     ],
+     "b365": [
+      "10.5",
+      "1.850",
+      "1.950"
+     ],
+     "p_mod": 0.824,
+     "p_fin": 0.717,
+     "kal": 0.95,
+     "fair_fin": 1.4,
+     "ladder_fin": [
+      [
+       7.5,
+       1.28
+      ],
+      [
+       8.5,
+       1.4
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 68 % vs. Modell 82 %"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      48
+     ],
+     "next_line": 3.5,
+     "next_note": "Necaxa 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.8624269677760602,
+      0.6210495140092952
+     ],
+     "fair": 1.38,
+     "ladder": [
+      [
+       1.5,
+       1.27
+      ],
+      [
+       2.5,
+       1.38
+      ]
+     ],
+     "avg": [
+      4.1,
+      4.7
+     ],
+     "expect_sum": 4.4,
+     "expect_matchup": 5.0,
+     "contrib": [
+      3.0,
+      2.0
+     ],
+     "expect": 4.7,
+     "buffer": 2.2,
+     "fa": [
+      [
+       2.2,
+       1.9
+      ],
+      [
+       1.4,
+       2.3
+      ]
+     ],
+     "sd": 2.09,
+     "p_emp": {
+      "1.5": 0.7874015748031495,
+      "2.5": 0.7246376811594204
+     },
+     "range": [
+      1.69,
+      1.69
+     ],
+     "referee": "Guillermo Pacheco Larios: Ø 4.0 Karten (16 Sp.) · Ø 20.4 Fouls (16 Sp.)",
+     "expect_ref": 4.8,
+     "buffer_ref": 2.3,
+     "p_mod": 0.864,
+     "p_fin": 0.755,
+     "kal": 0.95,
+     "fair_fin": 1.32,
+     "ladder_fin": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.32
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 72 % vs. Modell 86 %"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "doublechance": 49,
+  "totals": 54,
+  "corners": 20,
+  "btts": 19,
+  "correctscore": 11,
+  "results": 25,
+  "handicaps": 20,
+  "cards": 5,
+  "fouls": 2,
+  "shots": 1,
+  "offsides": 1
+ },
+ "dauer_s": 122,
+ "zeit": {
+  "historie": 676,
+  "pruefung": 0,
+  "scores24": 372,
+  "extras": 33,
+  "vorlauf": 44,
+  "spiele": 78
+ },
+ "teams_nachgeladen": 36,
+ "s24": {
+  "ok": 54,
+  "no_link": 24,
+  "fetch_fail": 6
+ },
+ "new": [
+  "11068600|yellowcards|unter",
+  "11068600|offsides|unter",
+  "13187837|goals|über",
+  "11285061|goals|über",
+  "13151460|goals|über",
+  "13194283|goals|über",
+  "12321870|corners|über",
+  "12321870|goals|über",
+  "13207177|goals|über",
+  "12027330|corners|über",
+  "12027329|corners|über",
+  "12027329|yellowcards|über"
+ ],
+ "changed": [],
+ "dropped": [],
+ "team_totals": [
+  {
+   "match": {
+    "id": "12309578",
+    "league": "Chile Segunda",
+    "league_id": "686",
+    "home": "AC Colina",
+    "away": "Real Juventud San Joaquin",
+    "home_id": "7400",
+    "away_id": "6483",
+    "kickoff": "So 22:00",
+    "kickoff_ts": 1790539200,
+    "bet365_id": "201819882"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "AC Colina",
+    "line": 4.5,
+    "direction": "über",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.6339,
+    "fair": 1.58,
+    "p_emp": 0.579,
+    "p_mod": 0.689,
+    "erwartet": 6.2,
+    "basis": 50
+   }
+  }
+ ],
+ "neue_maerkte": []
+}
