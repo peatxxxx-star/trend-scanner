@@ -1,0 +1,3323 @@
+{
+ "run_utc": "2026-09-28T11:00:13+00:00",
+ "matches_checked": 103,
+ "requests": 259,
+ "hits": [
+  {
+   "match": {
+    "id": "13112290",
+    "league": "FIFA ASEAN Cup",
+    "league_id": "46625",
+    "home": "Malaysia",
+    "away": "Indonesia",
+    "home_id": "8290",
+    "away_id": "8289",
+    "kickoff": "Mo 14:30",
+    "kickoff_ts": 1790598600,
+    "bet365_id": "201915651"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      45,
+      49
+     ],
+     "next_line": 4.5,
+     "next_note": "Indonesia 7/9 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+     "longterm": [
+      0.943845201732902,
+      0.8476442866857705
+     ],
+     "fair": 1.16,
+     "ladder": [
+      [
+       5.5,
+       1.16
+      ],
+      [
+       6.5,
+       1.1
+      ]
+     ],
+     "avg": [
+      3.2,
+      4.0
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 3.4,
+     "contrib": [
+      1.2,
+      2.3
+     ],
+     "expect": 3.5,
+     "buffer": 2.0,
+     "fa": [
+      [
+       1.3,
+       1.9
+      ],
+      [
+       1.7,
+       1.8
+      ]
+     ],
+     "sd": 1.92,
+     "p_emp": {
+      "5.5": 0.8620689655172414,
+      "6.5": 0.9090909090909091
+     },
+     "range": [
+      1.33,
+      1.44
+     ],
+     "p_mod": 0.851,
+     "p_fin": 0.874,
+     "kal": 1.02,
+     "fair_fin": 1.14,
+     "ladder_fin": [
+      [
+       5.5,
+       1.14
+      ],
+      [
+       6.5,
+       1.06
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.14"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      48
+     ],
+     "next_line": 1.5,
+     "next_note": "Malaysia 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Indonesia 0/2 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.6816263330296831,
+      0.7974171801684639
+     ],
+     "fair": 1.38,
+     "ladder": [
+      [
+       0.5,
+       1.38
+      ]
+     ],
+     "avg": [
+      1.3,
+      1.5
+     ],
+     "expect_sum": 1.4,
+     "expect_matchup": 1.5,
+     "contrib": [
+      0.8,
+      0.7
+     ],
+     "expect": 1.4,
+     "buffer": 0.9,
+     "fa": [
+      [
+       0.6,
+       0.7
+      ],
+      [
+       0.6,
+       0.8
+      ]
+     ],
+     "sd": 1.12,
+     "p_emp": {
+      "0.5": 0.7246376811594204
+     },
+     "range": [
+      1.33,
+      1.44
+     ],
+     "p_mod": 0.789,
+     "p_fin": 0.734,
+     "kal": 0.97,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       0.5,
+       1.36
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.36"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13132447",
+    "league": "Qatar Stars Cup",
+    "league_id": "7355",
+    "home": "Al Kharaitiyat SC",
+    "away": "Al-Wakrah SC",
+    "home_id": "2757",
+    "away_id": "47167",
+    "kickoff": "Mo 17:00",
+    "kickoff_ts": 1790607600,
+    "bet365_id": "201873729"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      43
+     ],
+     "next_line": 8.5,
+     "next_note": "Al Kharaitiyat SC 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+     "longterm": [
+      0.7313410101710855,
+      0.809876789229903
+     ],
+     "fair": 1.35,
+     "ladder": [
+      [
+       6.5,
+       1.32
+      ],
+      [
+       7.5,
+       1.35
+      ]
+     ],
+     "avg": [
+      8.3,
+      10.1
+     ],
+     "expect_sum": 9.2,
+     "expect_matchup": 8.8,
+     "contrib": [
+      4.0,
+      4.8
+     ],
+     "expect": 9.0,
+     "buffer": 1.5,
+     "fa": [
+      [
+       3.9,
+       4.9
+      ],
+      [
+       5.1,
+       4.5
+      ]
+     ],
+     "sd": 2.65,
+     "p_emp": {
+      "6.5": 0.7575757575757576,
+      "7.5": 0.7407407407407407
+     },
+     "range": [
+      1.45,
+      1.83
+     ],
+     "b365": [
+      "9.5",
+      "1.775",
+      "2.025"
+     ],
+     "p_mod": 0.714,
+     "p_fin": 0.691,
+     "kal": 0.95,
+     "fair_fin": 1.45,
+     "ladder_fin": [
+      [
+       6.5,
+       1.33
+      ],
+      [
+       7.5,
+       1.45
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.45"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12368124",
+    "league": "Portugal U23 League",
+    "league_id": "11818",
+    "home": "Leixoes U23",
+    "away": "Vizela U23",
+    "home_id": "294422",
+    "away_id": "563727",
+    "kickoff": "Mo 17:00",
+    "kickoff_ts": 1790607600,
+    "bet365_id": "201873720"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      45,
+      43
+     ],
+     "next_line": 8.5,
+     "next_note": "Leixoes U23 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Vizela U23 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.6776291546423021,
+      0.5970619088397376
+     ],
+     "fair": 1.53,
+     "ladder": [
+      [
+       6.5,
+       1.58
+      ],
+      [
+       7.5,
+       1.53
+      ]
+     ],
+     "avg": [
+      8.3,
+      9.2
+     ],
+     "expect_sum": 8.8,
+     "expect_matchup": 8.2,
+     "contrib": [
+      3.5,
+      4.7
+     ],
+     "expect": 8.5,
+     "buffer": 1.0,
+     "fa": [
+      [
+       3.2,
+       4.8
+      ],
+      [
+       4.9,
+       4.0
+      ]
+     ],
+     "sd": 2.97,
+     "p_emp": {
+      "6.5": 0.6329113924050632,
+      "7.5": 0.6535947712418301
+     },
+     "range": [
+      1.42,
+      1.98
+     ],
+     "b365": [
+      "8.5",
+      "1.925",
+      "1.875"
+     ],
+     "p_mod": 0.632,
+     "p_fin": 0.611,
+     "kal": 0.95,
+     "fair_fin": 1.64,
+     "ladder_fin": [
+      [
+       6.5,
+       1.52
+      ],
+      [
+       7.5,
+       1.64
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "61 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11679556",
+    "league": "UEFA Nations League C",
+    "league_id": "30976",
+    "home": "Latvia",
+    "away": "Cyprus",
+    "home_id": "5119",
+    "away_id": "8510",
+    "kickoff": "Mo 18:00",
+    "kickoff_ts": 1790611200,
+    "bet365_id": "201150120"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Latvia 5/7 (3. Lücke) gesamt, 10/12 (3. Lücke) heim; Cyprus 5/7 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+     "longterm": [
+      0.8880826365754461,
+      0.8139201722551005
+     ],
+     "fair": 1.2,
+     "ladder": [
+      [
+       5.5,
+       1.2
+      ],
+      [
+       6.5,
+       1.1
+      ]
+     ],
+     "avg": [
+      3.4,
+      3.7
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 3.3,
+     "contrib": [
+      1.4,
+      1.9
+     ],
+     "expect": 3.4,
+     "buffer": 2.1,
+     "fa": [
+      [
+       2.1,
+       1.5
+      ],
+      [
+       2.0,
+       1.5
+      ]
+     ],
+     "sd": 1.92,
+     "p_emp": {
+      "5.5": 0.8333333333333334,
+      "6.5": 0.9090909090909091
+     },
+     "range": [
+      1.65,
+      1.71
+     ],
+     "referee": "Michal Ocenas: Ø 4.1 Karten (22 Sp.) · Ø 25.2 Fouls (5 Sp.)",
+     "expect_ref": 3.6,
+     "buffer_ref": 1.9,
+     "p_mod": 0.839,
+     "p_fin": 0.853,
+     "kal": 1.02,
+     "fair_fin": 1.17,
+     "ladder_fin": [
+      [
+       5.5,
+       1.17
+      ],
+      [
+       6.5,
+       1.06
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.17"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 3.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      32,
+      32
+     ],
+     "next_line": 2.5,
+     "next_note": "Cyprus 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.8388556113929727,
+      0.6074939559012722
+     ],
+     "fair": 1.5,
+     "ladder": [
+      [
+       3.5,
+       1.5
+      ],
+      [
+       4.5,
+       1.27
+      ]
+     ],
+     "avg": [
+      1.9,
+      3.6
+     ],
+     "expect_sum": 2.8,
+     "expect_matchup": 1.8,
+     "contrib": [
+      1.0,
+      0.7
+     ],
+     "expect": 2.3,
+     "buffer": 1.2,
+     "fa": [
+      [
+       1.5,
+       0.9
+      ],
+      [
+       2.0,
+       1.5
+      ]
+     ],
+     "sd": 1.72,
+     "p_emp": {
+      "3.5": 0.6666666666666666,
+      "4.5": 0.7874015748031495
+     },
+     "range": [
+      1.24,
+      1.77
+     ],
+     "p_mod": 0.757,
+     "p_fin": 0.712,
+     "kal": 1.0,
+     "fair_fin": 1.4,
+     "ladder_fin": [
+      [
+       3.5,
+       1.4
+      ],
+      [
+       4.5,
+       1.19
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.40"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437511",
+    "league": "UEFA Nations League C",
+    "league_id": "30976",
+    "home": "Armenia",
+    "away": "Montenegro",
+    "home_id": "3793",
+    "away_id": "7339",
+    "kickoff": "Mo 18:00",
+    "kickoff_ts": 1790611200,
+    "bet365_id": "201150118"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      49
+     ],
+     "next_line": 9.5,
+     "next_note": "Armenia 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Montenegro 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.6238960519560628,
+      0.7140136147096142
+     ],
+     "fair": 1.56,
+     "ladder": [
+      [
+       7.5,
+       1.34
+      ],
+      [
+       8.5,
+       1.56
+      ]
+     ],
+     "avg": [
+      10.4,
+      9.5
+     ],
+     "expect_sum": 9.9,
+     "expect_matchup": 10.9,
+     "contrib": [
+      7.8,
+      3.2
+     ],
+     "expect": 10.4,
+     "buffer": 1.9,
+     "fa": [
+      [
+       4.9,
+       4.7
+      ],
+      [
+       5.1,
+       4.2
+      ]
+     ],
+     "sd": 3.53,
+     "p_emp": {
+      "7.5": 0.7462686567164178,
+      "8.5": 0.641025641025641
+     },
+     "range": [
+      1.55,
+      1.96
+     ],
+     "b365": [
+      "9.0",
+      "1.825",
+      "1.975"
+     ],
+     "p_mod": 0.705,
+     "p_fin": 0.639,
+     "kal": 0.95,
+     "fair_fin": 1.56,
+     "ladder_fin": [
+      [
+       7.5,
+       1.37
+      ],
+      [
+       8.5,
+       1.56
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "64 % knapp"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      49
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Armenia 16/18 (3. Lücke) gesamt, 13/15 (3. Lücke) heim; Montenegro 14/16 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+     "longterm": [
+      0.8511931566315166,
+      0.8021693462565704
+     ],
+     "fair": 1.23,
+     "ladder": [
+      [
+       5.5,
+       1.23
+      ],
+      [
+       6.5,
+       1.12
+      ]
+     ],
+     "avg": [
+      3.4,
+      3.8
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 3.5,
+     "contrib": [
+      1.0,
+      2.5
+     ],
+     "expect": 3.6,
+     "buffer": 1.9,
+     "fa": [
+      [
+       1.7,
+       2.0
+      ],
+      [
+       2.5,
+       1.8
+      ]
+     ],
+     "sd": 2.27,
+     "p_emp": {
+      "5.5": 0.8130081300813008,
+      "6.5": 0.8928571428571428
+     },
+     "range": [
+      1.39,
+      1.95
+     ],
+     "referee": "Jose Luis Munuera Montero: Ø 3.2 Karten (30 Sp.) · Ø 24.4 Fouls (28 Sp.)",
+     "expect_ref": 3.1,
+     "buffer_ref": 2.4,
+     "p_mod": 0.855,
+     "p_fin": 0.851,
+     "kal": 1.02,
+     "fair_fin": 1.18,
+     "ladder_fin": [
+      [
+       5.5,
+       1.18
+      ],
+      [
+       6.5,
+       1.07
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.18"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      37,
+      30
+     ],
+     "next_line": 3.5,
+     "next_note": "Montenegro 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.7235172488507551,
+      0.8928466549077897
+     ],
+     "fair": 1.31,
+     "ladder": [
+      [
+       4.5,
+       1.31
+      ],
+      [
+       5.5,
+       1.14
+      ]
+     ],
+     "avg": [
+      2.6,
+      3.4
+     ],
+     "expect_sum": 3.0,
+     "expect_matchup": 2.6,
+     "contrib": [
+      1.3,
+      1.2
+     ],
+     "expect": 2.8,
+     "buffer": 1.7,
+     "fa": [
+      [
+       1.6,
+       1.8
+      ],
+      [
+       1.6,
+       1.5
+      ]
+     ],
+     "sd": 1.69,
+     "p_emp": {
+      "4.5": 0.7633587786259541,
+      "5.5": 0.8771929824561404
+     },
+     "range": [
+      1.53,
+      1.53
+     ],
+     "p_mod": 0.843,
+     "p_fin": 0.803,
+     "kal": 1.0,
+     "fair_fin": 1.25,
+     "ladder_fin": [
+      [
+       4.5,
+       1.25
+      ],
+      [
+       5.5,
+       1.1
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.25"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437471",
+    "league": "UEFA Nations League B",
+    "league_id": "30973",
+    "home": "Georgia",
+    "away": "Ukraine",
+    "home_id": "7652",
+    "away_id": "7784",
+    "kickoff": "Mo 18:00",
+    "kickoff_ts": 1790611200,
+    "bet365_id": "201150125"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      46
+     ],
+     "next_line": 5.5,
+     "next_note": "Georgia 8/10 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+     "longterm": [
+      0.8781349969757085,
+      0.9095197940186245
+     ],
+     "fair": 1.13,
+     "ladder": [
+      [
+       6.5,
+       1.13
+      ],
+      [
+       7.5,
+       1.23
+      ]
+     ],
+     "avg": [
+      4.4,
+      4.0
+     ],
+     "expect_sum": 4.2,
+     "expect_matchup": 4.9,
+     "contrib": [
+      1.3,
+      3.6
+     ],
+     "expect": 4.6,
+     "buffer": 1.9,
+     "fa": [
+      [
+       1.8,
+       2.3
+      ],
+      [
+       2.1,
+       1.7
+      ]
+     ],
+     "sd": 2.25,
+     "p_emp": {
+      "6.5": 0.8849557522123894,
+      "7.5": 0.8130081300813008
+     },
+     "range": [
+      1.41,
+      1.76
+     ],
+     "referee": "Aliyar Aghayev: Ø 3.6 Karten (17 Sp.) · Ø 23.7 Fouls (14 Sp.)",
+     "expect_ref": 4.5,
+     "buffer_ref": 2.0,
+     "p_mod": 0.813,
+     "p_fin": 0.866,
+     "kal": 1.02,
+     "fair_fin": 1.15,
+     "ladder_fin": [
+      [
+       6.5,
+       1.15
+      ],
+      [
+       7.5,
+       1.14
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.15",
+     "first_run": "Mo 08:50",
+     "change_note": "Quoten vorher 1.75"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      29,
+      31
+     ],
+     "next_line": 3.5,
+     "next_note": "Ukraine 0/2 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.9481785845235613,
+      0.875858353181591
+     ],
+     "fair": 1.2,
+     "ladder": [
+      [
+       4.5,
+       1.2
+      ],
+      [
+       5.5,
+       1.1
+      ]
+     ],
+     "avg": [
+      1.9,
+      2.6
+     ],
+     "expect_sum": 2.2,
+     "expect_matchup": 1.4,
+     "contrib": [
+      0.6,
+      0.8
+     ],
+     "expect": 1.8,
+     "buffer": 2.7,
+     "fa": [
+      [
+       1.2,
+       1.5
+      ],
+      [
+       1.7,
+       1.2
+      ]
+     ],
+     "sd": 1.54,
+     "p_emp": {
+      "4.5": 0.8333333333333334,
+      "5.5": 0.9090909090909091
+     },
+     "range": [
+      1.27,
+      1.5
+     ],
+     "p_mod": 0.96,
+     "p_fin": 0.897,
+     "kal": 1.0,
+     "fair_fin": 1.12,
+     "ladder_fin": [
+      [
+       4.5,
+       1.12
+      ],
+      [
+       5.5,
+       1.05
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 83 % vs. Modell 96 %",
+     "first_run": "Mo 08:50",
+     "change_note": "Quoten vorher 1.26–1.38"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13083914",
+    "league": "Africa Cup of Nations Qualification",
+    "league_id": "511",
+    "home": "Equatorial Guinea",
+    "away": "Sierra Leone",
+    "home_id": "55139",
+    "away_id": "6367",
+    "kickoff": "Mo 18:00",
+    "kickoff_ts": 1790611200,
+    "bet365_id": "201640988"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      39,
+      38
+     ],
+     "next_line": 3.5,
+     "next_note": "Equatorial Guinea 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Sierra Leone 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8195607419790764,
+      0.5709055444718081
+     ],
+     "fair": 1.46,
+     "ladder": [
+      [
+       1.5,
+       1.3
+      ],
+      [
+       2.5,
+       1.46
+      ]
+     ],
+     "avg": [
+      3.8,
+      3.1
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 3.1,
+     "contrib": [
+      1.1,
+      2.0
+     ],
+     "expect": 3.3,
+     "buffer": 0.8,
+     "fa": [
+      [
+       1.9,
+       2.1
+      ],
+      [
+       1.9,
+       1.1
+      ]
+     ],
+     "sd": 1.66,
+     "p_emp": {
+      "1.5": 0.7692307692307692,
+      "2.5": 0.684931506849315
+     },
+     "range": [
+      1.19,
+      1.35
+     ],
+     "p_mod": 0.685,
+     "p_fin": 0.651,
+     "kal": 0.95,
+     "fair_fin": 1.54,
+     "ladder_fin": [
+      [
+       1.5,
+       1.29
+      ],
+      [
+       2.5,
+       1.54
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "65 % knapp"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      39,
+      38
+     ],
+     "next_line": 4.5,
+     "next_note": "Equatorial Guinea 2/4 (3. Lücke) gesamt, 0/2 (3. Lücke) heim",
+     "longterm": [
+      0.8881413835528519,
+      0.9470334403849241
+     ],
+     "fair": 1.15,
+     "ladder": [
+      [
+       5.5,
+       1.15
+      ],
+      [
+       6.5,
+       1.09
+      ]
+     ],
+     "avg": [
+      3.8,
+      3.1
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 3.1,
+     "contrib": [
+      1.1,
+      2.0
+     ],
+     "expect": 3.3,
+     "buffer": 2.2,
+     "fa": [
+      [
+       1.9,
+       2.1
+      ],
+      [
+       1.9,
+       1.1
+      ]
+     ],
+     "sd": 1.66,
+     "p_emp": {
+      "5.5": 0.8695652173913044,
+      "6.5": 0.9174311926605504
+     },
+     "range": [
+      1.19,
+      1.35
+     ],
+     "p_mod": 0.907,
+     "p_fin": 0.906,
+     "kal": 1.02,
+     "fair_fin": 1.1,
+     "ladder_fin": [
+      [
+       5.5,
+       1.1
+      ],
+      [
+       6.5,
+       1.04
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.10"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13083910",
+    "league": "Africa Cup of Nations Qualification",
+    "league_id": "511",
+    "home": "Central African Rep",
+    "away": "Burkina Faso",
+    "home_id": "169019",
+    "away_id": "7029",
+    "kickoff": "Mo 18:00",
+    "kickoff_ts": 1790611200,
+    "bet365_id": "201640992"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      45,
+      45
+     ],
+     "next_line": 3.5,
+     "next_note": "Central African Rep 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Burkina Faso 0/2 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+     "longterm": [
+      0.8089629599471546,
+      0.6702871749458685
+     ],
+     "fair": 1.38,
+     "ladder": [
+      [
+       1.5,
+       1.27
+      ],
+      [
+       2.5,
+       1.38
+      ]
+     ],
+     "avg": [
+      3.3,
+      3.2
+     ],
+     "expect_sum": 3.3,
+     "expect_matchup": 2.7,
+     "contrib": [
+      1.4,
+      1.4
+     ],
+     "expect": 3.0,
+     "buffer": 0.5,
+     "fa": [
+      [
+       2.3,
+       1.2
+      ],
+      [
+       1.8,
+       1.5
+      ]
+     ],
+     "sd": 1.72,
+     "p_emp": {
+      "1.5": 0.7874015748031495,
+      "2.5": 0.7246376811594204
+     },
+     "range": [
+      1.31,
+      1.74
+     ],
+     "p_mod": 0.614,
+     "p_fin": 0.636,
+     "kal": 0.95,
+     "fair_fin": 1.57,
+     "ladder_fin": [
+      [
+       1.5,
+       1.32
+      ],
+      [
+       2.5,
+       1.57
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "64 % knapp"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      45
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Central African Rep 6/8 (3. Lücke) gesamt, 19/21 heim; Burkina Faso 7/9 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+     "longterm": [
+      0.873388841900376,
+      0.9638895464676549
+     ],
+     "fair": 1.14,
+     "ladder": [
+      [
+       5.5,
+       1.14
+      ],
+      [
+       6.5,
+       1.06
+      ]
+     ],
+     "avg": [
+      3.3,
+      3.2
+     ],
+     "expect_sum": 3.3,
+     "expect_matchup": 2.7,
+     "contrib": [
+      1.4,
+      1.4
+     ],
+     "expect": 3.0,
+     "buffer": 2.5,
+     "fa": [
+      [
+       2.3,
+       1.2
+      ],
+      [
+       1.8,
+       1.5
+      ]
+     ],
+     "sd": 1.72,
+     "p_emp": {
+      "5.5": 0.8771929824561404,
+      "6.5": 0.9433962264150942
+     },
+     "range": [
+      1.31,
+      1.74
+     ],
+     "p_mod": 0.927,
+     "p_fin": 0.92,
+     "kal": 1.02,
+     "fair_fin": 1.09,
+     "ladder_fin": [
+      [
+       5.5,
+       1.09
+      ],
+      [
+       6.5,
+       1.02
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.09"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      41,
+      42
+     ],
+     "next_line": 1.5,
+     "next_note": "Central African Rep 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Burkina Faso 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.8215137419574627,
+      0.7985577275845962
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       0.5,
+       1.29
+      ]
+     ],
+     "avg": [
+      1.4,
+      1.2
+     ],
+     "expect_sum": 1.3,
+     "expect_matchup": 1.2,
+     "contrib": [
+      0.5,
+      0.6
+     ],
+     "expect": 1.3,
+     "buffer": 0.8,
+     "fa": [
+      [
+       0.4,
+       0.9
+      ],
+      [
+       0.7,
+       0.6
+      ]
+     ],
+     "sd": 1.01,
+     "p_emp": {
+      "0.5": 0.7751937984496123
+     },
+     "range": [
+      1.31,
+      1.74
+     ],
+     "p_mod": 0.786,
+     "p_fin": 0.757,
+     "kal": 0.97,
+     "fair_fin": 1.32,
+     "ladder_fin": [
+      [
+       0.5,
+       1.32
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.32"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13083913",
+    "league": "Africa Cup of Nations Qualification",
+    "league_id": "511",
+    "home": "Zimbabwe",
+    "away": "Congo DR",
+    "home_id": "63956",
+    "away_id": "54237",
+    "kickoff": "Mo 18:00",
+    "kickoff_ts": 1790611200,
+    "bet365_id": "201640990"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Zimbabwe 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Congo DR 9/11 (3. Lücke) gesamt, 17/19 (3. Lücke) auswärts",
+     "longterm": [
+      0.9258054987060262,
+      0.9482422522488362
+     ],
+     "fair": 1.12,
+     "ladder": [
+      [
+       5.5,
+       1.12
+      ],
+      [
+       6.5,
+       1.06
+      ]
+     ],
+     "avg": [
+      3.4,
+      2.5
+     ],
+     "expect_sum": 2.9,
+     "expect_matchup": 2.1,
+     "contrib": [
+      1.1,
+      1.0
+     ],
+     "expect": 2.5,
+     "buffer": 3.0,
+     "fa": [
+      [
+       1.7,
+       1.5
+      ],
+      [
+       1.2,
+       1.5
+      ]
+     ],
+     "sd": 1.82,
+     "p_emp": {
+      "5.5": 0.8928571428571428,
+      "6.5": 0.9433962264150942
+     },
+     "range": [
+      1.37,
+      1.57
+     ],
+     "p_mod": 0.95,
+     "p_fin": 0.94,
+     "kal": 1.02,
+     "fair_fin": 1.06,
+     "ladder_fin": [
+      [
+       5.5,
+       1.06
+      ],
+      [
+       6.5,
+       1.02
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.06"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "10546586",
+    "league": "European U21 Championship Qual",
+    "league_id": "461",
+    "home": "Denmark U21",
+    "away": "Belarus U21",
+    "home_id": "4973",
+    "away_id": "4926",
+    "kickoff": "Mo 18:30",
+    "kickoff_ts": 1790613000,
+    "bet365_id": "201873674"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      46
+     ],
+     "next_line": 4.5,
+     "next_note": "Belarus U21 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.9063012793640217,
+      0.8388929617029853
+     ],
+     "fair": 1.18,
+     "ladder": [
+      [
+       5.5,
+       1.18
+      ],
+      [
+       6.5,
+       1.11
+      ]
+     ],
+     "avg": [
+      3.2,
+      3.6
+     ],
+     "expect_sum": 3.4,
+     "expect_matchup": 3.2,
+     "contrib": [
+      0.9,
+      2.3
+     ],
+     "expect": 3.3,
+     "buffer": 2.2,
+     "fa": [
+      [
+       1.6,
+       1.8
+      ],
+      [
+       1.8,
+       1.5
+      ]
+     ],
+     "sd": 1.99,
+     "p_emp": {
+      "5.5": 0.8474576271186441,
+      "6.5": 0.9009009009009008
+     },
+     "range": [
+      1.19,
+      1.55
+     ],
+     "p_mod": 0.866,
+     "p_fin": 0.874,
+     "kal": 1.02,
+     "fair_fin": 1.14,
+     "ladder_fin": [
+      [
+       5.5,
+       1.14
+      ],
+      [
+       6.5,
+       1.06
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11287301",
+    "league": "Norway Division 3 Group 4",
+    "league_id": "383",
+    "home": "Haugesund 2",
+    "away": "Hinna",
+    "home_id": "7658",
+    "away_id": "7659",
+    "kickoff": "Mo 19:00",
+    "kickoff_ts": 1790614800,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      48
+     ],
+     "next_line": 3.5,
+     "next_note": "Hinna 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.8468419526837262,
+      0.8009830149386119
+     ],
+     "fair": 1.33,
+     "ladder": [
+      [
+       1.5,
+       1.14
+      ],
+      [
+       2.5,
+       1.33
+      ]
+     ],
+     "avg": [
+      4.3,
+      4.4
+     ],
+     "expect_sum": 4.3,
+     "expect_matchup": 5.7,
+     "contrib": [
+      3.0,
+      2.7
+     ],
+     "expect": 5.0,
+     "buffer": 2.5,
+     "fa": [
+      [
+       1.7,
+       2.5
+      ],
+      [
+       2.1,
+       2.3
+      ]
+     ],
+     "sd": 2.21,
+     "p_emp": {
+      "1.5": 0.8771929824561404,
+      "2.5": 0.7518796992481203
+     },
+     "no_odds_check": true,
+     "p_mod": 0.871,
+     "p_fin": 0.763,
+     "kal": 0.94,
+     "fair_fin": 1.31,
+     "ladder_fin": [
+      [
+       1.5,
+       1.17
+      ],
+      [
+       2.5,
+       1.31
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.31",
+     "first_run": "Mo 08:50"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13133537",
+    "league": "Qatar Stars Cup",
+    "league_id": "7355",
+    "home": "Al Sailiya SC",
+    "away": "Al-Rayyan SC",
+    "home_id": "59722",
+    "away_id": "44571",
+    "kickoff": "Mo 19:15",
+    "kickoff_ts": 1790615700,
+    "bet365_id": "201873722"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      47
+     ],
+     "next_line": 3.5,
+     "next_note": "Al Sailiya SC 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Al-Rayyan SC 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.6862937981211245,
+      0.7400225736189457
+     ],
+     "fair": 1.49,
+     "ladder": [
+      [
+       1.5,
+       1.17
+      ],
+      [
+       2.5,
+       1.49
+      ]
+     ],
+     "avg": [
+      3.6,
+      4.9
+     ],
+     "expect_sum": 4.3,
+     "expect_matchup": 5.9,
+     "contrib": [
+      1.7,
+      4.2
+     ],
+     "expect": 5.1,
+     "buffer": 2.6,
+     "fa": [
+      [
+       1.2,
+       2.0
+      ],
+      [
+       2.8,
+       1.9
+      ]
+     ],
+     "sd": 4.97,
+     "p_emp": {
+      "1.5": 0.8547008547008548,
+      "2.5": 0.6711409395973155
+     },
+     "no_odds_check": true,
+     "p_mod": 0.7,
+     "p_fin": 0.644,
+     "kal": 0.94,
+     "fair_fin": 1.55,
+     "ladder_fin": [
+      [
+       1.5,
+       1.31
+      ],
+      [
+       2.5,
+       1.55
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "64 % knapp",
+     "first_run": "Mo 08:50"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13133781",
+    "league": "Qatar Stars Cup",
+    "league_id": "7355",
+    "home": "Al-Shahaniya SC",
+    "away": "Al Duhail",
+    "home_id": "49040",
+    "away_id": "175958",
+    "kickoff": "Mo 19:15",
+    "kickoff_ts": 1790615700,
+    "bet365_id": "201873733"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      46,
+      43
+     ],
+     "next_line": 8.5,
+     "next_note": "Al-Shahaniya SC 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Al Duhail 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.6587604966857542,
+      0.6864553201090504
+     ],
+     "fair": 1.48,
+     "ladder": [
+      [
+       6.5,
+       1.5
+      ],
+      [
+       7.5,
+       1.48
+      ]
+     ],
+     "avg": [
+      7.9,
+      8.8
+     ],
+     "expect_sum": 8.4,
+     "expect_matchup": 7.5,
+     "contrib": [
+      3.6,
+      3.9
+     ],
+     "expect": 7.9,
+     "buffer": 0.4,
+     "fa": [
+      [
+       3.5,
+       4.5
+      ],
+      [
+       5.0,
+       4.3
+      ]
+     ],
+     "sd": 2.82,
+     "p_emp": {
+      "6.5": 0.6666666666666666,
+      "7.5": 0.6756756756756757
+     },
+     "range": [
+      1.33,
+      1.55
+     ],
+     "b365": [
+      "9.0",
+      "1.875",
+      "1.925"
+     ],
+     "p_mod": 0.556,
+     "p_fin": 0.585,
+     "kal": 0.95,
+     "fair_fin": 1.71,
+     "ladder_fin": [
+      [
+       6.5,
+       1.55
+      ],
+      [
+       7.5,
+       1.71
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "59 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12130563",
+    "league": "Spain Segunda",
+    "league_id": "221",
+    "home": "Leganes",
+    "away": "CD Castellon",
+    "home_id": "43747",
+    "away_id": "7179",
+    "kickoff": "Mo 20:30",
+    "kickoff_ts": 1790620200,
+    "bet365_id": "200659094"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      46,
+      47
+     ],
+     "next_line": 3.5,
+     "next_note": "Leganes 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; CD Castellon 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8839211400549468,
+      0.7861260146990143
+     ],
+     "fair": 1.26,
+     "ladder": [
+      [
+       1.5,
+       1.29
+      ],
+      [
+       2.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      4.2,
+      4.4
+     ],
+     "expect_sum": 4.3,
+     "expect_matchup": 4.9,
+     "contrib": [
+      2.8,
+      2.1
+     ],
+     "expect": 4.6,
+     "buffer": 2.1,
+     "fa": [
+      [
+       2.4,
+       2.2
+      ],
+      [
+       2.4,
+       2.7
+      ]
+     ],
+     "sd": 2.22,
+     "p_emp": {
+      "1.5": 0.7751937984496123,
+      "2.5": 0.7936507936507936
+     },
+     "range": [
+      1.33,
+      1.6
+     ],
+     "referee": "Alejandro Ojaos Valera: Ø 4.9 Karten (23 Sp.) · Ø 23.2 Fouls (19 Sp.)",
+     "expect_ref": 5.6,
+     "buffer_ref": 3.1,
+     "p_mod": 0.919,
+     "p_fin": 0.813,
+     "kal": 0.95,
+     "fair_fin": 1.23,
+     "ladder_fin": [
+      [
+       1.5,
+       1.21
+      ],
+      [
+       2.5,
+       1.23
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 79 % vs. Modell 92 %",
+     "first_run": "Mo 08:50",
+     "change_note": "Quoten vorher 1.29–1.70"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      46,
+      47
+     ],
+     "next_line": 5.5,
+     "next_note": "CD Castellon 3/5 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.8683529855807632,
+      0.7601589456183349
+     ],
+     "fair": 1.2,
+     "ladder": [
+      [
+       6.5,
+       1.2
+      ],
+      [
+       7.5,
+       1.29
+      ]
+     ],
+     "avg": [
+      4.2,
+      4.4
+     ],
+     "expect_sum": 4.3,
+     "expect_matchup": 4.9,
+     "contrib": [
+      2.8,
+      2.1
+     ],
+     "expect": 4.6,
+     "buffer": 1.9,
+     "fa": [
+      [
+       2.4,
+       2.2
+      ],
+      [
+       2.4,
+       2.7
+      ]
+     ],
+     "sd": 2.22,
+     "p_emp": {
+      "6.5": 0.8333333333333334,
+      "7.5": 0.7751937984496123
+     },
+     "range": [
+      1.33,
+      1.6
+     ],
+     "referee": "Alejandro Ojaos Valera: Ø 4.9 Karten (23 Sp.) · Ø 23.2 Fouls (19 Sp.)",
+     "expect_ref": 5.6,
+     "buffer_ref": 0.9,
+     "p_mod": 0.657,
+     "p_fin": 0.76,
+     "kal": 1.02,
+     "fair_fin": 1.32,
+     "ladder_fin": [
+      [
+       6.5,
+       1.32
+      ],
+      [
+       7.5,
+       1.24
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 83 % vs. Modell 66 %",
+     "first_run": "Mo 08:50",
+     "change_note": "Quoten vorher 1.29–1.70"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      38,
+      40
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Leganes 5/7 (3. Lücke) gesamt, 14/16 (3. Lücke) heim; CD Castellon 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.8052851364041307,
+      0.8787220757145401
+     ],
+     "fair": 1.2,
+     "ladder": [
+      [
+       5.5,
+       1.2
+      ],
+      [
+       6.5,
+       1.31
+      ]
+     ],
+     "avg": [
+      3.2,
+      3.5
+     ],
+     "expect_sum": 3.4,
+     "expect_matchup": 3.3,
+     "contrib": [
+      1.8,
+      1.5
+     ],
+     "expect": 3.3,
+     "buffer": 2.2,
+     "fa": [
+      [
+       1.6,
+       1.9
+      ],
+      [
+       1.8,
+       2.1
+      ]
+     ],
+     "sd": 2.13,
+     "p_emp": {
+      "5.5": 0.8333333333333334,
+      "6.5": 0.7633587786259541
+     },
+     "range": [
+      1.25,
+      1.88
+     ],
+     "p_mod": 0.849,
+     "p_fin": 0.841,
+     "kal": 1.0,
+     "fair_fin": 1.19,
+     "ladder_fin": [
+      [
+       5.5,
+       1.19
+      ],
+      [
+       6.5,
+       1.18
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.19"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437390",
+    "league": "UEFA Nations League A",
+    "league_id": "30974",
+    "home": "Belgium",
+    "away": "France",
+    "home_id": "4503",
+    "away_id": "4521",
+    "kickoff": "Mo 20:45",
+    "kickoff_ts": 1790621100,
+    "bet365_id": "201150136"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      49
+     ],
+     "next_line": 8.5,
+     "next_note": "Belgium 1/3 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; France 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.7334055527272957,
+      0.7181062600054076
+     ],
+     "fair": 1.4,
+     "ladder": [
+      [
+       6.5,
+       1.34
+      ],
+      [
+       7.5,
+       1.4
+      ]
+     ],
+     "avg": [
+      10.6,
+      10.1
+     ],
+     "expect_sum": 10.4,
+     "expect_matchup": 10.6,
+     "contrib": [
+      7.3,
+      3.3
+     ],
+     "expect": 10.5,
+     "buffer": 3.0,
+     "fa": [
+      [
+       6.9,
+       3.3
+      ],
+      [
+       5.8,
+       3.3
+      ]
+     ],
+     "sd": 3.0,
+     "p_emp": {
+      "6.5": 0.7462686567164178,
+      "7.5": 0.7142857142857143
+     },
+     "range": [
+      1.55,
+      2.14
+     ],
+     "b365": [
+      "9.0",
+      "1.875",
+      "1.925"
+     ],
+     "p_mod": 0.841,
+     "p_fin": 0.739,
+     "kal": 0.95,
+     "fair_fin": 1.35,
+     "ladder_fin": [
+      [
+       6.5,
+       1.27
+      ],
+      [
+       7.5,
+       1.35
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 71 % vs. Modell 84 %"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      49
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Belgium 10/12 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; France 10/12 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8279076370375645,
+      0.8902202487453409
+     ],
+     "fair": 1.2,
+     "ladder": [
+      [
+       5.5,
+       1.2
+      ],
+      [
+       6.5,
+       1.09
+      ]
+     ],
+     "avg": [
+      3.2,
+      3.3
+     ],
+     "expect_sum": 3.2,
+     "expect_matchup": 2.8,
+     "contrib": [
+      1.0,
+      1.8
+     ],
+     "expect": 3.0,
+     "buffer": 2.5,
+     "fa": [
+      [
+       1.4,
+       2.0
+      ],
+      [
+       1.4,
+       1.6
+      ]
+     ],
+     "sd": 2.14,
+     "p_emp": {
+      "5.5": 0.8333333333333334,
+      "6.5": 0.9174311926605504
+     },
+     "range": [
+      1.42,
+      1.96
+     ],
+     "referee": "Rade Obrenovic: Ø 3.4 Karten (44 Sp.) · Ø 22.8 Fouls (26 Sp.)",
+     "expect_ref": 2.7,
+     "buffer_ref": 2.8,
+     "p_mod": 0.905,
+     "p_fin": 0.886,
+     "kal": 1.02,
+     "fair_fin": 1.13,
+     "ladder_fin": [
+      [
+       5.5,
+       1.13
+      ],
+      [
+       6.5,
+       1.04
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.13"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437489",
+    "league": "UEFA Nations League B",
+    "league_id": "30973",
+    "home": "Romania",
+    "away": "Bosnia-Herzegovina",
+    "home_id": "7338",
+    "away_id": "8504",
+    "kickoff": "Mo 20:45",
+    "kickoff_ts": 1790621100,
+    "bet365_id": "201150130"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 5.5,
+     "next_note": "kein Anker — Romania 6/8 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Bosnia-Herzegovina 11/13 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+     "longterm": [
+      0.9036858155632216,
+      0.8721122570725002
+     ],
+     "fair": 1.13,
+     "ladder": [
+      [
+       6.5,
+       1.13
+      ],
+      [
+       7.5,
+       1.25
+      ]
+     ],
+     "avg": [
+      4.2,
+      3.7
+     ],
+     "expect_sum": 3.9,
+     "expect_matchup": 4.2,
+     "contrib": [
+      1.2,
+      3.0
+     ],
+     "expect": 4.1,
+     "buffer": 2.4,
+     "fa": [
+      [
+       1.8,
+       2.4
+      ],
+      [
+       2.1,
+       1.5
+      ]
+     ],
+     "sd": 2.19,
+     "p_emp": {
+      "6.5": 0.8849557522123894,
+      "7.5": 0.8
+     },
+     "range": [
+      1.26,
+      1.46
+     ],
+     "referee": "Luis Miguel Branco Godinho: Ø 4.5 Karten (50 Sp.) · Ø 25.8 Fouls (32 Sp.)",
+     "expect_ref": 4.7,
+     "buffer_ref": 1.8,
+     "p_mod": 0.794,
+     "p_fin": 0.856,
+     "kal": 1.02,
+     "fair_fin": 1.17,
+     "ladder_fin": [
+      [
+       6.5,
+       1.17
+      ],
+      [
+       7.5,
+       1.15
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.17"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      33,
+      33
+     ],
+     "next_line": 3.5,
+     "next_note": "Romania 0/2 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+     "longterm": [
+      0.821982005644898,
+      0.8758902988606292
+     ],
+     "fair": 1.26,
+     "ladder": [
+      [
+       4.5,
+       1.26
+      ],
+      [
+       5.5,
+       1.12
+      ]
+     ],
+     "avg": [
+      3.0,
+      2.3
+     ],
+     "expect_sum": 2.6,
+     "expect_matchup": 1.9,
+     "contrib": [
+      1.1,
+      0.8
+     ],
+     "expect": 2.3,
+     "buffer": 2.2,
+     "fa": [
+      [
+       1.5,
+       1.9
+      ],
+      [
+       1.5,
+       1.6
+      ]
+     ],
+     "sd": 1.57,
+     "p_emp": {
+      "4.5": 0.7936507936507936,
+      "5.5": 0.8928571428571428
+     },
+     "range": [
+      1.52,
+      1.96
+     ],
+     "p_mod": 0.919,
+     "p_fin": 0.857,
+     "kal": 1.0,
+     "fair_fin": 1.17,
+     "ladder_fin": [
+      [
+       4.5,
+       1.17
+      ],
+      [
+       5.5,
+       1.07
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 79 % vs. Modell 92 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437470",
+    "league": "UEFA Nations League B",
+    "league_id": "30973",
+    "home": "Northern Ireland",
+    "away": "Hungary",
+    "home_id": "7340",
+    "away_id": "8507",
+    "kickoff": "Mo 20:45",
+    "kickoff_ts": 1790621100,
+    "bet365_id": "201150134"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      50,
+      49
+     ],
+     "next_line": 4.5,
+     "next_note": "Hungary 4/6 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+     "longterm": [
+      0.8971618207281702,
+      0.7780917936549598
+     ],
+     "fair": 1.22,
+     "ladder": [
+      [
+       5.5,
+       1.22
+      ],
+      [
+       6.5,
+       1.11
+      ]
+     ],
+     "avg": [
+      3.8,
+      3.8
+     ],
+     "expect_sum": 3.8,
+     "expect_matchup": 3.8,
+     "contrib": [
+      2.0,
+      1.8
+     ],
+     "expect": 3.8,
+     "buffer": 1.7,
+     "fa": [
+      [
+       1.8,
+       1.6
+      ],
+      [
+       1.9,
+       2.3
+      ]
+     ],
+     "sd": 2.08,
+     "p_emp": {
+      "5.5": 0.819672131147541,
+      "6.5": 0.9009009009009008
+     },
+     "range": [
+      1.39,
+      1.61
+     ],
+     "referee": "Ricardo De Burgos Bengoechea: Ø 3.4 Karten (40 Sp.) · Ø 21.3 Fouls (36 Sp.)",
+     "expect_ref": 3.4,
+     "buffer_ref": 2.1,
+     "p_mod": 0.844,
+     "p_fin": 0.848,
+     "kal": 1.02,
+     "fair_fin": 1.18,
+     "ladder_fin": [
+      [
+       5.5,
+       1.18
+      ],
+      [
+       6.5,
+       1.07
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.18",
+     "first_run": "Mo 08:50",
+     "change_note": "Quoten vorher 1.29–1.67"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      30,
+      34
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Northern Ireland 21/23 (3. Lücke) gesamt, 12/14 heim; Hungary 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      1.0,
+      0.7927244957483177
+     ],
+     "fair": 1.16,
+     "ladder": [
+      [
+       5.5,
+       1.16
+      ],
+      [
+       6.5,
+       1.3
+      ]
+     ],
+     "avg": [
+      2.7,
+      3.6
+     ],
+     "expect_sum": 3.1,
+     "expect_matchup": 2.8,
+     "contrib": [
+      1.4,
+      1.4
+     ],
+     "expect": 3.0,
+     "buffer": 2.5,
+     "fa": [
+      [
+       1.2,
+       2.0
+      ],
+      [
+       1.6,
+       2.0
+      ]
+     ],
+     "sd": 1.63,
+     "p_emp": {
+      "5.5": 0.8620689655172414,
+      "6.5": 0.7692307692307692
+     },
+     "range": [
+      1.65,
+      1.75
+     ],
+     "p_mod": 0.937,
+     "p_fin": 0.9,
+     "kal": 1.0,
+     "fair_fin": 1.11,
+     "ladder_fin": [
+      [
+       5.5,
+       1.11
+      ],
+      [
+       6.5,
+       1.14
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.11",
+     "first_run": "Mo 08:50",
+     "change_note": "Quoten vorher 1.65–2.14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13083934",
+    "league": "Africa Cup of Nations Qualification",
+    "league_id": "511",
+    "home": "Tunisia",
+    "away": "Botswana",
+    "home_id": "7278",
+    "away_id": "7030",
+    "kickoff": "Mo 21:00",
+    "kickoff_ts": 1790622000,
+    "bet365_id": "201953722"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      47
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Tunisia 6/8 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; Botswana 8/10 (3. Lücke) gesamt, 23/25 (3. Lücke) auswärts",
+     "longterm": [
+      0.8588792831188655,
+      0.9552145284413208
+     ],
+     "fair": 1.15,
+     "ladder": [
+      [
+       5.5,
+       1.15
+      ],
+      [
+       6.5,
+       1.07
+      ]
+     ],
+     "avg": [
+      2.5,
+      3.3
+     ],
+     "expect_sum": 2.9,
+     "expect_matchup": 2.3,
+     "contrib": [
+      0.6,
+      1.8
+     ],
+     "expect": 2.6,
+     "buffer": 2.9,
+     "fa": [
+      [
+       1.3,
+       1.9
+      ],
+      [
+       2.1,
+       1.3
+      ]
+     ],
+     "sd": 1.86,
+     "p_emp": {
+      "5.5": 0.8695652173913044,
+      "6.5": 0.9345794392523364
+     },
+     "range": [
+      1.21,
+      1.49
+     ],
+     "p_mod": 0.941,
+     "p_fin": 0.923,
+     "kal": 1.02,
+     "fair_fin": 1.08,
+     "ladder_fin": [
+      [
+       5.5,
+       1.08
+      ],
+      [
+       6.5,
+       1.02
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.08"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "results": 36,
+  "doublechance": 56,
+  "totals": 64,
+  "handicaps": 25,
+  "correctscore": 9,
+  "corners": 24,
+  "cards": 13,
+  "btts": 19,
+  "shots": 7,
+  "offsides": 7,
+  "fouls": 7
+ },
+ "dauer_s": 58,
+ "zeit": {
+  "historie": 424,
+  "pruefung": 0,
+  "scores24": 49,
+  "extras": 19,
+  "vorlauf": 7,
+  "spiele": 51
+ },
+ "teams_nachgeladen": 4,
+ "s24": {
+  "ok": 64,
+  "no_link": 15,
+  "fetch_fail": 10
+ },
+ "new": [
+  "13112290|yellowcards|unter",
+  "13112290|ht_yellowcards|über",
+  "13132447|corners|über",
+  "12368124|corners|über",
+  "11679556|yellowcards|unter",
+  "11679556|offsides|unter",
+  "11437511|corners|über",
+  "11437511|yellowcards|unter",
+  "11437511|offsides|unter",
+  "13083914|yellowcards|über",
+  "13083914|yellowcards|unter",
+  "13083910|yellowcards|über",
+  "13083910|yellowcards|unter",
+  "13083910|ht_yellowcards|über",
+  "13083913|yellowcards|unter",
+  "10546586|yellowcards|unter",
+  "13133781|corners|über",
+  "12130563|offsides|unter",
+  "11437390|corners|über",
+  "11437390|yellowcards|unter",
+  "11437489|yellowcards|unter",
+  "11437489|offsides|unter",
+  "13083934|yellowcards|unter"
+ ],
+ "changed": [
+  "11437471|yellowcards|unter",
+  "11437471|offsides|unter",
+  "12130563|yellowcards|über",
+  "12130563|yellowcards|unter",
+  "11437470|yellowcards|unter",
+  "11437470|offsides|unter"
+ ],
+ "dropped": [],
+ "team_totals": [
+  {
+   "match": {
+    "id": "13112290",
+    "league": "FIFA ASEAN Cup",
+    "league_id": "46625",
+    "home": "Malaysia",
+    "away": "Indonesia",
+    "home_id": "8290",
+    "away_id": "8289",
+    "kickoff": "Mo 14:30",
+    "kickoff_ts": 1790598600,
+    "bet365_id": "201915651"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "heim",
+    "team": "Malaysia",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.8443,
+    "fair": 1.18,
+    "p_emp": 0.802,
+    "p_mod": 0.887,
+    "erwartet": 1.2,
+    "basis": 45
+   }
+  },
+  {
+   "match": {
+    "id": "11437471",
+    "league": "UEFA Nations League B",
+    "league_id": "30973",
+    "home": "Georgia",
+    "away": "Ukraine",
+    "home_id": "7652",
+    "away_id": "7784",
+    "kickoff": "Mo 18:00",
+    "kickoff_ts": 1790611200,
+    "bet365_id": "201150125"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "heim",
+    "team": "Georgia",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7707,
+    "fair": 1.3,
+    "p_emp": 0.763,
+    "p_mod": 0.779,
+    "erwartet": 1.6,
+    "basis": 49
+   }
+  },
+  {
+   "match": {
+    "id": "13083913",
+    "league": "Africa Cup of Nations Qualification",
+    "league_id": "511",
+    "home": "Zimbabwe",
+    "away": "Congo DR",
+    "home_id": "63956",
+    "away_id": "54237",
+    "kickoff": "Mo 18:00",
+    "kickoff_ts": 1790611200,
+    "bet365_id": "201640990"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "gast",
+    "team": "Congo DR",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "auswärts",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.8676,
+    "fair": 1.15,
+    "p_emp": 0.807,
+    "p_mod": 0.928,
+    "erwartet": 1.1,
+    "basis": 49
+   }
+  },
+  {
+   "match": {
+    "id": "11437390",
+    "league": "UEFA Nations League A",
+    "league_id": "30974",
+    "home": "Belgium",
+    "away": "France",
+    "home_id": "4503",
+    "away_id": "4521",
+    "kickoff": "Mo 20:45",
+    "kickoff_ts": 1790621100,
+    "bet365_id": "201150136"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Belgium",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7646,
+    "fair": 1.31,
+    "p_emp": 0.723,
+    "p_mod": 0.807,
+    "erwartet": 6.8,
+    "basis": 50
+   }
+  },
+  {
+   "match": {
+    "id": "13083934",
+    "league": "Africa Cup of Nations Qualification",
+    "league_id": "511",
+    "home": "Tunisia",
+    "away": "Botswana",
+    "home_id": "7278",
+    "away_id": "7030",
+    "kickoff": "Mo 21:00",
+    "kickoff_ts": 1790622000,
+    "bet365_id": "201953722"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "heim",
+    "team": "Tunisia",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.8388,
+    "fair": 1.19,
+    "p_emp": 0.809,
+    "p_mod": 0.868,
+    "erwartet": 1.2,
+    "basis": 47
+   }
+  }
+ ],
+ "neue_maerkte": []
+}
