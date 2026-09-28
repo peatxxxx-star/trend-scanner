@@ -1,0 +1,429 @@
+{
+ "run_utc": "2026-09-28T18:38:15+00:00",
+ "matches_checked": 43,
+ "requests": 90,
+ "hits": [
+  {
+   "match": {
+    "id": "12321869",
+    "league": "Mexico Liga MX Femenil",
+    "league_id": "6298",
+    "home": "Leon (W)",
+    "away": "Club America (W)",
+    "home_id": "1176640",
+    "away_id": "1177422",
+    "kickoff": "Di 01:00",
+    "kickoff_ts": 1790636400,
+    "bet365_id": "201779009"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      44
+     ],
+     "next_line": 8.5,
+     "next_note": "kein Anker — Leon (W) 9/11 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; Club America (W) 9/11 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+     "longterm": [
+      0.7588149934891968,
+      0.8707840545670366
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       6.5,
+       1.32
+      ],
+      [
+       7.5,
+       1.29
+      ]
+     ],
+     "avg": [
+      10.5,
+      11.8
+     ],
+     "expect_sum": 11.2,
+     "expect_matchup": 12.9,
+     "contrib": [
+      3.8,
+      9.0
+     ],
+     "expect": 12.0,
+     "buffer": 4.5,
+     "fa": [
+      [
+       5.1,
+       4.5
+      ],
+      [
+       8.0,
+       2.9
+      ]
+     ],
+     "sd": 3.21,
+     "p_emp": {
+      "6.5": 0.7575757575757576,
+      "7.5": 0.7751937984496123
+     },
+     "range": [
+      1.63,
+      1.909
+     ],
+     "b365": [
+      "10.5",
+      "2.000",
+      "1.800"
+     ],
+     "p_mod": 0.92,
+     "p_fin": 0.805,
+     "kal": 0.95,
+     "fair_fin": 1.24,
+     "ladder_fin": [
+      [
+       6.5,
+       1.23
+      ],
+      [
+       7.5,
+       1.24
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 78 % vs. Modell 92 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12315894",
+    "league": "CONCACAF Nations League",
+    "league_id": "14717",
+    "home": "St. Kitts and Nevis",
+    "away": "Grenada",
+    "home_id": "178921",
+    "away_id": "168866",
+    "kickoff": "Di 02:00",
+    "kickoff_ts": 1790640000,
+    "bet365_id": "201915202"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "St. Kitts and Nevis 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Grenada 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.642547876024665,
+      0.6752890420429926
+     ],
+     "fair": 1.57,
+     "ladder": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.57
+      ]
+     ],
+     "avg": [
+      2.9,
+      3.3
+     ],
+     "expect_sum": 3.1,
+     "expect_matchup": 2.8,
+     "contrib": [
+      1.9,
+      0.9
+     ],
+     "expect": 3.0,
+     "buffer": 0.5,
+     "fa": [
+      [
+       1.2,
+       1.9
+      ],
+      [
+       1.0,
+       2.0
+      ]
+     ],
+     "sd": 1.84,
+     "p_emp": {
+      "1.5": 0.819672131147541,
+      "2.5": 0.6369426751592356
+     },
+     "no_odds_check": true,
+     "p_mod": 0.607,
+     "p_fin": 0.585,
+     "kal": 0.94,
+     "fair_fin": 1.71,
+     "ladder_fin": [
+      [
+       1.5,
+       1.32
+      ],
+      [
+       2.5,
+       1.71
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "58 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12315902",
+    "league": "CONCACAF Nations League",
+    "league_id": "14717",
+    "home": "Saint Lucia",
+    "away": "Bermuda",
+    "home_id": "838604",
+    "away_id": "168867",
+    "kickoff": "Di 02:00",
+    "kickoff_ts": 1790640000,
+    "bet365_id": "201915188"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "Saint Lucia 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Bermuda 0/2 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.6752399368785601,
+      0.7917404462141154
+     ],
+     "fair": 1.45,
+     "ladder": [
+      [
+       1.5,
+       1.15
+      ],
+      [
+       2.5,
+       1.45
+      ]
+     ],
+     "avg": [
+      3.0,
+      3.9
+     ],
+     "expect_sum": 3.4,
+     "expect_matchup": 3.5,
+     "contrib": [
+      2.3,
+      1.2
+     ],
+     "expect": 3.5,
+     "buffer": 1.0,
+     "fa": [
+      [
+       1.1,
+       1.7
+      ],
+      [
+       1.6,
+       2.4
+      ]
+     ],
+     "sd": 1.84,
+     "p_emp": {
+      "1.5": 0.8695652173913044,
+      "2.5": 0.6896551724137931
+     },
+     "no_odds_check": true,
+     "p_mod": 0.707,
+     "p_fin": 0.656,
+     "kal": 0.94,
+     "fair_fin": 1.52,
+     "ladder_fin": [
+      [
+       1.5,
+       1.23
+      ],
+      [
+       2.5,
+       1.52
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "66 % knapp"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "results": 15,
+  "doublechance": 19,
+  "totals": 23,
+  "corners": 11,
+  "handicaps": 9,
+  "btts": 8,
+  "correctscore": 1
+ },
+ "dauer_s": 55,
+ "zeit": {
+  "historie": 177,
+  "pruefung": 0,
+  "scores24": 16,
+  "extras": 5,
+  "vorlauf": 14,
+  "spiele": 41
+ },
+ "teams_nachgeladen": 19,
+ "s24": {
+  "ok": 23,
+  "no_link": 7,
+  "fetch_fail": 5
+ },
+ "new": [
+  "12321869|corners|über",
+  "12315894|goals|über",
+  "12315902|goals|über"
+ ],
+ "changed": [],
+ "dropped": [
+  "11437390|corners|über",
+  "11437390|yellowcards|unter",
+  "11437489|yellowcards|unter",
+  "11437489|offsides|unter",
+  "11437470|yellowcards|unter",
+  "11437470|offsides|unter",
+  "13083934|yellowcards|unter"
+ ],
+ "team_totals": [
+  {
+   "match": {
+    "id": "12321869",
+    "league": "Mexico Liga MX Femenil",
+    "league_id": "6298",
+    "home": "Leon (W)",
+    "away": "Club America (W)",
+    "home_id": "1176640",
+    "away_id": "1177422",
+    "kickoff": "Di 01:00",
+    "kickoff_ts": 1790636400,
+    "bet365_id": "201779009"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Leon (W)",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7265,
+    "fair": 1.38,
+    "p_emp": 0.695,
+    "p_mod": 0.758,
+    "erwartet": 5.2,
+    "basis": 50
+   }
+  },
+  {
+   "match": {
+    "id": "12321869",
+    "league": "Mexico Liga MX Femenil",
+    "league_id": "6298",
+    "home": "Leon (W)",
+    "away": "Club America (W)",
+    "home_id": "1176640",
+    "away_id": "1177422",
+    "kickoff": "Di 01:00",
+    "kickoff_ts": 1790636400,
+    "bet365_id": "201779009"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Club America (W)",
+    "line": 4.5,
+    "direction": "über",
+    "serie": {
+     "kind": "auswärts",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7308,
+    "fair": 1.37,
+    "p_emp": 0.642,
+    "p_mod": 0.82,
+    "erwartet": 8.0,
+    "basis": 44
+   }
+  }
+ ],
+ "neue_maerkte": []
+}
