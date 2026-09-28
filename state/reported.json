@@ -1,150 +1,249 @@
 {
- "12309578|corners|über": {
-  "match_id": "12309578",
-  "home": "AC Colina",
-  "away": "Real Juventud San Joaquin",
-  "kickoff": "So 22:00",
-  "kickoff_ts": 1790539200,
-  "league": "Chile Segunda",
-  "metric": "Ecken",
-  "metric_key": "corners",
+ "13205926|goals|über": {
+  "match_id": "13205926",
+  "home": "Wenzhou Yincai U20",
+  "away": "Qingdao Red Lions U20",
+  "kickoff": "Mo 09:30",
+  "kickoff_ts": 1790580600,
+  "league": "China U20 League",
+  "metric": "Tore",
+  "metric_key": "goals",
   "direction": "über",
-  "first_run": "So 08:39",
-  "first_line": 8.5,
-  "first_range": [
-   1.69,
-   1.69
-  ],
-  "last_run": "So 21:02",
-  "line": 8.5,
-  "range": [
-   1.69,
-   1.69
-  ],
+  "first_run": "Mo 08:50",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mo 08:50",
+  "line": 2.5,
+  "range": null,
   "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
+   "metric": "Tore",
+   "metric_key": "goals",
    "direction": "über",
-   "line": 8.5,
+   "line": 2.5,
    "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 16
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
    },
    "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    9,
+    11
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — Wenzhou Yincai U20 7/9 gesamt, 5 in Folge heim; Qingdao Red Lions U20 7/9 (3. Lücke) gesamt, 5/6 auswärts",
+   "longterm": [
+    0.8888888888888888,
+    0.8995463675075267
+   ],
+   "fair": 1.37,
+   "ladder": [
+    [
+     1.5,
+     1.16
+    ],
+    [
+     2.5,
+     1.37
+    ]
+   ],
+   "avg": [
+    5.6,
+    5.0
+   ],
+   "expect": 8.5,
+   "expect_sum": 5.3,
+   "expect_matchup": 11.7,
+   "contrib": [
+    0.8,
+    10.9
+   ],
+   "buffer": 6.0,
+   "fa": [
+    [
+     1.0,
+     4.0
+    ],
+    [
+     2.5,
+     2.1
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.21,
+   "p_emp": {
+    "1.5": 0.8620689655172414,
+    "2.5": 0.7299270072992701
+   },
+   "p_mod": 0.997,
+   "p_fin": 0.812,
+   "fair_fin": 1.23,
+   "ladder_fin": [
+    [
+     1.5,
+     1.14
+    ],
+    [
+     2.5,
+     1.23
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "Historie 73 % und Modell 100 % widersprechen sich",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13207207|goals|über": {
+  "match_id": "13207207",
+  "home": "Charkop FC",
+  "away": "KSA Juniors",
+  "kickoff": "Mo 10:00",
+  "kickoff_ts": 1790582400,
+  "league": "India Mumbai Super Division",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Mo 08:50",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mo 08:50",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
     "kind": "gesamt",
     "hits": 5,
     "window": 6
    },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
    "valid": [
-    50,
-    46
+    20,
+    17
    ],
-   "next_line": 9.5,
-   "next_note": "Real Juventud San Joaquin 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "next_line": 3.5,
+   "next_note": "kein Anker — Charkop FC 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; KSA Juniors 9/11 (3. Lücke) gesamt, 4/5 auswärts",
    "longterm": [
-    0.7418603246328966,
-    0.5251432154629465
+    0.6080144042481759,
+    0.8876638672063258
    ],
-   "fair": 1.63,
+   "fair": 1.48,
    "ladder": [
     [
-     7.5,
-     1.4
+     1.5,
+     1.16
     ],
     [
-     8.5,
-     1.63
+     2.5,
+     1.48
     ]
    ],
    "avg": [
-    12.6,
-    9.8
+    2.7,
+    6.1
    ],
-   "expect": 11.9,
-   "expect_sum": 11.2,
-   "expect_matchup": 12.6,
+   "expect": 5.0,
+   "expect_sum": 4.4,
+   "expect_matchup": 5.6,
    "contrib": [
-    7.1,
-    5.5
+    4.1,
+    1.5
    ],
-   "buffer": 3.4,
+   "buffer": 2.5,
    "fa": [
     [
-     6.2,
-     4.6
+     3.0,
+     0.8
     ],
     [
-     5.1,
-     4.0
+     3.0,
+     2.5
     ]
    ],
    "referee": null,
-   "b365": [
-    "10.0",
-    "2.000",
-    "1.800"
-   ],
+   "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.73,
+   "sd": 2.55,
    "p_emp": {
-    "7.5": 0.7142857142857143,
-    "8.5": 0.6134969325153374
+    "1.5": 0.8620689655172414,
+    "2.5": 0.6756756756756757
    },
-   "p_mod": 0.819,
-   "p_fin": 0.68,
-   "fair_fin": 1.47,
+   "p_mod": 0.837,
+   "p_fin": 0.711,
+   "fair_fin": 1.41,
    "ladder_fin": [
     [
-     7.5,
-     1.32
+     1.5,
+     1.2
     ],
     [
-     8.5,
-     1.47
+     2.5,
+     1.41
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟡",
-   "reason": "Historie 61 % vs. Modell 82 %",
+   "reason": "Historie 68 % vs. Modell 84 %",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
    "b365_lines": null,
    "b365_est": null,
-   "range": [
-    1.69,
-    1.69
-   ]
+   "range": null
   },
   "v": 2
  },
- "13191167|yellowcards|unter": {
-  "match_id": "13191167",
-  "home": "Bolivia",
-  "away": "Paraguay",
-  "kickoff": "So 22:30",
-  "kickoff_ts": 1790541000,
+ "13121042|yellowcards|unter": {
+  "match_id": "13121042",
+  "home": "Japan",
+  "away": "Venezuela",
+  "kickoff": "Mo 12:25",
+  "kickoff_ts": 1790591100,
   "league": "International Match",
   "metric": "Gelbe Karten",
   "metric_key": "yellowcards",
   "direction": "unter",
-  "first_run": "So 12:10",
+  "first_run": "Mo 08:50",
   "first_line": 5.5,
   "first_range": [
-   1.19,
-   2.26
+   1.2,
+   1.67
   ],
-  "last_run": "So 21:02",
+  "last_run": "Mo 08:50",
   "line": 5.5,
   "range": [
-   1.19,
-   2.26
+   1.2,
+   1.67
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -154,12 +253,12 @@
    "home_series": {
     "kind": "gesamt",
     "hits": 10,
-    "window": 12
+    "window": 10
    },
    "away_series": {
     "kind": "gesamt",
     "hits": 10,
-    "window": 12
+    "window": 11
    },
    "home_is_anchor": true,
    "away_is_anchor": true,
@@ -168,229 +267,812 @@
     50
    ],
    "next_line": 4.5,
-   "next_note": "Bolivia 2/4 (3. Lücke) gesamt, 8/10 (3. Lücke) heim",
+   "next_note": "Venezuela 7/9 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
    "longterm": [
-    0.8523959878992957,
-    0.7596981502001432
+    1.0,
+    0.8822100081731603
    ],
-   "fair": 1.26,
+   "fair": 1.12,
    "ladder": [
     [
      5.5,
-     1.26
+     1.12
     ],
     [
      6.5,
-     1.12
+     1.07
     ]
    ],
    "avg": [
-    3.4,
-    3.5
+    1.9,
+    3.7
    ],
-   "expect": 3.4,
-   "expect_sum": 3.5,
-   "expect_matchup": 3.2,
+   "expect": 2.4,
+   "expect_sum": 2.8,
+   "expect_matchup": 2.0,
    "contrib": [
-    1.2,
-    2.0
+    0.5,
+    1.5
    ],
-   "buffer": 2.1,
+   "buffer": 3.1,
    "fa": [
     [
-     1.8,
-     1.5
+     0.9,
+     1.2
     ],
     [
-     2.0,
-     1.8
+     2.2,
+     1.6
     ]
    ],
    "referee": null,
    "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 2.09,
+   "sd": 1.81,
    "p_emp": {
-    "5.5": 0.7936507936507936,
-    "6.5": 0.8928571428571428
+    "5.5": 0.8928571428571428,
+    "6.5": 0.9345794392523364
    },
-   "p_mod": 0.842,
-   "p_fin": 0.834,
-   "fair_fin": 1.2,
+   "p_mod": 0.957,
+   "p_fin": 0.943,
+   "fair_fin": 1.06,
    "ladder_fin": [
     [
      5.5,
-     1.2
+     1.06
     ],
     [
      6.5,
-     1.08
+     1.02
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "reason": "fair 1.20",
+   "reason": "fair 1.06",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
    "b365_lines": null,
    "b365_est": null,
    "range": [
-    1.19,
-    2.26
+    1.2,
+    1.67
    ]
   },
   "v": 2
  },
- "12099981|corners|über": {
-  "match_id": "12099981",
-  "home": "Jaguares de Cordoba",
-  "away": "Alianza",
-  "kickoff": "So 23:00",
-  "kickoff_ts": 1790542800,
-  "league": "Colombia Primera A",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "So 08:39",
-  "first_line": 7.5,
+ "11437471|yellowcards|unter": {
+  "match_id": "11437471",
+  "home": "Georgia",
+  "away": "Ukraine",
+  "kickoff": "Mo 18:00",
+  "kickoff_ts": 1790611200,
+  "league": "UEFA Nations League B",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 08:50",
+  "first_line": 6.5,
   "first_range": [
-   1.23,
-   1.775
+   1.75,
+   1.75
   ],
-  "last_run": "So 21:02",
-  "line": 7.5,
+  "last_run": "Mo 08:50",
+  "line": 6.5,
   "range": [
-   1.23,
-   1.775
+   1.75,
+   1.75
   ],
   "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
    "home_series": {
     "kind": "gesamt",
     "hits": 10,
-    "window": 12
+    "window": 10
    },
    "away_series": {
     "kind": "gesamt",
-    "hits": 5,
-    "window": 6
+    "hits": 10,
+    "window": 11
    },
    "home_is_anchor": true,
    "away_is_anchor": false,
    "valid": [
-    47,
-    43
+    49,
+    46
    ],
-   "next_line": 8.5,
-   "next_note": "Alianza 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "next_line": 5.5,
+   "next_note": "Georgia 8/10 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
    "longterm": [
-    0.6936191019122092,
-    0.672444829990133
+    0.8781349969757085,
+    0.9095197940186245
    ],
-   "fair": 1.47,
+   "fair": 1.13,
    "ladder": [
     [
      6.5,
-     1.42
+     1.13
     ],
     [
      7.5,
-     1.47
+     1.23
     ]
    ],
    "avg": [
-    10.1,
-    8.9
+    4.4,
+    4.0
    ],
-   "expect": 9.6,
-   "expect_sum": 9.5,
-   "expect_matchup": 9.6,
+   "expect": 4.6,
+   "expect_sum": 4.2,
+   "expect_matchup": 4.9,
    "contrib": [
-    5.8,
-    3.8
+    1.3,
+    3.6
    ],
-   "buffer": 2.1,
+   "buffer": 1.9,
    "fa": [
     [
-     3.9,
-     4.8
+     1.8,
+     2.3
     ],
     [
-     4.2,
-     4.6
+     2.1,
+     1.7
     ]
    ],
-   "referee": null,
-   "b365": [
-    "8.5",
-    "1.775",
-    "2.025"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.1,
+   "referee": "Aliyar Aghayev: Ø 3.6 Karten (17 Sp.) · Ø 23.7 Fouls (14 Sp.)",
+   "b365": null,
+   "expect_ref": 4.5,
+   "buffer_ref": 2.0,
+   "sd": 2.25,
    "p_emp": {
-    "6.5": 0.7042253521126761,
-    "7.5": 0.6802721088435374
+    "6.5": 0.8849557522123894,
+    "7.5": 0.8130081300813008
    },
-   "p_mod": 0.751,
-   "p_fin": 0.68,
-   "fair_fin": 1.47,
+   "p_mod": 0.813,
+   "p_fin": 0.866,
+   "fair_fin": 1.15,
    "ladder_fin": [
     [
      6.5,
-     1.36
+     1.15
     ],
     [
      7.5,
-     1.47
+     1.14
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.15",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": [
+    1.75,
+    1.75
+   ]
+  },
+  "v": 2
+ },
+ "11437471|offsides|unter": {
+  "match_id": "11437471",
+  "home": "Georgia",
+  "away": "Ukraine",
+  "kickoff": "Mo 18:00",
+  "kickoff_ts": 1790611200,
+  "league": "UEFA Nations League B",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Mo 08:50",
+  "first_line": 4.5,
+  "first_range": [
+   1.26,
+   1.38
+  ],
+  "last_run": "Mo 08:50",
+  "line": 4.5,
+  "range": [
+   1.26,
+   1.38
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    29,
+    31
+   ],
+   "next_line": 3.5,
+   "next_note": "Ukraine 0/2 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.9481785845235613,
+    0.875858353181591
+   ],
+   "fair": 1.2,
+   "ladder": [
+    [
+     4.5,
+     1.2
+    ],
+    [
+     5.5,
+     1.1
+    ]
+   ],
+   "avg": [
+    1.9,
+    2.6
+   ],
+   "expect": 1.8,
+   "expect_sum": 2.2,
+   "expect_matchup": 1.4,
+   "contrib": [
+    0.6,
+    0.8
+   ],
+   "buffer": 2.7,
+   "fa": [
+    [
+     1.2,
+     1.5
+    ],
+    [
+     1.7,
+     1.2
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.54,
+   "p_emp": {
+    "4.5": 0.8333333333333334,
+    "5.5": 0.9090909090909091
+   },
+   "p_mod": 0.96,
+   "p_fin": 0.897,
+   "fair_fin": 1.12,
+   "ladder_fin": [
+    [
+     4.5,
+     1.12
+    ],
+    [
+     5.5,
+     1.05
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟡",
-   "reason": "68 % knapp",
+   "reason": "Historie 83 % vs. Modell 96 %",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
    "b365_lines": null,
    "b365_est": null,
    "range": [
-    1.23,
-    1.775
+    1.26,
+    1.38
    ]
   },
   "v": 2
  },
- "11068600|yellowcards|unter": {
-  "match_id": "11068600",
-  "home": "Columbus Crew",
-  "away": "Inter Miami CF",
-  "kickoff": "Mo 01:00",
-  "kickoff_ts": 1790550000,
-  "league": "USA MLS",
+ "11287301|goals|über": {
+  "match_id": "11287301",
+  "home": "Haugesund 2",
+  "away": "Hinna",
+  "kickoff": "Mo 19:00",
+  "kickoff_ts": 1790614800,
+  "league": "Norway Division 3 Group 4",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Mo 08:50",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mo 08:50",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    48
+   ],
+   "next_line": 3.5,
+   "next_note": "Hinna 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.8468419526837262,
+    0.8009830149386119
+   ],
+   "fair": 1.33,
+   "ladder": [
+    [
+     1.5,
+     1.14
+    ],
+    [
+     2.5,
+     1.33
+    ]
+   ],
+   "avg": [
+    4.3,
+    4.4
+   ],
+   "expect": 5.0,
+   "expect_sum": 4.3,
+   "expect_matchup": 5.7,
+   "contrib": [
+    3.0,
+    2.7
+   ],
+   "buffer": 2.5,
+   "fa": [
+    [
+     1.7,
+     2.5
+    ],
+    [
+     2.1,
+     2.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.21,
+   "p_emp": {
+    "1.5": 0.8771929824561404,
+    "2.5": 0.7518796992481203
+   },
+   "p_mod": 0.871,
+   "p_fin": 0.763,
+   "fair_fin": 1.31,
+   "ladder_fin": [
+    [
+     1.5,
+     1.17
+    ],
+    [
+     2.5,
+     1.31
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.31",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13133537|goals|über": {
+  "match_id": "13133537",
+  "home": "Al Sailiya SC",
+  "away": "Al-Rayyan SC",
+  "kickoff": "Mo 19:15",
+  "kickoff_ts": 1790615700,
+  "league": "Qatar Stars Cup",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Mo 08:50",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mo 08:50",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    47
+   ],
+   "next_line": 3.5,
+   "next_note": "Al Sailiya SC 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Al-Rayyan SC 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.6862937981211245,
+    0.7400225736189457
+   ],
+   "fair": 1.49,
+   "ladder": [
+    [
+     1.5,
+     1.17
+    ],
+    [
+     2.5,
+     1.49
+    ]
+   ],
+   "avg": [
+    3.6,
+    4.9
+   ],
+   "expect": 5.1,
+   "expect_sum": 4.3,
+   "expect_matchup": 5.9,
+   "contrib": [
+    1.7,
+    4.2
+   ],
+   "buffer": 2.6,
+   "fa": [
+    [
+     1.2,
+     2.0
+    ],
+    [
+     2.8,
+     1.9
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 4.97,
+   "p_emp": {
+    "1.5": 0.8547008547008548,
+    "2.5": 0.6711409395973155
+   },
+   "p_mod": 0.7,
+   "p_fin": 0.644,
+   "fair_fin": 1.55,
+   "ladder_fin": [
+    [
+     1.5,
+     1.31
+    ],
+    [
+     2.5,
+     1.55
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "64 % knapp",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "12130563|yellowcards|über": {
+  "match_id": "12130563",
+  "home": "Leganes",
+  "away": "CD Castellon",
+  "kickoff": "Mo 20:30",
+  "kickoff_ts": 1790620200,
+  "league": "Spain Segunda",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Mo 08:50",
+  "first_line": 2.5,
+  "first_range": [
+   1.29,
+   1.7
+  ],
+  "last_run": "Mo 08:50",
+  "line": 2.5,
+  "range": [
+   1.29,
+   1.7
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    47
+   ],
+   "next_line": 3.5,
+   "next_note": "Leganes 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; CD Castellon 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.8839211400549468,
+    0.7861260146990143
+   ],
+   "fair": 1.26,
+   "ladder": [
+    [
+     1.5,
+     1.29
+    ],
+    [
+     2.5,
+     1.26
+    ]
+   ],
+   "avg": [
+    4.2,
+    4.4
+   ],
+   "expect": 4.6,
+   "expect_sum": 4.3,
+   "expect_matchup": 4.9,
+   "contrib": [
+    2.8,
+    2.1
+   ],
+   "buffer": 2.1,
+   "fa": [
+    [
+     2.4,
+     2.2
+    ],
+    [
+     2.4,
+     2.7
+    ]
+   ],
+   "referee": "Alejandro Ojaos Valera: Ø 4.9 Karten (23 Sp.) · Ø 23.2 Fouls (19 Sp.)",
+   "b365": null,
+   "expect_ref": 5.6,
+   "buffer_ref": 3.1,
+   "sd": 2.22,
+   "p_emp": {
+    "1.5": 0.7751937984496123,
+    "2.5": 0.7936507936507936
+   },
+   "p_mod": 0.919,
+   "p_fin": 0.813,
+   "fair_fin": 1.23,
+   "ladder_fin": [
+    [
+     1.5,
+     1.21
+    ],
+    [
+     2.5,
+     1.23
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 79 % vs. Modell 92 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": [
+    1.29,
+    1.7
+   ]
+  },
+  "v": 2
+ },
+ "12130563|yellowcards|unter": {
+  "match_id": "12130563",
+  "home": "Leganes",
+  "away": "CD Castellon",
+  "kickoff": "Mo 20:30",
+  "kickoff_ts": 1790620200,
+  "league": "Spain Segunda",
   "metric": "Gelbe Karten",
   "metric_key": "yellowcards",
   "direction": "unter",
-  "first_run": "So 21:02",
+  "first_run": "Mo 08:50",
+  "first_line": 6.5,
+  "first_range": [
+   1.29,
+   1.7
+  ],
+  "last_run": "Mo 08:50",
+  "line": 6.5,
+  "range": [
+   1.29,
+   1.7
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    47
+   ],
+   "next_line": 5.5,
+   "next_note": "CD Castellon 3/5 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.8683529855807632,
+    0.7601589456183349
+   ],
+   "fair": 1.2,
+   "ladder": [
+    [
+     6.5,
+     1.2
+    ],
+    [
+     7.5,
+     1.29
+    ]
+   ],
+   "avg": [
+    4.2,
+    4.4
+   ],
+   "expect": 4.6,
+   "expect_sum": 4.3,
+   "expect_matchup": 4.9,
+   "contrib": [
+    2.8,
+    2.1
+   ],
+   "buffer": 1.9,
+   "fa": [
+    [
+     2.4,
+     2.2
+    ],
+    [
+     2.4,
+     2.7
+    ]
+   ],
+   "referee": "Alejandro Ojaos Valera: Ø 4.9 Karten (23 Sp.) · Ø 23.2 Fouls (19 Sp.)",
+   "b365": null,
+   "expect_ref": 5.6,
+   "buffer_ref": 0.9,
+   "sd": 2.22,
+   "p_emp": {
+    "6.5": 0.8333333333333334,
+    "7.5": 0.7751937984496123
+   },
+   "p_mod": 0.657,
+   "p_fin": 0.76,
+   "fair_fin": 1.32,
+   "ladder_fin": [
+    [
+     6.5,
+     1.32
+    ],
+    [
+     7.5,
+     1.24
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 83 % vs. Modell 66 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": [
+    1.29,
+    1.7
+   ]
+  },
+  "v": 2
+ },
+ "11437470|yellowcards|unter": {
+  "match_id": "11437470",
+  "home": "Northern Ireland",
+  "away": "Hungary",
+  "kickoff": "Mo 20:45",
+  "kickoff_ts": 1790621100,
+  "league": "UEFA Nations League B",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mo 08:50",
   "first_line": 5.5,
   "first_range": [
-   1.22,
-   2.18
+   1.29,
+   1.67
   ],
-  "last_run": "So 21:02",
+  "last_run": "Mo 08:50",
   "line": 5.5,
   "range": [
-   1.22,
-   2.18
+   1.29,
+   1.67
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -400,1296 +1082,7 @@
    "home_series": {
     "kind": "gesamt",
     "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    46,
-    48
-   ],
-   "next_line": 4.5,
-   "next_note": "Columbus Crew 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Inter Miami CF 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.912924897287496,
-    0.7527405019087386
-   ],
-   "fair": 1.23,
-   "ladder": [
-    [
-     5.5,
-     1.23
-    ],
-    [
-     6.5,
-     1.11
-    ]
-   ],
-   "avg": [
-    3.7,
-    3.9
-   ],
-   "expect": 3.8,
-   "expect_sum": 3.8,
-   "expect_matchup": 3.8,
-   "contrib": [
-    1.5,
-    2.4
-   ],
-   "buffer": 1.7,
-   "fa": [
-    [
-     1.3,
-     1.8
-    ],
-    [
-     2.4,
-     1.8
-    ]
-   ],
-   "referee": "Victor Rivas: Ø 4.6 Karten (28 Sp.) · Ø 20.7 Fouls (26 Sp.)",
-   "b365": null,
-   "expect_ref": 4.4,
-   "buffer_ref": 1.1,
-   "sd": 2.07,
-   "p_emp": {
-    "5.5": 0.8130081300813008,
-    "6.5": 0.9009009009009008
-   },
-   "p_mod": 0.702,
-   "p_fin": 0.773,
-   "fair_fin": 1.29,
-   "ladder_fin": [
-    [
-     5.5,
-     1.29
-    ],
-    [
-     6.5,
-     1.12
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.29",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": [
-    1.22,
-    2.18
-   ]
-  },
-  "v": 2
- },
- "11068600|offsides|unter": {
-  "match_id": "11068600",
-  "home": "Columbus Crew",
-  "away": "Inter Miami CF",
-  "kickoff": "Mo 01:00",
-  "kickoff_ts": 1790550000,
-  "league": "USA MLS",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "So 21:02",
-  "first_line": 4.5,
-  "first_range": [
-   1.31,
-   2.1
-  ],
-  "last_run": "So 21:02",
-  "line": 4.5,
-  "range": [
-   1.31,
-   2.1
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 4.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
     "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    45,
-    42
-   ],
-   "next_line": 3.5,
-   "next_note": "Columbus Crew 0/2 (3. Lücke) gesamt, 0/2 (3. Lücke) heim",
-   "longterm": [
-    0.6817817762769262,
-    0.8966967039361908
-   ],
-   "fair": 1.31,
-   "ladder": [
-    [
-     4.5,
-     1.31
-    ],
-    [
-     5.5,
-     1.16
-    ]
-   ],
-   "avg": [
-    3.2,
-    2.6
-   ],
-   "expect": 2.6,
-   "expect_sum": 2.9,
-   "expect_matchup": 2.3,
-   "contrib": [
-    1.3,
-    1.0
-   ],
-   "buffer": 1.9,
-   "fa": [
-    [
-     2.2,
-     1.7
-    ],
-    [
-     1.5,
-     1.2
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.03,
-   "p_emp": {
-    "4.5": 0.7633587786259541,
-    "5.5": 0.8620689655172414
-   },
-   "p_mod": 0.825,
-   "p_fin": 0.794,
-   "fair_fin": 1.26,
-   "ladder_fin": [
-    [
-     4.5,
-     1.26
-    ],
-    [
-     5.5,
-     1.12
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.26",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": [
-    1.31,
-    2.1
-   ]
-  },
-  "v": 2
- },
- "13187837|goals|über": {
-  "match_id": "13187837",
-  "home": "Municipal Limeno Reserves",
-  "away": "CD FAS Reserves",
-  "kickoff": "Mo 01:00",
-  "kickoff_ts": 1790550000,
-  "league": "El Salvador Reserves League",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "So 21:02",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "So 21:02",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    50,
-    50
-   ],
-   "next_line": 3.5,
-   "next_note": "CD FAS Reserves 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "longterm": [
-    0.5958742395709113,
-    0.6613467572058063
-   ],
-   "fair": 1.63,
-   "ladder": [
-    [
-     1.5,
-     1.25
-    ],
-    [
-     2.5,
-     1.63
-    ]
-   ],
-   "avg": [
-    4.2,
-    3.4
-   ],
-   "expect": 4.1,
-   "expect_sum": 3.8,
-   "expect_matchup": 4.4,
-   "contrib": [
-    1.9,
-    2.5
-   ],
-   "buffer": 1.6,
-   "fa": [
-    [
-     1.2,
-     2.1
-    ],
-    [
-     1.8,
-     1.4
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.89,
-   "p_emp": {
-    "1.5": 0.8,
-    "2.5": 0.6134969325153374
-   },
-   "p_mod": 0.801,
-   "p_fin": 0.665,
-   "fair_fin": 1.5,
-   "ladder_fin": [
-    [
-     1.5,
-     1.24
-    ],
-    [
-     2.5,
-     1.5
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "66 % knapp; Historie 61 % vs. Modell 80 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": null
-  },
-  "v": 2
- },
- "11285061|goals|über": {
-  "match_id": "11285061",
-  "home": "Utah Royals (W)",
-  "away": "North Carolina Courage (W)",
-  "kickoff": "Mo 01:00",
-  "kickoff_ts": 1790550000,
-  "league": "USA NWSL Women",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "So 21:02",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "So 21:02",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    50,
-    50
-   ],
-   "next_line": 3.5,
-   "next_note": "Utah Royals (W) 0/2 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; North Carolina Courage (W) 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
-   "longterm": [
-    0.6275001678246578,
-    0.7257150920866562
-   ],
-   "fair": 1.54,
-   "ladder": [
-    [
-     1.5,
-     1.22
-    ],
-    [
-     2.5,
-     1.54
-    ]
-   ],
-   "avg": [
-    2.9,
-    3.5
-   ],
-   "expect": 3.2,
-   "expect_sum": 3.2,
-   "expect_matchup": 3.2,
-   "contrib": [
-    1.6,
-    1.7
-   ],
-   "buffer": 0.7,
-   "fa": [
-    [
-     1.3,
-     1.5
-    ],
-    [
-     1.7,
-     1.5
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.66,
-   "p_emp": {
-    "1.5": 0.819672131147541,
-    "2.5": 0.6493506493506493
-   },
-   "p_mod": 0.663,
-   "p_fin": 0.617,
-   "fair_fin": 1.62,
-   "ladder_fin": [
-    [
-     1.5,
-     1.28
-    ],
-    [
-     2.5,
-     1.62
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "62 % knapp",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": null
-  },
-  "v": 2
- },
- "13151460|goals|über": {
-  "match_id": "13151460",
-  "home": "Presbyterian",
-  "away": "UNC Asheville Bulldogs",
-  "kickoff": "Mo 01:00",
-  "kickoff_ts": 1790550000,
-  "league": "USA College Championship",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "So 21:02",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "So 21:02",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    31,
-    28
-   ],
-   "next_line": 3.5,
-   "next_note": "Presbyterian 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; UNC Asheville Bulldogs 0/2 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.6265461325592285,
-    0.6513748778869992
-   ],
-   "fair": 1.62,
-   "ladder": [
-    [
-     1.5,
-     1.24
-    ],
-    [
-     2.5,
-     1.62
-    ]
-   ],
-   "avg": [
-    2.8,
-    3.1
-   ],
-   "expect": 2.9,
-   "expect_sum": 3.0,
-   "expect_matchup": 2.9,
-   "contrib": [
-    1.0,
-    1.9
-   ],
-   "buffer": 0.4,
-   "fa": [
-    [
-     1.1,
-     2.2
-    ],
-    [
-     2.1,
-     1.4
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.57,
-   "p_emp": {
-    "1.5": 0.8064516129032259,
-    "2.5": 0.6172839506172839
-   },
-   "p_mod": 0.562,
-   "p_fin": 0.554,
-   "fair_fin": 1.8,
-   "ladder_fin": [
-    [
-     1.5,
-     1.41
-    ],
-    [
-     2.5,
-     1.8
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🔴",
-   "reason": "nur 55 % Wahrscheinlichkeit",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": null
-  },
-  "v": 2
- },
- "13194283|goals|über": {
-  "match_id": "13194283",
-  "home": "Cruz Azul Opoa",
-  "away": "Pumas FC",
-  "kickoff": "Mo 01:30",
-  "kickoff_ts": 1790551800,
-  "league": "Honduras Liga de Ascenso",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "So 21:02",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "So 21:02",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    27,
-    47
-   ],
-   "next_line": 3.5,
-   "next_note": "Cruz Azul Opoa 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Pumas FC 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "longterm": [
-    0.646211937621654,
-    0.4980841463538434
-   ],
-   "fair": 1.76,
-   "ladder": [
-    [
-     1.5,
-     1.29
-    ],
-    [
-     2.5,
-     1.76
-    ]
-   ],
-   "avg": [
-    3.1,
-    2.3
-   ],
-   "expect": 2.4,
-   "expect_sum": 2.7,
-   "expect_matchup": 2.2,
-   "contrib": [
-    0.9,
-    1.3
-   ],
-   "buffer": -0.1,
-   "fa": [
-    [
-     1.2,
-     1.8
-    ],
-    [
-     1.4,
-     1.0
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.67,
-   "p_emp": {
-    "1.5": 0.7751937984496123,
-    "2.5": 0.5681818181818182
-   },
-   "p_mod": 0.476,
-   "p_fin": 0.491,
-   "fair_fin": 2.04,
-   "ladder_fin": [
-    [
-     1.5,
-     1.44
-    ],
-    [
-     2.5,
-     2.04
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🔴",
-   "reason": "nur 49 % Wahrscheinlichkeit",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": null
-  },
-  "v": 2
- },
- "12321870|corners|über": {
-  "match_id": "12321870",
-  "home": "Tigres UANL (W)",
-  "away": "Atletico San Luis (W)",
-  "kickoff": "Mo 02:06",
-  "kickoff_ts": 1790553960,
-  "league": "Mexico Liga MX Femenil",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "So 21:02",
-  "first_line": 7.5,
-  "first_range": [
-   1.7,
-   1.89
-  ],
-  "last_run": "So 21:02",
-  "line": 7.5,
-  "range": [
-   1.7,
-   1.89
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    47,
-    50
-   ],
-   "next_line": 8.5,
-   "next_note": "kein Anker — Tigres UANL (W) 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Atletico San Luis (W) 11/13 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
-   "longterm": [
-    0.7443012110014604,
-    0.7704127516278936
-   ],
-   "fair": 1.36,
-   "ladder": [
-    [
-     6.5,
-     1.3
-    ],
-    [
-     7.5,
-     1.36
-    ]
-   ],
-   "avg": [
-    9.4,
-    10.2
-   ],
-   "expect": 10.3,
-   "expect_sum": 9.8,
-   "expect_matchup": 10.7,
-   "contrib": [
-    8.1,
-    2.7
-   ],
-   "buffer": 2.8,
-   "fa": [
-    [
-     5.3,
-     4.3
-    ],
-    [
-     4.4,
-     5.8
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.5",
-    "2.000",
-    "1.800"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.17,
-   "p_emp": {
-    "6.5": 0.7692307692307692,
-    "7.5": 0.7352941176470588
-   },
-   "p_mod": 0.811,
-   "p_fin": 0.735,
-   "fair_fin": 1.36,
-   "ladder_fin": [
-    [
-     6.5,
-     1.27
-    ],
-    [
-     7.5,
-     1.36
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.36",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": [
-    1.7,
-    1.89
-   ]
-  },
-  "v": 2
- },
- "12321870|goals|über": {
-  "match_id": "12321870",
-  "home": "Tigres UANL (W)",
-  "away": "Atletico San Luis (W)",
-  "kickoff": "Mo 02:06",
-  "kickoff_ts": 1790553960,
-  "league": "Mexico Liga MX Femenil",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "So 21:02",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "So 21:02",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    50
-   ],
-   "next_line": 3.5,
-   "next_note": "Tigres UANL (W) 2/4 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; Atletico San Luis (W) 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.700894747106479,
-    0.6643514868666588
-   ],
-   "fair": 1.53,
-   "ladder": [
-    [
-     1.5,
-     1.17
-    ],
-    [
-     2.5,
-     1.53
-    ]
-   ],
-   "avg": [
-    3.6,
-    3.4
-   ],
-   "expect": 3.9,
-   "expect_sum": 3.5,
-   "expect_matchup": 4.3,
-   "contrib": [
-    3.7,
-    0.6
-   ],
-   "buffer": 1.4,
-   "fa": [
-    [
-     2.8,
-     1.0
-    ],
-    [
-     1.4,
-     1.8
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.05,
-   "p_emp": {
-    "1.5": 0.8547008547008548,
-    "2.5": 0.6535947712418301
-   },
-   "p_mod": 0.753,
-   "p_fin": 0.661,
-   "fair_fin": 1.51,
-   "ladder_fin": [
-    [
-     1.5,
-     1.23
-    ],
-    [
-     2.5,
-     1.51
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "66 % knapp",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": null
-  },
-  "v": 2
- },
- "13207177|goals|über": {
-  "match_id": "13207177",
-  "home": "Olympic Colon FC",
-  "away": "Alianza West",
-  "kickoff": "Mo 02:30",
-  "kickoff_ts": 1790555400,
-  "league": "Panama Liga de Futbol Nacional",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "So 21:02",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "So 21:02",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    26,
-    20
-   ],
-   "next_line": 3.5,
-   "next_note": "Olympic Colon FC 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
-   "longterm": [
-    0.5821604836543854,
-    0.6683484828230539
-   ],
-   "fair": 1.66,
-   "ladder": [
-    [
-     1.5,
-     1.19
-    ],
-    [
-     2.5,
-     1.66
-    ]
-   ],
-   "avg": [
-    3.7,
-    3.4
-   ],
-   "expect": 3.9,
-   "expect_sum": 3.6,
-   "expect_matchup": 4.2,
-   "contrib": [
-    3.1,
-    1.1
-   ],
-   "buffer": 1.4,
-   "fa": [
-    [
-     1.5,
-     1.7
-    ],
-    [
-     1.4,
-     2.5
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.09,
-   "p_emp": {
-    "1.5": 0.8403361344537815,
-    "2.5": 0.6024096385542169
-   },
-   "p_mod": 0.749,
-   "p_fin": 0.635,
-   "fair_fin": 1.57,
-   "ladder_fin": [
-    [
-     1.5,
-     1.24
-    ],
-    [
-     2.5,
-     1.57
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "63 % knapp; Historie 60 % vs. Modell 75 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": null
-  },
-  "v": 2
- },
- "12027330|corners|über": {
-  "match_id": "12027330",
-  "home": "Leon",
-  "away": "Juarez FC",
-  "kickoff": "Mo 03:00",
-  "kickoff_ts": 1790557200,
-  "league": "Mexico Liga MX",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "So 21:02",
-  "first_line": 7.5,
-  "first_range": [
-   1.2,
-   1.9
-  ],
-  "last_run": "So 21:02",
-  "line": 7.5,
-  "range": [
-   1.2,
-   1.9
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    49,
-    48
-   ],
-   "next_line": 8.5,
-   "next_note": "Juarez FC 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "longterm": [
-    0.8888040438467533,
-    0.7308603933583817
-   ],
-   "fair": 1.3,
-   "ladder": [
-    [
-     6.5,
-     1.31
-    ],
-    [
-     7.5,
-     1.3
-    ]
-   ],
-   "avg": [
-    10.2,
-    10.8
-   ],
-   "expect": 11.3,
-   "expect_sum": 10.5,
-   "expect_matchup": 12.1,
-   "contrib": [
-    8.4,
-    3.7
-   ],
-   "buffer": 3.8,
-   "fa": [
-    [
-     4.9,
-     5.3
-    ],
-    [
-     4.0,
-     5.5
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.5",
-    "1.900",
-    "1.900"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.53,
-   "p_emp": {
-    "6.5": 0.7633587786259541,
-    "7.5": 0.7692307692307692
-   },
-   "p_mod": 0.859,
-   "p_fin": 0.773,
-   "fair_fin": 1.29,
-   "ladder_fin": [
-    [
-     6.5,
-     1.26
-    ],
-    [
-     7.5,
-     1.29
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.29",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": [
-    1.2,
-    1.9
-   ]
-  },
-  "v": 2
- },
- "12027329|corners|über": {
-  "match_id": "12027329",
-  "home": "Necaxa",
-  "away": "Club America",
-  "kickoff": "Mo 05:10",
-  "kickoff_ts": 1790565000,
-  "league": "Mexico Liga MX",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "So 21:02",
-  "first_line": 8.5,
-  "first_range": [
-   1.35,
-   1.9
-  ],
-  "last_run": "So 21:02",
-  "line": 8.5,
-  "range": [
-   1.35,
-   1.9
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 8.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    48
-   ],
-   "next_line": 9.5,
-   "next_note": "Necaxa 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
-   "longterm": [
-    0.7351664822213831,
-    0.7291191054803003
-   ],
-   "fair": 1.46,
-   "ladder": [
-    [
-     7.5,
-     1.33
-    ],
-    [
-     8.5,
-     1.46
-    ]
-   ],
-   "avg": [
-    11.0,
-    10.7
-   ],
-   "expect": 11.6,
-   "expect_sum": 10.9,
-   "expect_matchup": 12.4,
-   "contrib": [
-    4.6,
-    7.9
-   ],
-   "buffer": 3.1,
-   "fa": [
-    [
-     5.0,
-     5.1
-    ],
-    [
-     5.9,
-     3.8
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.5",
-    "1.850",
-    "1.950"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.33,
-   "p_emp": {
-    "7.5": 0.7518796992481203,
-    "8.5": 0.684931506849315
-   },
-   "p_mod": 0.824,
-   "p_fin": 0.717,
-   "fair_fin": 1.4,
-   "ladder_fin": [
-    [
-     7.5,
-     1.28
-    ],
-    [
-     8.5,
-     1.4
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 68 % vs. Modell 82 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": [
-    1.35,
-    1.9
-   ]
-  },
-  "v": 2
- },
- "12027329|yellowcards|über": {
-  "match_id": "12027329",
-  "home": "Necaxa",
-  "away": "Club America",
-  "kickoff": "Mo 05:10",
-  "kickoff_ts": 1790565000,
-  "league": "Mexico Liga MX",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "So 21:02",
-  "first_line": 2.5,
-  "first_range": [
-   1.69,
-   1.69
-  ],
-  "last_run": "So 21:02",
-  "line": 2.5,
-  "range": [
-   1.69,
-   1.69
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 17
    },
    "away_series": {
     "kind": "auswärts",
@@ -1699,83 +1092,204 @@
    "home_is_anchor": true,
    "away_is_anchor": false,
    "valid": [
-    49,
-    48
+    50,
+    49
    ],
-   "next_line": 3.5,
-   "next_note": "Necaxa 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "next_line": 4.5,
+   "next_note": "Hungary 4/6 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
    "longterm": [
-    0.8624269677760602,
-    0.6210495140092952
+    0.8971618207281702,
+    0.7780917936549598
    ],
-   "fair": 1.38,
+   "fair": 1.22,
    "ladder": [
     [
-     1.5,
-     1.27
-    ],
-    [
-     2.5,
-     1.38
-    ]
-   ],
-   "avg": [
-    4.1,
-    4.7
-   ],
-   "expect": 4.7,
-   "expect_sum": 4.4,
-   "expect_matchup": 5.0,
-   "contrib": [
-    3.0,
-    2.0
-   ],
-   "buffer": 2.2,
-   "fa": [
-    [
-     2.2,
-     1.9
-    ],
-    [
-     1.4,
-     2.3
-    ]
-   ],
-   "referee": "Guillermo Pacheco Larios: Ø 4.0 Karten (16 Sp.) · Ø 20.4 Fouls (16 Sp.)",
-   "b365": null,
-   "expect_ref": 4.8,
-   "buffer_ref": 2.3,
-   "sd": 2.09,
-   "p_emp": {
-    "1.5": 0.7874015748031495,
-    "2.5": 0.7246376811594204
-   },
-   "p_mod": 0.864,
-   "p_fin": 0.755,
-   "fair_fin": 1.32,
-   "ladder_fin": [
-    [
-     1.5,
+     5.5,
      1.22
     ],
     [
-     2.5,
-     1.32
+     6.5,
+     1.11
+    ]
+   ],
+   "avg": [
+    3.8,
+    3.8
+   ],
+   "expect": 3.8,
+   "expect_sum": 3.8,
+   "expect_matchup": 3.8,
+   "contrib": [
+    2.0,
+    1.8
+   ],
+   "buffer": 1.7,
+   "fa": [
+    [
+     1.8,
+     1.6
+    ],
+    [
+     1.9,
+     2.3
+    ]
+   ],
+   "referee": "Ricardo De Burgos Bengoechea: Ø 3.4 Karten (40 Sp.) · Ø 21.3 Fouls (36 Sp.)",
+   "b365": null,
+   "expect_ref": 3.4,
+   "buffer_ref": 2.1,
+   "sd": 2.08,
+   "p_emp": {
+    "5.5": 0.819672131147541,
+    "6.5": 0.9009009009009008
+   },
+   "p_mod": 0.844,
+   "p_fin": 0.848,
+   "fair_fin": 1.18,
+   "ladder_fin": [
+    [
+     5.5,
+     1.18
+    ],
+    [
+     6.5,
+     1.07
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟡",
-   "reason": "Historie 72 % vs. Modell 86 %",
+   "light": "🟢",
+   "reason": "fair 1.18",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
    "b365_lines": null,
    "b365_est": null,
    "range": [
-    1.69,
-    1.69
+    1.29,
+    1.67
+   ]
+  },
+  "v": 2
+ },
+ "11437470|offsides|unter": {
+  "match_id": "11437470",
+  "home": "Northern Ireland",
+  "away": "Hungary",
+  "kickoff": "Mo 20:45",
+  "kickoff_ts": 1790621100,
+  "league": "UEFA Nations League B",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Mo 08:50",
+  "first_line": 5.5,
+  "first_range": [
+   1.65,
+   2.14
+  ],
+  "last_run": "Mo 08:50",
+  "line": 5.5,
+  "range": [
+   1.65,
+   2.14
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    30,
+    34
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — Northern Ireland 21/23 (3. Lücke) gesamt, 12/14 heim; Hungary 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    1.0,
+    0.7927244957483177
+   ],
+   "fair": 1.16,
+   "ladder": [
+    [
+     5.5,
+     1.16
+    ],
+    [
+     6.5,
+     1.3
+    ]
+   ],
+   "avg": [
+    2.7,
+    3.6
+   ],
+   "expect": 3.0,
+   "expect_sum": 3.1,
+   "expect_matchup": 2.8,
+   "contrib": [
+    1.4,
+    1.4
+   ],
+   "buffer": 2.5,
+   "fa": [
+    [
+     1.2,
+     2.0
+    ],
+    [
+     1.6,
+     2.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.63,
+   "p_emp": {
+    "5.5": 0.8620689655172414,
+    "6.5": 0.7692307692307692
+   },
+   "p_mod": 0.937,
+   "p_fin": 0.9,
+   "fair_fin": 1.11,
+   "ladder_fin": [
+    [
+     5.5,
+     1.11
+    ],
+    [
+     6.5,
+     1.14
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.11",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": [
+    1.65,
+    2.14
    ]
   },
   "v": 2
