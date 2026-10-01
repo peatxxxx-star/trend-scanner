@@ -1,0 +1,1214 @@
+{
+ "run_utc": "2026-10-01T20:23:57+00:00",
+ "matches_checked": 40,
+ "requests": 125,
+ "hits": [
+  {
+   "match": {
+    "id": "12438233",
+    "league": "Colombia Primera B",
+    "league_id": "255",
+    "home": "Envigado FC",
+    "away": "Orsomarso",
+    "home_id": "38917",
+    "away_id": "6449",
+    "kickoff": "Do 22:30",
+    "kickoff_ts": 1790886600,
+    "bet365_id": "201935830"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      41,
+      44
+     ],
+     "next_line": 8.5,
+     "next_note": "kein Anker — Envigado FC 3/5 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Orsomarso 6/8 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.6909762258646442,
+      0.7479796189789439
+     ],
+     "fair": 1.41,
+     "ladder": [
+      [
+       6.5,
+       1.45
+      ],
+      [
+       7.5,
+       1.41
+      ]
+     ],
+     "avg": [
+      9.5,
+      9.2
+     ],
+     "expect_sum": 9.3,
+     "expect_matchup": 9.0,
+     "contrib": [
+      4.4,
+      4.6
+     ],
+     "expect": 9.2,
+     "buffer": 1.7,
+     "fa": [
+      [
+       3.9,
+       5.5
+      ],
+      [
+       4.8,
+       4.6
+      ]
+     ],
+     "sd": 3.73,
+     "p_emp": {
+      "6.5": 0.6896551724137931,
+      "7.5": 0.7092198581560284
+     },
+     "range": [
+      1.26,
+      1.7
+     ],
+     "b365": [
+      "9.0",
+      "2.000",
+      "1.800"
+     ],
+     "p_mod": 0.676,
+     "p_fin": 0.658,
+     "kal": 0.95,
+     "fair_fin": 1.52,
+     "ladder_fin": [
+      [
+       6.5,
+       1.45
+      ],
+      [
+       7.5,
+       1.52
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "66 % knapp",
+     "first_run": "Do 09:11",
+     "change_note": "Quoten vorher 1.28–1.68"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13228616",
+    "league": "El Salvador Segunda Division",
+    "league_id": "13494",
+    "home": "CD Audaz",
+    "away": "AD SESA",
+    "home_id": "176131",
+    "away_id": "1326282",
+    "kickoff": "Do 23:00",
+    "kickoff_ts": 1790888400,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      50,
+      8
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — CD Audaz 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; AD SESA 7/8 gesamt, 4/5 auswärts",
+     "longterm": [
+      0.5863789668819058,
+      0.875
+     ],
+     "fair": 1.6,
+     "ladder": [
+      [
+       1.5,
+       1.27
+      ],
+      [
+       2.5,
+       1.6
+      ]
+     ],
+     "avg": [
+      3.6,
+      5.6
+     ],
+     "expect_sum": 4.6,
+     "expect_matchup": 6.6,
+     "contrib": [
+      4.4,
+      2.2
+     ],
+     "expect": 5.6,
+     "buffer": 3.1,
+     "fa": [
+      [
+       1.4,
+       1.5
+      ],
+      [
+       2.2,
+       3.5
+      ]
+     ],
+     "sd": 2.67,
+     "p_emp": {
+      "1.5": 0.7874015748031495,
+      "2.5": 0.625
+     },
+     "no_odds_check": true,
+     "p_mod": 0.877,
+     "p_fin": 0.706,
+     "kal": 0.94,
+     "fair_fin": 1.42,
+     "ladder_fin": [
+      [
+       1.5,
+       1.23
+      ],
+      [
+       2.5,
+       1.42
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "Historie 62 % und Modell 88 % widersprechen sich"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13115441",
+    "league": "Paraguay Cup",
+    "league_id": "12736",
+    "home": "Olimpia Asuncion",
+    "away": "Sportivo Luqueno",
+    "home_id": "1409",
+    "away_id": "2108",
+    "kickoff": "Fr 00:00",
+    "kickoff_ts": 1790892000,
+    "bet365_id": "202034322"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      47,
+      50
+     ],
+     "next_line": 8.5,
+     "next_note": "Sportivo Luqueno 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.7365466680939677,
+      0.6191404562444747
+     ],
+     "fair": 1.48,
+     "ladder": [
+      [
+       6.5,
+       1.48
+      ],
+      [
+       7.5,
+       1.48
+      ]
+     ],
+     "avg": [
+      9.0,
+      10.4
+     ],
+     "expect_sum": 9.7,
+     "expect_matchup": 10.0,
+     "contrib": [
+      6.2,
+      3.7
+     ],
+     "expect": 9.8,
+     "buffer": 2.3,
+     "fa": [
+      [
+       5.3,
+       3.6
+      ],
+      [
+       4.6,
+       4.9
+      ]
+     ],
+     "sd": 3.4,
+     "p_emp": {
+      "6.5": 0.6756756756756757,
+      "7.5": 0.6756756756756757
+     },
+     "range": [
+      1.38,
+      1.76
+     ],
+     "b365": [
+      "9.0",
+      "1.825",
+      "1.975"
+     ],
+     "p_mod": 0.751,
+     "p_fin": 0.677,
+     "kal": 0.95,
+     "fair_fin": 1.48,
+     "ladder_fin": [
+      [
+       6.5,
+       1.39
+      ],
+      [
+       7.5,
+       1.48
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "68 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11632934",
+    "league": "Brazil Serie B",
+    "league_id": "328",
+    "home": "Gremio Novorizontino",
+    "away": "Goias",
+    "home_id": "161984",
+    "away_id": "3163",
+    "kickoff": "Fr 02:00",
+    "kickoff_ts": 1790899200,
+    "bet365_id": "201254071"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      49
+     ],
+     "next_line": 9.5,
+     "next_note": "Goias 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.839025362862548,
+      0.7318818213470277
+     ],
+     "fair": 1.38,
+     "ladder": [
+      [
+       7.5,
+       1.27
+      ],
+      [
+       8.5,
+       1.38
+      ]
+     ],
+     "avg": [
+      11.1,
+      10.0
+     ],
+     "expect_sum": 10.5,
+     "expect_matchup": 12.3,
+     "contrib": [
+      8.6,
+      3.7
+     ],
+     "expect": 11.4,
+     "buffer": 2.9,
+     "fa": [
+      [
+       5.7,
+       5.2
+      ],
+      [
+       5.1,
+       4.8
+      ]
+     ],
+     "sd": 3.08,
+     "p_emp": {
+      "7.5": 0.7874015748031495,
+      "8.5": 0.7246376811594204
+     },
+     "range": [
+      1.975,
+      2.21
+     ],
+     "b365": [
+      "10.5",
+      "1.975",
+      "1.825"
+     ],
+     "p_mod": 0.827,
+     "p_fin": 0.737,
+     "kal": 0.95,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       7.5,
+       1.25
+      ],
+      [
+       8.5,
+       1.36
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.36"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13148619",
+    "league": "Argentina Cup",
+    "league_id": "438",
+    "home": "Platense",
+    "away": "Estudiantes LP",
+    "home_id": "7318",
+    "away_id": "1055",
+    "kickoff": "Fr 02:15",
+    "kickoff_ts": 1790900100,
+    "bet365_id": "201860379"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 3.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      45
+     ],
+     "next_line": 4.5,
+     "next_note": "Estudiantes LP 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.6924843960660791,
+      0.8566232932083242
+     ],
+     "fair": 1.43,
+     "ladder": [
+      [
+       2.5,
+       1.2
+      ],
+      [
+       3.5,
+       1.43
+      ]
+     ],
+     "avg": [
+      4.1,
+      5.4
+     ],
+     "expect_sum": 4.8,
+     "expect_matchup": 6.1,
+     "contrib": [
+      2.0,
+      4.1
+     ],
+     "expect": 5.4,
+     "buffer": 1.9,
+     "fa": [
+      [
+       2.0,
+       2.6
+      ],
+      [
+       2.9,
+       2.5
+      ]
+     ],
+     "sd": 1.92,
+     "p_emp": {
+      "2.5": 0.8333333333333334,
+      "3.5": 0.6993006993006994
+     },
+     "range": [
+      1.27,
+      2.06
+     ],
+     "referee": "Facundo Tello: Ø 4.3 Karten (54 Sp.) · Ø 23.2 Fouls (39 Sp.)",
+     "expect_ref": 5.9,
+     "buffer_ref": 2.4,
+     "p_mod": 0.894,
+     "p_fin": 0.757,
+     "kal": 0.95,
+     "fair_fin": 1.32,
+     "ladder_fin": [
+      [
+       2.5,
+       1.17
+      ],
+      [
+       3.5,
+       1.32
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 70 % vs. Modell 89 %"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      46
+     ],
+     "next_line": 1.5,
+     "next_note": "kein Anker — Platense 6/8 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Estudiantes LP 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.7642432504523117,
+      0.8276691882158679
+     ],
+     "fair": 1.31,
+     "ladder": [
+      [
+       0.5,
+       1.31
+      ]
+     ],
+     "avg": [
+      1.9,
+      2.0
+     ],
+     "expect_sum": 2.0,
+     "expect_matchup": 3.0,
+     "contrib": [
+      1.1,
+      1.9
+     ],
+     "expect": 2.5,
+     "buffer": 2.0,
+     "fa": [
+      [
+       0.8,
+       1.0
+      ],
+      [
+       1.2,
+       1.0
+      ]
+     ],
+     "sd": 1.45,
+     "p_emp": {
+      "0.5": 0.7633587786259541
+     },
+     "range": [
+      1.27,
+      2.06
+     ],
+     "referee": "Facundo Tello: Ø 4.3 Karten (54 Sp.) · Ø 23.2 Fouls (39 Sp.)",
+     "expect_ref": 7.4,
+     "buffer_ref": 6.9,
+     "p_mod": 1.0,
+     "p_fin": 0.855,
+     "kal": 0.97,
+     "fair_fin": 1.17,
+     "ladder_fin": [
+      [
+       0.5,
+       1.17
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 76 % vs. Modell 100 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12385196",
+    "league": "Bolivia Copa Division Profesional",
+    "league_id": "32538",
+    "home": "Blooming",
+    "away": "Independiente Petrolero",
+    "home_id": "35289",
+    "away_id": "234776",
+    "kickoff": "Fr 02:30",
+    "kickoff_ts": 1790901000,
+    "bet365_id": "202136032"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      42
+     ],
+     "next_line": 3.5,
+     "next_note": "Blooming 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.5610906751956634,
+      0.8447194823072586
+     ],
+     "fair": 1.52,
+     "ladder": [
+      [
+       1.5,
+       1.16
+      ],
+      [
+       2.5,
+       1.52
+      ]
+     ],
+     "avg": [
+      3.2,
+      3.1
+     ],
+     "expect_sum": 3.2,
+     "expect_matchup": 3.4,
+     "contrib": [
+      2.5,
+      0.9
+     ],
+     "expect": 3.3,
+     "buffer": 0.8,
+     "fa": [
+      [
+       1.6,
+       1.7
+      ],
+      [
+       1.5,
+       2.0
+      ]
+     ],
+     "sd": 1.62,
+     "p_emp": {
+      "1.5": 0.8620689655172414,
+      "2.5": 0.6578947368421053
+     },
+     "no_odds_check": true,
+     "p_mod": 0.689,
+     "p_fin": 0.633,
+     "kal": 0.94,
+     "fair_fin": 1.58,
+     "ladder_fin": [
+      [
+       1.5,
+       1.23
+      ],
+      [
+       2.5,
+       1.58
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "63 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12099953",
+    "league": "Colombia Primera A",
+    "league_id": "254",
+    "home": "Internacional de Bogota",
+    "away": "Once Caldas",
+    "home_id": "1237538",
+    "away_id": "44691",
+    "kickoff": "Fr 03:00",
+    "kickoff_ts": 1790902800,
+    "bet365_id": "201317134"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      36,
+      44
+     ],
+     "next_line": 9.5,
+     "next_note": "Internacional de Bogota 6/8 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Once Caldas 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.7855145607942956,
+      0.5481636042150762
+     ],
+     "fair": 1.58,
+     "ladder": [
+      [
+       7.5,
+       1.36
+      ],
+      [
+       8.5,
+       1.58
+      ]
+     ],
+     "avg": [
+      10.6,
+      8.8
+     ],
+     "expect_sum": 9.7,
+     "expect_matchup": 10.0,
+     "contrib": [
+      5.6,
+      4.3
+     ],
+     "expect": 9.8,
+     "buffer": 1.3,
+     "fa": [
+      [
+       5.0,
+       4.9
+      ],
+      [
+       5.3,
+       4.2
+      ]
+     ],
+     "sd": 3.04,
+     "p_emp": {
+      "7.5": 0.7352941176470588,
+      "8.5": 0.6329113924050632
+     },
+     "range": [
+      1.32,
+      1.95
+     ],
+     "b365": [
+      "9.5",
+      "1.950",
+      "1.850"
+     ],
+     "p_mod": 0.666,
+     "p_fin": 0.617,
+     "kal": 0.95,
+     "fair_fin": 1.62,
+     "ladder_fin": [
+      [
+       7.5,
+       1.39
+      ],
+      [
+       8.5,
+       1.62
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "62 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11985647",
+    "league": "USA MLS",
+    "league_id": "242",
+    "home": "Seattle Sounders",
+    "away": "Sporting Kansas City",
+    "home_id": "60713",
+    "away_id": "10008",
+    "kickoff": "Fr 03:30",
+    "kickoff_ts": 1790904600,
+    "bet365_id": "200870908"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      47,
+      45
+     ],
+     "next_line": 8.5,
+     "next_note": "Sporting Kansas City 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.8414292139429211,
+      0.7253712471636501
+     ],
+     "fair": 1.32,
+     "ladder": [
+      [
+       6.5,
+       1.3
+      ],
+      [
+       7.5,
+       1.32
+      ]
+     ],
+     "avg": [
+      11.2,
+      9.4
+     ],
+     "expect_sum": 10.3,
+     "expect_matchup": 11.1,
+     "contrib": [
+      5.9,
+      5.2
+     ],
+     "expect": 10.7,
+     "buffer": 3.2,
+     "fa": [
+      [
+       4.7,
+       6.0
+      ],
+      [
+       4.4,
+       5.3
+      ]
+     ],
+     "sd": 3.32,
+     "p_emp": {
+      "6.5": 0.7692307692307692,
+      "7.5": 0.7575757575757576
+     },
+     "range": [
+      2.0,
+      2.0
+     ],
+     "b365": [
+      "10.5",
+      "2.000",
+      "1.800"
+     ],
+     "p_mod": 0.832,
+     "p_fin": 0.755,
+     "kal": 0.95,
+     "fair_fin": 1.32,
+     "ladder_fin": [
+      [
+       6.5,
+       1.26
+      ],
+      [
+       7.5,
+       1.32
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.32"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      45
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Seattle Sounders 17/19 (3. Lücke) gesamt, 9/11 (3. Lücke) heim; Sporting Kansas City 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.9160195825795776,
+      0.8261291932087496
+     ],
+     "fair": 1.18,
+     "ladder": [
+      [
+       5.5,
+       1.18
+      ],
+      [
+       6.5,
+       1.08
+      ]
+     ],
+     "avg": [
+      3.0,
+      2.9
+     ],
+     "expect_sum": 2.9,
+     "expect_matchup": 2.3,
+     "contrib": [
+      0.8,
+      1.4
+     ],
+     "expect": 2.6,
+     "buffer": 2.9,
+     "fa": [
+      [
+       1.3,
+       1.6
+      ],
+      [
+       1.8,
+       1.7
+      ]
+     ],
+     "sd": 1.9,
+     "p_emp": {
+      "5.5": 0.8474576271186441,
+      "6.5": 0.9259259259259258
+     },
+     "range": [
+      1.26,
+      1.75
+     ],
+     "referee": "Jair Antonio Marrufo: Ø 2.8 Karten (19 Sp.) · Ø 19.6 Fouls (19 Sp.)",
+     "expect_ref": 2.1,
+     "buffer_ref": 3.4,
+     "p_mod": 0.963,
+     "p_fin": 0.923,
+     "kal": 1.02,
+     "fair_fin": 1.08,
+     "ladder_fin": [
+      [
+       5.5,
+       1.08
+      ],
+      [
+       6.5,
+       1.02
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.08"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 3.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      39,
+      43
+     ],
+     "next_line": 2.5,
+     "next_note": "Sporting Kansas City 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.8854215072543644,
+      0.7856142363839114
+     ],
+     "fair": 1.33,
+     "ladder": [
+      [
+       3.5,
+       1.33
+      ],
+      [
+       4.5,
+       1.18
+      ]
+     ],
+     "avg": [
+      2.1,
+      2.2
+     ],
+     "expect_sum": 2.2,
+     "expect_matchup": 1.4,
+     "contrib": [
+      0.8,
+      0.6
+     ],
+     "expect": 1.8,
+     "buffer": 1.7,
+     "fa": [
+      [
+       1.4,
+       1.1
+      ],
+      [
+       1.0,
+       1.5
+      ]
+     ],
+     "sd": 1.53,
+     "p_emp": {
+      "3.5": 0.7518796992481203,
+      "4.5": 0.8474576271186441
+     },
+     "range": [
+      1.54,
+      1.54
+     ],
+     "p_mod": 0.867,
+     "p_fin": 0.809,
+     "kal": 1.0,
+     "fair_fin": 1.24,
+     "ladder_fin": [
+      [
+       3.5,
+       1.24
+      ],
+      [
+       4.5,
+       1.11
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.24"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "results": 16,
+  "doublechance": 20,
+  "totals": 23,
+  "handicaps": 11,
+  "corners": 12,
+  "btts": 13,
+  "correctscore": 2,
+  "cards": 2,
+  "shots": 1,
+  "offsides": 1
+ },
+ "dauer_s": 97,
+ "zeit": {
+  "historie": 461,
+  "pruefung": 0,
+  "scores24": 16,
+  "extras": 22,
+  "vorlauf": 49,
+  "spiele": 48
+ },
+ "teams_nachgeladen": 36,
+ "s24": {
+  "ok": 23,
+  "no_link": 4,
+  "fetch_fail": 3
+ },
+ "new": [
+  "13228616|goals|über",
+  "13115441|corners|über",
+  "11632934|corners|über",
+  "13148619|yellowcards|über",
+  "13148619|ht_yellowcards|über",
+  "12385196|goals|über",
+  "12099953|corners|über",
+  "11985647|corners|über",
+  "11985647|yellowcards|unter",
+  "11985647|offsides|unter"
+ ],
+ "changed": [
+  "12438233|corners|über"
+ ],
+ "dropped": [],
+ "team_totals": [
+  {
+   "match": {
+    "id": "11632934",
+    "league": "Brazil Serie B",
+    "league_id": "328",
+    "home": "Gremio Novorizontino",
+    "away": "Goias",
+    "home_id": "161984",
+    "away_id": "3163",
+    "kickoff": "Fr 02:00",
+    "kickoff_ts": 1790899200,
+    "bet365_id": "201254071"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Gremio Novorizontino",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7741,
+    "fair": 1.29,
+    "p_emp": 0.73,
+    "p_mod": 0.818,
+    "erwartet": 6.2,
+    "basis": 50
+   }
+  }
+ ],
+ "neue_maerkte": []
+}
