@@ -1,0 +1,5732 @@
+{
+ "run_utc": "2026-10-02T07:00:56+00:00",
+ "matches_checked": 385,
+ "requests": 217,
+ "hits": [
+  {
+   "match": {
+    "id": "13226021",
+    "league": "Europe Friendlies",
+    "league_id": "363",
+    "home": "Lugano",
+    "away": "Verona",
+    "home_id": "4828",
+    "away_id": "7311",
+    "kickoff": "Fr 11:30",
+    "kickoff_ts": 1790933400,
+    "bet365_id": "202137162"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 3.5,
+     "next_note": "Lugano 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Verona 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.6743848431476858,
+      0.5992976586725531
+     ],
+     "fair": 1.62,
+     "ladder": [
+      [
+       1.5,
+       1.27
+      ],
+      [
+       2.5,
+       1.62
+      ]
+     ],
+     "avg": [
+      2.9,
+      2.5
+     ],
+     "expect_sum": 2.7,
+     "expect_matchup": 2.5,
+     "contrib": [
+      1.9,
+      0.6
+     ],
+     "expect": 2.6,
+     "buffer": 0.1,
+     "fa": [
+      [
+       2.1,
+       1.0
+      ],
+      [
+       1.3,
+       1.4
+      ]
+     ],
+     "sd": 2.3,
+     "p_emp": {
+      "1.5": 0.7874015748031495,
+      "2.5": 0.6172839506172839
+     },
+     "no_odds_check": true,
+     "p_mod": 0.517,
+     "p_fin": 0.533,
+     "kal": 0.94,
+     "fair_fin": 1.88,
+     "ladder_fin": [
+      [
+       1.5,
+       1.45
+      ],
+      [
+       2.5,
+       1.88
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "nur 53 % Wahrscheinlichkeit"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13193149",
+    "league": "Europe Friendlies",
+    "league_id": "363",
+    "home": "Sparta Prague",
+    "away": "Vysocina Jihlava",
+    "home_id": "765",
+    "away_id": "20205",
+    "kickoff": "Fr 12:00",
+    "kickoff_ts": 1790935200,
+    "bet365_id": "202075147"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      47
+     ],
+     "next_line": 9.5,
+     "next_note": "kein Anker — Sparta Prague 10/12 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; Vysocina Jihlava 4/6 (3. Lücke) gesamt, 12/14 (3. Lücke) auswärts",
+     "longterm": [
+      0.742294924012081,
+      0.7704793247077947
+     ],
+     "fair": 1.43,
+     "ladder": [
+      [
+       7.5,
+       1.25
+      ],
+      [
+       8.5,
+       1.43
+      ]
+     ],
+     "avg": [
+      11.3,
+      10.6
+     ],
+     "expect_sum": 11.0,
+     "expect_matchup": 12.5,
+     "contrib": [
+      7.4,
+      5.2
+     ],
+     "expect": 11.7,
+     "buffer": 3.2,
+     "fa": [
+      [
+       6.6,
+       3.8
+      ],
+      [
+       5.4,
+       4.7
+      ]
+     ],
+     "sd": 3.2,
+     "p_emp": {
+      "7.5": 0.8,
+      "8.5": 0.6993006993006994
+     },
+     "range": [
+      1.51,
+      1.52
+     ],
+     "b365": [
+      "9.5",
+      "1.850",
+      "1.950"
+     ],
+     "p_mod": 0.841,
+     "p_fin": 0.732,
+     "kal": 0.95,
+     "fair_fin": 1.37,
+     "ladder_fin": [
+      [
+       7.5,
+       1.23
+      ],
+      [
+       8.5,
+       1.37
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 70 % vs. Modell 84 %"
+    },
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      48
+     ],
+     "next_line": 3.5,
+     "next_note": "Sparta Prague 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Vysocina Jihlava 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.7224716880380937,
+      0.6727725080063248
+     ],
+     "fair": 1.51,
+     "ladder": [
+      [
+       1.5,
+       1.2
+      ],
+      [
+       2.5,
+       1.51
+      ]
+     ],
+     "avg": [
+      3.4,
+      3.7
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 3.7,
+     "contrib": [
+      2.0,
+      1.7
+     ],
+     "expect": 3.6,
+     "buffer": 1.1,
+     "fa": [
+      [
+       1.9,
+       1.3
+      ],
+      [
+       1.6,
+       1.4
+      ]
+     ],
+     "sd": 1.62,
+     "p_emp": {
+      "1.5": 0.8333333333333334,
+      "2.5": 0.6622516556291391
+     },
+     "no_odds_check": true,
+     "p_mod": 0.751,
+     "p_fin": 0.664,
+     "kal": 0.94,
+     "fair_fin": 1.51,
+     "ladder_fin": [
+      [
+       1.5,
+       1.23
+      ],
+      [
+       2.5,
+       1.51
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "66 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12346200",
+    "league": "Serbia U19 League",
+    "league_id": "35",
+    "home": "IMT Novi Belgrade U19",
+    "away": "FK Usce Novi Beograd U19",
+    "home_id": "355858",
+    "away_id": "1181092",
+    "kickoff": "Fr 12:00",
+    "kickoff_ts": 1790935200,
+    "bet365_id": "202134442"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      37
+     ],
+     "next_line": 3.5,
+     "next_note": "IMT Novi Belgrade U19 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.6476551688376286,
+      0.8182239967923803
+     ],
+     "fair": 1.46,
+     "ladder": [
+      [
+       1.5,
+       1.19
+      ],
+      [
+       2.5,
+       1.46
+      ]
+     ],
+     "avg": [
+      3.4,
+      4.3
+     ],
+     "expect_sum": 3.9,
+     "expect_matchup": 4.7,
+     "contrib": [
+      3.2,
+      1.5
+     ],
+     "expect": 4.3,
+     "buffer": 1.8,
+     "fa": [
+      [
+       2.1,
+       1.2
+      ],
+      [
+       2.1,
+       2.1
+      ]
+     ],
+     "sd": 1.81,
+     "p_emp": {
+      "1.5": 0.8403361344537815,
+      "2.5": 0.684931506849315
+     },
+     "no_odds_check": true,
+     "p_mod": 0.84,
+     "p_fin": 0.717,
+     "kal": 0.94,
+     "fair_fin": 1.4,
+     "ladder_fin": [
+      [
+       1.5,
+       1.2
+      ],
+      [
+       2.5,
+       1.4
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 68 % vs. Modell 84 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13225704",
+    "league": "Europe Friendlies",
+    "league_id": "363",
+    "home": "Augsburg",
+    "away": "Hertha Berlin",
+    "home_id": "43933",
+    "away_id": "475",
+    "kickoff": "Fr 13:00",
+    "kickoff_ts": 1790938800,
+    "bet365_id": "202175337"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "Augsburg 7/9 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+     "longterm": [
+      0.6908939694132241,
+      0.6882446509248455
+     ],
+     "fair": 1.52,
+     "ladder": [
+      [
+       1.5,
+       1.19
+      ],
+      [
+       2.5,
+       1.52
+      ]
+     ],
+     "avg": [
+      3.2,
+      5.1
+     ],
+     "expect_sum": 4.1,
+     "expect_matchup": 5.0,
+     "contrib": [
+      1.7,
+      3.3
+     ],
+     "expect": 4.6,
+     "buffer": 2.1,
+     "fa": [
+      [
+       1.7,
+       1.7
+      ],
+      [
+       2.4,
+       1.4
+      ]
+     ],
+     "sd": 2.97,
+     "p_emp": {
+      "1.5": 0.8403361344537815,
+      "2.5": 0.6578947368421053
+     },
+     "no_odds_check": true,
+     "p_mod": 0.76,
+     "p_fin": 0.667,
+     "kal": 0.94,
+     "fair_fin": 1.5,
+     "ladder_fin": [
+      [
+       1.5,
+       1.26
+      ],
+      [
+       2.5,
+       1.5
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "67 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13226094",
+    "league": "Europe Friendlies",
+    "league_id": "363",
+    "home": "Sigma Olomouc",
+    "away": "MSK Zilina",
+    "home_id": "10159",
+    "away_id": "1050",
+    "kickoff": "Fr 14:00",
+    "kickoff_ts": 1790942400,
+    "bet365_id": "202077809"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      47
+     ],
+     "next_line": 3.5,
+     "next_note": "Sigma Olomouc 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.718548426330196,
+      0.6759188697585402
+     ],
+     "fair": 1.51,
+     "ladder": [
+      [
+       1.5,
+       1.23
+      ],
+      [
+       2.5,
+       1.51
+      ]
+     ],
+     "avg": [
+      2.8,
+      3.8
+     ],
+     "expect_sum": 3.3,
+     "expect_matchup": 3.2,
+     "contrib": [
+      1.6,
+      1.6
+     ],
+     "expect": 3.2,
+     "buffer": 0.7,
+     "fa": [
+      [
+       1.6,
+       1.3
+      ],
+      [
+       1.9,
+       1.2
+      ]
+     ],
+     "sd": 2.08,
+     "p_emp": {
+      "1.5": 0.8130081300813008,
+      "2.5": 0.6622516556291391
+     },
+     "no_odds_check": true,
+     "p_mod": 0.632,
+     "p_fin": 0.608,
+     "kal": 0.94,
+     "fair_fin": 1.64,
+     "ladder_fin": [
+      [
+       1.5,
+       1.32
+      ],
+      [
+       2.5,
+       1.64
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "61 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13019388",
+    "league": "Romania Liga III",
+    "league_id": "492",
+    "home": "Otelul Galati II",
+    "away": "CS Portul Constanta",
+    "home_id": "1179362",
+    "away_id": "1294297",
+    "kickoff": "Fr 14:00",
+    "kickoff_ts": 1790942400,
+    "bet365_id": "202089218"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      35,
+      8
+     ],
+     "next_line": 3.5,
+     "next_note": "Otelul Galati II 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; CS Portul Constanta 4/6 (3. Lücke) gesamt, 3 in Folge auswärts",
+     "longterm": [
+      0.8888419188780728,
+      0.8
+     ],
+     "fair": 1.34,
+     "ladder": [
+      [
+       1.5,
+       1.14
+      ],
+      [
+       2.5,
+       1.34
+      ]
+     ],
+     "avg": [
+      4.7,
+      6.7
+     ],
+     "expect_sum": 5.7,
+     "expect_matchup": 8.9,
+     "contrib": [
+      2.8,
+      6.1
+     ],
+     "expect": 7.3,
+     "buffer": 4.8,
+     "fa": [
+      [
+       1.1,
+       3.8
+      ],
+      [
+       2.1,
+       2.2
+      ]
+     ],
+     "sd": 2.16,
+     "p_emp": {
+      "1.5": 0.8771929824561404,
+      "2.5": 0.7462686567164178
+     },
+     "no_odds_check": true,
+     "p_mod": 0.987,
+     "p_fin": 0.815,
+     "kal": 0.94,
+     "fair_fin": 1.23,
+     "ladder_fin": [
+      [
+       1.5,
+       1.14
+      ],
+      [
+       2.5,
+       1.23
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 75 % vs. Modell 99 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13117660",
+    "league": "UAE Cup",
+    "league_id": "494",
+    "home": "Al Wasl SC",
+    "away": "Al Ittihad Kalba",
+    "home_id": "5928",
+    "away_id": "5037",
+    "kickoff": "Fr 15:15",
+    "kickoff_ts": 1790946900,
+    "bet365_id": "202034616"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      48
+     ],
+     "next_line": 3.5,
+     "next_note": "Al Wasl SC 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Al Ittihad Kalba 2/4 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.7062169806507788,
+      0.7249162957764553
+     ],
+     "fair": 1.49,
+     "ladder": [
+      [
+       1.5,
+       1.19
+      ],
+      [
+       2.5,
+       1.49
+      ]
+     ],
+     "avg": [
+      3.8,
+      3.6
+     ],
+     "expect_sum": 3.7,
+     "expect_matchup": 4.5,
+     "contrib": [
+      3.0,
+      1.5
+     ],
+     "expect": 4.1,
+     "buffer": 1.6,
+     "fa": [
+      [
+       2.0,
+       1.4
+      ],
+      [
+       1.3,
+       1.7
+      ]
+     ],
+     "sd": 1.73,
+     "p_emp": {
+      "1.5": 0.8403361344537815,
+      "2.5": 0.6711409395973155
+     },
+     "no_odds_check": true,
+     "p_mod": 0.822,
+     "p_fin": 0.702,
+     "kal": 0.94,
+     "fair_fin": 1.42,
+     "ladder_fin": [
+      [
+       1.5,
+       1.2
+      ],
+      [
+       2.5,
+       1.42
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 67 % vs. Modell 82 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13181834",
+    "league": "Lithuania 1 Lyga",
+    "league_id": "6407",
+    "home": "FK Minija",
+    "away": "FK Kauno Zalgiris II",
+    "home_id": "197770",
+    "away_id": "305234",
+    "kickoff": "Fr 16:00",
+    "kickoff_ts": 1790949600,
+    "bet365_id": "202076262"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      43,
+      43
+     ],
+     "next_line": 3.5,
+     "next_note": "FK Minija 0/2 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; FK Kauno Zalgiris II 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.7760532332950504,
+      0.5879960115905357
+     ],
+     "fair": 1.54,
+     "ladder": [
+      [
+       1.5,
+       1.29
+      ],
+      [
+       2.5,
+       1.54
+      ]
+     ],
+     "avg": [
+      3.7,
+      2.8
+     ],
+     "expect_sum": 3.3,
+     "expect_matchup": 3.8,
+     "contrib": [
+      3.0,
+      0.7
+     ],
+     "expect": 3.5,
+     "buffer": 1.0,
+     "fa": [
+      [
+       2.5,
+       1.0
+      ],
+      [
+       1.2,
+       1.8
+      ]
+     ],
+     "sd": 2.1,
+     "p_emp": {
+      "1.5": 0.7751937984496123,
+      "2.5": 0.6493506493506493
+     },
+     "no_odds_check": true,
+     "p_mod": 0.683,
+     "p_fin": 0.626,
+     "kal": 0.94,
+     "fair_fin": 1.6,
+     "ladder_fin": [
+      [
+       1.5,
+       1.33
+      ],
+      [
+       2.5,
+       1.6
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "63 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13175927",
+    "league": "Europe Friendlies",
+    "league_id": "363",
+    "home": "Aarau",
+    "away": "Young Boys",
+    "home_id": "25068",
+    "away_id": "274",
+    "kickoff": "Fr 16:30",
+    "kickoff_ts": 1790951400,
+    "bet365_id": "202081844"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "Aarau 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.7923899169827899,
+      0.7331907963687153
+     ],
+     "fair": 1.41,
+     "ladder": [
+      [
+       1.5,
+       1.16
+      ],
+      [
+       2.5,
+       1.41
+      ]
+     ],
+     "avg": [
+      3.3,
+      4.2
+     ],
+     "expect_sum": 3.7,
+     "expect_matchup": 4.2,
+     "contrib": [
+      2.0,
+      2.2
+     ],
+     "expect": 4.0,
+     "buffer": 1.5,
+     "fa": [
+      [
+       1.9,
+       1.7
+      ],
+      [
+       2.2,
+       1.7
+      ]
+     ],
+     "sd": 2.23,
+     "p_emp": {
+      "1.5": 0.8620689655172414,
+      "2.5": 0.7092198581560284
+     },
+     "no_odds_check": true,
+     "p_mod": 0.749,
+     "p_fin": 0.686,
+     "kal": 0.94,
+     "fair_fin": 1.46,
+     "ladder_fin": [
+      [
+       1.5,
+       1.23
+      ],
+      [
+       2.5,
+       1.46
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.46"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13218335",
+    "league": "Belarus Division 1",
+    "league_id": "160",
+    "home": "Volna Pinsk",
+    "away": "FC Lida",
+    "home_id": "83422",
+    "away_id": "8311",
+    "kickoff": "Fr 16:30",
+    "kickoff_ts": 1790951400,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 3.5,
+     "next_note": "Volna Pinsk 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; FC Lida 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.7645081722410757,
+      0.8645953553266607
+     ],
+     "fair": 1.33,
+     "ladder": [
+      [
+       1.5,
+       1.15
+      ],
+      [
+       2.5,
+       1.33
+      ]
+     ],
+     "avg": [
+      3.4,
+      3.9
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 4.2,
+     "contrib": [
+      1.7,
+      2.5
+     ],
+     "expect": 3.9,
+     "buffer": 1.4,
+     "fa": [
+      [
+       1.7,
+       1.8
+      ],
+      [
+       2.1,
+       1.6
+      ]
+     ],
+     "sd": 1.64,
+     "p_emp": {
+      "1.5": 0.8695652173913044,
+      "2.5": 0.7518796992481203
+     },
+     "no_odds_check": true,
+     "p_mod": 0.803,
+     "p_fin": 0.731,
+     "kal": 0.94,
+     "fair_fin": 1.37,
+     "ladder_fin": [
+      [
+       1.5,
+       1.18
+      ],
+      [
+       2.5,
+       1.37
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.37"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11287300",
+    "league": "Norway Division 3 Group 4",
+    "league_id": "383",
+    "home": "Hinna",
+    "away": "Staal Jørpeland",
+    "home_id": "7659",
+    "away_id": "9378",
+    "kickoff": "Fr 18:00",
+    "kickoff_ts": 1790956800,
+    "bet365_id": "202078582"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "Staal Jørpeland 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.8074580457469239,
+      0.8274480091489226
+     ],
+     "fair": 1.33,
+     "ladder": [
+      [
+       1.5,
+       1.12
+      ],
+      [
+       2.5,
+       1.33
+      ]
+     ],
+     "avg": [
+      4.5,
+      4.4
+     ],
+     "expect_sum": 4.4,
+     "expect_matchup": 6.2,
+     "contrib": [
+      3.3,
+      3.0
+     ],
+     "expect": 5.3,
+     "buffer": 2.8,
+     "fa": [
+      [
+       2.1,
+       2.3
+      ],
+      [
+       2.2,
+       2.6
+      ]
+     ],
+     "sd": 2.25,
+     "p_emp": {
+      "1.5": 0.8928571428571428,
+      "2.5": 0.7518796992481203
+     },
+     "no_odds_check": true,
+     "p_mod": 0.893,
+     "p_fin": 0.773,
+     "kal": 0.94,
+     "fair_fin": 1.29,
+     "ladder_fin": [
+      [
+       1.5,
+       1.15
+      ],
+      [
+       2.5,
+       1.29
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 75 % vs. Modell 89 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12110454",
+    "league": "Lithuania II Lyga",
+    "league_id": "18973",
+    "home": "DFK Dainava II",
+    "away": "FK Sveikata",
+    "home_id": "1261296",
+    "away_id": "286816",
+    "kickoff": "Fr 18:00",
+    "kickoff_ts": 1790956800,
+    "bet365_id": "202076258"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      48,
+      48
+     ],
+     "next_line": 3.5,
+     "next_note": "DFK Dainava II 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; FK Sveikata 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8744538017732625,
+      0.7335506400998251
+     ],
+     "fair": 1.35,
+     "ladder": [
+      [
+       1.5,
+       1.14
+      ],
+      [
+       2.5,
+       1.35
+      ]
+     ],
+     "avg": [
+      5.0,
+      3.4
+     ],
+     "expect_sum": 4.2,
+     "expect_matchup": 5.5,
+     "contrib": [
+      2.3,
+      3.1
+     ],
+     "expect": 4.8,
+     "buffer": 2.3,
+     "fa": [
+      [
+       1.8,
+       2.5
+      ],
+      [
+       2.8,
+       1.2
+      ]
+     ],
+     "sd": 2.16,
+     "p_emp": {
+      "1.5": 0.8771929824561404,
+      "2.5": 0.7407407407407407
+     },
+     "no_odds_check": true,
+     "p_mod": 0.857,
+     "p_fin": 0.751,
+     "kal": 0.94,
+     "fair_fin": 1.33,
+     "ladder_fin": [
+      [
+       1.5,
+       1.17
+      ],
+      [
+       2.5,
+       1.33
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.33"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12192046",
+    "league": "Austria Landesliga",
+    "league_id": "469",
+    "home": "Red Star Penzing",
+    "away": "TWL Elektra",
+    "home_id": "78183",
+    "away_id": "512719",
+    "kickoff": "Fr 18:00",
+    "kickoff_ts": 1790956800,
+    "bet365_id": "202075082"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      49
+     ],
+     "next_line": 3.5,
+     "next_note": "Red Star Penzing 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; TWL Elektra 0/2 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.5724525068451424,
+      0.7329812998525322
+     ],
+     "fair": 1.59,
+     "ladder": [
+      [
+       1.5,
+       1.19
+      ],
+      [
+       2.5,
+       1.59
+      ]
+     ],
+     "avg": [
+      3.1,
+      4.2
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 4.5,
+     "contrib": [
+      3.5,
+      1.0
+     ],
+     "expect": 4.1,
+     "buffer": 1.6,
+     "fa": [
+      [
+       1.9,
+       1.3
+      ],
+      [
+       1.3,
+       2.5
+      ]
+     ],
+     "sd": 1.89,
+     "p_emp": {
+      "1.5": 0.8403361344537815,
+      "2.5": 0.6289308176100629
+     },
+     "no_odds_check": true,
+     "p_mod": 0.801,
+     "p_fin": 0.672,
+     "kal": 0.94,
+     "fair_fin": 1.49,
+     "ladder_fin": [
+      [
+       1.5,
+       1.21
+      ],
+      [
+       2.5,
+       1.49
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "67 % knapp; Historie 63 % vs. Modell 80 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12069539",
+    "league": "Lithuania 1 Lyga",
+    "league_id": "6407",
+    "home": "FK Garliava",
+    "away": "DFK Dainava",
+    "home_id": "385235",
+    "away_id": "1258061",
+    "kickoff": "Fr 18:30",
+    "kickoff_ts": 1790958600,
+    "bet365_id": "202076260"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      35,
+      38
+     ],
+     "next_line": 8.5,
+     "next_note": "FK Garliava 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.6935694946871885,
+      0.9022917921265456
+     ],
+     "fair": 1.31,
+     "ladder": [
+      [
+       6.5,
+       1.34
+      ],
+      [
+       7.5,
+       1.31
+      ]
+     ],
+     "avg": [
+      8.7,
+      11.8
+     ],
+     "expect_sum": 10.2,
+     "expect_matchup": 11.5,
+     "contrib": [
+      8.0,
+      3.5
+     ],
+     "expect": 10.9,
+     "buffer": 3.4,
+     "fa": [
+      [
+       5.8,
+       3.8
+      ],
+      [
+       5.0,
+       5.7
+      ]
+     ],
+     "sd": 3.76,
+     "p_emp": {
+      "6.5": 0.7462686567164178,
+      "7.5": 0.7633587786259541
+     },
+     "range": [
+      1.46,
+      1.67
+     ],
+     "b365": [
+      "10.5",
+      "1.950",
+      "1.850"
+     ],
+     "p_mod": 0.817,
+     "p_fin": 0.751,
+     "kal": 0.95,
+     "fair_fin": 1.33,
+     "ladder_fin": [
+      [
+       6.5,
+       1.3
+      ],
+      [
+       7.5,
+       1.33
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.33"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11613585",
+    "league": "Finland Kolmonen",
+    "league_id": "32",
+    "home": "Saaksjærven Loiske",
+    "away": "TP-49",
+    "home_id": "9415",
+    "away_id": "848855",
+    "kickoff": "Fr 18:30",
+    "kickoff_ts": 1790958600,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      48
+     ],
+     "next_line": 3.5,
+     "next_note": "Saaksjærven Loiske 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+     "longterm": [
+      0.7502485130675463,
+      0.8420414371774937
+     ],
+     "fair": 1.36,
+     "ladder": [
+      [
+       1.5,
+       1.13
+      ],
+      [
+       2.5,
+       1.36
+      ]
+     ],
+     "avg": [
+      3.9,
+      7.0
+     ],
+     "expect_sum": 5.4,
+     "expect_matchup": 7.2,
+     "contrib": [
+      6.2,
+      1.0
+     ],
+     "expect": 6.3,
+     "buffer": 3.8,
+     "fa": [
+      [
+       1.9,
+       2.5
+      ],
+      [
+       1.0,
+       4.1
+      ]
+     ],
+     "sd": 3.26,
+     "p_emp": {
+      "1.5": 0.8849557522123894,
+      "2.5": 0.7352941176470588
+     },
+     "no_odds_check": true,
+     "p_mod": 0.878,
+     "p_fin": 0.758,
+     "kal": 0.94,
+     "fair_fin": 1.32,
+     "ladder_fin": [
+      [
+       1.5,
+       1.17
+      ],
+      [
+       2.5,
+       1.32
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 74 % vs. Modell 88 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12155631",
+    "league": "Austria Regionalliga South",
+    "league_id": "45953",
+    "home": "SV Lafnitz",
+    "away": "FSC Eggendorf Hartberg II",
+    "home_id": "2711",
+    "away_id": "273191",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 3.5,
+     "next_note": "FSC Eggendorf Hartberg II 8/10 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8672829922423223,
+      0.8261234739548778
+     ],
+     "fair": 1.3,
+     "ladder": [
+      [
+       1.5,
+       1.1
+      ],
+      [
+       2.5,
+       1.3
+      ]
+     ],
+     "avg": [
+      4.2,
+      3.9
+     ],
+     "expect_sum": 4.0,
+     "expect_matchup": 5.2,
+     "contrib": [
+      2.2,
+      3.0
+     ],
+     "expect": 4.6,
+     "buffer": 2.1,
+     "fa": [
+      [
+       1.8,
+       2.3
+      ],
+      [
+       2.3,
+       1.6
+      ]
+     ],
+     "sd": 1.73,
+     "p_emp": {
+      "1.5": 0.9090909090909091,
+      "2.5": 0.7692307692307692
+     },
+     "no_odds_check": true,
+     "p_mod": 0.888,
+     "p_fin": 0.779,
+     "kal": 0.94,
+     "fair_fin": 1.28,
+     "ladder_fin": [
+      [
+       1.5,
+       1.14
+      ],
+      [
+       2.5,
+       1.28
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.28"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12155632",
+    "league": "Austria Regionalliga South",
+    "league_id": "45953",
+    "home": "FC Gleisdorf 09",
+    "away": "SV Tillmitsch",
+    "home_id": "2925",
+    "away_id": "843723",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": "202075119"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      49
+     ],
+     "next_line": 3.5,
+     "next_note": "FC Gleisdorf 09 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.697939959759976,
+      0.8302189222349475
+     ],
+     "fair": 1.41,
+     "ladder": [
+      [
+       1.5,
+       1.16
+      ],
+      [
+       2.5,
+       1.41
+      ]
+     ],
+     "avg": [
+      3.5,
+      4.2
+     ],
+     "expect_sum": 3.8,
+     "expect_matchup": 4.7,
+     "contrib": [
+      1.9,
+      2.8
+     ],
+     "expect": 4.3,
+     "buffer": 1.8,
+     "fa": [
+      [
+       1.5,
+       2.3
+      ],
+      [
+       2.2,
+       1.6
+      ]
+     ],
+     "sd": 1.79,
+     "p_emp": {
+      "1.5": 0.8620689655172414,
+      "2.5": 0.7092198581560284
+     },
+     "no_odds_check": true,
+     "p_mod": 0.843,
+     "p_fin": 0.729,
+     "kal": 0.94,
+     "fair_fin": 1.37,
+     "ladder_fin": [
+      [
+       1.5,
+       1.18
+      ],
+      [
+       2.5,
+       1.37
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 71 % vs. Modell 84 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11338832",
+    "league": "Sweden 1.div Södra",
+    "league_id": "162",
+    "home": "Lunds BK",
+    "away": "Laholms FK",
+    "home_id": "651",
+    "away_id": "5762",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": "201981343"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      47,
+      47
+     ],
+     "next_line": 8.5,
+     "next_note": "Laholms FK 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.7443986763150456,
+      0.803162996909069
+     ],
+     "fair": 1.34,
+     "ladder": [
+      [
+       6.5,
+       1.31
+      ],
+      [
+       7.5,
+       1.34
+      ]
+     ],
+     "avg": [
+      10.4,
+      10.0
+     ],
+     "expect_sum": 10.2,
+     "expect_matchup": 11.9,
+     "contrib": [
+      8.6,
+      3.3
+     ],
+     "expect": 11.0,
+     "buffer": 3.5,
+     "fa": [
+      [
+       5.3,
+       4.2
+      ],
+      [
+       4.4,
+       5.8
+      ]
+     ],
+     "sd": 3.04,
+     "p_emp": {
+      "6.5": 0.7633587786259541,
+      "7.5": 0.7462686567164178
+     },
+     "range": [
+      1.193,
+      1.335
+     ],
+     "b365": [
+      "10.0",
+      "1.975",
+      "1.825"
+     ],
+     "p_mod": 0.875,
+     "p_fin": 0.77,
+     "kal": 0.95,
+     "fair_fin": 1.3,
+     "ladder_fin": [
+      [
+       6.5,
+       1.24
+      ],
+      [
+       7.5,
+       1.3
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 75 % vs. Modell 88 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11168563",
+    "league": "Norway Division 1",
+    "league_id": "98",
+    "home": "Ranheim",
+    "away": "Egersund",
+    "home_id": "943",
+    "away_id": "418",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": "200936289"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      48
+     ],
+     "next_line": 3.5,
+     "next_note": "Egersund 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.8227093102759134,
+      0.6753934920400909
+     ],
+     "fair": 1.43,
+     "ladder": [
+      [
+       1.5,
+       1.13
+      ],
+      [
+       2.5,
+       1.43
+      ]
+     ],
+     "avg": [
+      4.8,
+      4.1
+     ],
+     "expect_sum": 4.4,
+     "expect_matchup": 6.3,
+     "contrib": [
+      3.5,
+      2.8
+     ],
+     "expect": 5.3,
+     "buffer": 2.8,
+     "fa": [
+      [
+       2.0,
+       2.0
+      ],
+      [
+       1.9,
+       1.6
+      ]
+     ],
+     "sd": 1.94,
+     "p_emp": {
+      "1.5": 0.8849557522123894,
+      "2.5": 0.6993006993006994
+     },
+     "no_odds_check": true,
+     "p_mod": 0.926,
+     "p_fin": 0.764,
+     "kal": 0.94,
+     "fair_fin": 1.31,
+     "ladder_fin": [
+      [
+       1.5,
+       1.14
+      ],
+      [
+       2.5,
+       1.31
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 70 % vs. Modell 93 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12159732",
+    "league": "Austria Landesliga",
+    "league_id": "469",
+    "home": "TUS Bad Waltersdorf",
+    "away": "FC Schladming",
+    "home_id": "174348",
+    "away_id": "898757",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": "202140839"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "TUS Bad Waltersdorf 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; FC Schladming 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.7377854831307317,
+      0.6110718624870223
+     ],
+     "fair": 1.55,
+     "ladder": [
+      [
+       1.5,
+       1.19
+      ],
+      [
+       2.5,
+       1.55
+      ]
+     ],
+     "avg": [
+      4.0,
+      3.1
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 3.9,
+     "contrib": [
+      2.1,
+      1.8
+     ],
+     "expect": 3.7,
+     "buffer": 1.2,
+     "fa": [
+      [
+       1.7,
+       2.0
+      ],
+      [
+       1.4,
+       1.5
+      ]
+     ],
+     "sd": 1.85,
+     "p_emp": {
+      "1.5": 0.8403361344537815,
+      "2.5": 0.6451612903225806
+     },
+     "no_odds_check": true,
+     "p_mod": 0.742,
+     "p_fin": 0.652,
+     "kal": 0.94,
+     "fair_fin": 1.53,
+     "ladder_fin": [
+      [
+       1.5,
+       1.23
+      ],
+      [
+       2.5,
+       1.53
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "65 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12203044",
+    "league": "Germany Oberliga Baden-Wuerttemberg",
+    "league_id": "428",
+    "home": "FC Muhlhausen 1927",
+    "away": "Pforzheim",
+    "home_id": "590027",
+    "away_id": "46620",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      29,
+      47
+     ],
+     "next_line": 3.5,
+     "next_note": "Pforzheim 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.8999974800429502,
+      0.7439376413098151
+     ],
+     "fair": 1.34,
+     "ladder": [
+      [
+       1.5,
+       1.14
+      ],
+      [
+       2.5,
+       1.34
+      ]
+     ],
+     "avg": [
+      5.5,
+      3.6
+     ],
+     "expect_sum": 4.6,
+     "expect_matchup": 6.5,
+     "contrib": [
+      2.3,
+      4.2
+     ],
+     "expect": 5.5,
+     "buffer": 3.0,
+     "fa": [
+      [
+       2.1,
+       2.8
+      ],
+      [
+       2.0,
+       1.7
+      ]
+     ],
+     "sd": 2.17,
+     "p_emp": {
+      "1.5": 0.8771929824561404,
+      "2.5": 0.7462686567164178
+     },
+     "no_odds_check": true,
+     "p_mod": 0.917,
+     "p_fin": 0.782,
+     "kal": 0.94,
+     "fair_fin": 1.28,
+     "ladder_fin": [
+      [
+       1.5,
+       1.15
+      ],
+      [
+       2.5,
+       1.28
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 75 % vs. Modell 92 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12204314",
+    "league": "Germany Oberliga Bayern North",
+    "league_id": "501",
+    "home": "SpVgg SV Weiden",
+    "away": "Viktoria Aschaffenburg",
+    "home_id": "723341",
+    "away_id": "4979",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      46,
+      48
+     ],
+     "next_line": 3.5,
+     "next_note": "SpVgg SV Weiden 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Viktoria Aschaffenburg 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.6724787078453304,
+      0.6926417227053044
+     ],
+     "fair": 1.53,
+     "ladder": [
+      [
+       1.5,
+       1.25
+      ],
+      [
+       2.5,
+       1.53
+      ]
+     ],
+     "avg": [
+      2.9,
+      3.8
+     ],
+     "expect_sum": 3.4,
+     "expect_matchup": 3.5,
+     "contrib": [
+      1.9,
+      1.7
+     ],
+     "expect": 3.4,
+     "buffer": 0.9,
+     "fa": [
+      [
+       1.7,
+       1.5
+      ],
+      [
+       1.2,
+       2.0
+      ]
+     ],
+     "sd": 1.97,
+     "p_emp": {
+      "1.5": 0.8,
+      "2.5": 0.6535947712418301
+     },
+     "no_odds_check": true,
+     "p_mod": 0.676,
+     "p_fin": 0.625,
+     "kal": 0.94,
+     "fair_fin": 1.6,
+     "ladder_fin": [
+      [
+       1.5,
+       1.3
+      ],
+      [
+       2.5,
+       1.6
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "62 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12220420",
+    "league": "Germany Regionalliga South West",
+    "league_id": "385",
+    "home": "Stuttgarter Kickers",
+    "away": "Kickers Offenbach",
+    "home_id": "2874",
+    "away_id": "2916",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      48
+     ],
+     "next_line": 3.5,
+     "next_note": "Stuttgarter Kickers 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Kickers Offenbach 5/7 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.7101572844371499,
+      0.707201353742488
+     ],
+     "fair": 1.49,
+     "ladder": [
+      [
+       1.5,
+       1.18
+      ],
+      [
+       2.5,
+       1.49
+      ]
+     ],
+     "avg": [
+      3.2,
+      3.1
+     ],
+     "expect_sum": 3.1,
+     "expect_matchup": 3.2,
+     "contrib": [
+      2.1,
+      1.1
+     ],
+     "expect": 3.2,
+     "buffer": 0.7,
+     "fa": [
+      [
+       1.9,
+       1.2
+      ],
+      [
+       1.7,
+       1.8
+      ]
+     ],
+     "sd": 1.82,
+     "p_emp": {
+      "1.5": 0.8474576271186441,
+      "2.5": 0.6711409395973155
+     },
+     "no_odds_check": true,
+     "p_mod": 0.65,
+     "p_fin": 0.621,
+     "kal": 0.94,
+     "fair_fin": 1.61,
+     "ladder_fin": [
+      [
+       1.5,
+       1.27
+      ],
+      [
+       2.5,
+       1.61
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "62 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12159851",
+    "league": "Austria Landesliga",
+    "league_id": "469",
+    "home": "SV Lebring",
+    "away": "UFC Fehring",
+    "home_id": "80129",
+    "away_id": "173362",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "UFC Fehring 0/2 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.7982271601823396,
+      0.6733576613900791
+     ],
+     "fair": 1.45,
+     "ladder": [
+      [
+       1.5,
+       1.15
+      ],
+      [
+       2.5,
+       1.45
+      ]
+     ],
+     "avg": [
+      4.4,
+      3.9
+     ],
+     "expect_sum": 4.1,
+     "expect_matchup": 5.2,
+     "contrib": [
+      3.4,
+      1.8
+     ],
+     "expect": 4.7,
+     "buffer": 2.2,
+     "fa": [
+      [
+       1.8,
+       2.0
+      ],
+      [
+       1.6,
+       2.1
+      ]
+     ],
+     "sd": 1.98,
+     "p_emp": {
+      "1.5": 0.8695652173913044,
+      "2.5": 0.6896551724137931
+     },
+     "no_odds_check": true,
+     "p_mod": 0.867,
+     "p_fin": 0.732,
+     "kal": 0.94,
+     "fair_fin": 1.37,
+     "ladder_fin": [
+      [
+       1.5,
+       1.17
+      ],
+      [
+       2.5,
+       1.37
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 69 % vs. Modell 87 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12165124",
+    "league": "Austria Landesliga",
+    "league_id": "469",
+    "home": "Union Henndorf",
+    "away": "TSV Neumarkt",
+    "home_id": "224415",
+    "away_id": "4453",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      48
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — Union Henndorf 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; TSV Neumarkt 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.7520705977867987,
+      0.7338889431718004
+     ],
+     "fair": 1.43,
+     "ladder": [
+      [
+       1.5,
+       1.14
+      ],
+      [
+       2.5,
+       1.43
+      ]
+     ],
+     "avg": [
+      3.9,
+      3.9
+     ],
+     "expect_sum": 3.9,
+     "expect_matchup": 4.7,
+     "contrib": [
+      2.6,
+      2.1
+     ],
+     "expect": 4.3,
+     "buffer": 1.8,
+     "fa": [
+      [
+       1.7,
+       2.3
+      ],
+      [
+       1.6,
+       2.4
+      ]
+     ],
+     "sd": 2.12,
+     "p_emp": {
+      "1.5": 0.8771929824561404,
+      "2.5": 0.6993006993006994
+     },
+     "no_odds_check": true,
+     "p_mod": 0.802,
+     "p_fin": 0.706,
+     "kal": 0.94,
+     "fair_fin": 1.42,
+     "ladder_fin": [
+      [
+       1.5,
+       1.19
+      ],
+      [
+       2.5,
+       1.42
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.42"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12191946",
+    "league": "Austria Landesliga",
+    "league_id": "469",
+    "home": "Union Edelweiss",
+    "away": "Gmundner",
+    "home_id": "53744",
+    "away_id": "53746",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      17
+     ],
+     "next_line": 3.5,
+     "next_note": "Union Edelweiss 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Gmundner 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.5937894075947915,
+      0.6830332626537925
+     ],
+     "fair": 1.64,
+     "ladder": [
+      [
+       1.5,
+       1.25
+      ],
+      [
+       2.5,
+       1.64
+      ]
+     ],
+     "avg": [
+      2.8,
+      2.8
+     ],
+     "expect_sum": 2.8,
+     "expect_matchup": 2.9,
+     "contrib": [
+      2.6,
+      0.3
+     ],
+     "expect": 2.9,
+     "buffer": 0.4,
+     "fa": [
+      [
+       1.7,
+       1.3
+      ],
+      [
+       1.4,
+       1.8
+      ]
+     ],
+     "sd": 1.63,
+     "p_emp": {
+      "1.5": 0.8,
+      "2.5": 0.6097560975609756
+     },
+     "no_odds_check": true,
+     "p_mod": 0.597,
+     "p_fin": 0.567,
+     "kal": 0.94,
+     "fair_fin": 1.76,
+     "ladder_fin": [
+      [
+       1.5,
+       1.33
+      ],
+      [
+       2.5,
+       1.76
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "nur 57 % Wahrscheinlichkeit"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12158592",
+    "league": "Austria Landesliga",
+    "league_id": "469",
+    "home": "ATUS Ferlach",
+    "away": "Nussdorf",
+    "home_id": "4937",
+    "away_id": "218748",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "ATUS Ferlach 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Nussdorf 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.6270563078210832,
+      0.8047209624380349
+     ],
+     "fair": 1.47,
+     "ladder": [
+      [
+       1.5,
+       1.21
+      ],
+      [
+       2.5,
+       1.47
+      ]
+     ],
+     "avg": [
+      3.7,
+      4.5
+     ],
+     "expect_sum": 4.1,
+     "expect_matchup": 5.4,
+     "contrib": [
+      4.0,
+      1.4
+     ],
+     "expect": 4.8,
+     "buffer": 2.3,
+     "fa": [
+      [
+       1.2,
+       2.1
+      ],
+      [
+       1.4,
+       2.5
+      ]
+     ],
+     "sd": 1.93,
+     "p_emp": {
+      "1.5": 0.8264462809917356,
+      "2.5": 0.6802721088435374
+     },
+     "no_odds_check": true,
+     "p_mod": 0.883,
+     "p_fin": 0.735,
+     "kal": 0.94,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       1.5,
+       1.19
+      ],
+      [
+       2.5,
+       1.36
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 68 % vs. Modell 88 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11720676",
+    "league": "Finland Kolmonen",
+    "league_id": "32",
+    "home": "PPS",
+    "away": "FC Kontu",
+    "home_id": "1269354",
+    "away_id": "45486",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": "202086624"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      22,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "PPS 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; FC Kontu 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8961056242122332,
+      0.7738590188210884
+     ],
+     "fair": 1.34,
+     "ladder": [
+      [
+       1.5,
+       1.12
+      ],
+      [
+       2.5,
+       1.34
+      ]
+     ],
+     "avg": [
+      4.1,
+      4.3
+     ],
+     "expect_sum": 4.2,
+     "expect_matchup": 5.0,
+     "contrib": [
+      1.7,
+      3.3
+     ],
+     "expect": 4.6,
+     "buffer": 2.1,
+     "fa": [
+      [
+       1.1,
+       3.9
+      ],
+      [
+       1.7,
+       2.3
+      ]
+     ],
+     "sd": 2.34,
+     "p_emp": {
+      "1.5": 0.8928571428571428,
+      "2.5": 0.7462686567164178
+     },
+     "no_odds_check": true,
+     "p_mod": 0.815,
+     "p_fin": 0.734,
+     "kal": 0.94,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       1.5,
+       1.18
+      ],
+      [
+       2.5,
+       1.36
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.36"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11720703",
+    "league": "Finland Kolmonen",
+    "league_id": "32",
+    "home": "HPS II",
+    "away": "MPS/Atletico Malmi",
+    "home_id": "1258058",
+    "away_id": "45863",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": "202075955"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      23,
+      48
+     ],
+     "next_line": 3.5,
+     "next_note": "MPS/Atletico Malmi 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      1.0,
+      0.8607426598913525
+     ],
+     "fair": 1.23,
+     "ladder": [
+      [
+       1.5,
+       1.08
+      ],
+      [
+       2.5,
+       1.23
+      ]
+     ],
+     "avg": [
+      4.9,
+      4.0
+     ],
+     "expect_sum": 4.4,
+     "expect_matchup": 6.2,
+     "contrib": [
+      2.7,
+      3.5
+     ],
+     "expect": 5.3,
+     "buffer": 2.8,
+     "fa": [
+      [
+       2.3,
+       2.5
+      ],
+      [
+       2.4,
+       1.9
+      ]
+     ],
+     "sd": 1.86,
+     "p_emp": {
+      "1.5": 0.9259259259259258,
+      "2.5": 0.8130081300813008
+     },
+     "no_odds_check": true,
+     "p_mod": 0.934,
+     "p_fin": 0.821,
+     "kal": 0.94,
+     "fair_fin": 1.22,
+     "ladder_fin": [
+      [
+       1.5,
+       1.12
+      ],
+      [
+       2.5,
+       1.22
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 81 % vs. Modell 93 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11720805",
+    "league": "Finland Kolmonen",
+    "league_id": "32",
+    "home": "Valtti",
+    "away": "VJS Vantaa II",
+    "home_id": "276515",
+    "away_id": "985243",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": "202086540"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      49
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — Valtti 7/9 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; VJS Vantaa II 7/9 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.7163512869635995,
+      0.91232807471719
+     ],
+     "fair": 1.34,
+     "ladder": [
+      [
+       1.5,
+       1.13
+      ],
+      [
+       2.5,
+       1.34
+      ]
+     ],
+     "avg": [
+      3.4,
+      4.0
+     ],
+     "expect_sum": 3.7,
+     "expect_matchup": 4.2,
+     "contrib": [
+      2.3,
+      1.9
+     ],
+     "expect": 4.0,
+     "buffer": 1.5,
+     "fa": [
+      [
+       2.5,
+       1.4
+      ],
+      [
+       3.0,
+       1.7
+      ]
+     ],
+     "sd": 2.41,
+     "p_emp": {
+      "1.5": 0.8849557522123894,
+      "2.5": 0.7462686567164178
+     },
+     "no_odds_check": true,
+     "p_mod": 0.733,
+     "p_fin": 0.695,
+     "kal": 0.94,
+     "fair_fin": 1.44,
+     "ladder_fin": [
+      [
+       1.5,
+       1.23
+      ],
+      [
+       2.5,
+       1.44
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.44"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12159593",
+    "league": "Austria Landesliga",
+    "league_id": "469",
+    "home": "SC Bruck an der Mur",
+    "away": "SV Wildon",
+    "home_id": "195654",
+    "away_id": "78731",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 3.5,
+     "next_note": "SC Bruck an der Mur 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; SV Wildon 0/2 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.6881991086007909,
+      0.736946080193281
+     ],
+     "fair": 1.48,
+     "ladder": [
+      [
+       1.5,
+       1.15
+      ],
+      [
+       2.5,
+       1.48
+      ]
+     ],
+     "avg": [
+      3.6,
+      4.4
+     ],
+     "expect_sum": 4.0,
+     "expect_matchup": 5.0,
+     "contrib": [
+      2.3,
+      2.7
+     ],
+     "expect": 4.5,
+     "buffer": 2.0,
+     "fa": [
+      [
+       1.6,
+       2.0
+      ],
+      [
+       2.2,
+       1.6
+      ]
+     ],
+     "sd": 1.9,
+     "p_emp": {
+      "1.5": 0.8695652173913044,
+      "2.5": 0.6756756756756757
+     },
+     "no_odds_check": true,
+     "p_mod": 0.854,
+     "p_fin": 0.719,
+     "kal": 0.94,
+     "fair_fin": 1.39,
+     "ladder_fin": [
+      [
+       1.5,
+       1.17
+      ],
+      [
+       2.5,
+       1.39
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 68 % vs. Modell 85 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13226940",
+    "league": "Saudi Arabia Premier League Women",
+    "league_id": "32092",
+    "home": "Al Ahli Jeddah (W)",
+    "away": "Al-Nassr Riyadh (W)",
+    "home_id": "1185510",
+    "away_id": "1180762",
+    "kickoff": "Fr 19:15",
+    "kickoff_ts": 1790961300,
+    "bet365_id": "202154025"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      23,
+      35
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — Al Ahli Jeddah (W) 5/7 (3. Lücke) gesamt, 10/12 (3. Lücke) heim; Al-Nassr Riyadh (W) 6/8 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+     "longterm": [
+      0.8211503374472859,
+      0.7821756786710677
+     ],
+     "fair": 1.38,
+     "ladder": [
+      [
+       1.5,
+       1.19
+      ],
+      [
+       2.5,
+       1.38
+      ]
+     ],
+     "avg": [
+      4.9,
+      4.3
+     ],
+     "expect_sum": 4.6,
+     "expect_matchup": 5.9,
+     "contrib": [
+      1.7,
+      4.3
+     ],
+     "expect": 5.3,
+     "buffer": 2.8,
+     "fa": [
+      [
+       3.3,
+       1.7
+      ],
+      [
+       3.0,
+       0.8
+      ]
+     ],
+     "sd": 2.59,
+     "p_emp": {
+      "1.5": 0.8403361344537815,
+      "2.5": 0.7246376811594204
+     },
+     "no_odds_check": true,
+     "p_mod": 0.86,
+     "p_fin": 0.745,
+     "kal": 0.94,
+     "fair_fin": 1.34,
+     "ladder_fin": [
+      [
+       1.5,
+       1.2
+      ],
+      [
+       2.5,
+       1.34
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 72 % vs. Modell 86 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12155871",
+    "league": "Austria Regionalliga North",
+    "league_id": "46028",
+    "home": "FC Pinzgau",
+    "away": "SV Bad Schallerbach",
+    "home_id": "46700",
+    "away_id": "976588",
+    "kickoff": "Fr 19:30",
+    "kickoff_ts": 1790962200,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      49
+     ],
+     "next_line": 3.5,
+     "next_note": "FC Pinzgau 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; SV Bad Schallerbach 4/6 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+     "longterm": [
+      0.5989586849628161,
+      0.6431118219300612
+     ],
+     "fair": 1.64,
+     "ladder": [
+      [
+       1.5,
+       1.19
+      ],
+      [
+       2.5,
+       1.64
+      ]
+     ],
+     "avg": [
+      3.9,
+      2.4
+     ],
+     "expect_sum": 3.1,
+     "expect_matchup": 2.9,
+     "contrib": [
+      1.1,
+      1.8
+     ],
+     "expect": 3.0,
+     "buffer": 0.5,
+     "fa": [
+      [
+       0.9,
+       2.3
+      ],
+      [
+       2.0,
+       1.2
+      ]
+     ],
+     "sd": 1.75,
+     "p_emp": {
+      "1.5": 0.8403361344537815,
+      "2.5": 0.6097560975609756
+     },
+     "no_odds_check": true,
+     "p_mod": 0.612,
+     "p_fin": 0.574,
+     "kal": 0.94,
+     "fair_fin": 1.74,
+     "ladder_fin": [
+      [
+       1.5,
+       1.29
+      ],
+      [
+       2.5,
+       1.74
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🔴",
+     "reason": "nur 57 % Wahrscheinlichkeit"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12260182",
+    "league": "Germany Oberliga Niederrhein",
+    "league_id": "671",
+    "home": "KFC Uerdingen 05",
+    "away": "SSVg Velbert",
+    "home_id": "47129",
+    "away_id": "47128",
+    "kickoff": "Fr 19:30",
+    "kickoff_ts": 1790962200,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      46
+     ],
+     "next_line": 3.5,
+     "next_note": "KFC Uerdingen 05 0/2 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; SSVg Velbert 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.6770601278869162,
+      0.798417880151531
+     ],
+     "fair": 1.44,
+     "ladder": [
+      [
+       1.5,
+       1.24
+      ],
+      [
+       2.5,
+       1.44
+      ]
+     ],
+     "avg": [
+      3.1,
+      3.8
+     ],
+     "expect_sum": 3.4,
+     "expect_matchup": 3.6,
+     "contrib": [
+      2.1,
+      1.6
+     ],
+     "expect": 3.5,
+     "buffer": 1.0,
+     "fa": [
+      [
+       1.9,
+       1.3
+      ],
+      [
+       1.5,
+       2.2
+      ]
+     ],
+     "sd": 2.01,
+     "p_emp": {
+      "1.5": 0.8064516129032259,
+      "2.5": 0.6944444444444444
+     },
+     "no_odds_check": true,
+     "p_mod": 0.691,
+     "p_fin": 0.651,
+     "kal": 0.94,
+     "fair_fin": 1.54,
+     "ladder_fin": [
+      [
+       1.5,
+       1.29
+      ],
+      [
+       2.5,
+       1.54
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "65 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12221508",
+    "league": "Germany Regionalliga West",
+    "league_id": "382",
+    "home": "Bonner SC",
+    "away": "Westfalia Rhynern",
+    "home_id": "12402",
+    "away_id": "50225",
+    "kickoff": "Fr 19:30",
+    "kickoff_ts": 1790962200,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      46,
+      45
+     ],
+     "next_line": 3.5,
+     "next_note": "Bonner SC 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Westfalia Rhynern 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.6560569700255717,
+      0.8123997066001425
+     ],
+     "fair": 1.45,
+     "ladder": [
+      [
+       1.5,
+       1.19
+      ],
+      [
+       2.5,
+       1.45
+      ]
+     ],
+     "avg": [
+      3.2,
+      3.9
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 4.0,
+     "contrib": [
+      1.4,
+      2.6
+     ],
+     "expect": 3.8,
+     "buffer": 1.3,
+     "fa": [
+      [
+       1.6,
+       1.4
+      ],
+      [
+       2.4,
+       1.4
+      ]
+     ],
+     "sd": 2.17,
+     "p_emp": {
+      "1.5": 0.8403361344537815,
+      "2.5": 0.6896551724137931
+     },
+     "no_odds_check": true,
+     "p_mod": 0.725,
+     "p_fin": 0.665,
+     "kal": 0.94,
+     "fair_fin": 1.5,
+     "ladder_fin": [
+      [
+       1.5,
+       1.25
+      ],
+      [
+       2.5,
+       1.5
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "67 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12261953",
+    "league": "Germany Oberliga Niedersachsen",
+    "league_id": "101",
+    "home": "TuS Blau-Weiss Lohne",
+    "away": "BSV Schwarz-Weiss Rehden",
+    "home_id": "359027",
+    "away_id": "3807",
+    "kickoff": "Fr 19:30",
+    "kickoff_ts": 1790962200,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      46,
+      43
+     ],
+     "next_line": 3.5,
+     "next_note": "BSV Schwarz-Weiss Rehden 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.6284427257333004,
+      0.7295503708664373
+     ],
+     "fair": 1.54,
+     "ladder": [
+      [
+       1.5,
+       1.16
+      ],
+      [
+       2.5,
+       1.54
+      ]
+     ],
+     "avg": [
+      3.5,
+      2.9
+     ],
+     "expect_sum": 3.2,
+     "expect_matchup": 3.3,
+     "contrib": [
+      1.2,
+      2.2
+     ],
+     "expect": 3.3,
+     "buffer": 0.8,
+     "fa": [
+      [
+       1.3,
+       2.1
+      ],
+      [
+       1.7,
+       1.6
+      ]
+     ],
+     "sd": 1.65,
+     "p_emp": {
+      "1.5": 0.8620689655172414,
+      "2.5": 0.6493506493506493
+     },
+     "no_odds_check": true,
+     "p_mod": 0.686,
+     "p_fin": 0.628,
+     "kal": 0.94,
+     "fair_fin": 1.59,
+     "ladder_fin": [
+      [
+       1.5,
+       1.23
+      ],
+      [
+       2.5,
+       1.59
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "63 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12184010",
+    "league": "Austria Landesliga",
+    "league_id": "469",
+    "home": "Deutschkreutz",
+    "away": "SV Leithaprodersdorf",
+    "home_id": "72585",
+    "away_id": "80124",
+    "kickoff": "Fr 19:30",
+    "kickoff_ts": 1790962200,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "Deutschkreutz 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; SV Leithaprodersdorf 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.6892796133604723,
+      0.6968098281481816
+     ],
+     "fair": 1.51,
+     "ladder": [
+      [
+       1.5,
+       1.14
+      ],
+      [
+       2.5,
+       1.51
+      ]
+     ],
+     "avg": [
+      2.9,
+      3.3
+     ],
+     "expect_sum": 3.1,
+     "expect_matchup": 2.9,
+     "contrib": [
+      1.4,
+      1.5
+     ],
+     "expect": 3.0,
+     "buffer": 0.5,
+     "fa": [
+      [
+       1.6,
+       1.4
+      ],
+      [
+       2.0,
+       1.4
+      ]
+     ],
+     "sd": 1.45,
+     "p_emp": {
+      "1.5": 0.8771929824561404,
+      "2.5": 0.6622516556291391
+     },
+     "no_odds_check": true,
+     "p_mod": 0.635,
+     "p_fin": 0.61,
+     "kal": 0.94,
+     "fair_fin": 1.64,
+     "ladder_fin": [
+      [
+       1.5,
+       1.23
+      ],
+      [
+       2.5,
+       1.64
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "61 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12153289",
+    "league": "Wales Championship South",
+    "league_id": "18164",
+    "home": "Carmarthen",
+    "away": "Llantwit Major",
+    "home_id": "3058",
+    "away_id": "232061",
+    "kickoff": "Fr 20:30",
+    "kickoff_ts": 1790965800,
+    "bet365_id": "202069527"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      48,
+      41
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — Carmarthen 11/13 (3. Lücke) gesamt, 9/11 (3. Lücke) heim; Llantwit Major 2/4 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+     "longterm": [
+      0.7014351073597892,
+      0.6715243019193807
+     ],
+     "fair": 1.53,
+     "ladder": [
+      [
+       1.5,
+       1.21
+      ],
+      [
+       2.5,
+       1.53
+      ]
+     ],
+     "avg": [
+      3.6,
+      3.8
+     ],
+     "expect_sum": 3.7,
+     "expect_matchup": 4.4,
+     "contrib": [
+      2.6,
+      1.8
+     ],
+     "expect": 4.0,
+     "buffer": 1.5,
+     "fa": [
+      [
+       1.9,
+       1.6
+      ],
+      [
+       1.5,
+       1.8
+      ]
+     ],
+     "sd": 2.07,
+     "p_emp": {
+      "1.5": 0.8264462809917356,
+      "2.5": 0.6535947712418301
+     },
+     "no_odds_check": true,
+     "p_mod": 0.766,
+     "p_fin": 0.667,
+     "kal": 0.94,
+     "fair_fin": 1.5,
+     "ladder_fin": [
+      [
+       1.5,
+       1.24
+      ],
+      [
+       2.5,
+       1.5
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "67 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12130553",
+    "league": "Spain Segunda",
+    "league_id": "221",
+    "home": "Eldense",
+    "away": "Oviedo",
+    "home_id": "7238",
+    "away_id": "7285",
+    "kickoff": "Fr 20:30",
+    "kickoff_ts": 1790965800,
+    "bet365_id": "201317381"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 3.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 17
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      48,
+      49
+     ],
+     "next_line": 4.5,
+     "next_note": "Eldense 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Oviedo 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.7018572539172202,
+      0.5480936967939066
+     ],
+     "fair": 1.67,
+     "ladder": [
+      [
+       2.5,
+       1.35
+      ],
+      [
+       3.5,
+       1.67
+      ]
+     ],
+     "avg": [
+      4.9,
+      3.6
+     ],
+     "expect_sum": 4.3,
+     "expect_matchup": 4.8,
+     "contrib": [
+      2.0,
+      2.8
+     ],
+     "expect": 4.5,
+     "buffer": 1.0,
+     "fa": [
+      [
+       2.3,
+       2.6
+      ],
+      [
+       2.1,
+       1.7
+      ]
+     ],
+     "sd": 2.19,
+     "p_emp": {
+      "2.5": 0.7407407407407407,
+      "3.5": 0.5988023952095809
+     },
+     "range": [
+      1.25,
+      1.72
+     ],
+     "referee": "Rafael Sanchez Lopez: Ø 4.4 Karten (26 Sp.) · Ø 21.0 Fouls (23 Sp.)",
+     "expect_ref": 5.0,
+     "buffer_ref": 1.5,
+     "p_mod": 0.753,
+     "p_fin": 0.642,
+     "kal": 0.95,
+     "fair_fin": 1.56,
+     "ladder_fin": [
+      [
+       2.5,
+       1.3
+      ],
+      [
+       3.5,
+       1.56
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "64 % knapp; Historie 60 % vs. Modell 75 %"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      49
+     ],
+     "next_line": 4.5,
+     "next_note": "Eldense 0/2 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Oviedo 2/4 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.693384102625281,
+      0.8555290458939527
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       5.5,
+       1.29
+      ],
+      [
+       6.5,
+       1.13
+      ]
+     ],
+     "avg": [
+      4.9,
+      3.6
+     ],
+     "expect_sum": 4.3,
+     "expect_matchup": 4.8,
+     "contrib": [
+      2.0,
+      2.8
+     ],
+     "expect": 4.5,
+     "buffer": 1.0,
+     "fa": [
+      [
+       2.3,
+       2.6
+      ],
+      [
+       2.1,
+       1.7
+      ]
+     ],
+     "sd": 2.19,
+     "p_emp": {
+      "5.5": 0.7751937984496123,
+      "6.5": 0.8849557522123894
+     },
+     "range": [
+      1.25,
+      1.72
+     ],
+     "referee": "Rafael Sanchez Lopez: Ø 4.4 Karten (26 Sp.) · Ø 21.0 Fouls (23 Sp.)",
+     "expect_ref": 5.0,
+     "buffer_ref": 0.5,
+     "p_mod": 0.59,
+     "p_fin": 0.696,
+     "kal": 1.02,
+     "fair_fin": 1.44,
+     "ladder_fin": [
+      [
+       5.5,
+       1.44
+      ],
+      [
+       6.5,
+       1.2
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 78 % vs. Modell 59 %"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13226957",
+    "league": "Scotland FA Cup",
+    "league_id": "1351",
+    "home": "Cumnock Juniors",
+    "away": "Auchinleck Talbot",
+    "home_id": "1320045",
+    "away_id": "168490",
+    "kickoff": "Fr 20:30",
+    "kickoff_ts": 1790965800,
+    "bet365_id": "202082398"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      14,
+      46
+     ],
+     "next_line": 3.5,
+     "next_note": "Cumnock Juniors 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Auchinleck Talbot 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.8408701544820644,
+      0.6625689014776485
+     ],
+     "fair": 1.49,
+     "ladder": [
+      [
+       1.5,
+       1.15
+      ],
+      [
+       2.5,
+       1.49
+      ]
+     ],
+     "avg": [
+      3.4,
+      3.1
+     ],
+     "expect_sum": 3.2,
+     "expect_matchup": 3.4,
+     "contrib": [
+      1.2,
+      2.1
+     ],
+     "expect": 3.3,
+     "buffer": 0.8,
+     "fa": [
+      [
+       1.6,
+       1.9
+      ],
+      [
+       1.9,
+       1.2
+      ]
+     ],
+     "sd": 1.2,
+     "p_emp": {
+      "1.5": 0.8695652173913044,
+      "2.5": 0.6711409395973155
+     },
+     "no_odds_check": true,
+     "p_mod": 0.748,
+     "p_fin": 0.667,
+     "kal": 0.94,
+     "fair_fin": 1.5,
+     "ladder_fin": [
+      [
+       1.5,
+       1.18
+      ],
+      [
+       2.5,
+       1.5
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "67 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437469",
+    "league": "UEFA Nations League B",
+    "league_id": "30973",
+    "home": "Hungary",
+    "away": "Georgia",
+    "home_id": "8507",
+    "away_id": "7652",
+    "kickoff": "Fr 20:45",
+    "kickoff_ts": 1790966700,
+    "bet365_id": "201150563"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — Hungary 6/8 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Georgia 5/7 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.8118605359894332,
+      0.6883938871953176
+     ],
+     "fair": 1.36,
+     "ladder": [
+      [
+       1.5,
+       1.32
+      ],
+      [
+       2.5,
+       1.36
+      ]
+     ],
+     "avg": [
+      4.4,
+      3.1
+     ],
+     "expect_sum": 3.8,
+     "expect_matchup": 3.6,
+     "contrib": [
+      1.5,
+      2.1
+     ],
+     "expect": 3.7,
+     "buffer": 1.2,
+     "fa": [
+      [
+       1.9,
+       2.4
+      ],
+      [
+       1.8,
+       2.3
+      ]
+     ],
+     "sd": 2.22,
+     "p_emp": {
+      "1.5": 0.7575757575757576,
+      "2.5": 0.7352941176470588
+     },
+     "range": [
+      1.35,
+      1.65
+     ],
+     "referee": "Srdjan Jovanovic: Ø 3.9 Karten (29 Sp.) · Ø 24.0 Fouls (22 Sp.)",
+     "expect_ref": 3.8,
+     "buffer_ref": 1.3,
+     "p_mod": 0.721,
+     "p_fin": 0.692,
+     "kal": 0.95,
+     "fair_fin": 1.45,
+     "ladder_fin": [
+      [
+       1.5,
+       1.31
+      ],
+      [
+       2.5,
+       1.45
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.45"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 5.5,
+     "next_note": "Hungary 0/2 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+     "longterm": [
+      0.8808840089465745,
+      0.8841241537830606
+     ],
+     "fair": 1.14,
+     "ladder": [
+      [
+       6.5,
+       1.14
+      ],
+      [
+       7.5,
+       1.25
+      ]
+     ],
+     "avg": [
+      4.4,
+      3.1
+     ],
+     "expect_sum": 3.8,
+     "expect_matchup": 3.6,
+     "contrib": [
+      1.5,
+      2.1
+     ],
+     "expect": 3.7,
+     "buffer": 2.8,
+     "fa": [
+      [
+       1.9,
+       2.4
+      ],
+      [
+       1.8,
+       2.3
+      ]
+     ],
+     "sd": 2.22,
+     "p_emp": {
+      "6.5": 0.8771929824561404,
+      "7.5": 0.8
+     },
+     "range": [
+      1.35,
+      1.65
+     ],
+     "referee": "Srdjan Jovanovic: Ø 3.9 Karten (29 Sp.) · Ø 24.0 Fouls (22 Sp.)",
+     "expect_ref": 3.8,
+     "buffer_ref": 2.7,
+     "p_mod": 0.888,
+     "p_fin": 0.9,
+     "kal": 1.02,
+     "fair_fin": 1.11,
+     "ladder_fin": [
+      [
+       6.5,
+       1.11
+      ],
+      [
+       7.5,
+       1.12
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.11"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      34,
+      30
+     ],
+     "next_line": 3.5,
+     "next_note": "Hungary 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.7018305898379266,
+      0.9519541824204185
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       4.5,
+       1.29
+      ],
+      [
+       5.5,
+       1.16
+      ]
+     ],
+     "avg": [
+      3.8,
+      3.1
+     ],
+     "expect_sum": 3.4,
+     "expect_matchup": 3.1,
+     "contrib": [
+      1.8,
+      1.3
+     ],
+     "expect": 3.3,
+     "buffer": 1.2,
+     "fa": [
+      [
+       1.6,
+       2.1
+      ],
+      [
+       1.2,
+       1.4
+      ]
+     ],
+     "sd": 1.84,
+     "p_emp": {
+      "4.5": 0.7751937984496123,
+      "5.5": 0.8620689655172414
+     },
+     "range": [
+      1.21,
+      1.73
+     ],
+     "p_mod": 0.743,
+     "p_fin": 0.759,
+     "kal": 1.0,
+     "fair_fin": 1.32,
+     "ladder_fin": [
+      [
+       4.5,
+       1.32
+      ],
+      [
+       5.5,
+       1.15
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.32"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437486",
+    "league": "UEFA Nations League B",
+    "league_id": "30973",
+    "home": "Poland",
+    "away": "Romania",
+    "home_id": "7148",
+    "away_id": "7338",
+    "kickoff": "Fr 20:45",
+    "kickoff_ts": 1790966700,
+    "bet365_id": "201150565"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      50
+     ],
+     "next_line": 5.5,
+     "next_note": "kein Anker — Poland 22/24 (3. Lücke) gesamt, 19/21 (3. Lücke) heim; Romania 7/9 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+     "longterm": [
+      0.924672729443342,
+      0.9073742686923886
+     ],
+     "fair": 1.11,
+     "ladder": [
+      [
+       6.5,
+       1.11
+      ],
+      [
+       7.5,
+       1.22
+      ]
+     ],
+     "avg": [
+      3.5,
+      3.9
+     ],
+     "expect_sum": 3.7,
+     "expect_matchup": 3.6,
+     "contrib": [
+      1.5,
+      2.1
+     ],
+     "expect": 3.6,
+     "buffer": 2.9,
+     "fa": [
+      [
+       1.8,
+       2.2
+      ],
+      [
+       1.8,
+       2.4
+      ]
+     ],
+     "sd": 2.13,
+     "p_emp": {
+      "6.5": 0.9009009009009008,
+      "7.5": 0.819672131147541
+     },
+     "range": [
+      1.36,
+      1.97
+     ],
+     "referee": "Urs Schnyder: Ø 3.7 Karten (42 Sp.) · Ø 23.4 Fouls (24 Sp.)",
+     "expect_ref": 3.5,
+     "buffer_ref": 3.0,
+     "p_mod": 0.921,
+     "p_fin": 0.929,
+     "kal": 1.02,
+     "fair_fin": 1.08,
+     "ladder_fin": [
+      [
+       6.5,
+       1.08
+      ],
+      [
+       7.5,
+       1.1
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.08"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      32,
+      33
+     ],
+     "next_line": 3.5,
+     "next_note": "Romania 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.8621784600947752,
+      0.8385680938565396
+     ],
+     "fair": 1.25,
+     "ladder": [
+      [
+       4.5,
+       1.25
+      ],
+      [
+       5.5,
+       1.11
+      ]
+     ],
+     "avg": [
+      2.3,
+      3.6
+     ],
+     "expect_sum": 3.0,
+     "expect_matchup": 2.5,
+     "contrib": [
+      1.8,
+      0.7
+     ],
+     "expect": 2.7,
+     "buffer": 1.8,
+     "fa": [
+      [
+       1.5,
+       1.4
+      ],
+      [
+       1.5,
+       1.7
+      ]
+     ],
+     "sd": 1.55,
+     "p_emp": {
+      "4.5": 0.8,
+      "5.5": 0.9009009009009008
+     },
+     "range": [
+      1.4,
+      1.76
+     ],
+     "p_mod": 0.877,
+     "p_fin": 0.839,
+     "kal": 1.0,
+     "fair_fin": 1.19,
+     "ladder_fin": [
+      [
+       4.5,
+       1.19
+      ],
+      [
+       5.5,
+       1.07
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.19"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437487",
+    "league": "UEFA Nations League B",
+    "league_id": "30973",
+    "home": "Bosnia-Herzegovina",
+    "away": "Sweden",
+    "home_id": "8504",
+    "away_id": "8508",
+    "kickoff": "Fr 20:45",
+    "kickoff_ts": 1790966700,
+    "bet365_id": "201150568"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 4.5,
+     "next_note": "Bosnia-Herzegovina 7/9 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+     "longterm": [
+      0.8164436756717298,
+      0.8795483418657353
+     ],
+     "fair": 1.21,
+     "ladder": [
+      [
+       5.5,
+       1.21
+      ],
+      [
+       6.5,
+       1.11
+      ]
+     ],
+     "avg": [
+      3.4,
+      3.2
+     ],
+     "expect_sum": 3.3,
+     "expect_matchup": 2.8,
+     "contrib": [
+      1.4,
+      1.4
+     ],
+     "expect": 3.1,
+     "buffer": 2.4,
+     "fa": [
+      [
+       2.1,
+       1.5
+      ],
+      [
+       1.5,
+       2.0
+      ]
+     ],
+     "sd": 2.1,
+     "p_emp": {
+      "5.5": 0.8264462809917356,
+      "6.5": 0.9009009009009008
+     },
+     "range": [
+      1.38,
+      1.61
+     ],
+     "referee": "Oleksiy Derevinskiy: Ø 3.9 Karten (27 Sp.) · Ø 18.2 Fouls (5 Sp.)",
+     "expect_ref": 3.1,
+     "buffer_ref": 2.4,
+     "p_mod": 0.873,
+     "p_fin": 0.867,
+     "kal": 1.02,
+     "fair_fin": 1.15,
+     "ladder_fin": [
+      [
+       5.5,
+       1.15
+      ],
+      [
+       6.5,
+       1.06
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.15"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      33,
+      33
+     ],
+     "next_line": 4.5,
+     "next_note": "Sweden 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.9160101768657866,
+      0.8693474570924262
+     ],
+     "fair": 1.16,
+     "ladder": [
+      [
+       5.5,
+       1.16
+      ],
+      [
+       6.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      3.6,
+      3.7
+     ],
+     "expect_sum": 3.7,
+     "expect_matchup": 3.9,
+     "contrib": [
+      2.4,
+      1.5
+     ],
+     "expect": 3.8,
+     "buffer": 1.7,
+     "fa": [
+      [
+       1.5,
+       1.6
+      ],
+      [
+       1.6,
+       2.0
+      ]
+     ],
+     "sd": 1.94,
+     "p_emp": {
+      "5.5": 0.8620689655172414,
+      "6.5": 0.7936507936507936
+     },
+     "range": [
+      1.42,
+      1.94
+     ],
+     "p_mod": 0.81,
+     "p_fin": 0.836,
+     "kal": 1.0,
+     "fair_fin": 1.2,
+     "ladder_fin": [
+      [
+       5.5,
+       1.2
+      ],
+      [
+       6.5,
+       1.17
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.20"
+    },
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "Bosnia-Herzegovina 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Sweden 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.5399525976406194,
+      0.7189808147965092
+     ],
+     "fair": 1.62,
+     "ladder": [
+      [
+       1.5,
+       1.2
+      ],
+      [
+       2.5,
+       1.62
+      ]
+     ],
+     "avg": [
+      2.8,
+      3.6
+     ],
+     "expect_sum": 3.2,
+     "expect_matchup": 3.3,
+     "contrib": [
+      2.1,
+      1.2
+     ],
+     "expect": 3.2,
+     "buffer": 0.7,
+     "fa": [
+      [
+       1.3,
+       1.7
+      ],
+      [
+       1.9,
+       1.6
+      ]
+     ],
+     "sd": 1.9,
+     "p_emp": {
+      "1.5": 0.8333333333333334,
+      "2.5": 0.6172839506172839
+     },
+     "no_odds_check": true,
+     "p_mod": 0.644,
+     "p_fin": 0.593,
+     "kal": 0.94,
+     "fair_fin": 1.69,
+     "ladder_fin": [
+      [
+       1.5,
+       1.29
+      ],
+      [
+       2.5,
+       1.69
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "59 % knapp"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437388",
+    "league": "UEFA Nations League A",
+    "league_id": "30974",
+    "home": "France",
+    "away": "Italy",
+    "home_id": "4521",
+    "away_id": "4520",
+    "kickoff": "Fr 20:45",
+    "kickoff_ts": 1790966700,
+    "bet365_id": "201150559"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      50
+     ],
+     "next_line": 8.5,
+     "next_note": "France 0/2 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Italy 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.7278190091395218,
+      0.7967223002554495
+     ],
+     "fair": 1.35,
+     "ladder": [
+      [
+       6.5,
+       1.29
+      ],
+      [
+       7.5,
+       1.35
+      ]
+     ],
+     "avg": [
+      8.7,
+      9.4
+     ],
+     "expect_sum": 9.0,
+     "expect_matchup": 8.4,
+     "contrib": [
+      5.8,
+      2.6
+     ],
+     "expect": 8.7,
+     "buffer": 1.2,
+     "fa": [
+      [
+       5.9,
+       3.3
+      ],
+      [
+       5.6,
+       4.3
+      ]
+     ],
+     "sd": 3.0,
+     "p_emp": {
+      "6.5": 0.7751937984496123,
+      "7.5": 0.7407407407407407
+     },
+     "range": [
+      1.2,
+      1.38
+     ],
+     "b365": [
+      "9.0",
+      "2.000",
+      "1.800"
+     ],
+     "p_mod": 0.655,
+     "p_fin": 0.663,
+     "kal": 0.95,
+     "fair_fin": 1.51,
+     "ladder_fin": [
+      [
+       6.5,
+       1.36
+      ],
+      [
+       7.5,
+       1.51
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "66 % knapp"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      50
+     ],
+     "next_line": 4.5,
+     "next_note": "Italy 7/9 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.901368914608054,
+      0.8492128001840292
+     ],
+     "fair": 1.18,
+     "ladder": [
+      [
+       5.5,
+       1.18
+      ],
+      [
+       6.5,
+       1.12
+      ]
+     ],
+     "avg": [
+      1.8,
+      3.7
+     ],
+     "expect_sum": 2.7,
+     "expect_matchup": 1.7,
+     "contrib": [
+      0.6,
+      1.0
+     ],
+     "expect": 2.2,
+     "buffer": 3.3,
+     "fa": [
+      [
+       1.3,
+       1.7
+      ],
+      [
+       1.7,
+       1.9
+      ]
+     ],
+     "sd": 2.14,
+     "p_emp": {
+      "5.5": 0.8474576271186441,
+      "6.5": 0.8928571428571428
+     },
+     "range": [
+      1.28,
+      2.33
+     ],
+     "referee": "Jesus Gil Manzano: Ø 4.2 Karten (48 Sp.) · Ø 24.1 Fouls (41 Sp.)",
+     "expect_ref": 2.4,
+     "buffer_ref": 3.1,
+     "p_mod": 0.926,
+     "p_fin": 0.905,
+     "kal": 1.02,
+     "fair_fin": 1.11,
+     "ladder_fin": [
+      [
+       5.5,
+       1.11
+      ],
+      [
+       6.5,
+       1.05
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.11"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437518",
+    "league": "UEFA Nations League C",
+    "league_id": "30976",
+    "home": "Faroe Islands",
+    "away": "Slovakia",
+    "home_id": "8506",
+    "away_id": "7143",
+    "kickoff": "Fr 20:45",
+    "kickoff_ts": 1790966700,
+    "bet365_id": "201150573"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 8.5,
+     "next_note": "Faroe Islands 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.657223603008322,
+      0.8433113540461591
+     ],
+     "fair": 1.37,
+     "ladder": [
+      [
+       6.5,
+       1.33
+      ],
+      [
+       7.5,
+       1.37
+      ]
+     ],
+     "avg": [
+      10.5,
+      10.0
+     ],
+     "expect_sum": 10.2,
+     "expect_matchup": 11.2,
+     "contrib": [
+      6.0,
+      5.2
+     ],
+     "expect": 10.7,
+     "buffer": 3.2,
+     "fa": [
+      [
+       3.4,
+       5.2
+      ],
+      [
+       5.8,
+       4.3
+      ]
+     ],
+     "sd": 3.18,
+     "p_emp": {
+      "6.5": 0.7518796992481203,
+      "7.5": 0.7299270072992701
+     },
+     "range": [
+      1.45,
+      1.88
+     ],
+     "b365": [
+      "9.0",
+      "1.900",
+      "1.900"
+     ],
+     "p_mod": 0.843,
+     "p_fin": 0.747,
+     "kal": 0.95,
+     "fair_fin": 1.34,
+     "ladder_fin": [
+      [
+       6.5,
+       1.27
+      ],
+      [
+       7.5,
+       1.34
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.34"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13231609",
+    "league": "Republic of Ireland Leinster Senior League",
+    "league_id": "816",
+    "home": "St Mochtas",
+    "away": "Killester Donnycarney FC",
+    "home_id": "68053",
+    "away_id": "230441",
+    "kickoff": "Fr 20:45",
+    "kickoff_ts": 1790966700,
+    "bet365_id": "202204465"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      45
+     ],
+     "next_line": 3.5,
+     "next_note": "Killester Donnycarney FC 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.7179088120651446,
+      0.749197659792357
+     ],
+     "fair": 1.47,
+     "ladder": [
+      [
+       1.5,
+       1.23
+      ],
+      [
+       2.5,
+       1.47
+      ]
+     ],
+     "avg": [
+      3.1,
+      3.8
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 4.0,
+     "contrib": [
+      3.0,
+      1.0
+     ],
+     "expect": 3.8,
+     "buffer": 1.3,
+     "fa": [
+      [
+       2.1,
+       1.5
+      ],
+      [
+       2.0,
+       2.1
+      ]
+     ],
+     "sd": 2.38,
+     "p_emp": {
+      "1.5": 0.8130081300813008,
+      "2.5": 0.6802721088435374
+     },
+     "no_odds_check": true,
+     "p_mod": 0.708,
+     "p_fin": 0.652,
+     "kal": 0.94,
+     "fair_fin": 1.53,
+     "ladder_fin": [
+      [
+       1.5,
+       1.29
+      ],
+      [
+       2.5,
+       1.53
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "65 % knapp"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "doublechance": 135,
+  "totals": 167,
+  "correctscore": 9,
+  "corners": 37,
+  "results": 80,
+  "handicaps": 81,
+  "btts": 76,
+  "cards": 5,
+  "shots": 4,
+  "offsides": 4,
+  "fouls": 4
+ },
+ "dauer_s": 105,
+ "zeit": {
+  "historie": 75,
+  "pruefung": 0,
+  "scores24": 222,
+  "extras": 246,
+  "vorlauf": 44,
+  "spiele": 61
+ },
+ "teams_nachgeladen": 9,
+ "s24": {
+  "ok": 167,
+  "no_link": 93,
+  "fetch_fail": 60
+ },
+ "new": [
+  "13226021|goals|über",
+  "13193149|corners|über",
+  "13193149|goals|über",
+  "12346200|goals|über",
+  "13225704|goals|über",
+  "13226094|goals|über",
+  "13019388|goals|über",
+  "13117660|goals|über",
+  "13181834|goals|über",
+  "13175927|goals|über",
+  "13218335|goals|über",
+  "11287300|goals|über",
+  "12110454|goals|über",
+  "12192046|goals|über",
+  "12069539|corners|über",
+  "11613585|goals|über",
+  "12155631|goals|über",
+  "12155632|goals|über",
+  "11338832|corners|über",
+  "11168563|goals|über",
+  "12159732|goals|über",
+  "12203044|goals|über",
+  "12204314|goals|über",
+  "12220420|goals|über",
+  "12159851|goals|über",
+  "12165124|goals|über",
+  "12191946|goals|über",
+  "12158592|goals|über",
+  "11720676|goals|über",
+  "11720703|goals|über",
+  "11720805|goals|über",
+  "12159593|goals|über",
+  "13226940|goals|über",
+  "12155871|goals|über",
+  "12260182|goals|über",
+  "12221508|goals|über",
+  "12261953|goals|über",
+  "12184010|goals|über",
+  "12153289|goals|über",
+  "12130553|yellowcards|über",
+  "12130553|yellowcards|unter",
+  "13226957|goals|über",
+  "11437469|yellowcards|über",
+  "11437469|yellowcards|unter",
+  "11437469|offsides|unter",
+  "11437486|yellowcards|unter",
+  "11437486|offsides|unter",
+  "11437487|yellowcards|unter",
+  "11437487|offsides|unter",
+  "11437487|goals|über",
+  "11437388|corners|über",
+  "11437388|yellowcards|unter",
+  "11437518|corners|über",
+  "13231609|goals|über"
+ ],
+ "changed": [],
+ "dropped": [],
+ "team_totals": [
+  {
+   "match": {
+    "id": "13193149",
+    "league": "Europe Friendlies",
+    "league_id": "363",
+    "home": "Sparta Prague",
+    "away": "Vysocina Jihlava",
+    "home_id": "765",
+    "away_id": "20205",
+    "kickoff": "Fr 12:00",
+    "kickoff_ts": 1790935200,
+    "bet365_id": "202075147"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Sparta Prague",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.8075,
+    "fair": 1.24,
+    "p_emp": 0.76,
+    "p_mod": 0.855,
+    "erwartet": 7.0,
+    "basis": 44
+   }
+  },
+  {
+   "match": {
+    "id": "13193149",
+    "league": "Europe Friendlies",
+    "league_id": "363",
+    "home": "Sparta Prague",
+    "away": "Vysocina Jihlava",
+    "home_id": "765",
+    "away_id": "20205",
+    "kickoff": "Fr 12:00",
+    "kickoff_ts": 1790935200,
+    "bet365_id": "202075147"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Vysocina Jihlava",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7631,
+    "fair": 1.31,
+    "p_emp": 0.742,
+    "p_mod": 0.784,
+    "erwartet": 5.8,
+    "basis": 47
+   }
+  },
+  {
+   "match": {
+    "id": "10571458",
+    "league": "European U21 Championship Qual",
+    "league_id": "461",
+    "home": "Austria U21",
+    "away": "Denmark U21",
+    "home_id": "5015",
+    "away_id": "4973",
+    "kickoff": "Fr 18:00",
+    "kickoff_ts": 1790956800,
+    "bet365_id": "202040222"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Denmark U21",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7958,
+    "fair": 1.26,
+    "p_emp": 0.748,
+    "p_mod": 0.844,
+    "erwartet": 6.4,
+    "basis": 50
+   }
+  },
+  {
+   "match": {
+    "id": "12158066",
+    "league": "Spain Primera Division RFEF Group 1",
+    "league_id": "26932",
+    "home": "Real Aviles CF",
+    "away": "Lugo",
+    "home_id": "196",
+    "away_id": "5237",
+    "kickoff": "Fr 19:00",
+    "kickoff_ts": 1790960400,
+    "bet365_id": "201981345"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Real Aviles CF",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.6062,
+    "fair": 1.65,
+    "p_emp": 0.566,
+    "p_mod": 0.646,
+    "erwartet": 4.3,
+    "basis": 48
+   }
+  },
+  {
+   "match": {
+    "id": "11437469",
+    "league": "UEFA Nations League B",
+    "league_id": "30973",
+    "home": "Hungary",
+    "away": "Georgia",
+    "home_id": "8507",
+    "away_id": "7652",
+    "kickoff": "Fr 20:45",
+    "kickoff_ts": 1790966700,
+    "bet365_id": "201150563"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "gast",
+    "team": "Georgia",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7742,
+    "fair": 1.29,
+    "p_emp": 0.768,
+    "p_mod": 0.78,
+    "erwartet": 1.6,
+    "basis": 49
+   }
+  }
+ ],
+ "neue_maerkte": []
+}
