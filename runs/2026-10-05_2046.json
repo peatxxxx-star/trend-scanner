@@ -1,0 +1,1690 @@
+{
+ "run_utc": "2026-10-05T20:46:43+00:00",
+ "matches_checked": 33,
+ "requests": 33,
+ "hits": [
+  {
+   "match": {
+    "id": "12315891",
+    "league": "CONCACAF Nations League",
+    "league_id": "14717",
+    "home": "Cuba",
+    "away": "St. Kitts and Nevis",
+    "home_id": "53881",
+    "away_id": "178921",
+    "kickoff": "Mo 23:00",
+    "kickoff_ts": 1791234000,
+    "bet365_id": "202310835"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "Cuba 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; St. Kitts and Nevis 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.6075814326712915,
+      0.6844684036976475
+     ],
+     "fair": 1.6,
+     "ladder": [
+      [
+       1.5,
+       1.23
+      ],
+      [
+       2.5,
+       1.6
+      ]
+     ],
+     "avg": [
+      2.7,
+      3.8
+     ],
+     "expect_sum": 3.3,
+     "expect_matchup": 3.7,
+     "contrib": [
+      2.9,
+      0.8
+     ],
+     "expect": 3.5,
+     "buffer": 1.0,
+     "fa": [
+      [
+       1.3,
+       1.5
+      ],
+      [
+       1.3,
+       1.9
+      ]
+     ],
+     "sd": 1.96,
+     "p_emp": {
+      "1.5": 0.8130081300813008,
+      "2.5": 0.625
+     },
+     "no_odds_check": true,
+     "p_mod": 0.695,
+     "p_fin": 0.62,
+     "kal": 0.94,
+     "fair_fin": 1.61,
+     "ladder_fin": [
+      [
+       1.5,
+       1.28
+      ],
+      [
+       2.5,
+       1.61
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "62 % knapp",
+     "first_run": "Mo 09:00"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12315917",
+    "league": "CONCACAF Nations League",
+    "league_id": "14717",
+    "home": "Martinique",
+    "away": "El Salvador",
+    "home_id": "160902",
+    "away_id": "5367",
+    "kickoff": "Di 00:00",
+    "kickoff_ts": 1791237600,
+    "bet365_id": "202311097"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      42,
+      46
+     ],
+     "next_line": 4.5,
+     "next_note": "Martinique 6/8 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+     "longterm": [
+      0.8432514842381091,
+      0.8500998584917392
+     ],
+     "fair": 1.21,
+     "ladder": [
+      [
+       5.5,
+       1.21
+      ],
+      [
+       6.5,
+       1.12
+      ]
+     ],
+     "avg": [
+      2.5,
+      3.2
+     ],
+     "expect_sum": 2.8,
+     "expect_matchup": 2.1,
+     "contrib": [
+      1.3,
+      0.8
+     ],
+     "expect": 2.4,
+     "buffer": 3.1,
+     "fa": [
+      [
+       1.8,
+       1.4
+      ],
+      [
+       1.6,
+       1.6
+      ]
+     ],
+     "sd": 2.09,
+     "p_emp": {
+      "5.5": 0.8264462809917356,
+      "6.5": 0.8928571428571428
+     },
+     "range": [
+      1.25,
+      1.7
+     ],
+     "p_mod": 0.931,
+     "p_fin": 0.896,
+     "kal": 1.02,
+     "fair_fin": 1.12,
+     "ladder_fin": [
+      [
+       5.5,
+       1.12
+      ],
+      [
+       6.5,
+       1.05
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.12"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12276160",
+    "league": "Paraguay Division Profesional",
+    "league_id": "257",
+    "home": "Cerro Porteno",
+    "away": "2 de Mayo",
+    "home_id": "1475",
+    "away_id": "201221",
+    "kickoff": "Di 00:15",
+    "kickoff_ts": 1791238500,
+    "bet365_id": "201659626"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      48,
+      48
+     ],
+     "next_line": 8.5,
+     "next_note": "2 de Mayo 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.7115370539901,
+      0.5557870787041114
+     ],
+     "fair": 1.54,
+     "ladder": [
+      [
+       6.5,
+       1.46
+      ],
+      [
+       7.5,
+       1.54
+      ]
+     ],
+     "avg": [
+      9.4,
+      8.1
+     ],
+     "expect_sum": 8.7,
+     "expect_matchup": 8.0,
+     "contrib": [
+      5.0,
+      3.0
+     ],
+     "expect": 8.4,
+     "buffer": 0.9,
+     "fa": [
+      [
+       4.5,
+       4.6
+      ],
+      [
+       4.1,
+       4.1
+      ]
+     ],
+     "sd": 3.08,
+     "p_emp": {
+      "6.5": 0.684931506849315,
+      "7.5": 0.6493506493506493
+     },
+     "range": [
+      1.31,
+      2.07
+     ],
+     "b365": [
+      "9.0",
+      "2.000",
+      "1.800"
+     ],
+     "p_mod": 0.615,
+     "p_fin": 0.601,
+     "kal": 0.95,
+     "fair_fin": 1.67,
+     "ladder_fin": [
+      [
+       6.5,
+       1.49
+      ],
+      [
+       7.5,
+       1.67
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "60 % knapp",
+     "first_run": "Mo 20:12"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      48
+     ],
+     "next_line": 5.5,
+     "next_note": "2 de Mayo 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.9763370856959762,
+      0.9108242529701175
+     ],
+     "fair": 1.08,
+     "ladder": [
+      [
+       6.5,
+       1.08
+      ],
+      [
+       7.5,
+       1.2
+      ]
+     ],
+     "avg": [
+      3.8,
+      4.0
+     ],
+     "expect_sum": 3.9,
+     "expect_matchup": 3.9,
+     "contrib": [
+      1.7,
+      2.3
+     ],
+     "expect": 3.9,
+     "buffer": 2.6,
+     "fa": [
+      [
+       1.7,
+       2.1
+      ],
+      [
+       1.9,
+       2.2
+      ]
+     ],
+     "sd": 1.97,
+     "p_emp": {
+      "6.5": 0.9259259259259258,
+      "7.5": 0.8333333333333334
+     },
+     "range": [
+      1.24,
+      1.72
+     ],
+     "referee": "Mario Alberto Diaz De Vivar: Ø 4.5 Karten (35 Sp.) · Ø 25.7 Fouls (3 Sp.)",
+     "expect_ref": 4.5,
+     "buffer_ref": 2.0,
+     "p_mod": 0.845,
+     "p_fin": 0.903,
+     "kal": 1.02,
+     "fair_fin": 1.11,
+     "ladder_fin": [
+      [
+       6.5,
+       1.11
+      ],
+      [
+       7.5,
+       1.11
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.11",
+     "first_run": "Mo 20:12"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13186438",
+    "league": "Uruguay Clausura",
+    "league_id": "6514",
+    "home": "Nacional De Football",
+    "away": "Torque",
+    "home_id": "3915",
+    "away_id": "28749",
+    "kickoff": "Di 01:00",
+    "kickoff_ts": 1791241200,
+    "bet365_id": "201865300"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      44
+     ],
+     "next_line": 9.5,
+     "next_note": "Torque 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.7338369678836972,
+      0.6462573082863938
+     ],
+     "fair": 1.54,
+     "ladder": [
+      [
+       7.5,
+       1.28
+      ],
+      [
+       8.5,
+       1.54
+      ]
+     ],
+     "avg": [
+      10.7,
+      10.5
+     ],
+     "expect_sum": 10.6,
+     "expect_matchup": 12.5,
+     "contrib": [
+      9.3,
+      3.1
+     ],
+     "expect": 11.5,
+     "buffer": 3.0,
+     "fa": [
+      [
+       6.2,
+       3.7
+      ],
+      [
+       4.9,
+       4.7
+      ]
+     ],
+     "sd": 3.05,
+     "p_emp": {
+      "7.5": 0.78125,
+      "8.5": 0.6493506493506493
+     },
+     "range": [
+      1.24,
+      2.009
+     ],
+     "b365": [
+      "9.5",
+      "1.825",
+      "1.975"
+     ],
+     "p_mod": 0.837,
+     "p_fin": 0.706,
+     "kal": 0.95,
+     "fair_fin": 1.42,
+     "ladder_fin": [
+      [
+       7.5,
+       1.25
+      ],
+      [
+       8.5,
+       1.42
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 65 % vs. Modell 84 %",
+     "first_run": "Mo 20:12"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 3.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      48,
+      44
+     ],
+     "next_line": 4.5,
+     "next_note": "Nacional De Football 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Torque 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8125038399392962,
+      0.6668034707159253
+     ],
+     "fair": 1.49,
+     "ladder": [
+      [
+       2.5,
+       1.2
+      ],
+      [
+       3.5,
+       1.49
+      ]
+     ],
+     "avg": [
+      4.9,
+      4.9
+     ],
+     "expect_sum": 4.9,
+     "expect_matchup": 6.4,
+     "contrib": [
+      2.2,
+      4.2
+     ],
+     "expect": 5.6,
+     "buffer": 2.1,
+     "fa": [
+      [
+       2.3,
+       3.2
+      ],
+      [
+       2.7,
+       2.4
+      ]
+     ],
+     "sd": 2.13,
+     "p_emp": {
+      "2.5": 0.8333333333333334,
+      "3.5": 0.6711409395973155
+     },
+     "range": [
+      1.22,
+      1.74
+     ],
+     "referee": "Gustavo Tejera: Ø 4.4 Karten (54 Sp.) · Ø 25.0 Fouls (20 Sp.)",
+     "expect_ref": 6.4,
+     "buffer_ref": 2.9,
+     "p_mod": 0.913,
+     "p_fin": 0.753,
+     "kal": 0.95,
+     "fair_fin": 1.33,
+     "ladder_fin": [
+      [
+       2.5,
+       1.17
+      ],
+      [
+       3.5,
+       1.33
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 67 % vs. Modell 91 %",
+     "first_run": "Mo 20:12"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      46
+     ],
+     "next_line": 1.5,
+     "next_note": "Nacional De Football 5/7 (3. Lücke) gesamt, 9/11 (3. Lücke) heim",
+     "longterm": [
+      0.8162990340462463,
+      0.8616562088828056
+     ],
+     "fair": 1.26,
+     "ladder": [
+      [
+       0.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      1.8,
+      1.6
+     ],
+     "expect_sum": 1.7,
+     "expect_matchup": 1.8,
+     "contrib": [
+      1.8,
+      0.0
+     ],
+     "expect": 1.8,
+     "buffer": 1.3,
+     "fa": [
+      [
+       0.9,
+       1.2
+      ],
+      [
+       0.5,
+       1.1
+      ]
+     ],
+     "sd": 1.15,
+     "p_emp": {
+      "0.5": 0.7936507936507936
+     },
+     "range": [
+      1.22,
+      1.74
+     ],
+     "referee": "Gustavo Tejera: Ø 4.4 Karten (54 Sp.) · Ø 25.0 Fouls (20 Sp.)",
+     "expect_ref": 5.5,
+     "buffer_ref": 5.0,
+     "p_mod": 1.0,
+     "p_fin": 0.87,
+     "kal": 0.97,
+     "fair_fin": 1.15,
+     "ladder_fin": [
+      [
+       0.5,
+       1.15
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 79 % vs. Modell 100 %",
+     "first_run": "Mo 20:12"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12315890",
+    "league": "CONCACAF Nations League",
+    "league_id": "14717",
+    "home": "Grenada",
+    "away": "Bonaire",
+    "home_id": "168866",
+    "away_id": "268579",
+    "kickoff": "Di 02:00",
+    "kickoff_ts": 1791244800,
+    "bet365_id": "202311083"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      50,
+      37
+     ],
+     "next_line": 3.5,
+     "next_note": "Grenada 2/4 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; Bonaire 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.7062469884002265,
+      0.6692470301305045
+     ],
+     "fair": 1.52,
+     "ladder": [
+      [
+       1.5,
+       1.18
+      ],
+      [
+       2.5,
+       1.52
+      ]
+     ],
+     "avg": [
+      3.3,
+      3.5
+     ],
+     "expect_sum": 3.4,
+     "expect_matchup": 3.5,
+     "contrib": [
+      2.0,
+      1.6
+     ],
+     "expect": 3.5,
+     "buffer": 1.0,
+     "fa": [
+      [
+       1.0,
+       2.1
+      ],
+      [
+       1.4,
+       2.0
+      ]
+     ],
+     "sd": 1.6,
+     "p_emp": {
+      "1.5": 0.8474576271186441,
+      "2.5": 0.6578947368421053
+     },
+     "no_odds_check": true,
+     "p_mod": 0.734,
+     "p_fin": 0.654,
+     "kal": 0.94,
+     "fair_fin": 1.53,
+     "ladder_fin": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.53
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "65 % knapp",
+     "first_run": "Mo 20:12"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13096402",
+    "league": "CONCACAF Nations League",
+    "league_id": "14717",
+    "home": "Bermuda",
+    "away": "Barbados",
+    "home_id": "168867",
+    "away_id": "85507",
+    "kickoff": "Di 02:00",
+    "kickoff_ts": 1791244800,
+    "bet365_id": "202311088"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      50,
+      49
+     ],
+     "next_line": 3.5,
+     "next_note": "Bermuda 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Barbados 5/7 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+     "longterm": [
+      0.8111347872358691,
+      0.7417037485454002
+     ],
+     "fair": 1.39,
+     "ladder": [
+      [
+       1.5,
+       1.15
+      ],
+      [
+       2.5,
+       1.39
+      ]
+     ],
+     "avg": [
+      4.3,
+      4.1
+     ],
+     "expect_sum": 4.2,
+     "expect_matchup": 5.4,
+     "contrib": [
+      2.9,
+      2.5
+     ],
+     "expect": 4.8,
+     "buffer": 2.3,
+     "fa": [
+      [
+       1.6,
+       2.4
+      ],
+      [
+       1.5,
+       2.1
+      ]
+     ],
+     "sd": 2.04,
+     "p_emp": {
+      "1.5": 0.8695652173913044,
+      "2.5": 0.7194244604316548
+     },
+     "no_odds_check": true,
+     "p_mod": 0.87,
+     "p_fin": 0.747,
+     "kal": 0.94,
+     "fair_fin": 1.34,
+     "ladder_fin": [
+      [
+       1.5,
+       1.17
+      ],
+      [
+       2.5,
+       1.34
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 72 % vs. Modell 87 %",
+     "first_run": "Mo 20:12"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12315918",
+    "league": "CONCACAF Nations League",
+    "league_id": "14717",
+    "home": "Guatemala",
+    "away": "Suriname",
+    "home_id": "5311",
+    "away_id": "63994",
+    "kickoff": "Di 02:00",
+    "kickoff_ts": 1791244800,
+    "bet365_id": "202311064"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      46,
+      46
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Guatemala 8/10 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; Suriname 11/13 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.8657346271553972,
+      0.8732919887097157
+     ],
+     "fair": 1.19,
+     "ladder": [
+      [
+       5.5,
+       1.19
+      ],
+      [
+       6.5,
+       1.09
+      ]
+     ],
+     "avg": [
+      3.1,
+      3.2
+     ],
+     "expect_sum": 3.2,
+     "expect_matchup": 2.7,
+     "contrib": [
+      0.9,
+      1.7
+     ],
+     "expect": 2.9,
+     "buffer": 2.6,
+     "fa": [
+      [
+       1.5,
+       2.0
+      ],
+      [
+       1.8,
+       1.5
+      ]
+     ],
+     "sd": 1.93,
+     "p_emp": {
+      "5.5": 0.8403361344537815,
+      "6.5": 0.9174311926605504
+     },
+     "range": [
+      1.32,
+      1.35
+     ],
+     "p_mod": 0.911,
+     "p_fin": 0.893,
+     "kal": 1.02,
+     "fair_fin": 1.12,
+     "ladder_fin": [
+      [
+       5.5,
+       1.12
+      ],
+      [
+       6.5,
+       1.04
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.12",
+     "first_run": "Mo 20:12",
+     "change_note": "Quoten vorher 1.31–1.36"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13210455",
+    "league": "Colombia Primera A",
+    "league_id": "254",
+    "home": "Independiente Medellin",
+    "away": "Independiente Santa Fe",
+    "home_id": "1430",
+    "away_id": "1492",
+    "kickoff": "Di 02:00",
+    "kickoff_ts": 1791244800,
+    "bet365_id": "201317145"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      41
+     ],
+     "next_line": 3.5,
+     "next_note": "Independiente Santa Fe 8/10 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.7961883399461134,
+      0.7887047919114741
+     ],
+     "fair": 1.32,
+     "ladder": [
+      [
+       1.5,
+       1.28
+      ],
+      [
+       2.5,
+       1.32
+      ]
+     ],
+     "avg": [
+      4.5,
+      4.0
+     ],
+     "expect_sum": 4.3,
+     "expect_matchup": 4.7,
+     "contrib": [
+      2.5,
+      2.2
+     ],
+     "expect": 4.5,
+     "buffer": 2.0,
+     "fa": [
+      [
+       2.6,
+       2.2
+      ],
+      [
+       2.1,
+       2.5
+      ]
+     ],
+     "sd": 2.05,
+     "p_emp": {
+      "1.5": 0.78125,
+      "2.5": 0.7575757575757576
+     },
+     "range": [
+      1.34,
+      2.11
+     ],
+     "referee": "Fernando Bautista: Ø 10.0 Karten (1 Sp.) · Ø 20.0 Fouls (1 Sp.)",
+     "expect_ref": 5.3,
+     "buffer_ref": 2.8,
+     "p_mod": 0.914,
+     "p_fin": 0.794,
+     "kal": 0.95,
+     "fair_fin": 1.26,
+     "ladder_fin": [
+      [
+       1.5,
+       1.2
+      ],
+      [
+       2.5,
+       1.26
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 76 % vs. Modell 91 %",
+     "first_run": "Mo 20:12"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      41
+     ],
+     "next_line": 4.5,
+     "next_note": "Independiente Medellin 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; Independiente Santa Fe 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.7298275473649647,
+      0.8210140142128242
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       5.5,
+       1.29
+      ],
+      [
+       6.5,
+       1.18
+      ]
+     ],
+     "avg": [
+      4.5,
+      4.0
+     ],
+     "expect_sum": 4.3,
+     "expect_matchup": 4.7,
+     "contrib": [
+      2.5,
+      2.2
+     ],
+     "expect": 4.5,
+     "buffer": 1.0,
+     "fa": [
+      [
+       2.6,
+       2.2
+      ],
+      [
+       2.1,
+       2.5
+      ]
+     ],
+     "sd": 2.05,
+     "p_emp": {
+      "5.5": 0.7751937984496123,
+      "6.5": 0.8474576271186441
+     },
+     "range": [
+      1.34,
+      2.11
+     ],
+     "referee": "Fernando Bautista: Ø 10.0 Karten (1 Sp.) · Ø 20.0 Fouls (1 Sp.)",
+     "expect_ref": 5.3,
+     "buffer_ref": 0.2,
+     "p_mod": 0.539,
+     "p_fin": 0.67,
+     "kal": 1.02,
+     "fair_fin": 1.49,
+     "ladder_fin": [
+      [
+       5.5,
+       1.49
+      ],
+      [
+       6.5,
+       1.25
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "67 % knapp; Historie 78 % vs. Modell 54 %",
+     "first_run": "Mo 20:12"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13125118",
+    "league": "Argentina Liga Profesional",
+    "league_id": "26549",
+    "home": "Banfield",
+    "away": "Rosario Central",
+    "home_id": "1399",
+    "away_id": "4079",
+    "kickoff": "Di 02:15",
+    "kickoff_ts": 1791245700,
+    "bet365_id": "201200362"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "heim",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      46
+     ],
+     "next_line": 3.5,
+     "next_note": "Banfield 0/2 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+     "longterm": [
+      0.7701302282582028,
+      0.8754499410775956
+     ],
+     "fair": 1.28,
+     "ladder": [
+      [
+       1.5,
+       1.26
+      ],
+      [
+       2.5,
+       1.28
+      ]
+     ],
+     "avg": [
+      4.6,
+      5.4
+     ],
+     "expect_sum": 5.0,
+     "expect_matchup": 6.4,
+     "contrib": [
+      3.2,
+      3.1
+     ],
+     "expect": 5.7,
+     "buffer": 3.2,
+     "fa": [
+      [
+       2.5,
+       2.2
+      ],
+      [
+       2.4,
+       2.8
+      ]
+     ],
+     "sd": 2.28,
+     "p_emp": {
+      "1.5": 0.7936507936507936,
+      "2.5": 0.78125
+     },
+     "range": [
+      1.24,
+      2.32
+     ],
+     "referee": "Leandro Rey Hilfer: Ø 4.5 Karten (42 Sp.) · Ø 23.0 Fouls (34 Sp.)",
+     "expect_ref": 6.6,
+     "buffer_ref": 4.1,
+     "p_mod": 0.964,
+     "p_fin": 0.829,
+     "kal": 0.95,
+     "fair_fin": 1.21,
+     "ladder_fin": [
+      [
+       1.5,
+       1.18
+      ],
+      [
+       2.5,
+       1.21
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟡",
+     "reason": "Historie 78 % vs. Modell 96 %",
+     "first_run": "Mo 20:12"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12177623",
+    "league": "Colombia Primera B",
+    "league_id": "255",
+    "home": "Orsomarso",
+    "away": "Deportes Quindio",
+    "home_id": "6449",
+    "away_id": "1388",
+    "kickoff": "Di 02:30",
+    "kickoff_ts": 1791246600,
+    "bet365_id": "202165017"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 17
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      44,
+      48
+     ],
+     "next_line": 8.5,
+     "next_note": "kein Anker — Orsomarso 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Deportes Quindio 4/6 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
+     "longterm": [
+      0.7557295843311276,
+      0.749175926312656
+     ],
+     "fair": 1.37,
+     "ladder": [
+      [
+       6.5,
+       1.43
+      ],
+      [
+       7.5,
+       1.37
+      ]
+     ],
+     "avg": [
+      10.3,
+      10.2
+     ],
+     "expect_sum": 10.2,
+     "expect_matchup": 11.6,
+     "contrib": [
+      8.2,
+      3.5
+     ],
+     "expect": 10.9,
+     "buffer": 3.4,
+     "fa": [
+      [
+       4.8,
+       4.5
+      ],
+      [
+       4.8,
+       4.5
+      ]
+     ],
+     "sd": 3.34,
+     "p_emp": {
+      "6.5": 0.6993006993006994,
+      "7.5": 0.7299270072992701
+     },
+     "range": [
+      1.26,
+      1.67
+     ],
+     "b365": [
+      "9.0",
+      "1.975",
+      "1.825"
+     ],
+     "p_mod": 0.846,
+     "p_fin": 0.748,
+     "kal": 0.95,
+     "fair_fin": 1.34,
+     "ladder_fin": [
+      [
+       6.5,
+       1.31
+      ],
+      [
+       7.5,
+       1.34
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.34",
+     "first_run": "Mo 20:12"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12315919",
+    "league": "CONCACAF Nations League",
+    "league_id": "14717",
+    "home": "Honduras",
+    "away": "Jamaica",
+    "home_id": "5274",
+    "away_id": "5366",
+    "kickoff": "Di 04:00",
+    "kickoff_ts": 1791252000,
+    "bet365_id": "202311093"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "away_series": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 15
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      48
+     ],
+     "next_line": 4.5,
+     "next_note": "Honduras 1/3 (3. Lücke) gesamt, 9/11 (3. Lücke) heim",
+     "longterm": [
+      0.8170245360546835,
+      0.8699493740211706
+     ],
+     "fair": 1.21,
+     "ladder": [
+      [
+       5.5,
+       1.21
+      ],
+      [
+       6.5,
+       1.1
+      ]
+     ],
+     "avg": [
+      3.2,
+      1.7
+     ],
+     "expect_sum": 2.4,
+     "expect_matchup": 1.6,
+     "contrib": [
+      0.3,
+      1.3
+     ],
+     "expect": 2.0,
+     "buffer": 3.5,
+     "fa": [
+      [
+       1.6,
+       2.1
+      ],
+      [
+       1.9,
+       1.3
+      ]
+     ],
+     "sd": 2.28,
+     "p_emp": {
+      "5.5": 0.8264462809917356,
+      "6.5": 0.9090909090909091
+     },
+     "range": [
+      1.33,
+      2.17
+     ],
+     "p_mod": 0.938,
+     "p_fin": 0.9,
+     "kal": 1.02,
+     "fair_fin": 1.11,
+     "ladder_fin": [
+      [
+       5.5,
+       1.11
+      ],
+      [
+       6.5,
+       1.04
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "light": "🟢",
+     "reason": "fair 1.11",
+     "first_run": "Mo 20:12",
+     "change_note": "Quoten vorher 1.33–1.98"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "doublechance": 16,
+  "totals": 16,
+  "results": 8,
+  "handicaps": 10,
+  "corners": 9,
+  "cards": 7,
+  "btts": 7,
+  "correctscore": 2,
+  "shots": 1,
+  "fouls": 1
+ },
+ "dauer_s": 60,
+ "zeit": {
+  "historie": 13,
+  "pruefung": 0,
+  "scores24": 23,
+  "extras": 17,
+  "vorlauf": 33,
+  "spiele": 26
+ },
+ "teams_nachgeladen": 2,
+ "s24": {
+  "ok": 16,
+  "no_link": 8,
+  "fetch_fail": 5
+ },
+ "new": [
+  "12315917|yellowcards|unter"
+ ],
+ "changed": [
+  "12315918|yellowcards|unter",
+  "12315919|yellowcards|unter"
+ ],
+ "dropped": [
+  "12315891|yellowcards|unter",
+  "13125116|yellowcards|über",
+  "13125117|yellowcards|über"
+ ],
+ "team_totals": [
+  {
+   "match": {
+    "id": "12276160",
+    "league": "Paraguay Division Profesional",
+    "league_id": "257",
+    "home": "Cerro Porteno",
+    "away": "2 de Mayo",
+    "home_id": "1475",
+    "away_id": "201221",
+    "kickoff": "Di 00:15",
+    "kickoff_ts": 1791238500,
+    "bet365_id": "201659626"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "heim",
+    "team": "Cerro Porteno",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.77,
+    "fair": 1.3,
+    "p_emp": 0.748,
+    "p_mod": 0.792,
+    "erwartet": 1.5,
+    "basis": 48
+   }
+  },
+  {
+   "match": {
+    "id": "12315918",
+    "league": "CONCACAF Nations League",
+    "league_id": "14717",
+    "home": "Guatemala",
+    "away": "Suriname",
+    "home_id": "5311",
+    "away_id": "63994",
+    "kickoff": "Di 02:00",
+    "kickoff_ts": 1791244800,
+    "bet365_id": "202311064"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "heim",
+    "team": "Guatemala",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.8245,
+    "fair": 1.21,
+    "p_emp": 0.795,
+    "p_mod": 0.854,
+    "erwartet": 1.4,
+    "basis": 46
+   }
+  },
+  {
+   "match": {
+    "id": "13125118",
+    "league": "Argentina Liga Profesional",
+    "league_id": "26549",
+    "home": "Banfield",
+    "away": "Rosario Central",
+    "home_id": "1399",
+    "away_id": "4079",
+    "kickoff": "Di 02:15",
+    "kickoff_ts": 1791245700,
+    "bet365_id": "201200362"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "gast",
+    "team": "Rosario Central",
+    "line": 1.5,
+    "direction": "über",
+    "serie": {
+     "kind": "auswärts",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7437,
+    "fair": 1.34,
+    "p_emp": 0.71,
+    "p_mod": 0.778,
+    "erwartet": 2.5,
+    "basis": 46
+   }
+  }
+ ],
+ "neue_maerkte": []
+}
