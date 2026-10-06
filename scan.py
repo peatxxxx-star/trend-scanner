@@ -1958,9 +1958,50 @@ CALIBRATION = {
 def calibrate(p, metric, direction):
     """Modell-Wahrscheinlichkeit auf das gemessene Niveau ziehen."""
     f = CALIBRATION.get((metric, direction))
-    if not f or p is None:
+    if p is None:
         return p
-    return max(0.02, min(0.985, p * f))
+    if f:
+        p = max(0.02, min(0.985, p * f))
+    return recalibrate(p, metric, direction)
+
+
+# 06.10. NACHKALIBRIERUNG (Lucio: "machen wir genauso"). Offline-Backtest der
+# Live-Logik (evaluate_match + assess_signal, 207.000 Spiele, 254.000 Signale):
+# Die angezeigte Wahrscheinlichkeit stimmte im Mittel, war aber zu EXTREM —
+# hohe Werte überschätzt (angezeigt 92 %, echt 90 %), niedrige unterschätzt
+# (angezeigt 56 %, echt 65 %). Folge: bei Karten unter Fair 1,06-1,11 statt
+# richtig 1,09-1,13 (Schein-Value), bei Karten über Fair 1,28 statt 1,22
+# (verpasster Value). Korrektur je Markt linear: p_neu = a + b * p_alt
+# (p_alt = Wert nach CALIBRATION). Kreuzvalidiert (Anpassung auf einer Hälfte
+# der Spiele, Prüfung auf der anderen): mittlerer Fehler 1,5 -> 0,5 Punkte.
+# Ohne Schiri-Faktor und bet365-Linie gemessen. Zum Abschalten: RECAL_ENABLED.
+RECAL_ENABLED = True
+AMPEL_FILTER = False      # 06.10.: Ampel nur noch Protokoll, kein Filter (siehe assess_signal)
+RECAL = {
+    ("corners", "über"): (0.290, 0.607),
+    ("fouls", "über"): (0.219, 0.732),
+    ("goals", "über"): (0.138, 0.833),
+    ("ht_yellowcards", "über"): (0.250, 0.686),
+    ("offsides", "unter"): (0.225, 0.736),
+    ("on_target", "über"): (0.232, 0.695),
+    ("yellowcards", "unter"): (0.246, 0.709),
+    ("yellowcards", "über"): (0.119, 0.891),
+}
+TEAM_RECAL = {
+    ("corners", "unter"): (0.367, 0.521),
+    ("corners", "über"): (0.160, 0.769),
+    ("yellowcards", "unter"): (0.014, 0.989),
+    ("yellowcards", "über"): (0.117, 0.828),
+}
+
+
+def recalibrate(p, metric, direction, team=False):
+    if not RECAL_ENABLED or p is None:
+        return p
+    ab = (TEAM_RECAL if team else RECAL).get((metric, direction))
+    if not ab:
+        return p
+    return max(0.02, min(0.985, ab[0] + ab[1] * p))
 
 
 def assess_signal(s):
@@ -2035,7 +2076,14 @@ def assess_signal(s):
         if ev is not None and ev < EV_GREEN:
             bits.append("Marktquote nicht über fair")
         light, reason = "🟡", "; ".join(bits) or "prüfen"
-    s["light"], s["reason"] = light, reason
+    # 06.10. (Lucio): Ampel ist kein Filter mehr. Im Offline-Backtest trennte
+    # sie nicht Wert von Nicht-Wert — egal welche Schwellen, der Vorsprung zum
+    # Schnitt-Modell blieb bei ~+1,2; gelbe Signale "Historie/Modell uneinig"
+    # (52.000) trafen genau wie angezeigt und lagen +1,6 über dem Modell.
+    # Entscheidend ist die (nachkalibrierte) faire Quote gegen die Bookie-Quote.
+    # Die Bewertung bleibt in s["ampel"]/s["reason"] fürs Protokoll erhalten.
+    s["ampel"], s["reason"] = light, reason
+    s["light"] = light if AMPEL_FILTER else "🟢"
     return s
 
 
@@ -2156,7 +2204,7 @@ _SNAPSHOT_KEYS = ("metric", "metric_key", "direction", "line", "home_series",
                   "expect", "expect_sum", "expect_matchup", "contrib", "buffer", "fa",
                   "referee", "b365", "expect_ref", "buffer_ref",
                   "sd", "p_emp", "p_mod", "p_fin", "fair_fin", "ladder_fin", "market",
-                  "market_src", "ev", "light", "reason", "b365_quote", "b365_checked", "b365_near", "b365_lines", "b365_est",
+                  "market_src", "ev", "light", "ampel", "reason", "b365_quote", "b365_checked", "b365_near", "b365_lines", "b365_est",
                   "team_market", "team", "serie", "gegner", "erwartet")
 
 
@@ -4787,7 +4835,7 @@ def team_signals(match, hist_home, hist_away):
                     var = sum(wi * (v - mean) ** 2 for v, wi in zip(vals, w)) / W
                     sd = max(math.sqrt(var), 0.7)
                     p_mod = model_prob(mean, sd, L, direction)
-                    p = 0.5 * p_emp + 0.5 * p_mod
+                    p = recalibrate(0.5 * p_emp + 0.5 * p_mod, metric, direction, team=True)
                     out.append({"metric_key": metric, "metric": TEAM_NAMES[metric],
                                 "seite": side, "team": name, "line": L,
                                 "direction": direction,
@@ -5798,8 +5846,9 @@ def selftest():
         ok = False
     sB = dict(sA, expect=7.0, buffer=-1.5, b365=None)
     assess_signal(sB)
-    if sB["light"] != "🔴":
-        print("FEHLER Fall 13b: Erwartung unter Linie muss rot sein:", sB["light"], sB["reason"])
+    # 06.10.: Ampel bewertet weiter (s["ampel"]), filtert aber nicht mehr (light)
+    if sB["ampel"] != "🔴" or sB["light"] != ("🔴" if AMPEL_FILTER else "🟢"):
+        print("FEHLER Fall 13b: Erwartung unter Linie muss rot bewertet sein:", sB["ampel"], sB["light"], sB["reason"])
         ok = False
     sC = dict(sA, b365=("7.5", "1.30", "3.20"))          # Nachbarlinie -> umrechnen
     assess_signal(sC)
@@ -5808,8 +5857,8 @@ def selftest():
         ok = False
     sD = dict(sA, b365=("8.5", "1.10", "3.00"))          # exakter Markt weit unter fair
     assess_signal(sD)
-    if sD["light"] != "🔴":
-        print("FEHLER Fall 13d: Markt unter fair muss rot sein:", sD["light"], sD["reason"])
+    if sD["ampel"] != "🔴" or sD["light"] != ("🔴" if AMPEL_FILTER else "🟢"):
+        print("FEHLER Fall 13d: Markt unter fair muss rot bewertet sein:", sD["ampel"], sD["light"], sD["reason"])
         ok = False
     lad = [f for _, f in sA["ladder_fin"]]
     if len(lad) != 2 or lad != sorted(lad):
@@ -5822,7 +5871,7 @@ def selftest():
         ok = False
     rec = build_recommendations([({"kickoff": "Mi 20:30", "home": "P", "away": "M"},
                                   [("new", sE, ""), ("known", sB, "")])])
-    if "SPIELEN (1)" not in rec or "über 8.5" not in rec:
+    if f"SPIELEN ({1 if AMPEL_FILTER else 2})" not in rec or "über 8.5" not in rec:
         print("FEHLER Fall 13g: Empfehlungsliste falsch:", rec)
         ok = False
 
@@ -5960,11 +6009,21 @@ def selftest():
         globals()["_no_wait"], globals()["_budget_exhausted"], globals()["_hour_requests"] = _save
 
     # --- Fall 28: Kalibrierung je Markt (15.09.)
-    if abs(calibrate(0.80, "corners", "über") - 0.76) > 1e-9:
-        print("FEHLER Fall 28a: Ecken-Faktor greift nicht:", calibrate(0.80, "corners", "über"))
+    # 06.10.: erst Faktor (CALIBRATION), dann lineare Nachkalibrierung (RECAL)
+    if abs(calibrate(0.80, "corners", "über") - (0.290 + 0.607 * 0.76)) > 1e-9:
+        print("FEHLER Fall 28a: Ecken-Kalibrierung greift nicht:", calibrate(0.80, "corners", "über"))
         ok = False
-    if abs(calibrate(0.80, "yellowcards", "unter") - 0.816) > 1e-9:
-        print("FEHLER Fall 28b: Karten-unter-Faktor greift nicht")
+    if abs(calibrate(0.80, "yellowcards", "unter") - (0.246 + 0.709 * 0.816)) > 1e-9:
+        print("FEHLER Fall 28b: Karten-unter-Kalibrierung greift nicht")
+        ok = False
+    # Nachkalibrierung: hohe Werte runter, niedrige rauf, Reihenfolge bleibt
+    _r = [calibrate(x, "yellowcards", "unter") for x in (0.6, 0.8, 0.95)]
+    if not (_r[0] > 0.6 * 1.02 and _r[2] < 0.95 * 1.02 and _r[0] < _r[1] < _r[2]):
+        print("FEHLER Fall 28e: Nachkalibrierung zieht nicht zur Mitte:", _r)
+        ok = False
+    if abs(recalibrate(0.9, "corners", "unter", team=True) - (0.367 + 0.521 * 0.9)) > 1e-9 \
+            or recalibrate(0.9, "goals", "über", team=True) != 0.9:
+        print("FEHLER Fall 28f: Team-Nachkalibrierung falsch")
         ok = False
     if calibrate(0.80, "throwins", "über") != 0.80:
         print("FEHLER Fall 28c: ungemessene Märkte bleiben unkorrigiert")
