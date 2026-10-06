@@ -215,7 +215,8 @@ EXCLUDED_MARKETS = {(m, "unter") for m in UNTER_RAUS} | {("corners", "unter"),
                     # 16.09. (Lucio): Freistöße gibt es bei seinem Buchmacher
                     # nicht — Daten und Backtest bleiben, die Meldung entfällt.
                     ("freekicks", "über"), ("freekicks", "unter"),
-                    ("on_target", "über"), ("on_target", "unter"),
+                    # 06.10. (Lucio): Schüsse aufs Tor ÜBER wieder rein (siehe unten).
+                    ("on_target", "unter"),
                     ("ht_goals", "über"), ("ht_goals", "unter"),
                     ("h2_goals", "über"), ("h2_goals", "unter"),
                     ("ht_corners", "unter"),
@@ -228,7 +229,16 @@ EXCLUDED_MARKETS = {(m, "unter") for m in UNTER_RAUS} | {("corners", "unter"),
                     # nicht" — 8/15 = 53 %, Rendite -26 %).
                     ("offsides", "über"), ("ht_corners", "über"),
                     ("shots_total", "über"), ("shots_total", "unter"),
-                    ("fouls", "über"), ("fouls", "unter")}
+                    ("fouls", "unter")}
+# 06.10. (Lucio): FOULS ÜBER und SCHÜSSE AUFS TOR ÜBER wieder rein. Offline-
+# Backtest (207.000 Spiele, Cache + 320 Git-Stände von history.json, Serien-
+# regel 1:1 nachgebaut) gegen ein Schnitt-Modell ohne Serien: dort die größten
+# Abstände aller Märkte, v.a. bei hohen Linien (Fouls über 22,5: 81 % vs.
+# Modell 75 %; Schüsse aufs Tor über 8,5: 75 % vs. 70 %). Vorbehalte von
+# damals bleiben: Fouls-Daten nur in ~23 % der Spiele, kleine Fallzahlen bei
+# hohen Linien, 12.09. war die angezeigte faire Quote bei Fouls zu optimistisch.
+# Schüsse aufs Tor über 9,5–11,5 bleiben in EXCLUDED_LINES gesperrt. Beide
+# Märkte laufen weiter durch den scores24-Nachweis (Reiter shots/fouls).
 # 15.09. spät (Lucio): 1. HZ ECKEN ÜBER wieder rein, ABSEITS komplett raus.
 # 15.09. (Lucio): "Schüsse aufs Tor" KOMPLETT raus (vorher nur "über").
 # 15.09. (Korrektur): 1. HZ GELBE KARTEN bleiben drin — nur die Linie
@@ -6329,12 +6339,17 @@ def selftest():
             if s["metric"] == "Ecken"]:
         print("FEHLER Fall 20b: ohne Sperre muss das Ecken-Signal stehen bleiben")
         ok = False
-    # 17.09. spät: Fouls wieder komplett ausgeschlossen (Lucio: alles wie vorher)
+    # 06.10.: Fouls ÜBER wieder drin, Fouls UNTER bleibt ausgeschlossen
     fo = _mk([[14, 13]] * 15, [H, A] * 7 + [H])
     for m_ in fo:
         m_["stats"]["fouls"] = [14, 13]
-    if any(s["metric_key"] == "fouls" for s in evaluate_match(dict(match), fo, [dict(x) for x in fo])):
-        print("FEHLER Fall 20c: Fouls müssen ausgeschlossen sein")
+    fo_sig = [s for s in evaluate_match(dict(match), fo, [dict(x) for x in fo])
+              if s["metric_key"] == "fouls"]
+    if not any(s["direction"] == "über" for s in fo_sig):
+        print("FEHLER Fall 20c: Fouls über muss gemeldet werden")
+        ok = False
+    if any(s["direction"] == "unter" for s in fo_sig):
+        print("FEHLER Fall 20c: Fouls unter muss ausgeschlossen sein")
         ok = False
 
     # --- Fall 19: Gegenbewegung bei Ecken nur noch mit Anker (12.09.)
