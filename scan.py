@@ -126,6 +126,13 @@ TG_CHAT = os.environ.get("TELEGRAM_CHAT_ID", "")
 # Regelwerk-Parameter
 ANCHOR_HITS_OVERALL = 10   # Anker ohne Heim/Auswärts-Filter
 ANCHOR_HITS_VENUE = 15     # Anker mit Heim/Auswärts-Filter (heutige Rolle)
+# 06.10.: Heim/Auswärts-Serien bei den GESAMTMÄRKTEN aus. Offline-Backtest
+# (207.000 Spiele, gegen ein Modell aus den Teamschnitten): Signale, deren
+# Anker NUR aus der Rolle kommt, lagen 1,0 Punkte UNTER dem Modell, ein
+# zweites Team, das nur über die Rolle qualifiziert, 0,3 darunter — die
+# Gesamt-Serien lagen +1,2 darüber. Team-Märkte behalten die Rollen-Serie
+# (dort im Backtest positiv). Zum Wiedereinschalten: True.
+VENUE_SERIES = False
 ANCHOR_MAX_MISSES = 2      # max. Aussetzer jeder Anker-Serie
 FRESH_GAMES = 2            # Anker: jüngste N gewertete Spiele müssen Treffer sein
 OTHER_HITS = 5             # zweites Team: Mindest-Treffer ...
@@ -1151,7 +1158,7 @@ def team_qualifies(history, metric, line, direction, role):
     s = series(seq_all, ANCHOR_HITS_OVERALL, ANCHOR_MAX_MISSES, fresh=FRESH_GAMES)
     if s:
         anchor = {"kind": "gesamt", "hits": s[0], "window": s[1]}
-    else:
+    elif VENUE_SERIES:
         s = series(seq_ven, ANCHOR_HITS_VENUE, ANCHOR_MAX_MISSES, fresh=FRESH_GAMES)
         if s:
             anchor = {"kind": "heim" if role == "home" else "auswärts",
@@ -1168,7 +1175,7 @@ def team_qualifies(history, metric, line, direction, role):
     s = other_series(seq_all)
     if s:
         other = {"kind": "gesamt", "hits": s[0], "window": s[1]}
-    else:
+    elif VENUE_SERIES:
         s = other_series(seq_ven)
         if s:
             other = {"kind": "heim" if role == "home" else "auswärts",
@@ -5410,8 +5417,12 @@ def selftest():
         homes.append(is_home)
     a3 = _mk(pairs, homes)                             # 20 Heimspiele, alle Treffer
     anchor, other, _ = team_qualifies(a3, "corners", 8.5, "über", "home")
-    if not anchor or anchor["kind"] != "heim" or anchor["hits"] < 15:
+    if VENUE_SERIES and (not anchor or anchor["kind"] != "heim" or anchor["hits"] < 15):
         print("FEHLER Fall 3: Heim-Anker (15er) nicht erkannt:", anchor)
+        ok = False
+    # 06.10.: Rollen-Serien aus -> reine Heim-Serie ergibt weder Anker noch zweites Team
+    if not VENUE_SERIES and (anchor or other):
+        print("FEHLER Fall 3c: Rollen-Serie darf bei VENUE_SERIES=False nicht zählen:", anchor, other)
         ok = False
     a4 = _mk(pairs[:24], homes[:24])                   # nur 12 Heimspiele
     anchor4, _, _ = team_qualifies(a4, "corners", 8.5, "über", "home")
