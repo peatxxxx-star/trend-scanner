@@ -4620,6 +4620,17 @@ TEAM_ENABLED = True          # 13.09.: AUS bis Lucio sie ausdrücklich freigibt 
                              # Lucio prüft am Bookie Markt und Preis.
 TEAM_TEST = True             # 🧪 bis der Preisvergleich steht
 TEAM_SHOW = 14
+# 06.10. Gegner-Filter: Ein Team-Signal zählt nur, wenn der GEGNER in seinen
+# letzten TEAM_OPP_N gültigen Spielen mindestens TEAM_OPP_MIN-mal auf derselben
+# Seite der Linie zugelassen hat (Team-Ecken über 3,5 -> Gegner ließ >= 4 Ecken
+# zu). Offline-Backtest (207.000 Spiele, Vergleich mit einem Modell aus den
+# Schnitten "eigene Zahl" und "Gegner lässt zu"): Mit widersprechendem Gegner
+# (<= 4/10) fällt der Vorsprung auf etwa null oder ins Minus (Ecken über 3,5:
+# +0,3; Ecken unter 5,5: -1,4; Karten unter 2,5: +0,1), mit Bestätigung steigt
+# er (Ecken über 3,5: +3,5 -> +4,5; Ecken unter 4,5: +8,3 -> +9,1).
+# Hat der Gegner weniger als TEAM_OPP_N gültige Spiele, entfällt das Signal.
+TEAM_OPP_N = 10
+TEAM_OPP_MIN = 5
 _team_base = {}              # {(metric, line, direction): Grundrate je Team-Seite}
 
 
@@ -4664,10 +4675,29 @@ def team_sequence(history, metric, line, direction, venue=None):
     return seq, own_vals, weights
 
 
+def opponent_conceded_hits(history, metric, line, direction, n=TEAM_OPP_N):
+    """Wie oft hat dieses Team (als GEGNER des Signal-Teams) in seinen letzten
+    n gültigen Spielen über/unter `line` zugelassen? None bei < n Spielen."""
+    hits = valid = 0
+    for m in history:
+        if metric_total(m, metric) is None:
+            continue
+        pair = (m.get("stats") or {}).get(metric)
+        if not pair:
+            continue
+        conceded = pair[1] if m["is_home"] else pair[0]
+        valid += 1
+        hits += (conceded > line) if direction == "über" else (conceded < line)
+        if valid >= n:
+            break
+    return hits if valid >= n else None
+
+
 def team_signals(match, hist_home, hist_away):
     out = []
-    for side, hist, role, name in (("heim", hist_home, "home", match["home"]),
-                                   ("gast", hist_away, "away", match["away"])):
+    for side, hist, role, name, opp_hist in (
+            ("heim", hist_home, "home", match["home"], hist_away),
+            ("gast", hist_away, "away", match["away"], hist_home)):
         for metric, lines in TEAM_METRICS.items():
             for direction in ("über", "unter"):
                 if (metric, direction) in TEAM_EXCLUDED:
@@ -4689,6 +4719,10 @@ def team_signals(match, hist_home, hist_away):
                         kind = "heim" if role == "home" else "auswärts"
                     if not a:
                         continue
+                    # 06.10.: Gegner-Filter (siehe TEAM_OPP_MIN)
+                    opp_hits = opponent_conceded_hits(opp_hist, metric, L, direction)
+                    if opp_hits is None or opp_hits < TEAM_OPP_MIN:
+                        continue
                     # faire Quote: gewichtete Historie zur Grundrate geschrumpft,
                     # gemischt mit Normalverteilungs-Modell der eigenen Zahlen
                     W = sum(w)
@@ -4705,7 +4739,8 @@ def team_signals(match, hist_home, hist_away):
                                 "serie": {"kind": kind, "hits": a[0], "window": a[1]},
                                 "p": round(p, 4), "fair": round(1 / p, 2),
                                 "p_emp": round(p_emp, 3), "p_mod": round(p_mod, 3),
-                                "erwartet": round(mean, 1), "basis": len(seq_all)})
+                                "erwartet": round(mean, 1), "basis": len(seq_all),
+                                "gegner": opp_hits})
                     break                  # nur die strengste Linie je Richtung
     return out
 
@@ -4798,7 +4833,9 @@ def build_team_block(rows):
                      "geprüft. Backtest: lückenloser 10er-Anker trifft 78 % "
                      "(Grundrate je nach Linie 42–70 %).</i>")
     lines += ["<i>Beim Bookie: „Individuell Gesamtzahl“. Ein Team, letzte 10 Spiele "
-              "ohne Ausreißer (bzw. 15 in der Rolle). Nachweis über den scores24-Reiter.</i>", ""]
+              "ohne Ausreißer (bzw. 15 in der Rolle). Gegner: so oft ließ er in seinen "
+              f"letzten {TEAM_OPP_N} Spielen dieselbe Seite zu (mind. {TEAM_OPP_MIN}). "
+              "Nachweis über den scores24-Reiter.</i>", ""]
     # je Spiel EIN Block mit allen qualifizierenden Team-Linien (sonst Flut)
     per = {}
     for m, s in rows:
@@ -4810,7 +4847,8 @@ def build_team_block(rows):
             sr = s["serie"]
             lines.append(f"   <b>{esc(s['team'])}: {esc(s['metric'])} {s['direction']} {s['line']}</b>"
                          f"{test} · Fair <b>{s['fair']:.2f}</b> · {sr['hits']}/{sr['window']} "
-                         f"({sr['kind']}) · Ø {s['erwartet']:.1f}")
+                         f"({sr['kind']}) · Ø {s['erwartet']:.1f}"
+                         + (f" · Gegner {s['gegner']}/{TEAM_OPP_N}" if s.get("gegner") is not None else ""))
         lines.append("")
     return "\n".join(lines)
 
@@ -6157,18 +6195,34 @@ def selftest():
                        ("corners", 5.5, "über"): 0.35, ("corners", 6.5, "über"): 0.24,
                        ("corners", 3.5, "unter"): 0.36, ("corners", 4.5, "unter"): 0.51,
                        ("corners", 5.5, "unter"): 0.65, ("corners", 6.5, "unter"): 0.76})
-    def _team_hist(cards, corners, homes):
+    def _team_hist(cards, corners, homes, opp_c=2, opp_k=5):
+        # opp_c/opp_k = was der jeweilige Gegner hatte (= was dieses Team zuließ)
         h = []
         for c, k, is_home in zip(cards, corners, homes):
-            st = {"yellowcards": [c, 2] if is_home else [2, c],
-                  "corners": [k, 5] if is_home else [5, k],
+            st = {"yellowcards": [c, opp_c] if is_home else [opp_c, c],
+                  "corners": [k, opp_k] if is_home else [opp_k, k],
                   "on_target": [4, 4], "fouls": [10, 10], "offsides": [1, 1]}
             h.append({"stats": st, "is_home": is_home, "label": "t"})
         return h
     # Heimteam: 1 Karte in 12 Spielen, 6 Ecken in 12 Spielen -> Anker unter 1,5 / über 5,5
     th = _team_hist([1] * 12 + [3, 3], [6] * 12 + [3, 3], [H, A] * 7)
     ta = _team_hist([2, 3, 1, 4, 2, 3, 2, 1, 3, 2, 4, 2, 3, 2], [5, 4, 6, 5, 4, 5, 6, 4, 5, 5, 4, 6, 5, 4], [A, H] * 7)
-    t23 = team_signals(dict(match), th, ta)
+    # 06.10.: Gegner-Filter — ta_ok lässt 1 Karte und 7 Ecken zu (bestätigt
+    # Heim-Karten unter 1,5 und Heim-Ecken über 5,5), ta lässt 2 Karten und
+    # 5 Ecken zu (widerspricht beiden)
+    ta_ok = _team_hist([2, 3, 1, 4, 2, 3, 2, 1, 3, 2, 4, 2, 3, 2], [5, 4, 6, 5, 4, 5, 6, 4, 5, 5, 4, 6, 5, 4], [A, H] * 7,
+                       opp_c=1, opp_k=7)
+    t23 = team_signals(dict(match), th, ta_ok)
+    t23g = team_signals(dict(match), th, ta)
+    got_g = {(x["seite"], x["metric_key"], x["direction"], x["line"]) for x in t23g}
+    if ("heim", "yellowcards", "unter", 1.5) in got_g or ("heim", "corners", "über", 5.5) in got_g:
+        print("FEHLER Fall 23g: Gegner-Filter greift nicht:", got_g)
+        ok = False
+    if opponent_conceded_hits(ta_ok, "corners", 5.5, "über") != 10 or \
+       opponent_conceded_hits(ta, "corners", 5.5, "über") != 0 or \
+       opponent_conceded_hits(ta[:5], "corners", 5.5, "über") is not None:
+        print("FEHLER Fall 23h: Gegner-Zählung falsch")
+        ok = False
     got = {(x["seite"], x["metric_key"], x["direction"], x["line"]) for x in t23}
     if ("heim", "yellowcards", "unter", 1.5) not in got:
         print("FEHLER Fall 23a: Team-Karten unter 1,5 fehlt:", got)
