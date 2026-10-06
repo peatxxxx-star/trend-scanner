@@ -2118,6 +2118,21 @@ def evaluate_match(match, hist_home, hist_away, market_odds=None):
 # Lauf-Vergleich: neu / geändert / unverändert / weggefallen
 # ----------------------------------------------------------------------------
 
+def state_entry_ok(v) -> bool:
+    """Darf ein Gedächtnis-Eintrag bleiben? Raus: gesperrte Märkte, alte
+    Gedächtnis-Versionen, gestrichene Linien (z.B. Ecken 6,5)."""
+    if v.get("v") != STATE_VERSION:
+        return False
+    mk = v.get("metric_key") or ""
+    if mk.startswith("team_"):               # 06.10.: Team-Märkte in der Hauptliste
+        base_mk = mk[5:].rsplit("_", 1)[0]
+        return (TEAM_ENABLED and v.get("line") in TEAM_METRICS.get(base_mk, [])
+                and (base_mk, v.get("direction")) not in TEAM_EXCLUDED)
+    if (mk, v.get("direction")) in EXCLUDED_MARKETS:
+        return False
+    return v.get("line") in METRICS.get(mk, (None, []))[1]
+
+
 def signal_key(match, s) -> str:
     """Identität eines Signals: Spiel + Markt + Richtung (die Linie darf
     sich verschieben — das wird dann als Änderung gemeldet)."""
@@ -2141,7 +2156,8 @@ _SNAPSHOT_KEYS = ("metric", "metric_key", "direction", "line", "home_series",
                   "expect", "expect_sum", "expect_matchup", "contrib", "buffer", "fa",
                   "referee", "b365", "expect_ref", "buffer_ref",
                   "sd", "p_emp", "p_mod", "p_fin", "fair_fin", "ladder_fin", "market",
-                  "market_src", "ev", "light", "reason", "b365_quote", "b365_checked", "b365_near", "b365_lines", "b365_est")
+                  "market_src", "ev", "light", "reason", "b365_quote", "b365_checked", "b365_near", "b365_lines", "b365_est",
+                  "team_market", "team", "serie", "gegner", "erwartet")
 
 
 def signal_snapshot(s):
@@ -2328,6 +2344,20 @@ def build_match_block(match, entries):
             lines.append(f"{icon} <s>{esc(s['metric'])} {s['direction']} {s['line']}</s>{odds}"
                          f" · gemeldet {s.get('first_run', '?')}")
             lines.append(f"   <i>{esc(reason)}</i>")
+            continue
+        if s.get("team_market"):                 # 06.10.: Team-Markt in der Hauptliste
+            new_tag = " 🆕" if status == "new" else ""
+            fair = s.get("fair_fin") or s.get("fair")
+            lines.append(f"✅ <b>{esc(s['metric'])} {s['direction']} {s['line']}</b>{new_tag}"
+                         + (f" · Fair {fair:.2f}" if fair else ""))
+            sr = s.get("serie") or {}
+            det = [f"{esc(s.get('team', ''))} {fmt_series(sr, True)}"] if sr else []
+            if s.get("erwartet") is not None:
+                det.append(f"Ø {s['erwartet']:.1f}")
+            if s.get("gegner") is not None:
+                det.append(f"Gegner {s['gegner']}/{TEAM_OPP_N}")
+            if det:
+                lines.append("   " + " · ".join(det))
             continue
         lines.append(f"{icon} <b>{esc(s['metric'])} {s['direction']} {s['line']}</b>")
         if not s.get("home_series"):            # alter Eintrag ohne Details
@@ -4610,7 +4640,11 @@ def build_who_block(rows):
 # "Unter Ecken auch hier raus" — Team-Ecken nur über, Team-Karten über und unter.
 TEAM_METRICS = {"corners": [3.5, 4.5, 5.5, 6.5],
                 "yellowcards": [1.5, 2.5]}
-TEAM_EXCLUDED = {("corners", "unter")}
+# 06.10. (Lucio): Team-Ecken UNTER wieder rein — im Offline-Backtest der
+# stärkste Markt überhaupt (unter 3,5/4,5/5,5: +19/+8/+3 Punkte über einem
+# Modell aus "eigene Ecken" und "Gegner lässt zu"). Unter 6,5 bleibt über
+# TEAM_TRIVIAL_BASE draußen (Grundrate 77 %).
+TEAM_EXCLUDED = set()
 TEAM_NAMES = {"corners": "Ecken", "yellowcards": "Gelbe Karten", "on_target": "Schüsse aufs Tor"}
 TEAM_MAX_MISSES = 0          # Anker LÜCKENLOS (10 von 10 gesamt; in der Rolle 15 mit
 TEAM_MAX_MISSES_ROLE = 1     # max. 1 Lücke). Lucio wörtlich: "letzte 10 Spiele IMMER
@@ -4625,7 +4659,7 @@ TEAM_ENABLED = True          # 13.09.: AUS bis Lucio sie ausdrücklich freigibt 
                              # Marktnachweis je Team nein). 20.09. (Lucio): "Bitte nur Karten
                              # und Ecken, checke heute mal mit durch" — AN als 🧪-Block;
                              # Lucio prüft am Bookie Markt und Preis.
-TEAM_TEST = True             # 🧪 bis der Preisvergleich steht
+TEAM_TEST = False            # 06.10.: kein 🧪-Block mehr, Team-Märkte stehen in der Hauptliste
 TEAM_SHOW = 14
 # 06.10. Gegner-Filter: Ein Team-Signal zählt nur, wenn der GEGNER in seinen
 # letzten TEAM_OPP_N gültigen Spielen mindestens TEAM_OPP_MIN-mal auf derselben
@@ -4698,6 +4732,20 @@ def opponent_conceded_hits(history, metric, line, direction, n=TEAM_OPP_N):
         if valid >= n:
             break
     return hits if valid >= n else None
+
+
+def team_to_signal(t):
+    """06.10. (Lucio: "alles auf normale Ansicht, nicht getrennt"): Team-Signal
+    als normales Signal der Hauptliste — mit Gedächtnis, 🆕 und ✅-Liste.
+    metric_key je Seite eindeutig (team_corners_heim), damit Heim- und
+    Gast-Signal desselben Marktes getrennt gemerkt werden."""
+    return {"metric": f"{t['team']}: {t['metric']}",
+            "metric_key": f"team_{t['metric_key']}_{t['seite']}",
+            "line": t["line"], "direction": t["direction"],
+            "team_market": True, "team": t["team"], "serie": t["serie"],
+            "gegner": t.get("gegner"), "erwartet": t.get("erwartet"),
+            "fair": t["fair"], "fair_fin": t["fair"], "p_fin": t["p"],
+            "p_emp": t.get("p_emp"), "p_mod": t.get("p_mod"), "light": "🟢"}
 
 
 def team_signals(match, hist_home, hist_away):
@@ -5080,12 +5128,7 @@ def _run():
     global _no_wait
     state = load_state()
     # ausgeschlossene Märkte und Einträge alter Gedächtnis-Versionen werfen
-    def _line_ok(v):
-        lines = METRICS.get(v.get("metric_key"), (None, []))[1]
-        return v.get("line") in lines            # gestrichene Linien (z.B. Ecken 6,5) raus
-    state = {k: v for k, v in state.items()
-             if (v.get("metric_key"), v.get("direction")) not in EXCLUDED_MARKETS
-             and v.get("v") == STATE_VERSION and _line_ok(v)}
+    state = {k: v for k, v in state.items() if state_entry_ok(v)}
     matches = fetch_matches_in_window()
     # Anstoß-Reihenfolge: frühe Spiele zuerst. Am API-Limit wird NICHT
     # gewartet (kostet nur GitHub-Minuten) — der Rest wandert in den
@@ -5202,13 +5245,15 @@ def _run():
             unverifiable.update(unverif)
             for line in match.pop("_contra", []):
                 print(f"  {match['home']} – {match['away']}: {line}")
+            for t_ in team or []:
+                team_hits.append((match, t_))
+            # 06.10.: Team-Märkte laufen als normale Signale mit (Hauptliste)
+            signals = list(signals or []) + [team_to_signal(t_) for t_ in team or []]
             if signals:
                 all_hits.append((match, signals))
                 print(f"  TREFFER: {match['home']} – {match['away']} ({len(signals)})")
             for w in who or []:
                 who_hits.append((match, w))
-            for t_ in team or []:
-                team_hits.append((match, t_))
             for e_ in exo or []:
                 exo_hits.append((match, e_))
             if done % 100 == 0:
@@ -5264,9 +5309,8 @@ def _run():
     log["neue_maerkte"] = [{"match": m, "signal": e_} for m, e_ in exo_hits]
     (RUNS_DIR / f"{now:%Y-%m-%d_%H%M}.json").write_text(
         json.dumps(log, ensure_ascii=False, indent=1))
-    team_block = build_team_block(team_hits)
-    if team_block:
-        chunks = (chunks or []) + split_message(team_block)
+    # 06.10.: kein eigener Team-Block mehr — die Team-Märkte stehen beim Spiel
+    # in der Hauptliste (team_to_signal). log["team_totals"] bleibt fürs Protokoll.
     exo_block = build_exo_block(exo_hits)
     if exo_block:
         chunks = (chunks or []) + split_message(exo_block)
@@ -6256,6 +6300,28 @@ def selftest():
             ok = False
     if build_team_block([]) is not None:
         print("FEHLER Fall 23f: ohne Kandidaten kein Block")
+        ok = False
+    # 06.10.: Team-Märkte in der Hauptliste — neu, im Gedächtnis, im 2. Lauf erhalten
+    m23 = {"id": "t23", "home": "Heim", "away": "Gast", "kickoff": "Di 20:00",
+           "kickoff_ts": 4_000_000_000, "league": "Testliga"}
+    ts23 = [team_to_signal(dict(x, gegner=x.get("gegner", 6))) for x in t23]
+    b23, ns23 = classify_signals({}, [(m23, ts23)], {"t23"}, {"t23"}, 1000, "Di 10:17")
+    txt23 = "\n".join(assemble_report(b23, "Di 10:17", ns23) or [])
+    if not ts23 or not all(f"{s['metric']} {s['direction']} {s['line']}" in txt23 for s in ts23) \
+            or "🆕" not in txt23 or "Gegner" not in txt23:
+        print("FEHLER Fall 23i: Team-Signale fehlen in der Hauptliste")
+        ok = False
+    if not all(state_entry_ok(v) for v in ns23.values()):
+        print("FEHLER Fall 23j: Gedächtnis würde Team-Signale verwerfen")
+        ok = False
+    b23b, ns23b = classify_signals(ns23, [], {"t23"}, {"t23"}, 1000, "Di 12:17")
+    txt23b = "\n".join(assemble_report(b23b, "Di 12:17", ns23b) or [])
+    if set(ns23b) != set(ns23) or not all(s["metric"] in txt23b for s in ts23):
+        print("FEHLER Fall 23k: Team-Signale müssen bis Anpfiff in der Liste bleiben")
+        ok = False
+    if state_entry_ok({"v": STATE_VERSION, "metric_key": "team_corners_heim",
+                       "direction": "über", "line": 9.5}):
+        print("FEHLER Fall 23l: unbekannte Team-Linie muss aus dem Gedächtnis fliegen")
         ok = False
     _team_base.clear()
 
