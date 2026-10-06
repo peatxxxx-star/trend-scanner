@@ -2715,7 +2715,7 @@ def b365_nearest(quotes, metric, direction, line):
     return (L, q, "unter" if lockerer else "über")
 
 
-# Streuung je Markt (17.09. spät, wie bei den anderen Sportarten): aus den
+# Streuung je Markt (17.09. spät): aus den
 # bet365-Linien den Preis an UNSERER Linie schätzen, wenn die exakte Linie
 # fehlt und die Nachbarlinie keinen sicheren Schluss erlaubt. bet365 setzt die
 # Hauptlinie etwa auf den Median; die Quote sagt, wie weit die Linie vom
