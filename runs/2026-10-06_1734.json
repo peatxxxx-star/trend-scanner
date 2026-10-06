@@ -1,0 +1,3295 @@
+{
+ "run_utc": "2026-10-06T17:34:21+00:00",
+ "matches_checked": 101,
+ "requests": 34,
+ "hits": [
+  {
+   "match": {
+    "id": "12407263",
+    "league": "England EFL Trophy",
+    "league_id": "394",
+    "home": "Cambridge Utd",
+    "away": "Northampton",
+    "home_id": "3016",
+    "away_id": "3081",
+    "kickoff": "Di 20:00",
+    "kickoff_ts": 1791309600,
+    "bet365_id": "202192967"
+   },
+   "signals": [
+    {
+     "metric": "Cambridge Utd: Ecken",
+     "metric_key": "team_corners_heim",
+     "line": 3.5,
+     "direction": "über",
+     "team_market": true,
+     "team": "Cambridge Utd",
+     "serie": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "gegner": 5,
+     "erwartet": 5.9,
+     "fair": 1.29,
+     "fair_fin": 1.29,
+     "p_fin": 0.7732,
+     "p_emp": 0.746,
+     "p_mod": 0.848,
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12407302",
+    "league": "England EFL Trophy",
+    "league_id": "394",
+    "home": "Sheff Wed",
+    "away": "Sunderland U21",
+    "home_id": "17370",
+    "away_id": "179360",
+    "kickoff": "Di 20:00",
+    "kickoff_ts": 1791309600,
+    "bet365_id": "202192925"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      47
+     ],
+     "next_line": 8.5,
+     "next_note": "Sheff Wed 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.9244982617727845,
+      0.8696623093157417
+     ],
+     "fair": 1.2,
+     "ladder": [
+      [
+       6.5,
+       1.21
+      ],
+      [
+       7.5,
+       1.2
+      ]
+     ],
+     "avg": [
+      10.6,
+      11.2
+     ],
+     "expect_sum": 10.9,
+     "expect_matchup": 12.6,
+     "contrib": [
+      6.7,
+      5.9
+     ],
+     "expect": 11.7,
+     "buffer": 4.2,
+     "fa": [
+      [
+       4.2,
+       6.0
+      ],
+      [
+       5.3,
+       5.4
+      ]
+     ],
+     "sd": 3.32,
+     "p_emp": {
+      "6.5": 0.8264462809917356,
+      "7.5": 0.8333333333333334
+     },
+     "range": [
+      1.36,
+      1.63
+     ],
+     "b365": [
+      "10.0",
+      "1.800",
+      "2.000"
+     ],
+     "p_mod": 0.897,
+     "p_fin": 0.789,
+     "kal": 0.95,
+     "fair_fin": 1.27,
+     "ladder_fin": [
+      [
+       6.5,
+       1.25
+      ],
+      [
+       7.5,
+       1.27
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.27",
+     "light": "🟢",
+     "first_run": "Di 08:27",
+     "change_note": "Quoten vorher 1.60–1.63"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12460871",
+    "league": "England EFL Trophy",
+    "league_id": "394",
+    "home": "Doncaster",
+    "away": "Liverpool U21",
+    "home_id": "3076",
+    "away_id": "294358",
+    "kickoff": "Di 20:00",
+    "kickoff_ts": 1791309600,
+    "bet365_id": "202192954"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      41,
+      47
+     ],
+     "next_line": 9.5,
+     "next_note": "kein Anker — Doncaster 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Liverpool U21 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.6295894419656172,
+      0.7778406695430107
+     ],
+     "fair": 1.51,
+     "ladder": [
+      [
+       7.5,
+       1.28
+      ],
+      [
+       8.5,
+       1.51
+      ]
+     ],
+     "avg": [
+      8.6,
+      10.3
+     ],
+     "expect_sum": 9.4,
+     "expect_matchup": 9.5,
+     "contrib": [
+      4.1,
+      5.5
+     ],
+     "expect": 9.5,
+     "buffer": 1.0,
+     "fa": [
+      [
+       4.3,
+       5.6
+      ],
+      [
+       6.1,
+       4.9
+      ]
+     ],
+     "sd": 3.87,
+     "p_emp": {
+      "7.5": 0.78125,
+      "8.5": 0.6622516556291391
+     },
+     "range": [
+      1.77,
+      2.009
+     ],
+     "b365": [
+      "10.0",
+      "2.000",
+      "1.800"
+     ],
+     "p_mod": 0.602,
+     "p_fin": 0.655,
+     "kal": 0.95,
+     "fair_fin": 1.53,
+     "ladder_fin": [
+      [
+       7.5,
+       1.4
+      ],
+      [
+       8.5,
+       1.53
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "65 % knapp",
+     "light": "🟢",
+     "first_run": "Di 13:21"
+    },
+    {
+     "metric": "Liverpool U21: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 3.5,
+     "direction": "über",
+     "team_market": true,
+     "team": "Liverpool U21",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 8,
+     "erwartet": 6.4,
+     "fair": 1.32,
+     "fair_fin": 1.32,
+     "p_fin": 0.7575,
+     "p_emp": 0.754,
+     "p_mod": 0.8,
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12407284",
+    "league": "England EFL Trophy",
+    "league_id": "394",
+    "home": "Exeter",
+    "away": "Oxford Utd",
+    "home_id": "3036",
+    "away_id": "3035",
+    "kickoff": "Di 20:00",
+    "kickoff_ts": 1791309600,
+    "bet365_id": "202192303"
+   },
+   "signals": [
+    {
+     "metric": "Oxford Utd: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 5.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Oxford Utd",
+     "serie": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "gegner": 5,
+     "erwartet": 4.3,
+     "fair": 1.38,
+     "fair_fin": 1.38,
+     "p_fin": 0.725,
+     "p_emp": 0.703,
+     "p_mod": 0.671,
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12408835",
+    "league": "England EFL Trophy",
+    "league_id": "394",
+    "home": "Milton Keynes Dons",
+    "away": "Brentford U21",
+    "home_id": "3079",
+    "away_id": "780669",
+    "kickoff": "Di 20:00",
+    "kickoff_ts": 1791309600,
+    "bet365_id": "202293662"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      46,
+      39
+     ],
+     "next_line": 9.5,
+     "next_note": "kein Anker — Milton Keynes Dons 10/12 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Brentford U21 7/9 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.7040967904450419,
+      0.6934863550970701
+     ],
+     "fair": 1.52,
+     "ladder": [
+      [
+       7.5,
+       1.27
+      ],
+      [
+       8.5,
+       1.52
+      ]
+     ],
+     "avg": [
+      10.0,
+      10.1
+     ],
+     "expect_sum": 10.0,
+     "expect_matchup": 10.8,
+     "contrib": [
+      5.7,
+      5.1
+     ],
+     "expect": 10.4,
+     "buffer": 1.9,
+     "fa": [
+      [
+       4.9,
+       4.5
+      ],
+      [
+       5.6,
+       4.5
+      ]
+     ],
+     "sd": 3.13,
+     "p_emp": {
+      "7.5": 0.7874015748031495,
+      "8.5": 0.6578947368421053
+     },
+     "range": [
+      1.62,
+      1.66
+     ],
+     "b365": [
+      "10.0",
+      "1.850",
+      "1.950"
+     ],
+     "p_mod": 0.728,
+     "p_fin": 0.69,
+     "kal": 0.95,
+     "fair_fin": 1.45,
+     "ladder_fin": [
+      [
+       7.5,
+       1.33
+      ],
+      [
+       8.5,
+       1.45
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.45",
+     "light": "🟢",
+     "first_run": "Di 08:27",
+     "change_note": "Quoten vorher 1.56–1.85"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12407253",
+    "league": "England EFL Trophy",
+    "league_id": "394",
+    "home": "Fleetwood Town",
+    "away": "Barnsley",
+    "home_id": "3073",
+    "away_id": "17195",
+    "kickoff": "Di 20:00",
+    "kickoff_ts": 1791309600,
+    "bet365_id": "202192294"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      41
+     ],
+     "next_line": 9.5,
+     "next_note": "Fleetwood Town 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+     "longterm": [
+      0.7410659361434236,
+      0.7429853420475484
+     ],
+     "fair": 1.46,
+     "ladder": [
+      [
+       7.5,
+       1.28
+      ],
+      [
+       8.5,
+       1.46
+      ]
+     ],
+     "avg": [
+      10.4,
+      10.7
+     ],
+     "expect_sum": 10.6,
+     "expect_matchup": 12.1,
+     "contrib": [
+      6.7,
+      5.4
+     ],
+     "expect": 11.3,
+     "buffer": 2.8,
+     "fa": [
+      [
+       5.0,
+       5.3
+      ],
+      [
+       5.8,
+       6.4
+      ]
+     ],
+     "sd": 4.16,
+     "p_emp": {
+      "7.5": 0.78125,
+      "8.5": 0.684931506849315
+     },
+     "range": [
+      1.2,
+      1.63
+     ],
+     "b365": [
+      "10.0",
+      "1.800",
+      "2.000"
+     ],
+     "p_mod": 0.75,
+     "p_fin": 0.704,
+     "kal": 0.95,
+     "fair_fin": 1.42,
+     "ladder_fin": [
+      [
+       7.5,
+       1.33
+      ],
+      [
+       8.5,
+       1.42
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.42",
+     "light": "🟢",
+     "first_run": "Di 08:27",
+     "change_note": "Quoten vorher 1.21–1.63"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12408336",
+    "league": "England EFL Trophy",
+    "league_id": "394",
+    "home": "Accrington Stanley",
+    "away": "Salford City",
+    "home_id": "3039",
+    "away_id": "1884",
+    "kickoff": "Di 20:00",
+    "kickoff_ts": 1791309600,
+    "bet365_id": "202192920"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      44
+     ],
+     "next_line": 8.5,
+     "next_note": "Salford City 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.8038345736929846,
+      0.8387933648403049
+     ],
+     "fair": 1.28,
+     "ladder": [
+      [
+       6.5,
+       1.29
+      ],
+      [
+       7.5,
+       1.28
+      ]
+     ],
+     "avg": [
+      10.1,
+      9.3
+     ],
+     "expect_sum": 9.7,
+     "expect_matchup": 10.0,
+     "contrib": [
+      4.7,
+      5.3
+     ],
+     "expect": 9.9,
+     "buffer": 2.4,
+     "fa": [
+      [
+       4.5,
+       5.6
+      ],
+      [
+       5.6,
+       4.4
+      ]
+     ],
+     "sd": 3.27,
+     "p_emp": {
+      "6.5": 0.7751937984496123,
+      "7.5": 0.78125
+     },
+     "range": [
+      1.49,
+      1.66
+     ],
+     "b365": [
+      "9.5",
+      "1.925",
+      "1.875"
+     ],
+     "p_mod": 0.769,
+     "p_fin": 0.737,
+     "kal": 0.95,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       6.5,
+       1.32
+      ],
+      [
+       7.5,
+       1.36
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.36",
+     "light": "🟢",
+     "first_run": "Di 08:27",
+     "change_note": "Quoten vorher 1.56–1.65"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12407267",
+    "league": "England EFL Trophy",
+    "league_id": "394",
+    "home": "AFC Wimbledon",
+    "away": "Barnet",
+    "home_id": "3041",
+    "away_id": "3080",
+    "kickoff": "Di 20:00",
+    "kickoff_ts": 1791309600,
+    "bet365_id": "202192312"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      42
+     ],
+     "next_line": 8.5,
+     "next_note": "kein Anker — AFC Wimbledon 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Barnet 9/11 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+     "longterm": [
+      0.8834321361582804,
+      0.799976606113511
+     ],
+     "fair": 1.26,
+     "ladder": [
+      [
+       6.5,
+       1.32
+      ],
+      [
+       7.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      10.4,
+      9.4
+     ],
+     "expect_sum": 9.9,
+     "expect_matchup": 10.3,
+     "contrib": [
+      4.0,
+      6.4
+     ],
+     "expect": 10.1,
+     "buffer": 2.6,
+     "fa": [
+      [
+       5.2,
+       5.0
+      ],
+      [
+       6.6,
+       3.7
+      ]
+     ],
+     "sd": 3.2,
+     "p_emp": {
+      "6.5": 0.7575757575757576,
+      "7.5": 0.7936507936507936
+     },
+     "range": [
+      1.205,
+      1.561
+     ],
+     "b365": [
+      "10.0",
+      "1.950",
+      "1.850"
+     ],
+     "p_mod": 0.792,
+     "p_fin": 0.747,
+     "kal": 0.95,
+     "fair_fin": 1.34,
+     "ladder_fin": [
+      [
+       6.5,
+       1.32
+      ],
+      [
+       7.5,
+       1.34
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.34",
+     "light": "🟢",
+     "first_run": "Di 08:27",
+     "change_note": "Quoten vorher 1.23–1.60"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13242173",
+    "league": "Gulf Cup",
+    "league_id": "8305",
+    "home": "Saudi Arabia",
+    "away": "United Arab Emirates",
+    "home_id": "4451",
+    "away_id": "4215",
+    "kickoff": "Di 20:00",
+    "kickoff_ts": 1791309600,
+    "bet365_id": "202358638"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      50
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Saudi Arabia 17/19 (3. Lücke) gesamt, 16/18 (3. Lücke) heim; United Arab Emirates 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.9901062657149202,
+      0.888888674890125
+     ],
+     "fair": 1.12,
+     "ladder": [
+      [
+       5.5,
+       1.12
+      ],
+      [
+       6.5,
+       1.05
+      ]
+     ],
+     "avg": [
+      2.3,
+      3.2
+     ],
+     "expect_sum": 2.8,
+     "expect_matchup": 1.9,
+     "contrib": [
+      1.2,
+      0.8
+     ],
+     "expect": 2.3,
+     "buffer": 3.2,
+     "fa": [
+      [
+       1.6,
+       1.5
+      ],
+      [
+       1.7,
+       1.9
+      ]
+     ],
+     "sd": 1.76,
+     "p_emp": {
+      "5.5": 0.8928571428571428,
+      "6.5": 0.9523809523809523
+     },
+     "range": [
+      1.19,
+      1.77
+     ],
+     "p_mod": 0.965,
+     "p_fin": 0.918,
+     "kal": 1.02,
+     "fair_fin": 1.09,
+     "ladder_fin": [
+      [
+       5.5,
+       1.09
+      ],
+      [
+       6.5,
+       1.06
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.09",
+     "light": "🟢",
+     "first_run": "Di 17:10"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      38,
+      31
+     ],
+     "next_line": 4.5,
+     "next_note": "Saudi Arabia 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.8068772242482697,
+      0.8368090315544551
+     ],
+     "fair": 1.22,
+     "ladder": [
+      [
+       5.5,
+       1.22
+      ],
+      [
+       6.5,
+       1.28
+      ]
+     ],
+     "avg": [
+      3.6,
+      3.4
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 3.4,
+     "contrib": [
+      1.6,
+      1.8
+     ],
+     "expect": 3.4,
+     "buffer": 2.1,
+     "fa": [
+      [
+       1.9,
+       2.3
+      ],
+      [
+       1.5,
+       1.7
+      ]
+     ],
+     "sd": 2.39,
+     "p_emp": {
+      "5.5": 0.819672131147541,
+      "6.5": 0.78125
+     },
+     "range": [
+      1.9,
+      1.9
+     ],
+     "p_mod": 0.81,
+     "p_fin": 0.825,
+     "kal": 1.0,
+     "fair_fin": 1.21,
+     "ladder_fin": [
+      [
+       5.5,
+       1.21
+      ],
+      [
+       6.5,
+       1.18
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.21",
+     "light": "🟢",
+     "first_run": "Di 17:10"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437366",
+    "league": "UEFA Nations League A",
+    "league_id": "30974",
+    "home": "Croatia",
+    "away": "Spain",
+    "home_id": "7781",
+    "away_id": "4504",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1791312300,
+    "bet365_id": "201151094"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      50,
+      48
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Croatia 23/25 (3. Lücke) gesamt, 14/16 (3. Lücke) heim; Spain 12/14 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+     "longterm": [
+      0.923983401671271,
+      0.8505235840217465
+     ],
+     "fair": 1.17,
+     "ladder": [
+      [
+       5.5,
+       1.17
+      ],
+      [
+       6.5,
+       1.09
+      ]
+     ],
+     "avg": [
+      2.4,
+      3.3
+     ],
+     "expect_sum": 2.8,
+     "expect_matchup": 2.0,
+     "contrib": [
+      1.1,
+      1.0
+     ],
+     "expect": 2.4,
+     "buffer": 3.1,
+     "fa": [
+      [
+       1.6,
+       1.3
+      ],
+      [
+       1.5,
+       2.2
+      ]
+     ],
+     "sd": 2.08,
+     "p_emp": {
+      "5.5": 0.8547008547008548,
+      "6.5": 0.9174311926605504
+     },
+     "range": [
+      1.57,
+      2.06
+     ],
+     "referee": "Erik Lambrechts: Ø 4.0 Karten (44 Sp.) · Ø 21.6 Fouls (36 Sp.)",
+     "expect_ref": 2.5,
+     "buffer_ref": 3.0,
+     "p_mod": 0.925,
+     "p_fin": 0.89,
+     "kal": 1.02,
+     "fair_fin": 1.12,
+     "ladder_fin": [
+      [
+       5.5,
+       1.12
+      ],
+      [
+       6.5,
+       1.08
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.12",
+     "light": "🟢",
+     "first_run": "Di 13:21",
+     "change_note": "Quoten vorher 1.51–2.50"
+    },
+    {
+     "metric": "Spain: Gelbe Karten",
+     "metric_key": "team_yellowcards_gast",
+     "line": 2.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Spain",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 10,
+     "erwartet": 1.2,
+     "fair": 1.18,
+     "fair_fin": 1.18,
+     "p_fin": 0.8484,
+     "p_emp": 0.809,
+     "p_mod": 0.878,
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437499",
+    "league": "UEFA Nations League C",
+    "league_id": "30976",
+    "home": "Belarus",
+    "away": "Finland",
+    "home_id": "3801",
+    "away_id": "3919",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1791312300,
+    "bet365_id": "201151079"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      50
+     ],
+     "next_line": 5.5,
+     "next_note": "Belarus 3/5 (3. Lücke) gesamt, 16/18 (3. Lücke) heim",
+     "longterm": [
+      0.8458854855032124,
+      0.9481018188091048
+     ],
+     "fair": 1.12,
+     "ladder": [
+      [
+       6.5,
+       1.12
+      ],
+      [
+       7.5,
+       1.23
+      ]
+     ],
+     "avg": [
+      3.4,
+      2.7
+     ],
+     "expect_sum": 3.1,
+     "expect_matchup": 2.4,
+     "contrib": [
+      1.4,
+      1.0
+     ],
+     "expect": 2.7,
+     "buffer": 3.8,
+     "fa": [
+      [
+       2.5,
+       1.7
+      ],
+      [
+       1.2,
+       1.6
+      ]
+     ],
+     "sd": 2.26,
+     "p_emp": {
+      "6.5": 0.8928571428571428,
+      "7.5": 0.8130081300813008
+     },
+     "range": [
+      1.21,
+      1.65
+     ],
+     "referee": "Sascha Stegemann: Ø 3.7 Karten (33 Sp.) · Ø 20.4 Fouls (29 Sp.)",
+     "expect_ref": 2.6,
+     "buffer_ref": 3.9,
+     "p_mod": 0.958,
+     "p_fin": 0.915,
+     "kal": 1.02,
+     "fair_fin": 1.09,
+     "ladder_fin": [
+      [
+       6.5,
+       1.09
+      ],
+      [
+       7.5,
+       1.12
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.09",
+     "light": "🟢",
+     "first_run": "Di 13:21",
+     "change_note": "Linie vorher 5.5; Quoten vorher 1.48–1.72"
+    },
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 20.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      29,
+      32
+     ],
+     "next_line": 22.5,
+     "next_note": "Finland 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.8672174831262718,
+      0.523958686502747
+     ],
+     "fair": 1.47,
+     "ladder": [
+      [
+       18.5,
+       1.27
+      ],
+      [
+       20.5,
+       1.47
+      ]
+     ],
+     "avg": [
+      27.0,
+      21.2
+     ],
+     "expect_sum": 24.1,
+     "expect_matchup": 23.9,
+     "contrib": [
+      12.3,
+      11.6
+     ],
+     "expect": 24.0,
+     "buffer": 3.5,
+     "fa": [
+      [
+       14.8,
+       12.4
+      ],
+      [
+       11.0,
+       10.0
+      ]
+     ],
+     "sd": 6.84,
+     "p_emp": {
+      "18.5": 0.7874015748031495,
+      "20.5": 0.6802721088435374
+     },
+     "range": [
+      1.46,
+      2.2
+     ],
+     "referee": "Sascha Stegemann: Ø 3.7 Karten (33 Sp.) · Ø 20.4 Fouls (29 Sp.)",
+     "expect_ref": 21.3,
+     "buffer_ref": 0.8,
+     "p_mod": 0.547,
+     "p_fin": 0.668,
+     "kal": null,
+     "fair_fin": 1.5,
+     "ladder_fin": [
+      [
+       18.5,
+       1.34
+      ],
+      [
+       20.5,
+       1.5
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "67 % knapp; Historie 68 % vs. Modell 55 %",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437500",
+    "league": "UEFA Nations League C",
+    "league_id": "30976",
+    "home": "Albania",
+    "away": "San Marino",
+    "home_id": "3898",
+    "away_id": "7149",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1791312300,
+    "bet365_id": "201151076"
+   },
+   "signals": [
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 20.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      30,
+      31
+     ],
+     "next_line": 22.5,
+     "next_note": "Albania 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; San Marino 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.695730202460821,
+      0.9374521134312507
+     ],
+     "fair": 1.32,
+     "ladder": [
+      [
+       18.5,
+       1.21
+      ],
+      [
+       20.5,
+       1.32
+      ]
+     ],
+     "avg": [
+      22.2,
+      27.2
+     ],
+     "expect_sum": 24.7,
+     "expect_matchup": 25.3,
+     "contrib": [
+      11.0,
+      14.3
+     ],
+     "expect": 25.0,
+     "buffer": 4.5,
+     "fa": [
+      [
+       10.7,
+       13.2
+      ],
+      [
+       13.6,
+       14.1
+      ]
+     ],
+     "sd": 5.92,
+     "p_emp": {
+      "18.5": 0.8264462809917356,
+      "20.5": 0.7575757575757576
+     },
+     "range": [
+      1.38,
+      2.02
+     ],
+     "referee": "Mehmet Turkmen: Ø 3.7 Karten (25 Sp.) · Ø 22.9 Fouls (18 Sp.)",
+     "expect_ref": 24.3,
+     "buffer_ref": 3.8,
+     "p_mod": 0.74,
+     "p_fin": 0.767,
+     "kal": null,
+     "fair_fin": 1.3,
+     "ladder_fin": [
+      [
+       18.5,
+       1.21
+      ],
+      [
+       20.5,
+       1.3
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.30",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437516",
+    "league": "UEFA Nations League C",
+    "league_id": "30976",
+    "home": "Moldova",
+    "away": "Slovakia",
+    "home_id": "7779",
+    "away_id": "7143",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1791312300,
+    "bet365_id": "201151083"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      50
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Moldova 15/17 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Slovakia 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.8208986448390032,
+      0.829093258676381
+     ],
+     "fair": 1.23,
+     "ladder": [
+      [
+       5.5,
+       1.23
+      ],
+      [
+       6.5,
+       1.13
+      ]
+     ],
+     "avg": [
+      3.7,
+      3.7
+     ],
+     "expect_sum": 3.7,
+     "expect_matchup": 3.5,
+     "contrib": [
+      2.0,
+      1.6
+     ],
+     "expect": 3.6,
+     "buffer": 1.9,
+     "fa": [
+      [
+       2.3,
+       1.8
+      ],
+      [
+       1.6,
+       2.0
+      ]
+     ],
+     "sd": 2.09,
+     "p_emp": {
+      "5.5": 0.8130081300813008,
+      "6.5": 0.8849557522123894
+     },
+     "range": [
+      1.37,
+      1.37
+     ],
+     "referee": "Yigal Frid: Ø 2.9 Karten (8 Sp.) · Ø 23.4 Fouls (5 Sp.)",
+     "expect_ref": 3.2,
+     "buffer_ref": 2.3,
+     "p_mod": 0.864,
+     "p_fin": 0.853,
+     "kal": 1.02,
+     "fair_fin": 1.17,
+     "ladder_fin": [
+      [
+       5.5,
+       1.17
+      ],
+      [
+       6.5,
+       1.1
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.17",
+     "light": "🟢",
+     "first_run": "Di 13:21",
+     "change_note": "Quoten vorher 1.36"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 3.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      32,
+      32
+     ],
+     "next_line": 2.5,
+     "next_note": "Moldova 6/8 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Slovakia 1/3 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.7618127226611521,
+      0.7771648924618813
+     ],
+     "fair": 1.44,
+     "ladder": [
+      [
+       3.5,
+       1.44
+      ],
+      [
+       4.5,
+       1.23
+      ]
+     ],
+     "avg": [
+      2.7,
+      2.4
+     ],
+     "expect_sum": 2.6,
+     "expect_matchup": 1.9,
+     "contrib": [
+      1.0,
+      0.8
+     ],
+     "expect": 2.2,
+     "buffer": 1.3,
+     "fa": [
+      [
+       1.5,
+       1.4
+      ],
+      [
+       1.6,
+       1.2
+      ]
+     ],
+     "sd": 1.58,
+     "p_emp": {
+      "3.5": 0.6944444444444444,
+      "4.5": 0.8130081300813008
+     },
+     "range": [
+      1.58,
+      1.75
+     ],
+     "p_mod": 0.795,
+     "p_fin": 0.773,
+     "kal": 1.0,
+     "fair_fin": 1.29,
+     "ladder_fin": [
+      [
+       3.5,
+       1.29
+      ],
+      [
+       4.5,
+       1.16
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.29",
+     "light": "🟢",
+     "first_run": "Di 13:21"
+    },
+    {
+     "metric": "Slovakia: Gelbe Karten",
+     "metric_key": "team_yellowcards_gast",
+     "line": 2.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Slovakia",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 10,
+     "erwartet": 1.4,
+     "fair": 1.29,
+     "fair_fin": 1.29,
+     "p_fin": 0.7731,
+     "p_emp": 0.751,
+     "p_mod": 0.784,
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437397",
+    "league": "UEFA Nations League B",
+    "league_id": "30973",
+    "home": "Scotland",
+    "away": "Slovenia",
+    "home_id": "7335",
+    "away_id": "7161",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1791312300,
+    "bet365_id": "201151111"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 8.5,
+     "next_note": "Scotland 3/5 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+     "longterm": [
+      0.7183092646580896,
+      0.600831728528312
+     ],
+     "fair": 1.51,
+     "ladder": [
+      [
+       6.5,
+       1.42
+      ],
+      [
+       7.5,
+       1.51
+      ]
+     ],
+     "avg": [
+      9.4,
+      9.4
+     ],
+     "expect_sum": 9.4,
+     "expect_matchup": 9.5,
+     "contrib": [
+      6.0,
+      3.5
+     ],
+     "expect": 9.4,
+     "buffer": 1.9,
+     "fa": [
+      [
+       4.9,
+       4.2
+      ],
+      [
+       3.7,
+       5.2
+      ]
+     ],
+     "sd": 3.42,
+     "p_emp": {
+      "6.5": 0.7042253521126761,
+      "7.5": 0.6622516556291391
+     },
+     "range": [
+      1.7,
+      1.7
+     ],
+     "b365": [
+      "9.0",
+      "1.850",
+      "1.950"
+     ],
+     "p_mod": 0.711,
+     "p_fin": 0.686,
+     "kal": 0.95,
+     "fair_fin": 1.46,
+     "ladder_fin": [
+      [
+       6.5,
+       1.38
+      ],
+      [
+       7.5,
+       1.46
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.46",
+     "light": "🟢",
+     "first_run": "Di 17:10"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 5.5,
+     "next_note": "kein Anker — Scotland 13/15 (3. Lücke) gesamt, 21/23 (3. Lücke) heim; Slovenia 13/15 (3. Lücke) gesamt, 10/12 (3. Lücke) auswärts",
+     "longterm": [
+      0.9500017377008498,
+      0.956847607260199
+     ],
+     "fair": 1.07,
+     "ladder": [
+      [
+       6.5,
+       1.07
+      ],
+      [
+       7.5,
+       1.2
+      ]
+     ],
+     "avg": [
+      3.1,
+      3.7
+     ],
+     "expect_sum": 3.4,
+     "expect_matchup": 3.1,
+     "contrib": [
+      0.9,
+      2.2
+     ],
+     "expect": 3.3,
+     "buffer": 3.2,
+     "fa": [
+      [
+       1.6,
+       2.2
+      ],
+      [
+       1.9,
+       1.9
+      ]
+     ],
+     "sd": 1.82,
+     "p_emp": {
+      "6.5": 0.9345794392523364,
+      "7.5": 0.8333333333333334
+     },
+     "range": [
+      1.54,
+      1.92
+     ],
+     "referee": "Jose Maria Sanchez Martinez: Ø 4.6 Karten (47 Sp.) · Ø 25.2 Fouls (41 Sp.)",
+     "expect_ref": 3.9,
+     "buffer_ref": 2.6,
+     "p_mod": 0.923,
+     "p_fin": 0.918,
+     "kal": 1.02,
+     "fair_fin": 1.09,
+     "ladder_fin": [
+      [
+       6.5,
+       1.09
+      ],
+      [
+       7.5,
+       1.11
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.09",
+     "light": "🟢",
+     "first_run": "Di 17:10",
+     "change_note": "Linie vorher 5.5"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 3.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      36,
+      32
+     ],
+     "next_line": 2.5,
+     "next_note": "Scotland 6/8 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; Slovenia 2/4 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.6457092156618182,
+      0.7884658539480551
+     ],
+     "fair": 1.51,
+     "ladder": [
+      [
+       3.5,
+       1.51
+      ],
+      [
+       4.5,
+       1.22
+      ]
+     ],
+     "avg": [
+      2.6,
+      2.9
+     ],
+     "expect_sum": 2.7,
+     "expect_matchup": 2.1,
+     "contrib": [
+      1.1,
+      1.0
+     ],
+     "expect": 2.4,
+     "buffer": 1.1,
+     "fa": [
+      [
+       1.2,
+       2.1
+      ],
+      [
+       1.4,
+       1.7
+      ]
+     ],
+     "sd": 1.75,
+     "p_emp": {
+      "3.5": 0.6622516556291391,
+      "4.5": 0.819672131147541
+     },
+     "range": [
+      1.35,
+      1.96
+     ],
+     "p_mod": 0.735,
+     "p_fin": 0.739,
+     "kal": 1.0,
+     "fair_fin": 1.35,
+     "ladder_fin": [
+      [
+       3.5,
+       1.35
+      ],
+      [
+       4.5,
+       1.17
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.35",
+     "light": "🟢",
+     "first_run": "Di 17:10"
+    },
+    {
+     "metric": "Scotland: Gelbe Karten",
+     "metric_key": "team_yellowcards_heim",
+     "line": 2.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Scotland",
+     "serie": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 15
+     },
+     "gegner": 8,
+     "erwartet": 1.5,
+     "fair": 1.28,
+     "fair_fin": 1.28,
+     "p_fin": 0.779,
+     "p_emp": 0.747,
+     "p_mod": 0.8,
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13240942",
+    "league": "England FA Cup Qualification",
+    "league_id": "619",
+    "home": "Wingate & Finchley",
+    "away": "Bedford Town",
+    "home_id": "46573",
+    "away_id": "173008",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1791312300,
+    "bet365_id": "202345469"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      22,
+      45
+     ],
+     "next_line": 9.5,
+     "next_note": "kein Anker — Wingate & Finchley 5/7 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Bedford Town 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.6681736988636751,
+      0.7926232097351481
+     ],
+     "fair": 1.47,
+     "ladder": [
+      [
+       7.5,
+       1.34
+      ],
+      [
+       8.5,
+       1.47
+      ]
+     ],
+     "avg": [
+      9.3,
+      11.2
+     ],
+     "expect_sum": 10.2,
+     "expect_matchup": 11.1,
+     "contrib": [
+      6.7,
+      4.5
+     ],
+     "expect": 10.7,
+     "buffer": 2.2,
+     "fa": [
+      [
+       3.7,
+       5.9
+      ],
+      [
+       4.7,
+       6.4
+      ]
+     ],
+     "sd": 4.28,
+     "p_emp": {
+      "7.5": 0.7462686567164178,
+      "8.5": 0.6802721088435374
+     },
+     "range": [
+      1.43,
+      1.43
+     ],
+     "p_mod": 0.696,
+     "p_fin": 0.687,
+     "kal": 0.95,
+     "fair_fin": 1.46,
+     "ladder_fin": [
+      [
+       7.5,
+       1.37
+      ],
+      [
+       8.5,
+       1.46
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.46",
+     "light": "🟢",
+     "first_run": "Di 13:21"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11679560",
+    "league": "UEFA Nations League C",
+    "league_id": "30976",
+    "home": "Luxembourg",
+    "away": "Bulgaria",
+    "home_id": "5120",
+    "away_id": "8500",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1791312300,
+    "bet365_id": "201151081"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      49
+     ],
+     "next_line": 5.5,
+     "next_note": "Luxembourg 1/3 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+     "longterm": [
+      0.7964480028943273,
+      0.8826999018378826
+     ],
+     "fair": 1.18,
+     "ladder": [
+      [
+       6.5,
+       1.18
+      ],
+      [
+       7.5,
+       1.31
+      ]
+     ],
+     "avg": [
+      5.0,
+      3.8
+     ],
+     "expect_sum": 4.4,
+     "expect_matchup": 4.9,
+     "contrib": [
+      2.4,
+      2.5
+     ],
+     "expect": 4.6,
+     "buffer": 1.9,
+     "fa": [
+      [
+       2.6,
+       2.3
+      ],
+      [
+       2.1,
+       2.1
+      ]
+     ],
+     "sd": 2.5,
+     "p_emp": {
+      "6.5": 0.8474576271186441,
+      "7.5": 0.7633587786259541
+     },
+     "range": [
+      1.77,
+      1.77
+     ],
+     "referee": "Andris Treimanis: Ø 4.7 Karten (25 Sp.) · Ø 23.9 Fouls (19 Sp.)",
+     "expect_ref": 5.4,
+     "buffer_ref": 1.1,
+     "p_mod": 0.67,
+     "p_fin": 0.795,
+     "kal": 1.02,
+     "fair_fin": 1.26,
+     "ladder_fin": [
+      [
+       6.5,
+       1.26
+      ],
+      [
+       7.5,
+       1.23
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 85 % vs. Modell 67 %",
+     "light": "🟢",
+     "first_run": "Di 13:21",
+     "change_note": "Quoten vorher 1.70"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      32,
+      32
+     ],
+     "next_line": 4.5,
+     "next_note": "Luxembourg 0/2 (3. Lücke) gesamt, 8/10 (3. Lücke) heim",
+     "longterm": [
+      0.9252158834877524,
+      0.8939752438534291
+     ],
+     "fair": 1.14,
+     "ladder": [
+      [
+       5.5,
+       1.14
+      ],
+      [
+       6.5,
+       1.27
+      ]
+     ],
+     "avg": [
+      3.0,
+      2.2
+     ],
+     "expect_sum": 2.6,
+     "expect_matchup": 1.9,
+     "contrib": [
+      1.2,
+      0.7
+     ],
+     "expect": 2.3,
+     "buffer": 3.2,
+     "fa": [
+      [
+       1.9,
+       1.4
+      ],
+      [
+       1.5,
+       2.0
+      ]
+     ],
+     "sd": 2.0,
+     "p_emp": {
+      "5.5": 0.8771929824561404,
+      "6.5": 0.7874015748031495
+     },
+     "range": [
+      1.27,
+      1.82
+     ],
+     "p_mod": 0.945,
+     "p_fin": 0.896,
+     "kal": 1.0,
+     "fair_fin": 1.12,
+     "ladder_fin": [
+      [
+       5.5,
+       1.12
+      ],
+      [
+       6.5,
+       1.14
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.12",
+     "light": "🟢",
+     "first_run": "Di 13:21",
+     "change_note": "Linie vorher 4.5"
+    },
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 18.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      34,
+      35
+     ],
+     "next_line": 20.5,
+     "next_note": "kein Anker — Luxembourg 8/10 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; Bulgaria 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8242730606949399,
+      0.7685548012557658
+     ],
+     "fair": 1.28,
+     "ladder": [
+      [
+       16.5,
+       1.34
+      ],
+      [
+       18.5,
+       1.28
+      ]
+     ],
+     "avg": [
+      24.6,
+      22.0
+     ],
+     "expect_sum": 23.3,
+     "expect_matchup": 22.6,
+     "contrib": [
+      11.4,
+      11.2
+     ],
+     "expect": 23.0,
+     "buffer": 4.5,
+     "fa": [
+      [
+       12.1,
+       12.4
+      ],
+      [
+       11.9,
+       12.8
+      ]
+     ],
+     "sd": 6.42,
+     "p_emp": {
+      "16.5": 0.7462686567164178,
+      "18.5": 0.78125
+     },
+     "range": [
+      1.55,
+      2.06
+     ],
+     "referee": "Andris Treimanis: Ø 4.7 Karten (25 Sp.) · Ø 23.9 Fouls (19 Sp.)",
+     "expect_ref": 23.1,
+     "buffer_ref": 4.6,
+     "p_mod": 0.763,
+     "p_fin": 0.784,
+     "kal": null,
+     "fair_fin": 1.28,
+     "ladder_fin": [
+      [
+       16.5,
+       1.25
+      ],
+      [
+       18.5,
+       1.28
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.28",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437527",
+    "league": "UEFA Nations League C",
+    "league_id": "30976",
+    "home": "Estonia",
+    "away": "Iceland",
+    "home_id": "3620",
+    "away_id": "7785",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1791312300,
+    "bet365_id": "201151085"
+   },
+   "signals": [
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 18.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      35,
+      27
+     ],
+     "next_line": 20.5,
+     "next_note": "Iceland 7/9 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8338189929175043,
+      0.7840167712928311
+     ],
+     "fair": 1.26,
+     "ladder": [
+      [
+       16.5,
+       1.28
+      ],
+      [
+       18.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      22.9,
+      22.1
+     ],
+     "expect_sum": 22.5,
+     "expect_matchup": 21.2,
+     "contrib": [
+      11.8,
+      9.5
+     ],
+     "expect": 21.8,
+     "buffer": 3.3,
+     "fa": [
+      [
+       12.8,
+       9.7
+      ],
+      [
+       12.0,
+       11.7
+      ]
+     ],
+     "sd": 5.57,
+     "p_emp": {
+      "16.5": 0.78125,
+      "18.5": 0.7936507936507936
+     },
+     "range": [
+      1.42,
+      1.96
+     ],
+     "referee": "David Dickinson: Ø 4.1 Karten (32 Sp.) · Ø 20.8 Fouls (12 Sp.)",
+     "expect_ref": 20.1,
+     "buffer_ref": 1.6,
+     "p_mod": 0.613,
+     "p_fin": 0.734,
+     "kal": null,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       16.5,
+       1.29
+      ],
+      [
+       18.5,
+       1.36
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 79 % vs. Modell 61 %",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11437345",
+    "league": "UEFA Nations League B",
+    "league_id": "30973",
+    "home": "Switzerland",
+    "away": "North Macedonia",
+    "home_id": "8509",
+    "away_id": "268556",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1791312300,
+    "bet365_id": "201151071"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      50
+     ],
+     "next_line": 5.5,
+     "next_note": "kein Anker — Switzerland 36/38 (3. Lücke) gesamt, 21/23 (Aussetzer in den letzten 2) heim; North Macedonia 12/14 (3. Lücke) gesamt, 25/26 auswärts",
+     "longterm": [
+      0.9871960331806129,
+      0.9512748906347646
+     ],
+     "fair": 1.06,
+     "ladder": [
+      [
+       6.5,
+       1.06
+      ],
+      [
+       7.5,
+       1.18
+      ]
+     ],
+     "avg": [
+      3.2,
+      2.9
+     ],
+     "expect_sum": 3.1,
+     "expect_matchup": 2.5,
+     "contrib": [
+      0.8,
+      1.7
+     ],
+     "expect": 2.8,
+     "buffer": 3.7,
+     "fa": [
+      [
+       1.5,
+       2.1
+      ],
+      [
+       2.1,
+       1.8
+      ]
+     ],
+     "sd": 1.82,
+     "p_emp": {
+      "6.5": 0.9433962264150942,
+      "7.5": 0.8474576271186441
+     },
+     "range": [
+      1.31,
+      1.67
+     ],
+     "referee": "Edgars Malcevs: Ø 5.0 Karten (4 Sp.) · Ø 23.5 Fouls (2 Sp.)",
+     "expect_ref": 3.1,
+     "buffer_ref": 3.4,
+     "p_mod": 0.969,
+     "p_fin": 0.938,
+     "kal": 1.02,
+     "fair_fin": 1.07,
+     "ladder_fin": [
+      [
+       6.5,
+       1.07
+      ],
+      [
+       7.5,
+       1.1
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.07",
+     "light": "🟢",
+     "first_run": "Di 17:10",
+     "change_note": "Linie vorher 5.5"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      32,
+      33
+     ],
+     "next_line": 3.5,
+     "next_note": "Switzerland 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.8804312809971183,
+      0.7659655397130779
+     ],
+     "fair": 1.28,
+     "ladder": [
+      [
+       4.5,
+       1.28
+      ],
+      [
+       5.5,
+       1.16
+      ]
+     ],
+     "avg": [
+      3.4,
+      3.3
+     ],
+     "expect_sum": 3.4,
+     "expect_matchup": 3.4,
+     "contrib": [
+      2.1,
+      1.2
+     ],
+     "expect": 3.4,
+     "buffer": 1.1,
+     "fa": [
+      [
+       1.8,
+       1.5
+      ],
+      [
+       2.0,
+       1.7
+      ]
+     ],
+     "sd": 2.03,
+     "p_emp": {
+      "4.5": 0.78125,
+      "5.5": 0.8620689655172414
+     },
+     "range": [
+      1.34,
+      2.35
+     ],
+     "p_mod": 0.706,
+     "p_fin": 0.772,
+     "kal": 1.0,
+     "fair_fin": 1.29,
+     "ladder_fin": [
+      [
+       4.5,
+       1.29
+      ],
+      [
+       5.5,
+       1.17
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.29",
+     "light": "🟢",
+     "first_run": "Di 17:10"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13248878",
+    "league": "CONCACAF Nations League",
+    "league_id": "14717",
+    "home": "Saint Martin",
+    "away": "Bahamas",
+    "home_id": "196011",
+    "away_id": "234779",
+    "kickoff": "Di 22:00",
+    "kickoff_ts": 1791316800,
+    "bet365_id": "202316240"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      31,
+      40
+     ],
+     "next_line": 3.5,
+     "next_note": "Saint Martin 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.763147348806029,
+      0.7999061212263631
+     ],
+     "fair": 1.39,
+     "ladder": [
+      [
+       1.5,
+       1.17
+      ],
+      [
+       2.5,
+       1.39
+      ]
+     ],
+     "avg": [
+      3.1,
+      4.3
+     ],
+     "expect_sum": 3.7,
+     "expect_matchup": 4.0,
+     "contrib": [
+      3.0,
+      1.0
+     ],
+     "expect": 3.9,
+     "buffer": 1.4,
+     "fa": [
+      [
+       2.2,
+       1.9
+      ],
+      [
+       0.9,
+       3.2
+      ]
+     ],
+     "sd": 2.43,
+     "p_emp": {
+      "1.5": 0.8547008547008548,
+      "2.5": 0.7194244604316548
+     },
+     "no_odds_check": true,
+     "p_mod": 0.718,
+     "p_fin": 0.701,
+     "kal": 0.94,
+     "fair_fin": 1.43,
+     "ladder_fin": [
+      [
+       1.5,
+       1.25
+      ],
+      [
+       2.5,
+       1.43
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.43",
+     "light": "🟢",
+     "first_run": "Di 08:27"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13248532",
+    "league": "CONCACAF Nations League",
+    "league_id": "14717",
+    "home": "St. Vincent/Grenadines",
+    "away": "Sint Maarten",
+    "home_id": "5258",
+    "away_id": "269059",
+    "kickoff": "Di 23:00",
+    "kickoff_ts": 1791320400,
+    "bet365_id": "202316236"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      31
+     ],
+     "next_line": 4.5,
+     "next_note": "Sint Maarten 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.9503019917404342,
+      0.9168118162056269
+     ],
+     "fair": 1.13,
+     "ladder": [
+      [
+       5.5,
+       1.13
+      ],
+      [
+       6.5,
+       1.06
+      ]
+     ],
+     "avg": [
+      2.6,
+      3.2
+     ],
+     "expect_sum": 2.9,
+     "expect_matchup": 2.2,
+     "contrib": [
+      1.6,
+      0.7
+     ],
+     "expect": 2.6,
+     "buffer": 2.9,
+     "fa": [
+      [
+       1.6,
+       1.2
+      ],
+      [
+       1.1,
+       1.9
+      ]
+     ],
+     "sd": 1.72,
+     "p_emp": {
+      "5.5": 0.8849557522123894,
+      "6.5": 0.9433962264150942
+     },
+     "range": [
+      1.55,
+      1.55
+     ],
+     "p_mod": 0.954,
+     "p_fin": 0.911,
+     "kal": 1.02,
+     "fair_fin": 1.1,
+     "ladder_fin": [
+      [
+       5.5,
+       1.1
+      ],
+      [
+       6.5,
+       1.06
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.10",
+     "light": "🟢",
+     "first_run": "Di 13:21"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      46,
+      30
+     ],
+     "next_line": 1.5,
+     "next_note": "St. Vincent/Grenadines 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Sint Maarten 0/2 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.7459309603691996,
+      0.7971253516052418
+     ],
+     "fair": 1.34,
+     "ladder": [
+      [
+       0.5,
+       1.34
+      ]
+     ],
+     "avg": [
+      1.2,
+      1.2
+     ],
+     "expect_sum": 1.2,
+     "expect_matchup": 1.1,
+     "contrib": [
+      0.7,
+      0.4
+     ],
+     "expect": 1.2,
+     "buffer": 0.7,
+     "fa": [
+      [
+       0.3,
+       0.8
+      ],
+      [
+       0.5,
+       0.7
+      ]
+     ],
+     "sd": 0.88,
+     "p_emp": {
+      "0.5": 0.7462686567164178
+     },
+     "range": [
+      1.55,
+      1.55
+     ],
+     "p_mod": 0.787,
+     "p_fin": 0.76,
+     "kal": 0.97,
+     "fair_fin": 1.32,
+     "ladder_fin": [
+      [
+       0.5,
+       1.32
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.32",
+     "light": "🟢",
+     "first_run": "Di 13:21"
+    },
+    {
+     "metric": "Sint Maarten: Gelbe Karten",
+     "metric_key": "team_yellowcards_gast",
+     "line": 2.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Sint Maarten",
+     "serie": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 15
+     },
+     "gegner": 10,
+     "erwartet": 1.1,
+     "fair": 1.11,
+     "fair_fin": 1.11,
+     "p_fin": 0.9006,
+     "p_emp": 0.836,
+     "p_mod": 0.957,
+     "light": "🟢"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "doublechance": 65,
+  "totals": 75,
+  "btts": 40,
+  "handicaps": 41,
+  "corners": 33,
+  "results": 34,
+  "cards": 10,
+  "shots": 9,
+  "offsides": 8,
+  "fouls": 9,
+  "correctscore": 5
+ },
+ "dauer_s": 48,
+ "zeit": {
+  "historie": 0,
+  "pruefung": 0,
+  "scores24": 38,
+  "extras": 86,
+  "vorlauf": 12,
+  "spiele": 36
+ },
+ "teams_nachgeladen": 0,
+ "s24": {
+  "ok": 75,
+  "no_link": 2,
+  "fetch_fail": 11
+ },
+ "new": [
+  "12407263|team_corners_heim|über",
+  "12460871|team_corners_gast|über",
+  "12407284|team_corners_gast|unter",
+  "11437366|team_yellowcards_gast|unter",
+  "11437499|fouls|über",
+  "11437500|fouls|über",
+  "11437516|team_yellowcards_gast|unter",
+  "11437397|team_yellowcards_heim|unter",
+  "11679560|fouls|über",
+  "11437527|fouls|über",
+  "13248532|team_yellowcards_gast|unter"
+ ],
+ "changed": [
+  "12407302|corners|über",
+  "12408835|corners|über",
+  "12407253|corners|über",
+  "12408336|corners|über",
+  "12407267|corners|über",
+  "11437366|yellowcards|unter",
+  "11437499|yellowcards|unter",
+  "11437516|yellowcards|unter",
+  "11437397|yellowcards|unter",
+  "11679560|yellowcards|unter",
+  "11679560|offsides|unter",
+  "11437345|yellowcards|unter"
+ ],
+ "dropped": [
+  "12407271|corners|über",
+  "11437500|yellowcards|unter",
+  "11437516|corners|über",
+  "11679560|ht_yellowcards|über",
+  "12407260|corners|über"
+ ],
+ "team_totals": [
+  {
+   "match": {
+    "id": "12407263",
+    "league": "England EFL Trophy",
+    "league_id": "394",
+    "home": "Cambridge Utd",
+    "away": "Northampton",
+    "home_id": "3016",
+    "away_id": "3081",
+    "kickoff": "Di 20:00",
+    "kickoff_ts": 1791309600,
+    "bet365_id": "202192967"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Cambridge Utd",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7732,
+    "fair": 1.29,
+    "p_emp": 0.746,
+    "p_mod": 0.848,
+    "erwartet": 5.9,
+    "basis": 43,
+    "gegner": 5
+   }
+  },
+  {
+   "match": {
+    "id": "12460871",
+    "league": "England EFL Trophy",
+    "league_id": "394",
+    "home": "Doncaster",
+    "away": "Liverpool U21",
+    "home_id": "3076",
+    "away_id": "294358",
+    "kickoff": "Di 20:00",
+    "kickoff_ts": 1791309600,
+    "bet365_id": "202192954"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Liverpool U21",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7575,
+    "fair": 1.32,
+    "p_emp": 0.754,
+    "p_mod": 0.8,
+    "erwartet": 6.4,
+    "basis": 47,
+    "gegner": 8
+   }
+  },
+  {
+   "match": {
+    "id": "12407284",
+    "league": "England EFL Trophy",
+    "league_id": "394",
+    "home": "Exeter",
+    "away": "Oxford Utd",
+    "home_id": "3036",
+    "away_id": "3035",
+    "kickoff": "Di 20:00",
+    "kickoff_ts": 1791309600,
+    "bet365_id": "202192303"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Oxford Utd",
+    "line": 5.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "auswärts",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.725,
+    "fair": 1.38,
+    "p_emp": 0.703,
+    "p_mod": 0.671,
+    "erwartet": 4.3,
+    "basis": 43,
+    "gegner": 5
+   }
+  },
+  {
+   "match": {
+    "id": "11437366",
+    "league": "UEFA Nations League A",
+    "league_id": "30974",
+    "home": "Croatia",
+    "away": "Spain",
+    "home_id": "7781",
+    "away_id": "4504",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1791312300,
+    "bet365_id": "201151094"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "gast",
+    "team": "Spain",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.8484,
+    "fair": 1.18,
+    "p_emp": 0.809,
+    "p_mod": 0.878,
+    "erwartet": 1.2,
+    "basis": 48,
+    "gegner": 10
+   }
+  },
+  {
+   "match": {
+    "id": "11437516",
+    "league": "UEFA Nations League C",
+    "league_id": "30976",
+    "home": "Moldova",
+    "away": "Slovakia",
+    "home_id": "7779",
+    "away_id": "7143",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1791312300,
+    "bet365_id": "201151083"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "gast",
+    "team": "Slovakia",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7731,
+    "fair": 1.29,
+    "p_emp": 0.751,
+    "p_mod": 0.784,
+    "erwartet": 1.4,
+    "basis": 50,
+    "gegner": 10
+   }
+  },
+  {
+   "match": {
+    "id": "11437397",
+    "league": "UEFA Nations League B",
+    "league_id": "30973",
+    "home": "Scotland",
+    "away": "Slovenia",
+    "home_id": "7335",
+    "away_id": "7161",
+    "kickoff": "Di 20:45",
+    "kickoff_ts": 1791312300,
+    "bet365_id": "201151111"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "heim",
+    "team": "Scotland",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 15
+    },
+    "p": 0.779,
+    "fair": 1.28,
+    "p_emp": 0.747,
+    "p_mod": 0.8,
+    "erwartet": 1.5,
+    "basis": 50,
+    "gegner": 8
+   }
+  },
+  {
+   "match": {
+    "id": "13248532",
+    "league": "CONCACAF Nations League",
+    "league_id": "14717",
+    "home": "St. Vincent/Grenadines",
+    "away": "Sint Maarten",
+    "home_id": "5258",
+    "away_id": "269059",
+    "kickoff": "Di 23:00",
+    "kickoff_ts": 1791320400,
+    "bet365_id": "202316236"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "gast",
+    "team": "Sint Maarten",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "auswärts",
+     "hits": 15,
+     "window": 15
+    },
+    "p": 0.9006,
+    "fair": 1.11,
+    "p_emp": 0.836,
+    "p_mod": 0.957,
+    "erwartet": 1.1,
+    "basis": 31,
+    "gegner": 10
+   }
+  }
+ ],
+ "neue_maerkte": []
+}
