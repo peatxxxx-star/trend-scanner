@@ -1,18 +1,18 @@
 {
- "12315891|goals|über": {
-  "match_id": "12315891",
-  "home": "Cuba",
-  "away": "St. Kitts and Nevis",
-  "kickoff": "Mo 23:00",
-  "kickoff_ts": 1791234000,
-  "league": "CONCACAF Nations League",
+ "13250710|goals|über": {
+  "match_id": "13250710",
+  "home": "Tboung Khmum",
+  "away": "Kampong Speu",
+  "kickoff": "Di 10:30",
+  "kickoff_ts": 1791275400,
+  "league": "Cambodia Cup",
   "metric": "Tore",
   "metric_key": "goals",
   "direction": "über",
-  "first_run": "Mo 09:00",
+  "first_run": "Di 08:27",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Mo 22:46",
+  "last_run": "Di 08:27",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -21,7 +21,125 @@
    "direction": "über",
    "line": 2.5,
    "home_series": {
-    "kind": "heim",
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    23,
+    32
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — Tboung Khmum 9/11 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Kampong Speu 13/15 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.733196357922278,
+    0.7861750194769124
+   ],
+   "fair": 1.43,
+   "ladder": [
+    [
+     1.5,
+     1.15
+    ],
+    [
+     2.5,
+     1.43
+    ]
+   ],
+   "avg": [
+    4.5,
+    4.5
+   ],
+   "expect": 5.5,
+   "expect_sum": 4.5,
+   "expect_matchup": 6.4,
+   "contrib": [
+    3.6,
+    2.8
+   ],
+   "buffer": 3.0,
+   "fa": [
+    [
+     3.0,
+     1.9
+    ],
+    [
+     1.7,
+     2.1
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.94,
+   "p_emp": {
+    "1.5": 0.8695652173913044,
+    "2.5": 0.6993006993006994
+   },
+   "p_mod": 0.846,
+   "p_fin": 0.726,
+   "fair_fin": 1.38,
+   "ladder_fin": [
+    [
+     1.5,
+     1.19
+    ],
+    [
+     2.5,
+     1.38
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 70 % vs. Modell 85 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13096334|corners|über": {
+  "match_id": "13096334",
+  "home": "Shenzhen 2028",
+  "away": "Shandong Taishan Reserves",
+  "kickoff": "Di 13:30",
+  "kickoff_ts": 1791286200,
+  "league": "China Division 2",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Di 08:27",
+  "first_line": 7.5,
+  "first_range": [
+   1.311,
+   1.743
+  ],
+  "last_run": "Di 08:27",
+  "line": 7.5,
+  "range": [
+   1.311,
+   1.743
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
     "hits": 5,
     "window": 6
    },
@@ -36,65 +154,753 @@
     50,
     50
    ],
-   "next_line": 3.5,
-   "next_note": "Cuba 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; St. Kitts and Nevis 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "next_line": 8.5,
+   "next_note": "kein Anker — Shenzhen 2028 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Shandong Taishan Reserves 7/9 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
    "longterm": [
-    0.6075814326712915,
-    0.6844684036976475
+    0.6946808061345794,
+    0.7879599646252196
    ],
-   "fair": 1.6,
+   "fair": 1.38,
    "ladder": [
     [
-     1.5,
-     1.23
+     6.5,
+     1.36
     ],
     [
-     2.5,
-     1.6
+     7.5,
+     1.38
     ]
    ],
    "avg": [
-    2.7,
-    3.8
+    8.7,
+    9.7
    ],
-   "expect": 3.5,
-   "expect_sum": 3.3,
-   "expect_matchup": 3.7,
+   "expect": 9.1,
+   "expect_sum": 9.2,
+   "expect_matchup": 9.0,
    "contrib": [
-    2.9,
-    0.8
+    5.2,
+    3.9
    ],
-   "buffer": 1.0,
+   "buffer": 1.6,
    "fa": [
     [
-     1.3,
-     1.5
+     5.1,
+     4.0
     ],
     [
-     1.3,
+     5.0,
+     3.9
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "9.0",
+    "2.025",
+    "1.775"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.11,
+   "p_emp": {
+    "6.5": 0.7352941176470588,
+    "7.5": 0.7246376811594204
+   },
+   "p_mod": 0.697,
+   "p_fin": 0.675,
+   "fair_fin": 1.48,
+   "ladder_fin": [
+    [
+     6.5,
+     1.37
+    ],
+    [
+     7.5,
+     1.48
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "68 % knapp",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": [
+    1.311,
+    1.743
+   ]
+  },
+  "v": 2
+ },
+ "12411086|goals|über": {
+  "match_id": "12411086",
+  "home": "Hull U21",
+  "away": "Wigan U21",
+  "kickoff": "Di 14:00",
+  "kickoff_ts": 1791288000,
+  "league": "England Development League 2",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Di 08:27",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Di 08:27",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "heim",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    44
+   ],
+   "next_line": 3.5,
+   "next_note": "Hull U21 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) heim",
+   "longterm": [
+    0.6853791320168153,
+    0.8428363280255673
+   ],
+   "fair": 1.42,
+   "ladder": [
+    [
+     1.5,
+     1.11
+    ],
+    [
+     2.5,
+     1.42
+    ]
+   ],
+   "avg": [
+    3.8,
+    4.5
+   ],
+   "expect": 4.8,
+   "expect_sum": 4.2,
+   "expect_matchup": 5.5,
+   "contrib": [
+    2.6,
+    2.9
+   ],
+   "buffer": 2.3,
+   "fa": [
+    [
+     1.7,
      1.9
+    ],
+    [
+     2.2,
+     2.3
     ]
    ],
    "referee": null,
    "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 1.96,
+   "sd": 2.01,
    "p_emp": {
-    "1.5": 0.8130081300813008,
-    "2.5": 0.625
+    "1.5": 0.9009009009009008,
+    "2.5": 0.7042253521126761
    },
-   "p_mod": 0.695,
-   "p_fin": 0.62,
-   "fair_fin": 1.61,
+   "p_mod": 0.874,
+   "p_fin": 0.742,
+   "fair_fin": 1.35,
    "ladder_fin": [
     [
      1.5,
-     1.28
+     1.15
     ],
     [
      2.5,
-     1.61
+     1.35
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 70 % vs. Modell 87 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "12411126|goals|über": {
+  "match_id": "12411126",
+  "home": "Bristol City U21",
+  "away": "Charlton U21",
+  "kickoff": "Di 14:00",
+  "kickoff_ts": 1791288000,
+  "league": "England Development League 2",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Di 08:27",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Di 08:27",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    41
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — Bristol City U21 6/8 (3. Lücke) gesamt, 9/11 (3. Lücke) heim; Charlton U21 3/5 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.8262186786635943,
+    0.7372570746989163
+   ],
+   "fair": 1.39,
+   "ladder": [
+    [
+     1.5,
+     1.18
+    ],
+    [
+     2.5,
+     1.39
+    ]
+   ],
+   "avg": [
+    3.9,
+    4.0
+   ],
+   "expect": 4.6,
+   "expect_sum": 3.9,
+   "expect_matchup": 5.2,
+   "contrib": [
+    3.6,
+    1.5
+   ],
+   "buffer": 2.1,
+   "fa": [
+    [
+     1.9,
+     1.9
+    ],
+    [
+     1.8,
+     1.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.62,
+   "p_emp": {
+    "1.5": 0.8474576271186441,
+    "2.5": 0.7194244604316548
+   },
+   "p_mod": 0.903,
+   "p_fin": 0.762,
+   "fair_fin": 1.31,
+   "ladder_fin": [
+    [
+     1.5,
+     1.17
+    ],
+    [
+     2.5,
+     1.31
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 72 % vs. Modell 90 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "12411508|goals|über": {
+  "match_id": "12411508",
+  "home": "FC Rukh Lviv U19",
+  "away": "Metalurg Zaporizhya U19",
+  "kickoff": "Di 14:00",
+  "kickoff_ts": 1791288000,
+  "league": "Ukraine Youth League",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Di 08:27",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Di 08:27",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    48,
+    49
+   ],
+   "next_line": 3.5,
+   "next_note": "FC Rukh Lviv U19 8/10 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Metalurg Zaporizhya U19 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.7806467324985492,
+    0.7316711763242874
+   ],
+   "fair": 1.41,
+   "ladder": [
+    [
+     1.5,
+     1.18
+    ],
+    [
+     2.5,
+     1.41
+    ]
+   ],
+   "avg": [
+    4.0,
+    4.4
+   ],
+   "expect": 5.1,
+   "expect_sum": 4.2,
+   "expect_matchup": 6.0,
+   "contrib": [
+    4.6,
+    1.4
+   ],
+   "buffer": 2.6,
+   "fa": [
+    [
+     2.5,
+     1.2
+    ],
+    [
+     1.8,
+     2.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.05,
+   "p_emp": {
+    "1.5": 0.8474576271186441,
+    "2.5": 0.7092198581560284
+   },
+   "p_mod": 0.898,
+   "p_fin": 0.755,
+   "fair_fin": 1.32,
+   "ladder_fin": [
+    [
+     1.5,
+     1.18
+    ],
+    [
+     2.5,
+     1.32
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "Historie 71 % vs. Modell 90 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "12245676|goals|über": {
+  "match_id": "12245676",
+  "home": "Dukla Banska Bystrica U19",
+  "away": "Slovan Bratislava U19",
+  "kickoff": "Di 15:00",
+  "kickoff_ts": 1791291600,
+  "league": "Slovakia Youth League",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Di 08:27",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Di 08:27",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    47
+   ],
+   "next_line": 3.5,
+   "next_note": "Dukla Banska Bystrica U19 5/7 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Slovan Bratislava U19 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.7841260267357506,
+    0.64556517843025
+   ],
+   "fair": 1.48,
+   "ladder": [
+    [
+     1.5,
+     1.16
+    ],
+    [
+     2.5,
+     1.48
+    ]
+   ],
+   "avg": [
+    3.5,
+    3.1
+   ],
+   "expect": 3.3,
+   "expect_sum": 3.3,
+   "expect_matchup": 3.3,
+   "contrib": [
+    2.1,
+    1.3
+   ],
+   "buffer": 0.8,
+   "fa": [
+    [
+     1.9,
+     1.8
+    ],
+    [
+     1.9,
+     1.2
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.92,
+   "p_emp": {
+    "1.5": 0.8620689655172414,
+    "2.5": 0.6756756756756757
+   },
+   "p_mod": 0.662,
+   "p_fin": 0.628,
+   "fair_fin": 1.59,
+   "ladder_fin": [
+    [
+     1.5,
+     1.26
+    ],
+    [
+     2.5,
+     1.59
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "63 % knapp",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11437517|yellowcards|unter": {
+  "match_id": "11437517",
+  "home": "Kazakhstan",
+  "away": "Faroe Islands",
+  "kickoff": "Di 16:00",
+  "kickoff_ts": 1791295200,
+  "league": "UEFA Nations League C",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Di 08:27",
+  "first_line": 5.5,
+  "first_range": [
+   1.42,
+   2.08
+  ],
+  "last_run": "Di 08:27",
+  "line": 5.5,
+  "range": [
+   1.42,
+   2.08
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    47,
+    50
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — Kazakhstan 7/9 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Faroe Islands 15/17 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+   "longterm": [
+    0.8477889014631871,
+    0.9070301962026401
+   ],
+   "fair": 1.18,
+   "ladder": [
+    [
+     5.5,
+     1.18
+    ],
+    [
+     6.5,
+     1.09
+    ]
+   ],
+   "avg": [
+    4.2,
+    2.7
+   ],
+   "expect": 3.2,
+   "expect_sum": 3.5,
+   "expect_matchup": 3.0,
+   "contrib": [
+    1.9,
+    1.0
+   ],
+   "buffer": 2.3,
+   "fa": [
+    [
+     2.6,
+     1.3
+    ],
+    [
+     1.5,
+     1.5
+    ]
+   ],
+   "referee": "Kristo Tohver: Ø 4.9 Karten (30 Sp.) · Ø 23.4 Fouls (16 Sp.)",
+   "b365": null,
+   "expect_ref": 3.9,
+   "buffer_ref": 1.6,
+   "sd": 1.94,
+   "p_emp": {
+    "5.5": 0.8474576271186441,
+    "6.5": 0.9174311926605504
+   },
+   "p_mod": 0.795,
+   "p_fin": 0.838,
+   "fair_fin": 1.19,
+   "ladder_fin": [
+    [
+     5.5,
+     1.19
+    ],
+    [
+     6.5,
+     1.07
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.19",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": [
+    1.42,
+    2.08
+   ]
+  },
+  "v": 2
+ },
+ "13249166|goals|über": {
+  "match_id": "13249166",
+  "home": "Real Santuario",
+  "away": "Belen Arco Zaragoza",
+  "kickoff": "Di 17:00",
+  "kickoff_ts": 1791298800,
+  "league": "Colombia Regional League",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Di 08:27",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Di 08:27",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    50,
+    21
+   ],
+   "next_line": 3.5,
+   "next_note": "Real Santuario 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Belen Arco Zaragoza 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.757890874803359,
+    0.6169855492115306
+   ],
+   "fair": 1.51,
+   "ladder": [
+    [
+     1.5,
+     1.2
+    ],
+    [
+     2.5,
+     1.51
+    ]
+   ],
+   "avg": [
+    4.5,
+    2.5
+   ],
+   "expect": 3.4,
+   "expect_sum": 3.5,
+   "expect_matchup": 3.3,
+   "contrib": [
+    1.7,
+    1.6
+   ],
+   "buffer": 0.9,
+   "fa": [
+    [
+     1.6,
+     2.3
+    ],
+    [
+     1.5,
+     1.6
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.13,
+   "p_emp": {
+    "1.5": 0.8333333333333334,
+    "2.5": 0.6622516556291391
+   },
+   "p_mod": 0.664,
+   "p_fin": 0.623,
+   "fair_fin": 1.6,
+   "ladder_fin": [
+    [
+     1.5,
+     1.29
+    ],
+    [
+     2.5,
+     1.6
     ]
    ],
    "market": null,
@@ -111,646 +917,27 @@
   },
   "v": 2
  },
- "12315917|yellowcards|unter": {
-  "match_id": "12315917",
-  "home": "Martinique",
-  "away": "El Salvador",
-  "kickoff": "Di 00:00",
-  "kickoff_ts": 1791237600,
-  "league": "CONCACAF Nations League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 22:46",
-  "first_line": 5.5,
-  "first_range": [
-   1.25,
-   1.7
-  ],
-  "last_run": "Mo 22:46",
-  "line": 5.5,
-  "range": [
-   1.25,
-   1.7
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    42,
-    46
-   ],
-   "next_line": 4.5,
-   "next_note": "Martinique 6/8 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
-   "longterm": [
-    0.8432514842381091,
-    0.8500998584917392
-   ],
-   "fair": 1.21,
-   "ladder": [
-    [
-     5.5,
-     1.21
-    ],
-    [
-     6.5,
-     1.12
-    ]
-   ],
-   "avg": [
-    2.5,
-    3.2
-   ],
-   "expect": 2.4,
-   "expect_sum": 2.8,
-   "expect_matchup": 2.1,
-   "contrib": [
-    1.3,
-    0.8
-   ],
-   "buffer": 3.1,
-   "fa": [
-    [
-     1.8,
-     1.4
-    ],
-    [
-     1.6,
-     1.6
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.09,
-   "p_emp": {
-    "5.5": 0.8264462809917356,
-    "6.5": 0.8928571428571428
-   },
-   "p_mod": 0.931,
-   "p_fin": 0.896,
-   "fair_fin": 1.12,
-   "ladder_fin": [
-    [
-     5.5,
-     1.12
-    ],
-    [
-     6.5,
-     1.05
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.12",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": [
-    1.25,
-    1.7
-   ]
-  },
-  "v": 2
- },
- "12276160|corners|über": {
-  "match_id": "12276160",
-  "home": "Cerro Porteno",
-  "away": "2 de Mayo",
-  "kickoff": "Di 00:15",
-  "kickoff_ts": 1791238500,
-  "league": "Paraguay Division Profesional",
-  "metric": "Ecken",
-  "metric_key": "corners",
+ "11285719|goals|über": {
+  "match_id": "11285719",
+  "home": "Skjetten",
+  "away": "Kongsvinger 2",
+  "kickoff": "Di 18:00",
+  "kickoff_ts": 1791302400,
+  "league": "Norway Division 3 Group 5",
+  "metric": "Tore",
+  "metric_key": "goals",
   "direction": "über",
-  "first_run": "Mo 20:12",
-  "first_line": 7.5,
-  "first_range": [
-   1.31,
-   2.07
-  ],
-  "last_run": "Mo 22:46",
-  "line": 7.5,
-  "range": [
-   1.31,
-   2.07
-  ],
+  "first_run": "Di 08:27",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Di 08:27",
+  "line": 2.5,
+  "range": null,
   "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
+   "metric": "Tore",
+   "metric_key": "goals",
    "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    48,
-    48
-   ],
-   "next_line": 8.5,
-   "next_note": "2 de Mayo 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.7115370539901,
-    0.5557870787041114
-   ],
-   "fair": 1.54,
-   "ladder": [
-    [
-     6.5,
-     1.46
-    ],
-    [
-     7.5,
-     1.54
-    ]
-   ],
-   "avg": [
-    9.4,
-    8.1
-   ],
-   "expect": 8.4,
-   "expect_sum": 8.7,
-   "expect_matchup": 8.0,
-   "contrib": [
-    5.0,
-    3.0
-   ],
-   "buffer": 0.9,
-   "fa": [
-    [
-     4.5,
-     4.6
-    ],
-    [
-     4.1,
-     4.1
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "9.0",
-    "2.000",
-    "1.800"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.08,
-   "p_emp": {
-    "6.5": 0.684931506849315,
-    "7.5": 0.6493506493506493
-   },
-   "p_mod": 0.615,
-   "p_fin": 0.601,
-   "fair_fin": 1.67,
-   "ladder_fin": [
-    [
-     6.5,
-     1.49
-    ],
-    [
-     7.5,
-     1.67
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "60 % knapp",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": [
-    1.31,
-    2.07
-   ]
-  },
-  "v": 2
- },
- "12276160|yellowcards|unter": {
-  "match_id": "12276160",
-  "home": "Cerro Porteno",
-  "away": "2 de Mayo",
-  "kickoff": "Di 00:15",
-  "kickoff_ts": 1791238500,
-  "league": "Paraguay Division Profesional",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 20:12",
-  "first_line": 6.5,
-  "first_range": [
-   1.24,
-   1.72
-  ],
-  "last_run": "Mo 22:46",
-  "line": 6.5,
-  "range": [
-   1.24,
-   1.72
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    48
-   ],
-   "next_line": 5.5,
-   "next_note": "2 de Mayo 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "longterm": [
-    0.9763370856959762,
-    0.9108242529701175
-   ],
-   "fair": 1.08,
-   "ladder": [
-    [
-     6.5,
-     1.08
-    ],
-    [
-     7.5,
-     1.2
-    ]
-   ],
-   "avg": [
-    3.8,
-    4.0
-   ],
-   "expect": 3.9,
-   "expect_sum": 3.9,
-   "expect_matchup": 3.9,
-   "contrib": [
-    1.7,
-    2.3
-   ],
-   "buffer": 2.6,
-   "fa": [
-    [
-     1.7,
-     2.1
-    ],
-    [
-     1.9,
-     2.2
-    ]
-   ],
-   "referee": "Mario Alberto Diaz De Vivar: Ø 4.5 Karten (35 Sp.) · Ø 25.7 Fouls (3 Sp.)",
-   "b365": null,
-   "expect_ref": 4.5,
-   "buffer_ref": 2.0,
-   "sd": 1.97,
-   "p_emp": {
-    "6.5": 0.9259259259259258,
-    "7.5": 0.8333333333333334
-   },
-   "p_mod": 0.845,
-   "p_fin": 0.903,
-   "fair_fin": 1.11,
-   "ladder_fin": [
-    [
-     6.5,
-     1.11
-    ],
-    [
-     7.5,
-     1.11
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.11",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": [
-    1.24,
-    1.72
-   ]
-  },
-  "v": 2
- },
- "13186438|corners|über": {
-  "match_id": "13186438",
-  "home": "Nacional De Football",
-  "away": "Torque",
-  "kickoff": "Di 01:00",
-  "kickoff_ts": 1791241200,
-  "league": "Uruguay Clausura",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mo 20:12",
-  "first_line": 8.5,
-  "first_range": [
-   1.24,
-   2.009
-  ],
-  "last_run": "Mo 22:46",
-  "line": 8.5,
-  "range": [
-   1.24,
-   2.009
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 8.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    44
-   ],
-   "next_line": 9.5,
-   "next_note": "Torque 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.7338369678836972,
-    0.6462573082863938
-   ],
-   "fair": 1.54,
-   "ladder": [
-    [
-     7.5,
-     1.28
-    ],
-    [
-     8.5,
-     1.54
-    ]
-   ],
-   "avg": [
-    10.7,
-    10.5
-   ],
-   "expect": 11.5,
-   "expect_sum": 10.6,
-   "expect_matchup": 12.5,
-   "contrib": [
-    9.3,
-    3.1
-   ],
-   "buffer": 3.0,
-   "fa": [
-    [
-     6.2,
-     3.7
-    ],
-    [
-     4.9,
-     4.7
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "9.5",
-    "1.825",
-    "1.975"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.05,
-   "p_emp": {
-    "7.5": 0.78125,
-    "8.5": 0.6493506493506493
-   },
-   "p_mod": 0.837,
-   "p_fin": 0.706,
-   "fair_fin": 1.42,
-   "ladder_fin": [
-    [
-     7.5,
-     1.25
-    ],
-    [
-     8.5,
-     1.42
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 65 % vs. Modell 84 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": [
-    1.24,
-    2.009
-   ]
-  },
-  "v": 2
- },
- "13186438|yellowcards|über": {
-  "match_id": "13186438",
-  "home": "Nacional De Football",
-  "away": "Torque",
-  "kickoff": "Di 01:00",
-  "kickoff_ts": 1791241200,
-  "league": "Uruguay Clausura",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "Mo 20:12",
-  "first_line": 3.5,
-  "first_range": [
-   1.22,
-   1.74
-  ],
-  "last_run": "Mo 22:46",
-  "line": 3.5,
-  "range": [
-   1.22,
-   1.74
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 3.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    48,
-    44
-   ],
-   "next_line": 4.5,
-   "next_note": "Nacional De Football 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Torque 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
-   "longterm": [
-    0.8125038399392962,
-    0.6668034707159253
-   ],
-   "fair": 1.49,
-   "ladder": [
-    [
-     2.5,
-     1.2
-    ],
-    [
-     3.5,
-     1.49
-    ]
-   ],
-   "avg": [
-    4.9,
-    4.9
-   ],
-   "expect": 5.6,
-   "expect_sum": 4.9,
-   "expect_matchup": 6.4,
-   "contrib": [
-    2.2,
-    4.2
-   ],
-   "buffer": 2.1,
-   "fa": [
-    [
-     2.3,
-     3.2
-    ],
-    [
-     2.7,
-     2.4
-    ]
-   ],
-   "referee": "Gustavo Tejera: Ø 4.4 Karten (54 Sp.) · Ø 25.0 Fouls (20 Sp.)",
-   "b365": null,
-   "expect_ref": 6.4,
-   "buffer_ref": 2.9,
-   "sd": 2.13,
-   "p_emp": {
-    "2.5": 0.8333333333333334,
-    "3.5": 0.6711409395973155
-   },
-   "p_mod": 0.913,
-   "p_fin": 0.753,
-   "fair_fin": 1.33,
-   "ladder_fin": [
-    [
-     2.5,
-     1.17
-    ],
-    [
-     3.5,
-     1.33
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 67 % vs. Modell 91 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": [
-    1.22,
-    1.74
-   ]
-  },
-  "v": 2
- },
- "13186438|ht_yellowcards|über": {
-  "match_id": "13186438",
-  "home": "Nacional De Football",
-  "away": "Torque",
-  "kickoff": "Di 01:00",
-  "kickoff_ts": 1791241200,
-  "league": "Uruguay Clausura",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "über",
-  "first_run": "Mo 20:12",
-  "first_line": 0.5,
-  "first_range": [
-   1.22,
-   1.74
-  ],
-  "last_run": "Mo 22:46",
-  "line": 0.5,
-  "range": [
-   1.22,
-   1.74
-  ],
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "über",
-   "line": 0.5,
+   "line": 2.5,
    "home_series": {
     "kind": "gesamt",
     "hits": 10,
@@ -765,180 +952,74 @@
    "away_is_anchor": true,
    "valid": [
     49,
-    46
-   ],
-   "next_line": 1.5,
-   "next_note": "Nacional De Football 5/7 (3. Lücke) gesamt, 9/11 (3. Lücke) heim",
-   "longterm": [
-    0.8162990340462463,
-    0.8616562088828056
-   ],
-   "fair": 1.26,
-   "ladder": [
-    [
-     0.5,
-     1.26
-    ]
-   ],
-   "avg": [
-    1.8,
-    1.6
-   ],
-   "expect": 1.8,
-   "expect_sum": 1.7,
-   "expect_matchup": 1.8,
-   "contrib": [
-    1.8,
-    0.0
-   ],
-   "buffer": 1.3,
-   "fa": [
-    [
-     0.9,
-     1.2
-    ],
-    [
-     0.5,
-     1.1
-    ]
-   ],
-   "referee": "Gustavo Tejera: Ø 4.4 Karten (54 Sp.) · Ø 25.0 Fouls (20 Sp.)",
-   "b365": null,
-   "expect_ref": 5.5,
-   "buffer_ref": 5.0,
-   "sd": 1.15,
-   "p_emp": {
-    "0.5": 0.7936507936507936
-   },
-   "p_mod": 1.0,
-   "p_fin": 0.87,
-   "fair_fin": 1.15,
-   "ladder_fin": [
-    [
-     0.5,
-     1.15
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 79 % vs. Modell 100 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": [
-    1.22,
-    1.74
-   ]
-  },
-  "v": 2
- },
- "12315890|goals|über": {
-  "match_id": "12315890",
-  "home": "Grenada",
-  "away": "Bonaire",
-  "kickoff": "Di 02:00",
-  "kickoff_ts": 1791244800,
-  "league": "CONCACAF Nations League",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "Mo 20:12",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Mo 22:46",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    50,
-    37
+    50
    ],
    "next_line": 3.5,
-   "next_note": "Grenada 2/4 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; Bonaire 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "next_note": "kein Anker — Skjetten 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Kongsvinger 2 7/9 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
    "longterm": [
-    0.7062469884002265,
-    0.6692470301305045
+    0.8167455725745189,
+    0.8806258986086954
    ],
-   "fair": 1.52,
+   "fair": 1.29,
    "ladder": [
     [
      1.5,
-     1.18
+     1.11
     ],
     [
      2.5,
-     1.52
+     1.29
     ]
    ],
    "avg": [
-    3.3,
-    3.5
+    4.2,
+    4.7
    ],
-   "expect": 3.5,
-   "expect_sum": 3.4,
-   "expect_matchup": 3.5,
+   "expect": 5.6,
+   "expect_sum": 4.5,
+   "expect_matchup": 6.8,
    "contrib": [
-    2.0,
-    1.6
+    5.0,
+    1.7
    ],
-   "buffer": 1.0,
+   "buffer": 3.1,
    "fa": [
     [
-     1.0,
-     2.1
+     2.2,
+     2.0
     ],
     [
-     1.4,
-     2.0
+     2.1,
+     2.5
     ]
    ],
    "referee": null,
    "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 1.6,
+   "sd": 2.09,
    "p_emp": {
-    "1.5": 0.8474576271186441,
-    "2.5": 0.6578947368421053
+    "1.5": 0.9009009009009008,
+    "2.5": 0.7751937984496123
    },
-   "p_mod": 0.734,
-   "p_fin": 0.654,
-   "fair_fin": 1.53,
+   "p_mod": 0.931,
+   "p_fin": 0.802,
+   "fair_fin": 1.25,
    "ladder_fin": [
     [
      1.5,
-     1.22
+     1.13
     ],
     [
      2.5,
-     1.53
+     1.25
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟡",
-   "reason": "65 % knapp",
+   "reason": "Historie 78 % vs. Modell 93 %",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
@@ -948,31 +1029,37 @@
   },
   "v": 2
  },
- "13096402|goals|über": {
-  "match_id": "13096402",
-  "home": "Bermuda",
-  "away": "Barbados",
-  "kickoff": "Di 02:00",
-  "kickoff_ts": 1791244800,
-  "league": "CONCACAF Nations League",
-  "metric": "Tore",
-  "metric_key": "goals",
+ "10592280|corners|über": {
+  "match_id": "10592280",
+  "home": "Denmark U21",
+  "away": "Belgium U21",
+  "kickoff": "Di 18:30",
+  "kickoff_ts": 1791304200,
+  "league": "European U21 Championship Qual",
+  "metric": "Ecken",
+  "metric_key": "corners",
   "direction": "über",
-  "first_run": "Mo 20:12",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Mo 22:46",
-  "line": 2.5,
-  "range": null,
+  "first_run": "Di 08:27",
+  "first_line": 7.5,
+  "first_range": [
+   1.263,
+   2.0
+  ],
+  "last_run": "Di 08:27",
+  "line": 7.5,
+  "range": [
+   1.263,
+   2.0
+  ],
   "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
+   "metric": "Ecken",
+   "metric_key": "corners",
    "direction": "über",
-   "line": 2.5,
+   "line": 7.5,
    "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
+    "kind": "heim",
+    "hits": 15,
+    "window": 17
    },
    "away_series": {
     "kind": "gesamt",
@@ -985,108 +1072,240 @@
     50,
     49
    ],
-   "next_line": 3.5,
-   "next_note": "Bermuda 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Barbados 5/7 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "next_line": 8.5,
+   "next_note": "Denmark U21 4/6 (3. Lücke) gesamt, 9/11 (3. Lücke) heim",
    "longterm": [
-    0.8111347872358691,
-    0.7417037485454002
+    0.8797370071873073,
+    0.7416446759283507
    ],
-   "fair": 1.39,
+   "fair": 1.29,
    "ladder": [
     [
-     1.5,
-     1.15
+     6.5,
+     1.34
     ],
     [
-     2.5,
-     1.39
+     7.5,
+     1.29
     ]
    ],
    "avg": [
-    4.3,
-    4.1
+    11.9,
+    10.1
    ],
-   "expect": 4.8,
-   "expect_sum": 4.2,
-   "expect_matchup": 5.4,
+   "expect": 11.9,
+   "expect_sum": 11.0,
+   "expect_matchup": 12.7,
    "contrib": [
-    2.9,
-    2.5
+    6.5,
+    6.2
    ],
-   "buffer": 2.3,
+   "buffer": 4.4,
    "fa": [
     [
-     1.6,
-     2.4
+     6.0,
+     4.6
     ],
     [
-     1.5,
-     2.1
+     5.9,
+     4.3
     ]
    ],
    "referee": null,
-   "b365": null,
+   "b365": [
+    "9.5",
+    "1.775",
+    "2.025"
+   ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 2.04,
+   "sd": 4.01,
    "p_emp": {
-    "1.5": 0.8695652173913044,
-    "2.5": 0.7194244604316548
+    "6.5": 0.7462686567164178,
+    "7.5": 0.7751937984496123
    },
-   "p_mod": 0.87,
-   "p_fin": 0.747,
-   "fair_fin": 1.34,
+   "p_mod": 0.864,
+   "p_fin": 0.778,
+   "fair_fin": 1.28,
    "ladder_fin": [
     [
-     1.5,
-     1.17
+     6.5,
+     1.27
     ],
     [
-     2.5,
-     1.34
+     7.5,
+     1.28
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟡",
-   "reason": "Historie 72 % vs. Modell 87 %",
+   "light": "🟢",
+   "reason": "fair 1.28",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
    "b365_lines": null,
    "b365_est": null,
-   "range": null
+   "range": [
+    1.263,
+    2.0
+   ]
   },
   "v": 2
  },
- "12315918|yellowcards|unter": {
-  "match_id": "12315918",
-  "home": "Guatemala",
-  "away": "Suriname",
-  "kickoff": "Di 02:00",
-  "kickoff_ts": 1791244800,
-  "league": "CONCACAF Nations League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 20:12",
-  "first_line": 5.5,
+ "10592288|corners|über": {
+  "match_id": "10592288",
+  "home": "Rep of Ireland U21",
+  "away": "England U21",
+  "kickoff": "Di 19:00",
+  "kickoff_ts": 1791306000,
+  "league": "European U21 Championship Qual",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Di 08:27",
+  "first_line": 7.5,
   "first_range": [
-   1.31,
-   1.36
+   1.45,
+   2.35
   ],
-  "last_run": "Mo 22:46",
-  "line": 5.5,
+  "last_run": "Di 08:27",
+  "line": 7.5,
   "range": [
-   1.32,
-   1.35
+   1.45,
+   2.35
   ],
   "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    50
+   ],
+   "next_line": 8.5,
+   "next_note": "kein Anker — Rep of Ireland U21 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; England U21 3/5 (3. Lücke) gesamt, 12/14 (3. Lücke) auswärts",
+   "longterm": [
+    0.508299802424503,
+    0.7840778931970952
+   ],
+   "fair": 1.52,
+   "ladder": [
+    [
+     6.5,
+     1.45
+    ],
+    [
+     7.5,
+     1.52
+    ]
+   ],
+   "avg": [
+    7.3,
+    9.3
+   ],
+   "expect": 7.5,
+   "expect_sum": 8.3,
+   "expect_matchup": 6.8,
+   "contrib": [
+    3.4,
+    3.4
+   ],
+   "buffer": 0.0,
+   "fa": [
+    [
+     4.8,
+     3.4
+    ],
+    [
+     5.7,
+     3.2
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "9.0",
+    "2.025",
+    "1.775"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.07,
+   "p_emp": {
+    "6.5": 0.6896551724137931,
+    "7.5": 0.6578947368421053
+   },
+   "p_mod": 0.5,
+   "p_fin": 0.55,
+   "fair_fin": 1.82,
+   "ladder_fin": [
+    [
+     6.5,
+     1.6
+    ],
+    [
+     7.5,
+     1.82
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🔴",
+   "reason": "nur 55 % Wahrscheinlichkeit",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": [
+    1.45,
+    2.35
+   ]
+  },
+  "v": 2
+ },
+ "10592299|corners|über": {
+  "match_id": "10592299",
+  "home": "Spain U21",
+  "away": "Romania U21",
+  "kickoff": "Di 19:00",
+  "kickoff_ts": 1791306000,
+  "league": "European U21 Championship Qual",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Di 08:27",
+  "first_line": 7.5,
+  "first_range": [
+   1.5,
+   1.93
+  ],
+  "last_run": "Di 08:27",
+  "line": 7.5,
+  "range": [
+   1.5,
+   1.93
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
    "home_series": {
     "kind": "gesamt",
     "hits": 10,
@@ -1098,473 +1317,114 @@
     "window": 12
    },
    "home_is_anchor": true,
-   "away_is_anchor": true,
+   "away_is_anchor": false,
    "valid": [
-    46,
-    46
+    50,
+    49
    ],
-   "next_line": 4.5,
-   "next_note": "kein Anker — Guatemala 8/10 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; Suriname 11/13 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "next_line": 8.5,
+   "next_note": "Romania U21 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
    "longterm": [
-    0.8657346271553972,
-    0.8732919887097157
+    0.8605292826827715,
+    0.7837972390845616
    ],
-   "fair": 1.19,
+   "fair": 1.28,
    "ladder": [
     [
-     5.5,
-     1.19
+     6.5,
+     1.31
     ],
     [
-     6.5,
-     1.09
+     7.5,
+     1.28
     ]
    ],
    "avg": [
-    3.1,
-    3.2
+    11.1,
+    9.4
    ],
-   "expect": 2.9,
-   "expect_sum": 3.2,
-   "expect_matchup": 2.7,
+   "expect": 10.9,
+   "expect_sum": 10.3,
+   "expect_matchup": 11.6,
    "contrib": [
-    0.9,
-    1.7
+    9.0,
+    2.6
    ],
-   "buffer": 2.6,
+   "buffer": 3.4,
    "fa": [
     [
-     1.5,
-     2.0
+     8.1,
+     2.5
     ],
     [
-     1.8,
-     1.5
+     4.2,
+     5.4
     ]
    ],
    "referee": null,
-   "b365": null,
+   "b365": [
+    "10.0",
+    "1.800",
+    "2.000"
+   ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 1.93,
+   "sd": 3.81,
    "p_emp": {
-    "5.5": 0.8403361344537815,
-    "6.5": 0.9174311926605504
+    "6.5": 0.7633587786259541,
+    "7.5": 0.78125
    },
-   "p_mod": 0.911,
-   "p_fin": 0.893,
-   "fair_fin": 1.12,
+   "p_mod": 0.814,
+   "p_fin": 0.758,
+   "fair_fin": 1.32,
    "ladder_fin": [
     [
-     5.5,
-     1.12
+     6.5,
+     1.28
     ],
     [
-     6.5,
-     1.04
+     7.5,
+     1.32
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "reason": "fair 1.12",
+   "reason": "fair 1.32",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
    "b365_lines": null,
    "b365_est": null,
    "range": [
-    1.32,
-    1.35
+    1.5,
+    1.93
    ]
   },
   "v": 2
  },
- "13210455|yellowcards|über": {
-  "match_id": "13210455",
-  "home": "Independiente Medellin",
-  "away": "Independiente Santa Fe",
-  "kickoff": "Di 02:00",
-  "kickoff_ts": 1791244800,
-  "league": "Colombia Primera A",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "Mo 20:12",
-  "first_line": 2.5,
-  "first_range": [
-   1.34,
-   2.11
-  ],
-  "last_run": "Mo 22:46",
-  "line": 2.5,
-  "range": [
-   1.34,
-   2.11
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    44,
-    41
-   ],
-   "next_line": 3.5,
-   "next_note": "Independiente Santa Fe 8/10 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
-   "longterm": [
-    0.7961883399461134,
-    0.7887047919114741
-   ],
-   "fair": 1.32,
-   "ladder": [
-    [
-     1.5,
-     1.28
-    ],
-    [
-     2.5,
-     1.32
-    ]
-   ],
-   "avg": [
-    4.5,
-    4.0
-   ],
-   "expect": 4.5,
-   "expect_sum": 4.3,
-   "expect_matchup": 4.7,
-   "contrib": [
-    2.5,
-    2.2
-   ],
-   "buffer": 2.0,
-   "fa": [
-    [
-     2.6,
-     2.2
-    ],
-    [
-     2.1,
-     2.5
-    ]
-   ],
-   "referee": "Fernando Bautista: Ø 10.0 Karten (1 Sp.) · Ø 20.0 Fouls (1 Sp.)",
-   "b365": null,
-   "expect_ref": 5.3,
-   "buffer_ref": 2.8,
-   "sd": 2.05,
-   "p_emp": {
-    "1.5": 0.78125,
-    "2.5": 0.7575757575757576
-   },
-   "p_mod": 0.914,
-   "p_fin": 0.794,
-   "fair_fin": 1.26,
-   "ladder_fin": [
-    [
-     1.5,
-     1.2
-    ],
-    [
-     2.5,
-     1.26
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 76 % vs. Modell 91 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": [
-    1.34,
-    2.11
-   ]
-  },
-  "v": 2
- },
- "13210455|yellowcards|unter": {
-  "match_id": "13210455",
-  "home": "Independiente Medellin",
-  "away": "Independiente Santa Fe",
-  "kickoff": "Di 02:00",
-  "kickoff_ts": 1791244800,
-  "league": "Colombia Primera A",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 20:12",
-  "first_line": 5.5,
-  "first_range": [
-   1.34,
-   2.11
-  ],
-  "last_run": "Mo 22:46",
-  "line": 5.5,
-  "range": [
-   1.34,
-   2.11
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    44,
-    41
-   ],
-   "next_line": 4.5,
-   "next_note": "Independiente Medellin 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; Independiente Santa Fe 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.7298275473649647,
-    0.8210140142128242
-   ],
-   "fair": 1.29,
-   "ladder": [
-    [
-     5.5,
-     1.29
-    ],
-    [
-     6.5,
-     1.18
-    ]
-   ],
-   "avg": [
-    4.5,
-    4.0
-   ],
-   "expect": 4.5,
-   "expect_sum": 4.3,
-   "expect_matchup": 4.7,
-   "contrib": [
-    2.5,
-    2.2
-   ],
-   "buffer": 1.0,
-   "fa": [
-    [
-     2.6,
-     2.2
-    ],
-    [
-     2.1,
-     2.5
-    ]
-   ],
-   "referee": "Fernando Bautista: Ø 10.0 Karten (1 Sp.) · Ø 20.0 Fouls (1 Sp.)",
-   "b365": null,
-   "expect_ref": 5.3,
-   "buffer_ref": 0.2,
-   "sd": 2.05,
-   "p_emp": {
-    "5.5": 0.7751937984496123,
-    "6.5": 0.8474576271186441
-   },
-   "p_mod": 0.539,
-   "p_fin": 0.67,
-   "fair_fin": 1.49,
-   "ladder_fin": [
-    [
-     5.5,
-     1.49
-    ],
-    [
-     6.5,
-     1.25
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "67 % knapp; Historie 78 % vs. Modell 54 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": [
-    1.34,
-    2.11
-   ]
-  },
-  "v": 2
- },
- "13125118|yellowcards|über": {
-  "match_id": "13125118",
-  "home": "Banfield",
-  "away": "Rosario Central",
-  "kickoff": "Di 02:15",
-  "kickoff_ts": 1791245700,
-  "league": "Argentina Liga Profesional",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "Mo 20:12",
-  "first_line": 2.5,
-  "first_range": [
-   1.24,
-   2.32
-  ],
-  "last_run": "Mo 22:46",
-  "line": 2.5,
-  "range": [
-   1.24,
-   2.32
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "heim",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    46
-   ],
-   "next_line": 3.5,
-   "next_note": "Banfield 0/2 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
-   "longterm": [
-    0.7701302282582028,
-    0.8754499410775956
-   ],
-   "fair": 1.28,
-   "ladder": [
-    [
-     1.5,
-     1.26
-    ],
-    [
-     2.5,
-     1.28
-    ]
-   ],
-   "avg": [
-    4.6,
-    5.4
-   ],
-   "expect": 5.7,
-   "expect_sum": 5.0,
-   "expect_matchup": 6.4,
-   "contrib": [
-    3.2,
-    3.1
-   ],
-   "buffer": 3.2,
-   "fa": [
-    [
-     2.5,
-     2.2
-    ],
-    [
-     2.4,
-     2.8
-    ]
-   ],
-   "referee": "Leandro Rey Hilfer: Ø 4.5 Karten (42 Sp.) · Ø 23.0 Fouls (34 Sp.)",
-   "b365": null,
-   "expect_ref": 6.6,
-   "buffer_ref": 4.1,
-   "sd": 2.28,
-   "p_emp": {
-    "1.5": 0.7936507936507936,
-    "2.5": 0.78125
-   },
-   "p_mod": 0.964,
-   "p_fin": 0.829,
-   "fair_fin": 1.21,
-   "ladder_fin": [
-    [
-     1.5,
-     1.18
-    ],
-    [
-     2.5,
-     1.21
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟡",
-   "reason": "Historie 78 % vs. Modell 96 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "range": [
-    1.24,
-    2.32
-   ]
-  },
-  "v": 2
- },
- "12177623|corners|über": {
-  "match_id": "12177623",
-  "home": "Orsomarso",
-  "away": "Deportes Quindio",
-  "kickoff": "Di 02:30",
-  "kickoff_ts": 1791246600,
-  "league": "Colombia Primera B",
+ "10592297|corners|über": {
+  "match_id": "10592297",
+  "home": "Kosovo U21",
+  "away": "Finland U21",
+  "kickoff": "Di 19:00",
+  "kickoff_ts": 1791306000,
+  "league": "European U21 Championship Qual",
   "metric": "Ecken",
   "metric_key": "corners",
   "direction": "über",
-  "first_run": "Mo 20:12",
+  "first_run": "Di 08:27",
   "first_line": 7.5,
   "first_range": [
-   1.26,
-   1.67
+   1.419,
+   1.763
   ],
-  "last_run": "Mo 22:46",
+  "last_run": "Di 08:27",
   "line": 7.5,
   "range": [
-   1.26,
-   1.67
+   1.419,
+   1.763
   ],
   "signal": {
    "metric": "Ecken",
@@ -1573,56 +1433,56 @@
    "line": 7.5,
    "home_series": {
     "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
     "hits": 10,
     "window": 11
    },
-   "away_series": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 17
-   },
-   "home_is_anchor": true,
+   "home_is_anchor": false,
    "away_is_anchor": true,
    "valid": [
-    44,
-    48
+    49,
+    50
    ],
    "next_line": 8.5,
-   "next_note": "kein Anker — Orsomarso 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Deportes Quindio 4/6 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
+   "next_note": "Kosovo U21 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
    "longterm": [
-    0.7557295843311276,
-    0.749175926312656
+    0.6693586763068228,
+    0.8992996904945689
    ],
-   "fair": 1.37,
+   "fair": 1.32,
    "ladder": [
     [
      6.5,
-     1.43
+     1.36
     ],
     [
      7.5,
-     1.37
+     1.32
     ]
    ],
    "avg": [
-    10.3,
-    10.2
+    9.0,
+    10.4
    ],
-   "expect": 10.9,
-   "expect_sum": 10.2,
-   "expect_matchup": 11.6,
+   "expect": 10.0,
+   "expect_sum": 9.7,
+   "expect_matchup": 10.2,
    "contrib": [
-    8.2,
-    3.5
+    4.2,
+    6.0
    ],
-   "buffer": 3.4,
+   "buffer": 2.5,
    "fa": [
     [
-     4.8,
-     4.5
+     3.5,
+     4.8
     ],
     [
-     4.8,
+     5.7,
      4.5
     ]
    ],
@@ -1634,14 +1494,14 @@
    ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.34,
+   "sd": 3.07,
    "p_emp": {
-    "6.5": 0.6993006993006994,
-    "7.5": 0.7299270072992701
+    "6.5": 0.7352941176470588,
+    "7.5": 0.7575757575757576
    },
-   "p_mod": 0.846,
-   "p_fin": 0.748,
-   "fair_fin": 1.34,
+   "p_mod": 0.792,
+   "p_fin": 0.736,
+   "fair_fin": 1.36,
    "ladder_fin": [
     [
      6.5,
@@ -1649,53 +1509,178 @@
     ],
     [
      7.5,
-     1.34
+     1.36
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "reason": "fair 1.34",
+   "reason": "fair 1.36",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
    "b365_lines": null,
    "b365_est": null,
    "range": [
-    1.26,
-    1.67
+    1.419,
+    1.763
    ]
   },
   "v": 2
  },
- "12315919|yellowcards|unter": {
-  "match_id": "12315919",
-  "home": "Honduras",
-  "away": "Jamaica",
-  "kickoff": "Di 04:00",
-  "kickoff_ts": 1791252000,
-  "league": "CONCACAF Nations League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 20:12",
-  "first_line": 5.5,
+ "12407267|corners|über": {
+  "match_id": "12407267",
+  "home": "AFC Wimbledon",
+  "away": "Barnet",
+  "kickoff": "Di 20:00",
+  "kickoff_ts": 1791309600,
+  "league": "England EFL Trophy",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Di 08:27",
+  "first_line": 7.5,
   "first_range": [
-   1.33,
-   1.98
+   1.228,
+   1.602
   ],
-  "last_run": "Mo 22:46",
-  "line": 5.5,
+  "last_run": "Di 08:27",
+  "line": 7.5,
   "range": [
-   1.33,
-   2.17
+   1.228,
+   1.602
   ],
   "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    44,
+    42
+   ],
+   "next_line": 8.5,
+   "next_note": "kein Anker — AFC Wimbledon 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Barnet 9/11 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.8834321361582804,
+    0.799976606113511
+   ],
+   "fair": 1.26,
+   "ladder": [
+    [
+     6.5,
+     1.32
+    ],
+    [
+     7.5,
+     1.26
+    ]
+   ],
+   "avg": [
+    10.4,
+    9.4
+   ],
+   "expect": 10.1,
+   "expect_sum": 9.9,
+   "expect_matchup": 10.3,
+   "contrib": [
+    4.0,
+    6.4
+   ],
+   "buffer": 2.6,
+   "fa": [
+    [
+     5.2,
+     5.0
+    ],
+    [
+     6.6,
+     3.7
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.950",
+    "1.850"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.2,
+   "p_emp": {
+    "6.5": 0.7575757575757576,
+    "7.5": 0.7936507936507936
+   },
+   "p_mod": 0.792,
+   "p_fin": 0.753,
+   "fair_fin": 1.33,
+   "ladder_fin": [
+    [
+     6.5,
+     1.29
+    ],
+    [
+     7.5,
+     1.33
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.33",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": [
+    1.228,
+    1.602
+   ]
+  },
+  "v": 2
+ },
+ "12407271|corners|über": {
+  "match_id": "12407271",
+  "home": "Newport County",
+  "away": "Plymouth",
+  "kickoff": "Di 20:00",
+  "kickoff_ts": 1791309600,
+  "league": "England EFL Trophy",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Di 08:27",
+  "first_line": 8.5,
+  "first_range": [
+   1.59,
+   1.8
+  ],
+  "last_run": "Di 08:27",
+  "line": 8.5,
+  "range": [
+   1.59,
+   1.8
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
    "home_series": {
     "kind": "heim",
     "hits": 15,
@@ -1704,123 +1689,252 @@
    "away_series": {
     "kind": "auswärts",
     "hits": 15,
-    "window": 15
+    "window": 16
    },
    "home_is_anchor": true,
    "away_is_anchor": true,
    "valid": [
-    47,
-    48
+    45,
+    44
    ],
-   "next_line": 4.5,
-   "next_note": "Honduras 1/3 (3. Lücke) gesamt, 9/11 (3. Lücke) heim",
+   "next_line": 9.5,
+   "next_note": "kein Anker — Newport County 1/3 (3. Lücke) gesamt, 15/17 (3. Lücke) heim; Plymouth 6/8 (3. Lücke) gesamt, 17/19 (3. Lücke) auswärts",
    "longterm": [
-    0.8170245360546835,
-    0.8699493740211706
+    0.7447079376555321,
+    0.7004322450573304
    ],
-   "fair": 1.21,
+   "fair": 1.48,
    "ladder": [
     [
-     5.5,
-     1.21
+     7.5,
+     1.25
     ],
     [
-     6.5,
-     1.1
+     8.5,
+     1.48
     ]
    ],
    "avg": [
-    3.2,
-    1.7
+    11.3,
+    11.2
    ],
-   "expect": 2.0,
-   "expect_sum": 2.4,
-   "expect_matchup": 1.6,
+   "expect": 12.4,
+   "expect_sum": 11.2,
+   "expect_matchup": 13.5,
    "contrib": [
-    0.3,
-    1.3
+    7.3,
+    6.2
    ],
-   "buffer": 3.5,
+   "buffer": 3.9,
    "fa": [
     [
-     1.6,
-     2.1
+     4.4,
+     5.3
     ],
     [
-     1.9,
-     1.3
+     5.7,
+     5.3
     ]
    ],
    "referee": null,
-   "b365": null,
+   "b365": [
+    "10.5",
+    "2.000",
+    "1.800"
+   ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 2.28,
+   "sd": 3.03,
    "p_emp": {
-    "5.5": 0.8264462809917356,
-    "6.5": 0.9090909090909091
+    "7.5": 0.8,
+    "8.5": 0.6756756756756757
    },
-   "p_mod": 0.938,
-   "p_fin": 0.9,
-   "fair_fin": 1.11,
+   "p_mod": 0.901,
+   "p_fin": 0.749,
+   "fair_fin": 1.34,
    "ladder_fin": [
     [
-     5.5,
-     1.11
+     7.5,
+     1.21
     ],
     [
-     6.5,
-     1.04
+     8.5,
+     1.34
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟢",
-   "reason": "fair 1.11",
+   "light": "🟡",
+   "reason": "Historie 68 % vs. Modell 90 %",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
    "b365_lines": null,
    "b365_est": null,
    "range": [
-    1.33,
-    2.17
+    1.59,
+    1.8
    ]
   },
   "v": 2
  },
- "12315891|yellowcards|unter": {
-  "match_id": "12315891",
-  "home": "Cuba",
-  "away": "St. Kitts and Nevis",
-  "kickoff": "Mo 23:00",
-  "kickoff_ts": 1791234000,
-  "league": "CONCACAF Nations League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mo 13:35",
-  "first_line": 5.5,
+ "12408835|corners|über": {
+  "match_id": "12408835",
+  "home": "Milton Keynes Dons",
+  "away": "Brentford U21",
+  "kickoff": "Di 20:00",
+  "kickoff_ts": 1791309600,
+  "league": "England EFL Trophy",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Di 08:27",
+  "first_line": 8.5,
   "first_range": [
-   1.33,
-   1.82
+   1.564,
+   1.85
   ],
-  "last_run": "Mo 20:12",
-  "line": 5.5,
+  "last_run": "Di 08:27",
+  "line": 8.5,
   "range": [
-   1.33,
-   1.82
+   1.564,
+   1.85
   ],
   "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
    "home_series": {
     "kind": "gesamt",
     "hits": 10,
     "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    46,
+    39
+   ],
+   "next_line": 9.5,
+   "next_note": "kein Anker — Milton Keynes Dons 10/12 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Brentford U21 7/9 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.7040967904450419,
+    0.6934863550970701
+   ],
+   "fair": 1.52,
+   "ladder": [
+    [
+     7.5,
+     1.27
+    ],
+    [
+     8.5,
+     1.52
+    ]
+   ],
+   "avg": [
+    10.0,
+    10.1
+   ],
+   "expect": 10.4,
+   "expect_sum": 10.0,
+   "expect_matchup": 10.8,
+   "contrib": [
+    5.7,
+    5.1
+   ],
+   "buffer": 1.9,
+   "fa": [
+    [
+     4.9,
+     4.5
+    ],
+    [
+     5.6,
+     4.5
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "9.5",
+    "1.850",
+    "1.950"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.13,
+   "p_emp": {
+    "7.5": 0.7874015748031495,
+    "8.5": 0.6578947368421053
+   },
+   "p_mod": 0.728,
+   "p_fin": 0.658,
+   "fair_fin": 1.52,
+   "ladder_fin": [
+    [
+     7.5,
+     1.31
+    ],
+    [
+     8.5,
+     1.52
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟡",
+   "reason": "66 % knapp",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": [
+    1.564,
+    1.85
+   ]
+  },
+  "v": 2
+ },
+ "12407302|corners|über": {
+  "match_id": "12407302",
+  "home": "Sheff Wed",
+  "away": "Sunderland U21",
+  "kickoff": "Di 20:00",
+  "kickoff_ts": 1791309600,
+  "league": "England EFL Trophy",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Di 08:27",
+  "first_line": 7.5,
+  "first_range": [
+   1.6,
+   1.63
+  ],
+  "last_run": "Di 08:27",
+  "line": 7.5,
+  "range": [
+   1.6,
+   1.63
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
    },
    "away_series": {
     "kind": "gesamt",
@@ -1830,233 +1944,485 @@
    "home_is_anchor": true,
    "away_is_anchor": true,
    "valid": [
-    46,
+    43,
     47
    ],
-   "next_line": 4.5,
-   "next_note": "Cuba 6/8 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "next_line": 8.5,
+   "next_note": "Sheff Wed 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
    "longterm": [
-    0.8744273407035589,
-    0.8825279086438411
+    0.9244982617727845,
+    0.8696623093157417
    ],
-   "fair": 1.18,
+   "fair": 1.2,
    "ladder": [
     [
-     5.5,
-     1.18
-    ],
-    [
      6.5,
-     1.1
-    ]
-   ],
-   "avg": [
-    4.3,
-    2.5
-   ],
-   "expect": 3.1,
-   "expect_sum": 3.4,
-   "expect_matchup": 2.9,
-   "contrib": [
-    0.8,
-    2.2
-   ],
-   "buffer": 2.4,
-   "fa": [
-    [
-     1.6,
-     1.8
+     1.21
     ],
     [
-     2.0,
+     7.5,
      1.2
     ]
    ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.16,
-   "p_emp": {
-    "5.5": 0.8474576271186441,
-    "6.5": 0.9090909090909091
-   },
-   "p_mod": 0.867,
-   "p_fin": 0.874,
-   "fair_fin": 1.14,
-   "ladder_fin": [
+   "avg": [
+    10.6,
+    11.2
+   ],
+   "expect": 11.7,
+   "expect_sum": 10.9,
+   "expect_matchup": 12.6,
+   "contrib": [
+    6.7,
+    5.9
+   ],
+   "buffer": 4.2,
+   "fa": [
     [
-     5.5,
-     1.14
+     4.2,
+     6.0
     ],
     [
+     5.3,
+     5.4
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.800",
+    "2.000"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.32,
+   "p_emp": {
+    "6.5": 0.8264462809917356,
+    "7.5": 0.8333333333333334
+   },
+   "p_mod": 0.897,
+   "p_fin": 0.822,
+   "fair_fin": 1.22,
+   "ladder_fin": [
+    [
      6.5,
-     1.06
+     1.19
+    ],
+    [
+     7.5,
+     1.22
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "reason": "fair 1.14",
+   "reason": "fair 1.22",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
    "b365_lines": null,
    "b365_est": null,
    "range": [
-    1.33,
-    1.82
+    1.6,
+    1.63
    ]
   },
   "v": 2
  },
- "13125116|yellowcards|über": {
-  "match_id": "13125116",
-  "home": "Estudiantes LP",
-  "away": "Gimnasia Mendoza",
-  "kickoff": "Di 00:00",
-  "kickoff_ts": 1791237600,
-  "league": "Argentina Liga Profesional",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
+ "12408336|corners|über": {
+  "match_id": "12408336",
+  "home": "Accrington Stanley",
+  "away": "Salford City",
+  "kickoff": "Di 20:00",
+  "kickoff_ts": 1791309600,
+  "league": "England EFL Trophy",
+  "metric": "Ecken",
+  "metric_key": "corners",
   "direction": "über",
-  "first_run": "Mo 20:12",
-  "first_line": 2.5,
+  "first_run": "Di 08:27",
+  "first_line": 7.5,
   "first_range": [
-   1.39,
-   1.64
+   1.56,
+   1.649
   ],
-  "last_run": "Mo 20:12",
-  "line": 2.5,
+  "last_run": "Di 08:27",
+  "line": 7.5,
   "range": [
-   1.39,
-   1.64
+   1.56,
+   1.649
   ],
   "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
+   "metric": "Ecken",
+   "metric_key": "corners",
    "direction": "über",
-   "line": 2.5,
+   "line": 7.5,
    "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
     "kind": "gesamt",
     "hits": 10,
     "window": 12
    },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
    "home_is_anchor": true,
    "away_is_anchor": true,
    "valid": [
-    45,
-    40
+    47,
+    44
    ],
-   "next_line": 3.5,
-   "next_note": "Gimnasia Mendoza 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "next_line": 8.5,
+   "next_note": "Salford City 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
    "longterm": [
-    0.8995093098946455,
-    0.8494959922160075
+    0.8038345736929846,
+    0.8387933648403049
    ],
-   "fair": 1.22,
+   "fair": 1.28,
    "ladder": [
     [
-     1.5,
-     1.22
+     6.5,
+     1.29
     ],
     [
-     2.5,
-     1.22
+     7.5,
+     1.28
     ]
    ],
    "avg": [
-    5.6,
-    4.9
+    10.1,
+    9.3
    ],
-   "expect": 6.3,
-   "expect_sum": 5.3,
-   "expect_matchup": 7.3,
+   "expect": 9.9,
+   "expect_sum": 9.7,
+   "expect_matchup": 10.0,
    "contrib": [
-    3.0,
-    4.3
+    4.7,
+    5.3
    ],
-   "buffer": 3.8,
+   "buffer": 2.4,
    "fa": [
     [
-     2.9,
-     2.6
+     4.5,
+     5.6
     ],
     [
-     2.3,
-     2.8
+     5.6,
+     4.4
     ]
    ],
-   "referee": "Yael Falcon Perez: Ø 5.0 Karten (59 Sp.) · Ø 24.3 Fouls (45 Sp.)",
-   "b365": null,
-   "expect_ref": 8.1,
-   "buffer_ref": 5.6,
-   "sd": 2.03,
+   "referee": null,
+   "b365": [
+    "9.5",
+    "1.925",
+    "1.875"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.27,
    "p_emp": {
-    "1.5": 0.819672131147541,
-    "2.5": 0.819672131147541
+    "6.5": 0.7751937984496123,
+    "7.5": 0.78125
    },
-   "p_mod": 0.997,
-   "p_fin": 0.863,
-   "fair_fin": 1.16,
+   "p_mod": 0.769,
+   "p_fin": 0.736,
+   "fair_fin": 1.36,
    "ladder_fin": [
     [
-     1.5,
-     1.16
+     6.5,
+     1.29
     ],
     [
-     2.5,
-     1.16
+     7.5,
+     1.36
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
-   "light": "🟡",
-   "reason": "Historie 82 % vs. Modell 100 %",
+   "light": "🟢",
+   "reason": "fair 1.36",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
    "b365_lines": null,
    "b365_est": null,
    "range": [
-    1.39,
-    1.64
+    1.56,
+    1.649
    ]
   },
   "v": 2
  },
- "13125117|yellowcards|über": {
-  "match_id": "13125117",
-  "home": "Velez Sarsfield",
-  "away": "Platense",
-  "kickoff": "Di 00:00",
-  "kickoff_ts": 1791237600,
-  "league": "Argentina Liga Profesional",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
+ "12407253|corners|über": {
+  "match_id": "12407253",
+  "home": "Fleetwood Town",
+  "away": "Barnsley",
+  "kickoff": "Di 20:00",
+  "kickoff_ts": 1791309600,
+  "league": "England EFL Trophy",
+  "metric": "Ecken",
+  "metric_key": "corners",
   "direction": "über",
-  "first_run": "Mo 20:12",
-  "first_line": 2.5,
+  "first_run": "Di 08:27",
+  "first_line": 8.5,
   "first_range": [
-   1.22,
-   1.9
+   1.213,
+   1.627
   ],
-  "last_run": "Mo 20:12",
-  "line": 2.5,
+  "last_run": "Di 08:27",
+  "line": 8.5,
   "range": [
-   1.22,
-   1.9
+   1.213,
+   1.627
   ],
   "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    41
+   ],
+   "next_line": 9.5,
+   "next_note": "Fleetwood Town 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+   "longterm": [
+    0.7410659361434236,
+    0.7429853420475484
+   ],
+   "fair": 1.46,
+   "ladder": [
+    [
+     7.5,
+     1.28
+    ],
+    [
+     8.5,
+     1.46
+    ]
+   ],
+   "avg": [
+    10.4,
+    10.7
+   ],
+   "expect": 11.3,
+   "expect_sum": 10.6,
+   "expect_matchup": 12.1,
+   "contrib": [
+    6.7,
+    5.4
+   ],
+   "buffer": 2.8,
+   "fa": [
+    [
+     5.0,
+     5.3
+    ],
+    [
+     5.8,
+     6.4
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.800",
+    "2.000"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 4.16,
+   "p_emp": {
+    "7.5": 0.78125,
+    "8.5": 0.684931506849315
+   },
+   "p_mod": 0.75,
+   "p_fin": 0.681,
+   "fair_fin": 1.47,
+   "ladder_fin": [
+    [
+     7.5,
+     1.32
+    ],
+    [
+     8.5,
+     1.47
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.47",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": [
+    1.213,
+    1.627
+   ]
+  },
+  "v": 2
+ },
+ "12407260|corners|über": {
+  "match_id": "12407260",
+  "home": "Crawley Town",
+  "away": "Bromley",
+  "kickoff": "Di 20:45",
+  "kickoff_ts": 1791312300,
+  "league": "England EFL Trophy",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Di 08:27",
+  "first_line": 7.5,
+  "first_range": [
+   1.308,
+   1.316
+  ],
+  "last_run": "Di 08:27",
+  "line": 7.5,
+  "range": [
+   1.308,
+   1.316
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 17
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    44
+   ],
+   "next_line": 8.5,
+   "next_note": "kein Anker — Crawley Town 3/5 (3. Lücke) gesamt, 19/21 (Aussetzer in den letzten 2) heim; Bromley 3/5 (3. Lücke) gesamt, 10/12 (3. Lücke) auswärts",
+   "longterm": [
+    0.8967739829665884,
+    0.7477378440818732
+   ],
+   "fair": 1.28,
+   "ladder": [
+    [
+     6.5,
+     1.31
+    ],
+    [
+     7.5,
+     1.28
+    ]
+   ],
+   "avg": [
+    10.8,
+    11.1
+   ],
+   "expect": 11.8,
+   "expect_sum": 11.0,
+   "expect_matchup": 12.6,
+   "contrib": [
+    7.3,
+    5.2
+   ],
+   "buffer": 4.3,
+   "fa": [
+    [
+     5.0,
+     6.3
+    ],
+    [
+     4.8,
+     5.6
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.5",
+    "1.925",
+    "1.875"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.61,
+   "p_emp": {
+    "6.5": 0.7633587786259541,
+    "7.5": 0.78125
+   },
+   "p_mod": 0.883,
+   "p_fin": 0.791,
+   "fair_fin": 1.26,
+   "ladder_fin": [
+    [
+     6.5,
+     1.24
+    ],
+    [
+     7.5,
+     1.26
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "reason": "fair 1.26",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "range": [
+    1.308,
+    1.316
+   ]
+  },
+  "v": 2
+ },
+ "13248878|goals|über": {
+  "match_id": "13248878",
+  "home": "Saint Martin",
+  "away": "Bahamas",
+  "kickoff": "Di 22:00",
+  "kickoff_ts": 1791316800,
+  "league": "CONCACAF Nations League",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Di 08:27",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Di 08:27",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
    "direction": "über",
    "line": 2.5,
    "home_series": {
@@ -2072,84 +2438,81 @@
    "home_is_anchor": false,
    "away_is_anchor": true,
    "valid": [
-    46,
-    45
+    31,
+    40
    ],
    "next_line": 3.5,
-   "next_note": "kein Anker — Velez Sarsfield 2/4 (3. Lücke) gesamt, 24/26 (Aussetzer in den letzten 2) heim; Platense 7/9 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
+   "next_note": "Saint Martin 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
    "longterm": [
-    0.8772769862071077,
-    0.8952336653627783
+    0.763147348806029,
+    0.7999061212263631
    ],
-   "fair": 1.21,
+   "fair": 1.39,
    "ladder": [
-    [
-     1.5,
-     1.26
-    ],
-    [
-     2.5,
-     1.21
-    ]
-   ],
-   "avg": [
-    5.3,
-    5.1
-   ],
-   "expect": 6.0,
-   "expect_sum": 5.2,
-   "expect_matchup": 6.7,
-   "contrib": [
-    3.3,
-    3.5
-   ],
-   "buffer": 3.5,
-   "fa": [
-    [
-     2.4,
-     3.0
-    ],
-    [
-     2.1,
-     2.6
-    ]
-   ],
-   "referee": "Sebastian Zunino: Ø 5.1 Karten (36 Sp.) · Ø 22.9 Fouls (23 Sp.)",
-   "b365": null,
-   "expect_ref": 7.6,
-   "buffer_ref": 5.1,
-   "sd": 2.1,
-   "p_emp": {
-    "1.5": 0.7936507936507936,
-    "2.5": 0.8264462809917356
-   },
-   "p_mod": 0.992,
-   "p_fin": 0.864,
-   "fair_fin": 1.16,
-   "ladder_fin": [
     [
      1.5,
      1.17
     ],
     [
      2.5,
-     1.16
+     1.39
+    ]
+   ],
+   "avg": [
+    3.1,
+    4.3
+   ],
+   "expect": 3.9,
+   "expect_sum": 3.7,
+   "expect_matchup": 4.0,
+   "contrib": [
+    3.0,
+    1.0
+   ],
+   "buffer": 1.4,
+   "fa": [
+    [
+     2.2,
+     1.9
+    ],
+    [
+     0.9,
+     3.2
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.43,
+   "p_emp": {
+    "1.5": 0.8547008547008548,
+    "2.5": 0.7194244604316548
+   },
+   "p_mod": 0.718,
+   "p_fin": 0.675,
+   "fair_fin": 1.48,
+   "ladder_fin": [
+    [
+     1.5,
+     1.26
+    ],
+    [
+     2.5,
+     1.48
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟡",
-   "reason": "Historie 83 % vs. Modell 99 %",
+   "reason": "68 % knapp",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
    "b365_lines": null,
    "b365_est": null,
-   "range": [
-    1.22,
-    1.9
-   ]
+   "range": null
   },
   "v": 2
  }
