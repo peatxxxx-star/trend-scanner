@@ -1,0 +1,1422 @@
+{
+ "run_utc": "2026-10-07T06:10:30+00:00",
+ "matches_checked": 283,
+ "requests": 136,
+ "hits": [
+  {
+   "match": {
+    "id": "13070993",
+    "league": "Japan FA Cup",
+    "league_id": "33656",
+    "home": "Cerezo Osaka",
+    "away": "Kagoshima United",
+    "home_id": "5653",
+    "away_id": "38",
+    "kickoff": "Mi 11:30",
+    "kickoff_ts": 1791365400,
+    "bet365_id": "202365569"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 9.5,
+     "next_note": "kein Anker — Cerezo Osaka 8/10 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Kagoshima United 6/8 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.750057696226823,
+      0.8030848485300074
+     ],
+     "fair": 1.39,
+     "ladder": [
+      [
+       7.5,
+       1.25
+      ],
+      [
+       8.5,
+       1.39
+      ]
+     ],
+     "avg": [
+      10.7,
+      10.8
+     ],
+     "expect_sum": 10.8,
+     "expect_matchup": 12.3,
+     "contrib": [
+      5.2,
+      7.1
+     ],
+     "expect": 11.5,
+     "buffer": 3.0,
+     "fa": [
+      [
+       5.3,
+       5.5
+      ],
+      [
+       6.5,
+       4.1
+      ]
+     ],
+     "sd": 3.25,
+     "p_emp": {
+      "7.5": 0.8,
+      "8.5": 0.7194244604316548
+     },
+     "range": [
+      1.79,
+      1.79
+     ],
+     "b365": [
+      "11.0",
+      "1.950",
+      "1.850"
+     ],
+     "p_mod": 0.822,
+     "p_fin": 0.734,
+     "kal": 0.95,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       7.5,
+       1.29
+      ],
+      [
+       8.5,
+       1.36
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.36",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13253300",
+    "league": "Türkiye U19 League",
+    "league_id": "39108",
+    "home": "Bucaspor U19",
+    "away": "Menemen Belediyespor U19",
+    "home_id": "68738",
+    "away_id": "69520",
+    "kickoff": "Mi 13:00",
+    "kickoff_ts": 1791370800,
+    "bet365_id": "202369644"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "Bucaspor U19 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Menemen Belediyespor U19 7/9 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+     "longterm": [
+      0.7065260761241271,
+      0.7213012036082532
+     ],
+     "fair": 1.49,
+     "ladder": [
+      [
+       1.5,
+       1.21
+      ],
+      [
+       2.5,
+       1.49
+      ]
+     ],
+     "avg": [
+      3.3,
+      3.8
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 4.0,
+     "contrib": [
+      2.7,
+      1.3
+     ],
+     "expect": 3.8,
+     "buffer": 1.3,
+     "fa": [
+      [
+       1.6,
+       1.9
+      ],
+      [
+       1.1,
+       1.9
+      ]
+     ],
+     "sd": 1.77,
+     "p_emp": {
+      "1.5": 0.8264462809917356,
+      "2.5": 0.6711409395973155
+     },
+     "no_odds_check": true,
+     "p_mod": 0.769,
+     "p_fin": 0.702,
+     "kal": 0.94,
+     "fair_fin": 1.43,
+     "ladder_fin": [
+      [
+       1.5,
+       1.23
+      ],
+      [
+       2.5,
+       1.43
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.43",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13096268",
+    "league": "China Division 2",
+    "league_id": "889",
+    "home": "Nantong Haimen Codion",
+    "away": "Xiamen Feilu",
+    "home_id": "727927",
+    "away_id": "1259530",
+    "kickoff": "Mi 13:30",
+    "kickoff_ts": 1791372600,
+    "bet365_id": "202363752"
+   },
+   "signals": [
+    {
+     "metric": "Nantong Haimen Codion: Ecken",
+     "metric_key": "team_corners_heim",
+     "line": 3.5,
+     "direction": "über",
+     "team_market": true,
+     "team": "Nantong Haimen Codion",
+     "serie": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "gegner": 8,
+     "erwartet": 5.9,
+     "fair": 1.34,
+     "fair_fin": 1.34,
+     "p_fin": 0.7476,
+     "p_emp": 0.73,
+     "p_mod": 0.798,
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13222477",
+    "league": "Albania Cup",
+    "league_id": "7256",
+    "home": "Luftetari",
+    "away": "Tomori Berat",
+    "home_id": "1181726",
+    "away_id": "186585",
+    "kickoff": "Mi 13:30",
+    "kickoff_ts": 1791372600,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      38,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "Luftetari 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Tomori Berat 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.5127197444482372,
+      0.6598451212197831
+     ],
+     "fair": 1.7,
+     "ladder": [
+      [
+       1.5,
+       1.26
+      ],
+      [
+       2.5,
+       1.7
+      ]
+     ],
+     "avg": [
+      3.3,
+      3.6
+     ],
+     "expect_sum": 3.4,
+     "expect_matchup": 3.7,
+     "contrib": [
+      2.9,
+      0.8
+     ],
+     "expect": 3.6,
+     "buffer": 1.1,
+     "fa": [
+      [
+       1.1,
+       1.4
+      ],
+      [
+       0.8,
+       1.9
+      ]
+     ],
+     "sd": 1.75,
+     "p_emp": {
+      "1.5": 0.7936507936507936,
+      "2.5": 0.5882352941176471
+     },
+     "no_odds_check": true,
+     "p_mod": 0.735,
+     "p_fin": 0.656,
+     "kal": 0.94,
+     "fair_fin": 1.52,
+     "ladder_fin": [
+      [
+       1.5,
+       1.26
+      ],
+      [
+       2.5,
+       1.52
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "66 % knapp; Historie 59 % vs. Modell 74 %",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13194442",
+    "league": "Finland Ykkonen",
+    "league_id": "36273",
+    "home": "KUPS Akatemia",
+    "away": "FC Inter II",
+    "home_id": "694626",
+    "away_id": "352791",
+    "kickoff": "Mi 18:00",
+    "kickoff_ts": 1791388800,
+    "bet365_id": "200870571"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      50
+     ],
+     "next_line": 8.5,
+     "next_note": "kein Anker — KUPS Akatemia 12/14 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; FC Inter II 9/11 (3. Lücke) gesamt, 12/14 (3. Lücke) auswärts",
+     "longterm": [
+      0.9028823194041504,
+      0.9448855845528553
+     ],
+     "fair": 1.17,
+     "ladder": [
+      [
+       6.5,
+       1.22
+      ],
+      [
+       7.5,
+       1.17
+      ]
+     ],
+     "avg": [
+      10.6,
+      10.8
+     ],
+     "expect_sum": 10.7,
+     "expect_matchup": 12.3,
+     "contrib": [
+      6.9,
+      5.4
+     ],
+     "expect": 11.5,
+     "buffer": 4.0,
+     "fa": [
+      [
+       5.2,
+       6.1
+      ],
+      [
+       5.7,
+       6.0
+      ]
+     ],
+     "sd": 3.14,
+     "p_emp": {
+      "6.5": 0.819672131147541,
+      "7.5": 0.8547008547008548
+     },
+     "range": [
+      1.71,
+      1.71
+     ],
+     "b365": [
+      "12.0",
+      "1.975",
+      "1.825"
+     ],
+     "p_mod": 0.899,
+     "p_fin": 0.796,
+     "kal": 0.95,
+     "fair_fin": 1.26,
+     "ladder_fin": [
+      [
+       6.5,
+       1.25
+      ],
+      [
+       7.5,
+       1.26
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.26",
+     "light": "🟢"
+    },
+    {
+     "metric": "FC Inter II: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 3.5,
+     "direction": "über",
+     "team_market": true,
+     "team": "FC Inter II",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 8,
+     "erwartet": 5.1,
+     "fair": 1.41,
+     "fair_fin": 1.41,
+     "p_fin": 0.7117,
+     "p_emp": 0.715,
+     "p_mod": 0.72,
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13252623",
+    "league": "Egypt League Cup",
+    "league_id": "30285",
+    "home": "Asyut Petroleum",
+    "away": "Al Ahly Cairo",
+    "home_id": "188960",
+    "away_id": "46661",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791392400,
+    "bet365_id": "202361999"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      31,
+      41
+     ],
+     "next_line": 8.5,
+     "next_note": "Al Ahly Cairo 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.7412519140856803,
+      0.7822682787254551
+     ],
+     "fair": 1.36,
+     "ladder": [
+      [
+       6.5,
+       1.3
+      ],
+      [
+       7.5,
+       1.36
+      ]
+     ],
+     "avg": [
+      10.4,
+      9.4
+     ],
+     "expect_sum": 9.9,
+     "expect_matchup": 11.3,
+     "contrib": [
+      2.5,
+      8.8
+     ],
+     "expect": 10.6,
+     "buffer": 3.1,
+     "fa": [
+      [
+       4.0,
+       5.2
+      ],
+      [
+       5.9,
+       3.6
+      ]
+     ],
+     "sd": 3.21,
+     "p_emp": {
+      "6.5": 0.7692307692307692,
+      "7.5": 0.7352941176470588
+     },
+     "range": [
+      1.4,
+      1.4
+     ],
+     "b365": [
+      "9.5",
+      "2.000",
+      "1.800"
+     ],
+     "p_mod": 0.833,
+     "p_fin": 0.742,
+     "kal": 0.95,
+     "fair_fin": 1.35,
+     "ladder_fin": [
+      [
+       6.5,
+       1.3
+      ],
+      [
+       7.5,
+       1.35
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.35",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13108427",
+    "league": "Italy Serie D Cup",
+    "league_id": "117",
+    "home": "Paganese",
+    "away": "Real Aversa 1925",
+    "home_id": "7305",
+    "away_id": "1324280",
+    "kickoff": "Mi 20:00",
+    "kickoff_ts": 1791396000,
+    "bet365_id": "202363993"
+   },
+   "signals": [
+    {
+     "metric": "Real Aversa 1925: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 5.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Real Aversa 1925",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 6,
+     "erwartet": 2.2,
+     "fair": 1.2,
+     "fair_fin": 1.2,
+     "p_fin": 0.8342,
+     "p_emp": 0.8,
+     "p_mod": 0.993,
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13214286",
+    "league": "Brazil Campeonato Baiano Women",
+    "league_id": "41622",
+    "home": "Juazeirense (W)",
+    "away": "EC Vitoria (W)",
+    "home_id": "1197516",
+    "away_id": "1214208",
+    "kickoff": "Mi 20:00",
+    "kickoff_ts": 1791396000,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      13,
+      47
+     ],
+     "next_line": 3.5,
+     "next_note": "EC Vitoria (W) 7/9 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.655576016239903,
+      0.760876064767116
+     ],
+     "fair": 1.49,
+     "ladder": [
+      [
+       1.5,
+       1.18
+      ],
+      [
+       2.5,
+       1.49
+      ]
+     ],
+     "avg": [
+      6.9,
+      4.3
+     ],
+     "expect_sum": 5.6,
+     "expect_matchup": 9.3,
+     "contrib": [
+      4.3,
+      5.0
+     ],
+     "expect": 7.4,
+     "buffer": 4.9,
+     "fa": [
+      [
+       1.4,
+       3.8
+      ],
+      [
+       2.6,
+       1.4
+      ]
+     ],
+     "sd": 3.75,
+     "p_emp": {
+      "1.5": 0.8474576271186441,
+      "2.5": 0.6711409395973155
+     },
+     "no_odds_check": true,
+     "p_mod": 0.904,
+     "p_fin": 0.755,
+     "kal": 0.94,
+     "fair_fin": 1.32,
+     "ladder_fin": [
+      [
+       1.5,
+       1.19
+      ],
+      [
+       2.5,
+       1.32
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 67 % vs. Modell 90 %",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13214045",
+    "league": "Brazil Campeonato Baiano Women",
+    "league_id": "41622",
+    "home": "Jacuipense (W)",
+    "away": "Botafogo BA Women",
+    "home_id": "1188736",
+    "away_id": "1175669",
+    "kickoff": "Mi 20:00",
+    "kickoff_ts": 1791396000,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      18,
+      10
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — Jacuipense (W) 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Botafogo BA Women 10 in Folge gesamt, 5 in Folge auswärts",
+     "longterm": [
+      0.7710194474611022,
+      1.0
+     ],
+     "fair": 1.36,
+     "ladder": [
+      [
+       1.5,
+       1.13
+      ],
+      [
+       2.5,
+       1.36
+      ]
+     ],
+     "avg": [
+      4.7,
+      11.2
+     ],
+     "expect_sum": 8.0,
+     "expect_matchup": 7.0,
+     "contrib": [
+      6.0,
+      1.0
+     ],
+     "expect": 7.5,
+     "buffer": 5.0,
+     "fa": [
+      [
+       1.7,
+       4.2
+      ],
+      [
+       1.1,
+       7.9
+      ]
+     ],
+     "sd": 5.69,
+     "p_emp": {
+      "1.5": 0.8849557522123894,
+      "2.5": 0.7352941176470588
+     },
+     "no_odds_check": true,
+     "p_mod": 0.81,
+     "p_fin": 0.743,
+     "kal": 0.94,
+     "fair_fin": 1.35,
+     "ladder_fin": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.35
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.35",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13253257",
+    "league": "Northern Ireland Reserve League",
+    "league_id": "442",
+    "home": "Dungannon Swifts Reserves",
+    "away": "Limavady United Reserves",
+    "home_id": "45140",
+    "away_id": "1319885",
+    "kickoff": "Mi 21:00",
+    "kickoff_ts": 1791399600,
+    "bet365_id": "202418039"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      45,
+      7
+     ],
+     "next_line": 3.5,
+     "next_note": "Limavady United Reserves 2/4 (3. Lücke) gesamt, 3/4 (Aussetzer in den letzten 2) auswärts",
+     "longterm": [
+      0.8036661955547934,
+      0.9230769230769231
+     ],
+     "fair": 1.37,
+     "ladder": [
+      [
+       1.5,
+       1.17
+      ],
+      [
+       2.5,
+       1.37
+      ]
+     ],
+     "avg": [
+      4.4,
+      5.0
+     ],
+     "expect_sum": 4.7,
+     "expect_matchup": 8.1,
+     "contrib": [
+      7.5,
+      0.6
+     ],
+     "expect": 6.4,
+     "buffer": 3.9,
+     "fa": [
+      [
+       2.1,
+       2.3
+      ],
+      [
+       1.3,
+       2.7
+      ]
+     ],
+     "sd": 2.03,
+     "p_emp": {
+      "1.5": 0.8547008547008548,
+      "2.5": 0.7299270072992701
+     },
+     "no_odds_check": true,
+     "p_mod": 0.973,
+     "p_fin": 0.805,
+     "kal": 0.94,
+     "fair_fin": 1.24,
+     "ladder_fin": [
+      [
+       1.5,
+       1.16
+      ],
+      [
+       2.5,
+       1.24
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 73 % vs. Modell 97 %",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13181352",
+    "league": "Colombia Primera B",
+    "league_id": "255",
+    "home": "Itagui Leones",
+    "away": "Barranquilla FC",
+    "home_id": "1253832",
+    "away_id": "6438",
+    "kickoff": "Mi 23:00",
+    "kickoff_ts": 1791406800,
+    "bet365_id": "202268983"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      44,
+      41
+     ],
+     "next_line": 9.5,
+     "next_note": "kein Anker — Itagui Leones 11/13 (3. Lücke) gesamt, 9/11 (3. Lücke) heim; Barranquilla FC 8/10 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.7364769549205603,
+      0.7318729599089321
+     ],
+     "fair": 1.48,
+     "ladder": [
+      [
+       7.5,
+       1.33
+      ],
+      [
+       8.5,
+       1.48
+      ]
+     ],
+     "avg": [
+      11.9,
+      10.0
+     ],
+     "expect_sum": 10.9,
+     "expect_matchup": 13.4,
+     "contrib": [
+      9.4,
+      3.9
+     ],
+     "expect": 12.2,
+     "buffer": 3.7,
+     "fa": [
+      [
+       5.2,
+       5.2
+      ],
+      [
+       4.3,
+       5.4
+      ]
+     ],
+     "sd": 3.19,
+     "p_emp": {
+      "7.5": 0.7518796992481203,
+      "8.5": 0.6756756756756757
+     },
+     "range": [
+      1.96,
+      1.96
+     ],
+     "b365": [
+      "10.0",
+      "1.850",
+      "1.950"
+     ],
+     "p_mod": 0.877,
+     "p_fin": 0.738,
+     "kal": 0.95,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       7.5,
+       1.29
+      ],
+      [
+       8.5,
+       1.36
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 68 % vs. Modell 88 %",
+     "light": "🟢"
+    },
+    {
+     "metric": "Itagui Leones: Ecken",
+     "metric_key": "team_corners_heim",
+     "line": 3.5,
+     "direction": "über",
+     "team_market": true,
+     "team": "Itagui Leones",
+     "serie": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "gegner": 7,
+     "erwartet": 5.1,
+     "fair": 1.51,
+     "fair_fin": 1.51,
+     "p_fin": 0.6644,
+     "p_emp": 0.615,
+     "p_mod": 0.697,
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12385193",
+    "league": "Bolivia Copa Division Profesional",
+    "league_id": "32538",
+    "home": "Independiente Petrolero",
+    "away": "GV San Jose",
+    "home_id": "234776",
+    "away_id": "1125090",
+    "kickoff": "Mi 23:30",
+    "kickoff_ts": 1791408600,
+    "bet365_id": "202361867"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      42,
+      39
+     ],
+     "next_line": 3.5,
+     "next_note": "Independiente Petrolero 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; GV San Jose 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.8182133840766105,
+      0.7201781549409918
+     ],
+     "fair": 1.42,
+     "ladder": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.42
+      ]
+     ],
+     "avg": [
+      3.8,
+      3.4
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 4.0,
+     "contrib": [
+      2.8,
+      1.2
+     ],
+     "expect": 3.8,
+     "buffer": 1.3,
+     "fa": [
+      [
+       1.4,
+       2.0
+      ],
+      [
+       1.4,
+       2.0
+      ]
+     ],
+     "sd": 1.67,
+     "p_emp": {
+      "1.5": 0.819672131147541,
+      "2.5": 0.7042253521126761
+     },
+     "no_odds_check": true,
+     "p_mod": 0.782,
+     "p_fin": 0.72,
+     "kal": 0.94,
+     "fair_fin": 1.39,
+     "ladder_fin": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.39
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.39",
+     "light": "🟢"
+    },
+    {
+     "metric": "GV San Jose: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 5.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "GV San Jose",
+     "serie": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "gegner": 6,
+     "erwartet": 4.3,
+     "fair": 1.39,
+     "fair_fin": 1.39,
+     "p_fin": 0.7179,
+     "p_emp": 0.684,
+     "p_mod": 0.663,
+     "light": "🟢"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "results": 66,
+  "doublechance": 101,
+  "totals": 115,
+  "handicaps": 37,
+  "btts": 38,
+  "corners": 23,
+  "correctscore": 12
+ },
+ "dauer_s": 101,
+ "zeit": {
+  "historie": 57,
+  "pruefung": 0,
+  "scores24": 140,
+  "extras": 119,
+  "vorlauf": 48,
+  "spiele": 53
+ },
+ "teams_nachgeladen": 11,
+ "s24": {
+  "ok": 117,
+  "no_link": 46,
+  "fetch_fail": 49
+ },
+ "new": [
+  "13070993|corners|über",
+  "13253300|goals|über",
+  "13096268|team_corners_heim|über",
+  "13222477|goals|über",
+  "13194442|corners|über",
+  "13194442|team_corners_gast|über",
+  "13252623|corners|über",
+  "13108427|team_corners_gast|unter",
+  "13214286|goals|über",
+  "13214045|goals|über",
+  "13253257|goals|über",
+  "13181352|corners|über",
+  "13181352|team_corners_heim|über",
+  "12385193|goals|über",
+  "12385193|team_corners_gast|unter"
+ ],
+ "changed": [],
+ "dropped": [],
+ "team_totals": [
+  {
+   "match": {
+    "id": "13096268",
+    "league": "China Division 2",
+    "league_id": "889",
+    "home": "Nantong Haimen Codion",
+    "away": "Xiamen Feilu",
+    "home_id": "727927",
+    "away_id": "1259530",
+    "kickoff": "Mi 13:30",
+    "kickoff_ts": 1791372600,
+    "bet365_id": "202363752"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Nantong Haimen Codion",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7476,
+    "fair": 1.34,
+    "p_emp": 0.73,
+    "p_mod": 0.798,
+    "erwartet": 5.9,
+    "basis": 48,
+    "gegner": 8
+   }
+  },
+  {
+   "match": {
+    "id": "13194442",
+    "league": "Finland Ykkonen",
+    "league_id": "36273",
+    "home": "KUPS Akatemia",
+    "away": "FC Inter II",
+    "home_id": "694626",
+    "away_id": "352791",
+    "kickoff": "Mi 18:00",
+    "kickoff_ts": 1791388800,
+    "bet365_id": "200870571"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "FC Inter II",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7117,
+    "fair": 1.41,
+    "p_emp": 0.715,
+    "p_mod": 0.72,
+    "erwartet": 5.1,
+    "basis": 50,
+    "gegner": 8
+   }
+  },
+  {
+   "match": {
+    "id": "13108427",
+    "league": "Italy Serie D Cup",
+    "league_id": "117",
+    "home": "Paganese",
+    "away": "Real Aversa 1925",
+    "home_id": "7305",
+    "away_id": "1324280",
+    "kickoff": "Mi 20:00",
+    "kickoff_ts": 1791396000,
+    "bet365_id": "202363993"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Real Aversa 1925",
+    "line": 5.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.8342,
+    "fair": 1.2,
+    "p_emp": 0.8,
+    "p_mod": 0.993,
+    "erwartet": 2.2,
+    "basis": 24,
+    "gegner": 6
+   }
+  },
+  {
+   "match": {
+    "id": "13181352",
+    "league": "Colombia Primera B",
+    "league_id": "255",
+    "home": "Itagui Leones",
+    "away": "Barranquilla FC",
+    "home_id": "1253832",
+    "away_id": "6438",
+    "kickoff": "Mi 23:00",
+    "kickoff_ts": 1791406800,
+    "bet365_id": "202268983"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Itagui Leones",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.6644,
+    "fair": 1.51,
+    "p_emp": 0.615,
+    "p_mod": 0.697,
+    "erwartet": 5.1,
+    "basis": 44,
+    "gegner": 7
+   }
+  },
+  {
+   "match": {
+    "id": "12385193",
+    "league": "Bolivia Copa Division Profesional",
+    "league_id": "32538",
+    "home": "Independiente Petrolero",
+    "away": "GV San Jose",
+    "home_id": "234776",
+    "away_id": "1125090",
+    "kickoff": "Mi 23:30",
+    "kickoff_ts": 1791408600,
+    "bet365_id": "202361867"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "GV San Jose",
+    "line": 5.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "auswärts",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7179,
+    "fair": 1.39,
+    "p_emp": 0.684,
+    "p_mod": 0.663,
+    "erwartet": 4.3,
+    "basis": 37,
+    "gegner": 6
+   }
+  }
+ ],
+ "neue_maerkte": []
+}
