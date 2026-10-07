@@ -1,0 +1,1298 @@
+{
+ "run_utc": "2026-10-07T19:15:18+00:00",
+ "matches_checked": 91,
+ "requests": 64,
+ "hits": [
+  {
+   "match": {
+    "id": "12385193",
+    "league": "Bolivia Copa Division Profesional",
+    "league_id": "32538",
+    "home": "Independiente Petrolero",
+    "away": "GV San Jose",
+    "home_id": "234776",
+    "away_id": "1125090",
+    "kickoff": "Mi 23:30",
+    "kickoff_ts": 1791408600,
+    "bet365_id": "202361867"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      42,
+      39
+     ],
+     "next_line": 3.5,
+     "next_note": "Independiente Petrolero 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; GV San Jose 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.8182133840766105,
+      0.7201781549409918
+     ],
+     "fair": 1.42,
+     "ladder": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.42
+      ]
+     ],
+     "avg": [
+      3.8,
+      3.4
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 4.0,
+     "contrib": [
+      2.8,
+      1.2
+     ],
+     "expect": 3.8,
+     "buffer": 1.3,
+     "fa": [
+      [
+       1.4,
+       2.0
+      ],
+      [
+       1.4,
+       2.0
+      ]
+     ],
+     "sd": 1.67,
+     "p_emp": {
+      "1.5": 0.819672131147541,
+      "2.5": 0.7042253521126761
+     },
+     "no_odds_check": true,
+     "p_mod": 0.782,
+     "p_fin": 0.72,
+     "kal": 0.94,
+     "fair_fin": 1.39,
+     "ladder_fin": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.39
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.39",
+     "light": "🟢",
+     "first_run": "Mi 08:10"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11328489",
+    "league": "Brazil Serie A",
+    "league_id": "155",
+    "home": "Internacional",
+    "away": "Corinthians",
+    "home_id": "1422",
+    "away_id": "4128",
+    "kickoff": "Do 00:30",
+    "kickoff_ts": 1791412200,
+    "bet365_id": "200931947"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 3.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      46
+     ],
+     "next_line": 4.5,
+     "next_note": "Internacional 6/8 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Corinthians 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.7599704805438741,
+      0.8316052817480425
+     ],
+     "fair": 1.4,
+     "ladder": [
+      [
+       2.5,
+       1.22
+      ],
+      [
+       3.5,
+       1.4
+      ]
+     ],
+     "avg": [
+      5.0,
+      5.3
+     ],
+     "expect_sum": 5.1,
+     "expect_matchup": 7.0,
+     "contrib": [
+      2.7,
+      4.3
+     ],
+     "expect": 6.0,
+     "buffer": 2.5,
+     "fa": [
+      [
+       2.2,
+       2.3
+      ],
+      [
+       2.3,
+       2.6
+      ]
+     ],
+     "sd": 2.1,
+     "p_emp": {
+      "2.5": 0.819672131147541,
+      "3.5": 0.7142857142857143
+     },
+     "range": [
+      1.43,
+      1.77
+     ],
+     "referee": "Felipe Fernandes de Lima: Ø 4.8 Karten (23 Sp.) · Ø 26.2 Fouls (23 Sp.)",
+     "expect_ref": 7.2,
+     "buffer_ref": 3.7,
+     "p_mod": 0.961,
+     "p_fin": 0.828,
+     "kal": 0.95,
+     "fair_fin": 1.21,
+     "ladder_fin": [
+      [
+       2.5,
+       1.13
+      ],
+      [
+       3.5,
+       1.21
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 71 % vs. Modell 96 %",
+     "light": "🟢",
+     "first_run": "Mi 17:33"
+    },
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 22.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      46
+     ],
+     "next_line": 24.5,
+     "next_note": "Internacional 7/9 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; Corinthians 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.8039160456153068,
+      0.7549582720204597
+     ],
+     "fair": 1.4,
+     "ladder": [
+      [
+       20.5,
+       1.25
+      ],
+      [
+       22.5,
+       1.4
+      ]
+     ],
+     "avg": [
+      30.4,
+      25.7
+     ],
+     "expect_sum": 28.1,
+     "expect_matchup": 32.9,
+     "contrib": [
+      18.5,
+      14.5
+     ],
+     "expect": 30.5,
+     "buffer": 8.0,
+     "fa": [
+      [
+       15.5,
+       13.6
+      ],
+      [
+       11.7,
+       14.2
+      ]
+     ],
+     "sd": 6.72,
+     "p_emp": {
+      "20.5": 0.8,
+      "22.5": 0.7142857142857143
+     },
+     "range": [
+      1.34,
+      1.85
+     ],
+     "referee": "Felipe Fernandes de Lima: Ø 4.8 Karten (23 Sp.) · Ø 26.2 Fouls (23 Sp.)",
+     "expect_ref": 32.7,
+     "buffer_ref": 10.2,
+     "p_mod": 0.935,
+     "p_fin": 0.823,
+     "kal": null,
+     "fair_fin": 1.22,
+     "ladder_fin": [
+      [
+       20.5,
+       1.16
+      ],
+      [
+       22.5,
+       1.22
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 71 % vs. Modell 94 %",
+     "light": "🟢",
+     "first_run": "Mi 17:33",
+     "change_note": "Quoten vorher 1.33–1.85"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      46
+     ],
+     "next_line": 1.5,
+     "next_note": "Internacional 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+     "longterm": [
+      0.649215128563715,
+      0.8506018904502735
+     ],
+     "fair": 1.37,
+     "ladder": [
+      [
+       0.5,
+       1.37
+      ]
+     ],
+     "avg": [
+      1.5,
+      2.3
+     ],
+     "expect_sum": 1.9,
+     "expect_matchup": 2.7,
+     "contrib": [
+      1.3,
+      1.4
+     ],
+     "expect": 2.3,
+     "buffer": 1.8,
+     "fa": [
+      [
+       0.8,
+       0.8
+      ],
+      [
+       0.9,
+       1.1
+      ]
+     ],
+     "sd": 1.55,
+     "p_emp": {
+      "0.5": 0.7299270072992701
+     },
+     "range": [
+      1.43,
+      1.77
+     ],
+     "referee": "Felipe Fernandes de Lima: Ø 4.8 Karten (23 Sp.) · Ø 26.2 Fouls (23 Sp.)",
+     "expect_ref": 6.9,
+     "buffer_ref": 6.4,
+     "p_mod": 1.0,
+     "p_fin": 0.826,
+     "kal": 0.97,
+     "fair_fin": 1.21,
+     "ladder_fin": [
+      [
+       0.5,
+       1.21
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🔴",
+     "reason": "Historie 73 % und Modell 100 % widersprechen sich",
+     "light": "🟢",
+     "first_run": "Mi 17:33"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11328488",
+    "league": "Brazil Serie A",
+    "league_id": "155",
+    "home": "Remo",
+    "away": "Gremio",
+    "home_id": "828479",
+    "away_id": "1312",
+    "kickoff": "Do 00:30",
+    "kickoff_ts": 1791412200,
+    "bet365_id": "200931953"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      47,
+      46
+     ],
+     "next_line": 3.5,
+     "next_note": "Remo 9/11 (3. Lücke) gesamt, 8/10 (3. Lücke) heim",
+     "longterm": [
+      0.7846419310943223,
+      0.9113781715523758
+     ],
+     "fair": 1.25,
+     "ladder": [
+      [
+       1.5,
+       1.19
+      ],
+      [
+       2.5,
+       1.25
+      ]
+     ],
+     "avg": [
+      4.0,
+      4.7
+     ],
+     "expect_sum": 4.4,
+     "expect_matchup": 5.0,
+     "contrib": [
+      2.1,
+      2.9
+     ],
+     "expect": 4.7,
+     "buffer": 2.2,
+     "fa": [
+      [
+       1.9,
+       2.0
+      ],
+      [
+       2.5,
+       2.7
+      ]
+     ],
+     "sd": 1.9,
+     "p_emp": {
+      "1.5": 0.8403361344537815,
+      "2.5": 0.8
+     },
+     "range": [
+      1.53,
+      1.64
+     ],
+     "referee": "Davi de Oliveira Lacerda: Ø 5.3 Karten (29 Sp.) · Ø 24.0 Fouls (29 Sp.)",
+     "expect_ref": 6.1,
+     "buffer_ref": 3.6,
+     "p_mod": 0.971,
+     "p_fin": 0.869,
+     "kal": 0.95,
+     "fair_fin": 1.15,
+     "ladder_fin": [
+      [
+       1.5,
+       1.12
+      ],
+      [
+       2.5,
+       1.15
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 80 % vs. Modell 97 %",
+     "light": "🟢",
+     "first_run": "Mi 20:14",
+     "change_note": "Quoten vorher 1.54–1.64"
+    },
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 18.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      46
+     ],
+     "next_line": 20.5,
+     "next_note": "Remo 5/7 (3. Lücke) gesamt, 7/9 (3. Lücke) heim",
+     "longterm": [
+      0.8659854529976397,
+      0.838940343521241
+     ],
+     "fair": 1.21,
+     "ladder": [
+      [
+       16.5,
+       1.26
+      ],
+      [
+       18.5,
+       1.21
+      ]
+     ],
+     "avg": [
+      23.2,
+      24.7
+     ],
+     "expect_sum": 24.0,
+     "expect_matchup": 24.1,
+     "contrib": [
+      12.9,
+      11.2
+     ],
+     "expect": 24.0,
+     "buffer": 5.5,
+     "fa": [
+      [
+       11.1,
+       12.2
+      ],
+      [
+       12.2,
+       13.3
+      ]
+     ],
+     "sd": 5.96,
+     "p_emp": {
+      "16.5": 0.7936507936507936,
+      "18.5": 0.8264462809917356
+     },
+     "range": [
+      1.3,
+      1.78
+     ],
+     "referee": "Davi de Oliveira Lacerda: Ø 5.3 Karten (29 Sp.) · Ø 24.0 Fouls (29 Sp.)",
+     "expect_ref": 24.1,
+     "buffer_ref": 5.6,
+     "p_mod": 0.826,
+     "p_fin": 0.824,
+     "kal": null,
+     "fair_fin": 1.21,
+     "ladder_fin": [
+      [
+       16.5,
+       1.19
+      ],
+      [
+       18.5,
+       1.21
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.21",
+     "light": "🟢",
+     "first_run": "Mi 20:14",
+     "change_note": "Quoten vorher 1.30–1.93"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11365715",
+    "league": "Brazil Serie A",
+    "league_id": "155",
+    "home": "Bragantino",
+    "away": "Mirassol",
+    "home_id": "3165",
+    "away_id": "8555",
+    "kickoff": "Do 00:30",
+    "kickoff_ts": 1791412200,
+    "bet365_id": "200931945"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      48,
+      48
+     ],
+     "next_line": 5.5,
+     "next_note": "kein Anker — Bragantino 9/11 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Mirassol 15/17 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+     "longterm": [
+      0.9337582538320178,
+      0.847563715084278
+     ],
+     "fair": 1.13,
+     "ladder": [
+      [
+       6.5,
+       1.13
+      ],
+      [
+       7.5,
+       1.24
+      ]
+     ],
+     "avg": [
+      4.8,
+      4.3
+     ],
+     "expect_sum": 4.6,
+     "expect_matchup": 5.4,
+     "contrib": [
+      2.4,
+      3.1
+     ],
+     "expect": 5.0,
+     "buffer": 1.5,
+     "fa": [
+      [
+       2.6,
+       2.1
+      ],
+      [
+       2.4,
+       1.9
+      ]
+     ],
+     "sd": 2.09,
+     "p_emp": {
+      "6.5": 0.8849557522123894,
+      "7.5": 0.8064516129032259
+     },
+     "range": [
+      1.38,
+      1.6
+     ],
+     "referee": "Raphael Claus: Ø 3.8 Karten (48 Sp.) · Ø 21.3 Fouls (42 Sp.)",
+     "expect_ref": 5.0,
+     "buffer_ref": 1.5,
+     "p_mod": 0.764,
+     "p_fin": 0.842,
+     "kal": 1.02,
+     "fair_fin": 1.19,
+     "ladder_fin": [
+      [
+       6.5,
+       1.19
+      ],
+      [
+       7.5,
+       1.17
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 88 % vs. Modell 76 %",
+     "light": "🟢",
+     "first_run": "Mi 17:33"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11419941",
+    "league": "Canada Premier League",
+    "league_id": "15849",
+    "home": "Forge FC",
+    "away": "Pacific FC (CA)",
+    "home_id": "275662",
+    "away_id": "275814",
+    "kickoff": "Do 01:00",
+    "kickoff_ts": 1791414000,
+    "bet365_id": "201642155"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      46,
+      40
+     ],
+     "next_line": 8.5,
+     "next_note": "Forge FC 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+     "longterm": [
+      0.7261671670569182,
+      0.7559238807790195
+     ],
+     "fair": 1.39,
+     "ladder": [
+      [
+       6.5,
+       1.37
+      ],
+      [
+       7.5,
+       1.39
+      ]
+     ],
+     "avg": [
+      8.8,
+      9.8
+     ],
+     "expect_sum": 9.3,
+     "expect_matchup": 10.1,
+     "contrib": [
+      8.0,
+      2.2
+     ],
+     "expect": 9.7,
+     "buffer": 2.2,
+     "fa": [
+      [
+       5.3,
+       3.4
+      ],
+      [
+       4.0,
+       5.4
+      ]
+     ],
+     "sd": 2.49,
+     "p_emp": {
+      "6.5": 0.7299270072992701,
+      "7.5": 0.7194244604316548
+     },
+     "range": [
+      1.214,
+      1.974
+     ],
+     "b365": [
+      "9.0",
+      "1.800",
+      "2.000"
+     ],
+     "p_mod": 0.812,
+     "p_fin": 0.731,
+     "kal": 0.95,
+     "fair_fin": 1.37,
+     "ladder_fin": [
+      [
+       6.5,
+       1.32
+      ],
+      [
+       7.5,
+       1.37
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.37",
+     "light": "🟢",
+     "first_run": "Mi 17:33"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11308267",
+    "league": "Brazil Serie A",
+    "league_id": "155",
+    "home": "Vitoria",
+    "away": "Chapecoense",
+    "home_id": "1419",
+    "away_id": "1338",
+    "kickoff": "Do 01:00",
+    "kickoff_ts": 1791414000,
+    "bet365_id": "200931956"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      48
+     ],
+     "next_line": 3.5,
+     "next_note": "Vitoria 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Chapecoense 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.836070708903758,
+      0.703454242610302
+     ],
+     "fair": 1.34,
+     "ladder": [
+      [
+       1.5,
+       1.32
+      ],
+      [
+       2.5,
+       1.34
+      ]
+     ],
+     "avg": [
+      4.6,
+      3.8
+     ],
+     "expect_sum": 4.2,
+     "expect_matchup": 4.7,
+     "contrib": [
+      1.7,
+      3.0
+     ],
+     "expect": 4.5,
+     "buffer": 2.0,
+     "fa": [
+      [
+       2.3,
+       2.5
+      ],
+      [
+       2.3,
+       1.7
+      ]
+     ],
+     "sd": 2.32,
+     "p_emp": {
+      "1.5": 0.7575757575757576,
+      "2.5": 0.7462686567164178
+     },
+     "range": [
+      1.37,
+      1.57
+     ],
+     "referee": "Edina Alves Batista: Ø 4.3 Karten (21 Sp.) · Ø 23.4 Fouls (21 Sp.)",
+     "expect_ref": 4.9,
+     "buffer_ref": 2.4,
+     "p_mod": 0.85,
+     "p_fin": 0.794,
+     "kal": 0.95,
+     "fair_fin": 1.26,
+     "ladder_fin": [
+      [
+       1.5,
+       1.2
+      ],
+      [
+       2.5,
+       1.26
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.26",
+     "light": "🟢",
+     "first_run": "Mi 17:33",
+     "change_note": "Quoten vorher 1.61"
+    },
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 18.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      45,
+      42
+     ],
+     "next_line": 20.5,
+     "next_note": "Chapecoense 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.9335455271967078,
+      0.737536699716583
+     ],
+     "fair": 1.23,
+     "ladder": [
+      [
+       16.5,
+       1.28
+      ],
+      [
+       18.5,
+       1.23
+      ]
+     ],
+     "avg": [
+      27.2,
+      24.1
+     ],
+     "expect_sum": 25.6,
+     "expect_matchup": 27.5,
+     "contrib": [
+      12.0,
+      15.5
+     ],
+     "expect": 26.5,
+     "buffer": 8.0,
+     "fa": [
+      [
+       12.0,
+       14.4
+      ],
+      [
+       12.9,
+       10.5
+      ]
+     ],
+     "sd": 5.73,
+     "p_emp": {
+      "16.5": 0.78125,
+      "18.5": 0.8130081300813008
+     },
+     "range": [
+      1.36,
+      1.91
+     ],
+     "referee": "Edina Alves Batista: Ø 4.3 Karten (21 Sp.) · Ø 23.4 Fouls (21 Sp.)",
+     "expect_ref": 26.1,
+     "buffer_ref": 7.6,
+     "p_mod": 0.908,
+     "p_fin": 0.849,
+     "kal": null,
+     "fair_fin": 1.18,
+     "ladder_fin": [
+      [
+       16.5,
+       1.17
+      ],
+      [
+       18.5,
+       1.18
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.18",
+     "light": "🟢",
+     "first_run": "Mi 17:33"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11733599",
+    "league": "Brazil Serie B",
+    "league_id": "328",
+    "home": "Vila Nova",
+    "away": "Cuiaba",
+    "home_id": "3158",
+    "away_id": "1308",
+    "kickoff": "Do 01:30",
+    "kickoff_ts": 1791415800,
+    "bet365_id": "201642001"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 8.5,
+     "next_note": "Cuiaba 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.7804247640001881,
+      0.7554702871194915
+     ],
+     "fair": 1.35,
+     "ladder": [
+      [
+       6.5,
+       1.27
+      ],
+      [
+       7.5,
+       1.35
+      ]
+     ],
+     "avg": [
+      11.1,
+      10.5
+     ],
+     "expect_sum": 10.8,
+     "expect_matchup": 12.5,
+     "contrib": [
+      7.0,
+      5.5
+     ],
+     "expect": 11.7,
+     "buffer": 4.2,
+     "fa": [
+      [
+       5.0,
+       4.7
+      ],
+      [
+       5.2,
+       4.1
+      ]
+     ],
+     "sd": 3.67,
+     "p_emp": {
+      "6.5": 0.7874015748031495,
+      "7.5": 0.7407407407407407
+     },
+     "range": [
+      1.41,
+      1.77
+     ],
+     "b365": [
+      "9.5",
+      "1.800",
+      "2.000"
+     ],
+     "p_mod": 0.874,
+     "p_fin": 0.756,
+     "kal": 0.95,
+     "fair_fin": 1.32,
+     "ladder_fin": [
+      [
+       6.5,
+       1.28
+      ],
+      [
+       7.5,
+       1.32
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 74 % vs. Modell 87 %",
+     "light": "🟢",
+     "first_run": "Mi 17:33"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13257183",
+    "league": "India Shillong 1st Division",
+    "league_id": "36145",
+    "home": "Nongrim Hills",
+    "away": "Pohkseh SC",
+    "home_id": "297347",
+    "away_id": "944549",
+    "kickoff": "Do 08:30",
+    "kickoff_ts": 1791441000,
+    "bet365_id": "202460720"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      38,
+      27
+     ],
+     "next_line": 3.5,
+     "next_note": "Nongrim Hills 5/7 (3. Lücke) gesamt, 9/11 (3. Lücke) heim; Pohkseh SC 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.7558960952971575,
+      0.6971114033551596
+     ],
+     "fair": 1.47,
+     "ladder": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.47
+      ]
+     ],
+     "avg": [
+      4.3,
+      3.6
+     ],
+     "expect_sum": 3.9,
+     "expect_matchup": 4.5,
+     "contrib": [
+      2.3,
+      2.2
+     ],
+     "expect": 4.2,
+     "buffer": 1.7,
+     "fa": [
+      [
+       1.5,
+       2.3
+      ],
+      [
+       1.4,
+       1.6
+      ]
+     ],
+     "sd": 2.15,
+     "p_emp": {
+      "1.5": 0.819672131147541,
+      "2.5": 0.6802721088435374
+     },
+     "no_odds_check": true,
+     "p_mod": 0.785,
+     "p_fin": 0.712,
+     "kal": 0.94,
+     "fair_fin": 1.4,
+     "ladder_fin": [
+      [
+       1.5,
+       1.24
+      ],
+      [
+       2.5,
+       1.4
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.40",
+     "light": "🟢",
+     "first_run": "Mi 17:33"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "results": 12,
+  "doublechance": 17,
+  "totals": 18,
+  "handicaps": 11,
+  "btts": 9,
+  "corners": 10,
+  "cards": 4,
+  "fouls": 4,
+  "shots": 1,
+  "offsides": 1,
+  "correctscore": 2
+ },
+ "dauer_s": 119,
+ "zeit": {
+  "historie": 0,
+  "pruefung": 0,
+  "scores24": 55,
+  "extras": 182,
+  "vorlauf": 82,
+  "spiele": 37
+ },
+ "teams_nachgeladen": 0,
+ "s24": {
+  "ok": 18,
+  "no_link": 31,
+  "fetch_fail": 16
+ },
+ "new": [],
+ "changed": [
+  "11328489|fouls|über",
+  "11328488|yellowcards|über",
+  "11328488|fouls|über",
+  "11308267|yellowcards|über"
+ ],
+ "dropped": [
+  "13181352|corners|über",
+  "13181352|team_corners_heim|über",
+  "12385193|team_corners_gast|unter",
+  "13096786|corners|über",
+  "11350628|yellowcards|unter",
+  "11359163|yellowcards|unter",
+  "11359163|fouls|über",
+  "13258537|corners|über",
+  "12099629|corners|über"
+ ],
+ "team_totals": [],
+ "neue_maerkte": []
+}
