@@ -116,3 +116,42 @@ kannst du hier nachweisen, was wann galt. Der Ordner `cache/` speichert
 Statistiken abgeschlossener Spiele dauerhaft — dadurch sinkt der
 API-Verbrauch von Lauf zu Lauf deutlich (Limit: 3.600 Anfragen/Stunde,
 der Scanner bleibt nach dem ersten Tag weit darunter).
+
+## Stundentakt über cron-job.org (seit 07.10.2026)
+
+GitHub löst geplante Läufe sehr unzuverlässig aus (oft nur jeder dritte bis
+vierte Termin, meist 30–70 Minuten zu spät). Deshalb startet ein externer,
+kostenloser Wecker den Scanner jede Stunde um :13 deutscher Zeit. Solche
+Starts laufen bei GitHub innerhalb von Sekunden los. Der GitHub-Zeitplan
+bleibt nur als Rückfallebene (springt ein, wenn 75 Minuten nichts lief).
+
+**Schritt A – Schlüssel bei GitHub anlegen (einmalig)**
+1. github.com → oben rechts Profilbild → **Settings**
+2. Links ganz unten **Developer settings** → **Personal access tokens** →
+   **Fine-grained tokens** → **Generate new token**
+3. Name: `cron-job` · Expiration: so lang wie möglich ·
+   Repository access: **Only select repositories** → `trend-scanner`
+4. Permissions → Repository permissions → **Actions: Read and write**
+5. **Generate token** und den Schlüssel (beginnt mit `github_pat_`) kopieren.
+   Er wird nur einmal angezeigt.
+
+**Schritt B – Wecker bei cron-job.org (einmalig)**
+1. Auf cron-job.org kostenlos registrieren und einloggen.
+2. **Create cronjob**
+   - Title: `Trend-Scanner`
+   - URL: `https://api.github.com/repos/peatxxxx-star/trend-scanner/actions/workflows/scan.yml/dispatches`
+   - Execution schedule: **Custom** → Minutes: `13` · Hours: `6` bis `21` ·
+     alle Tage · Zeitzone **Europe/Berlin** (dann ist auch die Zeitumstellung erledigt)
+3. Reiter **Advanced**:
+   - Request method: **POST**
+   - Headers:
+     `Authorization` = `Bearer <dein Schlüssel aus Schritt A>`
+     `Accept` = `application/vnd.github+json`
+   - Request body: `{"ref":"main","inputs":{"quelle":"uhr"}}`
+4. Speichern und **Test run** drücken. Antwort **204** = alles richtig, in
+   GitHub unter Actions startet ein Lauf.
+5. Optional für Freitag/Samstag: den Job kopieren, Hours `22`, Tage nur Fr + Sa.
+
+Läuft der Schlüssel ab, kommen keine Stundenläufe mehr (dann springt nur der
+unzuverlässige GitHub-Zeitplan ein) – einfach neuen Schlüssel anlegen und in
+cron-job.org eintragen.

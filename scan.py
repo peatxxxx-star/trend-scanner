@@ -5276,7 +5276,9 @@ def run():
 # arbeitet — liegt der letzte echte Lauf weniger als MIN_ABSTAND_MIN zurück,
 # bricht er nach wenigen Sekunden ab. Fällt eine Stunde aus, holt die nächste
 # sie nach. FORCE=1 (letzter Lauf des Tages, Handstart) umgeht die Sperre.
-MIN_ABSTAND_MIN = int(os.environ.get("MIN_ABSTAND_MIN", "100"))
+# 07.10.: Takt kommt von cron-job.org (jede Stunde :13, quelle=uhr) -> 40 min;
+# der GitHub-Zeitplan ist nur Rückfallebene -> 75 min (setzt der Workflow).
+MIN_ABSTAND_MIN = int(os.environ.get("MIN_ABSTAND_MIN", "40"))
 
 
 def letzter_lauf_min() -> float:

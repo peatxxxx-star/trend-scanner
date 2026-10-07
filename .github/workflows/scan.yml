@@ -2,43 +2,19 @@ name: Trend-Scan
 
 on:
   schedule:
-    # STÜNDLICH, 04:17–19:17 UTC = 06:17–21:17 deutscher Sommerzeit
-    # (10.09.: vorher alle 2 Stunden und nur bis 20:17 — viele Nebenmärkte
-    # werden erst kurz vor Anpfiff veröffentlicht; jede spätere Stunde
-    # bringt zusätzliche Märkte).
-    # Minute 17 statt 0: GitHub startet Cron-Jobs zur vollen Stunde oft mit
-    # großer Verspätung (Warteschlange) — schräge Minuten laufen pünktlicher.
-    # Hinweis: Im Winter (UTC+1) verschiebt sich das um eine Stunde;
-    # bei Bedarf dann auf "17 5-20 * * *" ändern.
-    # Ab dem 20-Uhr-Lauf reicht das Prüffenster bis 06:00 früh (Nachtspiele),
-    # der 21:17-Lauf ist der letzte des Tages.
-    # 19.09.: Actions-Minuten sind seit dem Pro-Upgrade das knappe Gut (ein
-    # Lauf dauert 15–21 min; 25 Läufe/Tag = ~450 min/Tag, 3.000 min/Monat
-    # wären nach einer Woche weg). Deshalb (Lucio: "alle 2 reicht"): Ziel-Takt
-    # sind zwei Stunden.
-    # 22.09.: GitHub lässt geplante Läufe regelmäßig aus (Lucio: "gestern gar
-    # kein Abendscan"). Der Zeitplan feuert deshalb STÜNDLICH 06:17–21:17
-    # deutscher Zeit; scan.py bricht sofort ab, wenn der letzte echte Lauf
-    # weniger als 100 Minuten her ist (MIN_ABSTAND_MIN). Ergebnis: echter
-    # Zwei-Stunden-Takt, und eine ausgefallene Stunde wird von der nächsten
-    # nachgeholt. Übersprungene Läufe kosten ~15 Sekunden.
-    # (Winter: "17 5-20 * * *")
-    - cron: "17 4-19 * * *"
-    # Letzter Lauf des Tages, 21:17 deutscher Zeit: läuft IMMER (FORCE),
-    # egal wie kurz der vorige her ist — der Abendscan darf nie ausfallen.
-    # (Winter: "17 20 * * *")
-    - cron: "17 19 * * *"
-    # Freitag + Samstag noch einmal später: 20:05 UTC = 22:05 deutscher
-    # Sommerzeit (an diesen Tagen bleibt Lucio länger wach).
-    # (Winter: "5 21 * * 5,6")
-    - cron: "5 20 * * 5,6"
-    # Vorwärm-Läufe 21:17/23:17/01:17/03:17 UTC = 23:17, 01:17, 03:17, 05:17
-    # deutscher Sommerzeit: laden ab 23:17 die Spiele des NÄCHSTEN Tages
-    # Stück für Stück in den Cache (kein Bericht), jeder hört am Stundenlimit
-    # auf. So verteilt sich die Last über die Nacht statt auf den 06:17-Lauf.
-    # (Winter: "17 22,0,2,4 * * *")
-    # 19.09.: zwei statt vier Vorwärm-Läufe (23:17 und 03:17 deutscher Zeit).
-    # (Winter: "17 22,2 * * *")
+    # 07.10. (Lucio: "verlässlich jede Stunde um 13 nach"): GitHub löst geplante
+    # Läufe sehr unzuverlässig aus — in den Tagen davor kamen von 16 stündlichen
+    # Terminen nur 4-6 an, meist 30-70 min zu spät. Der HAUPTTAKT kommt deshalb
+    # von außen: cron-job.org startet den Workflow jede Stunde um :13 deutscher
+    # Zeit per API (workflow_dispatch mit quelle=uhr, siehe ANLEITUNG.md). Die
+    # Einträge hier bleiben nur als Rückfallebene. Doppelte Läufe verhindert
+    # scan.py: liegt der letzte Lauf weniger als MIN_ABSTAND_MIN (45) zurück,
+    # bricht der neue nach Sekunden ab.
+    # Sommerzeit: 04-19 UTC = 06-21 Uhr (Winter ab 25.10.: "13 5-20 * * *").
+    - cron: "13 4-19 * * *"
+    # Freitag + Samstag zusätzlich 22:13 deutscher Sommerzeit (Winter: "13 21 * * 5,6")
+    - cron: "13 20 * * 5,6"
+    # Vorwärm-Läufe (laden nachts die Teams des nächsten Tages, kein Bericht).
     - cron: "17 21,1 * * *"
   # 20.09.: Start per Push auf die Datei "scan_now" (Inhalt egal) — damit
   # ein Lauf auch ohne den "Run workflow"-Knopf ausgelöst werden kann
@@ -48,6 +24,10 @@ on:
     paths: ["scan_now"]
   workflow_dispatch:      # manueller Start über den "Run workflow"-Knopf
     inputs:
+      quelle:
+        description: "hand = Start von Hand (immer ausführen) · uhr = stündlicher Takt von cron-job.org (Mindestabstand gilt)"
+        type: string
+        default: "hand"
       datum:
         description: "nur für backtest: Tag als JJJJ-MM-TT (leer = gestern)"
         type: string
@@ -106,9 +86,12 @@ jobs:
           TOKENCHECK: ${{ contains(github.event.head_commit.message, 'Tokencheck') && '1' || '0' }}
           BETSAPI_TOKEN_TRIAL_RAW: ${{ secrets.BETSAPI_TOKEN_TRIAL }}
           BETSAPI_TOKEN_B365_RAW: ${{ secrets.BETSAPI_TOKEN_B365 }}
-          # FORCE=1 = Mindestabstand ignorieren: beim letzten Lauf des Tages
-          # (21:17 deutscher Zeit) und bei jedem Start von Hand / per scan_now.
-          FORCE: ${{ (github.event_name != 'schedule' || github.event.schedule == '17 19 * * *') && '1' || '0' }}
+          # FORCE=1 = Mindestabstand ignorieren: bei jedem Start von Hand und per
+          # scan_now. Stundentakt (quelle=uhr) und Rückfall-Zeitplan: FORCE=0.
+          # Mindestabstand zum letzten Lauf: Stundentakt 40 min, GitHub-Zeitplan
+          # 75 min (springt nur ein, wenn eine Stunde wirklich ausgefallen ist).
+          MIN_ABSTAND_MIN: ${{ github.event_name == 'schedule' && '75' || '40' }}
+          FORCE: ${{ (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.quelle != 'uhr')) && '1' || '0' }}
         run: python scan.py
 
       - name: Cache, Lauf-Gedächtnis und Protokoll sichern
