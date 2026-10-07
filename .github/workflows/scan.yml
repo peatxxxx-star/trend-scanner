@@ -12,8 +12,7 @@ on:
     # bricht der neue nach Sekunden ab.
     # Sommerzeit: 04-19 UTC = 06-21 Uhr (Winter ab 25.10.: "13 5-20 * * *").
     - cron: "13 4-19 * * *"
-    # Freitag + Samstag zusätzlich 22:13 deutscher Sommerzeit (Winter: "13 21 * * 5,6")
-    - cron: "13 20 * * 5,6"
+    # 07.10. (Lucio): kein später Fr/Sa-Lauf mehr ("bleibe eh nie lange wach").
     # Vorwärm-Läufe (laden nachts die Teams des nächsten Tages, kein Bericht).
     - cron: "17 21,1 * * *"
   # 20.09.: Start per Push auf die Datei "scan_now" (Inhalt egal) — damit
