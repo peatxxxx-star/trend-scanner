@@ -104,6 +104,7 @@ import gzip
 import json
 import math
 import os
+import re
 import sys
 import threading
 import time
@@ -754,6 +755,150 @@ def prewarm_window():
 _list_fail = []          # Seiten der Spielliste, die in diesem Lauf ausfielen
 
 
+# ----------------------------------------------------------------------------
+# 07.10. (Lucio): "einfach gar nicht mehr auf Länderspiele". Anlass: drei
+# Karten-unter-5,5-Tipps in Länderspielen am 06.10. (Andorra U21–Slowakei U21
+# 8 Karten, Zypern U21–San Marino U21 7, Schottland–Slowenien 6), alle mit
+# ~80-85 % angezeigt. Backtest: Bei Spielen zwischen zwei Nationalteams haben
+# die Kartenmärkte keinen Vorsprung zum Schnitt-Modell (Karten unter 0 bis
+# -0,8 statt +0,9 bei Vereinen; 1. HZ Karten über -5) und die angezeigte
+# Wahrscheinlichkeit liegt 2-4 Punkte zu hoch. Vermutete Ursache: die letzten
+# 10 Spiele eines Nationalteams reichen über ein Jahr und enthalten viele
+# Freundschaftsspiele (wenig Karten); Pflichtspiele laufen anders.
+# Erkennung über die Teamnamen (Liganamen sind zu uneindeutig, z.B.
+# "Premier League International Cup" = Vereine): Länderspiel = BEIDE Teams
+# sind Länder (U-Teams und Frauen eingeschlossen). Geprüft an 4.360 Teams aus
+# den Lauf-Protokollen; "Monaco" bewusst nicht in der Liste (AS Monaco).
+# ----------------------------------------------------------------------------
+SKIP_NATIONAL_TEAMS = True
+COUNTRY_NAMES = frozenset({
+    'afghanistan', 'albania', 'algeria', 'american samoa', 'andorra', 'angola', 'anguilla',
+    'antarctica', 'antigua & barbuda', 'antigua and barbuda', 'arab republic of egypt',
+    'argentina', 'argentine republic', 'armenia', 'aruba', 'australia', 'austria', 'azerbaijan',
+    'bahamas', 'bahrain', 'bangladesh', 'barbados', 'belarus', 'belgium', 'belize', 'benin',
+    'bermuda', 'bhutan', 'bolivarian republic of venezuela', 'bolivia', 'bonaire',
+    'bosnia & herzegovina', 'bosnia and herzegovina', 'bosnia-herzegovina', 'botswana',
+    'bouvet island', 'brazil', 'british indian ocean territory', 'british virgin islands',
+    'brunei', 'brunei darussalam', 'bulgaria', 'burkina faso', 'burma', 'burundi', 'cabo verde',
+    'cambodia', 'cameroon', 'canada', 'cape verde', 'cape verde islands', 'cayman islands',
+    'central african rep', 'central african republic', 'chad', 'chile', 'china', 'china pr',
+    'chinese taipei', 'christmas island', 'cocos (keeling) islands', 'colombia',
+    'commonwealth of dominica', 'commonwealth of the bahamas', 'comoros', 'congo', 'congo dr',
+    'cook islands', 'costa rica', "cote d'ivoire", 'croatia', 'cuba', 'curacao', 'curaçao',
+    'cyprus', 'czech republic', 'czechia', "côte d'ivoire",
+    "democratic people's republic of korea", 'democratic republic of timor-leste', 'denmark',
+    'djibouti', 'dominica', 'dominican republic', 'dr congo', 'east timor',
+    'eastern republic of uruguay', 'ecuador', 'egypt', 'el salvador', 'england',
+    'equatorial guinea', 'eritrea', 'estonia', 'eswatini', 'ethiopia',
+    'falkland islands (malvinas)', 'faroe islands', 'federal democratic republic of ethiopia',
+    'federal democratic republic of nepal', 'federal republic of germany',
+    'federal republic of nigeria', 'federal republic of somalia',
+    'federated states of micronesia', 'federative republic of brazil', 'fiji', 'finland',
+    'france', 'french guiana', 'french polynesia', 'french republic',
+    'french southern territories', 'fyr macedonia', 'gabon', 'gabonese republic', 'gambia',
+    'georgia', 'germany', 'ghana', 'gibraltar', 'grand duchy of luxembourg', 'greece',
+    'greenland', 'grenada', 'guadeloupe', 'guam', 'guatemala', 'guernsey', 'guinea',
+    'guinea-bissau', 'guyana', 'haiti', 'hashemite kingdom of jordan',
+    'heard island & mcdonald islands', 'heard island and mcdonald islands', 'hellenic republic',
+    'holland', 'holy see (vatican city state)', 'honduras', 'hong kong', 'hong kong china',
+    'hungary', 'iceland', 'independent state of papua new guinea', 'independent state of samoa',
+    'india', 'indonesia', 'iran', 'iraq', 'ireland', 'islamic republic of afghanistan',
+    'islamic republic of iran', 'islamic republic of mauritania',
+    'islamic republic of pakistan', 'isle of man', 'israel', 'italian republic', 'italy',
+    'ivory coast', 'jamaica', 'japan', 'jersey', 'jordan', 'kazakhstan', 'kenya',
+    'kingdom of bahrain', 'kingdom of belgium', 'kingdom of bhutan', 'kingdom of cambodia',
+    'kingdom of denmark', 'kingdom of eswatini', 'kingdom of lesotho', 'kingdom of morocco',
+    'kingdom of norway', 'kingdom of saudi arabia', 'kingdom of spain', 'kingdom of sweden',
+    'kingdom of thailand', 'kingdom of the netherlands', 'kingdom of tonga', 'kiribati',
+    'korea dpr', 'korea republic', 'kosovo', 'kuwait', 'kyrgyz republic', 'kyrgyzstan',
+    "lao people's democratic republic", 'laos', 'latvia', 'lebanese republic', 'lebanon',
+    'lesotho', 'liberia', 'libya', 'liechtenstein', 'lithuania', 'luxembourg', 'macao', 'macau',
+    'macedonia', 'madagascar', 'malawi', 'malaysia', 'maldives', 'mali', 'malta',
+    'marshall islands', 'martinique', 'mauritania', 'mauritius', 'mayotte', 'mexico',
+    'micronesia', 'moldova', 'mongolia', 'montenegro', 'montserrat', 'morocco', 'mozambique',
+    'myanmar', 'namibia', 'nauru', 'nepal', 'netherlands', 'new caledonia', 'new zealand',
+    'nicaragua', 'niger', 'nigeria', 'niue', 'norfolk island', 'north ireland', 'north korea',
+    'north macedonia', 'northern ireland', 'northern mariana islands', 'norway', 'oman',
+    'pakistan', 'palau', 'palestine', 'panama', 'papua new guinea', 'paraguay',
+    "people's democratic republic of algeria", "people's republic of bangladesh",
+    "people's republic of china", 'peru', 'philippines', 'pitcairn',
+    'plurinational state of bolivia', 'poland', 'portugal', 'portuguese republic',
+    'principality of andorra', 'principality of liechtenstein', 'principality of monaco',
+    'puerto rico', 'qatar', 'rep of ireland', 'republic of albania', 'republic of angola',
+    'republic of armenia', 'republic of austria', 'republic of azerbaijan',
+    'republic of belarus', 'republic of benin', 'republic of bosnia & herzegovina',
+    'republic of bosnia and herzegovina', 'republic of botswana', 'republic of bulgaria',
+    'republic of burundi', 'republic of cabo verde', 'republic of cameroon', 'republic of chad',
+    'republic of chile', 'republic of colombia', 'republic of costa rica',
+    'republic of croatia', 'republic of cuba', 'republic of cyprus',
+    "republic of côte d'ivoire", 'republic of djibouti', 'republic of ecuador',
+    'republic of el salvador', 'republic of equatorial guinea', 'republic of estonia',
+    'republic of fiji', 'republic of finland', 'republic of ghana', 'republic of guatemala',
+    'republic of guinea', 'republic of guinea-bissau', 'republic of guyana',
+    'republic of haiti', 'republic of honduras', 'republic of iceland', 'republic of india',
+    'republic of indonesia', 'republic of iraq', 'republic of ireland',
+    'republic of kazakhstan', 'republic of kenya', 'republic of kiribati', 'republic of latvia',
+    'republic of liberia', 'republic of lithuania', 'republic of madagascar',
+    'republic of malawi', 'republic of maldives', 'republic of mali', 'republic of malta',
+    'republic of mauritius', 'republic of moldova', 'republic of mozambique',
+    'republic of myanmar', 'republic of namibia', 'republic of nauru', 'republic of nicaragua',
+    'republic of north macedonia', 'republic of palau', 'republic of panama',
+    'republic of paraguay', 'republic of peru', 'republic of poland', 'republic of san marino',
+    'republic of senegal', 'republic of serbia', 'republic of seychelles',
+    'republic of sierra leone', 'republic of singapore', 'republic of slovenia',
+    'republic of south africa', 'republic of south sudan', 'republic of suriname',
+    'republic of tajikistan', 'republic of the congo', 'republic of the gambia',
+    'republic of the marshall islands', 'republic of the niger', 'republic of the philippines',
+    'republic of the sudan', 'republic of trinidad & tobago', 'republic of trinidad and tobago',
+    'republic of tunisia', 'republic of türkiye', 'republic of uganda',
+    'republic of uzbekistan', 'republic of vanuatu', 'republic of yemen', 'republic of zambia',
+    'republic of zimbabwe', 'reunion', 'romania', 'russia', 'russian federation', 'rwanda',
+    'rwandese republic', 'réunion', 'saint barthélemy', 'saint kitts & nevis',
+    'saint kitts and nevis', 'saint lucia', 'saint martin', 'saint martin (french part)',
+    'saint pierre & miquelon', 'saint pierre and miquelon', 'saint vincent & the grenadines',
+    'saint vincent and the grenadines', 'samoa', 'san marino', 'sao tome & principe',
+    'sao tome and principe', 'saudi arabia', 'scotland', 'senegal', 'serbia', 'seychelles',
+    'sierra leone', 'singapore', 'sint maarten', 'sint maarten (dutch part)', 'slovak republic',
+    'slovakia', 'slovenia', 'socialist republic of viet nam', 'solomon islands', 'somalia',
+    'south africa', 'south korea', 'south sudan', 'spain', 'sri lanka', 'st kitts & nevis',
+    'st kitts and nevis', 'st lucia', 'st vincent & the grenadines',
+    'st vincent and the grenadines', 'st vincent/grenadines', 'st. kitts & nevis',
+    'st. kitts and nevis', 'st. lucia', 'st. vincent & the grenadines',
+    'st. vincent and the grenadines', 'st. vincent/grenadines', 'state of israel',
+    'state of kuwait', 'state of qatar', 'sudan', 'sultanate of oman', 'suriname',
+    'svalbard & jan mayen', 'svalbard and jan mayen', 'swaziland', 'sweden',
+    'swiss confederation', 'switzerland', 'syria', 'syrian arab republic',
+    'são tomé & príncipe', 'são tomé and príncipe', 'tahiti', 'taiwan', 'tajikistan',
+    'tanzania', 'thailand', 'the gambia', 'the state of eritrea', 'the state of palestine',
+    'timor-leste', 'togo', 'togolese republic', 'tokelau', 'tonga', 'trinidad & tobago',
+    'trinidad and tobago', 'tunisia', 'turkey', 'turkmenistan', 'turks & caicos islands',
+    'turks and caicos islands', 'tuvalu', 'türkiye', 'uae', 'uganda', 'ukraine',
+    'union of the comoros', 'united arab emirates', 'united kingdom', 'united mexican states',
+    'united republic of tanzania', 'united states', 'united states minor outlying islands',
+    'united states of america', 'uruguay', 'us virgin islands', 'usa', 'uzbekistan', 'vanuatu',
+    'venezuela', 'viet nam', 'vietnam', 'virgin islands of the united states', 'wales',
+    'wallis & futuna', 'wallis and futuna', 'western sahara', 'yemen', 'zambia', 'zanzibar',
+    'zimbabwe', 'åland islands',
+})
+
+
+def _country_base(team: str) -> str:
+    t = (team or "").strip()
+    t = re.sub(r"\s*\((W|w|Women)\)\s*$", "", t)
+    t = re.sub(r"\s+Women$", "", t)
+    t = re.sub(r"\s+U-?\d\d$", "", t)
+    return t.strip().lower()
+
+
+def is_national_team(team: str) -> bool:
+    return _country_base(team) in COUNTRY_NAMES
+
+
+def is_international_match(home: str, away: str) -> bool:
+    """Länderspiel = beide Teams sind Nationalteams (inkl. U-Teams/Frauen)."""
+    return is_national_team(home) and is_national_team(away)
+
+
 def fetch_matches_in_window(now=None, end=None):
     """Alle noch nicht gestarteten Spiele im Prüffenster."""
     if now is None or end is None:
@@ -792,6 +937,9 @@ def fetch_matches_in_window(now=None, end=None):
                 kickoff_local = kickoff.astimezone(now.tzinfo)
                 if not (now < kickoff_local < end):
                     continue
+                if SKIP_NATIONAL_TEAMS and is_international_match(
+                        (e.get("home") or {}).get("name", ""), (e.get("away") or {}).get("name", "")):
+                    continue                      # 07.10.: keine Länderspiele
                 matches[e["id"]] = {
                     "id": e["id"],
                     "league": league,
@@ -2171,6 +2319,8 @@ def state_entry_ok(v) -> bool:
     Gedächtnis-Versionen, gestrichene Linien (z.B. Ecken 6,5)."""
     if v.get("v") != STATE_VERSION:
         return False
+    if SKIP_NATIONAL_TEAMS and is_international_match(v.get("home", ""), v.get("away", "")):
+        return False                         # 07.10.: keine Länderspiele
     mk = v.get("metric_key") or ""
     if mk.startswith("team_"):               # 06.10.: Team-Märkte in der Hauptliste
         base_mk = mk[5:].rsplit("_", 1)[0]
@@ -6383,6 +6533,20 @@ def selftest():
         print("FEHLER Fall 23l: unbekannte Team-Linie muss aus dem Gedächtnis fliegen")
         ok = False
     _team_base.clear()
+
+    # --- Fall 40: Länderspiele raus (07.10.)
+    for h_, a_ in (("Scotland", "Slovenia"), ("Andorra U21", "Slovakia U21"),
+                   ("Cyprus U21", "San Marino U21"), ("Rep of Ireland", "Trinidad & Tobago"),
+                   ("Brazil U20 (W)", "Japan U20 (W)"), ("Bosnia-Herzegovina", "Cape Verde Islands")):
+        if not is_international_match(h_, a_):
+            print("FEHLER Fall 40a: Länderspiel nicht erkannt:", h_, a_); ok = False
+    for h_, a_ in (("Monaco", "Lyon"), ("Doncaster", "Liverpool U21"), ("Scotland", "Celtic"),
+                   ("Exeter", "Oxford Utd"), ("Brazil", "Flamengo")):
+        if is_international_match(h_, a_):
+            print("FEHLER Fall 40b: Vereinsspiel fälschlich als Länderspiel:", h_, a_); ok = False
+    if state_entry_ok({"v": STATE_VERSION, "home": "Scotland", "away": "Slovenia",
+                       "metric_key": "yellowcards", "direction": "unter", "line": 5.5}):
+        print("FEHLER Fall 40c: Länderspiel muss aus dem Gedächtnis fliegen"); ok = False
 
     # --- Fall 22: "Wer hat mehr" (12.09.)
     pr = skellam_probs(5.0, 5.0)
