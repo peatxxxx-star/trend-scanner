@@ -733,6 +733,12 @@ def scan_window():
     now = now_berlin()
     midnight = (now + timedelta(days=1)).replace(hour=0, minute=0, second=0,
                                                  microsecond=0)
+    # 07.10. (Lucio): Fenster von Hand verlängern — SCAN_BIS = Stunde des
+    # NÄCHSTEN Tages (z.B. "12" = bis morgen 12 Uhr), gesetzt über die
+    # Workflow-Eingabe "bis".
+    bis = (os.environ.get("SCAN_BIS") or "").strip()
+    if bis.isdigit() and 0 < int(bis) <= 24:
+        return now, midnight + timedelta(hours=int(bis))
     if now.hour >= 20:            # ab dem 20-Uhr-Lauf zählt der nächste Morgen mit
         end = midnight + timedelta(hours=9)   # bis 9 Uhr früh (11.09.: vorher 6 Uhr —
                                               # er schläft manchmal länger und würde

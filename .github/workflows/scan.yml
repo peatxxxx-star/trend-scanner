@@ -28,6 +28,10 @@ on:
         description: "hand = Start von Hand (immer ausführen) · uhr = stündlicher Takt von cron-job.org (Mindestabstand gilt)"
         type: string
         default: "hand"
+      bis:
+        description: "Prüffenster verlängern: Stunde des NÄCHSTEN Tages, z.B. 12 = bis morgen 12 Uhr (leer = normal)"
+        type: string
+        default: ""
       datum:
         description: "nur für backtest: Tag als JJJJ-MM-TT (leer = gestern)"
         type: string
@@ -81,6 +85,7 @@ jobs:
           SHOTSCHECK: ${{ inputs.modus == 'schuesse' && '1' || '0' }}
           BACKTEST: ${{ inputs.modus == 'backtest' && '1' || '0' }}
           BACKTEST_TAG: ${{ inputs.datum }}
+          SCAN_BIS: ${{ inputs.bis }}
           # 23.09.: Token-Check — ein Push mit "Tokencheck" in der Commit-Nachricht
           # testet alle hinterlegten Tokens und meldet nur OK/Fehler.
           TOKENCHECK: ${{ contains(github.event.head_commit.message, 'Tokencheck') && '1' || '0' }}
