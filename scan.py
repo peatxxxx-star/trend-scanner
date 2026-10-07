@@ -899,6 +899,54 @@ def is_international_match(home: str, away: str) -> bool:
     return is_national_team(home) and is_national_team(away)
 
 
+# ----------------------------------------------------------------------------
+# 07.10. (Lucio, "David gegen Goliath"): Spiele von Teams aus VERSCHIEDENEN
+# Ligen (Pokal über Ligagrenzen, Europacup). Erkennung: beide Teams hatten in
+# ihren letzten CROSS_N Spielen KEINEN gemeinsamen Gegner (Ligaspiele: 1,4 %
+# der Paarungen, Europacup: 80 %, Pokal: 27 %). Offline-Backtest (207.000
+# Spiele, Vorsprung zum Schnitt-Modell, Liga -> verschiedene Ligen):
+#   Karten über +2,2 -> -5,6 · 1. HZ Karten über +1,9 -> -4,8
+#   Team-Ecken über +5,5 -> -1,8 · Team-Karten über +3,6 -> -4,1
+#   Ecken über +2,0 -> -1,3 · Fouls über (n klein) -> -1,1
+#   dagegen Karten unter +0,8 -> +3,3 · Team-Karten unter +2,7 -> +5,6
+# Die Serien beider Teams stammen aus unterschiedlichen Ligen und sind nicht
+# vergleichbar; solche Spiele sind oft einseitig (der Kleine holt kaum Ecken,
+# es fallen wenig Karten). Variante 1 (Lucio): nur die ÜBER-Märkte bei
+# Karten, Ecken und Fouls fallen weg (gesamt und Team), der Rest bleibt.
+# ----------------------------------------------------------------------------
+CROSS_LEAGUE_FILTER = True
+CROSS_N = 20                 # so viele jüngste Spiele je Team werden verglichen
+CROSS_MIN_GAMES = 10         # weniger Spiele bekannt -> keine Aussage, kein Filter
+CROSS_DROP = {("yellowcards", "über"), ("ht_yellowcards", "über"),
+              ("corners", "über"), ("ht_corners", "über"), ("fouls", "über")}
+CROSS_DROP_TEAM = {("yellowcards", "über"), ("corners", "über")}
+
+
+def _opponents(history, n=CROSS_N):
+    """Gegnernamen der n jüngsten Spiele (aus dem Label 'Heim - Gast')."""
+    out = []
+    for m in history[:n]:
+        lab = m.get("label") or ""
+        if " - " not in lab:
+            continue
+        h, a = lab.split(" - ", 1)
+        out.append((a if m.get("is_home") else h).strip())
+    return out
+
+
+def common_opponents(hist_home, hist_away, n=CROSS_N):
+    """Anzahl gemeinsamer Gegner in den n jüngsten Spielen beider Teams —
+    None, wenn eines der Teams weniger als CROSS_MIN_GAMES Spiele hat."""
+    oh, oa = _opponents(hist_home, n), _opponents(hist_away, n)
+    if len(oh) < CROSS_MIN_GAMES or len(oa) < CROSS_MIN_GAMES:
+        return None
+    return len(set(oh) & set(oa))
+
+
+def is_cross_league(hist_home, hist_away) -> bool:
+    return common_opponents(hist_home, hist_away) == 0
+
+
 def fetch_matches_in_window(now=None, end=None):
     """Alle noch nicht gestarteten Spiele im Prüffenster."""
     if now is None or end is None:
@@ -5369,6 +5417,11 @@ def _run():
         #    scores24-Nachweis wird nur für Kandidaten geholt.
         who = who_more(match, hist_home, hist_away) if who_day else []
         team = team_signals(match, hist_home, hist_away) if TEAM_ENABLED else []
+        # 07.10.: Teams aus verschiedenen Ligen -> Über-Märkte Karten/Ecken/Fouls raus
+        if CROSS_LEAGUE_FILTER and is_cross_league(hist_home, hist_away):
+            match["_cross_league"] = True
+            signals = [s for s in signals if (s["metric_key"], s["direction"]) not in CROSS_DROP]
+            team = [t for t in team if (t["metric_key"], t["direction"]) not in CROSS_DROP_TEAM]
         # 1) scores24: Verfügbarkeits-Näherung je Marktfamilie (keine Werte).
         #    Ecken/HZ-Ecken ohne Reiter bleiben markiert (zweite Chance bet365).
         if (signals or who or team) and GATE_ENABLED:
@@ -6547,6 +6600,22 @@ def selftest():
     if state_entry_ok({"v": STATE_VERSION, "home": "Scotland", "away": "Slovenia",
                        "metric_key": "yellowcards", "direction": "unter", "line": 5.5}):
         print("FEHLER Fall 40c: Länderspiel muss aus dem Gedächtnis fliegen"); ok = False
+
+    # --- Fall 41: Teams aus verschiedenen Ligen (07.10.)
+    def _h41(team, opps):
+        return [{"stats": {}, "is_home": i % 2 == 0,
+                 "label": f"{team} - {o}" if i % 2 == 0 else f"{o} - {team}"}
+                for i, o in enumerate(opps)]
+    liga = [f"Ligateam {k}" for k in range(20)]
+    h41 = _h41("Klein", [f"Amateur {k}" for k in range(20)])
+    a41 = _h41("Gross", liga)
+    b41 = _h41("Nachbar", liga[5:] + ["Gross"] * 5)
+    if not is_cross_league(h41, a41) or is_cross_league(a41, b41):
+        print("FEHLER Fall 41a: Liga-Vergleich über gemeinsame Gegner falsch"); ok = False
+    if common_opponents(h41[:5], a41) is not None:
+        print("FEHLER Fall 41b: zu wenig Spiele -> keine Aussage"); ok = False
+    if ("yellowcards", "unter") in CROSS_DROP or ("corners", "über") not in CROSS_DROP:
+        print("FEHLER Fall 41c: falsche Märkte im Filter"); ok = False
 
     # --- Fall 22: "Wer hat mehr" (12.09.)
     pr = skellam_probs(5.0, 5.0)
