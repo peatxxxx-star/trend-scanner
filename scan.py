@@ -923,6 +923,12 @@ def is_international_match(home: str, away: str) -> bool:
 CROSS_LEAGUE_FILTER = True
 CROSS_N = 20                 # so viele jüngste Spiele je Team werden verglichen
 CROSS_MIN_GAMES = 10         # weniger Spiele bekannt -> keine Aussage, kein Filter
+# 07.10. abends (Lucio): Grenze von 0 auf HÖCHSTENS 2 gemeinsame Gegner. Über-
+# Märkte Karten/Ecken/Fouls nach gemeinsamen Gegnern, Vorsprung zum Modell:
+# 0: -3,8 · 1: +0,4 · 2: +1,0 (beide im Rauschen, ±1,3) · 3-5: +3,4 · 6+: +2,3.
+# Anlass: Sheff Wed – Sunderland U21 (1 gemeinsamer Gegner über die EFL Trophy).
+# Erkennung bewusst NICHT über Teamnamen (U21/II/B), nur über die Gegner.
+CROSS_MAX_COMMON = 2
 CROSS_DROP = {("yellowcards", "über"), ("ht_yellowcards", "über"),
               ("corners", "über"), ("ht_corners", "über"), ("fouls", "über")}
 CROSS_DROP_TEAM = {("yellowcards", "über"), ("corners", "über")}
@@ -950,7 +956,8 @@ def common_opponents(hist_home, hist_away, n=CROSS_N):
 
 
 def is_cross_league(hist_home, hist_away) -> bool:
-    return common_opponents(hist_home, hist_away) == 0
+    c = common_opponents(hist_home, hist_away)
+    return c is not None and c <= CROSS_MAX_COMMON
 
 
 def fetch_matches_in_window(now=None, end=None):
@@ -6618,6 +6625,10 @@ def selftest():
     h41 = _h41("Klein", [f"Amateur {k}" for k in range(20)])
     a41 = _h41("Gross", liga)
     b41 = _h41("Nachbar", liga[5:] + ["Gross"] * 5)
+    c41 = _h41("Fast", ["Ligateam 1", "Ligateam 2"] + [f"Fremd {k}" for k in range(18)])
+    d41 = _h41("Knapp", ["Ligateam 1", "Ligateam 2", "Ligateam 3"] + [f"Fremd {k}" for k in range(17)])
+    if not is_cross_league(c41, a41) or is_cross_league(d41, a41):
+        print("FEHLER Fall 41d: Grenze 2 gemeinsame Gegner falsch"); ok = False
     if not is_cross_league(h41, a41) or is_cross_league(a41, b41):
         print("FEHLER Fall 41a: Liga-Vergleich über gemeinsame Gegner falsch"); ok = False
     if common_opponents(h41[:5], a41) is not None:
