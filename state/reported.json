@@ -12,7 +12,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 13:16",
+  "last_run": "Do 14:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -133,7 +133,7 @@
    1.204,
    1.604
   ],
-  "last_run": "Do 13:16",
+  "last_run": "Do 14:14",
   "line": 7.5,
   "range": [
    1.204,
@@ -261,7 +261,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 13:16",
+  "last_run": "Do 14:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -366,6 +366,124 @@
   },
   "v": 2
  },
+ "13181842|goals|über": {
+  "match_id": "13181842",
+  "home": "Bryne (W)",
+  "away": "Haugesund (W)",
+  "kickoff": "Do 16:00",
+  "kickoff_ts": 1791468000,
+  "league": "Norway Cup Women",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Do 06:14",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Do 14:14",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    38,
+    46
+   ],
+   "next_line": 3.5,
+   "next_note": "Bryne (W) 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Haugesund (W) 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.61196151025745,
+    0.7808781769874262
+   ],
+   "fair": 1.5,
+   "ladder": [
+    [
+     1.5,
+     1.2
+    ],
+    [
+     2.5,
+     1.5
+    ]
+   ],
+   "avg": [
+    3.3,
+    4.0
+   ],
+   "expect": 3.9,
+   "expect_sum": 3.6,
+   "expect_matchup": 4.1,
+   "contrib": [
+    2.0,
+    2.1
+   ],
+   "buffer": 1.4,
+   "fa": [
+    [
+     1.7,
+     1.8
+    ],
+    [
+     1.7,
+     1.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.03,
+   "p_emp": {
+    "1.5": 0.8333333333333334,
+    "2.5": 0.6666666666666666
+   },
+   "p_mod": 0.755,
+   "p_fin": 0.695,
+   "fair_fin": 1.44,
+   "ladder_fin": [
+    [
+     1.5,
+     1.24
+    ],
+    [
+     2.5,
+     1.44
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.44",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "range": null
+  },
+  "v": 2
+ },
  "12404869|corners|über": {
   "match_id": "12404869",
   "home": "Al Ittihad Al Sakandary",
@@ -382,7 +500,7 @@
    1.291,
    1.813
   ],
-  "last_run": "Do 13:16",
+  "last_run": "Do 14:14",
   "line": 7.5,
   "range": [
    1.291,
@@ -497,120 +615,74 @@
   },
   "v": 2
  },
- "13181842|goals|über": {
-  "match_id": "13181842",
-  "home": "Bryne (W)",
-  "away": "Haugesund (W)",
-  "kickoff": "Do 16:00",
-  "kickoff_ts": 1791468000,
-  "league": "Norway Cup Women",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 2.5,
+ "13087917|team_corners_gast|unter": {
+  "match_id": "13087917",
+  "home": "Hapoel Ironi Karmiel",
+  "away": "Hapoel Tirat Karmel",
+  "kickoff": "Do 17:00",
+  "kickoff_ts": 1791471600,
+  "league": "Israel Liga Alef North",
+  "metric": "Hapoel Tirat Karmel: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Do 12:14",
+  "first_line": 5.5,
   "first_range": null,
-  "last_run": "Do 13:16",
-  "line": 2.5,
+  "last_run": "Do 14:14",
+  "line": 5.5,
   "range": null,
   "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    38,
-    46
-   ],
-   "next_line": 3.5,
-   "next_note": "Bryne (W) 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Haugesund (W) 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.61196151025745,
-    0.7808781769874262
-   ],
-   "fair": 1.5,
-   "ladder": [
-    [
-     1.5,
-     1.2
-    ],
-    [
-     2.5,
-     1.5
-    ]
-   ],
-   "avg": [
-    3.3,
-    4.0
-   ],
-   "expect": 3.9,
-   "expect_sum": 3.6,
-   "expect_matchup": 4.1,
-   "contrib": [
-    2.0,
-    2.1
-   ],
-   "buffer": 1.4,
-   "fa": [
-    [
-     1.7,
-     1.8
-    ],
-    [
-     1.7,
-     1.8
-    ]
-   ],
+   "metric": "Hapoel Tirat Karmel: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.23,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
    "referee": null,
    "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 2.03,
-   "p_emp": {
-    "1.5": 0.8333333333333334,
-    "2.5": 0.6666666666666666
-   },
-   "p_mod": 0.755,
-   "p_fin": 0.695,
-   "fair_fin": 1.44,
-   "ladder_fin": [
-    [
-     1.5,
-     1.24
-    ],
-    [
-     2.5,
-     1.44
-    ]
-   ],
+   "sd": null,
+   "p_emp": 0.787,
+   "p_mod": 0.922,
+   "p_fin": 0.8121,
+   "fair_fin": 1.23,
+   "ladder_fin": null,
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.44",
+   "ampel": null,
+   "reason": null,
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
    "b365_lines": null,
    "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
+   "team_market": true,
+   "team": "Hapoel Tirat Karmel",
+   "serie": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "gegner": 7,
+   "erwartet": 3.0,
    "range": null
   },
   "v": 2
@@ -631,7 +703,7 @@
    1.24,
    2.22
   ],
-  "last_run": "Do 13:16",
+  "last_run": "Do 14:14",
   "line": 7.5,
   "range": [
    1.44,
@@ -759,7 +831,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 13:16",
+  "last_run": "Do 14:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -864,6 +936,78 @@
   },
   "v": 2
  },
+ "12404839|team_corners_gast|unter": {
+  "match_id": "12404839",
+  "home": "Ghazl El Mahallah",
+  "away": "Abo Qir Semad",
+  "kickoff": "Do 19:00",
+  "kickoff_ts": 1791478800,
+  "league": "Egypt League Cup",
+  "metric": "Abo Qir Semad: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Do 10:14",
+  "first_line": 5.5,
+  "first_range": null,
+  "last_run": "Do 14:14",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Abo Qir Semad: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.39,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.717,
+   "p_mod": 0.627,
+   "p_fin": 0.717,
+   "fair_fin": 1.39,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Abo Qir Semad",
+   "serie": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "gegner": 8,
+   "erwartet": 4.7,
+   "range": null
+  },
+  "v": 2
+ },
  "12352283|corners|über": {
   "match_id": "12352283",
   "home": "Al-Wakrah SC",
@@ -880,7 +1024,7 @@
    1.298,
    1.582
   ],
-  "last_run": "Do 13:16",
+  "last_run": "Do 14:14",
   "line": 7.5,
   "range": [
    1.28,
@@ -995,78 +1139,6 @@
   },
   "v": 2
  },
- "12404839|team_corners_gast|unter": {
-  "match_id": "12404839",
-  "home": "Ghazl El Mahallah",
-  "away": "Abo Qir Semad",
-  "kickoff": "Do 19:00",
-  "kickoff_ts": 1791478800,
-  "league": "Egypt League Cup",
-  "metric": "Abo Qir Semad: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Do 10:14",
-  "first_line": 5.5,
-  "first_range": null,
-  "last_run": "Do 13:16",
-  "line": 5.5,
-  "range": null,
-  "signal": {
-   "metric": "Abo Qir Semad: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.39,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.717,
-   "p_mod": 0.627,
-   "p_fin": 0.717,
-   "fair_fin": 1.39,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Abo Qir Semad",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 8,
-   "erwartet": 4.7,
-   "range": null
-  },
-  "v": 2
- },
  "12362123|yellowcards|unter": {
   "match_id": "12362123",
   "home": "CFR Cluj",
@@ -1083,7 +1155,7 @@
    1.52,
    2.22
   ],
-  "last_run": "Do 13:16",
+  "last_run": "Do 14:14",
   "line": 5.5,
   "range": [
    1.52,
@@ -1194,6 +1266,133 @@
   },
   "v": 2
  },
+ "12362123|on_target|über": {
+  "match_id": "12362123",
+  "home": "CFR Cluj",
+  "away": "Universitatea Cluj",
+  "kickoff": "Do 19:30",
+  "kickoff_ts": 1791480600,
+  "league": "Romania Liga I",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Do 06:14",
+  "first_line": 6.5,
+  "first_range": [
+   1.19,
+   1.72
+  ],
+  "last_run": "Do 14:14",
+  "line": 6.5,
+  "range": [
+   1.19,
+   1.72
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    42
+   ],
+   "next_line": 7.5,
+   "next_note": "Universitatea Cluj 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.7939438627440315,
+    0.7215931779191705
+   ],
+   "fair": 1.34,
+   "ladder": [
+    [
+     5.5,
+     1.4
+    ],
+    [
+     6.5,
+     1.34
+    ]
+   ],
+   "avg": [
+    8.0,
+    8.1
+   ],
+   "expect": 7.7,
+   "expect_sum": 8.0,
+   "expect_matchup": 7.3,
+   "contrib": [
+    4.8,
+    2.5
+   ],
+   "buffer": 1.2,
+   "fa": [
+    [
+     4.4,
+     4.0
+    ],
+    [
+     4.1,
+     4.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.08,
+   "p_emp": {
+    "5.5": 0.7142857142857143,
+    "6.5": 0.7462686567164178
+   },
+   "p_mod": 0.652,
+   "p_fin": 0.718,
+   "fair_fin": 1.39,
+   "ladder_fin": [
+    [
+     5.5,
+     1.34
+    ],
+    [
+     6.5,
+     1.39
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.39",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "range": [
+    1.19,
+    1.72
+   ]
+  },
+  "v": 2
+ },
  "12362123|offsides|unter": {
   "match_id": "12362123",
   "home": "CFR Cluj",
@@ -1210,10 +1409,10 @@
    1.26,
    2.0
   ],
-  "last_run": "Do 13:16",
+  "last_run": "Do 14:14",
   "line": 4.5,
   "range": [
-   1.46,
+   1.26,
    2.0
   ],
   "signal": {
@@ -1315,7 +1514,7 @@
    "gegner": null,
    "erwartet": null,
    "range": [
-    1.46,
+    1.26,
     2.0
    ]
   },
@@ -1334,7 +1533,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 13:16",
+  "last_run": "Do 14:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -1406,7 +1605,7 @@
   "first_run": "Do 06:14",
   "first_line": 5.5,
   "first_range": null,
-  "last_run": "Do 13:16",
+  "last_run": "Do 14:14",
   "line": 5.5,
   "range": null,
   "signal": {
@@ -1481,7 +1680,7 @@
    1.68,
    1.94
   ],
-  "last_run": "Do 13:16",
+  "last_run": "Do 14:14",
   "line": 7.5,
   "range": [
    1.68,
@@ -1609,7 +1808,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 13:16",
+  "last_run": "Do 14:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -1714,360 +1913,6 @@
   },
   "v": 2
  },
- "13258946|goals|über": {
-  "match_id": "13258946",
-  "home": "Grorud U19",
-  "away": "Kjelsas U19",
-  "kickoff": "Do 20:15",
-  "kickoff_ts": 1791483300,
-  "league": "Norway Interkretsserie U19",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Do 13:16",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    50,
-    12
-   ],
-   "next_line": 3.5,
-   "next_note": "kein Anker — Grorud U19 13/15 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; Kjelsas U19 7/9 (3. Lücke) gesamt, 4/6 (Aussetzer in den letzten 2) auswärts",
-   "longterm": [
-    0.815900135280625,
-    1.0
-   ],
-   "fair": 1.3,
-   "ladder": [
-    [
-     1.5,
-     1.12
-    ],
-    [
-     2.5,
-     1.3
-    ]
-   ],
-   "avg": [
-    4.3,
-    4.6
-   ],
-   "expect": 5.4,
-   "expect_sum": 4.5,
-   "expect_matchup": 6.3,
-   "contrib": [
-    3.8,
-    2.5
-   ],
-   "buffer": 2.9,
-   "fa": [
-    [
-     2.2,
-     2.3
-    ],
-    [
-     2.9,
-     2.3
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.3,
-   "p_emp": {
-    "1.5": 0.8928571428571428,
-    "2.5": 0.7692307692307692
-   },
-   "p_mod": 0.896,
-   "p_fin": 0.79,
-   "fair_fin": 1.27,
-   "ladder_fin": [
-    [
-     1.5,
-     1.16
-    ],
-    [
-     2.5,
-     1.27
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟡",
-   "reason": "Historie 77 % vs. Modell 90 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "range": null
-  },
-  "v": 2
- },
- "13259227|goals|über": {
-  "match_id": "13259227",
-  "home": "Nordstrand U19",
-  "away": "Lillehammer U19",
-  "kickoff": "Do 20:15",
-  "kickoff_ts": 1791483300,
-  "league": "Norway Interkretsserie U19",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Do 13:16",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    50,
-    50
-   ],
-   "next_line": 3.5,
-   "next_note": "kein Anker — Nordstrand U19 13/15 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Lillehammer U19 18/20 (3. Lücke) gesamt, 10/12 (3. Lücke) auswärts",
-   "longterm": [
-    0.8674586788933275,
-    0.8670279533725611
-   ],
-   "fair": 1.28,
-   "ladder": [
-    [
-     1.5,
-     1.1
-    ],
-    [
-     2.5,
-     1.28
-    ]
-   ],
-   "avg": [
-    4.2,
-    4.9
-   ],
-   "expect": 5.5,
-   "expect_sum": 4.5,
-   "expect_matchup": 6.5,
-   "contrib": [
-    2.9,
-    3.6
-   ],
-   "buffer": 3.0,
-   "fa": [
-    [
-     1.6,
-     3.3
-    ],
-    [
-     2.7,
-     2.0
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.4,
-   "p_emp": {
-    "1.5": 0.9090909090909091,
-    "2.5": 0.78125
-   },
-   "p_mod": 0.894,
-   "p_fin": 0.794,
-   "fair_fin": 1.26,
-   "ladder_fin": [
-    [
-     1.5,
-     1.15
-    ],
-    [
-     2.5,
-     1.26
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.26",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "range": null
-  },
-  "v": 2
- },
- "13259228|goals|über": {
-  "match_id": "13259228",
-  "home": "Baerum SK U19",
-  "away": "Ullensaker/Kisa U19",
-  "kickoff": "Do 20:15",
-  "kickoff_ts": 1791483300,
-  "league": "Norway Interkretsserie U19",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Do 13:16",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    50,
-    50
-   ],
-   "next_line": 3.5,
-   "next_note": "kein Anker — Baerum SK U19 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Ullensaker/Kisa U19 11/13 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "longterm": [
-    0.8024017157416093,
-    0.8711654742044956
-   ],
-   "fair": 1.31,
-   "ladder": [
-    [
-     1.5,
-     1.11
-    ],
-    [
-     2.5,
-     1.31
-    ]
-   ],
-   "avg": [
-    4.6,
-    5.2
-   ],
-   "expect": 6.4,
-   "expect_sum": 4.9,
-   "expect_matchup": 7.8,
-   "contrib": [
-    5.5,
-    2.3
-   ],
-   "buffer": 3.9,
-   "fa": [
-    [
-     1.9,
-     2.3
-    ],
-    [
-     2.2,
-     2.9
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.38,
-   "p_emp": {
-    "1.5": 0.9009009009009008,
-    "2.5": 0.7633587786259541
-   },
-   "p_mod": 0.949,
-   "p_fin": 0.809,
-   "fair_fin": 1.24,
-   "ladder_fin": [
-    [
-     1.5,
-     1.14
-    ],
-    [
-     2.5,
-     1.24
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟡",
-   "reason": "Historie 76 % vs. Modell 95 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "range": null
-  },
-  "v": 2
- },
  "13259226|goals|über": {
   "match_id": "13259226",
   "home": "Follo U19",
@@ -2081,7 +1926,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 13:16",
+  "last_run": "Do 14:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -2186,6 +2031,360 @@
   },
   "v": 2
  },
+ "13259227|goals|über": {
+  "match_id": "13259227",
+  "home": "Nordstrand U19",
+  "away": "Lillehammer U19",
+  "kickoff": "Do 20:15",
+  "kickoff_ts": 1791483300,
+  "league": "Norway Interkretsserie U19",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Do 06:14",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Do 14:14",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    50,
+    50
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — Nordstrand U19 13/15 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Lillehammer U19 18/20 (3. Lücke) gesamt, 10/12 (3. Lücke) auswärts",
+   "longterm": [
+    0.8674586788933275,
+    0.8670279533725611
+   ],
+   "fair": 1.28,
+   "ladder": [
+    [
+     1.5,
+     1.1
+    ],
+    [
+     2.5,
+     1.28
+    ]
+   ],
+   "avg": [
+    4.2,
+    4.9
+   ],
+   "expect": 5.5,
+   "expect_sum": 4.5,
+   "expect_matchup": 6.5,
+   "contrib": [
+    2.8,
+    3.6
+   ],
+   "buffer": 3.0,
+   "fa": [
+    [
+     1.6,
+     3.3
+    ],
+    [
+     2.7,
+     2.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.4,
+   "p_emp": {
+    "1.5": 0.9090909090909091,
+    "2.5": 0.78125
+   },
+   "p_mod": 0.894,
+   "p_fin": 0.794,
+   "fair_fin": 1.26,
+   "ladder_fin": [
+    [
+     1.5,
+     1.15
+    ],
+    [
+     2.5,
+     1.26
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.26",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13259228|goals|über": {
+  "match_id": "13259228",
+  "home": "Baerum SK U19",
+  "away": "Ullensaker/Kisa U19",
+  "kickoff": "Do 20:15",
+  "kickoff_ts": 1791483300,
+  "league": "Norway Interkretsserie U19",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Do 06:14",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Do 14:14",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    50,
+    50
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — Baerum SK U19 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Ullensaker/Kisa U19 11/13 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.8024017157416093,
+    0.8711654742044956
+   ],
+   "fair": 1.31,
+   "ladder": [
+    [
+     1.5,
+     1.11
+    ],
+    [
+     2.5,
+     1.31
+    ]
+   ],
+   "avg": [
+    4.6,
+    5.2
+   ],
+   "expect": 6.4,
+   "expect_sum": 4.9,
+   "expect_matchup": 7.8,
+   "contrib": [
+    5.5,
+    2.3
+   ],
+   "buffer": 3.9,
+   "fa": [
+    [
+     1.9,
+     2.3
+    ],
+    [
+     2.2,
+     2.9
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.38,
+   "p_emp": {
+    "1.5": 0.9009009009009008,
+    "2.5": 0.7633587786259541
+   },
+   "p_mod": 0.949,
+   "p_fin": 0.809,
+   "fair_fin": 1.24,
+   "ladder_fin": [
+    [
+     1.5,
+     1.14
+    ],
+    [
+     2.5,
+     1.24
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 76 % vs. Modell 95 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13258946|goals|über": {
+  "match_id": "13258946",
+  "home": "Grorud U19",
+  "away": "Kjelsas U19",
+  "kickoff": "Do 20:15",
+  "kickoff_ts": 1791483300,
+  "league": "Norway Interkretsserie U19",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Do 06:14",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Do 14:14",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    50,
+    12
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — Grorud U19 13/15 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; Kjelsas U19 7/9 (3. Lücke) gesamt, 4/6 (Aussetzer in den letzten 2) auswärts",
+   "longterm": [
+    0.815900135280625,
+    1.0
+   ],
+   "fair": 1.3,
+   "ladder": [
+    [
+     1.5,
+     1.12
+    ],
+    [
+     2.5,
+     1.3
+    ]
+   ],
+   "avg": [
+    4.3,
+    4.6
+   ],
+   "expect": 5.4,
+   "expect_sum": 4.5,
+   "expect_matchup": 6.3,
+   "contrib": [
+    3.8,
+    2.5
+   ],
+   "buffer": 2.9,
+   "fa": [
+    [
+     2.2,
+     2.3
+    ],
+    [
+     2.9,
+     2.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.3,
+   "p_emp": {
+    "1.5": 0.8928571428571428,
+    "2.5": 0.7692307692307692
+   },
+   "p_mod": 0.896,
+   "p_fin": 0.79,
+   "fair_fin": 1.27,
+   "ladder_fin": [
+    [
+     1.5,
+     1.16
+    ],
+    [
+     2.5,
+     1.27
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 77 % vs. Modell 90 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "range": null
+  },
+  "v": 2
+ },
  "11486174|corners|über": {
   "match_id": "11486174",
   "home": "Shamrock Rovers",
@@ -2202,7 +2401,7 @@
    1.44,
    1.51
   ],
-  "last_run": "Do 13:16",
+  "last_run": "Do 14:14",
   "line": 7.5,
   "range": [
    1.48,
@@ -2313,205 +2512,6 @@
    "range": [
     1.48,
     1.5
-   ]
-  },
-  "v": 2
- },
- "13087917|team_corners_gast|unter": {
-  "match_id": "13087917",
-  "home": "Hapoel Ironi Karmiel",
-  "away": "Hapoel Tirat Karmel",
-  "kickoff": "Do 17:00",
-  "kickoff_ts": 1791471600,
-  "league": "Israel Liga Alef North",
-  "metric": "Hapoel Tirat Karmel: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Do 12:14",
-  "first_line": 5.5,
-  "first_range": null,
-  "last_run": "Do 12:14",
-  "line": 5.5,
-  "range": null,
-  "signal": {
-   "metric": "Hapoel Tirat Karmel: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.23,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.787,
-   "p_mod": 0.922,
-   "p_fin": 0.8121,
-   "fair_fin": 1.23,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Hapoel Tirat Karmel",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 7,
-   "erwartet": 3.0,
-   "range": null
-  },
-  "v": 2
- },
- "12362123|on_target|über": {
-  "match_id": "12362123",
-  "home": "CFR Cluj",
-  "away": "Universitatea Cluj",
-  "kickoff": "Do 19:30",
-  "kickoff_ts": 1791480600,
-  "league": "Romania Liga I",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 6.5,
-  "first_range": [
-   1.19,
-   1.72
-  ],
-  "last_run": "Do 12:14",
-  "line": 6.5,
-  "range": [
-   1.19,
-   1.72
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    43,
-    42
-   ],
-   "next_line": 7.5,
-   "next_note": "Universitatea Cluj 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "longterm": [
-    0.7939438627440315,
-    0.7215931779191705
-   ],
-   "fair": 1.34,
-   "ladder": [
-    [
-     5.5,
-     1.4
-    ],
-    [
-     6.5,
-     1.34
-    ]
-   ],
-   "avg": [
-    8.0,
-    8.1
-   ],
-   "expect": 7.7,
-   "expect_sum": 8.0,
-   "expect_matchup": 7.3,
-   "contrib": [
-    4.8,
-    2.5
-   ],
-   "buffer": 1.2,
-   "fa": [
-    [
-     4.4,
-     4.0
-    ],
-    [
-     4.1,
-     4.0
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.08,
-   "p_emp": {
-    "5.5": 0.7142857142857143,
-    "6.5": 0.7462686567164178
-   },
-   "p_mod": 0.652,
-   "p_fin": 0.718,
-   "fair_fin": 1.39,
-   "ladder_fin": [
-    [
-     5.5,
-     1.34
-    ],
-    [
-     6.5,
-     1.39
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.39",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "range": [
-    1.19,
-    1.72
    ]
   },
   "v": 2
