@@ -1,0 +1,1685 @@
+{
+ "run_utc": "2026-10-08T13:13:59+00:00",
+ "matches_checked": 127,
+ "requests": 55,
+ "hits": [
+  {
+   "match": {
+    "id": "13181842",
+    "league": "Norway Cup Women",
+    "league_id": "938",
+    "home": "Bryne (W)",
+    "away": "Haugesund (W)",
+    "home_id": "1261288",
+    "away_id": "1201504",
+    "kickoff": "Do 16:00",
+    "kickoff_ts": 1791468000,
+    "bet365_id": "202425857",
+    "_cross_league": true
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      38,
+      46
+     ],
+     "next_line": 3.5,
+     "next_note": "Bryne (W) 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Haugesund (W) 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.61196151025745,
+      0.7808781769874262
+     ],
+     "fair": 1.5,
+     "ladder": [
+      [
+       1.5,
+       1.2
+      ],
+      [
+       2.5,
+       1.5
+      ]
+     ],
+     "avg": [
+      3.3,
+      4.0
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 4.1,
+     "contrib": [
+      2.0,
+      2.1
+     ],
+     "expect": 3.9,
+     "buffer": 1.4,
+     "fa": [
+      [
+       1.7,
+       1.8
+      ],
+      [
+       1.7,
+       1.8
+      ]
+     ],
+     "sd": 2.03,
+     "p_emp": {
+      "1.5": 0.8333333333333334,
+      "2.5": 0.6666666666666666
+     },
+     "no_odds_check": true,
+     "p_mod": 0.755,
+     "p_fin": 0.695,
+     "kal": 0.94,
+     "fair_fin": 1.44,
+     "ladder_fin": [
+      [
+       1.5,
+       1.24
+      ],
+      [
+       2.5,
+       1.44
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.44",
+     "light": "🟢",
+     "first_run": "Do 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13068452",
+    "league": "Finland Veikkausliiga",
+    "league_id": "189",
+    "home": "HJK Helsinki",
+    "away": "VPS Vaasa",
+    "home_id": "828",
+    "away_id": "833",
+    "kickoff": "Do 17:00",
+    "kickoff_ts": 1791471600,
+    "bet365_id": "200934574"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 8.5,
+     "next_note": "HJK Helsinki 4/6 (3. Lücke) gesamt, 0/2 (3. Lücke) heim",
+     "longterm": [
+      0.7847228291627144,
+      0.6461057525065386
+     ],
+     "fair": 1.42,
+     "ladder": [
+      [
+       6.5,
+       1.3
+      ],
+      [
+       7.5,
+       1.42
+      ]
+     ],
+     "avg": [
+      9.1,
+      8.5
+     ],
+     "expect_sum": 8.8,
+     "expect_matchup": 8.3,
+     "contrib": [
+      4.1,
+      4.2
+     ],
+     "expect": 8.6,
+     "buffer": 1.1,
+     "fa": [
+      [
+       5.8,
+       4.5
+      ],
+      [
+       5.1,
+       4.7
+      ]
+     ],
+     "sd": 3.32,
+     "p_emp": {
+      "6.5": 0.7692307692307692,
+      "7.5": 0.7042253521126761
+     },
+     "range": [
+      1.44,
+      1.9
+     ],
+     "b365": [
+      "9.5",
+      "1.900",
+      "1.900"
+     ],
+     "p_mod": 0.63,
+     "p_fin": 0.675,
+     "kal": 0.95,
+     "fair_fin": 1.48,
+     "ladder_fin": [
+      [
+       6.5,
+       1.38
+      ],
+      [
+       7.5,
+       1.48
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "67 % knapp",
+     "light": "🟢",
+     "first_run": "Do 06:14",
+     "change_note": "Quoten vorher 1.24–2.22"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12103984",
+    "league": "Montenegro Prva Liga",
+    "league_id": "233",
+    "home": "FK Mornar Bar",
+    "away": "FK Jezero",
+    "home_id": "3543",
+    "away_id": "178743",
+    "kickoff": "Do 18:00",
+    "kickoff_ts": 1791475200,
+    "bet365_id": "202420228"
+   },
+   "signals": [
+    {
+     "metric": "FK Jezero: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 4.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "FK Jezero",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 5,
+     "erwartet": 3.1,
+     "fair": 1.33,
+     "fair_fin": 1.33,
+     "p_fin": 0.7537,
+     "p_emp": 0.709,
+     "p_mod": 0.775,
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13259224",
+    "league": "Norway Interkretsserie U19",
+    "league_id": "430",
+    "home": "Skeid U19",
+    "away": "Ready U19",
+    "home_id": "4481",
+    "away_id": "181846",
+    "kickoff": "Do 18:30",
+    "kickoff_ts": 1791477000,
+    "bet365_id": "202415357"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "Ready U19 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8572220677142995,
+      0.8508340663872946
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       1.5,
+       1.12
+      ],
+      [
+       2.5,
+       1.29
+      ]
+     ],
+     "avg": [
+      5.8,
+      4.3
+     ],
+     "expect_sum": 5.0,
+     "expect_matchup": 7.4,
+     "contrib": [
+      3.5,
+      3.9
+     ],
+     "expect": 6.2,
+     "buffer": 3.7,
+     "fa": [
+      [
+       2.9,
+       2.1
+      ],
+      [
+       2.8,
+       1.7
+      ]
+     ],
+     "sd": 2.52,
+     "p_emp": {
+      "1.5": 0.8928571428571428,
+      "2.5": 0.7751937984496123
+     },
+     "no_odds_check": true,
+     "p_mod": 0.929,
+     "p_fin": 0.805,
+     "kal": 0.94,
+     "fair_fin": 1.24,
+     "ladder_fin": [
+      [
+       1.5,
+       1.15
+      ],
+      [
+       2.5,
+       1.24
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 78 % vs. Modell 93 %",
+     "light": "🟢",
+     "first_run": "Do 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12404839",
+    "league": "Egypt League Cup",
+    "league_id": "30285",
+    "home": "Ghazl El Mahallah",
+    "away": "Abo Qir Semad",
+    "home_id": "70074",
+    "away_id": "182971",
+    "kickoff": "Do 19:00",
+    "kickoff_ts": 1791478800,
+    "bet365_id": "202419159"
+   },
+   "signals": [
+    {
+     "metric": "Abo Qir Semad: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 5.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Abo Qir Semad",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 8,
+     "erwartet": 4.7,
+     "fair": 1.39,
+     "fair_fin": 1.39,
+     "p_fin": 0.717,
+     "p_emp": 0.717,
+     "p_mod": 0.627,
+     "light": "🟢",
+     "first_run": "Do 10:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12362123",
+    "league": "Romania Liga I",
+    "league_id": "173",
+    "home": "CFR Cluj",
+    "away": "Universitatea Cluj",
+    "home_id": "9089",
+    "away_id": "176857",
+    "kickoff": "Do 19:30",
+    "kickoff_ts": 1791480600,
+    "bet365_id": "200649013"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      45
+     ],
+     "next_line": 4.5,
+     "next_note": "Universitatea Cluj 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.921583305570469,
+      0.82022890159882
+     ],
+     "fair": 1.19,
+     "ladder": [
+      [
+       5.5,
+       1.19
+      ],
+      [
+       6.5,
+       1.09
+      ]
+     ],
+     "avg": [
+      3.1,
+      4.3
+     ],
+     "expect_sum": 3.7,
+     "expect_matchup": 3.4,
+     "contrib": [
+      1.4,
+      2.0
+     ],
+     "expect": 3.5,
+     "buffer": 2.0,
+     "fa": [
+      [
+       1.9,
+       1.6
+      ],
+      [
+       2.1,
+       1.9
+      ]
+     ],
+     "sd": 1.98,
+     "p_emp": {
+      "5.5": 0.8403361344537815,
+      "6.5": 0.9174311926605504
+     },
+     "range": [
+      1.57,
+      1.99
+     ],
+     "p_mod": 0.844,
+     "p_fin": 0.855,
+     "kal": 1.02,
+     "fair_fin": 1.17,
+     "ladder_fin": [
+      [
+       5.5,
+       1.17
+      ],
+      [
+       6.5,
+       1.09
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.17",
+     "light": "🟢",
+     "first_run": "Do 06:14",
+     "change_note": "Quoten vorher 1.52–2.22"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      42
+     ],
+     "next_line": 7.5,
+     "next_note": "Universitatea Cluj 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.7939438627440315,
+      0.7215931779191705
+     ],
+     "fair": 1.34,
+     "ladder": [
+      [
+       5.5,
+       1.4
+      ],
+      [
+       6.5,
+       1.34
+      ]
+     ],
+     "avg": [
+      8.0,
+      8.1
+     ],
+     "expect_sum": 8.0,
+     "expect_matchup": 7.3,
+     "contrib": [
+      4.8,
+      2.5
+     ],
+     "expect": 7.7,
+     "buffer": 1.2,
+     "fa": [
+      [
+       4.4,
+       4.0
+      ],
+      [
+       4.1,
+       4.0
+      ]
+     ],
+     "sd": 3.08,
+     "p_emp": {
+      "5.5": 0.7142857142857143,
+      "6.5": 0.7462686567164178
+     },
+     "range": [
+      1.35,
+      1.72
+     ],
+     "p_mod": 0.652,
+     "p_fin": 0.718,
+     "kal": null,
+     "fair_fin": 1.39,
+     "ladder_fin": [
+      [
+       5.5,
+       1.34
+      ],
+      [
+       6.5,
+       1.39
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.39",
+     "light": "🟢",
+     "first_run": "Do 06:14",
+     "change_note": "Quoten vorher 1.19–1.72"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      34,
+      29
+     ],
+     "next_line": 3.5,
+     "next_note": "Universitatea Cluj 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.8004810199177733,
+      0.901136020494487
+     ],
+     "fair": 1.26,
+     "ladder": [
+      [
+       4.5,
+       1.26
+      ],
+      [
+       5.5,
+       1.12
+      ]
+     ],
+     "avg": [
+      2.1,
+      2.6
+     ],
+     "expect_sum": 2.3,
+     "expect_matchup": 1.5,
+     "contrib": [
+      0.7,
+      0.8
+     ],
+     "expect": 1.9,
+     "buffer": 2.6,
+     "fa": [
+      [
+       1.3,
+       1.8
+      ],
+      [
+       1.0,
+       1.6
+      ]
+     ],
+     "sd": 1.85,
+     "p_emp": {
+      "4.5": 0.7936507936507936,
+      "5.5": 0.8928571428571428
+     },
+     "range": [
+      1.26,
+      2.09
+     ],
+     "p_mod": 0.92,
+     "p_fin": 0.856,
+     "kal": 1.0,
+     "fair_fin": 1.17,
+     "ladder_fin": [
+      [
+       4.5,
+       1.17
+      ],
+      [
+       5.5,
+       1.1
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 79 % vs. Modell 92 %",
+     "light": "🟢",
+     "first_run": "Do 06:14",
+     "change_note": "Quoten vorher 1.26–2.00"
+    },
+    {
+     "metric": "CFR Cluj: Gelbe Karten",
+     "metric_key": "team_yellowcards_heim",
+     "line": 2.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "CFR Cluj",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 8,
+     "erwartet": 1.6,
+     "fair": 1.26,
+     "fair_fin": 1.26,
+     "p_fin": 0.7938,
+     "p_emp": 0.784,
+     "p_mod": 0.793,
+     "light": "🟢",
+     "first_run": "Do 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13195444",
+    "league": "Argentina Liga Profesional Reserves",
+    "league_id": "36544",
+    "home": "Belgrano Reserves",
+    "away": "San Martin de San Juan Reserves",
+    "home_id": "43948",
+    "away_id": "2533",
+    "kickoff": "Do 20:00",
+    "kickoff_ts": 1791482400,
+    "bet365_id": "202416218"
+   },
+   "signals": [
+    {
+     "metric": "San Martin de San Juan Reserves: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 5.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "San Martin de San Juan Reserves",
+     "serie": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "gegner": 6,
+     "erwartet": 3.6,
+     "fair": 1.31,
+     "fair_fin": 1.31,
+     "p_fin": 0.7631,
+     "p_emp": 0.761,
+     "p_mod": 0.759,
+     "light": "🟢",
+     "first_run": "Do 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13195448",
+    "league": "Argentina Liga Profesional Reserves",
+    "league_id": "36544",
+    "home": "Sarmiento Reserves",
+    "away": "Velez Sarsfield Reserves",
+    "home_id": "60889",
+    "away_id": "3476",
+    "kickoff": "Do 20:00",
+    "kickoff_ts": 1791482400,
+    "bet365_id": "202416220"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 8.5,
+     "next_note": "Velez Sarsfield Reserves 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.8019246020154988,
+      0.7242833379654544
+     ],
+     "fair": 1.36,
+     "ladder": [
+      [
+       6.5,
+       1.33
+      ],
+      [
+       7.5,
+       1.36
+      ]
+     ],
+     "avg": [
+      10.2,
+      10.1
+     ],
+     "expect_sum": 10.1,
+     "expect_matchup": 11.1,
+     "contrib": [
+      5.1,
+      5.9
+     ],
+     "expect": 10.6,
+     "buffer": 3.1,
+     "fa": [
+      [
+       4.2,
+       5.3
+      ],
+      [
+       6.1,
+       3.2
+      ]
+     ],
+     "sd": 3.17,
+     "p_emp": {
+      "6.5": 0.7518796992481203,
+      "7.5": 0.7352941176470588
+     },
+     "range": [
+      1.68,
+      1.94
+     ],
+     "b365": [
+      "9.5",
+      "1.950",
+      "1.850"
+     ],
+     "p_mod": 0.836,
+     "p_fin": 0.743,
+     "kal": 0.95,
+     "fair_fin": 1.35,
+     "ladder_fin": [
+      [
+       6.5,
+       1.3
+      ],
+      [
+       7.5,
+       1.35
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.35",
+     "light": "🟢",
+     "first_run": "Do 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13259225",
+    "league": "Norway Interkretsserie U19",
+    "league_id": "430",
+    "home": "KFUM U19",
+    "away": "Asker U19",
+    "home_id": "184758",
+    "away_id": "9404",
+    "kickoff": "Do 20:15",
+    "kickoff_ts": 1791483300,
+    "bet365_id": "202415361"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — KFUM U19 7/9 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Asker U19 10/12 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.8832838166790477,
+      0.8292472052886797
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       1.5,
+       1.08
+      ],
+      [
+       2.5,
+       1.29
+      ]
+     ],
+     "avg": [
+      4.8,
+      5.4
+     ],
+     "expect_sum": 5.1,
+     "expect_matchup": 8.5,
+     "contrib": [
+      5.6,
+      2.9
+     ],
+     "expect": 6.8,
+     "buffer": 4.3,
+     "fa": [
+      [
+       2.7,
+       2.0
+      ],
+      [
+       2.4,
+       2.7
+      ]
+     ],
+     "sd": 2.38,
+     "p_emp": {
+      "1.5": 0.9259259259259258,
+      "2.5": 0.7751937984496123
+     },
+     "no_odds_check": true,
+     "p_mod": 0.965,
+     "p_fin": 0.819,
+     "kal": 0.94,
+     "fair_fin": 1.22,
+     "ladder_fin": [
+      [
+       1.5,
+       1.13
+      ],
+      [
+       2.5,
+       1.22
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 78 % vs. Modell 96 %",
+     "light": "🟢",
+     "first_run": "Do 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13259227",
+    "league": "Norway Interkretsserie U19",
+    "league_id": "430",
+    "home": "Nordstrand U19",
+    "away": "Lillehammer U19",
+    "home_id": "4411",
+    "away_id": "8437",
+    "kickoff": "Do 20:15",
+    "kickoff_ts": 1791483300,
+    "bet365_id": "202415382"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — Nordstrand U19 13/15 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Lillehammer U19 18/20 (3. Lücke) gesamt, 10/12 (3. Lücke) auswärts",
+     "longterm": [
+      0.8674586788933275,
+      0.8670279533725611
+     ],
+     "fair": 1.28,
+     "ladder": [
+      [
+       1.5,
+       1.1
+      ],
+      [
+       2.5,
+       1.28
+      ]
+     ],
+     "avg": [
+      4.2,
+      4.9
+     ],
+     "expect_sum": 4.5,
+     "expect_matchup": 6.5,
+     "contrib": [
+      2.8,
+      3.6
+     ],
+     "expect": 5.5,
+     "buffer": 3.0,
+     "fa": [
+      [
+       1.6,
+       3.3
+      ],
+      [
+       2.7,
+       2.0
+      ]
+     ],
+     "sd": 2.4,
+     "p_emp": {
+      "1.5": 0.9090909090909091,
+      "2.5": 0.78125
+     },
+     "no_odds_check": true,
+     "p_mod": 0.894,
+     "p_fin": 0.794,
+     "kal": 0.94,
+     "fair_fin": 1.26,
+     "ladder_fin": [
+      [
+       1.5,
+       1.15
+      ],
+      [
+       2.5,
+       1.26
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.26",
+     "light": "🟢",
+     "first_run": "Do 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13259226",
+    "league": "Norway Interkretsserie U19",
+    "league_id": "430",
+    "home": "Follo U19",
+    "away": "Ullern U19",
+    "home_id": "4492",
+    "away_id": "181847",
+    "kickoff": "Do 20:15",
+    "kickoff_ts": 1791483300,
+    "bet365_id": "202415373"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — Follo U19 12/14 (3. Lücke) gesamt, 15/17 (3. Lücke) heim; Ullern U19 13/15 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
+     "longterm": [
+      0.9047207763849021,
+      0.9152325725389708
+     ],
+     "fair": 1.23,
+     "ladder": [
+      [
+       1.5,
+       1.1
+      ],
+      [
+       2.5,
+       1.23
+      ]
+     ],
+     "avg": [
+      4.8,
+      5.7
+     ],
+     "expect_sum": 5.2,
+     "expect_matchup": 8.6,
+     "contrib": [
+      4.7,
+      3.9
+     ],
+     "expect": 6.9,
+     "buffer": 4.4,
+     "fa": [
+      [
+       2.4,
+       2.5
+      ],
+      [
+       2.8,
+       2.5
+      ]
+     ],
+     "sd": 2.31,
+     "p_emp": {
+      "1.5": 0.9090909090909091,
+      "2.5": 0.8130081300813008
+     },
+     "no_odds_check": true,
+     "p_mod": 0.972,
+     "p_fin": 0.837,
+     "kal": 0.94,
+     "fair_fin": 1.2,
+     "ladder_fin": [
+      [
+       1.5,
+       1.13
+      ],
+      [
+       2.5,
+       1.2
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 81 % vs. Modell 97 %",
+     "light": "🟢",
+     "first_run": "Do 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13258946",
+    "league": "Norway Interkretsserie U19",
+    "league_id": "430",
+    "home": "Grorud U19",
+    "away": "Kjelsas U19",
+    "home_id": "179341",
+    "away_id": "561342",
+    "kickoff": "Do 20:15",
+    "kickoff_ts": 1791483300,
+    "bet365_id": "202415477"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      12
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — Grorud U19 13/15 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; Kjelsas U19 7/9 (3. Lücke) gesamt, 4/6 (Aussetzer in den letzten 2) auswärts",
+     "longterm": [
+      0.815900135280625,
+      1.0
+     ],
+     "fair": 1.3,
+     "ladder": [
+      [
+       1.5,
+       1.12
+      ],
+      [
+       2.5,
+       1.3
+      ]
+     ],
+     "avg": [
+      4.3,
+      4.6
+     ],
+     "expect_sum": 4.5,
+     "expect_matchup": 6.3,
+     "contrib": [
+      3.8,
+      2.5
+     ],
+     "expect": 5.4,
+     "buffer": 2.9,
+     "fa": [
+      [
+       2.2,
+       2.3
+      ],
+      [
+       2.9,
+       2.3
+      ]
+     ],
+     "sd": 2.3,
+     "p_emp": {
+      "1.5": 0.8928571428571428,
+      "2.5": 0.7692307692307692
+     },
+     "no_odds_check": true,
+     "p_mod": 0.896,
+     "p_fin": 0.79,
+     "kal": 0.94,
+     "fair_fin": 1.27,
+     "ladder_fin": [
+      [
+       1.5,
+       1.16
+      ],
+      [
+       2.5,
+       1.27
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 77 % vs. Modell 90 %",
+     "light": "🟢",
+     "first_run": "Do 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13259228",
+    "league": "Norway Interkretsserie U19",
+    "league_id": "430",
+    "home": "Baerum SK U19",
+    "away": "Ullensaker/Kisa U19",
+    "home_id": "4403",
+    "away_id": "56210",
+    "kickoff": "Do 20:15",
+    "kickoff_ts": 1791483300,
+    "bet365_id": "202415384"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — Baerum SK U19 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Ullensaker/Kisa U19 11/13 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.8024017157416093,
+      0.8711654742044956
+     ],
+     "fair": 1.31,
+     "ladder": [
+      [
+       1.5,
+       1.11
+      ],
+      [
+       2.5,
+       1.31
+      ]
+     ],
+     "avg": [
+      4.6,
+      5.2
+     ],
+     "expect_sum": 4.9,
+     "expect_matchup": 7.8,
+     "contrib": [
+      5.5,
+      2.3
+     ],
+     "expect": 6.4,
+     "buffer": 3.9,
+     "fa": [
+      [
+       1.9,
+       2.3
+      ],
+      [
+       2.2,
+       2.9
+      ]
+     ],
+     "sd": 2.38,
+     "p_emp": {
+      "1.5": 0.9009009009009008,
+      "2.5": 0.7633587786259541
+     },
+     "no_odds_check": true,
+     "p_mod": 0.949,
+     "p_fin": 0.809,
+     "kal": 0.94,
+     "fair_fin": 1.24,
+     "ladder_fin": [
+      [
+       1.5,
+       1.14
+      ],
+      [
+       2.5,
+       1.24
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 76 % vs. Modell 95 %",
+     "light": "🟢",
+     "first_run": "Do 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11486174",
+    "league": "Republic of Ireland Premier Division",
+    "league_id": "398",
+    "home": "Shamrock Rovers",
+    "away": "Drogheda United",
+    "home_id": "3085",
+    "away_id": "45725",
+    "kickoff": "Do 21:00",
+    "kickoff_ts": 1791486000,
+    "bet365_id": "200562915"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      42,
+      46
+     ],
+     "next_line": 8.5,
+     "next_note": "Shamrock Rovers 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Drogheda United 2/4 (3. Lücke) gesamt, 10/12 (3. Lücke) auswärts",
+     "longterm": [
+      0.6881904813600446,
+      0.8337216762814429
+     ],
+     "fair": 1.35,
+     "ladder": [
+      [
+       6.5,
+       1.33
+      ],
+      [
+       7.5,
+       1.35
+      ]
+     ],
+     "avg": [
+      10.1,
+      11.4
+     ],
+     "expect_sum": 10.7,
+     "expect_matchup": 12.4,
+     "contrib": [
+      7.9,
+      4.6
+     ],
+     "expect": 11.6,
+     "buffer": 4.1,
+     "fa": [
+      [
+       5.0,
+       4.0
+      ],
+      [
+       4.6,
+       5.5
+      ]
+     ],
+     "sd": 3.46,
+     "p_emp": {
+      "6.5": 0.7518796992481203,
+      "7.5": 0.7407407407407407
+     },
+     "range": [
+      1.48,
+      1.5
+     ],
+     "b365": [
+      "9.5",
+      "1.825",
+      "1.975"
+     ],
+     "p_mod": 0.882,
+     "p_fin": 0.758,
+     "kal": 0.95,
+     "fair_fin": 1.32,
+     "ladder_fin": [
+      [
+       6.5,
+       1.29
+      ],
+      [
+       7.5,
+       1.32
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 74 % vs. Modell 88 %",
+     "light": "🟢",
+     "first_run": "Do 06:14",
+     "change_note": "Quoten vorher 1.44–1.51"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "results": 30,
+  "doublechance": 53,
+  "totals": 63,
+  "handicaps": 32,
+  "correctscore": 5,
+  "btts": 20,
+  "corners": 20,
+  "cards": 1,
+  "shots": 1,
+  "offsides": 1,
+  "fouls": 1
+ },
+ "dauer_s": 38,
+ "zeit": {
+  "historie": 0,
+  "pruefung": 0,
+  "scores24": 72,
+  "extras": 75,
+  "vorlauf": 10,
+  "spiele": 27
+ },
+ "teams_nachgeladen": 0,
+ "s24": {
+  "ok": 63,
+  "no_link": 18,
+  "fetch_fail": 27
+ },
+ "new": [
+  "12103984|team_corners_gast|unter"
+ ],
+ "changed": [
+  "13068452|corners|über",
+  "12362123|yellowcards|unter",
+  "12362123|on_target|über",
+  "12362123|offsides|unter",
+  "11486174|corners|über"
+ ],
+ "dropped": [
+  "12404869|corners|über",
+  "13087917|team_corners_gast|unter",
+  "12352283|corners|über",
+  "13223823|team_corners_heim|unter",
+  "12420670|team_corners_heim|unter"
+ ],
+ "team_totals": [
+  {
+   "match": {
+    "id": "12103984",
+    "league": "Montenegro Prva Liga",
+    "league_id": "233",
+    "home": "FK Mornar Bar",
+    "away": "FK Jezero",
+    "home_id": "3543",
+    "away_id": "178743",
+    "kickoff": "Do 18:00",
+    "kickoff_ts": 1791475200,
+    "bet365_id": "202420228"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "FK Jezero",
+    "line": 4.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7537,
+    "fair": 1.33,
+    "p_emp": 0.709,
+    "p_mod": 0.775,
+    "erwartet": 3.1,
+    "basis": 43,
+    "gegner": 5
+   }
+  },
+  {
+   "match": {
+    "id": "12404839",
+    "league": "Egypt League Cup",
+    "league_id": "30285",
+    "home": "Ghazl El Mahallah",
+    "away": "Abo Qir Semad",
+    "home_id": "70074",
+    "away_id": "182971",
+    "kickoff": "Do 19:00",
+    "kickoff_ts": 1791478800,
+    "bet365_id": "202419159"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Abo Qir Semad",
+    "line": 5.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.717,
+    "fair": 1.39,
+    "p_emp": 0.717,
+    "p_mod": 0.627,
+    "erwartet": 4.7,
+    "basis": 41,
+    "gegner": 8
+   }
+  },
+  {
+   "match": {
+    "id": "12362123",
+    "league": "Romania Liga I",
+    "league_id": "173",
+    "home": "CFR Cluj",
+    "away": "Universitatea Cluj",
+    "home_id": "9089",
+    "away_id": "176857",
+    "kickoff": "Do 19:30",
+    "kickoff_ts": 1791480600,
+    "bet365_id": "200649013"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "heim",
+    "team": "CFR Cluj",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7938,
+    "fair": 1.26,
+    "p_emp": 0.784,
+    "p_mod": 0.793,
+    "erwartet": 1.6,
+    "basis": 45,
+    "gegner": 8
+   }
+  },
+  {
+   "match": {
+    "id": "13195444",
+    "league": "Argentina Liga Profesional Reserves",
+    "league_id": "36544",
+    "home": "Belgrano Reserves",
+    "away": "San Martin de San Juan Reserves",
+    "home_id": "43948",
+    "away_id": "2533",
+    "kickoff": "Do 20:00",
+    "kickoff_ts": 1791482400,
+    "bet365_id": "202416218"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "San Martin de San Juan Reserves",
+    "line": 5.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "auswärts",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7631,
+    "fair": 1.31,
+    "p_emp": 0.761,
+    "p_mod": 0.759,
+    "erwartet": 3.6,
+    "basis": 47,
+    "gegner": 6
+   }
+  }
+ ],
+ "neue_maerkte": []
+}
