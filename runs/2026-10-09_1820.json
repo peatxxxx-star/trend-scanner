@@ -1,0 +1,2914 @@
+{
+ "run_utc": "2026-10-09T18:20:25+00:00",
+ "matches_checked": 158,
+ "requests": 407,
+ "hits": [
+  {
+   "match": {
+    "id": "12287083",
+    "league": "Italy Serie B",
+    "league_id": "190",
+    "home": "Avellino",
+    "away": "Sampdoria",
+    "home_id": "7134",
+    "away_id": "1276",
+    "kickoff": "Fr 20:30",
+    "kickoff_ts": 1791570600,
+    "bet365_id": "200935644"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      46,
+      49
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Avellino 11/13 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Sampdoria 11/13 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
+     "longterm": [
+      0.7572075200611177,
+      0.7742239603802453
+     ],
+     "fair": 1.3,
+     "ladder": [
+      [
+       5.5,
+       1.3
+      ],
+      [
+       6.5,
+       1.16
+      ]
+     ],
+     "avg": [
+      4.1,
+      3.4
+     ],
+     "expect_sum": 3.8,
+     "expect_matchup": 3.7,
+     "contrib": [
+      1.7,
+      2.0
+     ],
+     "expect": 3.7,
+     "buffer": 1.8,
+     "fa": [
+      [
+       2.2,
+       2.1
+      ],
+      [
+       2.1,
+       1.9
+      ]
+     ],
+     "sd": 2.27,
+     "p_emp": {
+      "5.5": 0.7692307692307692,
+      "6.5": 0.8620689655172414
+     },
+     "range": [
+      1.34,
+      1.61
+     ],
+     "referee": "Juan Luca Sacchi: Ø 4.0 Karten (26 Sp.) · Ø 26.3 Fouls (24 Sp.)",
+     "expect_ref": 3.8,
+     "buffer_ref": 1.7,
+     "p_mod": 0.773,
+     "p_fin": 0.804,
+     "kal": 1.02,
+     "fair_fin": 1.24,
+     "ladder_fin": [
+      [
+       5.5,
+       1.24
+      ],
+      [
+       6.5,
+       1.14
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.24",
+     "light": "🟢",
+     "first_run": "Fr 11:16",
+     "change_note": "Quoten vorher 1.35–1.64"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12153875",
+    "league": "Germany Bundesliga I",
+    "league_id": "123",
+    "home": "Borussia Dortmund",
+    "away": "Werder Bremen",
+    "home_id": "23475",
+    "away_id": "43932",
+    "kickoff": "Fr 20:30",
+    "kickoff_ts": 1791570600,
+    "bet365_id": "200551003"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      43
+     ],
+     "next_line": 8.5,
+     "next_note": "Borussia Dortmund 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+     "longterm": [
+      0.7481973745812174,
+      0.7040381752499286
+     ],
+     "fair": 1.4,
+     "ladder": [
+      [
+       6.5,
+       1.44
+      ],
+      [
+       7.5,
+       1.4
+      ]
+     ],
+     "avg": [
+      9.8,
+      10.6
+     ],
+     "expect_sum": 10.2,
+     "expect_matchup": 11.8,
+     "contrib": [
+      8.7,
+      3.1
+     ],
+     "expect": 11.0,
+     "buffer": 3.5,
+     "fa": [
+      [
+       5.4,
+       4.0
+      ],
+      [
+       4.5,
+       5.1
+      ]
+     ],
+     "sd": 3.91,
+     "p_emp": {
+      "6.5": 0.6944444444444444,
+      "7.5": 0.7142857142857143
+     },
+     "range": [
+      1.875,
+      1.875
+     ],
+     "b365": [
+      "9.5",
+      "2.000",
+      "1.800"
+     ],
+     "p_mod": 0.815,
+     "p_fin": 0.731,
+     "kal": 0.95,
+     "fair_fin": 1.37,
+     "ladder_fin": [
+      [
+       6.5,
+       1.35
+      ],
+      [
+       7.5,
+       1.37
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.37",
+     "light": "🟢",
+     "first_run": "Fr 06:16",
+     "change_note": "Quoten vorher 1.81–2.00"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      43
+     ],
+     "next_line": 4.5,
+     "next_note": "kein Anker — Borussia Dortmund 14/16 (3. Lücke) gesamt, 18/20 (3. Lücke) heim; Werder Bremen 17/19 (3. Lücke) gesamt, 10/12 (3. Lücke) auswärts",
+     "longterm": [
+      0.8543222740381191,
+      0.9151796477305761
+     ],
+     "fair": 1.18,
+     "ladder": [
+      [
+       5.5,
+       1.18
+      ],
+      [
+       6.5,
+       1.09
+      ]
+     ],
+     "avg": [
+      2.6,
+      2.6
+     ],
+     "expect_sum": 2.6,
+     "expect_matchup": 1.8,
+     "contrib": [
+      0.8,
+      1.0
+     ],
+     "expect": 2.2,
+     "buffer": 3.3,
+     "fa": [
+      [
+       1.6,
+       1.5
+      ],
+      [
+       1.9,
+       1.2
+      ]
+     ],
+     "sd": 1.97,
+     "p_emp": {
+      "5.5": 0.8474576271186441,
+      "6.5": 0.9174311926605504
+     },
+     "range": [
+      1.62,
+      1.62
+     ],
+     "referee": "Christian Dingert: Ø 3.8 Karten (21 Sp.) · Ø 21.6 Fouls (19 Sp.)",
+     "expect_ref": 2.2,
+     "buffer_ref": 3.3,
+     "p_mod": 0.953,
+     "p_fin": 0.897,
+     "kal": 1.02,
+     "fair_fin": 1.11,
+     "ladder_fin": [
+      [
+       5.5,
+       1.11
+      ],
+      [
+       6.5,
+       1.07
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.11",
+     "light": "🟢",
+     "first_run": "Fr 06:16",
+     "change_note": "Quoten vorher 1.72"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      43
+     ],
+     "next_line": 7.5,
+     "next_note": "kein Anker — Borussia Dortmund 11/13 (3. Lücke) gesamt, 12/14 (3. Lücke) heim; Werder Bremen 9/11 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.7758945346838271,
+      0.8149596083221852
+     ],
+     "fair": 1.3,
+     "ladder": [
+      [
+       5.5,
+       1.34
+      ],
+      [
+       6.5,
+       1.3
+      ]
+     ],
+     "avg": [
+      9.5,
+      9.3
+     ],
+     "expect_sum": 9.4,
+     "expect_matchup": 10.1,
+     "contrib": [
+      7.0,
+      3.2
+     ],
+     "expect": 9.8,
+     "buffer": 3.3,
+     "fa": [
+      [
+       4.8,
+       4.0
+      ],
+      [
+       4.3,
+       5.1
+      ]
+     ],
+     "sd": 2.98,
+     "p_emp": {
+      "5.5": 0.7462686567164178,
+      "6.5": 0.7692307692307692
+     },
+     "range": [
+      1.33,
+      1.54
+     ],
+     "p_mod": 0.866,
+     "p_fin": 0.8,
+     "kal": null,
+     "fair_fin": 1.25,
+     "ladder_fin": [
+      [
+       5.5,
+       1.23
+      ],
+      [
+       6.5,
+       1.25
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.25",
+     "light": "🟢",
+     "first_run": "Fr 06:16",
+     "change_note": "Quoten vorher 1.27–1.59"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      45
+     ],
+     "next_line": 4.5,
+     "next_note": "Borussia Dortmund 2/4 (3. Lücke) gesamt, 9/11 (3. Lücke) heim",
+     "longterm": [
+      0.8496076344875916,
+      0.9435728822280334
+     ],
+     "fair": 1.15,
+     "ladder": [
+      [
+       5.5,
+       1.15
+      ],
+      [
+       6.5,
+       1.21
+      ]
+     ],
+     "avg": [
+      3.3,
+      2.4
+     ],
+     "expect_sum": 2.9,
+     "expect_matchup": 2.4,
+     "contrib": [
+      0.6,
+      1.8
+     ],
+     "expect": 2.7,
+     "buffer": 2.8,
+     "fa": [
+      [
+       1.1,
+       2.4
+      ],
+      [
+       1.8,
+       1.2
+      ]
+     ],
+     "sd": 1.73,
+     "p_emp": {
+      "5.5": 0.8695652173913044,
+      "6.5": 0.8264462809917356
+     },
+     "range": [
+      1.42,
+      1.42
+     ],
+     "p_mod": 0.947,
+     "p_fin": 0.894,
+     "kal": 1.0,
+     "fair_fin": 1.12,
+     "ladder_fin": [
+      [
+       5.5,
+       1.12
+      ],
+      [
+       6.5,
+       1.12
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.12",
+     "light": "🟢",
+     "first_run": "Fr 06:16",
+     "change_note": "Quoten vorher 1.65"
+    },
+    {
+     "metric": "Werder Bremen: Gelbe Karten",
+     "metric_key": "team_yellowcards_gast",
+     "line": 2.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Werder Bremen",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 8,
+     "erwartet": 1.6,
+     "fair": 1.32,
+     "fair_fin": 1.32,
+     "p_fin": 0.756,
+     "p_emp": 0.748,
+     "p_mod": 0.752,
+     "light": "🟢",
+     "first_run": "Fr 06:16"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11588182",
+    "league": "Republic of Ireland First Division",
+    "league_id": "226",
+    "home": "Cork City",
+    "away": "Finn Harps",
+    "home_id": "3055",
+    "away_id": "6403",
+    "kickoff": "Fr 20:45",
+    "kickoff_ts": 1791571500,
+    "bet365_id": "202409247"
+   },
+   "signals": [
+    {
+     "metric": "Finn Harps: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 5.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Finn Harps",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 9,
+     "erwartet": 3.2,
+     "fair": 1.24,
+     "fair_fin": 1.24,
+     "p_fin": 0.805,
+     "p_emp": 0.802,
+     "p_mod": 0.88,
+     "light": "🟢",
+     "first_run": "Fr 06:16"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12107303",
+    "league": "Belgium First Division A",
+    "league_id": "95",
+    "home": "SK Beveren",
+    "away": "Lommel",
+    "home_id": "727698",
+    "away_id": "6323",
+    "kickoff": "Fr 20:45",
+    "kickoff_ts": 1791571500,
+    "bet365_id": "200929279"
+   },
+   "signals": [
+    {
+     "metric": "Lommel: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 5.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Lommel",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 8,
+     "erwartet": 4.2,
+     "fair": 1.36,
+     "fair_fin": 1.36,
+     "p_fin": 0.7347,
+     "p_emp": 0.697,
+     "p_mod": 0.715,
+     "light": "🟢",
+     "first_run": "Fr 06:16"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11484735",
+    "league": "Republic of Ireland Premier Division",
+    "league_id": "398",
+    "home": "Shelbourne",
+    "away": "Sligo Rovers",
+    "home_id": "5230",
+    "away_id": "6402",
+    "kickoff": "Fr 20:45",
+    "kickoff_ts": 1791571500,
+    "bet365_id": "200562911"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      42,
+      48
+     ],
+     "next_line": 8.5,
+     "next_note": "Shelbourne 0/2 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+     "longterm": [
+      0.7504331413557066,
+      0.835810958664091
+     ],
+     "fair": 1.31,
+     "ladder": [
+      [
+       6.5,
+       1.32
+      ],
+      [
+       7.5,
+       1.31
+      ]
+     ],
+     "avg": [
+      10.0,
+      11.4
+     ],
+     "expect_sum": 10.7,
+     "expect_matchup": 12.5,
+     "contrib": [
+      8.0,
+      4.6
+     ],
+     "expect": 11.6,
+     "buffer": 4.1,
+     "fa": [
+      [
+       5.0,
+       4.9
+      ],
+      [
+       4.4,
+       6.2
+      ]
+     ],
+     "sd": 3.56,
+     "p_emp": {
+      "6.5": 0.7575757575757576,
+      "7.5": 0.7633587786259541
+     },
+     "range": [
+      1.35,
+      1.84
+     ],
+     "b365": [
+      "11.0",
+      "1.950",
+      "1.850"
+     ],
+     "p_mod": 0.875,
+     "p_fin": 0.762,
+     "kal": 0.95,
+     "fair_fin": 1.31,
+     "ladder_fin": [
+      [
+       6.5,
+       1.29
+      ],
+      [
+       7.5,
+       1.31
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.31",
+     "light": "🟢",
+     "first_run": "Fr 06:16"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12146140",
+    "league": "Wales Premier League",
+    "league_id": "156",
+    "home": "Cambrian United",
+    "away": "Ammanford AFC",
+    "home_id": "1020225",
+    "away_id": "184908",
+    "kickoff": "Fr 20:45",
+    "kickoff_ts": 1791571500,
+    "bet365_id": "202356114"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      46,
+      47
+     ],
+     "next_line": 3.5,
+     "next_note": "Ammanford AFC 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.6784903728232707,
+      0.5712711636384197
+     ],
+     "fair": 1.64,
+     "ladder": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.64
+      ]
+     ],
+     "avg": [
+      3.0,
+      3.0
+     ],
+     "expect_sum": 3.0,
+     "expect_matchup": 2.9,
+     "contrib": [
+      2.2,
+      0.8
+     ],
+     "expect": 3.0,
+     "buffer": 0.5,
+     "fa": [
+      [
+       2.1,
+       1.4
+      ],
+      [
+       1.4,
+       1.4
+      ]
+     ],
+     "sd": 2.1,
+     "p_emp": {
+      "1.5": 0.819672131147541,
+      "2.5": 0.6097560975609756
+     },
+     "no_odds_check": true,
+     "p_mod": 0.594,
+     "p_fin": 0.609,
+     "kal": 0.94,
+     "fair_fin": 1.64,
+     "ladder_fin": [
+      [
+       1.5,
+       1.32
+      ],
+      [
+       2.5,
+       1.64
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "61 % knapp",
+     "light": "🟢",
+     "first_run": "Fr 06:16"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12130999",
+    "league": "Spain La Liga",
+    "league_id": "38223",
+    "home": "Malaga",
+    "away": "Espanyol",
+    "home_id": "22850",
+    "away_id": "9970",
+    "kickoff": "Fr 21:00",
+    "kickoff_ts": 1791572400,
+    "bet365_id": "201413986",
+    "_cross_league": true
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 5.5,
+     "next_note": "Espanyol 3/5 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.9096627983878511,
+      0.877923681608399
+     ],
+     "fair": 1.13,
+     "ladder": [
+      [
+       6.5,
+       1.13
+      ],
+      [
+       7.5,
+       1.24
+      ]
+     ],
+     "avg": [
+      3.8,
+      4.2
+     ],
+     "expect_sum": 4.0,
+     "expect_matchup": 4.3,
+     "contrib": [
+      1.6,
+      2.6
+     ],
+     "expect": 4.2,
+     "buffer": 2.3,
+     "fa": [
+      [
+       2.1,
+       2.4
+      ],
+      [
+       2.2,
+       2.1
+      ]
+     ],
+     "sd": 2.34,
+     "p_emp": {
+      "6.5": 0.8849557522123894,
+      "7.5": 0.8064516129032259
+     },
+     "range": [
+      1.5,
+      1.67
+     ],
+     "referee": "Francisco Jose Hernandez Maeso: Ø 3.1 Karten (20 Sp.) · Ø 23.2 Fouls (20 Sp.)",
+     "expect_ref": 3.7,
+     "buffer_ref": 2.8,
+     "p_mod": 0.884,
+     "p_fin": 0.886,
+     "kal": 1.02,
+     "fair_fin": 1.13,
+     "ladder_fin": [
+      [
+       6.5,
+       1.13
+      ],
+      [
+       7.5,
+       1.14
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.13",
+     "light": "🟢",
+     "first_run": "Fr 06:16",
+     "change_note": "Quoten vorher 1.39–1.89"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12155190",
+    "league": "Portugal Primeira Liga",
+    "league_id": "172",
+    "home": "Braga",
+    "away": "Sporting",
+    "home_id": "44094",
+    "away_id": "1046",
+    "kickoff": "Fr 21:15",
+    "kickoff_ts": 1791573300,
+    "bet365_id": "201660395"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      45
+     ],
+     "next_line": 3.5,
+     "next_note": "Braga 6/8 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Sporting 2/4 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.9160831341299905,
+      0.7760389048684763
+     ],
+     "fair": 1.26,
+     "ladder": [
+      [
+       1.5,
+       1.3
+      ],
+      [
+       2.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      4.8,
+      4.1
+     ],
+     "expect_sum": 4.5,
+     "expect_matchup": 5.2,
+     "contrib": [
+      1.8,
+      3.4
+     ],
+     "expect": 4.8,
+     "buffer": 2.3,
+     "fa": [
+      [
+       2.2,
+       2.5
+      ],
+      [
+       2.1,
+       2.3
+      ]
+     ],
+     "sd": 2.13,
+     "p_emp": {
+      "1.5": 0.7692307692307692,
+      "2.5": 0.7936507936507936
+     },
+     "range": [
+      1.58,
+      2.19
+     ],
+     "referee": "Joao Pedro Pinheiro: Ø 4.2 Karten (63 Sp.) · Ø 22.6 Fouls (50 Sp.)",
+     "expect_ref": 5.2,
+     "buffer_ref": 2.7,
+     "p_mod": 0.898,
+     "p_fin": 0.835,
+     "kal": 0.95,
+     "fair_fin": 1.2,
+     "ladder_fin": [
+      [
+       1.5,
+       1.18
+      ],
+      [
+       2.5,
+       1.2
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.20",
+     "light": "🟢",
+     "first_run": "Fr 11:16",
+     "change_note": "Quoten vorher 1.54–2.09"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      33,
+      34
+     ],
+     "next_line": 3.5,
+     "next_note": "Braga 2/4 (3. Lücke) gesamt, 7/9 (3. Lücke) heim",
+     "longterm": [
+      0.7691201548094732,
+      0.8070196926528168
+     ],
+     "fair": 1.32,
+     "ladder": [
+      [
+       4.5,
+       1.32
+      ],
+      [
+       5.5,
+       1.11
+      ]
+     ],
+     "avg": [
+      3.0,
+      1.7
+     ],
+     "expect_sum": 2.3,
+     "expect_matchup": 1.3,
+     "contrib": [
+      0.4,
+      0.9
+     ],
+     "expect": 1.8,
+     "buffer": 2.7,
+     "fa": [
+      [
+       1.4,
+       1.5
+      ],
+      [
+       1.6,
+       1.1
+      ]
+     ],
+     "sd": 1.49,
+     "p_emp": {
+      "4.5": 0.7575757575757576,
+      "5.5": 0.9009009009009008
+     },
+     "range": [
+      1.28,
+      1.8
+     ],
+     "p_mod": 0.965,
+     "p_fin": 0.859,
+     "kal": 1.0,
+     "fair_fin": 1.16,
+     "ladder_fin": [
+      [
+       4.5,
+       1.16
+      ],
+      [
+       5.5,
+       1.08
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 76 % vs. Modell 97 %",
+     "light": "🟢",
+     "first_run": "Fr 11:16"
+    },
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 18.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      34,
+      39
+     ],
+     "next_line": 20.5,
+     "next_note": "Sporting 9/11 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.8676914248184664,
+      0.753470842810174
+     ],
+     "fair": 1.27,
+     "ladder": [
+      [
+       16.5,
+       1.34
+      ],
+      [
+       18.5,
+       1.27
+      ]
+     ],
+     "avg": [
+      24.4,
+      22.4
+     ],
+     "expect_sum": 23.4,
+     "expect_matchup": 22.8,
+     "contrib": [
+      11.0,
+      11.8
+     ],
+     "expect": 23.1,
+     "buffer": 4.6,
+     "fa": [
+      [
+       11.4,
+       11.9
+      ],
+      [
+       11.1,
+       12.1
+      ]
+     ],
+     "sd": 5.05,
+     "p_emp": {
+      "16.5": 0.7462686567164178,
+      "18.5": 0.7874015748031495
+     },
+     "range": [
+      1.4,
+      2.05
+     ],
+     "referee": "Joao Pedro Pinheiro: Ø 4.2 Karten (63 Sp.) · Ø 22.6 Fouls (50 Sp.)",
+     "expect_ref": 22.1,
+     "buffer_ref": 3.6,
+     "p_mod": 0.762,
+     "p_fin": 0.786,
+     "kal": null,
+     "fair_fin": 1.27,
+     "ladder_fin": [
+      [
+       16.5,
+       1.24
+      ],
+      [
+       18.5,
+       1.27
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.27",
+     "light": "🟢",
+     "first_run": "Fr 06:16",
+     "change_note": "Quoten vorher 1.28–1.96"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      45,
+      48
+     ],
+     "next_line": 1.5,
+     "next_note": "Braga 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Sporting 5/7 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+     "longterm": [
+      0.7922815433534769,
+      0.6937830422414932
+     ],
+     "fair": 1.38,
+     "ladder": [
+      [
+       0.5,
+       1.38
+      ]
+     ],
+     "avg": [
+      1.6,
+      1.2
+     ],
+     "expect_sum": 1.4,
+     "expect_matchup": 1.4,
+     "contrib": [
+      0.5,
+      0.8
+     ],
+     "expect": 1.4,
+     "buffer": 0.9,
+     "fa": [
+      [
+       0.6,
+       0.9
+      ],
+      [
+       0.8,
+       0.6
+      ]
+     ],
+     "sd": 1.29,
+     "p_emp": {
+      "0.5": 0.7246376811594204
+     },
+     "range": [
+      1.58,
+      2.19
+     ],
+     "referee": "Joao Pedro Pinheiro: Ø 4.2 Karten (63 Sp.) · Ø 22.6 Fouls (50 Sp.)",
+     "expect_ref": 4.1,
+     "buffer_ref": 3.6,
+     "p_mod": 0.997,
+     "p_fin": 0.823,
+     "kal": 0.97,
+     "fair_fin": 1.22,
+     "ladder_fin": [
+      [
+       0.5,
+       1.22
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🔴",
+     "reason": "Historie 72 % und Modell 100 % widersprechen sich",
+     "light": "🟢",
+     "first_run": "Fr 11:16",
+     "change_note": "Quoten vorher 1.54–2.09"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13096784",
+    "league": "Colombia Primera B",
+    "league_id": "255",
+    "home": "Real Soacha Cundinamarca",
+    "away": "Real San Andres",
+    "home_id": "888683",
+    "away_id": "260561",
+    "kickoff": "Fr 22:00",
+    "kickoff_ts": 1791576000,
+    "bet365_id": "202479439"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      46,
+      44
+     ],
+     "next_line": 8.5,
+     "next_note": "kein Anker — Real Soacha Cundinamarca 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Real San Andres 6/8 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+     "longterm": [
+      0.7243832901252637,
+      0.7495556573560664
+     ],
+     "fair": 1.39,
+     "ladder": [
+      [
+       6.5,
+       1.37
+      ],
+      [
+       7.5,
+       1.39
+      ]
+     ],
+     "avg": [
+      8.4,
+      11.2
+     ],
+     "expect_sum": 9.8,
+     "expect_matchup": 10.5,
+     "contrib": [
+      7.1,
+      3.4
+     ],
+     "expect": 10.1,
+     "buffer": 2.6,
+     "fa": [
+      [
+       4.5,
+       4.6
+      ],
+      [
+       4.5,
+       5.2
+      ]
+     ],
+     "sd": 3.13,
+     "p_emp": {
+      "6.5": 0.7299270072992701,
+      "7.5": 0.7194244604316548
+     },
+     "range": [
+      1.26,
+      1.87
+     ],
+     "b365": [
+      "8.5",
+      "1.800",
+      "2.000"
+     ],
+     "p_mod": 0.797,
+     "p_fin": 0.727,
+     "kal": 0.95,
+     "fair_fin": 1.38,
+     "ladder_fin": [
+      [
+       6.5,
+       1.33
+      ],
+      [
+       7.5,
+       1.38
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.38",
+     "light": "🟢",
+     "first_run": "Fr 06:16",
+     "change_note": "Quoten vorher 1.37–2.04"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13263802",
+    "league": "Honduras Liga de Ascenso",
+    "league_id": "25185",
+    "home": "CD Suyapa",
+    "away": "CD Cuervos",
+    "home_id": "1325518",
+    "away_id": "1100164",
+    "kickoff": "Fr 23:00",
+    "kickoff_ts": 1791579600,
+    "bet365_id": "202609192"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      7,
+      41
+     ],
+     "next_line": 3.5,
+     "next_note": "CD Suyapa 3/5 (3. Lücke) gesamt, 2/3 heim; CD Cuervos 0/2 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      1.0,
+      0.7133100283157874
+     ],
+     "fair": 1.44,
+     "ladder": [
+      [
+       1.5,
+       1.12
+      ],
+      [
+       2.5,
+       1.44
+      ]
+     ],
+     "avg": [
+      5.6,
+      3.7
+     ],
+     "expect_sum": 4.6,
+     "expect_matchup": 6.2,
+     "contrib": [
+      1.5,
+      4.7
+     ],
+     "expect": 5.4,
+     "buffer": 2.9,
+     "fa": [
+      [
+       0.7,
+       4.0
+      ],
+      [
+       1.5,
+       1.7
+      ]
+     ],
+     "sd": 1.78,
+     "p_emp": {
+      "1.5": 0.8928571428571428,
+      "2.5": 0.6944444444444444
+     },
+     "no_odds_check": true,
+     "p_mod": 0.948,
+     "p_fin": 0.781,
+     "kal": 0.94,
+     "fair_fin": 1.28,
+     "ladder_fin": [
+      [
+       1.5,
+       1.14
+      ],
+      [
+       2.5,
+       1.28
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🔴",
+     "reason": "Historie 69 % und Modell 95 % widersprechen sich",
+     "light": "🟢",
+     "first_run": "Fr 06:16"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13151032",
+    "league": "USA College Championship",
+    "league_id": "536",
+    "home": "UNC Asheville Bulldogs",
+    "away": "Winthrop Eagles",
+    "home_id": "1079926",
+    "away_id": "1080087",
+    "kickoff": "Sa 00:00",
+    "kickoff_ts": 1791583200,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      30,
+      29
+     ],
+     "next_line": 3.5,
+     "next_note": "UNC Asheville Bulldogs 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; Winthrop Eagles 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.6838457270498861,
+      0.6526736983642509
+     ],
+     "fair": 1.56,
+     "ladder": [
+      [
+       1.5,
+       1.24
+      ],
+      [
+       2.5,
+       1.56
+      ]
+     ],
+     "avg": [
+      3.8,
+      3.1
+     ],
+     "expect_sum": 3.4,
+     "expect_matchup": 4.0,
+     "contrib": [
+      3.1,
+      0.9
+     ],
+     "expect": 3.7,
+     "buffer": 1.2,
+     "fa": [
+      [
+       2.2,
+       1.4
+      ],
+      [
+       1.2,
+       1.9
+      ]
+     ],
+     "sd": 2.47,
+     "p_emp": {
+      "1.5": 0.8064516129032259,
+      "2.5": 0.641025641025641
+     },
+     "no_odds_check": true,
+     "p_mod": 0.686,
+     "p_fin": 0.658,
+     "kal": 0.94,
+     "fair_fin": 1.52,
+     "ladder_fin": [
+      [
+       1.5,
+       1.29
+      ],
+      [
+       2.5,
+       1.52
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "66 % knapp",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13265395",
+    "league": "Mexico Liga TDP",
+    "league_id": "27993",
+    "home": "Furia Azul FC",
+    "away": "Club Atlético Valladolid",
+    "home_id": "1062694",
+    "away_id": "752354",
+    "kickoff": "Sa 00:00",
+    "kickoff_ts": 1791583200,
+    "bet365_id": "202478323"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      15,
+      20
+     ],
+     "next_line": 3.5,
+     "next_note": "Furia Azul FC 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Club Atlético Valladolid 7/9 (3. Lücke) gesamt, 7/8 auswärts",
+     "longterm": [
+      0.8442657208988589,
+      0.943896553458703
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       1.5,
+       1.14
+      ],
+      [
+       2.5,
+       1.29
+      ]
+     ],
+     "avg": [
+      3.3,
+      4.5
+     ],
+     "expect_sum": 3.9,
+     "expect_matchup": 4.4,
+     "contrib": [
+      2.5,
+      1.9
+     ],
+     "expect": 4.1,
+     "buffer": 1.6,
+     "fa": [
+      [
+       1.4,
+       2.4
+      ],
+      [
+       1.1,
+       3.6
+      ]
+     ],
+     "sd": 1.98,
+     "p_emp": {
+      "1.5": 0.8771929824561404,
+      "2.5": 0.7751937984496123
+     },
+     "no_odds_check": true,
+     "p_mod": 0.79,
+     "p_fin": 0.751,
+     "kal": 0.94,
+     "fair_fin": 1.33,
+     "ladder_fin": [
+      [
+       1.5,
+       1.2
+      ],
+      [
+       2.5,
+       1.33
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.33",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13151026",
+    "league": "USA College Championship",
+    "league_id": "536",
+    "home": "Radford Highlanders",
+    "away": "Presbyterian",
+    "home_id": "1189723",
+    "away_id": "937769",
+    "kickoff": "Sa 01:00",
+    "kickoff_ts": 1791586800,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      27,
+      33
+     ],
+     "next_line": 3.5,
+     "next_note": "Radford Highlanders 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.692691652618769,
+      0.6659126546721194
+     ],
+     "fair": 1.55,
+     "ladder": [
+      [
+       1.5,
+       1.24
+      ],
+      [
+       2.5,
+       1.55
+      ]
+     ],
+     "avg": [
+      2.6,
+      3.9
+     ],
+     "expect_sum": 3.3,
+     "expect_matchup": 3.2,
+     "contrib": [
+      2.4,
+      0.8
+     ],
+     "expect": 3.2,
+     "buffer": 0.7,
+     "fa": [
+      [
+       1.1,
+       2.0
+      ],
+      [
+       1.0,
+       2.3
+      ]
+     ],
+     "sd": 2.0,
+     "p_emp": {
+      "1.5": 0.8064516129032259,
+      "2.5": 0.6451612903225806
+     },
+     "no_odds_check": true,
+     "p_mod": 0.637,
+     "p_fin": 0.64,
+     "kal": 0.94,
+     "fair_fin": 1.56,
+     "ladder_fin": [
+      [
+       1.5,
+       1.3
+      ],
+      [
+       2.5,
+       1.56
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "64 % knapp",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12099969",
+    "league": "Colombia Primera A",
+    "league_id": "254",
+    "home": "Alianza",
+    "away": "Aguilas Doradas",
+    "home_id": "969634",
+    "away_id": "294640",
+    "kickoff": "Sa 01:00",
+    "kickoff_ts": 1791586800,
+    "bet365_id": "201317172"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      42
+     ],
+     "next_line": 8.5,
+     "next_note": "kein Anker — Alianza 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Aguilas Doradas 8/10 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+     "longterm": [
+      0.7011900085837085,
+      0.7360824085646341
+     ],
+     "fair": 1.42,
+     "ladder": [
+      [
+       6.5,
+       1.36
+      ],
+      [
+       7.5,
+       1.42
+      ]
+     ],
+     "avg": [
+      8.4,
+      9.1
+     ],
+     "expect_sum": 8.7,
+     "expect_matchup": 8.4,
+     "contrib": [
+      5.4,
+      3.0
+     ],
+     "expect": 8.5,
+     "buffer": 1.0,
+     "fa": [
+      [
+       4.3,
+       4.6
+      ],
+      [
+       4.9,
+       4.5
+      ]
+     ],
+     "sd": 3.11,
+     "p_emp": {
+      "6.5": 0.7352941176470588,
+      "7.5": 0.7042253521126761
+     },
+     "range": [
+      1.36,
+      1.48
+     ],
+     "b365": [
+      "9.0",
+      "1.975",
+      "1.825"
+     ],
+     "p_mod": 0.626,
+     "p_fin": 0.674,
+     "kal": 0.95,
+     "fair_fin": 1.48,
+     "ladder_fin": [
+      [
+       6.5,
+       1.4
+      ],
+      [
+       7.5,
+       1.48
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "67 % knapp",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13151339",
+    "league": "USA College Championship",
+    "league_id": "536",
+    "home": "UNC Wilmington",
+    "away": "Campbell",
+    "home_id": "945487",
+    "away_id": "937766",
+    "kickoff": "Sa 01:00",
+    "kickoff_ts": 1791586800,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      30,
+      32
+     ],
+     "next_line": 3.5,
+     "next_note": "UNC Wilmington 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Campbell 1/3 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.5993003330307907,
+      0.7529241434199169
+     ],
+     "fair": 1.55,
+     "ladder": [
+      [
+       1.5,
+       1.28
+      ],
+      [
+       2.5,
+       1.55
+      ]
+     ],
+     "avg": [
+      3.0,
+      4.0
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 3.9,
+     "contrib": [
+      2.6,
+      1.3
+     ],
+     "expect": 3.7,
+     "buffer": 1.2,
+     "fa": [
+      [
+       1.5,
+       1.6
+      ],
+      [
+       1.7,
+       1.6
+      ]
+     ],
+     "sd": 2.06,
+     "p_emp": {
+      "1.5": 0.78125,
+      "2.5": 0.6451612903225806
+     },
+     "no_odds_check": true,
+     "p_mod": 0.72,
+     "p_fin": 0.672,
+     "kal": 0.94,
+     "fair_fin": 1.49,
+     "ladder_fin": [
+      [
+       1.5,
+       1.28
+      ],
+      [
+       2.5,
+       1.49
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "67 % knapp",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13269125",
+    "league": "Suriname Cup",
+    "league_id": "44796",
+    "home": "Broki",
+    "away": "SV Voorwaarts",
+    "home_id": "1102374",
+    "away_id": "1102373",
+    "kickoff": "Sa 01:00",
+    "kickoff_ts": 1791586800,
+    "bet365_id": "202584236"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      24,
+      33
+     ],
+     "next_line": 3.5,
+     "next_note": "Broki 0/2 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; SV Voorwaarts 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.7044811171979576,
+      0.727207374377065
+     ],
+     "fair": 1.5,
+     "ladder": [
+      [
+       1.5,
+       1.31
+      ],
+      [
+       2.5,
+       1.5
+      ]
+     ],
+     "avg": [
+      3.4,
+      3.5
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 3.9,
+     "contrib": [
+      1.3,
+      2.6
+     ],
+     "expect": 3.7,
+     "buffer": 1.2,
+     "fa": [
+      [
+       1.5,
+       1.5
+      ],
+      [
+       2.1,
+       1.5
+      ]
+     ],
+     "sd": 2.05,
+     "p_emp": {
+      "1.5": 0.7633587786259541,
+      "2.5": 0.6666666666666666
+     },
+     "no_odds_check": true,
+     "p_mod": 0.721,
+     "p_fin": 0.681,
+     "kal": 0.94,
+     "fair_fin": 1.47,
+     "ladder_fin": [
+      [
+       1.5,
+       1.29
+      ],
+      [
+       2.5,
+       1.47
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.47",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12027328",
+    "league": "Mexico Liga MX",
+    "league_id": "32373",
+    "home": "Puebla",
+    "away": "Leon",
+    "home_id": "1438",
+    "away_id": "1466",
+    "kickoff": "Sa 03:00",
+    "kickoff_ts": 1791594000,
+    "bet365_id": "201658160"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      49
+     ],
+     "next_line": 5.5,
+     "next_note": "Leon 3/5 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+     "longterm": [
+      0.9841774340341771,
+      0.835945556810417
+     ],
+     "fair": 1.11,
+     "ladder": [
+      [
+       6.5,
+       1.11
+      ],
+      [
+       7.5,
+       1.21
+      ]
+     ],
+     "avg": [
+      2.2,
+      4.3
+     ],
+     "expect_sum": 3.2,
+     "expect_matchup": 2.5,
+     "contrib": [
+      1.5,
+      1.0
+     ],
+     "expect": 2.9,
+     "buffer": 3.6,
+     "fa": [
+      [
+       1.9,
+       1.4
+      ],
+      [
+       2.2,
+       2.2
+      ]
+     ],
+     "sd": 2.13,
+     "p_emp": {
+      "6.5": 0.9009009009009008,
+      "7.5": 0.8264462809917356
+     },
+     "range": [
+      1.7,
+      2.02
+     ],
+     "referee": "Jorge Abraham Camacho Peregrina: Ø 4.1 Karten (17 Sp.) · Ø 19.0 Fouls (17 Sp.)",
+     "expect_ref": 3.1,
+     "buffer_ref": 3.4,
+     "p_mod": 0.945,
+     "p_fin": 0.913,
+     "kal": 1.02,
+     "fair_fin": 1.09,
+     "ladder_fin": [
+      [
+       6.5,
+       1.09
+      ],
+      [
+       7.5,
+       1.11
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.09",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11993259",
+    "league": "Peru Liga 1",
+    "league_id": "34422",
+    "home": "Deportivo Garcilaso",
+    "away": "Sport Huancayo",
+    "home_id": "63948",
+    "away_id": "44223",
+    "kickoff": "Sa 03:00",
+    "kickoff_ts": 1791594000,
+    "bet365_id": "201659485"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      50
+     ],
+     "next_line": 8.5,
+     "next_note": "Deportivo Garcilaso 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+     "longterm": [
+      0.6767757100305077,
+      0.7860942469877276
+     ],
+     "fair": 1.4,
+     "ladder": [
+      [
+       6.5,
+       1.38
+      ],
+      [
+       7.5,
+       1.4
+      ]
+     ],
+     "avg": [
+      8.3,
+      9.3
+     ],
+     "expect_sum": 8.8,
+     "expect_matchup": 8.5,
+     "contrib": [
+      5.7,
+      2.8
+     ],
+     "expect": 8.6,
+     "buffer": 1.1,
+     "fa": [
+      [
+       3.7,
+       4.9
+      ],
+      [
+       4.8,
+       4.5
+      ]
+     ],
+     "sd": 3.14,
+     "p_emp": {
+      "6.5": 0.7246376811594204,
+      "7.5": 0.7142857142857143
+     },
+     "range": [
+      1.34,
+      1.9
+     ],
+     "b365": [
+      "9.5",
+      "1.800",
+      "2.000"
+     ],
+     "p_mod": 0.637,
+     "p_fin": 0.68,
+     "kal": 0.95,
+     "fair_fin": 1.47,
+     "ladder_fin": [
+      [
+       6.5,
+       1.4
+      ],
+      [
+       7.5,
+       1.47
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "68 % knapp",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12025926",
+    "league": "Mexico Liga MX",
+    "league_id": "32373",
+    "home": "Tigres UANL",
+    "away": "Toluca",
+    "home_id": "255650",
+    "away_id": "1052",
+    "kickoff": "Sa 05:00",
+    "kickoff_ts": 1791601200,
+    "bet365_id": "201658176"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      47
+     ],
+     "next_line": 4.5,
+     "next_note": "Tigres UANL 2/4 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; Toluca 3/5 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+     "longterm": [
+      0.7593593569124504,
+      0.8663761531676994
+     ],
+     "fair": 1.25,
+     "ladder": [
+      [
+       5.5,
+       1.25
+      ],
+      [
+       6.5,
+       1.12
+      ]
+     ],
+     "avg": [
+      3.7,
+      3.5
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 3.4,
+     "contrib": [
+      2.0,
+      1.4
+     ],
+     "expect": 3.5,
+     "buffer": 2.0,
+     "fa": [
+      [
+       2.1,
+       2.3
+      ],
+      [
+       1.9,
+       2.1
+      ]
+     ],
+     "sd": 2.0,
+     "p_emp": {
+      "5.5": 0.8,
+      "6.5": 0.8928571428571428
+     },
+     "range": [
+      1.73,
+      1.96
+     ],
+     "referee": "Daniel Quintero Huitron: Ø 3.7 Karten (28 Sp.) · Ø 20.6 Fouls (27 Sp.)",
+     "expect_ref": 3.4,
+     "buffer_ref": 2.1,
+     "p_mod": 0.853,
+     "p_fin": 0.844,
+     "kal": 1.02,
+     "fair_fin": 1.19,
+     "ladder_fin": [
+      [
+       5.5,
+       1.19
+      ],
+      [
+       6.5,
+       1.1
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.19",
+     "light": "🟢"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      48
+     ],
+     "next_line": 1.5,
+     "next_note": "Tigres UANL 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Toluca 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.8326823293969959,
+      0.7899603600825535
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       0.5,
+       1.29
+      ]
+     ],
+     "avg": [
+      2.0,
+      1.2
+     ],
+     "expect_sum": 1.6,
+     "expect_matchup": 1.8,
+     "contrib": [
+      1.0,
+      0.8
+     ],
+     "expect": 1.7,
+     "buffer": 1.2,
+     "fa": [
+      [
+       1.0,
+       0.8
+      ],
+      [
+       0.9,
+       0.6
+      ]
+     ],
+     "sd": 1.13,
+     "p_emp": {
+      "0.5": 0.7751937984496123
+     },
+     "range": [
+      1.73,
+      1.96
+     ],
+     "referee": "Daniel Quintero Huitron: Ø 3.7 Karten (28 Sp.) · Ø 20.6 Fouls (27 Sp.)",
+     "expect_ref": 4.1,
+     "buffer_ref": 3.6,
+     "p_mod": 0.999,
+     "p_fin": 0.84,
+     "kal": 0.97,
+     "fair_fin": 1.19,
+     "ladder_fin": [
+      [
+       0.5,
+       1.19
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 78 % vs. Modell 100 %",
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12049995",
+    "league": "Japan J2-League",
+    "league_id": "410",
+    "home": "Omiya Ardija",
+    "away": "Vanraure Hachinohe",
+    "home_id": "3364",
+    "away_id": "47172",
+    "kickoff": "Sa 07:00",
+    "kickoff_ts": 1791608400,
+    "bet365_id": "201317265"
+   },
+   "signals": [
+    {
+     "metric": "Vanraure Hachinohe: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 5.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Vanraure Hachinohe",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 7,
+     "erwartet": 4.3,
+     "fair": 1.36,
+     "fair_fin": 1.36,
+     "p_fin": 0.7342,
+     "p_emp": 0.718,
+     "p_mod": 0.692,
+     "light": "🟢"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13262549",
+    "league": "South Korea K4 League",
+    "league_id": "25251",
+    "home": "Sejong SA",
+    "away": "Gijang United",
+    "home_id": "1113370",
+    "away_id": "1108622",
+    "kickoff": "Sa 07:00",
+    "kickoff_ts": 1791608400,
+    "bet365_id": "202519209"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      36,
+      49
+     ],
+     "next_line": 3.5,
+     "next_note": "Sejong SA 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Gijang United 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.7182031826433015,
+      0.6204931870788926
+     ],
+     "fair": 1.56,
+     "ladder": [
+      [
+       1.5,
+       1.25
+      ],
+      [
+       2.5,
+       1.56
+      ]
+     ],
+     "avg": [
+      3.2,
+      2.9
+     ],
+     "expect_sum": 3.0,
+     "expect_matchup": 3.0,
+     "contrib": [
+      2.1,
+      1.0
+     ],
+     "expect": 3.0,
+     "buffer": 0.5,
+     "fa": [
+      [
+       1.7,
+       1.8
+      ],
+      [
+       1.3,
+       1.6
+      ]
+     ],
+     "sd": 2.0,
+     "p_emp": {
+      "1.5": 0.8,
+      "2.5": 0.641025641025641
+     },
+     "no_odds_check": true,
+     "p_mod": 0.599,
+     "p_fin": 0.623,
+     "kal": 0.94,
+     "fair_fin": 1.6,
+     "ladder_fin": [
+      [
+       1.5,
+       1.33
+      ],
+      [
+       2.5,
+       1.6
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "62 % knapp",
+     "light": "🟢"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "results": 52,
+  "doublechance": 74,
+  "totals": 83,
+  "handicaps": 44,
+  "btts": 37,
+  "correctscore": 10,
+  "corners": 40,
+  "cards": 9,
+  "shots": 3,
+  "offsides": 3,
+  "fouls": 4
+ },
+ "dauer_s": 418,
+ "zeit": {
+  "historie": 4560,
+  "pruefung": 0,
+  "scores24": 135,
+  "extras": 297,
+  "vorlauf": 141,
+  "spiele": 276
+ },
+ "teams_nachgeladen": 140,
+ "s24": {
+  "ok": 83,
+  "no_link": 28,
+  "fetch_fail": 19
+ },
+ "new": [
+  "13151032|goals|über",
+  "13265395|goals|über",
+  "13151026|goals|über",
+  "12099969|corners|über",
+  "13151339|goals|über",
+  "13269125|goals|über",
+  "12027328|yellowcards|unter",
+  "11993259|corners|über",
+  "12025926|yellowcards|unter",
+  "12025926|ht_yellowcards|über",
+  "12049995|team_corners_gast|unter",
+  "13262549|goals|über"
+ ],
+ "changed": [
+  "12287083|yellowcards|unter",
+  "12153875|corners|über",
+  "12153875|yellowcards|unter",
+  "12153875|on_target|über",
+  "12153875|offsides|unter",
+  "12130999|yellowcards|unter",
+  "12155190|yellowcards|über",
+  "12155190|fouls|über",
+  "12155190|ht_yellowcards|über",
+  "13096784|corners|über"
+ ],
+ "dropped": [
+  "13145508|corners|über",
+  "13145508|yellowcards|unter",
+  "13145508|offsides|unter",
+  "12146140|team_corners_gast|unter"
+ ],
+ "team_totals": [
+  {
+   "match": {
+    "id": "12153875",
+    "league": "Germany Bundesliga I",
+    "league_id": "123",
+    "home": "Borussia Dortmund",
+    "away": "Werder Bremen",
+    "home_id": "23475",
+    "away_id": "43932",
+    "kickoff": "Fr 20:30",
+    "kickoff_ts": 1791570600,
+    "bet365_id": "200551003"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "gast",
+    "team": "Werder Bremen",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.756,
+    "fair": 1.32,
+    "p_emp": 0.748,
+    "p_mod": 0.752,
+    "erwartet": 1.6,
+    "basis": 43,
+    "gegner": 8
+   }
+  },
+  {
+   "match": {
+    "id": "11588182",
+    "league": "Republic of Ireland First Division",
+    "league_id": "226",
+    "home": "Cork City",
+    "away": "Finn Harps",
+    "home_id": "3055",
+    "away_id": "6403",
+    "kickoff": "Fr 20:45",
+    "kickoff_ts": 1791571500,
+    "bet365_id": "202409247"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Finn Harps",
+    "line": 5.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.805,
+    "fair": 1.24,
+    "p_emp": 0.802,
+    "p_mod": 0.88,
+    "erwartet": 3.2,
+    "basis": 48,
+    "gegner": 9
+   }
+  },
+  {
+   "match": {
+    "id": "12107303",
+    "league": "Belgium First Division A",
+    "league_id": "95",
+    "home": "SK Beveren",
+    "away": "Lommel",
+    "home_id": "727698",
+    "away_id": "6323",
+    "kickoff": "Fr 20:45",
+    "kickoff_ts": 1791571500,
+    "bet365_id": "200929279"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Lommel",
+    "line": 5.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7347,
+    "fair": 1.36,
+    "p_emp": 0.697,
+    "p_mod": 0.715,
+    "erwartet": 4.2,
+    "basis": 46,
+    "gegner": 8
+   }
+  },
+  {
+   "match": {
+    "id": "12049995",
+    "league": "Japan J2-League",
+    "league_id": "410",
+    "home": "Omiya Ardija",
+    "away": "Vanraure Hachinohe",
+    "home_id": "3364",
+    "away_id": "47172",
+    "kickoff": "Sa 07:00",
+    "kickoff_ts": 1791608400,
+    "bet365_id": "201317265"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Vanraure Hachinohe",
+    "line": 5.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7342,
+    "fair": 1.36,
+    "p_emp": 0.718,
+    "p_mod": 0.692,
+    "erwartet": 4.3,
+    "basis": 49,
+    "gegner": 7
+   }
+  }
+ ],
+ "neue_maerkte": []
+}
