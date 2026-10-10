@@ -582,4 +582,5 @@ Lucio: „Fouls über und Schüsse über wieder rein.“ Beide laufen wieder (`E
 2. **Geld-Grenze: −150 € vom bisherigen Höchststand** → ebenso: Analyse und Behebung vor dem nächsten Schein.
    (10.10.: Anzahl Scheine pro Tag ist frei, solange jeder Schein der Strategie entspricht; die Grenzen zählen Scheine, nicht Tage.)
 3. **Hauptprüfung nach 30 Scheinen:** Trefferquote der einzelnen Tipps gegen die angezeigte Wahrscheinlichkeit.
+4. **Funktioniert es überhaupt? (10.10.)** Maßstab ist die Trefferquote der einzelnen Tipps (nicht der Kontostand). Scanner sagt im Schnitt ~79 % voraus, die Gewinnschwelle aus den gespielten Quoten liegt bei ~70 %. Alarmgrenzen: nach 30 Scheinen (90 Tipps) < 71 % = Warnsignal; nach 50 Scheinen (150 Tipps) < 73 % = „funktioniert nicht", grundlegend umbauen; nach 80 Scheinen (240 Tipps) < 75 % = sicher entschieden. Claude prüft das bei jedem Meilenstein von sich aus und meldet sich.
 Ablauf: Lucio schickt jeden gespielten Schein und das Ergebnis in den Chat, Claude trägt beides in `wetten.csv` ein und erinnert an fehlende Ergebnisse.
