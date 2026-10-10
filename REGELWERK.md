@@ -578,7 +578,8 @@ Lucio: „Fouls über und Schüsse über wieder rein.“ Beide laufen wieder (`E
 **09.10. – Spielweise und Prüfregel neu (Lucio).** Für die nächsten 2–3 Monate: Dreierkombis à 10 € (wenig gebundenes Geld, bis ein Puffer steht), Tipps nur mit Quote ≥ fair × 1,05, drei verschiedene Spiele; gibt es nur zwei gute Tipps, dann eine Zweierkombi. Einkalkuliert (Simulation mit echten Backtest-Signalen, eine Dreierkombi pro Tag): jeder zweite Monat mit 4 Verlusten in Folge, typischer Rückgang zwischendurch ~70 €, in schlechten Monaten ~120 €. **Die 5-Scheine-Regel vom 07.10. entfällt** (bei Dreiern trifft sie rund jeden vierten Monat rein zufällig). Stattdessen: **Nach 30 Scheinen** wird die Trefferquote der einzelnen Tipps mit der angezeigten Wahrscheinlichkeit verglichen; liegt sie deutlich darunter, wird der Scanner überarbeitet.
 
 **09.10. – Risiko-Indikatoren (ersetzen die 5-Scheine-Regel).** Grundlage: Dreierkombis mit ~55 % Trefferchance; Wahrscheinlichkeit einer Verlustserie in 3 Monaten bei funktionierendem Scanner: 7 in Folge 16 %, 8 in Folge 8 %, 9 in Folge 3,5 % (bei nur 45 % Trefferchance: 46 / 28 / 16 %).
-1. **Notbremse: 8 verlorene Scheine in Folge** → Pause und Ursachenanalyse vor dem nächsten Schein.
-2. **Geld-Grenze: −150 € vom bisherigen Höchststand** → ebenfalls Pause.
+1. **Notbremse: 8 verlorene Scheine in Folge** → ausführliche Ursachenanalyse (was genau hat die Serie verursacht?) und Behebung, bevor weitergespielt wird.
+2. **Geld-Grenze: −150 € vom bisherigen Höchststand** → ebenso: Analyse und Behebung vor dem nächsten Schein.
+   (10.10.: Anzahl Scheine pro Tag ist frei, solange jeder Schein der Strategie entspricht; die Grenzen zählen Scheine, nicht Tage.)
 3. **Hauptprüfung nach 30 Scheinen:** Trefferquote der einzelnen Tipps gegen die angezeigte Wahrscheinlichkeit.
 Ablauf: Lucio schickt jeden gespielten Schein und das Ergebnis in den Chat, Claude trägt beides in `wetten.csv` ein und erinnert an fehlende Ergebnisse.
