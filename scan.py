@@ -511,6 +511,25 @@ RUNS_DIR = Path(__file__).parent / "runs"
 HISTORY_CACHE_FILE = Path(__file__).parent / "cache" / "history.json"
 HISTORY_TTL = 12 * 3600      # Sekunden, danach wird die Liste neu geholt
 
+# 11.10. (Lucio: "sehr sinnvoll bitte umsetzen"): Testspiele fliegen aus der
+# Historie. Sie verzerren Serien und Modell in beide Richtungen (Schalke- und
+# Konyaspor-Serien waren durch Testspiele geschönt, bei Voitsberg zogen
+# Testspiele gegen Bundesligisten die Ecken nach unten). Erkannt am
+# Wettbewerbsnamen von BetsAPI ("Club Friendlies", "World Club Friendlies",
+# "Europe Friendlies", "Club Friendly List" ...). Ältere Spiellisten ohne
+# Wettbewerbsnamen werden nach HISTORY_TTL ohnehin neu geholt.
+SKIP_FRIENDLIES = True
+
+
+def is_friendly(league_name) -> bool:
+    return bool(league_name) and "friendl" in league_name.lower()
+
+
+def drop_friendlies(events):
+    if not SKIP_FRIENDLIES:
+        return events
+    return [e for e in events if not is_friendly(e.get("lg"))]
+
 # Vorwärm-Lauf (Cron 05:17): lädt nur Statistiken für den Tag in den Cache,
 # wertet nichts aus, meldet nichts, und hört ohne zu warten auf, sobald das
 # Stundenlimit erreicht ist. Der 06:17-Lauf startet dann mit frischem
@@ -1044,7 +1063,8 @@ def _fetch_ended_list(team_id: str):
     for e in events[:HISTORY_DEPTH]:
         home, away = e.get("home") or {}, e.get("away") or {}
         slim.append({"id": e["id"], "h": str(home.get("id")) == str(team_id),
-                     "l": f'{home.get("name", "?")} - {away.get("name", "?")}'})
+                     "l": f'{home.get("name", "?")} - {away.get("name", "?")}',
+                     "lg": (e.get("league") or {}).get("name", "")})
     return slim
 
 
@@ -1222,6 +1242,7 @@ def fetch_team_history(team_id: str, cache: dict, hcache: dict = None):
         if hcache is not None:
             with _cache_lock:
                 hcache[str(team_id)] = {"ts": int(time.time()), "events": events}
+    events = drop_friendlies(events)
 
     # fehlende UND veraltete (ältere Cache-Version) Spiele holen — so werden
     # neue Felder genau dort aufgefrischt, wo sie gebraucht werden
@@ -4340,6 +4361,7 @@ def _history_before(team_id, event_id, cache, hcache):
         if hcache is not None:
             with _cache_lock:
                 hcache[str(team_id)] = {"ts": int(time.time()), "events": events}
+    events = drop_friendlies(events)
     ids = [e["id"] for e in events]
     if event_id not in ids:
         return None                     # Spiel nicht in der Liste -> nicht prüfbar
@@ -6966,6 +6988,12 @@ def selftest():
         _hour_requests = 0
         _budget_exhausted = False
 
+    # --- Fall 11.10.: Testspiele fliegen aus der Historie
+    _ev = [{"id": "1", "lg": "Germany Bundesliga I"}, {"id": "2", "lg": "Club Friendlies"},
+           {"id": "3", "lg": "World Club Friendlies"}, {"id": "4"}, {"id": "5", "lg": "Europe Friendlies"}]
+    if [e["id"] for e in drop_friendlies(_ev)] != ["1", "4"]:
+        print("FEHLER Fall Testspiele: Filter greift nicht:", drop_friendlies(_ev))
+        ok = False
     print("Selbsttest OK" if ok else "Selbsttest FEHLGESCHLAGEN")
     sys.exit(0 if ok else 1)
 
