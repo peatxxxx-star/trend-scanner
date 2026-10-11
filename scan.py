@@ -158,6 +158,14 @@ HISTORY_DEPTH = 50         # wie viele beendete Spiele pro Team geladen werden
 # Signal bleibt mit Markierung, nichts geht verloren.
 GATE_ENABLED = True
 MIN_ODDS = 1.30
+# 11.10. (Lucio: "einfach alles rein, prüfen tue ich selbst"): Bei 35-40 % der
+# Spiele scheitert die scores24-Zuordnung (Seite nicht gefunden / Abruf fehl-
+# geschlagen) oder es fehlt der Reiter — diese Signale flogen bisher raus,
+# obwohl sie statistisch gleichwertig sind. Jetzt bleiben sie drin und tragen
+# "⚠️ Markt ungeprüft"; Lucio prüft die Verfügbarkeit bei seinem Bookie selbst.
+# Weiter aussortiert: Spannen, die komplett unter MIN_ODDS liegen (Qualität,
+# nicht Verfügbarkeit). Zurück zum alten Verhalten: False.
+GATE_KEEP_ALL = True
 S24_BASE = "https://scores24.live/de/soccer"
 S24_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
           "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36")
@@ -1494,7 +1502,7 @@ def s24_day_links():
         if _s24_links is not None:
             return _s24_links
         links = []
-        for i in range(5):
+        for i in range(15):          # 11.10.: vorher 5 Seiten (Abbruch, wenn leer)
             url = (f"https://scores24.live/sitemaps/"
                    f"sitemap-de-soccer-upcoming-matches-{i}.xml")
             try:
@@ -1623,11 +1631,22 @@ def s24_fetch_groups(match):
     for slug in slugs:
         url = (f"https://scores24.live/rapi/localized/matches/soccer/"
                f"{slug}/trends?lang=de&audience=de")
-        try:
-            raw = _s24_get(url)
-            data = json.loads(raw).get("data") or []
-        except Exception as exc:
-            _s24_stats["last_error"] = f"{url} -> {exc}"[:160]
+        raw = None
+        for attempt in range(2):     # 11.10.: einmal wiederholen (Zeitüberschreitungen)
+            try:
+                raw = _s24_get(url)
+                data = json.loads(raw).get("data") or []
+                break
+            except Exception as exc:
+                raw = None
+                _s24_stats["last_error"] = f"{url} -> {exc}"[:160]
+                key = "err_http" if isinstance(exc, urllib.error.HTTPError) else "err_netz"
+                if isinstance(exc, urllib.error.HTTPError) and exc.code == 404:
+                    break            # Seite gibt es nicht -> kein zweiter Versuch
+                if attempt == 1:
+                    _s24_stats[key] = _s24_stats.get(key, 0) + 1
+                time.sleep(1.5)
+        if raw is None:
             continue
         # Verifikation: mindestens ein Token jedes Teamnamens im JSON
         low = raw.lower()
@@ -1637,9 +1656,11 @@ def s24_fetch_groups(match):
             return (not toks) or any(t in low for t in toks)
         if not (in_json(match["home"]) and in_json(match["away"])):
             _s24_stats["last_error"] = f"{url} -> Teamnamen nicht im JSON"[:160]
+            _s24_stats["err_namen"] = _s24_stats.get("err_namen", 0) + 1
             continue
         if variant_tags(slug) != want_tags:
             _s24_stats["last_error"] = f"{url} -> Mannschafts-Zusatz passt nicht"[:160]
+            _s24_stats["err_zusatz"] = _s24_stats.get("err_zusatz", 0) + 1
             continue
         groups = {}                      # {reiter-name: (anzahl, min, max)}
         for g in data:
@@ -1705,6 +1726,8 @@ def apply_s24_gate(signals, groups):
                 s["no_odds_check"] = True
             else:
                 s["unchecked"] = True
+            if GATE_KEEP_ALL and s["metric_key"] not in GATE_EXEMPT:
+                s["unverified"] = True
             out.append(s)
         return out
     kept = []
@@ -1730,6 +1753,9 @@ def apply_s24_gate(signals, groups):
         if not g:
             if B365_AS_PROOF and s["metric_key"] in ("corners", "ht_corners"):
                 s["unchecked"] = True          # zweite Chance: bet365-Linie
+                kept.append(s)
+            elif GATE_KEEP_ALL:
+                s["unverified"] = True         # kein Reiter bei scores24
                 kept.append(s)
             continue
         count, lo, hi = g
@@ -2437,7 +2463,7 @@ _SNAPSHOT_KEYS = ("metric", "metric_key", "direction", "line", "home_series",
                   "referee", "b365", "expect_ref", "buffer_ref",
                   "sd", "p_emp", "p_mod", "p_fin", "fair_fin", "ladder_fin", "market",
                   "market_src", "ev", "light", "ampel", "reason", "b365_quote", "b365_checked", "b365_near", "b365_lines", "b365_est",
-                  "team_market", "team", "serie", "gegner", "erwartet")
+                  "team_market", "team", "serie", "gegner", "erwartet", "unverified")
 
 
 def signal_snapshot(s):
@@ -2604,10 +2630,25 @@ STATUS_ICON = {"new": "🆕", "known": "▸", "changed": "🔄", "same": "🔁",
 COMPACT = os.environ.get("COMPACT", "1") != "0"
 
 
+# 11.10. (Lucio): Reihenfolge im Spielblock von oben nach unten
+# Tore -> Ecken -> Karten -> Schüsse -> Abseits -> Rest.
+_MARKET_ORDER = (("goals",), ("corners",), ("yellowcards", "cards"),
+                 ("on_target", "shots"), ("offsides",))
+
+
+def market_rank(s):
+    mk = s.get("metric_key") or ""
+    for i, keys in enumerate(_MARKET_ORDER):
+        if any(k in mk for k in keys):
+            return i
+    return len(_MARKET_ORDER)
+
+
 def build_match_block(match, entries):
     """Ein Spiel mit allen Signalen (jedes mit Status-Symbol) — für
     Handy-Lesbarkeit kurze Zeilen, Wichtiges fett, jede Info auf eigener
     Zeile. entries: [(status, signal_oder_eintrag, grund), ...]"""
+    entries = sorted(entries, key=lambda e: market_rank(e[1]))   # stabil
     lines = [f"⚽ <b>{esc(match['home'])} – {esc(match['away'])}</b>",
              f"🕒 {match['kickoff']} · {esc(match.get('league', ''))}"]
     for status, s, reason in entries:
@@ -2629,7 +2670,8 @@ def build_match_block(match, entries):
             new_tag = " 🆕" if status == "new" else ""
             fair = s.get("fair_fin") or s.get("fair")
             lines.append(f"✅ <b>{esc(s['metric'])} {s['direction']} {s['line']}</b>{new_tag}"
-                         + (f" · Fair {fair:.2f}" if fair else ""))
+                         + (f" · Fair {fair:.2f}" if fair else "")
+                         + (" · ⚠️ <i>Markt ungeprüft</i>" if s.get("unverified") else ""))
             sr = s.get("serie") or {}
             det = [f"{esc(s.get('team', ''))} {fmt_series(sr, True)}"] if sr else []
             if s.get("erwartet") is not None:
@@ -2656,7 +2698,8 @@ def build_match_block(match, entries):
                 lines.append(head + f" — <i>{esc(s.get('reason', ''))}</i>")
                 continue
             fair = s.get("fair_fin") or s.get("fair")
-            check = " · <i>Quote selbst prüfen</i>" if s.get("no_odds_check") else ""
+            check = (" · ⚠️ <i>Markt ungeprüft</i>" if s.get("unverified")
+                     else " · <i>Quote selbst prüfen</i>" if s.get("no_odds_check") else "")
             lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + fmt_b365(s) + check
                          + buffer_evidence(s, short=True))
             lines.append(f"   {esc(match['home'])} {fmt_series(s['home_series'], s['home_is_anchor'])}"
@@ -5026,7 +5069,8 @@ def team_to_signal(t):
             "team_market": True, "team": t["team"], "serie": t["serie"],
             "gegner": t.get("gegner"), "erwartet": t.get("erwartet"),
             "fair": t["fair"], "fair_fin": t["fair"], "p_fin": t["p"],
-            "p_emp": t.get("p_emp"), "p_mod": t.get("p_mod"), "light": "🟢"}
+            "p_emp": t.get("p_emp"), "p_mod": t.get("p_mod"), "light": "🟢",
+            "unverified": bool(t.get("unverified"))}
 
 
 def team_signals(match, hist_home, hist_away):
@@ -5480,7 +5524,12 @@ def _run():
         if who and GATE_ENABLED:
             who = [w for w in who if S24_GROUPS.get(w["metric_key"]) in (groups or set())]
         if team and GATE_ENABLED:
-            team = [t for t in team if S24_GROUPS.get(t["metric_key"]) in (groups or set())]
+            if GATE_KEEP_ALL:
+                for t in team:
+                    if S24_GROUPS.get(t["metric_key"]) not in (groups or set()):
+                        t["unverified"] = True
+            else:
+                team = [t for t in team if S24_GROUPS.get(t["metric_key"]) in (groups or set())]
         # 18.09. (Lucio): "bitte nichts pauschal rausnehmen" — Liga-Sperre für
         # Tore wieder aus; es zählt allein der Tore-Reiter bei scores24.
         if GOALS_LIGA_FILTER:
@@ -5496,7 +5545,11 @@ def _run():
             attach_extras(match, signals)
             _zeit_add("extras", time.time() - _t)
             # 3) Oder-Regel: weder scores24 noch bet365 -> raus
-            if GATE_ENABLED:
+            if GATE_ENABLED and GATE_KEEP_ALL:
+                for s in signals:
+                    if not s.get("range") and s["metric_key"] not in GATE_EXEMPT:
+                        s["unverified"] = True
+            elif GATE_ENABLED:
                 unverifiable = [signal_key(match, s) for s in signals
                                 if not s.get("range") and s["metric_key"] not in GATE_EXEMPT]
                 signals = [s for s in signals
@@ -5703,6 +5756,9 @@ def _mk(corner_pairs, homes):
 
 def selftest():
     ok = True
+    global GATE_KEEP_ALL
+    _keep_all = GATE_KEEP_ALL
+    GATE_KEEP_ALL = False          # die alten Gate-Fälle prüfen das strenge Verhalten
     H, A = True, False
 
     # --- Fall 1: Gesamt-Anker (10/11) + zweites Team 5 in Folge -> Signal
@@ -6988,6 +7044,27 @@ def selftest():
         _hour_requests = 0
         _budget_exhausted = False
 
+    # --- Fall 11.10.: "alles rein" — ohne Reiter / ohne Seite bleibt das Signal, markiert
+    GATE_KEEP_ALL = True
+    _ka = apply_s24_gate([{"metric_key": "fouls"}, {"metric_key": "corners"}, {"metric_key": "yellowcards"}],
+                         {"corners": (3, 1.1, 1.25), "cards": (2, 1.5, 1.9)})
+    if [x["metric_key"] for x in _ka] != ["fouls", "yellowcards"] or not _ka[0].get("unverified") \
+            or _ka[1].get("unverified"):
+        print("FEHLER Fall alles-rein: Reiter fehlt -> drin+markiert, Spanne < 1,30 -> raus:", _ka)
+        ok = False
+    _kb = apply_s24_gate([{"metric_key": "fouls"}], None)
+    if len(_kb) != 1 or not _kb[0].get("unverified"):
+        print("FEHLER Fall alles-rein: Seite nicht zuordenbar -> drin+markiert:", _kb)
+        ok = False
+    GATE_KEEP_ALL = _keep_all
+    # --- Fall 11.10.: Reihenfolge Tore -> Ecken -> Karten -> Schüsse -> Abseits -> Rest
+    _ord = sorted([{"metric_key": k} for k in ("fouls", "offsides", "team_yellowcards_gast", "on_target",
+                                               "ht_corners", "goals", "yellowcards", "corners")],
+                  key=market_rank)
+    if [x["metric_key"] for x in _ord] != ["goals", "ht_corners", "corners", "team_yellowcards_gast",
+                                           "yellowcards", "on_target", "offsides", "fouls"]:
+        print("FEHLER Fall Reihenfolge:", _ord)
+        ok = False
     # --- Fall 11.10.: Testspiele fliegen aus der Historie
     _ev = [{"id": "1", "lg": "Germany Bundesliga I"}, {"id": "2", "lg": "Club Friendlies"},
            {"id": "3", "lg": "World Club Friendlies"}, {"id": "4"}, {"id": "5", "lg": "Europe Friendlies"}]
