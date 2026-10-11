@@ -5344,6 +5344,18 @@ def _run():
         return
     if not TOKEN:
         sys.exit("BETSAPI_TOKEN fehlt")
+    # 11.10.: Lese-Test Pokal/K.o./Derby-Erkennung (rundencheck.py), ausgelöst
+    # per Push auf scan_now mit "Rundencheck" in der Commit-Nachricht. Ändert
+    # am Scan nichts, schreibt nur runs/rundencheck_<Datum>.json.
+    try:
+        _ev = json.loads(Path(os.environ.get("GITHUB_EVENT_PATH", "")).read_text())
+        _msg = ((_ev.get("head_commit") or {}).get("message") or "")
+    except Exception:
+        _msg = ""
+    if "Rundencheck" in _msg:
+        import rundencheck
+        rundencheck.run(sys.modules[__name__])
+        return
     if os.environ.get("FORCE") != "1" and not is_prewarm_run():
         seit = letzter_lauf_min()
         if seit is not None and seit < MIN_ABSTAND_MIN:
