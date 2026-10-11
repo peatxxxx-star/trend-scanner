@@ -4983,6 +4983,7 @@ TEAM_MAX_MISSES_ROLE = 1     # max. 1 Lücke). Lucio wörtlich: "letzte 10 Spiel
                              # mehr gehabt". Backtest: 10 von <=12 -> 1,8 Signale je
                              # Spiel bei 71,7 %; lückenlos -> 0,4 je Spiel bei 78,2 %,
                              # also Kernsystem-Niveau statt Flut.
+TEAM_TRIVIAL_FILTER = False  # 11.10. (Lucio: "trotzdem mit rein, wird sich zeigen") — aus
 TEAM_TRIVIAL_BASE = 0.70     # Linien, die ohnehin meist eintreten, nicht melden:
                              # Ecken unter 6,5 (Grundrate 77 %) fliegt raus, Karten
                              # unter 2,5 (68 %, Lucios Seattle-Fall) bleibt drin.
@@ -5094,7 +5095,7 @@ def team_signals(match, hist_home, hist_away):
                 order = sorted(lines, reverse=(direction == "über"))
                 for L in order:
                     base = _team_base.get((metric, L, direction), 0.5)
-                    if base >= TEAM_TRIVIAL_BASE:
+                    if TEAM_TRIVIAL_FILTER and base >= TEAM_TRIVIAL_BASE:
                         continue
                     seq_all, vals, w = team_sequence(hist, metric, L, direction)
                     if len(seq_all) < MIN_VALID_MATCHES:
@@ -6665,7 +6666,11 @@ def selftest():
         ok = False
     # triviale Linie: Grundrate >= 85 % -> nicht melden
     _team_base[("corners", 6.5, "unter")] = 0.9
+    global TEAM_TRIVIAL_FILTER
+    _ttf = TEAM_TRIVIAL_FILTER
+    TEAM_TRIVIAL_FILTER = True       # Fall prüft den (abschaltbaren) Filter selbst
     t23b = team_signals(dict(match), ta, ta)
+    TEAM_TRIVIAL_FILTER = _ttf
     if any(x["metric_key"] == "corners" and x["direction"] == "unter" and x["line"] == 6.5 for x in t23b):
         print("FEHLER Fall 23d: triviale Linie darf nicht gemeldet werden")
         ok = False
