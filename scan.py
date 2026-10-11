@@ -2606,7 +2606,15 @@ def fmt_series(s, is_anchor):
     return f"{base}{scope}{star}"
 
 
+# 11.10. (Lucio): "Spanne brauche ich nicht, nur die faire" — Quoten-Spanne
+# wird nirgends mehr angezeigt (steht weiter im Protokoll/Gedächtnis).
+SHOW_RANGE = False
+
+
 def fmt_odds_tail(s) -> str:
+    if s.get("range") and not SHOW_RANGE:
+        fair = s.get("fair_fin") or s.get("fair")
+        return f"Fair {fair:.2f}" if fair else ""
     if s.get("range"):
         return f"💰 {fmt_range(s['range'])}"
     if s.get("quote"):
@@ -2655,13 +2663,13 @@ def build_match_block(match, entries):
         icon = STATUS_ICON[status]
         lines.append("")
         if status == "same":
-            odds = (f" · 💰 {fmt_range(s['range'])}" if s.get("range")
+            odds = ("" if not SHOW_RANGE else f" · 💰 {fmt_range(s['range'])}" if s.get("range")
                     else " · ❓ Quoten nicht prüfbar")
             lines.append(f"{icon} {esc(s['metric'])} {s['direction']} {s['line']}{odds}"
                          f" · seit {s.get('first_run', '?')}")
             continue
         if status == "dropped":
-            odds = f" · 💰 {fmt_range(s['range'])}" if s.get("range") else ""
+            odds = f" · 💰 {fmt_range(s['range'])}" if (s.get("range") and SHOW_RANGE) else ""
             lines.append(f"{icon} <s>{esc(s['metric'])} {s['direction']} {s['line']}</s>{odds}"
                          f" · gemeldet {s.get('first_run', '?')}")
             lines.append(f"   <i>{esc(reason)}</i>")
