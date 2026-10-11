@@ -163,8 +163,8 @@ MIN_ODDS = 1.30
 # geschlagen) oder es fehlt der Reiter — diese Signale flogen bisher raus,
 # obwohl sie statistisch gleichwertig sind. Jetzt bleiben sie drin und tragen
 # "⚠️ Markt ungeprüft"; Lucio prüft die Verfügbarkeit bei seinem Bookie selbst.
-# Weiter aussortiert: Spannen, die komplett unter MIN_ODDS liegen (Qualität,
-# nicht Verfügbarkeit). Zurück zum alten Verhalten: False.
+# 11.10. später (Lucio): auch Spannen komplett unter MIN_ODDS bleiben drin
+# (Quote steht dabei, Lucio entscheidet). Zurück zum alten Verhalten: False.
 GATE_KEEP_ALL = True
 S24_BASE = "https://scores24.live/de/soccer"
 S24_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -1759,7 +1759,7 @@ def apply_s24_gate(signals, groups):
                 kept.append(s)
             continue
         count, lo, hi = g
-        if hi < MIN_ODDS:
+        if hi < MIN_ODDS and not GATE_KEEP_ALL:   # 11.10. (Lucio): auch das raus
             continue
         s["range"] = (lo, hi)
         kept.append(s)
@@ -7048,9 +7048,9 @@ def selftest():
     GATE_KEEP_ALL = True
     _ka = apply_s24_gate([{"metric_key": "fouls"}, {"metric_key": "corners"}, {"metric_key": "yellowcards"}],
                          {"corners": (3, 1.1, 1.25), "cards": (2, 1.5, 1.9)})
-    if [x["metric_key"] for x in _ka] != ["fouls", "yellowcards"] or not _ka[0].get("unverified") \
-            or _ka[1].get("unverified"):
-        print("FEHLER Fall alles-rein: Reiter fehlt -> drin+markiert, Spanne < 1,30 -> raus:", _ka)
+    if [x["metric_key"] for x in _ka] != ["fouls", "corners", "yellowcards"] or not _ka[0].get("unverified") \
+            or _ka[1].get("unverified") or _ka[1].get("range") != (1.1, 1.25):
+        print("FEHLER Fall alles-rein: Reiter fehlt -> drin+markiert, Spanne < 1,30 -> drin mit Spanne:", _ka)
         ok = False
     _kb = apply_s24_gate([{"metric_key": "fouls"}], None)
     if len(_kb) != 1 or not _kb[0].get("unverified"):
