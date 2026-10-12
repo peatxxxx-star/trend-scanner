@@ -1767,6 +1767,62 @@ def s24_market_groups(html: str):
     return groups
 
 
+# 12.10. (Lucio): zweite Kontrollinstanz neben scores24 — Oder-Regel. Ein
+# Signal, das an scores24 scheitert, bleibt, wenn bet365 den Markt für das
+# Spiel führt. Ecken/HZ-Ecken über /v2/event/odds (Standard-Paket, deckt laut
+# Protokoll ~90 % der Ecken-Signale ab), Karten über den bet365-Katalog
+# (/v1/bet365/prematch, nur falls im Paket). Kann nur Signale HINZUFÜGEN.
+B365_OR_PROOF = True
+_b365_rescue_stats = {}
+
+
+def _rescue_count(key):
+    with _league_mem_lock:
+        _b365_rescue_stats[key] = _b365_rescue_stats.get(key, 0) + 1
+
+
+def b365_rescue(match, lost):
+    global _b365_tot
+    out = []
+    corner_like = [x for x in lost if x["metric_key"] in ("corners", "ht_corners")]
+    card_like = [x for x in lost if x["metric_key"] in ("yellowcards", "ht_yellowcards")]
+    if corner_like:
+        try:
+            odds = api_get("/v2/event/odds", event_id=match["id"])
+            allodds = (odds.get("results") or {}).get("odds") or {}
+            for x in corner_like:
+                mk = "1_4" if x["metric_key"] == "corners" else "1_7"
+                if allodds.get(mk):
+                    x["b365_proof"] = True
+                    x.pop("unchecked", None)
+                    out.append(x)
+                    _rescue_count(x["metric_key"])
+        except BudgetExhausted:
+            raise
+        except Exception as exc:
+            _rescue_count("fehler_odds")
+    if card_like and match.get("bet365_id") and not _b365_tot:
+        try:
+            pm = api_get("/v1/bet365/prematch", FI=match["bet365_id"], _token=B365_TOKEN)
+            q = b365_quotes(pm)
+            have = {m for (m, d, L) in q}
+            for x in card_like:
+                if x["metric_key"] in have:
+                    x["b365_proof"] = True
+                    x.pop("unchecked", None)
+                    out.append(x)
+                    _rescue_count(x["metric_key"])
+        except BudgetExhausted:
+            raise
+        except urllib.error.HTTPError as exc:
+            if exc.code in (401, 403, 404):
+                _b365_tot = True
+                _rescue_count("karten_katalog_nicht_im_paket")
+        except Exception:
+            _rescue_count("fehler_katalog")
+    return out
+
+
 def apply_s24_gate(signals, groups, league=None):
     """Wendet den lockeren Quoten-Check an.
 
@@ -2541,7 +2597,7 @@ _SNAPSHOT_KEYS = ("metric", "metric_key", "direction", "line", "home_series",
                   "referee", "b365", "expect_ref", "buffer_ref",
                   "sd", "p_emp", "p_mod", "p_fin", "fair_fin", "ladder_fin", "market",
                   "market_src", "ev", "light", "ampel", "reason", "b365_quote", "b365_checked", "b365_near", "b365_lines", "b365_est",
-                  "team_market", "team", "serie", "gegner", "erwartet", "unverified", "no_tab", "pending")
+                  "team_market", "team", "serie", "gegner", "erwartet", "unverified", "no_tab", "pending", "b365_proof")
 
 
 def signal_snapshot(s):
@@ -2798,7 +2854,8 @@ def build_match_block(match, entries):
                 lines.append(head + f" — <i>{esc(s.get('reason', ''))}</i>")
                 continue
             fair = s.get("fair_fin") or s.get("fair")
-            check = (unverified_note(s) if s.get("unverified")
+            check = (" · ✓ <i>Markt bei bet365</i>" if s.get("b365_proof")
+                     else unverified_note(s) if s.get("unverified")
                      else " · <i>Quote selbst prüfen</i>" if s.get("no_odds_check") else "")
             lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + fmt_b365(s) + check
                          + buffer_evidence(s, short=True))
@@ -5650,7 +5707,11 @@ def _run():
                        if s["metric_key"] not in ("goals", "ht_goals", "h2_goals")
                        or goals_liga_ok(match.get("league", ""), match.get("home", ""), match.get("away", ""))]
         if signals and GATE_ENABLED:
+            _pre = list(signals)
             signals = apply_s24_gate(signals, groups, match.get("league", ""))
+            if B365_OR_PROOF:
+                _kept = {id(x) for x in signals}
+                signals += b365_rescue(match, [x for x in _pre if id(x) not in _kept])
         if signals:
             # 2) Zusatzabfragen: bet365-Linie (kann den Nachweis liefern),
             #    Schiedsrichter-Profil
@@ -5660,7 +5721,8 @@ def _run():
             # 3) Oder-Regel: weder scores24 noch bet365 -> raus
             if GATE_ENABLED and GATE_KEEP_ALL:
                 for s in signals:
-                    if not s.get("range") and s["metric_key"] not in GATE_EXEMPT:
+                    if not s.get("range") and s["metric_key"] not in GATE_EXEMPT \
+                            and not s.get("b365_proof"):
                         s["unverified"] = True
                 if UNVERIFIED_YOUTH_DROP and youth_or_reserve(match):
                     signals = [s for s in signals if not s.get("unverified")]
@@ -5760,6 +5822,7 @@ def _run():
                      vorlauf=int(t_start - _t_run), spiele=int(time.time() - t_start)),
         "teams_nachgeladen": _cold_teams[0],
         "s24": {k: v for k, v in _s24_stats.items() if k not in ("reiter", "last_error")},
+        "b365_rettung": dict(_b365_rescue_stats),
         "new": [signal_key(m, s) for m, sigs in buckets["new"] for s in sigs],
         "changed": [signal_key(m, s) for m, sigs in buckets["changed"] for s in sigs],
         "dropped": [f"{e['match_id']}|{e['metric_key']}|{e['direction']}"
