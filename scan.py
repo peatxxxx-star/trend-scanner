@@ -2847,6 +2847,7 @@ def build_match_block(match, entries):
             fair = s.get("fair_fin") or s.get("fair")
             lines.append(f"✅ <b>{esc(s['metric'])} {s['direction']} {s['line']}</b>{new_tag}"
                          + (f" · Fair {fair:.2f}" if fair else "")
+                         + fmt_play(s)
                          + unverified_note(s))
             sr = s.get("serie") or {}
             det = [f"{esc(s.get('team', ''))} {fmt_series(sr, True)}"] if sr else []
@@ -2877,7 +2878,7 @@ def build_match_block(match, entries):
             check = (" · ✓ <i>Markt bei bet365</i>" if s.get("b365_proof")
                      else unverified_note(s) if s.get("unverified")
                      else " · <i>Quote selbst prüfen</i>" if s.get("no_odds_check") else "")
-            lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + fmt_b365(s) + check
+            lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + fmt_play(s) + fmt_b365(s) + check
                          + buffer_evidence(s, short=True))
             lines.append(f"   {esc(match['home'])} {fmt_series(s['home_series'], s['home_is_anchor'])}"
                          f" · {esc(match['away'])} {fmt_series(s['away_series'], s['away_is_anchor'])}")
@@ -3002,7 +3003,7 @@ def build_recommendations(items):
             if s.get("light") != "🟢":
                 continue
             fair = s.get("fair_fin") or s.get("fair")
-            tail = f" · Fair {fair:.2f}" if fair else ""
+            tail = (f" · Fair {fair:.2f}" if fair else "") + fmt_play(s)
             new_tag = " 🆕" if status == "new" else ""
             rows.append(f"• {match['kickoff']} {esc(match['home'])} – {esc(match['away'])}: "
                         f"<b>{esc(s['metric'])} {s['direction']} {s['line']}</b>{tail}{new_tag}")
@@ -3397,6 +3398,69 @@ def b365_probe_sichern():
         print(f"  bet365-Probe sichern: {exc}")
 
 
+# 12.10. (Lucio: "brauche ich direkt dazu geschrieben im TG"): REGELWERK 16.
+# Mindestquote je Markt = faire Quote x Faktor; bei Karten/Abseits hängt der
+# Faktor davon ab, ob das Spiel einen klaren Favoriten hat (bet365-1X2).
+# Grundlage: 4.817 Live-Signale 01.09.–12.10. (Projekt-Doku modelltest-2026-10-12).
+# None = nicht spielen. Unbekannter Favorit -> vorsichtigster Wert.
+PLAY_HINT = True
+PLAY_FACTOR = {
+    ("ht_yellowcards", "unter"): 0.92,
+    ("on_target", "über"): 0.95,
+    ("corners", "unter"): 1.15,
+    ("on_target", "unter"): 1.20,
+    ("ht_yellowcards", "über"): None,
+}
+PLAY_FACTOR_FAV = {     # (Markt, Richtung): {klar, mittel, ausgeglichen, unbekannt}
+    ("yellowcards", "unter"): {"klar": 1.05, "mittel": 1.05, "ausgeglichen": 1.12, None: 1.12},
+    ("yellowcards", "über"): {"klar": 1.10, "mittel": 1.05, "ausgeglichen": 1.05, None: 1.10},
+    ("offsides", "unter"): {"klar": 1.15, "mittel": 1.05, "ausgeglichen": 1.05, None: 1.15},
+}
+FAV_KLAR_MAX = 1.60           # Favoriten-Siegquote bis hier = klarer Favorit
+FAV_AUSGEGL = (2.20, 3.40)    # beide Siegquoten in diesem Bereich = ausgeglichen
+
+
+def fav_class(odds):
+    """odds = [Heim, Remis, Gast] -> 'klar' / 'ausgeglichen' / 'mittel'."""
+    try:
+        h, a = float(odds[0]), float(odds[2])
+    except (TypeError, ValueError, IndexError):
+        return None
+    if min(h, a) <= FAV_KLAR_MAX:
+        return "klar"
+    if FAV_AUSGEGL[0] <= h <= FAV_AUSGEGL[1] and FAV_AUSGEGL[0] <= a <= FAV_AUSGEGL[1]:
+        return "ausgeglichen"
+    return "mittel"
+
+
+def play_min(s):
+    """(Mindestquote oder None = nicht spielen, Favoriten-Tag oder '')."""
+    fair = s.get("fair_fin") or s.get("fair")
+    key = (s.get("metric_key"), s.get("direction"))
+    tag = ""
+    if key in PLAY_FACTOR_FAV:
+        fav = s.get("fav")
+        f = PLAY_FACTOR_FAV[key].get(fav, PLAY_FACTOR_FAV[key][None])
+        tag = {"klar": "⭐ klarer Favorit", "ausgeglichen": "⚖️ ausgeglichen",
+               "mittel": "Favorit mittel"}.get(fav, "Favorit ?")
+    else:
+        f = PLAY_FACTOR.get(key, PLAY_FAIR_FACTOR)
+    if f is None:
+        return None, tag
+    # aufrunden: die Mindestquote soll nie unter Fair x Faktor liegen
+    return (math.ceil(round(fair * f * 100, 6)) / 100 if fair else None), tag
+
+
+def fmt_play(s) -> str:
+    if not PLAY_HINT:
+        return ""
+    mn, tag = play_min(s)
+    tag = f" · {tag}" if tag else ""
+    if mn is None and (s.get("metric_key"), s.get("direction")) in PLAY_FACTOR:
+        return f" · ⛔ <b>nicht spielen</b>{tag}"
+    return (f" · <b>spielbar ab {mn:.2f}</b>" if mn else "") + tag
+
+
 def attach_extras(match, signals):
     """Zusatzinfos, die nur für Spiele mit Signalen Anfragen kosten:
     - Ecken-Signale: bet365-Hauptlinie mit Quote (Markt 1_4 "Asian Corners")
@@ -3433,9 +3497,33 @@ def attach_extras(match, signals):
                 print(f"  bet365-Katalog {match['home']}–{match['away']}: {exc}")
         except Exception as exc:
             print(f"  bet365-Katalog {match['home']}–{match['away']}: {exc}")
+    _odds_cache = {}
+
+    def _get_odds():
+        if "o" not in _odds_cache:
+            _odds_cache["o"] = api_get("/v2/event/odds", event_id=match["id"])
+        return _odds_cache["o"]
+
+    if PLAY_HINT and keys & {"yellowcards", "offsides"}:
+        # 12.10.: Favorit/ausgeglichen aus der jüngsten Vor-Spiel-1X2-Zeile
+        try:
+            rows = ((_get_odds().get("results") or {}).get("odds") or {}).get("1_1") or []
+            fav = None
+            for r in rows:
+                if r.get("ss") in (None, "") and r.get("time_str") in (None, ""):
+                    fav = fav_class([r.get("home_od"), r.get("draw_od"), r.get("away_od")])
+                    if fav:
+                        break
+            for s in signals:
+                if s["metric_key"] in ("yellowcards", "offsides"):
+                    s["fav"] = fav
+        except BudgetExhausted:
+            raise
+        except Exception as exc:
+            print(f"  1X2-Abfrage {match['home']}–{match['away']}: {exc}")
     if keys & {"corners", "ht_corners"} and not B365_PREMATCH:
         try:
-            odds = api_get("/v2/event/odds", event_id=match["id"])
+            odds = _get_odds()
             allodds = (odds.get("results") or {}).get("odds") or {}
             for mkey, mk in (("corners", "1_4"), ("ht_corners", "1_7")):
                 rows = allodds.get(mk) or []
@@ -6515,6 +6603,21 @@ def selftest():
     finally:
         urllib.request.urlopen = _orig
         globals()["_no_wait"], globals()["_budget_exhausted"], globals()["_hour_requests"] = _save
+
+    # --- Fall 30: Mindestquote je Markt / Favorit (12.10., REGELWERK 16)
+    if fav_class(["1.45", "4.2", "6.5"]) != "klar" or fav_class(["2.6", "3.2", "2.8"]) != "ausgeglichen" \
+            or fav_class(["1.9", "3.4", "4.0"]) != "mittel" or fav_class([None, 1, 2]) is not None:
+        print("FEHLER Fall 30a: Favoriten-Einteilung falsch")
+        ok = False
+    _t = [play_min({"metric_key": "ht_yellowcards", "direction": "unter", "fair_fin": 1.45})[0],
+          play_min({"metric_key": "corners", "direction": "unter", "fair_fin": 1.30})[0],
+          play_min({"metric_key": "yellowcards", "direction": "unter", "fair_fin": 1.30, "fav": "ausgeglichen"})[0],
+          play_min({"metric_key": "yellowcards", "direction": "unter", "fair_fin": 1.30, "fav": "klar"})[0],
+          play_min({"metric_key": "goals", "direction": "über", "fair_fin": 1.40})[0],
+          play_min({"metric_key": "ht_yellowcards", "direction": "über", "fair_fin": 1.20})[0]]
+    if _t != [1.34, 1.5, 1.46, 1.37, 1.47, None] or "nicht spielen" not in fmt_play({"metric_key": "ht_yellowcards", "direction": "über", "fair_fin": 1.2}):
+        print("FEHLER Fall 30b: Mindestquoten falsch:", _t)
+        ok = False
 
     # --- Fall 28: Kalibrierung je Markt (15.09.)
     # 06.10.: erst Faktor (CALIBRATION), dann lineare Nachkalibrierung (RECAL)

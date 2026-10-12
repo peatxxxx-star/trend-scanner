@@ -603,7 +603,7 @@ Legs aus den am 11./12.10. geöffneten Quellen werden in wetten.csv in der Notiz
 Bei jedem Meilenstein (30/50/80 Scheine) Trefferquote dieser Gruppen gegen die erwartete Quote laut fairer Quote vergleichen. Liegen sie deutlich darunter -> Lucio melden und Nachjustieren vorschlagen.
 
 ## 16. Vorabprüfung: Markt- und Favoriten-Faktoren (12.10., ab 13.10. gültig)
-Grundlage: 4.817 Live-Signale 01.09.–12.10. mit Ergebnis, davon 4.221 mit bet365-1X2 (Projekt-Doku modelltest-2026-10-12). Der Scanner bleibt unverändert; die Faktoren wendet Claude bei der Vorabprüfung an.
+Grundlage: 4.817 Live-Signale 01.09.–12.10. mit Ergebnis, davon 4.221 mit bet365-1X2 (Projekt-Doku modelltest-2026-10-12). Seit 12.10. abends schreibt der Scanner die Mindestquote direkt in Telegram („spielbar ab X“ bzw. „⛔ nicht spielen“, bei Karten/Abseits mit Favoriten-Tag aus der bet365-1X2-Quote; Schalter PLAY_HINT). Claude prüft bei der Vorabprüfung dieselben Werte.
 Favoriten-Check je Leg (1X2-Quote): klarer Favorit = Favoriten-Quote ≤ 1,60; ausgeglichen = beide Siegquoten zwischen ca. 2,20 und 3,40; sonst mittel.
 Mindestquote = faire Quote × Faktor (statt pauschal 1,05):
 - 1. HZ Karten unter: × 0,92 (real 78 % statt 68 %)
