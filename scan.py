@@ -1501,6 +1501,7 @@ def s24_slug(name: str) -> str:
 _s24_links = None
 _s24_links_lock = threading.Lock()
 _s24_stats = {"ok": 0, "no_link": 0, "fetch_fail": 0, "last_error": ""}
+_s24_name_diag = []       # 12.10.: Fälle "Teamnamen nicht im JSON" fürs Protokoll
 
 
 # 10.09.: scores24 antwortet auf die JSON-Schnittstelle plötzlich mit
@@ -1720,6 +1721,15 @@ def s24_fetch_groups(match):
         if not (in_json(match["home"]) and in_json(match["away"])):
             _s24_stats["last_error"] = f"{url} -> Teamnamen nicht im JSON"[:160]
             _s24_stats["err_namen"] = _s24_stats.get("err_namen", 0) + 1
+            # 12.10.: Diagnose für die tolerantere Namenszuordnung — nur Protokoll
+            with _s24_links_lock:
+                if len(_s24_name_diag) < 120:
+                    names = sorted(set(re.findall(r'"(?:name|title|shortName|slug)"\s*:\s*"([^"]{2,60})"', raw)))[:12]
+                    _s24_name_diag.append({"spiel": f'{match["home"]} – {match["away"]}',
+                                           "liga": match.get("league", ""),
+                                           "anstoss": match.get("kickoff", ""),
+                                           "slug": slug, "namen_im_json": names,
+                                           "json_kopf": raw[:300]})
             continue
         if variant_tags(slug) != want_tags:
             _s24_stats["last_error"] = f"{url} -> Mannschafts-Zusatz passt nicht"[:160]
@@ -5823,6 +5833,7 @@ def _run():
         "teams_nachgeladen": _cold_teams[0],
         "s24": {k: v for k, v in _s24_stats.items() if k not in ("reiter", "last_error")},
         "b365_rettung": dict(_b365_rescue_stats),
+        "s24_namen_diag": list(_s24_name_diag),
         "new": [signal_key(m, s) for m, sigs in buckets["new"] for s in sigs],
         "changed": [signal_key(m, s) for m, sigs in buckets["changed"] for s in sigs],
         "dropped": [f"{e['match_id']}|{e['metric_key']}|{e['direction']}"
