@@ -606,3 +606,8 @@ Bei jedem Meilenstein (30/50/80 Scheine) Trefferquote dieser Gruppen gegen die e
 Modelltest an 4.817 echten Signalen (01.09.–12.10.): Der Scanner ist insgesamt gut kalibriert (76,2 % real vs. 75,8 % versprochen); der Verlust bei Lucios Tipps (69 %) entsteht durch die Auswahl über die Buchmacherquote. Einzelne Märkte waren falsch kalibriert und werden über `LIVE_CAL` in scan.py korrigiert (geschrumpfter Faktor, w = n/(n+150)):
 Ecken unter 0,951 · Ecken über 1,033 · Tore über 1,030 · Karten unter 0,977 · 1. HZ Karten unter 1,107 · 1. HZ Karten über 0,930 · Schüsse aT unter 0,950 · Schüsse aT über 1,053 · Schüsse gesamt unter 0,55 (praktisch aus).
 Teil 2 (Quotencheck): bet365-Eröffnungs-/Schlussquoten (1X2, Tore-, Ecken-Hauptlinie) für ~9.000 Spiele, um zu testen, ob das Buchmacher-Wissen die Treffer erklärt.
+
+## 17. bet365-Referenz für Ecken und Tore (12.10.)
+Telegram zeigt bei Ecken- und Tor-Signalen (Gesamtmarkt) zusätzlich „b365 <fair> 👍/👎“: die faire Quote, die bet365 für unsere Linie sieht (Hauptlinie ohne Marge, per Poisson auf unsere Linie umgerechnet; nur x,5-Hauptlinien).
+👍 = bet365 sieht die Chance mindestens so hoch wie der Scanner (Test: 77–82 % Treffer), 👎 = bet365 skeptischer (67–71 %).
+Vorgeschlagene Spielregel (noch nicht beschlossen): bei 👎 nicht spielen; bei 👍 muss die BetLabel-Quote ≥ b365-fair × 1,05 sein. Reine Anzeige, filtert nichts. Abschalten: B365_SHARP = False.

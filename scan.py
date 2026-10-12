@@ -2523,6 +2523,10 @@ def assess_signal(s):
     # Die Bewertung bleibt in s["ampel"]/s["reason"] fürs Protokoll erhalten.
     s["ampel"], s["reason"] = light, reason
     s["light"] = light if AMPEL_FILTER else "🟢"
+    try:
+        apply_b365_sharp(s)
+    except Exception:
+        pass
     return s
 
 
@@ -2906,7 +2910,7 @@ def build_match_block(match, entries):
             check = (" · ✓ <i>Markt bei bet365</i>" if s.get("b365_proof")
                      else unverified_note(s) if s.get("unverified")
                      else " · <i>Quote selbst prüfen</i>" if s.get("no_odds_check") else "")
-            lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + fmt_b365(s) + check
+            lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + fmt_b365_sharp(s) + fmt_b365(s) + check
                          + buffer_evidence(s, short=True))
             lines.append(f"   {esc(match['home'])} {fmt_series(s['home_series'], s['home_is_anchor'])}"
                          f" · {esc(match['away'])} {fmt_series(s['away_series'], s['away_is_anchor'])}")
@@ -3426,6 +3430,76 @@ def b365_probe_sichern():
         print(f"  bet365-Probe sichern: {exc}")
 
 
+# 12.10. MODELLTEST TEIL 2 (Lucio: "2 auch direkt"): 685 Ecken-/Tor-Signale
+# mit bet365-Schlussquote (01.09.–12.10.). Aus der bet365-Hauptlinie
+# (Marge raus, Poisson auf unsere Linie umgerechnet) die Wahrscheinlichkeit,
+# die bet365 für UNSERE Linie sieht:
+#   bet365 skeptischer als Scanner:  Ecken über 69 %, Ecken unter 67 %, Tore über 71 % Treffer
+#   bet365 einverstanden:            Ecken über 82 %, Ecken unter 77 %, Tore über 81 % Treffer
+# -> Anzeige "b365 <fair> 👍/👎" in Telegram; reine Zusatzinfo, filtert nichts.
+B365_SHARP = True
+
+
+def _b365_prematch_row(rows):
+    """Jüngste Vor-Spiel-Zeile (ohne Spielstand/Minute) aus /v2/event/odds."""
+    for r in rows or []:
+        if r.get("ss") in (None, "") and r.get("time_str") in (None, ""):
+            return r
+    return None
+
+
+def _poisson_over(lam, line):
+    """P(X > line) für Poisson(lam), line = x,5."""
+    k = int(math.floor(line))
+    term = math.exp(-lam)
+    cdf = term
+    for i in range(1, k + 1):
+        term *= lam / i
+        cdf += term
+    return max(0.0, 1.0 - cdf)
+
+
+def b365_sharp_p(b, line, direction):
+    """Wahrscheinlichkeit, die bet365 für unsere Linie sieht (None, wenn die
+    Hauptlinie keine x,5-Linie ist oder Quoten fehlen)."""
+    try:
+        h, ov, un = float(b[0]), float(b[1]), float(b[2])
+        line = float(line)
+    except (TypeError, ValueError, IndexError):
+        return None
+    if ov <= 1.0 or un <= 1.0 or abs((h - math.floor(h)) - 0.5) > 1e-6:
+        return None
+    p_over = (1 / ov) / (1 / ov + 1 / un)
+    lo, hi = 0.05, 40.0
+    for _ in range(60):                      # lam so, dass P(X > h) = p_over
+        mid = (lo + hi) / 2
+        if _poisson_over(mid, h) < p_over:
+            lo = mid
+        else:
+            hi = mid
+    po = _poisson_over((lo + hi) / 2, line)
+    return po if direction == "über" else 1.0 - po
+
+
+def apply_b365_sharp(s):
+    if not B365_SHARP or not s.get("b365_sharp") or s.get("team_market"):
+        return
+    p = b365_sharp_p(s["b365_sharp"], s.get("line"), s.get("direction"))
+    if p is None or p <= 0.02:
+        return
+    s["b365_p"] = round(p, 3)
+    s["b365_fair"] = round(1 / p, 2)
+    pf = s.get("p_fin")
+    if pf:
+        s["b365_ok"] = p >= pf - 0.005
+
+
+def fmt_b365_sharp(s) -> str:
+    if not B365_SHARP or not s.get("b365_fair") or s.get("b365_ok") is None:
+        return ""
+    return f" · b365 {s['b365_fair']:.2f} {'👍' if s['b365_ok'] else '👎'}"
+
+
 def attach_extras(match, signals):
     """Zusatzinfos, die nur für Spiele mit Signalen Anfragen kosten:
     - Ecken-Signale: bet365-Hauptlinie mit Quote (Markt 1_4 "Asian Corners")
@@ -3462,10 +3536,18 @@ def attach_extras(match, signals):
                 print(f"  bet365-Katalog {match['home']}–{match['away']}: {exc}")
         except Exception as exc:
             print(f"  bet365-Katalog {match['home']}–{match['away']}: {exc}")
-    if keys & {"corners", "ht_corners"} and not B365_PREMATCH:
+    if keys & ({"corners", "ht_corners"} | ({"goals"} if B365_SHARP else set())) and not B365_PREMATCH:
         try:
             odds = api_get("/v2/event/odds", event_id=match["id"])
             allodds = (odds.get("results") or {}).get("odds") or {}
+            if B365_SHARP:
+                # 12.10.: Schärfe-Referenz (Modelltest Teil 2) für Ecken und Tore
+                for mkey, mk in (("corners", "1_4"), ("goals", "1_3")):
+                    r = _b365_prematch_row(allodds.get(mk))
+                    if r:
+                        for s in signals:
+                            if s["metric_key"] == mkey:
+                                s["b365_sharp"] = (r.get("handicap"), r.get("over_od"), r.get("under_od"))
             for mkey, mk in (("corners", "1_4"), ("ht_corners", "1_7")):
                 rows = allodds.get(mk) or []
                 if rows:
@@ -6550,6 +6632,27 @@ def selftest():
     finally:
         urllib.request.urlopen = _orig
         globals()["_no_wait"], globals()["_budget_exhausted"], globals()["_hour_requests"] = _save
+
+    # --- Fall 29: bet365-Schärfe-Referenz (12.10.)
+    _bp = b365_sharp_p(("2.5", "1.80", "2.00"), 2.5, "über")
+    if _bp is None or abs(_bp - (1 / 1.8) / (1 / 1.8 + 1 / 2.0)) > 1e-3 \
+            or b365_sharp_p(("9.0,9.5", "1.85", "1.95"), 8.5, "über") is not None \
+            or not (b365_sharp_p(("2.5", "1.80", "2.00"), 1.5, "über") > _bp):
+        print("FEHLER Fall 29a: bet365-Umrechnung falsch")
+        ok = False
+    _s = {"line": 2.5, "direction": "über", "p_fin": 0.70, "b365_sharp": ("2.5", "1.80", "2.00")}
+    apply_b365_sharp(_s)
+    if _s.get("b365_ok") is not False or "👎" not in fmt_b365_sharp(_s):
+        print("FEHLER Fall 29b: bet365-Zustimmung falsch:", _s)
+        ok = False
+    _s = {"line": 2.5, "direction": "über", "p_fin": 0.70, "team_market": True, "b365_sharp": ("2.5", "1.80", "2.00")}
+    apply_b365_sharp(_s)
+    if "b365_ok" in _s:
+        print("FEHLER Fall 29c: Team-Märkte dürfen keine bet365-Referenz bekommen")
+        ok = False
+    if _b365_prematch_row([{"ss": "1-0", "time_str": "50"}, {"ss": None, "time_str": None, "handicap": "2.5"}]) != {"ss": None, "time_str": None, "handicap": "2.5"}:
+        print("FEHLER Fall 29d: Live-Zeilen werden nicht übersprungen")
+        ok = False
 
     # --- Fall 28: Kalibrierung je Markt (15.09.)
     # 06.10.: erst Faktor (CALIBRATION), dann lineare Nachkalibrierung (RECAL)
