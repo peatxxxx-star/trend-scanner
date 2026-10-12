@@ -3459,21 +3459,55 @@ def _poisson_over(lam, line):
     return max(0.0, 1.0 - cdf)
 
 
+def _asian_parts(h):
+    """Asiatische Linie in Teil-Linien: '2.5' -> [2.5], '10.0' -> [10.0],
+    '2.75' -> [2.5, 3.0], '2.5,3.0' -> [2.5, 3.0]."""
+    txt = str(h).replace(" ", "")
+    if "," in txt:
+        return [float(x) for x in txt.split(",") if x]
+    v = float(txt)
+    frac = round((v - math.floor(v)) * 4) / 4
+    if frac in (0.25, 0.75):
+        return [v - 0.25, v + 0.25]
+    return [v]
+
+
+def _poisson_pmf(lam, k):
+    if k < 0:
+        return 0.0
+    return math.exp(-lam + k * math.log(lam) - math.lgamma(k + 1))
+
+
 def b365_sharp_p(b, line, direction):
-    """Wahrscheinlichkeit, die bet365 für unsere Linie sieht (None, wenn die
-    Hauptlinie keine x,5-Linie ist oder Quoten fehlen)."""
+    """Wahrscheinlichkeit, die bet365 für unsere Linie sieht. Die bet365-Hauptlinie
+    ist eine asiatische Linie (x,5 / ganzzahlig mit Rückzahlung / Viertel-Linie
+    mit geteiltem Einsatz). Marge proportional raus, dann Poisson-lam so, dass
+    die Über-Wette zur fairen Quote genau +-0 ergibt, dann auf unsere x,5-Linie."""
     try:
-        h, ov, un = float(b[0]), float(b[1]), float(b[2])
+        parts = _asian_parts(b[0])
+        ov, un = float(b[1]), float(b[2])
         line = float(line)
     except (TypeError, ValueError, IndexError):
         return None
-    if ov <= 1.0 or un <= 1.0 or abs((h - math.floor(h)) - 0.5) > 1e-6:
+    if ov <= 1.0 or un <= 1.0 or not parts or len(parts) > 2:
         return None
-    p_over = (1 / ov) / (1 / ov + 1 / un)
+    o_fair = 1.0 / ((1 / ov) / (1 / ov + 1 / un))
+
+    def ev_over(lam):
+        tot = 0.0
+        for L in parts:
+            win = _poisson_over(lam, L) if abs(L - math.floor(L) - 0.5) < 1e-6 \
+                else _poisson_over(lam, L + 0.5)           # ganzzahlig: X > L
+            push = _poisson_pmf(lam, int(round(L))) if abs(L - round(L)) < 1e-6 else 0.0
+            tot += win * o_fair + push
+        return tot / len(parts) - 1.0
+
     lo, hi = 0.05, 40.0
-    for _ in range(60):                      # lam so, dass P(X > h) = p_over
+    if ev_over(lo) > 0 or ev_over(hi) < 0:
+        return None
+    for _ in range(60):
         mid = (lo + hi) / 2
-        if _poisson_over(mid, h) < p_over:
+        if ev_over(mid) < 0:
             lo = mid
         else:
             hi = mid
@@ -6636,7 +6670,8 @@ def selftest():
     # --- Fall 29: bet365-Schärfe-Referenz (12.10.)
     _bp = b365_sharp_p(("2.5", "1.80", "2.00"), 2.5, "über")
     if _bp is None or abs(_bp - (1 / 1.8) / (1 / 1.8 + 1 / 2.0)) > 1e-3 \
-            or b365_sharp_p(("9.0,9.5", "1.85", "1.95"), 8.5, "über") is not None \
+            or b365_sharp_p(("9.0,9.5", "1.85", "1.95"), 8.5, "über") is None \
+            or not (0.55 < (b365_sharp_p(("10.0", "1.975", "1.825"), 8.5, "über") or 0) < 0.85) \
             or not (b365_sharp_p(("2.5", "1.80", "2.00"), 1.5, "über") > _bp):
         print("FEHLER Fall 29a: bet365-Umrechnung falsch")
         ok = False
