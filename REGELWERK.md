@@ -601,3 +601,18 @@ Legs aus den am 11./12.10. geöffneten Quellen werden in wetten.csv in der Notiz
 - „Markt bei scores24 noch nicht da“ (Liga-Gedächtnis, pending)
 - „bet365-Rettung“
 Bei jedem Meilenstein (30/50/80 Scheine) Trefferquote dieser Gruppen gegen die erwartete Quote laut fairer Quote vergleichen. Liegen sie deutlich darunter -> Lucio melden und Nachjustieren vorschlagen.
+
+## 16. Vorabprüfung: Markt- und Favoriten-Faktoren (12.10., ab 13.10. gültig)
+Grundlage: 4.817 Live-Signale 01.09.–12.10. mit Ergebnis, davon 4.221 mit bet365-1X2 (Projekt-Doku modelltest-2026-10-12). Der Scanner bleibt unverändert; die Faktoren wendet Claude bei der Vorabprüfung an.
+Favoriten-Check je Leg (1X2-Quote): klarer Favorit = Favoriten-Quote ≤ 1,60; ausgeglichen = beide Siegquoten zwischen ca. 2,20 und 3,40; sonst mittel.
+Mindestquote = faire Quote × Faktor (statt pauschal 1,05):
+- 1. HZ Karten unter: × 0,92 (real 78 % statt 68 %)
+- Schüsse aufs Tor über: × 0,95 (real 83 % statt 74 %)
+- Ecken über, Tore über, Abseits unter, Karten über, Fouls: × 1,05 (unverändert)
+- Karten unter: klarer Favorit × 1,05 · mittel × 1,05 · ausgeglichen × 1,12
+- Karten über: ausgeglichen × 1,05 · klarer Favorit × 1,10
+- Abseits unter bei klarem Favoriten: × 1,15
+- Ecken unter (Gesamt): × 1,15 (real 72 % statt 79 %)
+- Schüsse aufs Tor unter: × 1,20 (real 71 % statt 81 %)
+- 1. HZ Karten über: weiterhin nicht spielen
+Teamlinien: zu wenig Daten → weiter × 1,05, Hougang-Risiko (Rückstand → Ecken) bei Teamecken unter im Blick behalten.
