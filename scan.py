@@ -171,7 +171,12 @@ GATE_KEEP_ALL = True
 # Mittelweg. (1) Kennt scores24 das Spiel, aber der Markt fehlt -> raus
 # (kein Buchmacher bietet ihn an). (2) Spiel nicht bei scores24 -> bleibt
 # markiert, AUSSER Nebenmärkte (nicht Tore) in Jugend-/Reserve-Wettbewerben.
-GATE_DROP_NO_TAB = True
+GATE_DROP_NO_TAB = False     # 12.10. später (Lucio: "Spiel reicht") -> fehlender Reiter egal
+# 12.10. später (Lucio: "wenn scores24 überhaupt eine Quote für das Spiel findet,
+# egal zu welchem Markt, soll es mit rein — China Division 2 kann man weder
+# Karten noch Ecken"): Spiel muss bei scores24 mit irgendeiner Quote stehen,
+# sonst fliegen die Nebenmärkte raus (Tore laufen wie gehabt ohne Nachweis).
+GATE_REQUIRE_MATCH = True
 UNVERIFIED_YOUTH_DROP = True
 YOUTH_RESERVE_KEYS = ("u16", "u17", "u18", "u19", "u20", "u21", "u22", "u23", "youth",
                       "junior", "reserve", "primavera", " ii", " b)")
@@ -1726,6 +1731,15 @@ def apply_s24_gate(signals, groups):
     Spanne komplett unter MIN_ODDS -> verwerfen.
     Sonst behalten und Quoten-Spanne anhaengen.
     """
+    if GATE_KEEP_ALL and GATE_REQUIRE_MATCH and not groups:
+        # Spiel bei scores24 nicht gefunden / ohne Quoten: nur die vom Nachweis
+        # befreiten Märkte (Tore, Einwürfe, Abstöße) bleiben.
+        out = []
+        for s in signals:
+            if s["metric_key"] in GATE_EXEMPT:
+                s["no_odds_check"] = True
+                out.append(s)
+        return out
     if groups is None:
         # Seite nicht zuordenbar: alles als "scores24 fehlt" markieren.
         # Ecken/HZ-Ecken können noch über die bet365-Linie bestehen
@@ -5559,6 +5573,8 @@ def _run():
             who = [w for w in who if S24_GROUPS.get(w["metric_key"]) in (groups or set())]
         if team and GATE_ENABLED:
             if GATE_KEEP_ALL:
+                if GATE_REQUIRE_MATCH and not groups:
+                    team = []
                 if GATE_DROP_NO_TAB and groups is not None:
                     team = [t for t in team if S24_GROUPS.get(t["metric_key"]) in groups]
                 for t in team:
@@ -7100,10 +7116,20 @@ def selftest():
             or _ka[1].get("unverified") or _ka[1].get("range") != (1.1, 1.25):
         print("FEHLER Fall alles-rein: Reiter fehlt -> drin+markiert, Spanne < 1,30 -> drin mit Spanne:", _ka)
         ok = False
+    global GATE_REQUIRE_MATCH
+    _grm = GATE_REQUIRE_MATCH
+    GATE_REQUIRE_MATCH = False
     _kb = apply_s24_gate([{"metric_key": "fouls"}], None)
     if len(_kb) != 1 or not _kb[0].get("unverified"):
         print("FEHLER Fall alles-rein: Seite nicht zuordenbar -> drin+markiert:", _kb)
         ok = False
+    GATE_REQUIRE_MATCH = True
+    _kd = apply_s24_gate([{"metric_key": "fouls"}, {"metric_key": "goals"}], None)
+    _ke = apply_s24_gate([{"metric_key": "fouls"}], {"corners": (3, 1.5, 1.9)})
+    if [x["metric_key"] for x in _kd] != ["goals"] or len(_ke) != 1 or not _ke[0].get("no_tab"):
+        print("FEHLER Fall Spiel-reicht: ohne Spiel nur Tore, mit Spiel alles (markiert):", _kd, _ke)
+        ok = False
+    GATE_REQUIRE_MATCH = _grm
     GATE_DROP_NO_TAB = True
     _kc = apply_s24_gate([{"metric_key": "fouls"}, {"metric_key": "yellowcards"}],
                          {"cards": (2, 1.5, 1.9)})
