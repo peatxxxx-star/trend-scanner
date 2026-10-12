@@ -166,6 +166,20 @@ MIN_ODDS = 1.30
 # 11.10. später (Lucio): auch Spannen komplett unter MIN_ODDS bleiben drin
 # (Quote steht dabei, Lucio entscheidet). Zurück zum alten Verhalten: False.
 GATE_KEEP_ALL = True
+# 12.10. (Lucio nach Durchsicht: "tatsächlich Quatsch, Ukraine Reserve oder
+# Hongkong U19 kann man natürlich nicht auf Karten und Ecken wetten"):
+# Mittelweg. (1) Kennt scores24 das Spiel, aber der Markt fehlt -> raus
+# (kein Buchmacher bietet ihn an). (2) Spiel nicht bei scores24 -> bleibt
+# markiert, AUSSER Nebenmärkte (nicht Tore) in Jugend-/Reserve-Wettbewerben.
+GATE_DROP_NO_TAB = True
+UNVERIFIED_YOUTH_DROP = True
+YOUTH_RESERVE_KEYS = ("u16", "u17", "u18", "u19", "u20", "u21", "u22", "u23", "youth",
+                      "junior", "reserve", "primavera", " ii", " b)")
+
+
+def youth_or_reserve(match) -> bool:
+    txt = f" {match.get('league', '')} | {match.get('home', '')} | {match.get('away', '')} ".lower()
+    return any(k in txt for k in YOUTH_RESERVE_KEYS)
 S24_BASE = "https://scores24.live/de/soccer"
 S24_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
           "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36")
@@ -1754,7 +1768,7 @@ def apply_s24_gate(signals, groups):
             if B365_AS_PROOF and s["metric_key"] in ("corners", "ht_corners"):
                 s["unchecked"] = True          # zweite Chance: bet365-Linie
                 kept.append(s)
-            elif GATE_KEEP_ALL:
+            elif GATE_KEEP_ALL and not GATE_DROP_NO_TAB:
                 s["unverified"] = True         # kein Reiter bei scores24
                 s["no_tab"] = True
                 kept.append(s)
@@ -5545,10 +5559,14 @@ def _run():
             who = [w for w in who if S24_GROUPS.get(w["metric_key"]) in (groups or set())]
         if team and GATE_ENABLED:
             if GATE_KEEP_ALL:
+                if GATE_DROP_NO_TAB and groups is not None:
+                    team = [t for t in team if S24_GROUPS.get(t["metric_key"]) in groups]
                 for t in team:
                     if S24_GROUPS.get(t["metric_key"]) not in (groups or set()):
                         t["unverified"] = True
                         t["no_tab"] = groups is not None
+                if UNVERIFIED_YOUTH_DROP and youth_or_reserve(match):
+                    team = [t for t in team if not t.get("unverified")]
             else:
                 team = [t for t in team if S24_GROUPS.get(t["metric_key"]) in (groups or set())]
         # 18.09. (Lucio): "bitte nichts pauschal rausnehmen" — Liga-Sperre für
@@ -5570,6 +5588,8 @@ def _run():
                 for s in signals:
                     if not s.get("range") and s["metric_key"] not in GATE_EXEMPT:
                         s["unverified"] = True
+                if UNVERIFIED_YOUTH_DROP and youth_or_reserve(match):
+                    signals = [s for s in signals if not s.get("unverified")]
             elif GATE_ENABLED:
                 unverifiable = [signal_key(match, s) for s in signals
                                 if not s.get("range") and s["metric_key"] not in GATE_EXEMPT]
@@ -7071,6 +7091,9 @@ def selftest():
 
     # --- Fall 11.10.: "alles rein" — ohne Reiter / ohne Seite bleibt das Signal, markiert
     GATE_KEEP_ALL = True
+    global GATE_DROP_NO_TAB
+    _dnt = GATE_DROP_NO_TAB
+    GATE_DROP_NO_TAB = False
     _ka = apply_s24_gate([{"metric_key": "fouls"}, {"metric_key": "corners"}, {"metric_key": "yellowcards"}],
                          {"corners": (3, 1.1, 1.25), "cards": (2, 1.5, 1.9)})
     if [x["metric_key"] for x in _ka] != ["fouls", "corners", "yellowcards"] or not _ka[0].get("unverified") \
@@ -7081,6 +7104,18 @@ def selftest():
     if len(_kb) != 1 or not _kb[0].get("unverified"):
         print("FEHLER Fall alles-rein: Seite nicht zuordenbar -> drin+markiert:", _kb)
         ok = False
+    GATE_DROP_NO_TAB = True
+    _kc = apply_s24_gate([{"metric_key": "fouls"}, {"metric_key": "yellowcards"}],
+                         {"cards": (2, 1.5, 1.9)})
+    if [x["metric_key"] for x in _kc] != ["yellowcards"]:
+        print("FEHLER Fall Mittelweg: Markt fehlt bei scores24 -> raus:", _kc)
+        ok = False
+    if not youth_or_reserve({"league": "Hong Kong U22 League", "home": "A", "away": "B"}) or \
+            not youth_or_reserve({"league": "Ukraine Reserve League", "home": "A", "away": "B"}) or \
+            youth_or_reserve({"league": "Ukraine Vyscha Liga", "home": "Zorya", "away": "Livyi Bereh"}):
+        print("FEHLER Fall Jugend/Reserve-Erkennung")
+        ok = False
+    GATE_DROP_NO_TAB = _dnt
     GATE_KEEP_ALL = _keep_all
     # --- Fall 11.10.: Reihenfolge Tore -> Ecken -> Karten -> Schüsse -> Abseits -> Rest
     _ord = sorted([{"metric_key": k} for k in ("fouls", "offsides", "team_yellowcards_gast", "on_target",
