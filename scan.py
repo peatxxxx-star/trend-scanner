@@ -1756,6 +1756,7 @@ def apply_s24_gate(signals, groups):
                 kept.append(s)
             elif GATE_KEEP_ALL:
                 s["unverified"] = True         # kein Reiter bei scores24
+                s["no_tab"] = True
                 kept.append(s)
             continue
         count, lo, hi = g
@@ -2463,7 +2464,7 @@ _SNAPSHOT_KEYS = ("metric", "metric_key", "direction", "line", "home_series",
                   "referee", "b365", "expect_ref", "buffer_ref",
                   "sd", "p_emp", "p_mod", "p_fin", "fair_fin", "ladder_fin", "market",
                   "market_src", "ev", "light", "ampel", "reason", "b365_quote", "b365_checked", "b365_near", "b365_lines", "b365_est",
-                  "team_market", "team", "serie", "gegner", "erwartet", "unverified")
+                  "team_market", "team", "serie", "gegner", "erwartet", "unverified", "no_tab")
 
 
 def signal_snapshot(s):
@@ -2652,6 +2653,16 @@ def market_rank(s):
     return len(_MARKET_ORDER)
 
 
+def unverified_note(s):
+    """12.10.: zwei Arten getrennt anzeigen, damit Lucio beim Nachschauen
+    sieht, welche Gruppe bei BetLabel tatsächlich zu finden ist."""
+    if not s.get("unverified"):
+        return ""
+    if s.get("no_tab"):
+        return " · ⚠️ <i>Markt fehlt bei scores24</i>"
+    return " · ⚠️ <i>Spiel nicht bei scores24</i>"
+
+
 def build_match_block(match, entries):
     """Ein Spiel mit allen Signalen (jedes mit Status-Symbol) — für
     Handy-Lesbarkeit kurze Zeilen, Wichtiges fett, jede Info auf eigener
@@ -2679,7 +2690,7 @@ def build_match_block(match, entries):
             fair = s.get("fair_fin") or s.get("fair")
             lines.append(f"✅ <b>{esc(s['metric'])} {s['direction']} {s['line']}</b>{new_tag}"
                          + (f" · Fair {fair:.2f}" if fair else "")
-                         + (" · ⚠️ <i>Markt ungeprüft</i>" if s.get("unverified") else ""))
+                         + unverified_note(s))
             sr = s.get("serie") or {}
             det = [f"{esc(s.get('team', ''))} {fmt_series(sr, True)}"] if sr else []
             if s.get("erwartet") is not None:
@@ -2706,7 +2717,7 @@ def build_match_block(match, entries):
                 lines.append(head + f" — <i>{esc(s.get('reason', ''))}</i>")
                 continue
             fair = s.get("fair_fin") or s.get("fair")
-            check = (" · ⚠️ <i>Markt ungeprüft</i>" if s.get("unverified")
+            check = (unverified_note(s) if s.get("unverified")
                      else " · <i>Quote selbst prüfen</i>" if s.get("no_odds_check") else "")
             lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + fmt_b365(s) + check
                          + buffer_evidence(s, short=True))
@@ -5079,7 +5090,7 @@ def team_to_signal(t):
             "gegner": t.get("gegner"), "erwartet": t.get("erwartet"),
             "fair": t["fair"], "fair_fin": t["fair"], "p_fin": t["p"],
             "p_emp": t.get("p_emp"), "p_mod": t.get("p_mod"), "light": "🟢",
-            "unverified": bool(t.get("unverified"))}
+            "unverified": bool(t.get("unverified")), "no_tab": bool(t.get("no_tab"))}
 
 
 def team_signals(match, hist_home, hist_away):
@@ -5537,6 +5548,7 @@ def _run():
                 for t in team:
                     if S24_GROUPS.get(t["metric_key"]) not in (groups or set()):
                         t["unverified"] = True
+                        t["no_tab"] = groups is not None
             else:
                 team = [t for t in team if S24_GROUPS.get(t["metric_key"]) in (groups or set())]
         # 18.09. (Lucio): "bitte nichts pauschal rausnehmen" — Liga-Sperre für
