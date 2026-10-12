@@ -1,0 +1,1987 @@
+{
+ "run_utc": "2026-10-12T19:14:07+00:00",
+ "matches_checked": 38,
+ "requests": 23,
+ "hits": [
+  {
+   "match": {
+    "id": "11257812",
+    "league": "Chile Liga de Primera",
+    "league_id": "39728",
+    "home": "Universidad de Chile",
+    "away": "Nublense",
+    "home_id": "44140",
+    "away_id": "1247",
+    "kickoff": "Mo 22:00",
+    "kickoff_ts": 1791835200,
+    "bet365_id": "200933479"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      46,
+      48
+     ],
+     "next_line": 3.5,
+     "next_note": "Universidad de Chile 5/7 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; Nublense 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.7643250658806165,
+      0.8681296100801841
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       1.5,
+       1.2
+      ],
+      [
+       2.5,
+       1.29
+      ]
+     ],
+     "avg": [
+      5.0,
+      4.4
+     ],
+     "expect_sum": 4.7,
+     "expect_matchup": 6.0,
+     "contrib": [
+      2.2,
+      3.8
+     ],
+     "expect": 5.4,
+     "buffer": 2.9,
+     "fa": [
+      [
+       2.1,
+       2.5
+      ],
+      [
+       2.8,
+       2.4
+      ]
+     ],
+     "sd": 2.01,
+     "p_emp": {
+      "1.5": 0.8333333333333334,
+      "2.5": 0.7751937984496123
+     },
+     "range": [
+      1.34,
+      1.7
+     ],
+     "fav": "klar",
+     "referee": "Cristian Garay: Ø 4.4 Karten (38 Sp.) · Ø 21.8 Fouls (26 Sp.)",
+     "expect_ref": 6.1,
+     "buffer_ref": 3.6,
+     "p_mod": 0.963,
+     "p_fin": 0.855,
+     "kal": 0.95,
+     "fair_fin": 1.17,
+     "ladder_fin": [
+      [
+       1.5,
+       1.12
+      ],
+      [
+       2.5,
+       1.17
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 78 % vs. Modell 96 %",
+     "light": "🟢",
+     "first_run": "Mo 09:08",
+     "change_note": "Quoten jetzt da, vorher keine"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      46,
+      48
+     ],
+     "next_line": 5.5,
+     "next_note": "Universidad de Chile 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Nublense 4/6 (3. Lücke) gesamt, 10/12 (3. Lücke) auswärts",
+     "longterm": [
+      0.7836977087279223,
+      0.8256503519461355
+     ],
+     "fair": 1.21,
+     "ladder": [
+      [
+       6.5,
+       1.21
+      ],
+      [
+       7.5,
+       1.27
+      ]
+     ],
+     "avg": [
+      5.0,
+      4.4
+     ],
+     "expect_sum": 4.7,
+     "expect_matchup": 6.0,
+     "contrib": [
+      2.2,
+      3.8
+     ],
+     "expect": 5.4,
+     "buffer": 1.1,
+     "fa": [
+      [
+       2.1,
+       2.5
+      ],
+      [
+       2.8,
+       2.4
+      ]
+     ],
+     "sd": 2.01,
+     "p_emp": {
+      "6.5": 0.8264462809917356,
+      "7.5": 0.7874015748031495
+     },
+     "range": [
+      1.34,
+      1.7
+     ],
+     "fav": "klar",
+     "referee": "Cristian Garay: Ø 4.4 Karten (38 Sp.) · Ø 21.8 Fouls (26 Sp.)",
+     "expect_ref": 6.1,
+     "buffer_ref": 0.4,
+     "p_mod": 0.579,
+     "p_fin": 0.754,
+     "kal": 1.02,
+     "fair_fin": 1.33,
+     "ladder_fin": [
+      [
+       6.5,
+       1.33
+      ],
+      [
+       7.5,
+       1.24
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 83 % vs. Modell 58 %",
+     "light": "🟢",
+     "first_run": "Mo 09:08",
+     "change_note": "Quoten jetzt da, vorher keine"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      45,
+      48
+     ],
+     "next_line": 1.5,
+     "next_note": "Nublense 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8624759774294957,
+      0.8107144796371948
+     ],
+     "fair": 1.26,
+     "ladder": [
+      [
+       0.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      1.9,
+      1.3
+     ],
+     "expect_sum": 1.6,
+     "expect_matchup": 2.0,
+     "contrib": [
+      0.5,
+      1.5
+     ],
+     "expect": 1.8,
+     "buffer": 1.3,
+     "fa": [
+      [
+       0.8,
+       1.1
+      ],
+      [
+       1.0,
+       0.8
+      ]
+     ],
+     "sd": 1.21,
+     "p_emp": {
+      "0.5": 0.7936507936507936
+     },
+     "range": [
+      1.34,
+      1.7
+     ],
+     "referee": "Cristian Garay: Ø 4.4 Karten (38 Sp.) · Ø 21.8 Fouls (26 Sp.)",
+     "expect_ref": 5.4,
+     "buffer_ref": 4.9,
+     "p_mod": 1.0,
+     "p_fin": 0.847,
+     "kal": 0.97,
+     "fair_fin": 1.18,
+     "ladder_fin": [
+      [
+       0.5,
+       1.18
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 79 % vs. Modell 100 %",
+     "light": "🟢",
+     "first_run": "Mo 09:08",
+     "change_note": "Quoten jetzt da, vorher keine"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13255540",
+    "league": "Paraguay Division Profesional",
+    "league_id": "257",
+    "home": "2 de Mayo",
+    "away": "Sportivo Ameliano",
+    "home_id": "201221",
+    "away_id": "292861",
+    "kickoff": "Mo 22:00",
+    "kickoff_ts": 1791835200,
+    "bet365_id": "201659632"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      50
+     ],
+     "next_line": 8.5,
+     "next_note": "2 de Mayo 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Sportivo Ameliano 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.5791278234649863,
+      0.7361224412992836
+     ],
+     "fair": 1.5,
+     "ladder": [
+      [
+       6.5,
+       1.43
+      ],
+      [
+       7.5,
+       1.5
+      ]
+     ],
+     "avg": [
+      8.7,
+      10.8
+     ],
+     "expect_sum": 9.8,
+     "expect_matchup": 10.3,
+     "contrib": [
+      6.5,
+      3.9
+     ],
+     "expect": 10.1,
+     "buffer": 2.6,
+     "fa": [
+      [
+       4.0,
+       4.4
+      ],
+      [
+       4.3,
+       4.8
+      ]
+     ],
+     "sd": 3.65,
+     "p_emp": {
+      "6.5": 0.6993006993006994,
+      "7.5": 0.6666666666666666
+     },
+     "b365_proof": true,
+     "b365": [
+      "8.5",
+      "1.850",
+      "1.950"
+     ],
+     "p_mod": 0.762,
+     "p_fin": 0.702,
+     "kal": 0.95,
+     "fair_fin": 1.42,
+     "ladder_fin": [
+      [
+       6.5,
+       1.36
+      ],
+      [
+       7.5,
+       1.42
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.42",
+     "light": "🟢",
+     "first_run": "Mo 06:14",
+     "change_note": "Quoten vorher 1.30, jetzt nicht prüfbar"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11419934",
+    "league": "Canada Premier League",
+    "league_id": "15849",
+    "home": "HFX Wanderers",
+    "away": "Cavalry FC",
+    "home_id": "848347",
+    "away_id": "165886",
+    "kickoff": "Mo 22:00",
+    "kickoff_ts": 1791835200,
+    "bet365_id": "201642175"
+   },
+   "signals": [
+    {
+     "metric": "Cavalry FC: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 6.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Cavalry FC",
+     "serie": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "gegner": 8,
+     "erwartet": 5.1,
+     "fair": 1.34,
+     "fair_fin": 1.34,
+     "p_fin": 0.7477,
+     "p_emp": 0.772,
+     "p_mod": 0.689,
+     "light": "🟢",
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "first_run": "Mo 09:08"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13096785",
+    "league": "Colombia Primera B",
+    "league_id": "255",
+    "home": "Orsomarso",
+    "away": "Boca Juniors De Cali",
+    "home_id": "6449",
+    "away_id": "291420",
+    "kickoff": "Mo 22:30",
+    "kickoff_ts": 1791837000,
+    "bet365_id": "202523229"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      44,
+      45
+     ],
+     "next_line": 8.5,
+     "next_note": "kein Anker — Orsomarso 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Boca Juniors De Cali 8/10 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.7201095773979278,
+      0.7792224559851778
+     ],
+     "fair": 1.38,
+     "ladder": [
+      [
+       6.5,
+       1.41
+      ],
+      [
+       7.5,
+       1.38
+      ]
+     ],
+     "avg": [
+      9.7,
+      9.1
+     ],
+     "expect_sum": 9.4,
+     "expect_matchup": 10.6,
+     "contrib": [
+      8.5,
+      2.1
+     ],
+     "expect": 10.0,
+     "buffer": 2.5,
+     "fa": [
+      [
+       4.8,
+       4.3
+      ],
+      [
+       3.7,
+       5.7
+      ]
+     ],
+     "sd": 3.25,
+     "p_emp": {
+      "6.5": 0.7092198581560284,
+      "7.5": 0.7246376811594204
+     },
+     "b365_proof": true,
+     "b365": [
+      "9.0",
+      "1.975",
+      "1.825"
+     ],
+     "p_mod": 0.779,
+     "p_fin": 0.724,
+     "kal": 0.95,
+     "fair_fin": 1.38,
+     "ladder_fin": [
+      [
+       6.5,
+       1.35
+      ],
+      [
+       7.5,
+       1.38
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.38",
+     "light": "🟢",
+     "first_run": "Mo 06:14",
+     "change_note": "Quoten vorher 1.36–1.91, jetzt nicht prüfbar"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13246104",
+    "league": "Bolivia Primera Division",
+    "league_id": "40083",
+    "home": "Always Ready",
+    "away": "Independiente Petrolero",
+    "home_id": "63742",
+    "away_id": "234776",
+    "kickoff": "Mo 23:15",
+    "kickoff_ts": 1791839700,
+    "bet365_id": "201641678"
+   },
+   "signals": [
+    {
+     "metric": "Independiente Petrolero: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 5.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Independiente Petrolero",
+     "serie": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "gegner": 6,
+     "erwartet": 3.6,
+     "fair": 1.3,
+     "fair_fin": 1.3,
+     "p_fin": 0.7708,
+     "p_emp": 0.741,
+     "p_mod": 0.809,
+     "light": "🟢",
+     "unverified": false,
+     "no_tab": false,
+     "pending": false,
+     "first_run": "Mo 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13284260",
+    "league": "Baller League UK - 30 mins play",
+    "league_id": "39997",
+    "home": "Prime FC (VI)",
+    "away": "Clutch FC (VI)",
+    "home_id": "1259319",
+    "away_id": "1207942",
+    "kickoff": "Mo 23:15",
+    "kickoff_ts": 1791839700,
+    "bet365_id": "202633624"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      13,
+      22
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — Prime FC (VI) 12/13 gesamt, 4 in Folge heim; Clutch FC (VI) 20/22 gesamt, 11/12 (Aussetzer in den letzten 2) auswärts",
+     "longterm": [
+      0.9214892833246653,
+      1.0
+     ],
+     "fair": 1.23,
+     "ladder": [
+      [
+       1.5,
+       1.12
+      ],
+      [
+       2.5,
+       1.23
+      ]
+     ],
+     "avg": [
+      7.4,
+      7.3
+     ],
+     "expect_sum": 7.3,
+     "expect_matchup": 17.7,
+     "contrib": [
+      13.5,
+      4.2
+     ],
+     "expect": 12.5,
+     "buffer": 10.0,
+     "fa": [
+      [
+       5.0,
+       2.7
+      ],
+      [
+       3.5,
+       4.2
+      ]
+     ],
+     "sd": 3.13,
+     "p_emp": {
+      "1.5": 0.8928571428571428,
+      "2.5": 0.8130081300813008
+     },
+     "no_odds_check": true,
+     "p_mod": 0.999,
+     "p_fin": 0.848,
+     "kal": 0.94,
+     "fair_fin": 1.18,
+     "ladder_fin": [
+      [
+       1.5,
+       1.14
+      ],
+      [
+       2.5,
+       1.18
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 81 % vs. Modell 100 %",
+     "light": "🟢",
+     "first_run": "Mo 13:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12322431",
+    "league": "Argentina Liga Profesional",
+    "league_id": "26549",
+    "home": "Gimnasia Mendoza",
+    "away": "Newell's",
+    "home_id": "44181",
+    "away_id": "1063",
+    "kickoff": "Mo 23:30",
+    "kickoff_ts": 1791840600,
+    "bet365_id": "201592056"
+   },
+   "signals": [
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 20.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      13,
+      26
+     ],
+     "next_line": 22.5,
+     "next_note": "Gimnasia Mendoza 2/4 (3. Lücke) gesamt, 0/2 (3. Lücke) heim",
+     "longterm": [
+      0.7760445918727906,
+      0.7539692007467921
+     ],
+     "fair": 1.39,
+     "ladder": [
+      [
+       18.5,
+       1.18
+      ],
+      [
+       20.5,
+       1.39
+      ]
+     ],
+     "avg": [
+      19.0,
+      25.2
+     ],
+     "expect_sum": 22.1,
+     "expect_matchup": 19.9,
+     "contrib": [
+      8.9,
+      11.0
+     ],
+     "expect": 21.0,
+     "buffer": 0.5,
+     "fa": [
+      [
+       11.8,
+       10.9
+      ],
+      [
+       11.3,
+       11.5
+      ]
+     ],
+     "sd": 5.32,
+     "p_emp": {
+      "18.5": 0.8474576271186441,
+      "20.5": 0.7194244604316548
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "referee": "Juan Cruz Robledo: Ø 4.0 Karten (1 Sp.)",
+     "p_mod": 0.537,
+     "p_fin": 0.679,
+     "kal": null,
+     "fair_fin": 1.47,
+     "ladder_fin": [
+      [
+       18.5,
+       1.28
+      ],
+      [
+       20.5,
+       1.47
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "68 % knapp; Historie 72 % vs. Modell 54 %",
+     "light": "🟢",
+     "first_run": "Mo 09:08"
+    },
+    {
+     "metric": "Newell's: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 4.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Newell's",
+     "serie": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "gegner": 5,
+     "erwartet": 3.8,
+     "fair": 1.45,
+     "fair_fin": 1.45,
+     "p_fin": 0.6877,
+     "p_emp": 0.616,
+     "p_mod": 0.615,
+     "light": "🟢",
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "first_run": "Mo 09:08"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13279396",
+    "league": "Paraguay Reserve League",
+    "league_id": "83",
+    "home": "2 de Mayo Reserves",
+    "away": "Sportivo Ameliano Reserves",
+    "home_id": "1026620",
+    "away_id": "663074",
+    "kickoff": "Di 00:30",
+    "kickoff_ts": 1791844200,
+    "bet365_id": "202592852"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      48
+     ],
+     "next_line": 8.5,
+     "next_note": "2 de Mayo Reserves 2/4 (3. Lücke) gesamt, 8/10 (3. Lücke) heim",
+     "longterm": [
+      0.7408599642640368,
+      0.7939973554679274
+     ],
+     "fair": 1.35,
+     "ladder": [
+      [
+       6.5,
+       1.29
+      ],
+      [
+       7.5,
+       1.35
+      ]
+     ],
+     "avg": [
+      9.7,
+      10.4
+     ],
+     "expect_sum": 10.0,
+     "expect_matchup": 10.9,
+     "contrib": [
+      3.7,
+      7.3
+     ],
+     "expect": 10.5,
+     "buffer": 3.0,
+     "fa": [
+      [
+       3.3,
+       5.4
+      ],
+      [
+       5.1,
+       5.0
+      ]
+     ],
+     "sd": 3.07,
+     "p_emp": {
+      "6.5": 0.7751937984496123,
+      "7.5": 0.7407407407407407
+     },
+     "range": [
+      1.35,
+      1.35
+     ],
+     "p_mod": 0.836,
+     "p_fin": 0.745,
+     "kal": 0.95,
+     "fair_fin": 1.34,
+     "ladder_fin": [
+      [
+       6.5,
+       1.29
+      ],
+      [
+       7.5,
+       1.34
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.34",
+     "light": "🟢",
+     "first_run": "Mo 20:05"
+    },
+    {
+     "metric": "2 de Mayo Reserves: Ecken",
+     "metric_key": "team_corners_heim",
+     "line": 6.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "2 de Mayo Reserves",
+     "serie": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "gegner": 6,
+     "erwartet": 3.3,
+     "fair": 1.19,
+     "fair_fin": 1.19,
+     "p_fin": 0.8386,
+     "p_emp": 0.85,
+     "p_mod": 0.96,
+     "light": "🟢",
+     "unverified": false,
+     "no_tab": false,
+     "pending": false,
+     "first_run": "Mo 20:05"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11323618",
+    "league": "Brazil Serie A",
+    "league_id": "155",
+    "home": "Chapecoense",
+    "away": "Athletico Paranaense",
+    "home_id": "1338",
+    "away_id": "266701",
+    "kickoff": "Di 00:30",
+    "kickoff_ts": 1791844200,
+    "bet365_id": "201641708"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      46,
+      47
+     ],
+     "next_line": 8.5,
+     "next_note": "Chapecoense 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.7716637772178832,
+      0.8141885346707728
+     ],
+     "fair": 1.32,
+     "ladder": [
+      [
+       6.5,
+       1.35
+      ],
+      [
+       7.5,
+       1.32
+      ]
+     ],
+     "avg": [
+      9.8,
+      10.2
+     ],
+     "expect_sum": 10.0,
+     "expect_matchup": 11.1,
+     "contrib": [
+      7.8,
+      3.3
+     ],
+     "expect": 10.6,
+     "buffer": 3.1,
+     "fa": [
+      [
+       4.8,
+       5.7
+      ],
+      [
+       5.2,
+       5.0
+      ]
+     ],
+     "sd": 3.12,
+     "p_emp": {
+      "6.5": 0.7407407407407407,
+      "7.5": 0.7575757575757576
+     },
+     "b365_proof": true,
+     "b365": [
+      "10.0",
+      "1.925",
+      "1.875"
+     ],
+     "p_mod": 0.84,
+     "p_fin": 0.751,
+     "kal": 0.95,
+     "fair_fin": 1.33,
+     "ladder_fin": [
+      [
+       6.5,
+       1.31
+      ],
+      [
+       7.5,
+       1.33
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.33",
+     "light": "🟢",
+     "first_run": "Mo 20:05"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11709164",
+    "league": "Brazil Serie B",
+    "league_id": "328",
+    "home": "Criciuma",
+    "away": "America MG",
+    "home_id": "3164",
+    "away_id": "1420",
+    "kickoff": "Di 00:30",
+    "kickoff_ts": 1791844200,
+    "bet365_id": "202029424"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 8.5,
+     "next_note": "Criciuma 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+     "longterm": [
+      0.7735678909840515,
+      0.8672103179565751
+     ],
+     "fair": 1.28,
+     "ladder": [
+      [
+       6.5,
+       1.28
+      ],
+      [
+       7.5,
+       1.28
+      ]
+     ],
+     "avg": [
+      10.9,
+      10.7
+     ],
+     "expect_sum": 10.8,
+     "expect_matchup": 13.0,
+     "contrib": [
+      9.4,
+      3.6
+     ],
+     "expect": 11.9,
+     "buffer": 4.4,
+     "fa": [
+      [
+       6.8,
+       4.4
+      ],
+      [
+       5.4,
+       4.5
+      ]
+     ],
+     "sd": 3.47,
+     "p_emp": {
+      "6.5": 0.78125,
+      "7.5": 0.78125
+     },
+     "b365_proof": true,
+     "b365": [
+      "11.0",
+      "2.000",
+      "1.800"
+     ],
+     "p_mod": 0.898,
+     "p_fin": 0.774,
+     "kal": 0.95,
+     "fair_fin": 1.29,
+     "ladder_fin": [
+      [
+       6.5,
+       1.27
+      ],
+      [
+       7.5,
+       1.29
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.29",
+     "light": "🟢",
+     "first_run": "Mo 20:05"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11390161",
+    "league": "Brazil Serie A",
+    "league_id": "155",
+    "home": "Bragantino",
+    "away": "Cruzeiro",
+    "home_id": "3165",
+    "away_id": "577",
+    "kickoff": "Di 02:00",
+    "kickoff_ts": 1791849600,
+    "bet365_id": "201641725"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      48,
+      47
+     ],
+     "next_line": 9.5,
+     "next_note": "Bragantino 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+     "longterm": [
+      0.7310846089660691,
+      0.6300054972245251
+     ],
+     "fair": 1.55,
+     "ladder": [
+      [
+       7.5,
+       1.42
+      ],
+      [
+       8.5,
+       1.55
+      ]
+     ],
+     "avg": [
+      11.0,
+      10.8
+     ],
+     "expect_sum": 10.9,
+     "expect_matchup": 13.6,
+     "contrib": [
+      10.0,
+      3.6
+     ],
+     "expect": 12.2,
+     "buffer": 3.7,
+     "fa": [
+      [
+       6.3,
+       4.8
+      ],
+      [
+       5.3,
+       4.5
+      ]
+     ],
+     "sd": 3.98,
+     "p_emp": {
+      "7.5": 0.7042253521126761,
+      "8.5": 0.6451612903225806
+     },
+     "b365_proof": true,
+     "b365": [
+      "10.5",
+      "2.000",
+      "1.800"
+     ],
+     "p_mod": 0.824,
+     "p_fin": 0.714,
+     "kal": 0.95,
+     "fair_fin": 1.4,
+     "ladder_fin": [
+      [
+       7.5,
+       1.34
+      ],
+      [
+       8.5,
+       1.4
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 65 % vs. Modell 82 %",
+     "light": "🟢",
+     "first_run": "Mo 20:05"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12332338",
+    "league": "Costa Rica Segunda",
+    "league_id": "447",
+    "home": "Pitbulls Santa Barbara",
+    "away": "FC Aserri",
+    "home_id": "1176257",
+    "away_id": "177738",
+    "kickoff": "Di 03:00",
+    "kickoff_ts": 1791853200,
+    "bet365_id": "202597650"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      38,
+      42
+     ],
+     "next_line": 8.5,
+     "next_note": "kein Anker — Pitbulls Santa Barbara 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; FC Aserri 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.8055481542773143,
+      0.8997981474325822
+     ],
+     "fair": 1.26,
+     "ladder": [
+      [
+       6.5,
+       1.29
+      ],
+      [
+       7.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      9.1,
+      11.3
+     ],
+     "expect_sum": 10.2,
+     "expect_matchup": 11.0,
+     "contrib": [
+      5.7,
+      5.3
+     ],
+     "expect": 10.6,
+     "buffer": 3.1,
+     "fa": [
+      [
+       4.9,
+       5.9
+      ],
+      [
+       5.1,
+       6.8
+      ]
+     ],
+     "sd": 3.76,
+     "p_emp": {
+      "6.5": 0.7751937984496123,
+      "7.5": 0.7936507936507936
+     },
+     "b365_proof": true,
+     "b365": [
+      "10.5",
+      "1.800",
+      "2.000"
+     ],
+     "p_mod": 0.795,
+     "p_fin": 0.748,
+     "kal": 0.95,
+     "fair_fin": 1.34,
+     "ladder_fin": [
+      [
+       6.5,
+       1.31
+      ],
+      [
+       7.5,
+       1.34
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.34",
+     "light": "🟢",
+     "first_run": "Mo 20:05"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "results": 4,
+  "doublechance": 9,
+  "totals": 10,
+  "handicaps": 3,
+  "corners": 4,
+  "btts": 3,
+  "correctscore": 2,
+  "cards": 2
+ },
+ "dauer_s": 46,
+ "zeit": {
+  "historie": 0,
+  "pruefung": 0,
+  "scores24": 331,
+  "extras": 6,
+  "vorlauf": 9,
+  "spiele": 36
+ },
+ "teams_nachgeladen": 0,
+ "s24": {
+  "ok": 10,
+  "no_link": 15,
+  "fetch_fail": 5,
+  "err_keine_trends": 48
+ },
+ "b365_rettung": {
+  "karten_katalog_nicht_im_paket": 1,
+  "corners": 6
+ },
+ "s24_namen_diag": [
+  {
+   "spiel": "2 de Mayo – Sportivo Ameliano",
+   "liga": "Paraguay Division Profesional",
+   "anstoss": "Mo 22:00",
+   "slug": "12-10-2026-2-de-mayo-sportivo-ameliano",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Orsomarso – Boca Juniors De Cali",
+   "liga": "Colombia Primera B",
+   "anstoss": "Mo 22:30",
+   "slug": "12-10-2026-orsomarso-boca-juniors-de-cali",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Sportivo Luqueno Reserves – Cerro Porteno Reserves",
+   "liga": "Paraguay Reserve League",
+   "anstoss": "Mo 21:30",
+   "slug": "13-10-2026-villa-san-carlos-reserves-uai-urquiza-reserves",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Sportivo Luqueno Reserves – Cerro Porteno Reserves",
+   "liga": "Paraguay Reserve League",
+   "anstoss": "Mo 21:30",
+   "slug": "13-10-2026-quilmes-reserves-newell-s-reserves",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Bragantino – Cruzeiro",
+   "liga": "Brazil Serie A",
+   "anstoss": "Di 02:00",
+   "slug": "13-10-2026-bragantino-cruzeiro",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Orsomarso – Boca Juniors De Cali",
+   "liga": "Colombia Primera B",
+   "anstoss": "Mo 22:30",
+   "slug": "11-10-2026-orsomarso-boca-juniors-de-cali",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Don Orione – San Martin Margarita Belen",
+   "liga": "Argentina Regional League",
+   "anstoss": "Mo 22:00",
+   "slug": "12-10-2026-don-orione-san-martin-margarita-belen",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "CD Platense Reserves – Juticalpa Reserves",
+   "liga": "Honduras Reserve League",
+   "anstoss": "Mo 23:00",
+   "slug": "13-10-2026-instituto-ac-cordoba-ii-river-plate-reserves",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Chapecoense – Athletico Paranaense",
+   "liga": "Brazil Serie A",
+   "anstoss": "Di 00:30",
+   "slug": "13-10-2026-chapecoense-athletico-paranaense",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Bragantino – Cruzeiro",
+   "liga": "Brazil Serie A",
+   "anstoss": "Di 02:00",
+   "slug": "12-10-2026-bragantino-cruzeiro",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Don Orione – San Martin Margarita Belen",
+   "liga": "Argentina Regional League",
+   "anstoss": "Mo 22:00",
+   "slug": "11-10-2026-don-orione-san-martin-margarita-belen",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Ryntih SC – Mawtawar SC",
+   "liga": "India Shillong 1st Division",
+   "anstoss": "Di 08:30",
+   "slug": "13-10-2026-ryntih-sc-mawtawar-sc",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Ryntih SC – Mawtawar SC",
+   "liga": "India Shillong 1st Division",
+   "anstoss": "Di 08:30",
+   "slug": "12-10-2026-ryntih-sc-mawtawar-sc",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Chapecoense – Athletico Paranaense",
+   "liga": "Brazil Serie A",
+   "anstoss": "Di 00:30",
+   "slug": "12-10-2026-chapecoense-athletico-paranaense",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Ryntih SC – Mawkhar SC",
+   "liga": "India Shillong 1st Division",
+   "anstoss": "Di 08:45",
+   "slug": "13-10-2026-ryntih-sc-mawkhar-sc",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Ryntih SC – Mawkhar SC",
+   "liga": "India Shillong 1st Division",
+   "anstoss": "Di 08:45",
+   "slug": "12-10-2026-ryntih-sc-mawkhar-sc",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Racing de Cordoba – Los Andes",
+   "liga": "Argentina Nacional B",
+   "anstoss": "Mo 22:00",
+   "slug": "12-10-2026-racing-de-cordoba-los-andes",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Pitbulls Santa Barbara – FC Aserri",
+   "liga": "Costa Rica Segunda",
+   "anstoss": "Di 03:00",
+   "slug": "13-10-2026-pitbulls-santa-barbara-fc-aserri",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Racing de Cordoba – Los Andes",
+   "liga": "Argentina Nacional B",
+   "anstoss": "Mo 22:00",
+   "slug": "11-10-2026-racing-de-cordoba-los-andes",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Nacional Asuncion – Deportivo Recoleta",
+   "liga": "Paraguay Division Profesional",
+   "anstoss": "Di 00:20",
+   "slug": "14-10-2026-nacional-cd-recoleta",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Pitbulls Santa Barbara – FC Aserri",
+   "liga": "Costa Rica Segunda",
+   "anstoss": "Di 03:00",
+   "slug": "12-10-2026-pitbulls-santa-barbara-fc-aserri",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Nacional Asuncion – Deportivo Recoleta",
+   "liga": "Paraguay Division Profesional",
+   "anstoss": "Di 00:20",
+   "slug": "13-10-2026-nacional-asuncion-deportivo-recoleta",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Nacional Asuncion – Deportivo Recoleta",
+   "liga": "Paraguay Division Profesional",
+   "anstoss": "Di 00:20",
+   "slug": "12-10-2026-nacional-asuncion-deportivo-recoleta",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Criciuma – America MG",
+   "liga": "Brazil Serie B",
+   "anstoss": "Di 00:30",
+   "slug": "13-10-2026-criciuma-america-mg",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "2 de Mayo – Sportivo Ameliano",
+   "liga": "Paraguay Division Profesional",
+   "anstoss": "Mo 22:00",
+   "slug": "11-10-2026-2-de-mayo-sportivo-ameliano",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Criciuma – America MG",
+   "liga": "Brazil Serie B",
+   "anstoss": "Di 00:30",
+   "slug": "12-10-2026-criciuma-america-mg",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "HUSA Agadir – FAR Rabat",
+   "liga": "Morocco GNF 1",
+   "anstoss": "Mo 22:00",
+   "slug": "12-10-2026-husa-agadir-far-rabat",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "HUSA Agadir – FAR Rabat",
+   "liga": "Morocco GNF 1",
+   "anstoss": "Mo 22:00",
+   "slug": "11-10-2026-husa-agadir-far-rabat",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Gremio Novorizontino – Ponte Preta",
+   "liga": "Brazil Serie B",
+   "anstoss": "Di 00:00",
+   "slug": "13-10-2026-gremio-novorizontino-ponte-preta",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Lobos UPNFM Reserves – CD Marathon Reserves",
+   "liga": "Honduras Reserve League",
+   "anstoss": "Mo 23:00",
+   "slug": "13-10-2026-villa-san-carlos-reserves-uai-urquiza-reserves",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Lobos UPNFM Reserves – CD Marathon Reserves",
+   "liga": "Honduras Reserve League",
+   "anstoss": "Mo 23:00",
+   "slug": "13-10-2026-quilmes-reserves-newell-s-reserves",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Gremio Novorizontino – Ponte Preta",
+   "liga": "Brazil Serie B",
+   "anstoss": "Di 00:00",
+   "slug": "12-10-2026-gremio-novorizontino-ponte-preta",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Ferroviaria (W) – Bragantino (W)",
+   "liga": "Copa do Brazil Women",
+   "anstoss": "Mo 23:00",
+   "slug": "12-10-2026-ferroviaria-sp-women-bragantino-women",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Carlos Manucci – Alianza Universidad",
+   "liga": "Peru Liga 2",
+   "anstoss": "Di 03:00",
+   "slug": "13-10-2026-carlos-mannucci-alianza-universidad-de-hu-nuco",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Lobos UPNFM Reserves – CD Marathon Reserves",
+   "liga": "Honduras Reserve League",
+   "anstoss": "Mo 23:00",
+   "slug": "12-10-2026-lobos-upnfm-reserves-cd-marathon-reserves",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Ferroviaria (W) – Bragantino (W)",
+   "liga": "Copa do Brazil Women",
+   "anstoss": "Mo 23:00",
+   "slug": "12-10-2026-ferroviaria-w-bragantino-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Carlos Manucci – Alianza Universidad",
+   "liga": "Peru Liga 2",
+   "anstoss": "Di 03:00",
+   "slug": "13-10-2026-carlos-manucci-alianza-universidad",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Ferroviaria (W) – Bragantino (W)",
+   "liga": "Copa do Brazil Women",
+   "anstoss": "Mo 23:00",
+   "slug": "11-10-2026-ferroviaria-w-bragantino-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Lobos UPNFM Reserves – CD Marathon Reserves",
+   "liga": "Honduras Reserve League",
+   "anstoss": "Mo 23:00",
+   "slug": "11-10-2026-lobos-upnfm-reserves-cd-marathon-reserves",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Carlos Manucci – Alianza Universidad",
+   "liga": "Peru Liga 2",
+   "anstoss": "Di 03:00",
+   "slug": "12-10-2026-carlos-manucci-alianza-universidad",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "All Boys – Godoy Cruz",
+   "liga": "Argentina Nacional B",
+   "anstoss": "Di 00:00",
+   "slug": "13-10-2026-all-boys-godoy-cruz",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Sportivo Luqueno Reserves – Cerro Porteno Reserves",
+   "liga": "Paraguay Reserve League",
+   "anstoss": "Mo 21:30",
+   "slug": "12-10-2026-sportivo-luqueno-reserves-cerro-porteno-reserves",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "All Boys – Godoy Cruz",
+   "liga": "Argentina Nacional B",
+   "anstoss": "Di 00:00",
+   "slug": "12-10-2026-all-boys-godoy-cruz",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Sportivo Luqueno Reserves – Cerro Porteno Reserves",
+   "liga": "Paraguay Reserve League",
+   "anstoss": "Mo 21:30",
+   "slug": "11-10-2026-sportivo-luqueno-reserves-cerro-porteno-reserves",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Prime FC (VI) – Clutch FC (VI)",
+   "liga": "Baller League UK - 30 mins play",
+   "anstoss": "Mo 23:15",
+   "slug": "12-10-2026-prime-fc-vi-clutch-fc-vi",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Prime FC (VI) – Clutch FC (VI)",
+   "liga": "Baller League UK - 30 mins play",
+   "anstoss": "Mo 23:15",
+   "slug": "11-10-2026-prime-fc-vi-clutch-fc-vi",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Botafogo SP – Ceara",
+   "liga": "Brazil Serie B",
+   "anstoss": "Di 02:00",
+   "slug": "13-10-2026-botafogo-sp-ceara",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Botafogo SP – Ceara",
+   "liga": "Brazil Serie B",
+   "anstoss": "Di 02:00",
+   "slug": "12-10-2026-botafogo-sp-ceara",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  }
+ ],
+ "new": [],
+ "changed": [
+  "11257812|yellowcards|über",
+  "11257812|yellowcards|unter",
+  "11257812|ht_yellowcards|über",
+  "13255540|corners|über",
+  "13096785|corners|über"
+ ],
+ "dropped": [
+  "13175808|yellowcards|über",
+  "13175808|yellowcards|unter",
+  "13175808|offsides|unter",
+  "13255542|yellowcards|unter",
+  "13246087|team_corners_heim|unter",
+  "13246865|yellowcards|unter",
+  "13246865|team_yellowcards_gast|unter",
+  "13255540|yellowcards|unter",
+  "13096785|team_corners_gast|unter"
+ ],
+ "team_totals": [
+  {
+   "match": {
+    "id": "11419934",
+    "league": "Canada Premier League",
+    "league_id": "15849",
+    "home": "HFX Wanderers",
+    "away": "Cavalry FC",
+    "home_id": "848347",
+    "away_id": "165886",
+    "kickoff": "Mo 22:00",
+    "kickoff_ts": 1791835200,
+    "bet365_id": "201642175"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Cavalry FC",
+    "line": 6.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "auswärts",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7477,
+    "fair": 1.34,
+    "p_emp": 0.772,
+    "p_mod": 0.689,
+    "erwartet": 5.1,
+    "basis": 46,
+    "gegner": 8,
+    "unverified": true,
+    "no_tab": true,
+    "pending": true
+   }
+  },
+  {
+   "match": {
+    "id": "13246104",
+    "league": "Bolivia Primera Division",
+    "league_id": "40083",
+    "home": "Always Ready",
+    "away": "Independiente Petrolero",
+    "home_id": "63742",
+    "away_id": "234776",
+    "kickoff": "Mo 23:15",
+    "kickoff_ts": 1791839700,
+    "bet365_id": "201641678"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Independiente Petrolero",
+    "line": 5.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "auswärts",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7708,
+    "fair": 1.3,
+    "p_emp": 0.741,
+    "p_mod": 0.809,
+    "erwartet": 3.6,
+    "basis": 34,
+    "gegner": 6
+   }
+  },
+  {
+   "match": {
+    "id": "12322431",
+    "league": "Argentina Liga Profesional",
+    "league_id": "26549",
+    "home": "Gimnasia Mendoza",
+    "away": "Newell's",
+    "home_id": "44181",
+    "away_id": "1063",
+    "kickoff": "Mo 23:30",
+    "kickoff_ts": 1791840600,
+    "bet365_id": "201592056"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Newell's",
+    "line": 4.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "auswärts",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.6877,
+    "fair": 1.45,
+    "p_emp": 0.616,
+    "p_mod": 0.615,
+    "erwartet": 3.8,
+    "basis": 46,
+    "gegner": 5,
+    "unverified": true,
+    "no_tab": true,
+    "pending": true
+   }
+  },
+  {
+   "match": {
+    "id": "13279396",
+    "league": "Paraguay Reserve League",
+    "league_id": "83",
+    "home": "2 de Mayo Reserves",
+    "away": "Sportivo Ameliano Reserves",
+    "home_id": "1026620",
+    "away_id": "663074",
+    "kickoff": "Di 00:30",
+    "kickoff_ts": 1791844200,
+    "bet365_id": "202592852"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "2 de Mayo Reserves",
+    "line": 6.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.8386,
+    "fair": 1.19,
+    "p_emp": 0.85,
+    "p_mod": 0.96,
+    "erwartet": 3.3,
+    "basis": 48,
+    "gegner": 6
+   }
+  }
+ ],
+ "neue_maerkte": []
+}
