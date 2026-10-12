@@ -2365,31 +2365,6 @@ CALIBRATION = {
 }
 
 
-# 12.10. (Lucio: "ok ... direkt") LIVE-NACHKALIBRIERUNG. Gemessen an 4.817
-# echten Scanner-Signalen 01.09.–12.10. mit Ergebnis (Modelltest, siehe
-# Projekt-Doku modelltest-2026-10-12): versprochen (p_fin) vs. eingetreten.
-#   Ecken unter       78,7 % -> 71,9 %  (n=203)     Ecken über   74,8 -> 77,6 (n=1.067)
-#   Tore über         72,0 % -> 74,4 %  (n=1.071)   Karten unter 81,2 -> 79,0 (n=830)
-#   1. HZ Karten unter 67,8 % -> 78,4 % (n=333)     1. HZ Karten über 82,1 -> 71,8 (n=188)
-#   Schüsse aT unter  80,8 % -> 70,9 %  (n=103)     Schüsse aT über 73,7 -> 83,3 (n=102)
-#   Schüsse gesamt unter 85,9 % -> 43,9 % (n=66)   -> Markt praktisch abgeschaltet
-# Faktor = 1 + w*(real/versprochen - 1), w = n/(n+150): kleine Stichproben
-# werden nur teilweise korrigiert (Rauschen). Wirkt nach CALIBRATION/RECAL,
-# nur auf Gesamtmärkte. Zum Abschalten: LIVE_CAL_ENABLED = False.
-LIVE_CAL_ENABLED = True
-LIVE_CAL = {
-    ("corners", "unter"): 0.951,
-    ("corners", "über"): 1.033,
-    ("goals", "über"): 1.030,
-    ("yellowcards", "unter"): 0.977,
-    ("ht_yellowcards", "unter"): 1.107,
-    ("ht_yellowcards", "über"): 0.930,
-    ("on_target", "unter"): 0.950,
-    ("on_target", "über"): 1.053,
-    ("shots_total", "unter"): 0.55,
-}
-
-
 def calibrate(p, metric, direction):
     """Modell-Wahrscheinlichkeit auf das gemessene Niveau ziehen."""
     f = CALIBRATION.get((metric, direction))
@@ -2397,11 +2372,7 @@ def calibrate(p, metric, direction):
         return p
     if f:
         p = max(0.02, min(0.985, p * f))
-    p = recalibrate(p, metric, direction)
-    lf = LIVE_CAL.get((metric, direction)) if LIVE_CAL_ENABLED else None
-    if lf and p is not None:
-        p = max(0.02, min(0.985, p * lf))
-    return p
+    return recalibrate(p, metric, direction)
 
 
 # 06.10. NACHKALIBRIERUNG (Lucio: "machen wir genauso"). Offline-Backtest der
@@ -2523,10 +2494,6 @@ def assess_signal(s):
     # Die Bewertung bleibt in s["ampel"]/s["reason"] fürs Protokoll erhalten.
     s["ampel"], s["reason"] = light, reason
     s["light"] = light if AMPEL_FILTER else "🟢"
-    try:
-        apply_b365_sharp(s)
-    except Exception:
-        pass
     return s
 
 
@@ -2910,7 +2877,7 @@ def build_match_block(match, entries):
             check = (" · ✓ <i>Markt bei bet365</i>" if s.get("b365_proof")
                      else unverified_note(s) if s.get("unverified")
                      else " · <i>Quote selbst prüfen</i>" if s.get("no_odds_check") else "")
-            lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + fmt_b365_sharp(s) + fmt_b365(s) + check
+            lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + fmt_b365(s) + check
                          + buffer_evidence(s, short=True))
             lines.append(f"   {esc(match['home'])} {fmt_series(s['home_series'], s['home_is_anchor'])}"
                          f" · {esc(match['away'])} {fmt_series(s['away_series'], s['away_is_anchor'])}")
@@ -3430,110 +3397,6 @@ def b365_probe_sichern():
         print(f"  bet365-Probe sichern: {exc}")
 
 
-# 12.10. MODELLTEST TEIL 2 (Lucio: "2 auch direkt"): 685 Ecken-/Tor-Signale
-# mit bet365-Schlussquote (01.09.–12.10.). Aus der bet365-Hauptlinie
-# (Marge raus, Poisson auf unsere Linie umgerechnet) die Wahrscheinlichkeit,
-# die bet365 für UNSERE Linie sieht:
-#   bet365 skeptischer als Scanner:  Ecken über 69 %, Ecken unter 67 %, Tore über 71 % Treffer
-#   bet365 einverstanden:            Ecken über 82 %, Ecken unter 77 %, Tore über 81 % Treffer
-# -> Anzeige "b365 <fair> 👍/👎" in Telegram; reine Zusatzinfo, filtert nichts.
-B365_SHARP = True
-
-
-def _b365_prematch_row(rows):
-    """Jüngste Vor-Spiel-Zeile (ohne Spielstand/Minute) aus /v2/event/odds."""
-    for r in rows or []:
-        if r.get("ss") in (None, "") and r.get("time_str") in (None, ""):
-            return r
-    return None
-
-
-def _poisson_over(lam, line):
-    """P(X > line) für Poisson(lam), line = x,5."""
-    k = int(math.floor(line))
-    term = math.exp(-lam)
-    cdf = term
-    for i in range(1, k + 1):
-        term *= lam / i
-        cdf += term
-    return max(0.0, 1.0 - cdf)
-
-
-def _asian_parts(h):
-    """Asiatische Linie in Teil-Linien: '2.5' -> [2.5], '10.0' -> [10.0],
-    '2.75' -> [2.5, 3.0], '2.5,3.0' -> [2.5, 3.0]."""
-    txt = str(h).replace(" ", "")
-    if "," in txt:
-        return [float(x) for x in txt.split(",") if x]
-    v = float(txt)
-    frac = round((v - math.floor(v)) * 4) / 4
-    if frac in (0.25, 0.75):
-        return [v - 0.25, v + 0.25]
-    return [v]
-
-
-def _poisson_pmf(lam, k):
-    if k < 0:
-        return 0.0
-    return math.exp(-lam + k * math.log(lam) - math.lgamma(k + 1))
-
-
-def b365_sharp_p(b, line, direction):
-    """Wahrscheinlichkeit, die bet365 für unsere Linie sieht. Die bet365-Hauptlinie
-    ist eine asiatische Linie (x,5 / ganzzahlig mit Rückzahlung / Viertel-Linie
-    mit geteiltem Einsatz). Marge proportional raus, dann Poisson-lam so, dass
-    die Über-Wette zur fairen Quote genau +-0 ergibt, dann auf unsere x,5-Linie."""
-    try:
-        parts = _asian_parts(b[0])
-        ov, un = float(b[1]), float(b[2])
-        line = float(line)
-    except (TypeError, ValueError, IndexError):
-        return None
-    if ov <= 1.0 or un <= 1.0 or not parts or len(parts) > 2:
-        return None
-    o_fair = 1.0 / ((1 / ov) / (1 / ov + 1 / un))
-
-    def ev_over(lam):
-        tot = 0.0
-        for L in parts:
-            win = _poisson_over(lam, L) if abs(L - math.floor(L) - 0.5) < 1e-6 \
-                else _poisson_over(lam, L + 0.5)           # ganzzahlig: X > L
-            push = _poisson_pmf(lam, int(round(L))) if abs(L - round(L)) < 1e-6 else 0.0
-            tot += win * o_fair + push
-        return tot / len(parts) - 1.0
-
-    lo, hi = 0.05, 40.0
-    if ev_over(lo) > 0 or ev_over(hi) < 0:
-        return None
-    for _ in range(60):
-        mid = (lo + hi) / 2
-        if ev_over(mid) < 0:
-            lo = mid
-        else:
-            hi = mid
-    po = _poisson_over((lo + hi) / 2, line)
-    return po if direction == "über" else 1.0 - po
-
-
-def apply_b365_sharp(s):
-    if not B365_SHARP or not s.get("b365_sharp") or s.get("team_market"):
-        return
-    p = b365_sharp_p(s["b365_sharp"], s.get("line"), s.get("direction"))
-    if p is None or p <= 0.02:
-        return
-    s["b365_p"] = round(p, 3)
-    s["b365_fair"] = round(1 / p, 2)
-    pf = s.get("p_fin")
-    if pf:
-        s["b365_ok"] = p >= pf - 0.005
-
-
-def fmt_b365_sharp(s) -> str:
-    if not B365_SHARP or not s.get("b365_fair") or s.get("b365_ok") is None:
-        return ""
-    return f" · b365 {s['b365_fair']:.2f} {'👍' if s['b365_ok'] else '👎'}"
-
-
 def attach_extras(match, signals):
     """Zusatzinfos, die nur für Spiele mit Signalen Anfragen kosten:
     - Ecken-Signale: bet365-Hauptlinie mit Quote (Markt 1_4 "Asian Corners")
@@ -3570,18 +3433,10 @@ def attach_extras(match, signals):
                 print(f"  bet365-Katalog {match['home']}–{match['away']}: {exc}")
         except Exception as exc:
             print(f"  bet365-Katalog {match['home']}–{match['away']}: {exc}")
-    if keys & ({"corners", "ht_corners"} | ({"goals"} if B365_SHARP else set())) and not B365_PREMATCH:
+    if keys & {"corners", "ht_corners"} and not B365_PREMATCH:
         try:
             odds = api_get("/v2/event/odds", event_id=match["id"])
             allodds = (odds.get("results") or {}).get("odds") or {}
-            if B365_SHARP:
-                # 12.10.: Schärfe-Referenz (Modelltest Teil 2) für Ecken und Tore
-                for mkey, mk in (("corners", "1_4"), ("goals", "1_3")):
-                    r = _b365_prematch_row(allodds.get(mk))
-                    if r:
-                        for s in signals:
-                            if s["metric_key"] == mkey:
-                                s["b365_sharp"] = (r.get("handicap"), r.get("over_od"), r.get("under_od"))
             for mkey, mk in (("corners", "1_4"), ("ht_corners", "1_7")):
                 rows = allodds.get(mk) or []
                 if rows:
@@ -5746,12 +5601,6 @@ def _run():
         import rundencheck
         rundencheck.run(sys.modules[__name__])
         return
-    # 12.10.: Modelltest Teil 2 — bet365-Quotenverlauf vergangener Spiele
-    # (quotencheck.py), ausgelöst per Push mit "Quotencheck" in der Nachricht.
-    if "Quotencheck" in _msg:
-        import quotencheck
-        quotencheck.run(sys.modules[__name__])
-        return
     if os.environ.get("FORCE") != "1" and not is_prewarm_run():
         seit = letzter_lauf_min()
         if seit is not None and seit < MIN_ABSTAND_MIN:
@@ -6667,42 +6516,13 @@ def selftest():
         urllib.request.urlopen = _orig
         globals()["_no_wait"], globals()["_budget_exhausted"], globals()["_hour_requests"] = _save
 
-    # --- Fall 29: bet365-Schärfe-Referenz (12.10.)
-    _bp = b365_sharp_p(("2.5", "1.80", "2.00"), 2.5, "über")
-    if _bp is None or abs(_bp - (1 / 1.8) / (1 / 1.8 + 1 / 2.0)) > 1e-3 \
-            or b365_sharp_p(("9.0,9.5", "1.85", "1.95"), 8.5, "über") is None \
-            or not (0.55 < (b365_sharp_p(("10.0", "1.975", "1.825"), 8.5, "über") or 0) < 0.85) \
-            or not (b365_sharp_p(("2.5", "1.80", "2.00"), 1.5, "über") > _bp):
-        print("FEHLER Fall 29a: bet365-Umrechnung falsch")
-        ok = False
-    _s = {"line": 2.5, "direction": "über", "p_fin": 0.70, "b365_sharp": ("2.5", "1.80", "2.00")}
-    apply_b365_sharp(_s)
-    if _s.get("b365_ok") is not False or "👎" not in fmt_b365_sharp(_s):
-        print("FEHLER Fall 29b: bet365-Zustimmung falsch:", _s)
-        ok = False
-    _s = {"line": 2.5, "direction": "über", "p_fin": 0.70, "team_market": True, "b365_sharp": ("2.5", "1.80", "2.00")}
-    apply_b365_sharp(_s)
-    if "b365_ok" in _s:
-        print("FEHLER Fall 29c: Team-Märkte dürfen keine bet365-Referenz bekommen")
-        ok = False
-    if _b365_prematch_row([{"ss": "1-0", "time_str": "50"}, {"ss": None, "time_str": None, "handicap": "2.5"}]) != {"ss": None, "time_str": None, "handicap": "2.5"}:
-        print("FEHLER Fall 29d: Live-Zeilen werden nicht übersprungen")
-        ok = False
-
     # --- Fall 28: Kalibrierung je Markt (15.09.)
     # 06.10.: erst Faktor (CALIBRATION), dann lineare Nachkalibrierung (RECAL)
-    # 12.10.: danach Live-Faktor (LIVE_CAL)
-    _lc = lambda m, d: (LIVE_CAL.get((m, d), 1.0) if LIVE_CAL_ENABLED else 1.0)
-    if abs(calibrate(0.80, "corners", "über") - (0.290 + 0.607 * 0.76) * _lc("corners", "über")) > 1e-9:
+    if abs(calibrate(0.80, "corners", "über") - (0.290 + 0.607 * 0.76)) > 1e-9:
         print("FEHLER Fall 28a: Ecken-Kalibrierung greift nicht:", calibrate(0.80, "corners", "über"))
         ok = False
-    if abs(calibrate(0.80, "yellowcards", "unter") - (0.246 + 0.709 * 0.816) * _lc("yellowcards", "unter")) > 1e-9:
+    if abs(calibrate(0.80, "yellowcards", "unter") - (0.246 + 0.709 * 0.816)) > 1e-9:
         print("FEHLER Fall 28b: Karten-unter-Kalibrierung greift nicht")
-        ok = False
-    # Live-Faktor: 1. HZ Karten unter wird angehoben, über abgesenkt
-    if not (calibrate(0.70, "ht_yellowcards", "unter") > 0.70
-            and calibrate(0.80, "ht_yellowcards", "über") < calibrate(0.80, "ht_yellowcards", "über") / _lc("ht_yellowcards", "über") - 1e-9):
-        print("FEHLER Fall 28g: Live-Kalibrierung 1. HZ Karten falsch")
         ok = False
     # Nachkalibrierung: hohe Werte runter, niedrige rauf, Reihenfolge bleibt
     _r = [calibrate(x, "yellowcards", "unter") for x in (0.6, 0.8, 0.95)]
