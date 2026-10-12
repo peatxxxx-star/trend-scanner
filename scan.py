@@ -171,7 +171,7 @@ GATE_KEEP_ALL = True
 # Mittelweg. (1) Kennt scores24 das Spiel, aber der Markt fehlt -> raus
 # (kein Buchmacher bietet ihn an). (2) Spiel nicht bei scores24 -> bleibt
 # markiert, AUSSER Nebenmärkte (nicht Tore) in Jugend-/Reserve-Wettbewerben.
-GATE_DROP_NO_TAB = False     # 12.10. später (Lucio: "Spiel reicht") -> fehlender Reiter egal
+GATE_DROP_NO_TAB = True      # 12.10. final (Lucio: "nur rein, falls für das Spiel UND den Markt irgendeine Quote bei scores24 abrufbar ist")
 # 12.10. später (Lucio: "wenn scores24 überhaupt eine Quote für das Spiel findet,
 # egal zu welchem Markt, soll es mit rein — China Division 2 kann man weder
 # Karten noch Ecken"): Spiel muss bei scores24 mit irgendeiner Quote stehen,
