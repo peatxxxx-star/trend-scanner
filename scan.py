@@ -177,7 +177,51 @@ GATE_DROP_NO_TAB = True      # 12.10. final (Lucio: "nur rein, falls für das Sp
 # Karten noch Ecken"): Spiel muss bei scores24 mit irgendeiner Quote stehen,
 # sonst fliegen die Nebenmärkte raus (Tore laufen wie gehabt ohne Nachweis).
 GATE_REQUIRE_MATCH = True
-UNVERIFIED_YOUTH_DROP = True
+UNVERIFIED_YOUTH_DROP = False   # 12.10. (Lucio): "keine Ligen pauschal ausschließen"
+# 12.10. (Lucio, Vorschlag a): Liga-Gedächtnis. Hat scores24 einen Markt für
+# eine Liga in den letzten LEAGUE_MEM_DAYS Tagen gezeigt, fliegt ein Signal
+# nicht raus, nur weil der Reiter HEUTE (noch) fehlt — Karten/Abseits stehen
+# morgens oft noch nicht drin (12.10. früh: Serie A, La Liga, Süper Lig ...).
+LEAGUE_MEMORY = True
+LEAGUE_MEM_DAYS = 30
+LEAGUE_MEM_FILE = Path(__file__).parent / "cache" / "s24_markets.json"
+_league_mem = {}
+_league_mem_lock = threading.Lock()
+
+
+def load_league_mem():
+    global _league_mem
+    try:
+        _league_mem = json.loads(LEAGUE_MEM_FILE.read_text())
+    except Exception:
+        _league_mem = {}
+
+
+def save_league_mem():
+    try:
+        LEAGUE_MEM_FILE.parent.mkdir(parents=True, exist_ok=True)
+        with _league_mem_lock:
+            LEAGUE_MEM_FILE.write_text(json.dumps(_league_mem, ensure_ascii=False, indent=0, sort_keys=True))
+    except Exception as exc:
+        print(f"  Liga-Gedächtnis nicht gespeichert: {exc}")
+
+
+def league_mem_note(league, groups):
+    if not (LEAGUE_MEMORY and league and groups):
+        return
+    now = int(time.time())
+    with _league_mem_lock:
+        d = _league_mem.setdefault(league, {})
+        for g in groups:
+            d[g] = now
+
+
+def league_knows(league, group) -> bool:
+    if not (LEAGUE_MEMORY and league and group):
+        return False
+    with _league_mem_lock:
+        ts = _league_mem.get(league, {}).get(group)
+    return bool(ts) and time.time() - ts < LEAGUE_MEM_DAYS * 86400
 YOUTH_RESERVE_KEYS = ("u16", "u17", "u18", "u19", "u20", "u21", "u22", "u23", "youth",
                       "junior", "reserve", "primavera", " ii", " b)")
 
@@ -1723,7 +1767,7 @@ def s24_market_groups(html: str):
     return groups
 
 
-def apply_s24_gate(signals, groups):
+def apply_s24_gate(signals, groups, league=None):
     """Wendet den lockeren Quoten-Check an.
 
     groups None  -> Seite nicht zuordenbar: alles behalten, markieren.
@@ -1785,6 +1829,11 @@ def apply_s24_gate(signals, groups):
             elif GATE_KEEP_ALL and not GATE_DROP_NO_TAB:
                 s["unverified"] = True         # kein Reiter bei scores24
                 s["no_tab"] = True
+                kept.append(s)
+            elif league_knows(league, S24_GROUPS.get(s["metric_key"], "")):
+                s["unverified"] = True         # Liga kennt den Markt, heute (noch) kein Reiter
+                s["no_tab"] = True
+                s["pending"] = True
                 kept.append(s)
             continue
         count, lo, hi = g
@@ -2492,7 +2541,7 @@ _SNAPSHOT_KEYS = ("metric", "metric_key", "direction", "line", "home_series",
                   "referee", "b365", "expect_ref", "buffer_ref",
                   "sd", "p_emp", "p_mod", "p_fin", "fair_fin", "ladder_fin", "market",
                   "market_src", "ev", "light", "ampel", "reason", "b365_quote", "b365_checked", "b365_near", "b365_lines", "b365_est",
-                  "team_market", "team", "serie", "gegner", "erwartet", "unverified", "no_tab")
+                  "team_market", "team", "serie", "gegner", "erwartet", "unverified", "no_tab", "pending")
 
 
 def signal_snapshot(s):
@@ -2588,8 +2637,10 @@ def classify_signals(state, all_hits, checked_ids, window_ids, now_ts, run_label
     for key, prev in state.items():
         if key in seen_keys:
             continue
-        if int(prev.get("kickoff_ts", 0)) <= now_ts:
+        if int(prev.get("kickoff_ts", 0)) <= now_ts and prev.get("match_id") not in window_ids:
             continue                                   # angepfiffen -> vergessen
+            # 12.10.: steht das Spiel noch im Spielplan (vorläufige Anstoßzeit,
+            # z.B. Ingolstadt 10.10.), bleibt der Eintrag — "gemeldet bleibt gemeldet"
         # 18.09. (Lucio: "1,5 sind alle noch drin, bitte alle wieder raus"):
         # wird ein Markt oder eine Linie gesperrt, fliegen die schon
         # gemerkten Signale dazu sofort aus dem Gedächtnis — sonst stünden
@@ -2686,6 +2737,8 @@ def unverified_note(s):
     sieht, welche Gruppe bei BetLabel tatsächlich zu finden ist."""
     if not s.get("unverified"):
         return ""
+    if s.get("pending"):
+        return " · ⚠️ <i>Markt bei scores24 noch nicht da</i>"
     if s.get("no_tab"):
         return " · ⚠️ <i>Markt fehlt bei scores24</i>"
     return " · ⚠️ <i>Spiel nicht bei scores24</i>"
@@ -5118,7 +5171,8 @@ def team_to_signal(t):
             "gegner": t.get("gegner"), "erwartet": t.get("erwartet"),
             "fair": t["fair"], "fair_fin": t["fair"], "p_fin": t["p"],
             "p_emp": t.get("p_emp"), "p_mod": t.get("p_mod"), "light": "🟢",
-            "unverified": bool(t.get("unverified")), "no_tab": bool(t.get("no_tab"))}
+            "unverified": bool(t.get("unverified")), "no_tab": bool(t.get("no_tab")),
+            "pending": bool(t.get("pending"))}
 
 
 def team_signals(match, hist_home, hist_away):
@@ -5477,6 +5531,7 @@ def _run():
                   f"noch nicht erreicht, Lauf übersprungen.")
             return
     _t_run = time.time()                  # 19.09.: Gesamtdauer fürs Protokoll
+    load_league_mem()
     cache = load_cache()
     hcache = load_history_cache()
     _base_rates.update(compute_base_rates(cache))
@@ -5568,6 +5623,7 @@ def _run():
         if (signals or who or team) and GATE_ENABLED:
             _t = time.time()
             groups = s24_fetch_groups(match)
+            league_mem_note(match.get("league", ""), groups)
             _zeit_add("scores24", time.time() - _t)
         if who and GATE_ENABLED:
             who = [w for w in who if S24_GROUPS.get(w["metric_key"]) in (groups or set())]
@@ -5576,11 +5632,13 @@ def _run():
                 if GATE_REQUIRE_MATCH and not groups:
                     team = []
                 if GATE_DROP_NO_TAB and groups is not None:
-                    team = [t for t in team if S24_GROUPS.get(t["metric_key"]) in groups]
+                    team = [t for t in team if S24_GROUPS.get(t["metric_key"]) in groups
+                            or league_knows(match.get("league", ""), S24_GROUPS.get(t["metric_key"]))]
                 for t in team:
                     if S24_GROUPS.get(t["metric_key"]) not in (groups or set()):
                         t["unverified"] = True
                         t["no_tab"] = groups is not None
+                        t["pending"] = groups is not None
                 if UNVERIFIED_YOUTH_DROP and youth_or_reserve(match):
                     team = [t for t in team if not t.get("unverified")]
             else:
@@ -5592,7 +5650,7 @@ def _run():
                        if s["metric_key"] not in ("goals", "ht_goals", "h2_goals")
                        or goals_liga_ok(match.get("league", ""), match.get("home", ""), match.get("away", ""))]
         if signals and GATE_ENABLED:
-            signals = apply_s24_gate(signals, groups)
+            signals = apply_s24_gate(signals, groups, match.get("league", ""))
         if signals:
             # 2) Zusatzabfragen: bet365-Linie (kann den Nachweis liefern),
             #    Schiedsrichter-Profil
@@ -5674,6 +5732,7 @@ def _run():
                       flush=True)
     save_cache(cache)
     save_history_cache(hcache)
+    save_league_mem()
     # feste Sortierung nach Anstoßzeit (Parallelverarbeitung mischt sonst)
     all_hits.sort(key=lambda h: h[0].get("kickoff_ts", 0))
     who_hits.sort(key=lambda h: -h[1]["p"])
@@ -7141,6 +7200,14 @@ def selftest():
             youth_or_reserve({"league": "Ukraine Vyscha Liga", "home": "Zorya", "away": "Livyi Bereh"}):
         print("FEHLER Fall Jugend/Reserve-Erkennung")
         ok = False
+    _league_mem.clear()
+    league_mem_note("Testliga", {"cards": (2, 1.5, 1.9)})
+    _kf = apply_s24_gate([{"metric_key": "yellowcards"}, {"metric_key": "fouls"}],
+                         {"corners": (3, 1.5, 1.9)}, "Testliga")
+    if [x["metric_key"] for x in _kf] != ["yellowcards"] or not _kf[0].get("pending"):
+        print("FEHLER Fall Liga-Gedächtnis: Liga kennt Karten -> bleibt (markiert), Fouls nie gesehen -> raus:", _kf)
+        ok = False
+    _league_mem.clear()
     GATE_DROP_NO_TAB = _dnt
     GATE_KEEP_ALL = _keep_all
     # --- Fall 11.10.: Reihenfolge Tore -> Ecken -> Karten -> Schüsse -> Abseits -> Rest
