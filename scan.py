@@ -2365,6 +2365,31 @@ CALIBRATION = {
 }
 
 
+# 12.10. (Lucio: "ok ... direkt") LIVE-NACHKALIBRIERUNG. Gemessen an 4.817
+# echten Scanner-Signalen 01.09.–12.10. mit Ergebnis (Modelltest, siehe
+# Projekt-Doku modelltest-2026-10-12): versprochen (p_fin) vs. eingetreten.
+#   Ecken unter       78,7 % -> 71,9 %  (n=203)     Ecken über   74,8 -> 77,6 (n=1.067)
+#   Tore über         72,0 % -> 74,4 %  (n=1.071)   Karten unter 81,2 -> 79,0 (n=830)
+#   1. HZ Karten unter 67,8 % -> 78,4 % (n=333)     1. HZ Karten über 82,1 -> 71,8 (n=188)
+#   Schüsse aT unter  80,8 % -> 70,9 %  (n=103)     Schüsse aT über 73,7 -> 83,3 (n=102)
+#   Schüsse gesamt unter 85,9 % -> 43,9 % (n=66)   -> Markt praktisch abgeschaltet
+# Faktor = 1 + w*(real/versprochen - 1), w = n/(n+150): kleine Stichproben
+# werden nur teilweise korrigiert (Rauschen). Wirkt nach CALIBRATION/RECAL,
+# nur auf Gesamtmärkte. Zum Abschalten: LIVE_CAL_ENABLED = False.
+LIVE_CAL_ENABLED = True
+LIVE_CAL = {
+    ("corners", "unter"): 0.951,
+    ("corners", "über"): 1.033,
+    ("goals", "über"): 1.030,
+    ("yellowcards", "unter"): 0.977,
+    ("ht_yellowcards", "unter"): 1.107,
+    ("ht_yellowcards", "über"): 0.930,
+    ("on_target", "unter"): 0.950,
+    ("on_target", "über"): 1.053,
+    ("shots_total", "unter"): 0.55,
+}
+
+
 def calibrate(p, metric, direction):
     """Modell-Wahrscheinlichkeit auf das gemessene Niveau ziehen."""
     f = CALIBRATION.get((metric, direction))
@@ -2372,7 +2397,11 @@ def calibrate(p, metric, direction):
         return p
     if f:
         p = max(0.02, min(0.985, p * f))
-    return recalibrate(p, metric, direction)
+    p = recalibrate(p, metric, direction)
+    lf = LIVE_CAL.get((metric, direction)) if LIVE_CAL_ENABLED else None
+    if lf and p is not None:
+        p = max(0.02, min(0.985, p * lf))
+    return p
 
 
 # 06.10. NACHKALIBRIERUNG (Lucio: "machen wir genauso"). Offline-Backtest der
@@ -5601,6 +5630,12 @@ def _run():
         import rundencheck
         rundencheck.run(sys.modules[__name__])
         return
+    # 12.10.: Modelltest Teil 2 — bet365-Quotenverlauf vergangener Spiele
+    # (quotencheck.py), ausgelöst per Push mit "Quotencheck" in der Nachricht.
+    if "Quotencheck" in _msg:
+        import quotencheck
+        quotencheck.run(sys.modules[__name__])
+        return
     if os.environ.get("FORCE") != "1" and not is_prewarm_run():
         seit = letzter_lauf_min()
         if seit is not None and seit < MIN_ABSTAND_MIN:
@@ -6518,11 +6553,18 @@ def selftest():
 
     # --- Fall 28: Kalibrierung je Markt (15.09.)
     # 06.10.: erst Faktor (CALIBRATION), dann lineare Nachkalibrierung (RECAL)
-    if abs(calibrate(0.80, "corners", "über") - (0.290 + 0.607 * 0.76)) > 1e-9:
+    # 12.10.: danach Live-Faktor (LIVE_CAL)
+    _lc = lambda m, d: (LIVE_CAL.get((m, d), 1.0) if LIVE_CAL_ENABLED else 1.0)
+    if abs(calibrate(0.80, "corners", "über") - (0.290 + 0.607 * 0.76) * _lc("corners", "über")) > 1e-9:
         print("FEHLER Fall 28a: Ecken-Kalibrierung greift nicht:", calibrate(0.80, "corners", "über"))
         ok = False
-    if abs(calibrate(0.80, "yellowcards", "unter") - (0.246 + 0.709 * 0.816)) > 1e-9:
+    if abs(calibrate(0.80, "yellowcards", "unter") - (0.246 + 0.709 * 0.816) * _lc("yellowcards", "unter")) > 1e-9:
         print("FEHLER Fall 28b: Karten-unter-Kalibrierung greift nicht")
+        ok = False
+    # Live-Faktor: 1. HZ Karten unter wird angehoben, über abgesenkt
+    if not (calibrate(0.70, "ht_yellowcards", "unter") > 0.70
+            and calibrate(0.80, "ht_yellowcards", "über") < calibrate(0.80, "ht_yellowcards", "über") / _lc("ht_yellowcards", "über") - 1e-9):
+        print("FEHLER Fall 28g: Live-Kalibrierung 1. HZ Karten falsch")
         ok = False
     # Nachkalibrierung: hohe Werte runter, niedrige rauf, Reihenfolge bleibt
     _r = [calibrate(x, "yellowcards", "unter") for x in (0.6, 0.8, 0.95)]

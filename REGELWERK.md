@@ -601,3 +601,8 @@ Legs aus den am 11./12.10. geöffneten Quellen werden in wetten.csv in der Notiz
 - „Markt bei scores24 noch nicht da“ (Liga-Gedächtnis, pending)
 - „bet365-Rettung“
 Bei jedem Meilenstein (30/50/80 Scheine) Trefferquote dieser Gruppen gegen die erwartete Quote laut fairer Quote vergleichen. Liegen sie deutlich darunter -> Lucio melden und Nachjustieren vorschlagen.
+
+## 16. Live-Nachkalibrierung (12.10.)
+Modelltest an 4.817 echten Signalen (01.09.–12.10.): Der Scanner ist insgesamt gut kalibriert (76,2 % real vs. 75,8 % versprochen); der Verlust bei Lucios Tipps (69 %) entsteht durch die Auswahl über die Buchmacherquote. Einzelne Märkte waren falsch kalibriert und werden über `LIVE_CAL` in scan.py korrigiert (geschrumpfter Faktor, w = n/(n+150)):
+Ecken unter 0,951 · Ecken über 1,033 · Tore über 1,030 · Karten unter 0,977 · 1. HZ Karten unter 1,107 · 1. HZ Karten über 0,930 · Schüsse aT unter 0,950 · Schüsse aT über 1,053 · Schüsse gesamt unter 0,55 (praktisch aus).
+Teil 2 (Quotencheck): bet365-Eröffnungs-/Schlussquoten (1X2, Tore-, Ecken-Hauptlinie) für ~9.000 Spiele, um zu testen, ob das Buchmacher-Wissen die Treffer erklärt.
