@@ -1675,8 +1675,17 @@ def s24_fetch_groups(match):
     candidates = []
     want_tags = frozenset(variant_tags(match["home"]) | variant_tags(match["away"]))
     home_toks, away_toks = _name_tokens(match["home"]), _name_tokens(match["away"])
+    # 12.10.: nur Sitemap-Einträge vom Anstoßtag (oder Vortag, Zeitzone) — sonst
+    # landeten z.B. serbische U19 auf "26-09-2026-jagiellonia-…-u19" (verworfen,
+    # aber unnötige Abrufe). Ändert keine Zuordnung, spart Anfragen.
+    from zoneinfo import ZoneInfo as _ZI
+    _k = datetime.fromtimestamp(match["kickoff_ts"], tz=_ZI("Europe/Berlin"))
+    _dates = {_k.strftime("%d-%m-%Y"), (_k - timedelta(days=1)).strftime("%d-%m-%Y"),
+              (_k + timedelta(days=1)).strftime("%d-%m-%Y")}
     for link, body, toks, tags in s24_link_index():
         if tags != want_tags:
+            continue
+        if link[2:12] not in _dates:
             continue
         h = _tokens_match(home_toks, toks)
         if h < 1:
@@ -1720,7 +1729,8 @@ def s24_fetch_groups(match):
             return (not toks) or any(t in low for t in toks)
         if not (in_json(match["home"]) and in_json(match["away"])):
             _s24_stats["last_error"] = f"{url} -> Teamnamen nicht im JSON"[:160]
-            _s24_stats["err_namen"] = _s24_stats.get("err_namen", 0) + 1
+            _ek = "err_keine_trends" if not data else "err_falsches_spiel"
+            _s24_stats[_ek] = _s24_stats.get(_ek, 0) + 1
             # 12.10.: Diagnose für die tolerantere Namenszuordnung — nur Protokoll
             with _s24_links_lock:
                 if len(_s24_name_diag) < 120:
