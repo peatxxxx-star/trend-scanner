@@ -594,3 +594,10 @@ Lucio: „Fouls über und Schüsse über wieder rein.“ Beide laufen wieder (`E
 13. **12.10. (Lucio): keine Liga pauschal ausschließen, alles durch die scores24-Prüfung.** Jugend/Reserve-Filter aus. a) Liga-Gedächtnis (`cache/s24_markets.json`): hat scores24 den Markt für die Liga in den letzten 30 Tagen gezeigt, bleibt das Signal auch ohne heutigen Reiter („⚠️ Markt bei scores24 noch nicht da“). b) Gemeldet bleibt gemeldet bis Anpfiff — auch bei vorläufiger Anstoßzeit, solange das Spiel im Spielplan steht.
 14. **bet365 als zweite Kontrollinstanz (12.10., Lucio):** Oder-Regel — scheitert ein Signal an scores24, bleibt es, wenn bet365 den Markt führt („✓ Markt bei bet365“). Ecken/HZ-Ecken über /v2/event/odds (Standardpaket), Karten über den bet365-Katalog (nur falls im Paket). Kann nur hinzufügen, nie wegnehmen. Zähler je Lauf im Protokoll unter `b365_rettung`. Schüsse/Abseits/Fouls führt bet365 nicht.
 Ablauf: Lucio schickt jeden gespielten Schein und das Ergebnis in den Chat, Claude trägt beides in `wetten.csv` ein und erinnert an fehlende Ergebnisse.
+
+## 15. Getrenntes Tracking der neuen Signalquellen (12.10.)
+Legs aus den am 11./12.10. geöffneten Quellen werden in wetten.csv in der Notiz markiert und separat ausgewertet:
+- „früher triviale Teamlinie“ (TEAM_TRIVIAL_FILTER aus)
+- „Markt bei scores24 noch nicht da“ (Liga-Gedächtnis, pending)
+- „bet365-Rettung“
+Bei jedem Meilenstein (30/50/80 Scheine) Trefferquote dieser Gruppen gegen die erwartete Quote laut fairer Quote vergleichen. Liegen sie deutlich darunter -> Lucio melden und Nachjustieren vorschlagen.
