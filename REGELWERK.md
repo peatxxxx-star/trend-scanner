@@ -616,3 +616,6 @@ Mindestquote = faire Quote × Faktor (statt pauschal 1,05):
 - Schüsse aufs Tor unter: × 1,20 (real 71 % statt 81 %)
 - 1. HZ Karten über: weiterhin nicht spielen
 Teamlinien: zu wenig Daten → weiter × 1,05, Hougang-Risiko (Rückstand → Ecken) bei Teamecken unter im Blick behalten.
+
+## 17. Spaßscheine (13.10.)
+Scheine außerhalb der Scanner-Strategie (z. B. Champions-League-Abende, eigene Bauchtipps) laufen auf einem eigenen Konto: spass_wetten.csv (gleiches Format, Scheinnummer mit Präfix SPASS-). Sie zählen NICHT in Saldo, Trefferquote, Meilensteine oder Risikogrenzen der Strategie. „fair_scanner“ enthält dort Claudes Schätzung, kein Scanner-Wert.
