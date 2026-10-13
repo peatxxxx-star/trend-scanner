@@ -622,3 +622,7 @@ Scheine außerhalb der Scanner-Strategie (z. B. Champions-League-Abende, eigene 
 
 ## 18. Prüfpunkt 7 der Vorabprüfung: Teamecken und Rolle (13.10.)
 Teamecken unter nur, wenn das Team kein klarer Favorit ist (Backtest 34.700 Serien-Fälle: klarer Außenseiter 86–90 %, ausgeglichen 74–83 %, klarer Favorit 66–75 %). Umgekehrt Teamecken über nicht als klarer Außenseiter (59 %). Anlass: Würzburg 13.10. (Favorit gegen schwaches Havelse), Hougang 12.10.
+
+## 19. Beobachtung: Trefferquote nach Quotenbereich (13.10., keine Regel)
+Stand 68 Tipps: unter 1,35 → 50 % (Bookie 77 %, Einzel-Rendite −35 %) · 1,35–1,50 → 68 % (71 %, −4 %) · 1,50–1,60 → 88 % (64 %, +36 %) · ab 1,60 → 77 % (58 %, +34 %) · gesamt +6 %.
+Lucio: erst weiter beobachten; neu bewerten, sobald je Bereich rund 100 Tipps vorliegen. Claude wertet das bei den Meilensteinen mit aus.
