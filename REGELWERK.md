@@ -620,19 +620,5 @@ Teamlinien: zu wenig Daten → weiter × 1,05, Hougang-Risiko (Rückstand → Ec
 ## 17. Spaßscheine (13.10.)
 Scheine außerhalb der Scanner-Strategie (z. B. Champions-League-Abende, eigene Bauchtipps) laufen auf einem eigenen Konto: spass_wetten.csv (gleiches Format, Scheinnummer mit Präfix SPASS-). Sie zählen NICHT in Saldo, Trefferquote, Meilensteine oder Risikogrenzen der Strategie. „fair_scanner“ enthält dort Claudes Schätzung, kein Scanner-Wert.
 
-## 18. Festes Vorab-Audit für jeden Tipp (13.10., Lucio: „immer gleich, ohne Abweichungen“)
-Jeder Tipp eines Scheins wird vor dem Setzen mit `python3 audit.py "<Team>" <metric_key> <über|unter> <Linie> <Quote> --derby ja|nein [--schiri "Name: Ø x.x"]` geprüft. Schritte in fester Reihenfolge, jeder mit OK / WARNUNG / STOPP:
-- A Scanner-Signal vorhanden (sonst STOPP)
-- B Quote ≥ „spielbar ab“ (sonst STOPP); Quote > fair × 1,25 → WARNUNG
-- C Datenbasis: ≥ 7 Pflichtspiele mit Statistik, ≥ 60 % in der aktuellen Liga (sonst WARNUNG: Auf-/Absteiger, Ligawechsel)
-- D Serie konkret (letzte 10 Pflichtspiele, ohne Testspiele): < 70 % → WARNUNG
-- E Rolle (Tordifferenz-Schnitt der letzten 10, Heimvorteil +0,3; Backtest 34.700 Fälle):
-  Teamecken unter als klarer Favorit → STOPP, als Favorit → WARNUNG ·
-  Teamecken über als klarer Außenseiter → STOPP, als Außenseiter → WARNUNG ·
-  Karten unter in ausgeglichenem Spiel, Karten über mit klarem Favoriten, Abseits unter mit klarem Favoriten → WARNUNG
-- F Gegner-Kontext (Team-Märkte): was der Gegner zulässt, < 60 % im Sinne des Tipps → WARNUNG
-- G Wettbewerb: Karten über im Pokal → STOPP, Karten unter im Pokal → WARNUNG (K.o.?) · Derby: Pflichtangabe; Derby + Karten unter → STOPP, Derby sonst → WARNUNG
-- H Schiri bei Karten-/Foulmärkten: Pflichtangabe; Ø ≥ 5 bei unter → WARNUNG (Teamkarten unter: STOPP)
-- J Direkter Vergleich: nur Info · K Verlaufsrisiko (Teamecken unter): nur Info
-Urteil (fest): mind. ein STOPP oder eine WARNUNG → NICHT SPIELEN. Offene Pflichtpunkte → erst klären. Sonst SPIELEN. Keine Ausnahmen per Begründung.
-Jedes Audit wird in audits/<Datum>.md protokolliert. Rückwirkend auf heute: Würzburg, Lokomotiv und Bolton wären NICHT gespielt worden, Three Bridges ja, Bristol erst nach Schiri-Prüfung.
+## 18. Prüfpunkt 7 der Vorabprüfung: Teamecken und Rolle (13.10.)
+Teamecken unter nur, wenn das Team kein klarer Favorit ist (Backtest 34.700 Serien-Fälle: klarer Außenseiter 86–90 %, ausgeglichen 74–83 %, klarer Favorit 66–75 %). Umgekehrt Teamecken über nicht als klarer Außenseiter (59 %). Anlass: Würzburg 13.10. (Favorit gegen schwaches Havelse), Hougang 12.10.
