@@ -638,3 +638,11 @@ Lucio prüft zuerst, Claude macht danach die intensive Zweitprüfung. Für jeden
 7. Gegner: Form, Tabellenlage, was er zulässt; Spielverlaufs-Risiko (Rückstand → Anrennen)
 8. Quotenabstand > 25 %: Erklärung finden
 Abschluss je Tipp: klare Ansage „spielen“ / „nicht spielen“ mit dem entscheidenden Grund.
+
+## 21. BetLabel-Quote je Tipp im Telegram (14.10.)
+
+Lucio: „Ich brauche zu jedem meiner Märkte eine Quote dazu. Direkt im Telegram.“
+- Quelle: BetLabel-Feed (1xBet-Plattform, `betlabel.py`), einmal je Lauf für alle ✅-Tipps, deren Spiel noch nicht läuft.
+- Anzeige je Tipp: `💶 BL 1.52 ✅` = Quote ≥ spielbar ab · `❌ zu tief` = überspringen · `ohne 5.5 (6.5: 1.30)` = Linie fehlt, Nachbarlinie · `Markt (noch) nicht da` = Sondermärkte kommen oft erst am Spieltag.
+- Oben im Bericht: „💶 PASST BEI BETLABEL“ – alle Tipps mit Quote über spielbar ab, nach Anstoß. Daraus wird der Schein gebaut.
+- Quoten sind Stand des Laufs (stündlich), sie können sich bis zum Platzieren bewegen.
