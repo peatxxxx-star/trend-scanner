@@ -646,3 +646,10 @@ Lucio: „Ich brauche zu jedem meiner Märkte eine Quote dazu. Direkt im Telegra
 - Anzeige je Tipp: `💶 BL 1.52 ✅` = Quote ≥ spielbar ab · `❌ zu tief` = überspringen · `ohne 5.5 (6.5: 1.30)` = Linie fehlt, Nachbarlinie · Markt bei BetLabel (noch) nicht da = keine Anzeige; kommt er später, steht die Quote automatisch da.
 - Oben im Bericht: „💶 PASST BEI BETLABEL“ – alle Tipps mit Quote über spielbar ab, nach Anstoß. Daraus wird der Schein gebaut.
 - Quoten sind Stand des Laufs (stündlich), sie können sich bis zum Platzieren bewegen.
+
+## 22. Wettbewerbs-Werte gegen Liga-Werte (14.10., Spaßscheine/CL)
+
+Lucio: „Ich finde in dem Fall beides relevant.“ Bei Spielen in einem anderen Wettbewerb (CL, Youth League, Pokal) zählen Liga- UND Wettbewerbswerte.
+- Zeigen beide in dieselbe Richtung (z. B. AEK Fouls: Liga 10/10, CL 22/24) → starker Tipp.
+- Widersprechen sie sich (z. B. Feyenoord–Como Ecken: Liga je 7/10 drüber, CL 5 und 6) → Warnzeichen: nur spielen, wenn die Quote den Widerspruch deutlich bezahlt, sonst anderen Markt suchen.
+- Gleiches Muster wie Betis U19 (nationale Jugend wenig Karten, Youth League viele).
