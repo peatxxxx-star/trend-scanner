@@ -3563,7 +3563,9 @@ def build_bl_block(items):
                 continue
             q = st[0]
             mn, _ = play_min(s)
-            ab = f" (ab {mn:.2f})" if mn else ""
+            if not mn:                 # "nicht spielen"-Markt (z. B. 1. HZ Gelbe über) gehört nie in die Liste
+                continue
+            ab = f" (ab {mn:.2f})"
             rows.append(f"• {match['kickoff']} {esc(match['home'])} – {esc(match['away'])}: "
                         f"{esc(s['metric'])} {s['direction']} {s['line']} <b>{q:.2f}</b>{ab}")
     stand = f" · Stand {_BL_STAND['zeit']}" if _BL_STAND.get("zeit") else ""
@@ -7557,6 +7559,11 @@ def selftest():
     _BL[_bl_key(_m31, _s31)] = {"q": None, "nah": (6.5, 1.3)}
     _t31c = fmt_bl(_m31, _s31)
     _blk = build_bl_block([(_m31, [("new", dict(_s31), "")])])
+    _s31b = {"metric": "1. HZ Gelbe Karten", "metric_key": "ht_yellowcards", "direction": "über",
+             "line": 0.5, "fair_fin": 1.2, "light": "🟢"}
+    _BL[_bl_key(_m31, _s31b)] = {"q": 1.33}
+    if "PASST BEI BETLABEL (0)" not in (build_bl_block([(_m31, [("new", _s31b, "")])]) or ""):
+        print("FEHLER Fall 31: 'nicht spielen'-Markt in der BetLabel-Liste"); ok = False
     _BL[_bl_key(_m31, _s31)] = {"q": None, "fehlt": "Markt nicht im Angebot"}
     if fmt_bl(_m31, _s31) != "":
         print("FEHLER Fall 31: 'Markt nicht da' wird angezeigt"); ok = False
