@@ -27,45 +27,36 @@ def hole(pfad, **params):
 
 
 def run(_scan=None):
-    erg = {"zeit": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime())}
-    try:
-        liste = hole("Get1x2_VZip", sports=1, count=3000, lng="de", mode=4, country=1, getEmpty="true")
-        spiele = liste.get("Value") or []
-        erg["anzahl"] = len(spiele)
-        erg["felder_beispiel"] = spiele[0] if spiele else None
-        erg["spiele"] = [{k: g.get(k) for k in ("I", "L", "LI", "O1", "O2", "S", "SGC", "EC", "CN")}
-                         for g in spiele]
-    except Exception as e:
-        erg["liste_fehler"] = f"{type(e).__name__}: {e}"
-        spiele = []
-    # Drei Spiele mit vielen Märkten (größte EC/SGC) genauer ansehen
-    def gewicht(g):
-        return (g.get("SGC") or 0) * 1000 + (g.get("EC") or 0)
-    auswahl = sorted(spiele, key=gewicht, reverse=True)[:2]
-    # plus ein Spiel aus einer kleinen Liga (Mitte der Liste)
-    klein = [g for g in spiele if (g.get("SGC") or 0) > 0]
-    if klein:
-        auswahl.append(klein[len(klein) // 2])
-    erg["details"] = []
-    for g in auswahl:
-        d = {"I": g.get("I"), "spiel": f"{g.get('O1')} - {g.get('O2')}", "L": g.get("L")}
+    erg = {"zeit": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()), "varianten": {}}
+    var = {
+        "count1000": dict(sports=1, count=1000, lng="de", mode=4, country=1, getEmpty="true"),
+        "count1000_tf": dict(sports=1, count=1000, lng="de", tf=3000000, mode=4, country=1, getEmpty="true"),
+        "count1000_partner": dict(sports=1, count=1000, lng="de", mode=4, country=1, partner=1, getEmpty="true", virtualSports="true"),
+    }
+    for n, pr in var.items():
         try:
-            voll = hole("GetGameZip", id=g["I"], lng="de", isSubGames="true", GroupEvents="true",
-                        countevents=500, grMode=4, partner=1, topGroups="", marketType=1)
-            v = voll.get("Value") or {}
-            d["haupt"] = v
-            d["sub"] = []
-            for sg in (v.get("SG") or [])[:25]:
-                try:
-                    s = hole("GetGameZip", id=sg.get("CI") or sg.get("I"), lng="de", isSubGames="true",
-                             GroupEvents="true", countevents=500, grMode=4, partner=1, topGroups="", marketType=1)
-                    d["sub"].append({"kopf": sg, "wert": s.get("Value")})
-                except Exception as e:
-                    d["sub"].append({"kopf": sg, "fehler": f"{type(e).__name__}: {e}"})
-                time.sleep(0.3)
+            v = hole("Get1x2_VZip", **pr).get("Value") or []
+            erg["varianten"][n] = len(v)
         except Exception as e:
-            d["fehler"] = f"{type(e).__name__}: {e}"
-        erg["details"].append(d)
+            erg["varianten"][n] = f"{type(e).__name__}: {e}"
+    try:
+        ch = hole("GetChampsZip", sport=1, lng="de", country=1, tf=3000000, tz=2).get("Value") or []
+        erg["champs_anzahl"] = len(ch)
+        erg["champs"] = [{k: c.get(k) for k in ("LI", "L", "GC", "CI", "SC")} for c in ch]
+    except Exception as e:
+        erg["champs_fehler"] = f"{type(e).__name__}: {e}"
+        ch = []
+    # Slowakei-Ligen/Pokal: Spiele + Hauptquoten (Abgleich mit Lucios Schein)
+    erg["slowakei"] = []
+    for c in ch:
+        if "Slowak" in (c.get("L") or "") or "Youth" in (c.get("L") or "") or "Jugend" in (c.get("L") or ""):
+            try:
+                v = hole("Get1x2_VZip", sports=1, champs=c["LI"], count=50, lng="de", mode=4, country=1, getEmpty="true").get("Value") or []
+                for g in v:
+                    erg["slowakei"].append({"L": g.get("L"), "I": g.get("I"), "O1": g.get("O1"), "O2": g.get("O2"), "S": g.get("S"),
+                                            "E": [(e.get("G"), e.get("T"), e.get("P"), e.get("C")) for e in g.get("E") or []]})
+            except Exception as e:
+                erg["slowakei"].append({"L": c.get("L"), "fehler": str(e)})
     Path("runs").mkdir(exist_ok=True)
-    Path("runs/betlabel_sonde2.json").write_text(json.dumps(erg, ensure_ascii=False))
-    print("BetLabel-Sonde 2 fertig:", erg.get("anzahl"), "Spiele")
+    Path("runs/betlabel_sonde3.json").write_text(json.dumps(erg, ensure_ascii=False))
+    print("BetLabel-Sonde 3 fertig")
