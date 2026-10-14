@@ -2847,7 +2847,7 @@ def build_match_block(match, entries):
             fair = s.get("fair_fin") or s.get("fair")
             lines.append(f"✅ <b>{esc(s['metric'])} {s['direction']} {s['line']}</b>{new_tag}"
                          + (f" · Fair {fair:.2f}" if fair else "")
-                         + fmt_play(s)
+                         + fmt_play(s) + fmt_bl(match, s)
                          + unverified_note(s))
             sr = s.get("serie") or {}
             det = [f"{esc(s.get('team', ''))} {fmt_series(sr, True)}"] if sr else []
@@ -2878,7 +2878,7 @@ def build_match_block(match, entries):
             check = (" · ✓ <i>Markt bei bet365</i>" if s.get("b365_proof")
                      else unverified_note(s) if s.get("unverified")
                      else " · <i>Quote selbst prüfen</i>" if s.get("no_odds_check") else "")
-            lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + fmt_play(s) + fmt_b365(s) + check
+            lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + fmt_play(s) + fmt_bl(match, s) + fmt_b365(s) + check
                          + buffer_evidence(s, short=True))
             lines.append(f"   {esc(match['home'])} {fmt_series(s['home_series'], s['home_is_anchor'])}"
                          f" · {esc(match['away'])} {fmt_series(s['away_series'], s['away_is_anchor'])}")
@@ -3064,6 +3064,9 @@ def assemble_report(buckets, run_label, new_state=None, deferred_note=None):
             head += (f"\n⏳ {deferred_note[0]} Spiele wegen API-Limit auf den nächsten Lauf "
                      f"verschoben (ab {deferred_note[1]})")
         blocks = [head]
+        _blb = build_bl_block(items)
+        if _blb:
+            blocks.append(_blb)
         blocks += [build_match_block(m, e) for m, e in items]
     else:
         blocks = [f"📊 {total_day} Signale heute · 🆕 {n['new']} neu · {lcount}\n{legend}"]
@@ -3459,6 +3462,105 @@ def fmt_play(s) -> str:
     if mn is None and (s.get("metric_key"), s.get("direction")) in PLAY_FACTOR:
         return f" · ⛔ <b>nicht spielen</b>{tag}"
     return (f" · <b>spielbar ab {mn:.2f}</b>" if mn else "") + tag
+
+
+# ----------------------------------------------------------------------------
+# 14.10. (Lucio): "Ich brauche zu jedem meiner Märkte eine Quote dazu. Direkt
+# im Telegram." — BetLabel-Quote je Tipp aus dem BetLabel-Feed (betlabel.py).
+# Abruf einmal je Lauf direkt vor dem Bericht, nur für die ✅-Tipps, deren
+# Spiel noch nicht läuft. Anzeige: 💶 BL <Quote> ✅/❌ gegen "spielbar ab".
+BETLABEL_QUOTES = os.environ.get("BETLABEL", "1") != "0"
+_BL = {}
+_BL_STAND = {"zeit": None}
+
+
+def _bl_key(match, s):
+    return f"{match.get('id')}|{s.get('metric_key')}|{s.get('direction')}|{s.get('line')}"
+
+
+def betlabel_fill(buckets, new_state):
+    """Holt die BetLabel-Quoten für alle ✅-Tipps des Tages (noch nicht
+    angepfiffen). Fehler dürfen den Lauf nie stoppen."""
+    import betlabel
+    now = time.time()
+    auftraege = {}
+    for match, entries in day_list(buckets, new_state or {}):
+        ko = match.get("kickoff_ts") or 0
+        if ko and ko < now:
+            continue
+        for _, sig, _ in entries:
+            if sig.get("light") != "🟢" or not sig.get("metric_key"):
+                continue
+            basis, seite = betlabel.basis_und_seite(sig["metric_key"])
+            a = auftraege.setdefault(match["id"], (match["home"], match["away"], ko, {}))
+            a[3].setdefault((basis, seite), []).append(
+                (sig.get("direction"), sig.get("line"), _bl_key(match, sig)))
+    if not auftraege:
+        return {"auftraege": 0}
+    erg, proto = betlabel.hole_alle(auftraege)
+    _BL.clear()
+    _BL.update(erg)
+    from zoneinfo import ZoneInfo
+    _BL_STAND["zeit"] = datetime.now(ZoneInfo("Europe/Berlin")).strftime("%H:%M")
+    proto["auftraege"] = len(auftraege)
+    proto["mit_quote"] = sum(1 for r in erg.values() if r.get("q"))
+    print(f"BetLabel: {proto.get('gefunden', 0)}/{len(auftraege)} Spiele gefunden, "
+          f"{proto['mit_quote']}/{len(erg)} Tipps mit Quote, {proto.get('sekunden')} s", flush=True)
+    return proto
+
+
+def bl_status(match, s):
+    """(Quote|None, passt True/False/None, Text) für einen Tipp; None = nicht abgefragt."""
+    r = _BL.get(_bl_key(match, s))
+    if r is None:
+        return None
+    q = r.get("q")
+    mn, _ = play_min(s)
+    if q:
+        passt = None if mn is None else q >= mn - 1e-9
+        return q, passt, r
+    return None, False, r
+
+
+def fmt_bl(match, s) -> str:
+    st = bl_status(match, s)
+    if st is None:
+        return ""
+    q, passt, r = st
+    if q:
+        if passt is None:
+            return f" · 💶 BL {q:.2f}"
+        return f" · 💶 BL <b>{q:.2f}</b> ✅" if passt else f" · 💶 BL {q:.2f} ❌ <i>zu tief</i>"
+    if r.get("nah"):
+        L, c = r["nah"]
+        return f" · 💶 BL ohne {s.get('line')} <i>({L:g}: {c:.2f})</i>"
+    grund = r.get("fehlt") or "keine Quote"
+    grund = {"Spiel nicht bei BetLabel": "Spiel nicht gefunden",
+             "Markt nicht im Angebot": "Markt nicht im Angebot"}.get(grund, grund)
+    return f" · 💶 BL – <i>{esc(grund)}</i>"
+
+
+def build_bl_block(items):
+    """Alle ✅-Tipps, deren BetLabel-Quote über 'spielbar ab' liegt — nach
+    Anstoß. Damit lässt sich der Schein direkt bauen."""
+    if not _BL:
+        return None
+    rows = []
+    for match, entries in items:
+        for _, s, _ in entries:
+            if s.get("light") != "🟢":
+                continue
+            st = bl_status(match, s)
+            if not st or not st[0] or st[1] is False:
+                continue
+            q = st[0]
+            mn, _ = play_min(s)
+            ab = f" (ab {mn:.2f})" if mn else ""
+            rows.append(f"• {match['kickoff']} {esc(match['home'])} – {esc(match['away'])}: "
+                        f"{esc(s['metric'])} {s['direction']} {s['line']} <b>{q:.2f}</b>{ab}")
+    stand = f" · Stand {_BL_STAND['zeit']}" if _BL_STAND.get("zeit") else ""
+    head = f"💶 <b>PASST BEI BETLABEL ({len(rows)})</b>{stand}"
+    return head + "\n" + ("\n".join(rows) if rows else "<i>gerade keine Quote über spielbar ab</i>")
 
 
 def attach_extras(match, signals):
@@ -5685,10 +5787,6 @@ def _run():
         _msg = ((_ev.get("head_commit") or {}).get("message") or "")
     except Exception:
         _msg = ""
-    if "BetLabel-Sonde" in _msg:
-        import sonde_betlabel
-        sonde_betlabel.run(sys.modules[__name__])
-        return
     if "Rundencheck" in _msg:
         import rundencheck
         rundencheck.run(sys.modules[__name__])
@@ -5947,6 +6045,12 @@ def _run():
     if deferred:
         print(f"API-Limit erreicht: {len(deferred)} Spiele auf den nächsten Lauf verschoben "
               f"(frühester Anstoß {deferred[0]['kickoff']})")
+    if BETLABEL_QUOTES:
+        try:
+            log["betlabel"] = betlabel_fill(buckets, new_state)
+        except Exception as exc:
+            log["betlabel"] = {"fehler": f"{type(exc).__name__}: {exc}"}
+            print(f"BetLabel-Quoten nicht abrufbar: {exc}", flush=True)
     chunks = assemble_report(buckets, run_label, new_state,
                              deferred_note=(len(deferred), deferred[0]["kickoff"]) if deferred else None)
     # --- Team-Märkte (täglich): eigene Nachricht, 🧪 bis zum Preisvergleich ---
@@ -7415,6 +7519,24 @@ def selftest():
     if [e["id"] for e in drop_friendlies(_ev)] != ["1", "4"]:
         print("FEHLER Fall Testspiele: Filter greift nicht:", drop_friendlies(_ev))
         ok = False
+    # Fall 31 (14.10.): BetLabel-Quoten — Namensabgleich, Leiter, Anzeige
+    import betlabel
+    if not betlabel.selbsttest():
+        print("FEHLER Fall 31: BetLabel-Modul"); ok = False
+    _m31 = {"id": "m31", "home": "A", "away": "B", "kickoff": "Mi 20:00"}
+    _s31 = {"metric": "Gelbe Karten", "metric_key": "yellowcards", "direction": "unter",
+            "line": 5.5, "fair_fin": 1.15, "light": "🟢", "fav": "klar"}
+    _BL.clear(); _BL[_bl_key(_m31, _s31)] = {"q": 1.52}
+    _t31a = fmt_bl(_m31, _s31)
+    _BL[_bl_key(_m31, _s31)] = {"q": 1.10}
+    _t31b = fmt_bl(_m31, _s31)
+    _BL[_bl_key(_m31, _s31)] = {"q": None, "nah": (6.5, 1.3)}
+    _t31c = fmt_bl(_m31, _s31)
+    _blk = build_bl_block([(_m31, [("new", dict(_s31), "")])])
+    _BL.clear()
+    if "1.52</b> ✅" not in _t31a or "❌" not in _t31b or "ohne 5.5" not in _t31c or fmt_bl(_m31, _s31) != "" \
+            or "PASST BEI BETLABEL (0)" not in (_blk or ""):
+        print("FEHLER Fall 31: BetLabel-Anzeige", _t31a, _t31b, _t31c, _blk); ok = False
     print("Selbsttest OK" if ok else "Selbsttest FEHLGESCHLAGEN")
     sys.exit(0 if ok else 1)
 
