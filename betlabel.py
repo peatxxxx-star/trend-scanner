@@ -39,7 +39,7 @@ SUB = {
     "on_target": ("Schüsse auf das Tor", ""),
     "offsides": ("Abseitsstellungen", ""),
     "fouls": ("Fouls", ""),
-    "shots_total": ("Schüsse", ""),
+    "shots_total": ("Torschüsse", ""),
     "throwins": ("Einwürfe", ""),
     "goalkicks": ("Abstöße", ""),
     "freekicks": ("Freistöße", ""),
@@ -54,6 +54,10 @@ _GENERIC = {"fc", "fk", "sk", "sc", "cf", "ac", "as", "cd", "ud", "sd", "ca", "c
             "spvgg", "tsv", "sg", "jk", "fbk", "ff", "gif", "aik", "cfr", "csm", "acs", "nd",
             "hnk", "gnk", "rnk", "nk", "fsc", "ksc", "kv", "krc", "rsc", "sco", "esp", "ec", "se",
             "cr", "kf", "fci", "pae", "ae"}
+_ALIAS = {"man": "manchester", "psg": "paris", "utd": "united", "st": "saint", "sankt": "saint",
+          "spb": "petersburg", "moskva": "moscow", "moskau": "moscow", "munchen": "munich",
+          "koln": "cologne", "dinamo": "dynamo", "inter": "internazionale", "wolves": "wolverhampton",
+          "spurs": "tottenham", "sheff": "sheffield", "nottm": "nottingham", "athletico": "athletic"}
 _YOUTH = {"u17", "u18", "u19", "u20", "u21", "u22", "u23"}
 _WOMEN = {"w", "women", "frauen", "damen", "fem", "femenino", "feminine", "feminino", "ladies", "dames", "zene", "kobiety"}
 _RES = {"ii", "b", "2", "reserves", "res", "reserve", "amateure"}
@@ -101,6 +105,7 @@ def name_info(name):
     marks = set()
     core = []
     for t in toks:
+        t = _ALIAS.get(t, t)
         if t in _YOUTH:
             marks.add(t)
         elif t in _WOMEN:
@@ -151,7 +156,8 @@ def lade_spiele():
 
     def eine(c):
         try:
-            v = _get("Get1x2_VZip", sports=1, champs=c["LI"], count=50, lng="de", mode=4,
+            # Namen auf Englisch (näher an den Namen im Scanner als "Moskau", "Grosny")
+            v = _get("Get1x2_VZip", sports=1, champs=c["LI"], count=50, lng="en", mode=4,
                      country=1, getEmpty="true").get("Value") or []
         except Exception:
             return []
@@ -327,6 +333,9 @@ def hole_alle(auftraege):
     with ThreadPoolExecutor(THREADS) as ex:
         for key, g, res, titel in ex.map(eins, list(auftraege.items())):
             ergebnis.update(res)
+            for sk, r in res.items():
+                proto.setdefault("tipps", []).append(
+                    [sk, r.get("spiel"), r.get("q"), r.get("nah"), r.get("fehlt")])
             if g:
                 proto["gefunden"] += 1
                 for t in titel or []:
@@ -351,6 +360,8 @@ def selbsttest():
         (("Bayern Munich (W)", "Bayern München"), False),
         (("Manchester City", "Manchester United"), False),
         (("Spartak Trnava", "Spartak Moskau"), False),
+        (("Man City U19", "Manchester City U19"), True),
+        (("Dinamo Moscow", "Dynamo Moscow"), True),
         (("TJ Slavoj Boleraz", "Boleraz"), True),
         (("Paris Saint Germain", "Paris SG"), True),
     ]
