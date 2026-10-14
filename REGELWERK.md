@@ -626,3 +626,15 @@ Teamecken unter nur, wenn das Team kein klarer Favorit ist (Backtest 34.700 Seri
 ## 19. Beobachtung: Trefferquote nach Quotenbereich (13.10., keine Regel)
 Stand 68 Tipps: unter 1,35 → 50 % (Bookie 77 %, Einzel-Rendite −35 %) · 1,35–1,50 → 68 % (71 %, −4 %) · 1,50–1,60 → 88 % (64 %, +36 %) · ab 1,60 → 77 % (58 %, +34 %) · gesamt +6 %.
 Lucio: erst weiter beobachten; neu bewerten, sobald je Bereich rund 100 Tipps vorliegen. Claude wertet das bei den Meilensteinen mit aus.
+
+## 20. Claudes Zweitprüfung – Pflicht bei JEDEM Tipp (14.10., Lucio: „du musst alles checken“)
+Lucio prüft zuerst, Claude macht danach die intensive Zweitprüfung. Für jeden Tipp, ohne Ausnahme, in dieser Reihenfolge – Ergebnis je Punkt wird im Chat genannt:
+1. Scanner-Signal + faire Quote + „spielbar ab“ (Regelwerk 16)
+2. Rolle: Favorit/Außenseiter anhand Form und Gegnerstärke (Prüfpunkt 7; bei Teamecken unter als klarer Favorit: nicht spielen)
+3. Puffer: letzte 10 Pflichtspiele einzeln ansehen – wie viele lagen genau an der Linie oder knapp drüber/drunter? Hälfte knapp → klar als Risiko benennen
+4. Datenbasis: Aufsteiger/Absteiger, Ligawechsel, Testspiele, Reserve-Verwechslung
+5. Wettbewerb: Pokal/K.o., Derby
+6. Schiri bei JEDEM Kartentipp (über und unter) nachschlagen, Ø Karten nennen
+7. Gegner: Form, Tabellenlage, was er zulässt; Spielverlaufs-Risiko (Rückstand → Anrennen)
+8. Quotenabstand > 25 %: Erklärung finden
+Abschluss je Tipp: klare Ansage „spielen“ / „nicht spielen“ mit dem entscheidenden Grund.
