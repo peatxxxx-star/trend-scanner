@@ -3535,8 +3535,11 @@ def fmt_bl(match, s) -> str:
         L, c = r["nah"]
         return f" · 💶 BL ohne {s.get('line')} <i>({L:g}: {c:.2f})</i>"
     grund = r.get("fehlt") or "keine Quote"
+    # Sondermärkte (Ecken, Karten, Schüsse …) stellt BetLabel oft erst am
+    # Spieltag ein — "noch nicht" statt "gibt es nicht".
     grund = {"Spiel nicht bei BetLabel": "Spiel nicht gefunden",
-             "Markt nicht im Angebot": "Markt nicht im Angebot"}.get(grund, grund)
+             "Markt nicht im Angebot": "Markt (noch) nicht da",
+             "keine Linien": "Markt (noch) nicht da"}.get(grund, grund)
     return f" · 💶 BL – <i>{esc(grund)}</i>"
 
 
