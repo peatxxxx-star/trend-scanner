@@ -1,0 +1,5493 @@
+{
+ "run_utc": "2026-10-14T16:13:48+00:00",
+ "matches_checked": 116,
+ "requests": 28,
+ "hits": [
+  {
+   "match": {
+    "id": "12192283",
+    "league": "Germany 3. Liga",
+    "league_id": "39645",
+    "home": "Waldhof Mannheim",
+    "away": "FC Ingolstadt",
+    "home_id": "3809",
+    "away_id": "4371",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "201654219"
+   },
+   "signals": [
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      40,
+      43
+     ],
+     "next_line": 7.5,
+     "next_note": "Waldhof Mannheim 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.8445028002581247,
+      0.8245004344185709
+     ],
+     "fair": 1.25,
+     "ladder": [
+      [
+       5.5,
+       1.3
+      ],
+      [
+       6.5,
+       1.25
+      ]
+     ],
+     "avg": [
+      8.5,
+      9.4
+     ],
+     "expect_sum": 8.9,
+     "expect_matchup": 8.9,
+     "contrib": [
+      5.5,
+      3.5
+     ],
+     "expect": 8.9,
+     "buffer": 2.4,
+     "fa": [
+      [
+       4.6,
+       5.3
+      ],
+      [
+       4.6,
+       5.4
+      ]
+     ],
+     "sd": 3.03,
+     "p_emp": {
+      "5.5": 0.7692307692307692,
+      "6.5": 0.8
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "p_mod": 0.786,
+     "p_fin": 0.783,
+     "kal": null,
+     "fair_fin": 1.28,
+     "ladder_fin": [
+      [
+       5.5,
+       1.25
+      ],
+      [
+       6.5,
+       1.28
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.28",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12192195",
+    "league": "Germany 3. Liga",
+    "league_id": "39645",
+    "home": "Verl",
+    "away": "Jahn Regensburg",
+    "home_id": "5806",
+    "away_id": "12148",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "201654228"
+   },
+   "signals": [
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      43,
+      41
+     ],
+     "next_line": 9.5,
+     "next_note": "Jahn Regensburg 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.721690619878549,
+      0.6183035473715862
+     ],
+     "fair": 1.61,
+     "ladder": [
+      [
+       7.5,
+       1.43
+      ],
+      [
+       8.5,
+       1.61
+      ]
+     ],
+     "avg": [
+      10.4,
+      10.2
+     ],
+     "expect_sum": 10.3,
+     "expect_matchup": 11.7,
+     "contrib": [
+      7.6,
+      4.1
+     ],
+     "expect": 11.0,
+     "buffer": 2.5,
+     "fa": [
+      [
+       6.0,
+       4.1
+      ],
+      [
+       4.8,
+       4.4
+      ]
+     ],
+     "sd": 3.25,
+     "p_emp": {
+      "7.5": 0.6993006993006994,
+      "8.5": 0.6211180124223602
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "p_mod": 0.779,
+     "p_fin": 0.719,
+     "kal": null,
+     "fair_fin": 1.39,
+     "ladder_fin": [
+      [
+       7.5,
+       1.29
+      ],
+      [
+       8.5,
+       1.39
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 62 % vs. Modell 78 %",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11168554",
+    "league": "Norway Division 1",
+    "league_id": "98",
+    "home": "Hodd",
+    "away": "Ranheim",
+    "home_id": "921",
+    "away_id": "943",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "201659314"
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      48,
+      46
+     ],
+     "next_line": 3.5,
+     "next_note": "Hodd 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.7500051188195709,
+      0.8509900886465829
+     ],
+     "fair": 1.36,
+     "ladder": [
+      [
+       1.5,
+       1.13
+      ],
+      [
+       2.5,
+       1.36
+      ]
+     ],
+     "avg": [
+      3.7,
+      4.3
+     ],
+     "expect_sum": 4.0,
+     "expect_matchup": 5.1,
+     "contrib": [
+      2.4,
+      2.6
+     ],
+     "expect": 4.5,
+     "buffer": 2.0,
+     "fa": [
+      [
+       1.5,
+       1.9
+      ],
+      [
+       2.3,
+       2.1
+      ]
+     ],
+     "sd": 1.95,
+     "p_emp": {
+      "1.5": 0.8849557522123894,
+      "2.5": 0.7352941176470588
+     },
+     "no_odds_check": true,
+     "p_mod": 0.847,
+     "p_fin": 0.758,
+     "kal": 0.94,
+     "fair_fin": 1.32,
+     "ladder_fin": [
+      [
+       1.5,
+       1.17
+      ],
+      [
+       2.5,
+       1.32
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.32",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13290848",
+    "league": "Argentina Reserve League",
+    "league_id": "313",
+    "home": "Argentino de Rosario Reserves",
+    "away": "Puerto Nuevo Reserves",
+    "home_id": "993696",
+    "away_id": "696473",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "202800439"
+   },
+   "signals": [
+    {
+     "metric": "Argentino de Rosario Reserves: Ecken",
+     "metric_key": "team_corners_heim",
+     "line": 6.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Argentino de Rosario Reserves",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 9,
+     "erwartet": 4.7,
+     "fair": 1.33,
+     "fair_fin": 1.33,
+     "p_fin": 0.7545,
+     "p_emp": 0.784,
+     "p_mod": 0.704,
+     "light": "🟢",
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "Puerto Nuevo Reserves: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 5.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Puerto Nuevo Reserves",
+     "serie": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "gegner": 6,
+     "erwartet": 3.5,
+     "fair": 1.27,
+     "fair_fin": 1.27,
+     "p_fin": 0.7848,
+     "p_emp": 0.77,
+     "p_mod": 0.834,
+     "light": "🟢",
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11163258",
+    "league": "Norway Division 1",
+    "league_id": "98",
+    "home": "Moss",
+    "away": "Egersund",
+    "home_id": "984",
+    "away_id": "418",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "201659317"
+   },
+   "signals": [
+    {
+     "metric": "Egersund: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 6.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Egersund",
+     "serie": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "gegner": 6,
+     "erwartet": 5.1,
+     "fair": 1.34,
+     "fair_fin": 1.34,
+     "p_fin": 0.7476,
+     "p_emp": 0.78,
+     "p_mod": 0.681,
+     "light": "🟢",
+     "unverified": false,
+     "no_tab": false,
+     "pending": false,
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11163388",
+    "league": "Norway Division 1",
+    "league_id": "98",
+    "home": "Stromsgodset",
+    "away": "Kongsvinger",
+    "home_id": "16046",
+    "away_id": "942",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "201659329"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      42,
+      40
+     ],
+     "next_line": 9.5,
+     "next_note": "kein Anker — Stromsgodset 18/20 (3. Lücke) gesamt, 16/18 (3. Lücke) heim; Kongsvinger 9/11 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+     "longterm": [
+      0.911605939050082,
+      0.8043558252109378
+     ],
+     "fair": 1.3,
+     "ladder": [
+      [
+       7.5,
+       1.15
+      ],
+      [
+       8.5,
+       1.3
+      ]
+     ],
+     "avg": [
+      12.5,
+      11.8
+     ],
+     "expect_sum": 12.2,
+     "expect_matchup": 16.5,
+     "contrib": [
+      11.1,
+      5.4
+     ],
+     "expect": 14.3,
+     "buffer": 5.8,
+     "fa": [
+      [
+       6.9,
+       5.9
+      ],
+      [
+       5.7,
+       5.2
+      ]
+     ],
+     "sd": 3.18,
+     "p_emp": {
+      "7.5": 0.8695652173913044,
+      "8.5": 0.7692307692307692
+     },
+     "range": [
+      1.89,
+      1.89
+     ],
+     "b365": [
+      "12.0",
+      "1.975",
+      "1.825"
+     ],
+     "p_mod": 0.966,
+     "p_fin": 0.79,
+     "kal": 0.95,
+     "fair_fin": 1.27,
+     "ladder_fin": [
+      [
+       7.5,
+       1.21
+      ],
+      [
+       8.5,
+       1.27
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 77 % vs. Modell 97 %",
+     "light": "🟢",
+     "first_run": "Mi 06:14",
+     "change_note": "Quoten vorher 1.92"
+    },
+    {
+     "metric": "Stromsgodset: Ecken",
+     "metric_key": "team_corners_heim",
+     "line": 3.5,
+     "direction": "über",
+     "team_market": true,
+     "team": "Stromsgodset",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 7,
+     "erwartet": 7.4,
+     "fair": 1.27,
+     "fair_fin": 1.27,
+     "p_fin": 0.7878,
+     "p_emp": 0.742,
+     "p_mod": 0.89,
+     "light": "🟢",
+     "unverified": false,
+     "no_tab": false,
+     "pending": false,
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11163389",
+    "league": "Norway Division 1",
+    "league_id": "98",
+    "home": "Haugesund",
+    "away": "Lyn 1896",
+    "home_id": "44138",
+    "away_id": "259200",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "201659310"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      42,
+      41
+     ],
+     "next_line": 9.5,
+     "next_note": "Haugesund 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Lyn 1896 4/6 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
+     "longterm": [
+      0.7282365225787641,
+      0.8040011466779932
+     ],
+     "fair": 1.41,
+     "ladder": [
+      [
+       7.5,
+       1.26
+      ],
+      [
+       8.5,
+       1.41
+      ]
+     ],
+     "avg": [
+      11.2,
+      12.5
+     ],
+     "expect_sum": 11.9,
+     "expect_matchup": 15.3,
+     "contrib": [
+      9.1,
+      6.2
+     ],
+     "expect": 13.6,
+     "buffer": 5.1,
+     "fa": [
+      [
+       4.9,
+       5.7
+      ],
+      [
+       5.7,
+       5.5
+      ]
+     ],
+     "sd": 3.84,
+     "p_emp": {
+      "7.5": 0.7936507936507936,
+      "8.5": 0.7092198581560284
+     },
+     "range": [
+      1.61,
+      1.95
+     ],
+     "b365": [
+      "11.5",
+      "1.950",
+      "1.850"
+     ],
+     "p_mod": 0.908,
+     "p_fin": 0.756,
+     "kal": 0.95,
+     "fair_fin": 1.32,
+     "ladder_fin": [
+      [
+       7.5,
+       1.26
+      ],
+      [
+       8.5,
+       1.32
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 71 % vs. Modell 91 %",
+     "light": "🟢",
+     "first_run": "Mi 06:14",
+     "change_note": "Quoten vorher 1.58–1.95"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11168552",
+    "league": "Norway Division 1",
+    "league_id": "98",
+    "home": "Stabaek",
+    "away": "Sandnes Ulf",
+    "home_id": "482",
+    "away_id": "346",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "201659326"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      41,
+      40
+     ],
+     "next_line": 8.5,
+     "next_note": "Sandnes Ulf 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.9151755450301703,
+      0.8386266784226298
+     ],
+     "fair": 1.22,
+     "ladder": [
+      [
+       6.5,
+       1.24
+      ],
+      [
+       7.5,
+       1.22
+      ]
+     ],
+     "avg": [
+      12.0,
+      11.1
+     ],
+     "expect_sum": 11.6,
+     "expect_matchup": 14.9,
+     "contrib": [
+      11.1,
+      3.8
+     ],
+     "expect": 13.2,
+     "buffer": 5.7,
+     "fa": [
+      [
+       7.4,
+       4.3
+      ],
+      [
+       5.2,
+       5.1
+      ]
+     ],
+     "sd": 3.9,
+     "p_emp": {
+      "6.5": 0.8064516129032259,
+      "7.5": 0.819672131147541
+     },
+     "range": [
+      1.31,
+      1.47
+     ],
+     "b365": [
+      "11.0",
+      "1.800",
+      "2.000"
+     ],
+     "p_mod": 0.928,
+     "p_fin": 0.794,
+     "kal": 0.95,
+     "fair_fin": 1.26,
+     "ladder_fin": [
+      [
+       6.5,
+       1.25
+      ],
+      [
+       7.5,
+       1.26
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.26",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "Stabaek: Ecken",
+     "metric_key": "team_corners_heim",
+     "line": 3.5,
+     "direction": "über",
+     "team_market": true,
+     "team": "Stabaek",
+     "serie": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 15
+     },
+     "gegner": 6,
+     "erwartet": 7.9,
+     "fair": 1.22,
+     "fair_fin": 1.22,
+     "p_fin": 0.8206,
+     "p_emp": 0.807,
+     "p_mod": 0.912,
+     "light": "🟢",
+     "unverified": false,
+     "no_tab": false,
+     "pending": false,
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11168553",
+    "league": "Norway Division 1",
+    "league_id": "98",
+    "home": "Sogndal",
+    "away": "Odd BK",
+    "home_id": "481",
+    "away_id": "1154",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "201659321"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 8.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      42,
+      41
+     ],
+     "next_line": 9.5,
+     "next_note": "kein Anker — Sogndal 17/19 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; Odd BK 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.838875519512927,
+      0.8285305135408554
+     ],
+     "fair": 1.33,
+     "ladder": [
+      [
+       7.5,
+       1.23
+      ],
+      [
+       8.5,
+       1.33
+      ]
+     ],
+     "avg": [
+      12.2,
+      9.7
+     ],
+     "expect_sum": 11.0,
+     "expect_matchup": 13.0,
+     "contrib": [
+      4.7,
+      8.3
+     ],
+     "expect": 12.0,
+     "buffer": 3.5,
+     "fa": [
+      [
+       5.0,
+       6.1
+      ],
+      [
+       5.7,
+       5.2
+      ]
+     ],
+     "sd": 3.72,
+     "p_emp": {
+      "7.5": 0.8130081300813008,
+      "8.5": 0.7518796992481203
+     },
+     "range": [
+      1.363,
+      2.243
+     ],
+     "b365": [
+      "11.5",
+      "1.975",
+      "1.825"
+     ],
+     "p_mod": 0.827,
+     "p_fin": 0.745,
+     "kal": 0.95,
+     "fair_fin": 1.34,
+     "ladder_fin": [
+      [
+       7.5,
+       1.28
+      ],
+      [
+       8.5,
+       1.34
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.34",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "11168555",
+    "league": "Norway Division 1",
+    "league_id": "98",
+    "home": "Bryne",
+    "away": "Raufoss",
+    "home_id": "917",
+    "away_id": "351",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "201659308"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      43,
+      41
+     ],
+     "next_line": 8.5,
+     "next_note": "Bryne 3/5 (3. Lücke) gesamt, 8/10 (3. Lücke) heim",
+     "longterm": [
+      0.8175045648155861,
+      0.9412218674540391
+     ],
+     "fair": 1.22,
+     "ladder": [
+      [
+       6.5,
+       1.25
+      ],
+      [
+       7.5,
+       1.22
+      ]
+     ],
+     "avg": [
+      10.4,
+      11.9
+     ],
+     "expect_sum": 11.1,
+     "expect_matchup": 13.8,
+     "contrib": [
+      9.3,
+      4.4
+     ],
+     "expect": 12.5,
+     "buffer": 5.0,
+     "fa": [
+      [
+       5.0,
+       5.0
+      ],
+      [
+       5.1,
+       6.7
+      ]
+     ],
+     "sd": 3.41,
+     "p_emp": {
+      "6.5": 0.8,
+      "7.5": 0.819672131147541
+     },
+     "range": [
+      1.44,
+      2.26
+     ],
+     "b365": [
+      "11.0",
+      "1.950",
+      "1.850"
+     ],
+     "p_mod": 0.929,
+     "p_fin": 0.794,
+     "kal": 0.95,
+     "fair_fin": 1.26,
+     "ladder_fin": [
+      [
+       6.5,
+       1.25
+      ],
+      [
+       7.5,
+       1.26
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.26",
+     "light": "🟢",
+     "first_run": "Mi 06:14",
+     "change_note": "Quoten vorher 1.44–2.25"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12192240",
+    "league": "Germany 3. Liga",
+    "league_id": "39645",
+    "home": "Wehen SV",
+    "away": "Alemannia Aachen",
+    "home_id": "9855",
+    "away_id": "7760",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "201654237"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      41,
+      43
+     ],
+     "next_line": 8.5,
+     "next_note": "Alemannia Aachen 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.8500988433742339,
+      0.6370919911491406
+     ],
+     "fair": 1.39,
+     "ladder": [
+      [
+       6.5,
+       1.35
+      ],
+      [
+       7.5,
+       1.39
+      ]
+     ],
+     "avg": [
+      10.1,
+      10.4
+     ],
+     "expect_sum": 10.2,
+     "expect_matchup": 11.2,
+     "contrib": [
+      6.0,
+      5.3
+     ],
+     "expect": 10.7,
+     "buffer": 3.2,
+     "fa": [
+      [
+       5.3,
+       5.5
+      ],
+      [
+       4.7,
+       4.8
+      ]
+     ],
+     "sd": 3.42,
+     "p_emp": {
+      "6.5": 0.7407407407407407,
+      "7.5": 0.7194244604316548
+     },
+     "range": [
+      1.29,
+      1.29
+     ],
+     "b365": [
+      "9.5",
+      "1.825",
+      "1.975"
+     ],
+     "p_mod": 0.825,
+     "p_fin": 0.735,
+     "kal": 0.95,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       6.5,
+       1.32
+      ],
+      [
+       7.5,
+       1.36
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.36",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      41,
+      43
+     ],
+     "next_line": 3.5,
+     "next_note": "Alemannia Aachen 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.8080592766459005,
+      0.9067839891772478
+     ],
+     "fair": 1.24,
+     "ladder": [
+      [
+       1.5,
+       1.2
+      ],
+      [
+       2.5,
+       1.24
+      ]
+     ],
+     "avg": [
+      4.5,
+      5.2
+     ],
+     "expect_sum": 4.9,
+     "expect_matchup": 6.1,
+     "contrib": [
+      3.9,
+      2.1
+     ],
+     "expect": 5.5,
+     "buffer": 3.0,
+     "fa": [
+      [
+       2.8,
+       2.0
+      ],
+      [
+       2.7,
+       2.9
+      ]
+     ],
+     "sd": 2.02,
+     "p_emp": {
+      "1.5": 0.8333333333333334,
+      "2.5": 0.8064516129032259
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "fav": "ausgeglichen",
+     "referee": "Kevin Behrens: Ø 4.3 Karten (10 Sp.)",
+     "expect_ref": 5.9,
+     "buffer_ref": 3.4,
+     "p_mod": 0.954,
+     "p_fin": 0.864,
+     "kal": 0.95,
+     "fair_fin": 1.16,
+     "ladder_fin": [
+      [
+       1.5,
+       1.13
+      ],
+      [
+       2.5,
+       1.16
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 81 % vs. Modell 95 %",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      41,
+      43
+     ],
+     "next_line": 7.5,
+     "next_note": "Wehen SV 8/10 (3. Lücke) gesamt, 7/9 (3. Lücke) heim",
+     "longterm": [
+      0.8168253835051922,
+      0.8449104792925886
+     ],
+     "fair": 1.25,
+     "ladder": [
+      [
+       5.5,
+       1.26
+      ],
+      [
+       6.5,
+       1.25
+      ]
+     ],
+     "avg": [
+      9.4,
+      8.6
+     ],
+     "expect_sum": 9.0,
+     "expect_matchup": 8.8,
+     "contrib": [
+      3.9,
+      4.9
+     ],
+     "expect": 8.9,
+     "buffer": 2.4,
+     "fa": [
+      [
+       4.4,
+       4.6
+      ],
+      [
+       5.1,
+       4.4
+      ]
+     ],
+     "sd": 2.93,
+     "p_emp": {
+      "5.5": 0.7936507936507936,
+      "6.5": 0.8
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "p_mod": 0.794,
+     "p_fin": 0.786,
+     "kal": null,
+     "fair_fin": 1.27,
+     "ladder_fin": [
+      [
+       5.5,
+       1.23
+      ],
+      [
+       6.5,
+       1.27
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.27",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      41,
+      43
+     ],
+     "next_line": 1.5,
+     "next_note": "Wehen SV 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; Alemannia Aachen 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+     "longterm": [
+      0.7516976363753622,
+      0.9150828907331521
+     ],
+     "fair": 1.26,
+     "ladder": [
+      [
+       0.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      1.3,
+      1.7
+     ],
+     "expect_sum": 1.5,
+     "expect_matchup": 1.7,
+     "contrib": [
+      1.1,
+      0.6
+     ],
+     "expect": 1.6,
+     "buffer": 1.1,
+     "fa": [
+      [
+       1.0,
+       0.6
+      ],
+      [
+       1.0,
+       1.3
+      ]
+     ],
+     "sd": 1.29,
+     "p_emp": {
+      "0.5": 0.7936507936507936
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "referee": "Kevin Behrens: Ø 4.3 Karten (10 Sp.)",
+     "expect_ref": 3.6,
+     "buffer_ref": 3.1,
+     "p_mod": 0.992,
+     "p_fin": 0.844,
+     "kal": 0.97,
+     "fair_fin": 1.18,
+     "ladder_fin": [
+      [
+       0.5,
+       1.18
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 79 % vs. Modell 99 %",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "Wehen SV: Gelbe Karten",
+     "metric_key": "team_yellowcards_heim",
+     "line": 1.5,
+     "direction": "über",
+     "team_market": true,
+     "team": "Wehen SV",
+     "serie": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 15
+     },
+     "gegner": 8,
+     "erwartet": 2.8,
+     "fair": 1.29,
+     "fair_fin": 1.29,
+     "p_fin": 0.7775,
+     "p_emp": 0.728,
+     "p_mod": 0.867,
+     "light": "🟢",
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12188395",
+    "league": "Germany 3. Liga",
+    "league_id": "39645",
+    "home": "SC Preussen Munster",
+    "away": "Fortuna Dusseldorf",
+    "home_id": "9829",
+    "away_id": "4425",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "201654221"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      44,
+      42
+     ],
+     "next_line": 3.5,
+     "next_note": "SC Preussen Munster 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Fortuna Dusseldorf 4/6 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+     "longterm": [
+      0.8120576826252203,
+      0.8051554823912285
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       1.5,
+       1.28
+      ],
+      [
+       2.5,
+       1.29
+      ]
+     ],
+     "avg": [
+      3.6,
+      4.5
+     ],
+     "expect_sum": 4.0,
+     "expect_matchup": 4.2,
+     "contrib": [
+      1.7,
+      2.5
+     ],
+     "expect": 4.1,
+     "buffer": 1.6,
+     "fa": [
+      [
+       2.6,
+       2.2
+      ],
+      [
+       2.3,
+       1.8
+      ]
+     ],
+     "sd": 2.11,
+     "p_emp": {
+      "1.5": 0.78125,
+      "2.5": 0.7751937984496123
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "fav": "ausgeglichen",
+     "referee": "Felix Prigan: Ø 4.8 Karten (22 Sp.) · Ø 23.0 Fouls (17 Sp.)",
+     "expect_ref": 4.9,
+     "buffer_ref": 2.4,
+     "p_mod": 0.872,
+     "p_fin": 0.816,
+     "kal": 0.95,
+     "fair_fin": 1.23,
+     "ladder_fin": [
+      [
+       1.5,
+       1.18
+      ],
+      [
+       2.5,
+       1.23
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.23",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      42
+     ],
+     "next_line": 5.5,
+     "next_note": "kein Anker — SC Preussen Munster 9/11 (3. Lücke) gesamt, 13/15 (3. Lücke) heim; Fortuna Dusseldorf 7/9 (3. Lücke) gesamt, 15/17 (3. Lücke) auswärts",
+     "longterm": [
+      0.7941944579830713,
+      0.8284015172670501
+     ],
+     "fair": 1.2,
+     "ladder": [
+      [
+       6.5,
+       1.2
+      ],
+      [
+       7.5,
+       1.22
+      ]
+     ],
+     "avg": [
+      3.6,
+      4.5
+     ],
+     "expect_sum": 4.0,
+     "expect_matchup": 4.2,
+     "contrib": [
+      1.7,
+      2.5
+     ],
+     "expect": 4.1,
+     "buffer": 2.4,
+     "fa": [
+      [
+       2.6,
+       2.2
+      ],
+      [
+       2.3,
+       1.8
+      ]
+     ],
+     "sd": 2.11,
+     "p_emp": {
+      "6.5": 0.8333333333333334,
+      "7.5": 0.819672131147541
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "fav": "ausgeglichen",
+     "referee": "Felix Prigan: Ø 4.8 Karten (22 Sp.) · Ø 23.0 Fouls (17 Sp.)",
+     "expect_ref": 4.9,
+     "buffer_ref": 1.6,
+     "p_mod": 0.776,
+     "p_fin": 0.828,
+     "kal": 1.02,
+     "fair_fin": 1.21,
+     "ladder_fin": [
+      [
+       6.5,
+       1.21
+      ],
+      [
+       7.5,
+       1.16
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.21",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12194608",
+    "league": "Germany 3. Liga",
+    "league_id": "39645",
+    "home": "FC Viktoria Köln",
+    "away": "SG Sonnenhof Grossaspach",
+    "home_id": "5805",
+    "away_id": "12582",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "201654233"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      9
+     ],
+     "next_line": 8.5,
+     "next_note": "kein Anker — FC Viktoria Köln 8/10 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; SG Sonnenhof Grossaspach 9 in Folge gesamt, 3 in Folge auswärts",
+     "longterm": [
+      0.7734033613674897,
+      1.0
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       6.5,
+       1.4
+      ],
+      [
+       7.5,
+       1.29
+      ]
+     ],
+     "avg": [
+      9.7,
+      10.0
+     ],
+     "expect_sum": 9.8,
+     "expect_matchup": 10.6,
+     "contrib": [
+      6.9,
+      3.8
+     ],
+     "expect": 10.2,
+     "buffer": 2.7,
+     "fa": [
+      [
+       5.0,
+       4.8
+      ],
+      [
+       6.4,
+       5.7
+      ]
+     ],
+     "sd": 3.33,
+     "p_emp": {
+      "6.5": 0.7142857142857143,
+      "7.5": 0.7751937984496123
+     },
+     "range": [
+      1.56,
+      1.56
+     ],
+     "b365": [
+      "10.0",
+      "1.950",
+      "1.850"
+     ],
+     "p_mod": 0.791,
+     "p_fin": 0.742,
+     "kal": 0.95,
+     "fair_fin": 1.35,
+     "ladder_fin": [
+      [
+       6.5,
+       1.34
+      ],
+      [
+       7.5,
+       1.35
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.35",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      9
+     ],
+     "next_line": 3.5,
+     "next_note": "SG Sonnenhof Grossaspach 7/9 gesamt, 3 in Folge auswärts",
+     "longterm": [
+      0.9624347659483793,
+      0.9411764705882353
+     ],
+     "fair": 1.16,
+     "ladder": [
+      [
+       1.5,
+       1.25
+      ],
+      [
+       2.5,
+       1.16
+      ]
+     ],
+     "avg": [
+      5.2,
+      7.0
+     ],
+     "expect_sum": 6.1,
+     "expect_matchup": 9.2,
+     "contrib": [
+      5.7,
+      3.5
+     ],
+     "expect": 7.6,
+     "buffer": 5.1,
+     "fa": [
+      [
+       2.4,
+       2.9
+      ],
+      [
+       2.3,
+       3.1
+      ]
+     ],
+     "sd": 1.96,
+     "p_emp": {
+      "1.5": 0.8,
+      "2.5": 0.8620689655172414
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "fav": "klar",
+     "referee": "Cengiz Kabalakli: Ø 4.8 Karten (14 Sp.)",
+     "expect_ref": 8.8,
+     "buffer_ref": 6.3,
+     "p_mod": 0.999,
+     "p_fin": 0.907,
+     "kal": 0.95,
+     "fair_fin": 1.1,
+     "ladder_fin": [
+      [
+       1.5,
+       1.14
+      ],
+      [
+       2.5,
+       1.1
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 86 % vs. Modell 100 %",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 5
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      9
+     ],
+     "next_line": 7.5,
+     "next_note": "FC Viktoria Köln 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; SG Sonnenhof Grossaspach 6/8 (3. Lücke) gesamt, 1/3 (Aussetzer in den letzten 2) auswärts",
+     "longterm": [
+      0.7817089931153045,
+      1.0
+     ],
+     "fair": 1.26,
+     "ladder": [
+      [
+       5.5,
+       1.39
+      ],
+      [
+       6.5,
+       1.26
+      ]
+     ],
+     "avg": [
+      8.9,
+      10.0
+     ],
+     "expect_sum": 9.4,
+     "expect_matchup": 9.9,
+     "contrib": [
+      5.7,
+      4.2
+     ],
+     "expect": 9.6,
+     "buffer": 3.1,
+     "fa": [
+      [
+       4.8,
+       4.7
+      ],
+      [
+       5.7,
+       5.3
+      ]
+     ],
+     "sd": 4.1,
+     "p_emp": {
+      "5.5": 0.7194244604316548,
+      "6.5": 0.7936507936507936
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "p_mod": 0.775,
+     "p_fin": 0.777,
+     "kal": null,
+     "fair_fin": 1.29,
+     "ladder_fin": [
+      [
+       5.5,
+       1.29
+      ],
+      [
+       6.5,
+       1.29
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.29",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "1. HZ Gelbe Karten",
+     "metric_key": "ht_yellowcards",
+     "line": 0.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      44,
+      9
+     ],
+     "next_line": 1.5,
+     "next_note": "FC Viktoria Köln 4/6 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; SG Sonnenhof Grossaspach 3/5 (3. Lücke) gesamt, 2/3 (Aussetzer in den letzten 2) auswärts",
+     "longterm": [
+      0.8793480112232746,
+      0.8823529411764706
+     ],
+     "fair": 1.23,
+     "ladder": [
+      [
+       0.5,
+       1.23
+      ]
+     ],
+     "avg": [
+      2.2,
+      1.7
+     ],
+     "expect_sum": 2.0,
+     "expect_matchup": 2.7,
+     "contrib": [
+      1.2,
+      1.5
+     ],
+     "expect": 2.3,
+     "buffer": 1.8,
+     "fa": [
+      [
+       1.0,
+       1.0
+      ],
+      [
+       1.0,
+       0.9
+      ]
+     ],
+     "sd": 1.27,
+     "p_emp": {
+      "0.5": 0.8130081300813008
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "referee": "Cengiz Kabalakli: Ø 4.8 Karten (14 Sp.)",
+     "expect_ref": 6.2,
+     "buffer_ref": 5.7,
+     "p_mod": 1.0,
+     "p_fin": 0.853,
+     "kal": 0.97,
+     "fair_fin": 1.17,
+     "ladder_fin": [
+      [
+       0.5,
+       1.17
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 81 % vs. Modell 100 %",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12101777",
+    "league": "Russia Cup",
+    "league_id": "1268",
+    "home": "CSKA Moscow",
+    "away": "Rostov",
+    "home_id": "26113",
+    "away_id": "997",
+    "kickoff": "Mi 19:45",
+    "kickoff_ts": 1791999900,
+    "bet365_id": null
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      41,
+      46
+     ],
+     "next_line": 3.5,
+     "next_note": "CSKA Moscow 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+     "longterm": [
+      0.8083159978733524,
+      0.8016850231453762
+     ],
+     "fair": 1.3,
+     "ladder": [
+      [
+       1.5,
+       1.3
+      ],
+      [
+       2.5,
+       1.3
+      ]
+     ],
+     "avg": [
+      3.7,
+      4.0
+     ],
+     "expect_sum": 3.8,
+     "expect_matchup": 4.0,
+     "contrib": [
+      1.3,
+      2.7
+     ],
+     "expect": 3.9,
+     "buffer": 1.4,
+     "fa": [
+      [
+       1.8,
+       2.4
+      ],
+      [
+       2.0,
+       2.1
+      ]
+     ],
+     "sd": 2.01,
+     "p_emp": {
+      "1.5": 0.7692307692307692,
+      "2.5": 0.7692307692307692
+     },
+     "range": [
+      1.51,
+      1.71
+     ],
+     "fav": null,
+     "p_mod": 0.757,
+     "p_fin": 0.765,
+     "kal": 0.95,
+     "fair_fin": 1.31,
+     "ladder_fin": [
+      [
+       1.5,
+       1.22
+      ],
+      [
+       2.5,
+       1.31
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.31",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      41,
+      46
+     ],
+     "next_line": 5.5,
+     "next_note": "CSKA Moscow 1/3 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; Rostov 9/11 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8052723371117874,
+      0.941684068804111
+     ],
+     "fair": 1.14,
+     "ladder": [
+      [
+       6.5,
+       1.14
+      ],
+      [
+       7.5,
+       1.22
+      ]
+     ],
+     "avg": [
+      3.7,
+      4.0
+     ],
+     "expect_sum": 3.8,
+     "expect_matchup": 4.0,
+     "contrib": [
+      1.3,
+      2.7
+     ],
+     "expect": 3.9,
+     "buffer": 2.6,
+     "fa": [
+      [
+       1.8,
+       2.4
+      ],
+      [
+       2.0,
+       2.1
+      ]
+     ],
+     "sd": 2.01,
+     "p_emp": {
+      "6.5": 0.8771929824561404,
+      "7.5": 0.819672131147541
+     },
+     "range": [
+      1.51,
+      1.71
+     ],
+     "fav": null,
+     "p_mod": 0.902,
+     "p_fin": 0.889,
+     "kal": 1.02,
+     "fair_fin": 1.12,
+     "ladder_fin": [
+      [
+       6.5,
+       1.12
+      ],
+      [
+       7.5,
+       1.12
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.12",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      40,
+      46
+     ],
+     "next_line": 8.5,
+     "next_note": "CSKA Moscow 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+     "longterm": [
+      0.6809732849626307,
+      0.6278976183515267
+     ],
+     "fair": 1.55,
+     "ladder": [
+      [
+       6.5,
+       1.4
+      ],
+      [
+       7.5,
+       1.55
+      ]
+     ],
+     "avg": [
+      9.4,
+      9.2
+     ],
+     "expect_sum": 9.3,
+     "expect_matchup": 9.4,
+     "contrib": [
+      4.9,
+      4.4
+     ],
+     "expect": 9.3,
+     "buffer": 1.8,
+     "fa": [
+      [
+       4.8,
+       4.2
+      ],
+      [
+       4.7,
+       3.4
+      ]
+     ],
+     "sd": 3.5,
+     "p_emp": {
+      "6.5": 0.7142857142857143,
+      "7.5": 0.6451612903225806
+     },
+     "range": [
+      1.37,
+      2.16
+     ],
+     "p_mod": 0.696,
+     "p_fin": 0.698,
+     "kal": null,
+     "fair_fin": 1.43,
+     "ladder_fin": [
+      [
+       6.5,
+       1.33
+      ],
+      [
+       7.5,
+       1.43
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.43",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 18.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      37,
+      45
+     ],
+     "next_line": 20.5,
+     "next_note": "CSKA Moscow 2/4 (3. Lücke) gesamt, 15/17 (3. Lücke) heim",
+     "longterm": [
+      0.9167985180892608,
+      1.0
+     ],
+     "fair": 1.11,
+     "ladder": [
+      [
+       16.5,
+       1.18
+      ],
+      [
+       18.5,
+       1.11
+      ]
+     ],
+     "avg": [
+      24.3,
+      29.1
+     ],
+     "expect_sum": 26.7,
+     "expect_matchup": 29.7,
+     "contrib": [
+      13.7,
+      16.0
+     ],
+     "expect": 28.2,
+     "buffer": 9.7,
+     "fa": [
+      [
+       11.2,
+       13.9
+      ],
+      [
+       14.5,
+       14.4
+      ]
+     ],
+     "sd": 5.1,
+     "p_emp": {
+      "16.5": 0.8474576271186441,
+      "18.5": 0.9009009009009008
+     },
+     "range": [
+      1.51,
+      2.12
+     ],
+     "p_mod": 0.971,
+     "p_fin": 0.904,
+     "kal": null,
+     "fair_fin": 1.11,
+     "ladder_fin": [
+      [
+       16.5,
+       1.12
+      ],
+      [
+       18.5,
+       1.11
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.11",
+     "light": "🟢",
+     "first_run": "Mi 06:14",
+     "change_note": "Quoten vorher 1.74–1.93"
+    },
+    {
+     "metric": "Rostov: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 6.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Rostov",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 8,
+     "erwartet": 4.3,
+     "fair": 1.27,
+     "fair_fin": 1.27,
+     "p_fin": 0.7872,
+     "p_emp": 0.792,
+     "p_mod": 0.821,
+     "light": "🟢",
+     "unverified": false,
+     "no_tab": false,
+     "pending": false,
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13217796",
+    "league": "Argentina Liga Profesional Reserves",
+    "league_id": "36544",
+    "home": "CA Tigre Reserves",
+    "away": "Argentinos Jrs Reserves",
+    "home_id": "48555",
+    "away_id": "45375",
+    "kickoff": "Mi 20:00",
+    "kickoff_ts": 1792000800,
+    "bet365_id": "202800435"
+   },
+   "signals": [
+    {
+     "metric": "CA Tigre Reserves: Ecken",
+     "metric_key": "team_corners_heim",
+     "line": 5.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "CA Tigre Reserves",
+     "serie": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 15
+     },
+     "gegner": 7,
+     "erwartet": 3.8,
+     "fair": 1.27,
+     "fair_fin": 1.27,
+     "p_fin": 0.7895,
+     "p_emp": 0.799,
+     "p_mod": 0.823,
+     "light": "🟢",
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "first_run": "Mi 07:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13217797",
+    "league": "Argentina Liga Profesional Reserves",
+    "league_id": "36544",
+    "home": "Estudiantes LP Reserves",
+    "away": "Lanus Reserves",
+    "home_id": "2622",
+    "away_id": "50288",
+    "kickoff": "Mi 20:00",
+    "kickoff_ts": 1792000800,
+    "bet365_id": "202801095"
+   },
+   "signals": [
+    {
+     "metric": "Estudiantes LP Reserves: Ecken",
+     "metric_key": "team_corners_heim",
+     "line": 6.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Estudiantes LP Reserves",
+     "serie": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 16
+     },
+     "gegner": 8,
+     "erwartet": 4.6,
+     "fair": 1.3,
+     "fair_fin": 1.3,
+     "p_fin": 0.7665,
+     "p_emp": 0.785,
+     "p_mod": 0.748,
+     "light": "🟢",
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "first_run": "Mi 07:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13217798",
+    "league": "Argentina Liga Profesional Reserves",
+    "league_id": "36544",
+    "home": "Colon Reserves",
+    "away": "Independiente Rivadavia Reserves",
+    "home_id": "69412",
+    "away_id": "475901",
+    "kickoff": "Mi 20:00",
+    "kickoff_ts": 1792000800,
+    "bet365_id": "202801098"
+   },
+   "signals": [
+    {
+     "metric": "Independiente Rivadavia Reserves: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 6.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Independiente Rivadavia Reserves",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 6,
+     "erwartet": 4.1,
+     "fair": 1.24,
+     "fair_fin": 1.24,
+     "p_fin": 0.806,
+     "p_emp": 0.851,
+     "p_mod": 0.835,
+     "light": "🟢",
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "first_run": "Mi 07:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13217856",
+    "league": "Argentina Liga Profesional Reserves",
+    "league_id": "36544",
+    "home": "Rosario Central Reserves",
+    "away": "CA Aldosivi Reserves",
+    "home_id": "46337",
+    "away_id": "47457",
+    "kickoff": "Mi 20:00",
+    "kickoff_ts": 1792000800,
+    "bet365_id": "202801119"
+   },
+   "signals": [
+    {
+     "metric": "Ecken",
+     "metric_key": "corners",
+     "line": 7.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      50,
+      50
+     ],
+     "next_line": 8.5,
+     "next_note": "CA Aldosivi Reserves 7/9 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.786021455055188,
+      0.7390187537921904
+     ],
+     "fair": 1.35,
+     "ladder": [
+      [
+       6.5,
+       1.41
+      ],
+      [
+       7.5,
+       1.35
+      ]
+     ],
+     "avg": [
+      9.1,
+      8.8
+     ],
+     "expect_sum": 8.9,
+     "expect_matchup": 8.6,
+     "contrib": [
+      4.8,
+      3.8
+     ],
+     "expect": 8.7,
+     "buffer": 1.2,
+     "fa": [
+      [
+       5.2,
+       4.0
+      ],
+      [
+       4.1,
+       4.9
+      ]
+     ],
+     "sd": 3.02,
+     "p_emp": {
+      "6.5": 0.7092198581560284,
+      "7.5": 0.7407407407407407
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "b365": [
+      "8.5",
+      "1.825",
+      "1.975"
+     ],
+     "p_mod": 0.654,
+     "p_fin": 0.692,
+     "kal": 0.95,
+     "fair_fin": 1.44,
+     "ladder_fin": [
+      [
+       6.5,
+       1.4
+      ],
+      [
+       7.5,
+       1.44
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.44",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13277759",
+    "league": "Copa do Brasil U20",
+    "league_id": "46753",
+    "home": "Operario PR U20",
+    "away": "Nautico Capibaribe U20",
+    "home_id": "319013",
+    "away_id": "51133",
+    "kickoff": "Mi 20:00",
+    "kickoff_ts": 1792000800,
+    "bet365_id": "202849232",
+    "_cross_league": true
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      49,
+      43
+     ],
+     "next_line": 3.5,
+     "next_note": "Operario PR U20 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Nautico Capibaribe U20 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+     "longterm": [
+      0.7100147467055585,
+      0.7554920625575773
+     ],
+     "fair": 1.47,
+     "ladder": [
+      [
+       1.5,
+       1.21
+      ],
+      [
+       2.5,
+       1.47
+      ]
+     ],
+     "avg": [
+      3.9,
+      3.4
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 4.2,
+     "contrib": [
+      2.1,
+      2.1
+     ],
+     "expect": 3.9,
+     "buffer": 1.4,
+     "fa": [
+      [
+       1.5,
+       1.8
+      ],
+      [
+       2.4,
+       0.9
+      ]
+     ],
+     "sd": 2.4,
+     "p_emp": {
+      "1.5": 0.8264462809917356,
+      "2.5": 0.6802721088435374
+     },
+     "no_odds_check": true,
+     "p_mod": 0.72,
+     "p_fin": 0.686,
+     "kal": 0.94,
+     "fair_fin": 1.46,
+     "ladder_fin": [
+      [
+       1.5,
+       1.26
+      ],
+      [
+       2.5,
+       1.46
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.46",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12458167",
+    "league": "AFC Champions League Two",
+    "league_id": "38266",
+    "home": "Al-Faisaly Amman",
+    "away": "Al-Nahda",
+    "home_id": "9385",
+    "away_id": "47393",
+    "kickoff": "Mi 20:15",
+    "kickoff_ts": 1792001700,
+    "bet365_id": "202752506",
+    "_cross_league": true
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 6.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      47,
+      44
+     ],
+     "next_line": 5.5,
+     "next_note": "Al-Faisaly Amman 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+     "longterm": [
+      0.8857237217296514,
+      0.9534410845763994
+     ],
+     "fair": 1.1,
+     "ladder": [
+      [
+       6.5,
+       1.1
+      ],
+      [
+       7.5,
+       1.2
+      ]
+     ],
+     "avg": [
+      3.9,
+      3.1
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 3.1,
+     "contrib": [
+      1.6,
+      1.5
+     ],
+     "expect": 3.3,
+     "buffer": 3.2,
+     "fa": [
+      [
+       1.7,
+       2.2
+      ],
+      [
+       1.8,
+       2.0
+      ]
+     ],
+     "sd": 1.98,
+     "p_emp": {
+      "6.5": 0.9090909090909091,
+      "7.5": 0.8333333333333334
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "fav": "mittel",
+     "p_mod": 0.947,
+     "p_fin": 0.917,
+     "kal": 1.02,
+     "fair_fin": 1.09,
+     "ladder_fin": [
+      [
+       6.5,
+       1.09
+      ],
+      [
+       7.5,
+       1.11
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.09",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "Al-Nahda: Gelbe Karten",
+     "metric_key": "team_yellowcards_gast",
+     "line": 2.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Al-Nahda",
+     "serie": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 15
+     },
+     "gegner": 6,
+     "erwartet": 1.7,
+     "fair": 1.31,
+     "fair_fin": 1.31,
+     "p_fin": 0.7612,
+     "p_emp": 0.747,
+     "p_mod": 0.764,
+     "light": "🟢",
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13290284",
+    "league": "England Northern League Division One",
+    "league_id": "1212",
+    "home": "Shifnal Town",
+    "away": "Witton Albion",
+    "home_id": "361694",
+    "away_id": "46575",
+    "kickoff": "Mi 20:45",
+    "kickoff_ts": 1792003500,
+    "bet365_id": "202856075"
+   },
+   "signals": [
+    {
+     "metric": "Shifnal Town: Ecken",
+     "metric_key": "team_corners_heim",
+     "line": 6.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Shifnal Town",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 6,
+     "erwartet": 4.3,
+     "fair": 1.25,
+     "fair_fin": 1.25,
+     "p_fin": 0.7983,
+     "p_emp": 0.796,
+     "p_mod": 0.859,
+     "light": "🟢",
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "first_run": "Mi 10:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12101673",
+    "league": "England Championship",
+    "league_id": "880",
+    "home": "Norwich",
+    "away": "Southampton",
+    "home_id": "17184",
+    "away_id": "17231",
+    "kickoff": "Mi 20:45",
+    "kickoff_ts": 1792003500,
+    "bet365_id": "201647272"
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 5.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      43,
+      44
+     ],
+     "next_line": 4.5,
+     "next_note": "Norwich 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Southampton 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.8118273785518907,
+      0.8400459482466415
+     ],
+     "fair": 1.23,
+     "ladder": [
+      [
+       5.5,
+       1.23
+      ],
+      [
+       6.5,
+       1.16
+      ]
+     ],
+     "avg": [
+      4.4,
+      3.8
+     ],
+     "expect_sum": 4.1,
+     "expect_matchup": 4.5,
+     "contrib": [
+      2.3,
+      2.2
+     ],
+     "expect": 4.3,
+     "buffer": 1.2,
+     "fa": [
+      [
+       2.0,
+       1.8
+      ],
+      [
+       1.8,
+       1.9
+      ]
+     ],
+     "sd": 2.37,
+     "p_emp": {
+      "5.5": 0.8130081300813008,
+      "6.5": 0.8620689655172414
+     },
+     "range": [
+      1.4,
+      1.4
+     ],
+     "fav": "ausgeglichen",
+     "referee": "Steve Martin: Ø 4.0 Karten (2 Sp.) · Ø 22.0 Fouls (3 Sp.)",
+     "expect_ref": 4.3,
+     "buffer_ref": 1.2,
+     "p_mod": 0.694,
+     "p_fin": 0.791,
+     "kal": 1.02,
+     "fair_fin": 1.26,
+     "ladder_fin": [
+      [
+       5.5,
+       1.26
+      ],
+      [
+       6.5,
+       1.17
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.26",
+     "light": "🟢",
+     "first_run": "Mi 07:14"
+    },
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      41,
+      41
+     ],
+     "next_line": 7.5,
+     "next_note": "Southampton 6/8 (3. Lücke) gesamt, 13/15 (3. Lücke) auswärts",
+     "longterm": [
+      0.765458850302171,
+      0.9058502248829466
+     ],
+     "fair": 1.25,
+     "ladder": [
+      [
+       5.5,
+       1.27
+      ],
+      [
+       6.5,
+       1.25
+      ]
+     ],
+     "avg": [
+      8.7,
+      8.6
+     ],
+     "expect_sum": 8.6,
+     "expect_matchup": 8.3,
+     "contrib": [
+      5.0,
+      3.3
+     ],
+     "expect": 8.5,
+     "buffer": 2.0,
+     "fa": [
+      [
+       4.7,
+       3.7
+      ],
+      [
+       4.6,
+       4.1
+      ]
+     ],
+     "sd": 2.41,
+     "p_emp": {
+      "5.5": 0.7874015748031495,
+      "6.5": 0.8
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "p_mod": 0.797,
+     "p_fin": 0.787,
+     "kal": null,
+     "fair_fin": 1.27,
+     "ladder_fin": [
+      [
+       5.5,
+       1.23
+      ],
+      [
+       6.5,
+       1.27
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.27",
+     "light": "🟢",
+     "first_run": "Mi 07:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12101672",
+    "league": "England Championship",
+    "league_id": "880",
+    "home": "Portsmouth",
+    "away": "Sheff Utd",
+    "home_id": "3022",
+    "away_id": "3013",
+    "kickoff": "Mi 20:45",
+    "kickoff_ts": 1792003500,
+    "bet365_id": "201647277"
+   },
+   "signals": [
+    {
+     "metric": "Fouls",
+     "metric_key": "fouls",
+     "line": 20.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      25,
+      30
+     ],
+     "next_line": 22.5,
+     "next_note": "Portsmouth 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Sheff Utd 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+     "longterm": [
+      0.7963076329610486,
+      0.7023239134389264
+     ],
+     "fair": 1.4,
+     "ladder": [
+      [
+       18.5,
+       1.2
+      ],
+      [
+       20.5,
+       1.4
+      ]
+     ],
+     "avg": [
+      24.0,
+      21.0
+     ],
+     "expect_sum": 22.5,
+     "expect_matchup": 21.1,
+     "contrib": [
+      11.5,
+      9.5
+     ],
+     "expect": 21.8,
+     "buffer": 1.3,
+     "fa": [
+      [
+       10.8,
+       11.0
+      ],
+      [
+       9.7,
+       11.4
+      ]
+     ],
+     "sd": 4.91,
+     "p_emp": {
+      "18.5": 0.8333333333333334,
+      "20.5": 0.7142857142857143
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "p_mod": 0.604,
+     "p_fin": 0.702,
+     "kal": null,
+     "fair_fin": 1.43,
+     "ladder_fin": [
+      [
+       18.5,
+       1.25
+      ],
+      [
+       20.5,
+       1.43
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.43",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "Portsmouth: Gelbe Karten",
+     "metric_key": "team_yellowcards_heim",
+     "line": 2.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Portsmouth",
+     "serie": {
+      "kind": "heim",
+      "hits": 15,
+      "window": 15
+     },
+     "gegner": 7,
+     "erwartet": 1.5,
+     "fair": 1.22,
+     "fair_fin": 1.22,
+     "p_fin": 0.8207,
+     "p_emp": 0.8,
+     "p_mod": 0.831,
+     "light": "🟢",
+     "unverified": false,
+     "no_tab": false,
+     "pending": false,
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13041498",
+    "league": "UEFA Champions League",
+    "league_id": "1040",
+    "home": "Bodo/Glimt",
+    "away": "Borussia Dortmund",
+    "home_id": "888",
+    "away_id": "23475",
+    "kickoff": "Mi 21:00",
+    "kickoff_ts": 1792004400,
+    "bet365_id": "201058104",
+    "_cross_league": true
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      42,
+      45
+     ],
+     "next_line": 3.5,
+     "next_note": "Bodo/Glimt 6/8 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Borussia Dortmund 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+     "longterm": [
+      0.8799162155352279,
+      0.6526439440455937
+     ],
+     "fair": 1.42,
+     "ladder": [
+      [
+       1.5,
+       1.16
+      ],
+      [
+       2.5,
+       1.42
+      ]
+     ],
+     "avg": [
+      4.3,
+      3.3
+     ],
+     "expect_sum": 3.8,
+     "expect_matchup": 3.8,
+     "contrib": [
+      2.4,
+      1.4
+     ],
+     "expect": 3.8,
+     "buffer": 1.3,
+     "fa": [
+      [
+       2.8,
+       1.3
+      ],
+      [
+       2.1,
+       1.2
+      ]
+     ],
+     "sd": 1.78,
+     "p_emp": {
+      "1.5": 0.8620689655172414,
+      "2.5": 0.7042253521126761
+     },
+     "no_odds_check": true,
+     "p_mod": 0.767,
+     "p_fin": 0.714,
+     "kal": 0.94,
+     "fair_fin": 1.4,
+     "ladder_fin": [
+      [
+       1.5,
+       1.21
+      ],
+      [
+       2.5,
+       1.4
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.40",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "12100745",
+    "league": "England Championship",
+    "league_id": "880",
+    "home": "Lincoln City",
+    "away": "West Ham",
+    "home_id": "1945",
+    "away_id": "709",
+    "kickoff": "Mi 21:00",
+    "kickoff_ts": 1792004400,
+    "bet365_id": "201647285"
+   },
+   "signals": [
+    {
+     "metric": "Schüsse aufs Tor",
+     "metric_key": "on_target",
+     "line": 6.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      42,
+      41
+     ],
+     "next_line": 7.5,
+     "next_note": "Lincoln City 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.6737776480335401,
+      0.8654014366285102
+     ],
+     "fair": 1.33,
+     "ladder": [
+      [
+       5.5,
+       1.32
+      ],
+      [
+       6.5,
+       1.33
+      ]
+     ],
+     "avg": [
+      8.6,
+      9.9
+     ],
+     "expect_sum": 9.2,
+     "expect_matchup": 9.7,
+     "contrib": [
+      6.6,
+      3.1
+     ],
+     "expect": 9.4,
+     "buffer": 2.9,
+     "fa": [
+      [
+       4.6,
+       3.2
+      ],
+      [
+       4.5,
+       4.9
+      ]
+     ],
+     "sd": 2.75,
+     "p_emp": {
+      "5.5": 0.7575757575757576,
+      "6.5": 0.7518796992481203
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "p_mod": 0.854,
+     "p_fin": 0.79,
+     "kal": null,
+     "fair_fin": 1.27,
+     "ladder_fin": [
+      [
+       5.5,
+       1.23
+      ],
+      [
+       6.5,
+       1.27
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.27",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "Abseits",
+     "metric_key": "offsides",
+     "line": 4.5,
+     "direction": "unter",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 11
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      13,
+      45
+     ],
+     "next_line": 3.5,
+     "next_note": "West Ham 4/6 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+     "longterm": [
+      0.9109399686194188,
+      0.827525980371612
+     ],
+     "fair": 1.25,
+     "ladder": [
+      [
+       4.5,
+       1.25
+      ],
+      [
+       5.5,
+       1.13
+      ]
+     ],
+     "avg": [
+      4.2,
+      2.9
+     ],
+     "expect_sum": 3.5,
+     "expect_matchup": 2.9,
+     "contrib": [
+      1.4,
+      1.4
+     ],
+     "expect": 3.2,
+     "buffer": 1.3,
+     "fa": [
+      [
+       2.1,
+       0.8
+      ],
+      [
+       2.0,
+       1.0
+      ]
+     ],
+     "sd": 2.04,
+     "p_emp": {
+      "4.5": 0.8,
+      "5.5": 0.8849557522123894
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "fav": "mittel",
+     "p_mod": 0.738,
+     "p_fin": 0.791,
+     "kal": 1.0,
+     "fair_fin": 1.26,
+     "ladder_fin": [
+      [
+       4.5,
+       1.26
+      ],
+      [
+       5.5,
+       1.15
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.26",
+     "light": "🟢",
+     "first_run": "Mi 06:14"
+    },
+    {
+     "metric": "Lincoln City: Ecken",
+     "metric_key": "team_corners_heim",
+     "line": 5.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Lincoln City",
+     "serie": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "gegner": 7,
+     "erwartet": 4.2,
+     "fair": 1.37,
+     "fair_fin": 1.37,
+     "p_fin": 0.7293,
+     "p_emp": 0.673,
+     "p_mod": 0.718,
+     "light": "🟢",
+     "unverified": false,
+     "no_tab": false,
+     "pending": false,
+     "first_run": "Mi 06:14"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "doublechance": 30,
+  "totals": 39,
+  "handicaps": 22,
+  "btts": 17,
+  "correctscore": 3,
+  "results": 20,
+  "corners": 21,
+  "cards": 4,
+  "shots": 1,
+  "offsides": 1,
+  "fouls": 1
+ },
+ "dauer_s": 28,
+ "zeit": {
+  "historie": 0,
+  "pruefung": 0,
+  "scores24": 106,
+  "extras": 25,
+  "vorlauf": 6,
+  "spiele": 22
+ },
+ "teams_nachgeladen": 0,
+ "s24": {
+  "ok": 39,
+  "no_link": 41,
+  "fetch_fail": 8,
+  "err_falsches_spiel": 8,
+  "err_keine_trends": 103
+ },
+ "b365_rettung": {
+  "karten_katalog_nicht_im_paket": 15
+ },
+ "s24_namen_diag": [
+  {
+   "spiel": "Al Mesaimeer SC – Al Gharafa Reserves",
+   "liga": "Qatar Stars League 2",
+   "anstoss": "Mi 18:45",
+   "slug": "14-10-2026-al-mesaimeer-club-al-gharafa-b",
+   "namen_im_json": [
+    "Al Mesaimeer",
+    "Al Mesaimeer hat ein Tor erzielt",
+    "Al Mesaimeer hat unter 1.5 Tore erzielt",
+    "Al Mesaimeer hat unter 2.5 Tore erzielt",
+    "Al-Karamah",
+    "Al-Karamah Gewinnt mit einem Handicap von +1.5",
+    "Al-Karamah hat nicht verloren",
+    "Al-Karamah hat unter 1.5 Tore erzielt",
+    "Unter 3.5 erzielten Toren",
+    "al-karama",
+    "al-mesaimeer",
+    "doublechance"
+   ],
+   "json_kopf": "{\"data\":[{\"name\":\"doublechance\",\"min_odd\":1.85,\"max_odd\":1.85,\"count\":1,\"bookmakers\":[],\"trends\":[{\"id\":\"112bc121b8f591640ca976f446e2a002\",\"trend_type\":\"single\",\"conflict_group\":0,\"prediction\":{\"value\":1.85,\"type\":[\"double_chance\",\"x2\"],\"bookmaker_slug\":\"S24\"},\"grouped_facts\":[{\"title\":\"Al-Karamah h"
+  },
+  {
+   "spiel": "LASK Linz – Liverpool",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 18:45",
+   "slug": "14-10-2026-lask-linz-liverpool",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "ES Setif – JS Kabylie",
+   "liga": "Algeria Division 1",
+   "anstoss": "Mi 19:00",
+   "slug": "14-10-2026-es-setif-js-kabylie",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Antalyaspor – Kayserispor",
+   "liga": "Türkiye 1 Lig",
+   "anstoss": "Mi 19:00",
+   "slug": "14-10-2026-mardin-1969-spor-fatih-karagumruk-istanbul",
+   "namen_im_json": [
+    "Burak Olcar",
+    "Fatih Karag\\u00fcmr\\u00fck",
+    "Fatih Karagumruk Istanbul hat ein Gegentor kassiert",
+    "Fatih Karagumruk Istanbul hat ein Tor erzielt",
+    "Fatih Karagumruk Istanbul hat nicht verloren",
+    "Mardin 1969 Spor",
+    "Mardin 1969 Spor hat nicht verloren",
+    "Unter 2.5 erzielten Toren",
+    "Unter 3.5 erzielten Toren",
+    "Unter 5.5 erzielten Toren",
+    "\\u00dcber 1.5 erzielten Toren",
+    "\\u00dcber 8.5 Ecken"
+   ],
+   "json_kopf": "{\"data\":[{\"name\":\"doublechance\",\"min_odd\":1.24,\"max_odd\":1.74,\"count\":2,\"bookmakers\":[],\"trends\":[{\"id\":\"3fe2c7866d381375b588a6d3800ff4c9\",\"trend_type\":\"conflict\",\"conflict_group\":2,\"prediction\":{\"value\":1.24,\"type\":[\"double_chance\",\"x1\"],\"bookmaker_slug\":\"S24\"},\"grouped_facts\":[{\"title\":\"Mardin 196"
+  },
+  {
+   "spiel": "Feyenoord – Como",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 18:45",
+   "slug": "14-10-2026-feyenoord-como",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "CR Temouchent – MB Rouissat",
+   "liga": "Algeria Division 1",
+   "anstoss": "Mi 19:00",
+   "slug": "14-10-2026-cr-temouchent-mb-rouissat",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Al Raed – Jeddah Club",
+   "liga": "Saudi Arabia Division 1",
+   "anstoss": "Mi 19:00",
+   "slug": "14-10-2026-al-raed-jeddah-club",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Asker – Frigg",
+   "liga": "Norway Division 3 Group 1",
+   "anstoss": "Mi 19:00",
+   "slug": "14-10-2026-asker-frigg",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Feyenoord – Como",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 18:45",
+   "slug": "13-10-2026-feyenoord-como",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Omonia 29is Maiou – AEP Polemidion",
+   "liga": "Cyprus Cup",
+   "anstoss": "Mi 19:00",
+   "slug": "14-10-2026-als-omonia-aep-polemidion",
+   "namen_im_json": [
+    "Als Omonia",
+    "Als Omonia hat ein Gegentor kassiert",
+    "Als Omonia hat ein Tor erzielt",
+    "Als Omonia hat ein Tor erzielt und ein Gegentor kassiert",
+    "Als Omonia hat in der 1. Halbzeit ein Gegentor kassiert",
+    "Als Omonia hat in der 2. Halbzeit ein Tor erzielt",
+    "Als Omonia hat nicht verloren",
+    "Als Omonia hat unter 3.5 Tore erzielt",
+    "Als Omonia hat unter 5.5 Tore erzielt",
+    "Unter 10.5 Ecken",
+    "als-omonia-3",
+    "btts"
+   ],
+   "json_kopf": "{\"data\":[{\"name\":\"doublechance\",\"min_odd\":1,\"max_odd\":1,\"count\":1,\"bookmakers\":[],\"trends\":[{\"id\":\"83ab3d871a14b527e8a593a2b03c8249\",\"trend_type\":\"single\",\"conflict_group\":0,\"prediction\":{\"value\":1,\"type\":[\"double_chance\",\"x1\"],\"bookmaker_slug\":\"S24\"},\"grouped_facts\":[{\"title\":\"Als Omonia hat nicht "
+  },
+  {
+   "spiel": "ES Setif – JS Kabylie",
+   "liga": "Algeria Division 1",
+   "anstoss": "Mi 19:00",
+   "slug": "13-10-2026-es-setif-js-kabylie",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "CR Temouchent – MB Rouissat",
+   "liga": "Algeria Division 1",
+   "anstoss": "Mi 19:00",
+   "slug": "13-10-2026-cr-temouchent-mb-rouissat",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "LASK Linz – Liverpool",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 18:45",
+   "slug": "13-10-2026-lask-linz-liverpool",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Gzira United – Mosta FC",
+   "liga": "Malta Premier League",
+   "anstoss": "Mi 19:00",
+   "slug": "14-10-2026-gzira-united-mosta-fc",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Al Raed – Jeddah Club",
+   "liga": "Saudi Arabia Division 1",
+   "anstoss": "Mi 19:00",
+   "slug": "13-10-2026-al-raed-jeddah-club",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Asker – Frigg",
+   "liga": "Norway Division 3 Group 1",
+   "anstoss": "Mi 19:00",
+   "slug": "13-10-2026-asker-frigg",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "FC Nizhny Novgorod – Shinnik Yaroslavl",
+   "liga": "Russia Cup",
+   "anstoss": "Mi 18:15",
+   "slug": "14-10-2026-fc-nizhny-novgorod-shinnik-yaroslavl",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Omonia 29is Maiou – AEP Polemidion",
+   "liga": "Cyprus Cup",
+   "anstoss": "Mi 19:00",
+   "slug": "14-10-2026-omonia-29is-maiou-aep-polemidion",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Al Mesaimeer SC – Al Gharafa Reserves",
+   "liga": "Qatar Stars League 2",
+   "anstoss": "Mi 18:45",
+   "slug": "14-10-2026-al-mesaimeer-sc-al-gharafa-reserves",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Gaborone United – Botswana Police XI SC",
+   "liga": "Botswana Premier League",
+   "anstoss": "Mi 19:00",
+   "slug": "14-10-2026-gaborone-united-botswana-police-xi-sc",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "FC Nizhny Novgorod – Shinnik Yaroslavl",
+   "liga": "Russia Cup",
+   "anstoss": "Mi 18:15",
+   "slug": "13-10-2026-fc-nizhny-novgorod-shinnik-yaroslavl",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "CD Erriberri – CD Azkoyen",
+   "liga": "Spain Regional League",
+   "anstoss": "Mi 19:30",
+   "slug": "14-10-2026-cd-erriberri-azkoyen",
+   "namen_im_json": [
+    "Azkoyen",
+    "Azkoyen hat ein Gegentor kassiert",
+    "Azkoyen hat nicht gewonnen",
+    "Azkoyen hat unter 1.5 Tore erzielt",
+    "Azkoyen hat verloren",
+    "Unter 3.5 erzielten Toren",
+    "cd-azkoyen-2",
+    "doublechance",
+    "results",
+    "totals"
+   ],
+   "json_kopf": "{\"data\":[{\"name\":\"results\",\"min_odd\":2.25,\"max_odd\":2.25,\"count\":1,\"bookmakers\":[],\"trends\":[{\"id\":\"3b0b9bd408bdd6f9ac4e3d13140f5233\",\"trend_type\":\"single\",\"conflict_group\":0,\"prediction\":{\"value\":2.25,\"type\":[\"one_x_two\",\"w1\"],\"bookmaker_slug\":\"S24\"},\"grouped_facts\":[{\"title\":\"Azkoyen hat verloren\""
+  },
+  {
+   "spiel": "Al Mesaimeer SC – Al Gharafa Reserves",
+   "liga": "Qatar Stars League 2",
+   "anstoss": "Mi 18:45",
+   "slug": "13-10-2026-al-mesaimeer-sc-al-gharafa-reserves",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Gaborone United – Botswana Police XI SC",
+   "liga": "Botswana Premier League",
+   "anstoss": "Mi 19:00",
+   "slug": "13-10-2026-gaborone-united-botswana-police-xi-sc",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Omonia 29is Maiou – AEP Polemidion",
+   "liga": "Cyprus Cup",
+   "anstoss": "Mi 19:00",
+   "slug": "13-10-2026-omonia-29is-maiou-aep-polemidion",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Crystal Palace U21 – Anderlecht Reserves",
+   "liga": "Premier League International Cup",
+   "anstoss": "Mi 20:00",
+   "slug": "14-10-2026-crystal-palace-u21-anderlecht-reserves",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "CD Erriberri – CD Azkoyen",
+   "liga": "Spain Regional League",
+   "anstoss": "Mi 19:30",
+   "slug": "14-10-2026-cd-erriberri-cd-azkoyen",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Crystal Palace U21 – Anderlecht Reserves",
+   "liga": "Premier League International Cup",
+   "anstoss": "Mi 20:00",
+   "slug": "13-10-2026-crystal-palace-u21-anderlecht-reserves",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Rio Grande – Real Sport Club",
+   "liga": "Brazil Campeonato Gaucho 3",
+   "anstoss": "Mi 20:00",
+   "slug": "14-10-2026-rio-grande-real-sport-club",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "CF Montanesa – FC L'Escala",
+   "liga": "Spain Tercera Group 5",
+   "anstoss": "Mi 20:00",
+   "slug": "14-10-2026-cf-montanesa-fc-l-escala",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "CE L'Hospitalet – CFJ Mollerussa",
+   "liga": "Spain Tercera Group 5",
+   "anstoss": "Mi 20:00",
+   "slug": "14-10-2026-ce-l-hospitalet-cfj-mollerussa",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Gzira United – Mosta FC",
+   "liga": "Malta Premier League",
+   "anstoss": "Mi 19:00",
+   "slug": "13-10-2026-gzira-united-mosta-fc",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "UE Cornella – Peralada",
+   "liga": "Spain Tercera Group 5",
+   "anstoss": "Mi 20:00",
+   "slug": "14-10-2026-ue-cornella-peralada",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Sport Recife U20 – Porto PE U20",
+   "liga": "Brazil Campeonato Pernambucano U20",
+   "anstoss": "Mi 20:00",
+   "slug": "15-10-2026-mali-u20-guinea-u20",
+   "namen_im_json": [
+    "Mali U20",
+    "Mali U20 hat unter 1.5 Tore erzielt",
+    "Unter 2.5 erzielten Toren",
+    "\\u00dcber 1.5 erzielten Toren",
+    "mali",
+    "totals"
+   ],
+   "json_kopf": "{\"data\":[{\"name\":\"totals\",\"min_odd\":1.21,\"max_odd\":2.029,\"count\":3,\"bookmakers\":[],\"trends\":[{\"id\":\"021c97b865d615d3a86cf078f0b963c1\",\"trend_type\":\"single\",\"conflict_group\":0,\"prediction\":{\"value\":1.21,\"type\":[\"total_over\",\"1_5\"],\"bookmaker_slug\":\"S24\"},\"grouped_facts\":[{\"title\":\"\\u00dcber 1.5 erzie"
+  },
+  {
+   "spiel": "CD Erriberri – CD Azkoyen",
+   "liga": "Spain Regional League",
+   "anstoss": "Mi 19:30",
+   "slug": "13-10-2026-cd-erriberri-cd-azkoyen",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Flamengo U20 – Criciuma U20",
+   "liga": "Copa do Brasil U20",
+   "anstoss": "Mi 20:00",
+   "slug": "15-10-2026-mali-u20-guinea-u20",
+   "namen_im_json": [
+    "Mali U20",
+    "Mali U20 hat unter 1.5 Tore erzielt",
+    "Unter 2.5 erzielten Toren",
+    "\\u00dcber 1.5 erzielten Toren",
+    "mali",
+    "totals"
+   ],
+   "json_kopf": "{\"data\":[{\"name\":\"totals\",\"min_odd\":1.21,\"max_odd\":2.029,\"count\":3,\"bookmakers\":[],\"trends\":[{\"id\":\"021c97b865d615d3a86cf078f0b963c1\",\"trend_type\":\"single\",\"conflict_group\":0,\"prediction\":{\"value\":1.21,\"type\":[\"total_over\",\"1_5\"],\"bookmaker_slug\":\"S24\"},\"grouped_facts\":[{\"title\":\"\\u00dcber 1.5 erzie"
+  },
+  {
+   "spiel": "Operario PR U20 – Nautico Capibaribe U20",
+   "liga": "Copa do Brasil U20",
+   "anstoss": "Mi 20:00",
+   "slug": "15-10-2026-mali-u20-guinea-u20",
+   "namen_im_json": [
+    "Mali U20",
+    "Mali U20 hat unter 1.5 Tore erzielt",
+    "Unter 2.5 erzielten Toren",
+    "\\u00dcber 1.5 erzielten Toren",
+    "mali",
+    "totals"
+   ],
+   "json_kopf": "{\"data\":[{\"name\":\"totals\",\"min_odd\":1.21,\"max_odd\":2.029,\"count\":3,\"bookmakers\":[],\"trends\":[{\"id\":\"021c97b865d615d3a86cf078f0b963c1\",\"trend_type\":\"single\",\"conflict_group\":0,\"prediction\":{\"value\":1.21,\"type\":[\"total_over\",\"1_5\"],\"bookmaker_slug\":\"S24\"},\"grouped_facts\":[{\"title\":\"\\u00dcber 1.5 erzie"
+  },
+  {
+   "spiel": "Buzios Women – Heips (W)",
+   "liga": "Brazil Campeonato Carioca Women",
+   "anstoss": "Mi 20:00",
+   "slug": "14-10-2026-buzios-women-heips-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Rio Grande – Real Sport Club",
+   "liga": "Brazil Campeonato Gaucho 3",
+   "anstoss": "Mi 20:00",
+   "slug": "13-10-2026-rio-grande-real-sport-club",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Sport Recife U20 – Porto PE U20",
+   "liga": "Brazil Campeonato Pernambucano U20",
+   "anstoss": "Mi 20:00",
+   "slug": "15-10-2026-liberia-u20-gambia-u20",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "UE Castelldefels – Prat",
+   "liga": "Spain Regional League",
+   "anstoss": "Mi 20:00",
+   "slug": "14-10-2026-ue-castelldefels-ae-prat",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "CE L'Hospitalet – CFJ Mollerussa",
+   "liga": "Spain Tercera Group 5",
+   "anstoss": "Mi 20:00",
+   "slug": "13-10-2026-ce-l-hospitalet-cfj-mollerussa",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "UE Cornella – Peralada",
+   "liga": "Spain Tercera Group 5",
+   "anstoss": "Mi 20:00",
+   "slug": "13-10-2026-ue-cornella-peralada",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Operario PR U20 – Nautico Capibaribe U20",
+   "liga": "Copa do Brasil U20",
+   "anstoss": "Mi 20:00",
+   "slug": "15-10-2026-liberia-u20-gambia-u20",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "FC Cascavel PR U20 – City London FC U20",
+   "liga": "Brazil Copa Sul U20",
+   "anstoss": "Mi 20:00",
+   "slug": "15-10-2026-mali-u20-guinea-u20",
+   "namen_im_json": [
+    "Mali U20",
+    "Mali U20 hat unter 1.5 Tore erzielt",
+    "Unter 2.5 erzielten Toren",
+    "\\u00dcber 1.5 erzielten Toren",
+    "mali",
+    "totals"
+   ],
+   "json_kopf": "{\"data\":[{\"name\":\"totals\",\"min_odd\":1.21,\"max_odd\":2.029,\"count\":3,\"bookmakers\":[],\"trends\":[{\"id\":\"021c97b865d615d3a86cf078f0b963c1\",\"trend_type\":\"single\",\"conflict_group\":0,\"prediction\":{\"value\":1.21,\"type\":[\"total_over\",\"1_5\"],\"bookmaker_slug\":\"S24\"},\"grouped_facts\":[{\"title\":\"\\u00dcber 1.5 erzie"
+  },
+  {
+   "spiel": "Flamengo U20 – Criciuma U20",
+   "liga": "Copa do Brasil U20",
+   "anstoss": "Mi 20:00",
+   "slug": "15-10-2026-liberia-u20-gambia-u20",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Buzios Women – Heips (W)",
+   "liga": "Brazil Campeonato Carioca Women",
+   "anstoss": "Mi 20:00",
+   "slug": "13-10-2026-buzios-women-heips-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "CF Montanesa – FC L'Escala",
+   "liga": "Spain Tercera Group 5",
+   "anstoss": "Mi 20:00",
+   "slug": "13-10-2026-cf-montanesa-fc-l-escala",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Sport Recife U20 – Porto PE U20",
+   "liga": "Brazil Campeonato Pernambucano U20",
+   "anstoss": "Mi 20:00",
+   "slug": "14-10-2026-sport-recife-u20-porto-pe-u20",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "CP San Cristobal – FE Grama",
+   "liga": "Spain Tercera Group 5",
+   "anstoss": "Mi 20:30",
+   "slug": "14-10-2026-cp-san-cristobal-fe-grama",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Willand Rovers – Barnstaple Town",
+   "liga": "England Southern League Div One",
+   "anstoss": "Mi 20:30",
+   "slug": "14-10-2026-willand-rovers-barnstaple-town",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Operario PR U20 – Nautico Capibaribe U20",
+   "liga": "Copa do Brasil U20",
+   "anstoss": "Mi 20:00",
+   "slug": "14-10-2026-operario-pr-u20-nautico-capibaribe-u20",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "FC Cascavel PR U20 – City London FC U20",
+   "liga": "Brazil Copa Sul U20",
+   "anstoss": "Mi 20:00",
+   "slug": "15-10-2026-liberia-u20-gambia-u20",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Maracena – Villacarrillo",
+   "liga": "Spain Regional League",
+   "anstoss": "Mi 20:30",
+   "slug": "14-10-2026-maracena-villacarrillo",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Flamengo U20 – Criciuma U20",
+   "liga": "Copa do Brasil U20",
+   "anstoss": "Mi 20:00",
+   "slug": "14-10-2026-flamengo-u20-criciuma-u20",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "QPR – Derby",
+   "liga": "England Championship",
+   "anstoss": "Mi 20:45",
+   "slug": "14-10-2026-qpr-derby",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "AFC Whyteleafe – Whitehawk",
+   "liga": "England Isthmian Premier Division",
+   "anstoss": "Mi 20:45",
+   "slug": "14-10-2026-afc-whyteleafe-whitehawk",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "FC Seefeld – FC Balzers",
+   "liga": "Switzerland 2. Liga Interregional",
+   "anstoss": "Mi 20:00",
+   "slug": "14-10-2026-fc-seefeld-fc-balzers",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Sport Recife U20 – Porto PE U20",
+   "liga": "Brazil Campeonato Pernambucano U20",
+   "anstoss": "Mi 20:00",
+   "slug": "13-10-2026-sport-recife-u20-porto-pe-u20",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Aylesbury United – Barton Rovers",
+   "liga": "England Southern League Div One",
+   "anstoss": "Mi 20:45",
+   "slug": "14-10-2026-aylesbury-united-barton-rovers",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Willand Rovers – Barnstaple Town",
+   "liga": "England Southern League Div One",
+   "anstoss": "Mi 20:30",
+   "slug": "13-10-2026-willand-rovers-barnstaple-town",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Maracena – Villacarrillo",
+   "liga": "Spain Regional League",
+   "anstoss": "Mi 20:30",
+   "slug": "13-10-2026-maracena-villacarrillo",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Larkhall Athletic – Swindon Supermarine",
+   "liga": "England Southern League Div One",
+   "anstoss": "Mi 20:45",
+   "slug": "14-10-2026-larkhall-athletic-swindon-supermarine",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "FC Cascavel PR U20 – City London FC U20",
+   "liga": "Brazil Copa Sul U20",
+   "anstoss": "Mi 20:00",
+   "slug": "14-10-2026-fc-cascavel-pr-u20-city-london-fc-u20",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "UE Castelldefels – Prat",
+   "liga": "Spain Regional League",
+   "anstoss": "Mi 20:00",
+   "slug": "14-10-2026-ue-castelldefels-prat",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Flamengo U20 – Criciuma U20",
+   "liga": "Copa do Brasil U20",
+   "anstoss": "Mi 20:00",
+   "slug": "13-10-2026-flamengo-u20-criciuma-u20",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "QPR – Derby",
+   "liga": "England Championship",
+   "anstoss": "Mi 20:45",
+   "slug": "13-10-2026-qpr-derby",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "AFC Whyteleafe – Whitehawk",
+   "liga": "England Isthmian Premier Division",
+   "anstoss": "Mi 20:45",
+   "slug": "13-10-2026-afc-whyteleafe-whitehawk",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Bolivar SC – Mineros",
+   "liga": "Venezuela Cup",
+   "anstoss": "Mi 21:00",
+   "slug": "14-10-2026-bolivar-sc-mineros",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Bodo/Glimt – Borussia Dortmund",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 21:00",
+   "slug": "14-10-2026-bodo-glimt-borussia-dortmund",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Aylesbury United – Barton Rovers",
+   "liga": "England Southern League Div One",
+   "anstoss": "Mi 20:45",
+   "slug": "13-10-2026-aylesbury-united-barton-rovers",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Shakhtar Donetsk – AEK Athens",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 21:00",
+   "slug": "14-10-2026-shakhtar-donetsk-aek-athens",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Slovan Bratislava – VfB Stuttgart",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 21:00",
+   "slug": "14-10-2026-slovan-bratislava-vfb-stuttgart",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Man City – PSG",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 21:00",
+   "slug": "14-10-2026-man-city-psg",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Larkhall Athletic – Swindon Supermarine",
+   "liga": "England Southern League Div One",
+   "anstoss": "Mi 20:45",
+   "slug": "13-10-2026-larkhall-athletic-swindon-supermarine",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "FC Cascavel PR U20 – City London FC U20",
+   "liga": "Brazil Copa Sul U20",
+   "anstoss": "Mi 20:00",
+   "slug": "13-10-2026-fc-cascavel-pr-u20-city-london-fc-u20",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Real Betis – FC Porto",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 21:00",
+   "slug": "14-10-2026-real-betis-fc-porto",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "CP San Cristobal – FE Grama",
+   "liga": "Spain Tercera Group 5",
+   "anstoss": "Mi 20:30",
+   "slug": "13-10-2026-cp-san-cristobal-fe-grama",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "UE Castelldefels – Prat",
+   "liga": "Spain Regional League",
+   "anstoss": "Mi 20:00",
+   "slug": "13-10-2026-ue-castelldefels-prat",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Roma – Real Madrid",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 21:00",
+   "slug": "14-10-2026-roma-real-madrid",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Aston Villa – Fenerbahce",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 21:00",
+   "slug": "14-10-2026-aston-villa-fenerbahce",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Bolivar SC – Mineros",
+   "liga": "Venezuela Cup",
+   "anstoss": "Mi 21:00",
+   "slug": "13-10-2026-bolivar-sc-mineros",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Bodo/Glimt – Borussia Dortmund",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 21:00",
+   "slug": "13-10-2026-bodo-glimt-borussia-dortmund",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Atletico Barinas – Real Frontera",
+   "liga": "Venezuela Cup",
+   "anstoss": "Mi 21:30",
+   "slug": "14-10-2026-atletico-barinas-real-frontera",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Lautaro de Buin – Club Aguara",
+   "liga": "Chile Tercera",
+   "anstoss": "Mi 21:00",
+   "slug": "14-10-2026-lautaro-de-buin-club-aguara",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "FC Seefeld – FC Balzers",
+   "liga": "Switzerland 2. Liga Interregional",
+   "anstoss": "Mi 20:00",
+   "slug": "13-10-2026-fc-seefeld-fc-balzers",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Shakhtar Donetsk – AEK Athens",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 21:00",
+   "slug": "13-10-2026-shakhtar-donetsk-aek-athens",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Slovan Bratislava – VfB Stuttgart",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 21:00",
+   "slug": "13-10-2026-slovan-bratislava-vfb-stuttgart",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Man City – PSG",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 21:00",
+   "slug": "13-10-2026-man-city-psg",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Atletico El Vigia – Zamora",
+   "liga": "Venezuela Cup",
+   "anstoss": "Mi 21:30",
+   "slug": "14-10-2026-atletico-el-vigia-zamora",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Atletico Avila – Academia Anzoategui FC",
+   "liga": "Venezuela Cup",
+   "anstoss": "Mi 21:30",
+   "slug": "14-10-2026-atletico-avila-academia-anzoategui-fc",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Yaracuyanos – Barquisimeto",
+   "liga": "Venezuela Cup",
+   "anstoss": "Mi 22:00",
+   "slug": "14-10-2026-yaracuyanos-barquisimeto",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Operario PR U20 – Nautico Capibaribe U20",
+   "liga": "Copa do Brasil U20",
+   "anstoss": "Mi 20:00",
+   "slug": "13-10-2026-operario-pr-u20-nautico-capibaribe-u20",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Trujillanos – Deportivo Rayo Zuliano",
+   "liga": "Venezuela Cup",
+   "anstoss": "Mi 22:00",
+   "slug": "14-10-2026-trujillanos-deportivo-rayo-zuliano",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Atletico Barinas – Real Frontera",
+   "liga": "Venezuela Cup",
+   "anstoss": "Mi 21:30",
+   "slug": "13-10-2026-atletico-barinas-real-frontera",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Ittihad Tanger – MAS Fes",
+   "liga": "Morocco GNF 1",
+   "anstoss": "Mi 22:00",
+   "slug": "14-10-2026-ittihad-tanger-mas-fes",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Universitario de Deportes Reserves – CD Coopsol",
+   "liga": "Peru Liga 3",
+   "anstoss": "Mi 22:00",
+   "slug": "14-10-2026-universitario-de-deportes-reserves-cd-coopsol",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Atletico El Vigia – Zamora",
+   "liga": "Venezuela Cup",
+   "anstoss": "Mi 21:30",
+   "slug": "13-10-2026-atletico-el-vigia-zamora",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Atletico Avila – Academia Anzoategui FC",
+   "liga": "Venezuela Cup",
+   "anstoss": "Mi 21:30",
+   "slug": "13-10-2026-atletico-avila-academia-anzoategui-fc",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Yaracuyanos – Barquisimeto",
+   "liga": "Venezuela Cup",
+   "anstoss": "Mi 22:00",
+   "slug": "13-10-2026-yaracuyanos-barquisimeto",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Ejidatarios de Bonfil – Boston Cancun FC",
+   "liga": "Mexico Copa Promesas",
+   "anstoss": "Mi 23:00",
+   "slug": "14-10-2026-ejidatarios-de-bonfil-boston-cancun-fc",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Trujillanos – Deportivo Rayo Zuliano",
+   "liga": "Venezuela Cup",
+   "anstoss": "Mi 22:00",
+   "slug": "13-10-2026-trujillanos-deportivo-rayo-zuliano",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Junior – Deportivo Pereira",
+   "liga": "Colombia Primera A",
+   "anstoss": "Mi 23:30",
+   "slug": "14-10-2026-junior-deportivo-pereira",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Ittihad Tanger – MAS Fes",
+   "liga": "Morocco GNF 1",
+   "anstoss": "Mi 22:00",
+   "slug": "13-10-2026-ittihad-tanger-mas-fes",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Aston Villa – Fenerbahce",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 21:00",
+   "slug": "13-10-2026-aston-villa-fenerbahce",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Universitario de Deportes Reserves – CD Coopsol",
+   "liga": "Peru Liga 3",
+   "anstoss": "Mi 22:00",
+   "slug": "13-10-2026-universitario-de-deportes-reserves-cd-coopsol",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Lautaro de Buin – Club Aguara",
+   "liga": "Chile Tercera",
+   "anstoss": "Mi 21:00",
+   "slug": "13-10-2026-lautaro-de-buin-club-aguara",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Ejidatarios de Bonfil – Boston Cancun FC",
+   "liga": "Mexico Copa Promesas",
+   "anstoss": "Mi 23:00",
+   "slug": "13-10-2026-ejidatarios-de-bonfil-boston-cancun-fc",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Junior – Deportivo Pereira",
+   "liga": "Colombia Primera A",
+   "anstoss": "Mi 23:30",
+   "slug": "13-10-2026-junior-deportivo-pereira",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Roma – Real Madrid",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 21:00",
+   "slug": "13-10-2026-roma-real-madrid",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Real Betis – FC Porto",
+   "liga": "UEFA Champions League",
+   "anstoss": "Mi 21:00",
+   "slug": "13-10-2026-real-betis-fc-porto",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  }
+ ],
+ "new": [],
+ "changed": [
+  "11163388|corners|über",
+  "11163389|corners|über",
+  "11168555|corners|über",
+  "12101777|fouls|über"
+ ],
+ "dropped": [],
+ "betlabel": {
+  "spiele_bl": 2404,
+  "gefunden": 25,
+  "nicht_gefunden": [],
+  "titel": {
+   "": 25,
+   "Eckstöße": 19,
+   "Spielerstatistik": 12,
+   "Abseitsstellungen": 2,
+   "Abstöße": 2,
+   "Akkumulator Ergebnisse": 5,
+   "Auswechslungen": 2,
+   "Duell zwischen Spielern (Tore)": 2,
+   "Einwürfe": 2,
+   "Fouls": 2,
+   "Gelbe Karten": 5,
+   "Medizinisches Team": 2,
+   "Pfosten und Querlatten": 2,
+   "Schüsse auf das Tor": 3,
+   "Spezialwetten": 1,
+   "Torschüsse": 4,
+   "VAR-Überprüfungen": 2,
+   "Was passiert zuerst": 5,
+   "Alternative Ergebnisse": 4,
+   "Karten": 4,
+   "Karten. Statistiken": 4,
+   "Erwartete Tore": 1,
+   "Paraden": 1,
+   "Schnelle Veranstaltungen": 1
+  },
+  "tipps": [
+   [
+    "13290848|team_corners_heim|unter|6.5",
+    "Club Atletico Argentino Rosario II - Puerto Nuevo II",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "13290848|team_corners_gast|unter|5.5",
+    "Club Atletico Argentino Rosario II - Puerto Nuevo II",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "12194608|ht_yellowcards|über|0.5",
+    "Viktoria Koln - Sonnenhof",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "12194608|corners|über|7.5",
+    "Viktoria Koln - Sonnenhof",
+    1.206,
+    null,
+    null
+   ],
+   [
+    "12194608|yellowcards|über|2.5",
+    "Viktoria Koln - Sonnenhof",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "12194608|on_target|über|6.5",
+    "Viktoria Koln - Sonnenhof",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "12188395|yellowcards|über|2.5",
+    "Preussen Munster - Fortuna Dusseldorf",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "12188395|yellowcards|unter|6.5",
+    "Preussen Munster - Fortuna Dusseldorf",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "12192195|on_target|über|8.5",
+    "Verl - Jahn Regensburg",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "12192283|on_target|über|6.5",
+    "Waldhof Mannheim - Ingolstadt 04",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "12192240|ht_yellowcards|über|0.5",
+    "Wehen Wiesbaden - Alemannia Aachen",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "12192240|corners|über|7.5",
+    "Wehen Wiesbaden - Alemannia Aachen",
+    1.226,
+    null,
+    null
+   ],
+   [
+    "12192240|yellowcards|über|2.5",
+    "Wehen Wiesbaden - Alemannia Aachen",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "12192240|on_target|über|6.5",
+    "Wehen Wiesbaden - Alemannia Aachen",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "12192240|team_yellowcards_heim|über|1.5",
+    "Wehen Wiesbaden - Alemannia Aachen",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "11168555|corners|über|7.5",
+    "Bryne - Raufoss",
+    1.07,
+    null,
+    null
+   ],
+   [
+    "11163389|corners|über|8.5",
+    "Haugesund - Lyn Fotball",
+    1.143,
+    null,
+    null
+   ],
+   [
+    "11168554|goals|über|2.5",
+    "Hodd - Ranheim",
+    1.285,
+    null,
+    null
+   ],
+   [
+    "11163258|team_corners_gast|unter|6.5",
+    "Moss - Egersunds",
+    1.223,
+    null,
+    null
+   ],
+   [
+    "11168553|corners|über|8.5",
+    "Sogndal - Odds",
+    1.118,
+    null,
+    null
+   ],
+   [
+    "11168552|corners|über|7.5",
+    "Stabaek - Sandnes Ulf",
+    1.025,
+    null,
+    null
+   ],
+   [
+    "11168552|team_corners_heim|über|3.5",
+    "Stabaek - Sandnes Ulf",
+    null,
+    [
+     6.5,
+     1.47
+    ],
+    null
+   ],
+   [
+    "11163388|corners|über|8.5",
+    "Stromsgodset - KIL Toppfotball",
+    1.062,
+    null,
+    null
+   ],
+   [
+    "11163388|team_corners_heim|über|3.5",
+    "Stromsgodset - KIL Toppfotball",
+    null,
+    [
+     4.5,
+     1.152
+    ],
+    null
+   ],
+   [
+    "12101777|fouls|über|18.5",
+    "CSKA Moscow - Rostov",
+    null,
+    [
+     22.5,
+     1.34
+    ],
+    null
+   ],
+   [
+    "12101777|yellowcards|über|2.5",
+    "CSKA Moscow - Rostov",
+    1.24,
+    null,
+    null
+   ],
+   [
+    "12101777|yellowcards|unter|6.5",
+    "CSKA Moscow - Rostov",
+    null,
+    [
+     5.5,
+     1.185
+    ],
+    null
+   ],
+   [
+    "12101777|team_corners_gast|unter|6.5",
+    "CSKA Moscow - Rostov",
+    null,
+    [
+     5.5,
+     1.18
+    ],
+    null
+   ],
+   [
+    "12101777|on_target|über|7.5",
+    "CSKA Moscow - Rostov",
+    1.45,
+    null,
+    null
+   ],
+   [
+    "13217796|team_corners_heim|unter|5.5",
+    "Club Atletico Tigre II - Argentinos Juniors II",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "13217798|team_corners_gast|unter|6.5",
+    "Colon de Santa Fe II - Independiente Rivadavia II",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "13217797|team_corners_heim|unter|6.5",
+    "Estudiantes II - CA Lanus II",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "13217856|corners|über|7.5",
+    "Rosario Central II - CA Aldosivi II",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "13277759|goals|über|2.5",
+    "Operario Ferroviario U20 - Clube Náutico Capibaribe U20",
+    1.66,
+    null,
+    null
+   ],
+   [
+    "12458167|team_yellowcards_gast|unter|2.5",
+    "Al-Faisaly Amman - Al Nahda Al Buraimi",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "12458167|yellowcards|unter|6.5",
+    "Al-Faisaly Amman - Al Nahda Al Buraimi",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "12101673|yellowcards|unter|5.5",
+    "Norwich City - Southampton",
+    1.35,
+    null,
+    null
+   ],
+   [
+    "12101673|on_target|über|6.5",
+    "Norwich City - Southampton",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "12101672|fouls|über|20.5",
+    "Portsmouth - Sheffield United",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "12101672|team_yellowcards_heim|unter|2.5",
+    "Portsmouth - Sheffield United",
+    1.22,
+    null,
+    null
+   ],
+   [
+    "13290284|team_corners_heim|unter|6.5",
+    "Shifnal Town - Witton Albion",
+    null,
+    null,
+    "keine unter-Linie"
+   ],
+   [
+    "12100745|offsides|unter|4.5",
+    "Lincoln City - West Ham United",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "12100745|team_corners_heim|unter|5.5",
+    "Lincoln City - West Ham United",
+    1.29,
+    null,
+    null
+   ],
+   [
+    "12100745|on_target|über|6.5",
+    "Lincoln City - West Ham United",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ],
+   [
+    "13041498|goals|über|2.5",
+    "Bodo-Glimt - Borussia Dortmund",
+    1.34,
+    null,
+    null
+   ]
+  ],
+  "anfragen": 391,
+  "fehler_anfragen": 0,
+  "sekunden": 107.9,
+  "auftraege": 25,
+  "mit_quote": 16
+ },
+ "team_totals": [
+  {
+   "match": {
+    "id": "13290848",
+    "league": "Argentina Reserve League",
+    "league_id": "313",
+    "home": "Argentino de Rosario Reserves",
+    "away": "Puerto Nuevo Reserves",
+    "home_id": "993696",
+    "away_id": "696473",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "202800439"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Argentino de Rosario Reserves",
+    "line": 6.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7545,
+    "fair": 1.33,
+    "p_emp": 0.784,
+    "p_mod": 0.704,
+    "erwartet": 4.7,
+    "basis": 46,
+    "gegner": 9,
+    "unverified": true,
+    "no_tab": true,
+    "pending": true
+   }
+  },
+  {
+   "match": {
+    "id": "13290848",
+    "league": "Argentina Reserve League",
+    "league_id": "313",
+    "home": "Argentino de Rosario Reserves",
+    "away": "Puerto Nuevo Reserves",
+    "home_id": "993696",
+    "away_id": "696473",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "202800439"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Puerto Nuevo Reserves",
+    "line": 5.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "auswärts",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7848,
+    "fair": 1.27,
+    "p_emp": 0.77,
+    "p_mod": 0.834,
+    "erwartet": 3.5,
+    "basis": 44,
+    "gegner": 6,
+    "unverified": true,
+    "no_tab": true,
+    "pending": true
+   }
+  },
+  {
+   "match": {
+    "id": "11163258",
+    "league": "Norway Division 1",
+    "league_id": "98",
+    "home": "Moss",
+    "away": "Egersund",
+    "home_id": "984",
+    "away_id": "418",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "201659317"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Egersund",
+    "line": 6.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "auswärts",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7476,
+    "fair": 1.34,
+    "p_emp": 0.78,
+    "p_mod": 0.681,
+    "erwartet": 5.1,
+    "basis": 42,
+    "gegner": 6
+   }
+  },
+  {
+   "match": {
+    "id": "11168552",
+    "league": "Norway Division 1",
+    "league_id": "98",
+    "home": "Stabaek",
+    "away": "Sandnes Ulf",
+    "home_id": "482",
+    "away_id": "346",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "201659326"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Stabaek",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 15
+    },
+    "p": 0.8206,
+    "fair": 1.22,
+    "p_emp": 0.807,
+    "p_mod": 0.912,
+    "erwartet": 7.9,
+    "basis": 41,
+    "gegner": 6
+   }
+  },
+  {
+   "match": {
+    "id": "11163388",
+    "league": "Norway Division 1",
+    "league_id": "98",
+    "home": "Stromsgodset",
+    "away": "Kongsvinger",
+    "home_id": "16046",
+    "away_id": "942",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "201659329"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Stromsgodset",
+    "line": 3.5,
+    "direction": "über",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7878,
+    "fair": 1.27,
+    "p_emp": 0.742,
+    "p_mod": 0.89,
+    "erwartet": 7.4,
+    "basis": 42,
+    "gegner": 7
+   }
+  },
+  {
+   "match": {
+    "id": "12192240",
+    "league": "Germany 3. Liga",
+    "league_id": "39645",
+    "home": "Wehen SV",
+    "away": "Alemannia Aachen",
+    "home_id": "9855",
+    "away_id": "7760",
+    "kickoff": "Mi 19:00",
+    "kickoff_ts": 1791997200,
+    "bet365_id": "201654237"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "heim",
+    "team": "Wehen SV",
+    "line": 1.5,
+    "direction": "über",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 15
+    },
+    "p": 0.7775,
+    "fair": 1.29,
+    "p_emp": 0.728,
+    "p_mod": 0.867,
+    "erwartet": 2.8,
+    "basis": 41,
+    "gegner": 8,
+    "unverified": true,
+    "no_tab": true,
+    "pending": true
+   }
+  },
+  {
+   "match": {
+    "id": "12101777",
+    "league": "Russia Cup",
+    "league_id": "1268",
+    "home": "CSKA Moscow",
+    "away": "Rostov",
+    "home_id": "26113",
+    "away_id": "997",
+    "kickoff": "Mi 19:45",
+    "kickoff_ts": 1791999900,
+    "bet365_id": null
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Rostov",
+    "line": 6.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7872,
+    "fair": 1.27,
+    "p_emp": 0.792,
+    "p_mod": 0.821,
+    "erwartet": 4.3,
+    "basis": 46,
+    "gegner": 8
+   }
+  },
+  {
+   "match": {
+    "id": "13217796",
+    "league": "Argentina Liga Profesional Reserves",
+    "league_id": "36544",
+    "home": "CA Tigre Reserves",
+    "away": "Argentinos Jrs Reserves",
+    "home_id": "48555",
+    "away_id": "45375",
+    "kickoff": "Mi 20:00",
+    "kickoff_ts": 1792000800,
+    "bet365_id": "202800435"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "CA Tigre Reserves",
+    "line": 5.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 15
+    },
+    "p": 0.7895,
+    "fair": 1.27,
+    "p_emp": 0.799,
+    "p_mod": 0.823,
+    "erwartet": 3.8,
+    "basis": 50,
+    "gegner": 7,
+    "unverified": true,
+    "no_tab": true,
+    "pending": true
+   }
+  },
+  {
+   "match": {
+    "id": "13217798",
+    "league": "Argentina Liga Profesional Reserves",
+    "league_id": "36544",
+    "home": "Colon Reserves",
+    "away": "Independiente Rivadavia Reserves",
+    "home_id": "69412",
+    "away_id": "475901",
+    "kickoff": "Mi 20:00",
+    "kickoff_ts": 1792000800,
+    "bet365_id": "202801098"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Independiente Rivadavia Reserves",
+    "line": 6.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.806,
+    "fair": 1.24,
+    "p_emp": 0.851,
+    "p_mod": 0.835,
+    "erwartet": 4.1,
+    "basis": 50,
+    "gegner": 6,
+    "unverified": true,
+    "no_tab": true,
+    "pending": true
+   }
+  },
+  {
+   "match": {
+    "id": "13217797",
+    "league": "Argentina Liga Profesional Reserves",
+    "league_id": "36544",
+    "home": "Estudiantes LP Reserves",
+    "away": "Lanus Reserves",
+    "home_id": "2622",
+    "away_id": "50288",
+    "kickoff": "Mi 20:00",
+    "kickoff_ts": 1792000800,
+    "bet365_id": "202801095"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Estudiantes LP Reserves",
+    "line": 6.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7665,
+    "fair": 1.3,
+    "p_emp": 0.785,
+    "p_mod": 0.748,
+    "erwartet": 4.6,
+    "basis": 50,
+    "gegner": 8,
+    "unverified": true,
+    "no_tab": true,
+    "pending": true
+   }
+  },
+  {
+   "match": {
+    "id": "12458167",
+    "league": "AFC Champions League Two",
+    "league_id": "38266",
+    "home": "Al-Faisaly Amman",
+    "away": "Al-Nahda",
+    "home_id": "9385",
+    "away_id": "47393",
+    "kickoff": "Mi 20:15",
+    "kickoff_ts": 1792001700,
+    "bet365_id": "202752506",
+    "_cross_league": true
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "gast",
+    "team": "Al-Nahda",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "auswärts",
+     "hits": 15,
+     "window": 15
+    },
+    "p": 0.7612,
+    "fair": 1.31,
+    "p_emp": 0.747,
+    "p_mod": 0.764,
+    "erwartet": 1.7,
+    "basis": 44,
+    "gegner": 6,
+    "unverified": true,
+    "no_tab": true,
+    "pending": true
+   }
+  },
+  {
+   "match": {
+    "id": "12101672",
+    "league": "England Championship",
+    "league_id": "880",
+    "home": "Portsmouth",
+    "away": "Sheff Utd",
+    "home_id": "3022",
+    "away_id": "3013",
+    "kickoff": "Mi 20:45",
+    "kickoff_ts": 1792003500,
+    "bet365_id": "201647277"
+   },
+   "signal": {
+    "metric_key": "yellowcards",
+    "metric": "Gelbe Karten",
+    "seite": "heim",
+    "team": "Portsmouth",
+    "line": 2.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "heim",
+     "hits": 15,
+     "window": 15
+    },
+    "p": 0.8207,
+    "fair": 1.22,
+    "p_emp": 0.8,
+    "p_mod": 0.831,
+    "erwartet": 1.5,
+    "basis": 37,
+    "gegner": 7
+   }
+  },
+  {
+   "match": {
+    "id": "13290284",
+    "league": "England Northern League Division One",
+    "league_id": "1212",
+    "home": "Shifnal Town",
+    "away": "Witton Albion",
+    "home_id": "361694",
+    "away_id": "46575",
+    "kickoff": "Mi 20:45",
+    "kickoff_ts": 1792003500,
+    "bet365_id": "202856075"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Shifnal Town",
+    "line": 6.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7983,
+    "fair": 1.25,
+    "p_emp": 0.796,
+    "p_mod": 0.859,
+    "erwartet": 4.3,
+    "basis": 16,
+    "gegner": 6,
+    "unverified": true,
+    "no_tab": true,
+    "pending": true
+   }
+  },
+  {
+   "match": {
+    "id": "12100745",
+    "league": "England Championship",
+    "league_id": "880",
+    "home": "Lincoln City",
+    "away": "West Ham",
+    "home_id": "1945",
+    "away_id": "709",
+    "kickoff": "Mi 21:00",
+    "kickoff_ts": 1792004400,
+    "bet365_id": "201647285"
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "heim",
+    "team": "Lincoln City",
+    "line": 5.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "gesamt",
+     "hits": 10,
+     "window": 10
+    },
+    "p": 0.7293,
+    "fair": 1.37,
+    "p_emp": 0.673,
+    "p_mod": 0.718,
+    "erwartet": 4.2,
+    "basis": 42,
+    "gegner": 7
+   }
+  }
+ ],
+ "neue_maerkte": []
+}
