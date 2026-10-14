@@ -3535,11 +3535,13 @@ def fmt_bl(match, s) -> str:
         L, c = r["nah"]
         return f" · 💶 BL ohne {s.get('line')} <i>({L:g}: {c:.2f})</i>"
     grund = r.get("fehlt") or "keine Quote"
-    # Sondermärkte (Ecken, Karten, Schüsse …) stellt BetLabel oft erst am
-    # Spieltag ein — "noch nicht" statt "gibt es nicht".
-    grund = {"Spiel nicht bei BetLabel": "Spiel nicht gefunden",
-             "Markt nicht im Angebot": "Markt (noch) nicht da",
-             "keine Linien": "Markt (noch) nicht da"}.get(grund, grund)
+    # 14.10. (Lucio): "Markt noch nicht da" ist Müll — solange BetLabel den
+    # Markt nicht anbietet, gar nichts anzeigen; kommt er in einem späteren
+    # Lauf, steht die Quote automatisch da.
+    if grund in ("Markt nicht im Angebot", "keine Linien", "Markt unbekannt") \
+            or grund.startswith("keine "):
+        return ""
+    grund = {"Spiel nicht bei BetLabel": "Spiel nicht gefunden"}.get(grund, grund)
     return f" · 💶 BL – <i>{esc(grund)}</i>"
 
 
@@ -7536,6 +7538,9 @@ def selftest():
     _BL[_bl_key(_m31, _s31)] = {"q": None, "nah": (6.5, 1.3)}
     _t31c = fmt_bl(_m31, _s31)
     _blk = build_bl_block([(_m31, [("new", dict(_s31), "")])])
+    _BL[_bl_key(_m31, _s31)] = {"q": None, "fehlt": "Markt nicht im Angebot"}
+    if fmt_bl(_m31, _s31) != "":
+        print("FEHLER Fall 31: 'Markt nicht da' wird angezeigt"); ok = False
     _BL.clear()
     if "1.52</b> ✅" not in _t31a or "❌" not in _t31b or "ohne 5.5" not in _t31c or fmt_bl(_m31, _s31) != "" \
             or "PASST BEI BETLABEL (0)" not in (_blk or ""):
