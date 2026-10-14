@@ -638,6 +638,10 @@ Lucio prüft zuerst, Claude macht danach die intensive Zweitprüfung. Für jeden
 7. Gegner: Form, Tabellenlage, was er zulässt; Spielverlaufs-Risiko (Rückstand → Anrennen)
 8. Quotenabstand > 25 %: Erklärung finden
 Abschluss je Tipp: klare Ansage „spielen“ / „nicht spielen“ mit dem entscheidenden Grund.
+Nachtrag 14.10. abends (Lucio: „Hatten wir das nicht geklärt?“): Am selben Tag bei Schein A und dem CL-Schein nicht vollständig eingehalten (ZSKA Rolle/Rotation, Operario Hin-/Rückspiel, Shakhtar dünne Foul-Daten). Deshalb verbindlich:
+- Antwort je Tipp IMMER als feste Liste 1–8, jeder Punkt mit ✓ (geprüft, Ergebnis) oder ⚠️ (nicht prüfbar + warum). Kein Punkt darf fehlen.
+- „spielen“ nur, wenn alle 8 Punkte stehen. Ist ein Punkt nicht prüfbar, steht das als ⚠️ ausdrücklich da.
+- Gilt auch für Spaßscheine und bei Zeitdruck.
 
 ## 21. BetLabel-Quote je Tipp im Telegram (14.10.)
 
