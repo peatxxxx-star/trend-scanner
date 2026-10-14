@@ -428,3 +428,41 @@ def selbsttest():
 
 if __name__ == "__main__":
     print("OK" if selbsttest() else "FEHLER")
+
+
+def dump_liga(stichwort, pfad):
+    """14.10.: Alle Linien aller Spiele einer Liga (z. B. 'Champions League')
+    in eine Datei schreiben — für Einzelanalysen (Spaßscheine)."""
+    champs = _get("GetChampsZip", sport=1, lng="de", country=1).get("Value") or []
+    champs = [c for c in champs if stichwort.lower() in (c.get("L") or "").lower()
+              and not any(w in (c.get("L") or "").lower() for w in CHAMP_SKIP)]
+    out = []
+    for c in champs:
+        v = _get("Get1x2_VZip", sports=1, champs=c["LI"], count=50, lng="en", mode=4,
+                 country=1, getEmpty="true").get("Value") or []
+        for g in v:
+            haupt = _spiel_detail(g["I"])
+            e = {"spiel": f"{g.get('O1')} - {g.get('O2')}", "S": g.get("S"), "liga": c.get("L"),
+                 "1x2": {str(x.get("T")): x.get("C") for x in g.get("E") or [] if x.get("G") == 1},
+                 "maerkte": {}}
+            e["maerkte"]["Tore"] = {f"{d} {L:g}": q for (d, L), q in sorted(_leiter(haupt, 17, 9, 10).items())}
+            e["maerkte"]["Tore Heim"] = {f"{d} {L:g}": q for (d, L), q in sorted(_leiter(haupt, 15, 11, 12).items())}
+            e["maerkte"]["Tore Gast"] = {f"{d} {L:g}": q for (d, L), q in sorted(_leiter(haupt, 62, 13, 14).items())}
+            for sg in haupt.get("SG") or []:
+                tg, pn = (sg.get("TG") or "").strip(), (sg.get("PN") or "").strip()
+                if not tg or tg not in ("Eckstöße", "Gelbe Karten", "Schüsse auf das Tor", "Abseitsstellungen",
+                                        "Fouls", "Torschüsse", "Einwürfe", "Abstöße"):
+                    continue
+                name = tg + (f" {pn}" if pn else "")
+                try:
+                    val = _spiel_detail(sg.get("CI") or sg.get("I"))
+                except Exception:
+                    continue
+                for lab, gr, a, b in (("", 17, 9, 10), (" Heim", 15, 11, 12), (" Gast", 62, 13, 14)):
+                    lad = _leiter(val, gr, a, b)
+                    if lad:
+                        e["maerkte"][name + lab] = {f"{d} {L:g}": q for (d, L), q in sorted(lad.items())}
+            out.append(e)
+    import pathlib
+    pathlib.Path(pfad).write_text(json.dumps(out, ensure_ascii=False, indent=0))
+    print(f"BetLabel-Dump {stichwort}: {len(out)} Spiele")

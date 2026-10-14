@@ -5803,6 +5803,14 @@ def _run():
         _msg = ((_ev.get("head_commit") or {}).get("message") or "")
     except Exception:
         _msg = ""
+    if "BetLabel-Dump" in _msg:
+        # 14.10.: alle BetLabel-Linien einer Liga sichern (Einzelanalyse),
+        # Stichwort hinter "BetLabel-Dump:" in der Commit-Nachricht.
+        import betlabel
+        _stw = (_msg.split("BetLabel-Dump:", 1)[1].splitlines()[0].strip() if "BetLabel-Dump:" in _msg
+                else "Champions League")
+        betlabel.dump_liga(_stw, str(RUNS_DIR / f"betlabel_dump_{datetime.now():%Y-%m-%d_%H%M}.json"))
+        return
     if "Rundencheck" in _msg:
         import rundencheck
         rundencheck.run(sys.modules[__name__])
