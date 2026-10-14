@@ -189,7 +189,11 @@ def finde_spiel(spiele, home, away, kickoff_ts):
             if sh < 0 or sa < 0:
                 continue
             # beide Namen ordentlich ODER einer sicher + Anstoß exakt
-            ok = (sh >= 0.6 and sa >= 0.6) or (max(sh, sa) >= 0.99 and min(sh, sa) >= 0.3 and dt <= 600)
+            # Ein Team sicher erkannt + Anstoß auf 5 min gleich: Das ist das
+            # Spiel, auch wenn BetLabel den Gegner ganz anders nennt (ein Team
+            # spielt nie zwei Spiele gleichzeitig).
+            ok = (sh >= 0.6 and sa >= 0.6) or (max(sh, sa) >= 0.99 and min(sh, sa) >= 0.3 and dt <= 600) \
+                or (max(sh, sa) >= 0.99 and dt <= 300)
             if not ok:
                 continue
             sc = sh + sa - (dt / 3600) * 0.3 - (0.2 if sw else 0)
@@ -342,7 +346,10 @@ def hole_alle(auftraege):
                     proto["titel"][t] = proto["titel"].get(t, 0) + 1
             else:
                 home, away, ko, _ = auftraege[key]
-                proto["nicht_gefunden"].append(f"{home} – {away}")
+                nah = sorted((g2 for g2 in spiele if ko and abs(g2["S"] - ko) <= 900),
+                             key=lambda g2: -(max(name_score(home, g2["O1"]), 0) + max(name_score(away, g2["O2"]), 0)))[:3]
+                proto["nicht_gefunden"].append(
+                    f"{home} – {away} | BL zur selben Zeit: " + "; ".join(f"{g2['O1']} - {g2['O2']}" for g2 in nah))
     proto["anfragen"] = _stats["anfragen"]
     proto["fehler_anfragen"] = _stats["fehler"]
     proto["sekunden"] = round(time.time() - t0, 1)
@@ -376,6 +383,9 @@ def selbsttest():
     g, sw = finde_spiel(spiele, "Feyenoord", "Como", 1000)
     if not g or g["I"] != 1 or sw:
         print("BetLabel: Feyenoord–Como nicht gefunden"); ok = False
+    g, sw = finde_spiel(spiele, "Feyenoord", "Como 1907 Lario", 1100)
+    if not g or g["I"] != 1:
+        print("BetLabel: anders benannter Gegner nicht aufgefangen"); ok = False
     g, sw = finde_spiel(spiele, "Paris Saint Germain", "Manchester City", 1000)
     if not g or g["I"] != 2 or not sw:
         print("BetLabel: vertauschtes Spiel nicht erkannt"); ok = False

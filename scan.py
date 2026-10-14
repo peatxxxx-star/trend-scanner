@@ -3541,7 +3541,9 @@ def fmt_bl(match, s) -> str:
     if grund in ("Markt nicht im Angebot", "keine Linien", "Markt unbekannt") \
             or grund.startswith("keine "):
         return ""
-    grund = {"Spiel nicht bei BetLabel": "Spiel nicht gefunden"}.get(grund, grund)
+    # 14.10. (Lucio): "Spiel nicht gefunden" ebenfalls nicht anzeigen.
+    if grund == "Spiel nicht bei BetLabel":
+        return ""
     return f" · 💶 BL – <i>{esc(grund)}</i>"
 
 
