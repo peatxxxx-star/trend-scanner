@@ -1,80 +1,4 @@
 {
- "13290849|team_corners_gast|unter": {
-  "match_id": "13290849",
-  "home": "Deportivo Paraguayo Reserves",
-  "away": "Lujan Reserves",
-  "kickoff": "Mi 17:00",
-  "kickoff_ts": 1791990000,
-  "league": "Argentina Reserve League",
-  "metric": "Lujan Reserves: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Mi 07:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Lujan Reserves: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.24,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.832,
-   "p_mod": 0.859,
-   "p_fin": 0.8075,
-   "fair_fin": 1.24,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Lujan Reserves",
-   "serie": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 15
-   },
-   "gegner": 10,
-   "erwartet": 4.2,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
  "13290850|corners|über": {
   "match_id": "13290850",
   "home": "Excursionistas Reserves",
@@ -88,7 +12,7 @@
   "first_run": "Mi 07:14",
   "first_line": 7.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 7.5,
   "range": null,
   "signal": {
@@ -197,6 +121,399 @@
   },
   "v": 2
  },
+ "12101800|yellowcards|über": {
+  "match_id": "12101800",
+  "home": "FC Akhmat Grozny",
+  "away": "Dinamo Moscow",
+  "kickoff": "Mi 17:30",
+  "kickoff_ts": 1791991800,
+  "league": "Russia Cup",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Mi 06:14",
+  "first_line": 2.5,
+  "first_range": [
+   1.2,
+   1.54
+  ],
+  "last_run": "Mi 17:14",
+  "line": 2.5,
+  "range": [
+   1.198,
+   1.54
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    42
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — FC Akhmat Grozny 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Dinamo Moscow 9/11 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.7082146300250187,
+    0.74232967604485
+   ],
+   "fair": 1.4,
+   "ladder": [
+    [
+     1.5,
+     1.32
+    ],
+    [
+     2.5,
+     1.4
+    ]
+   ],
+   "avg": [
+    4.1,
+    3.7
+   ],
+   "expect": 3.9,
+   "expect_sum": 3.9,
+   "expect_matchup": 4.0,
+   "contrib": [
+    2.1,
+    1.8
+   ],
+   "buffer": 1.4,
+   "fa": [
+    [
+     1.8,
+     2.0
+    ],
+    [
+     1.9,
+     2.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.12,
+   "p_emp": {
+    "1.5": 0.7575757575757576,
+    "2.5": 0.7142857142857143
+   },
+   "p_mod": 0.745,
+   "p_fin": 0.737,
+   "fair_fin": 1.36,
+   "ladder_fin": [
+    [
+     1.5,
+     1.24
+    ],
+    [
+     2.5,
+     1.36
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.36",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.198,
+    1.54
+   ]
+  },
+  "v": 2
+ },
+ "12101800|offsides|unter": {
+  "match_id": "12101800",
+  "home": "FC Akhmat Grozny",
+  "away": "Dinamo Moscow",
+  "kickoff": "Mi 17:30",
+  "kickoff_ts": 1791991800,
+  "league": "Russia Cup",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Mi 06:14",
+  "first_line": 5.5,
+  "first_range": [
+   1.31,
+   1.95
+  ],
+  "last_run": "Mi 17:14",
+  "line": 5.5,
+  "range": [
+   1.19,
+   1.96
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    37
+   ],
+   "next_line": 4.5,
+   "next_note": "Dinamo Moscow 0/2 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+   "longterm": [
+    0.9302048772756097,
+    0.7948991196463117
+   ],
+   "fair": 1.18,
+   "ladder": [
+    [
+     5.5,
+     1.18
+    ],
+    [
+     6.5,
+     1.26
+    ]
+   ],
+   "avg": [
+    3.0,
+    4.8
+   ],
+   "expect": 4.2,
+   "expect_sum": 3.9,
+   "expect_matchup": 4.5,
+   "contrib": [
+    3.5,
+    1.0
+   ],
+   "buffer": 1.3,
+   "fa": [
+    [
+     1.6,
+     1.5
+    ],
+    [
+     1.5,
+     2.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.2,
+   "p_emp": {
+    "5.5": 0.8474576271186441,
+    "6.5": 0.7936507936507936
+   },
+   "p_mod": 0.723,
+   "p_fin": 0.803,
+   "fair_fin": 1.25,
+   "ladder_fin": [
+    [
+     5.5,
+     1.25
+    ],
+    [
+     6.5,
+     1.2
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 85 % vs. Modell 72 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.19,
+    1.96
+   ]
+  },
+  "v": 2
+ },
+ "12101800|fouls|über": {
+  "match_id": "12101800",
+  "home": "FC Akhmat Grozny",
+  "away": "Dinamo Moscow",
+  "kickoff": "Mi 17:30",
+  "kickoff_ts": 1791991800,
+  "league": "Russia Cup",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "über",
+  "first_run": "Mi 06:14",
+  "first_line": 20.5,
+  "first_range": [
+   1.33,
+   2.43
+  ],
+  "last_run": "Mi 17:14",
+  "line": 20.5,
+  "range": [
+   1.33,
+   2.43
+  ],
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "über",
+   "line": 20.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    37
+   ],
+   "next_line": 22.5,
+   "next_note": "Dinamo Moscow 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.8643901593887114,
+    0.8694830426840318
+   ],
+   "fair": 1.24,
+   "ladder": [
+    [
+     18.5,
+     1.1
+    ],
+    [
+     20.5,
+     1.24
+    ]
+   ],
+   "avg": [
+    28.4,
+    26.3
+   ],
+   "expect": 29.0,
+   "expect_sum": 27.4,
+   "expect_matchup": 30.6,
+   "contrib": [
+    13.4,
+    17.2
+   ],
+   "buffer": 8.5,
+   "fa": [
+    [
+     12.1,
+     15.5
+    ],
+    [
+     12.4,
+     13.4
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 5.56,
+   "p_emp": {
+    "18.5": 0.9090909090909091,
+    "20.5": 0.8064516129032259
+   },
+   "p_mod": 0.937,
+   "p_fin": 0.857,
+   "fair_fin": 1.17,
+   "ladder_fin": [
+    [
+     18.5,
+     1.1
+    ],
+    [
+     20.5,
+     1.17
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 81 % vs. Modell 94 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.33,
+    2.43
+   ]
+  },
+  "v": 2
+ },
  "12325137|corners|über": {
   "match_id": "12325137",
   "home": "Al Jandal",
@@ -210,7 +527,7 @@
   "first_run": "Mi 06:14",
   "first_line": 7.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 7.5,
   "range": null,
   "signal": {
@@ -339,7 +656,7 @@
    1.25,
    1.48
   ],
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 6.5,
   "range": [
    1.22,
@@ -470,7 +787,7 @@
    1.19,
    1.22
   ],
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 5.5,
   "range": [
    1.19,
@@ -601,7 +918,7 @@
    1.27,
    1.75
   ],
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 18.5,
   "range": [
    1.28,
@@ -729,7 +1046,7 @@
   "first_run": "Mi 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -838,772 +1155,6 @@
   },
   "v": 2
  },
- "13141277|goals|über": {
-  "match_id": "13141277",
-  "home": "FK Zalgiris Vilnius U19",
-  "away": "Thor/THK/Volsungur U19",
-  "kickoff": "Mi 18:00",
-  "kickoff_ts": 1791993600,
-  "league": "UEFA Youth League Domestic Path",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    23,
-    50
-   ],
-   "next_line": 3.5,
-   "next_note": "Thor/THK/Volsungur U19 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.919878262217605,
-    0.7807332140000726
-   ],
-   "fair": 1.33,
-   "ladder": [
-    [
-     1.5,
-     1.13
-    ],
-    [
-     2.5,
-     1.33
-    ]
-   ],
-   "avg": [
-    7.3,
-    4.3
-   ],
-   "expect": 7.9,
-   "expect_sum": 5.8,
-   "expect_matchup": 10.1,
-   "contrib": [
-    6.3,
-    3.8
-   ],
-   "buffer": 5.4,
-   "fa": [
-    [
-     2.9,
-     3.4
-    ],
-    [
-     2.0,
-     1.9
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.22,
-   "p_emp": {
-    "1.5": 0.8849557522123894,
-    "2.5": 0.7518796992481203
-   },
-   "p_mod": 0.953,
-   "p_fin": 0.806,
-   "fair_fin": 1.24,
-   "ladder_fin": [
-    [
-     1.5,
-     1.15
-    ],
-    [
-     2.5,
-     1.24
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟡",
-   "reason": "Historie 75 % vs. Modell 95 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13157079|team_corners_heim|unter": {
-  "match_id": "13157079",
-  "home": "Botev Plovdiv",
-  "away": "Botev Vratsa",
-  "kickoff": "Mi 18:00",
-  "kickoff_ts": 1791993600,
-  "league": "Bulgaria Elite Cup",
-  "metric": "Botev Plovdiv: Ecken",
-  "metric_key": "team_corners_heim",
-  "direction": "unter",
-  "first_run": "Mi 10:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Botev Plovdiv: Ecken",
-   "metric_key": "team_corners_heim",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.26,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.848,
-   "p_mod": 0.801,
-   "p_fin": 0.7964,
-   "fair_fin": 1.26,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Botev Plovdiv",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 5,
-   "erwartet": 4.4,
-   "unverified": false,
-   "no_tab": false,
-   "pending": false,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13157079|team_corners_gast|unter": {
-  "match_id": "13157079",
-  "home": "Botev Plovdiv",
-  "away": "Botev Vratsa",
-  "kickoff": "Mi 18:00",
-  "kickoff_ts": 1791993600,
-  "league": "Bulgaria Elite Cup",
-  "metric": "Botev Vratsa: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Mi 10:14",
-  "first_line": 5.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 5.5,
-  "range": null,
-  "signal": {
-   "metric": "Botev Vratsa: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.32,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.746,
-   "p_mod": 0.751,
-   "p_fin": 0.7569,
-   "fair_fin": 1.32,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Botev Vratsa",
-   "serie": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 16
-   },
-   "gegner": 5,
-   "erwartet": 4.0,
-   "unverified": false,
-   "no_tab": false,
-   "pending": false,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13225982|throwins|über": {
-  "match_id": "13225982",
-  "home": "BATE Borisov",
-  "away": "Neman Grodno",
-  "kickoff": "Mi 18:00",
-  "kickoff_ts": 1791993600,
-  "league": "Belarus Premier League",
-  "metric": "Einwürfe",
-  "metric_key": "throwins",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 38.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 38.5,
-  "range": null,
-  "signal": {
-   "metric": "Einwürfe",
-   "metric_key": "throwins",
-   "direction": "über",
-   "line": 38.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    27,
-    27
-   ],
-   "next_line": 42.5,
-   "next_note": "Neman Grodno 9/11 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "longterm": [
-    0.8786634173812621,
-    0.9870867781042383
-   ],
-   "fair": 1.19,
-   "ladder": [
-    [
-     34.5,
-     1.1
-    ],
-    [
-     38.5,
-     1.19
-    ]
-   ],
-   "avg": [
-    49.4,
-    49.2
-   ],
-   "expect": 52.2,
-   "expect_sum": 49.3,
-   "expect_matchup": 55.1,
-   "contrib": [
-    25.6,
-    29.5
-   ],
-   "buffer": 13.7,
-   "fa": [
-    [
-     23.4,
-     24.4
-    ],
-    [
-     28.1,
-     24.6
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 9.42,
-   "p_emp": {
-    "34.5": 0.9090909090909091,
-    "38.5": 0.8403361344537815
-   },
-   "p_mod": 0.927,
-   "p_fin": 0.884,
-   "fair_fin": 1.13,
-   "ladder_fin": [
-    [
-     34.5,
-     1.06
-    ],
-    [
-     38.5,
-     1.13
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.13",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13225982|goalkicks|über": {
-  "match_id": "13225982",
-  "home": "BATE Borisov",
-  "away": "Neman Grodno",
-  "kickoff": "Mi 18:00",
-  "kickoff_ts": 1791993600,
-  "league": "Belarus Premier League",
-  "metric": "Abstöße",
-  "metric_key": "goalkicks",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 14.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 14.5,
-  "range": null,
-  "signal": {
-   "metric": "Abstöße",
-   "metric_key": "goalkicks",
-   "direction": "über",
-   "line": 14.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    27,
-    27
-   ],
-   "next_line": 16.5,
-   "next_note": "BATE Borisov 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Neman Grodno 8/10 (3. Lücke) gesamt, 12/14 auswärts",
-   "longterm": [
-    0.9177029120500058,
-    0.8491206793583319
-   ],
-   "fair": 1.19,
-   "ladder": [
-    [
-     12.5,
-     1.06
-    ],
-    [
-     14.5,
-     1.19
-    ]
-   ],
-   "avg": [
-    19.0,
-    20.8
-   ],
-   "expect": 21.3,
-   "expect_sum": 19.9,
-   "expect_matchup": 22.6,
-   "contrib": [
-    16.0,
-    6.7
-   ],
-   "buffer": 6.8,
-   "fa": [
-    [
-     10.2,
-     8.9
-    ],
-    [
-     6.4,
-     13.1
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 4.13,
-   "p_emp": {
-    "12.5": 0.9433962264150942,
-    "14.5": 0.8403361344537815
-   },
-   "p_mod": 0.95,
-   "p_fin": 0.895,
-   "fair_fin": 1.12,
-   "ladder_fin": [
-    [
-     12.5,
-     1.04
-    ],
-    [
-     14.5,
-     1.12
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.12",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "12458045|yellowcards|unter": {
-  "match_id": "12458045",
-  "home": "Al-Muharraq",
-  "away": "Gol Gohar",
-  "kickoff": "Mi 18:00",
-  "kickoff_ts": 1791993600,
-  "league": "AFC Champions League Two",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mi 06:14",
-  "first_line": 5.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 5.5,
-  "range": null,
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    44,
-    19
-   ],
-   "next_line": 4.5,
-   "next_note": "Al-Muharraq 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Gol Gohar 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "longterm": [
-    0.7315609633091245,
-    0.907532365289947
-   ],
-   "fair": 1.3,
-   "ladder": [
-    [
-     5.5,
-     1.3
-    ],
-    [
-     6.5,
-     1.12
-    ]
-   ],
-   "avg": [
-    4.1,
-    4.5
-   ],
-   "expect": 4.6,
-   "expect_sum": 4.3,
-   "expect_matchup": 5.0,
-   "contrib": [
-    1.5,
-    3.5
-   ],
-   "buffer": 0.9,
-   "fa": [
-    [
-     1.9,
-     2.5
-    ],
-    [
-     2.1,
-     1.6
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.06,
-   "p_emp": {
-    "5.5": 0.7692307692307692,
-    "6.5": 0.8928571428571428
-   },
-   "p_mod": 0.669,
-   "p_fin": 0.766,
-   "fair_fin": 1.31,
-   "ladder_fin": [
-    [
-     5.5,
-     1.31
-    ],
-    [
-     6.5,
-     1.15
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.31",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "11411542|corners|über": {
-  "match_id": "11411542",
-  "home": "FC Levadia Tallinn U21",
-  "away": "JK Nomme Kalju II",
-  "kickoff": "Mi 18:00",
-  "kickoff_ts": 1791993600,
-  "league": "Estonia Esiliiga",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 7.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 7.5,
-  "range": null,
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    41,
-    41
-   ],
-   "next_line": 8.5,
-   "next_note": "FC Levadia Tallinn U21 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
-   "longterm": [
-    0.856251345084608,
-    0.8215110596086284
-   ],
-   "fair": 1.27,
-   "ladder": [
-    [
-     6.5,
-     1.29
-    ],
-    [
-     7.5,
-     1.27
-    ]
-   ],
-   "avg": [
-    10.6,
-    12.3
-   ],
-   "expect": 13.4,
-   "expect_sum": 11.5,
-   "expect_matchup": 15.3,
-   "contrib": [
-    11.9,
-    3.4
-   ],
-   "buffer": 5.9,
-   "fa": [
-    [
-     7.0,
-     4.2
-    ],
-    [
-     4.3,
-     6.9
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "11.5",
-    "1.875",
-    "1.925"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.67,
-   "p_emp": {
-    "6.5": 0.7751937984496123,
-    "7.5": 0.7874015748031495
-   },
-   "p_mod": 0.946,
-   "p_fin": 0.79,
-   "fair_fin": 1.27,
-   "ladder_fin": [
-    [
-     6.5,
-     1.26
-    ],
-    [
-     7.5,
-     1.27
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟡",
-   "reason": "Historie 79 % vs. Modell 95 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": true,
-   "range": null
-  },
-  "v": 2
- },
  "12456459|yellowcards|unter": {
   "match_id": "12456459",
   "home": "Al Kuwait SC",
@@ -1617,7 +1168,7 @@
   "first_run": "Mi 06:14",
   "first_line": 5.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 5.5,
   "range": null,
   "signal": {
@@ -1739,7 +1290,7 @@
   "first_run": "Mi 06:14",
   "first_line": 5.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 5.5,
   "range": null,
   "signal": {
@@ -1848,27 +1399,27 @@
   },
   "v": 2
  },
- "13285794|corners|über": {
-  "match_id": "13285794",
-  "home": "Rodelindo Roman",
-  "away": "Puente Alto",
+ "11411542|corners|über": {
+  "match_id": "11411542",
+  "home": "FC Levadia Tallinn U21",
+  "away": "JK Nomme Kalju II",
   "kickoff": "Mi 18:00",
   "kickoff_ts": 1791993600,
-  "league": "Chile Tercera",
+  "league": "Estonia Esiliiga",
   "metric": "Ecken",
   "metric_key": "corners",
   "direction": "über",
   "first_run": "Mi 06:14",
-  "first_line": 8.5,
+  "first_line": 7.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 8.5,
+  "last_run": "Mi 17:14",
+  "line": 7.5,
   "range": null,
   "signal": {
    "metric": "Ecken",
    "metric_key": "corners",
    "direction": "über",
-   "line": 8.5,
+   "line": 7.5,
    "home_series": {
     "kind": "gesamt",
     "hits": 10,
@@ -1876,86 +1427,86 @@
    },
    "away_series": {
     "kind": "gesamt",
-    "hits": 5,
-    "window": 6
+    "hits": 10,
+    "window": 12
    },
    "home_is_anchor": true,
    "away_is_anchor": false,
    "valid": [
-    48,
-    47
+    41,
+    41
    ],
-   "next_line": 9.5,
-   "next_note": "Rodelindo Roman 5/7 (3. Lücke) gesamt, 10/12 (3. Lücke) heim",
+   "next_line": 8.5,
+   "next_note": "FC Levadia Tallinn U21 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
    "longterm": [
-    0.6756577571066046,
-    0.7207733077559811
+    0.856251345084608,
+    0.8215110596086284
    ],
-   "fair": 1.53,
+   "fair": 1.27,
    "ladder": [
     [
-     7.5,
-     1.36
+     6.5,
+     1.29
     ],
     [
-     8.5,
-     1.53
+     7.5,
+     1.27
     ]
    ],
    "avg": [
-    10.9,
-    9.8
+    10.6,
+    12.3
    ],
-   "expect": 11.0,
-   "expect_sum": 10.4,
-   "expect_matchup": 11.7,
+   "expect": 13.4,
+   "expect_sum": 11.5,
+   "expect_matchup": 15.3,
    "contrib": [
-    7.3,
-    4.4
+    11.9,
+    3.4
    ],
-   "buffer": 2.5,
+   "buffer": 5.9,
    "fa": [
     [
-     5.3,
-     5.0
+     7.0,
+     4.2
     ],
     [
-     4.9,
-     6.0
+     4.3,
+     6.9
     ]
    ],
    "referee": null,
    "b365": [
-    "10.5",
+    "11.5",
     "1.875",
     "1.925"
    ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.71,
+   "sd": 3.67,
    "p_emp": {
-    "7.5": 0.7352941176470588,
-    "8.5": 0.6535947712418301
+    "6.5": 0.7751937984496123,
+    "7.5": 0.7874015748031495
    },
-   "p_mod": 0.75,
-   "p_fin": 0.695,
-   "fair_fin": 1.44,
+   "p_mod": 0.946,
+   "p_fin": 0.79,
+   "fair_fin": 1.27,
    "ladder_fin": [
     [
-     7.5,
-     1.35
+     6.5,
+     1.26
     ],
     [
-     8.5,
-     1.44
+     7.5,
+     1.27
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.44",
+   "ampel": "🟡",
+   "reason": "Historie 79 % vs. Modell 95 %",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
@@ -1974,6 +1525,250 @@
   },
   "v": 2
  },
+ "13225982|throwins|über": {
+  "match_id": "13225982",
+  "home": "BATE Borisov",
+  "away": "Neman Grodno",
+  "kickoff": "Mi 18:00",
+  "kickoff_ts": 1791993600,
+  "league": "Belarus Premier League",
+  "metric": "Einwürfe",
+  "metric_key": "throwins",
+  "direction": "über",
+  "first_run": "Mi 06:14",
+  "first_line": 38.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 38.5,
+  "range": null,
+  "signal": {
+   "metric": "Einwürfe",
+   "metric_key": "throwins",
+   "direction": "über",
+   "line": 38.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    27,
+    27
+   ],
+   "next_line": 42.5,
+   "next_note": "Neman Grodno 9/11 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.8786634173812621,
+    0.9870867781042383
+   ],
+   "fair": 1.19,
+   "ladder": [
+    [
+     34.5,
+     1.1
+    ],
+    [
+     38.5,
+     1.19
+    ]
+   ],
+   "avg": [
+    49.4,
+    49.2
+   ],
+   "expect": 52.2,
+   "expect_sum": 49.3,
+   "expect_matchup": 55.1,
+   "contrib": [
+    25.6,
+    29.5
+   ],
+   "buffer": 13.7,
+   "fa": [
+    [
+     23.4,
+     24.4
+    ],
+    [
+     28.1,
+     24.6
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 9.42,
+   "p_emp": {
+    "34.5": 0.9090909090909091,
+    "38.5": 0.8403361344537815
+   },
+   "p_mod": 0.927,
+   "p_fin": 0.884,
+   "fair_fin": 1.13,
+   "ladder_fin": [
+    [
+     34.5,
+     1.06
+    ],
+    [
+     38.5,
+     1.13
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.13",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13225982|goalkicks|über": {
+  "match_id": "13225982",
+  "home": "BATE Borisov",
+  "away": "Neman Grodno",
+  "kickoff": "Mi 18:00",
+  "kickoff_ts": 1791993600,
+  "league": "Belarus Premier League",
+  "metric": "Abstöße",
+  "metric_key": "goalkicks",
+  "direction": "über",
+  "first_run": "Mi 06:14",
+  "first_line": 14.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 14.5,
+  "range": null,
+  "signal": {
+   "metric": "Abstöße",
+   "metric_key": "goalkicks",
+   "direction": "über",
+   "line": 14.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    27,
+    27
+   ],
+   "next_line": 16.5,
+   "next_note": "BATE Borisov 1/3 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Neman Grodno 8/10 (3. Lücke) gesamt, 12/14 auswärts",
+   "longterm": [
+    0.9177029120500058,
+    0.8491206793583319
+   ],
+   "fair": 1.19,
+   "ladder": [
+    [
+     12.5,
+     1.06
+    ],
+    [
+     14.5,
+     1.19
+    ]
+   ],
+   "avg": [
+    19.0,
+    20.8
+   ],
+   "expect": 21.3,
+   "expect_sum": 19.9,
+   "expect_matchup": 22.6,
+   "contrib": [
+    16.0,
+    6.7
+   ],
+   "buffer": 6.8,
+   "fa": [
+    [
+     10.2,
+     8.9
+    ],
+    [
+     6.4,
+     13.1
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 4.13,
+   "p_emp": {
+    "12.5": 0.9433962264150942,
+    "14.5": 0.8403361344537815
+   },
+   "p_mod": 0.95,
+   "p_fin": 0.895,
+   "fair_fin": 1.12,
+   "ladder_fin": [
+    [
+     12.5,
+     1.04
+    ],
+    [
+     14.5,
+     1.12
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.12",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
  "13287558|yellowcards|unter": {
   "match_id": "13287558",
   "home": "Al Jazira Al Hamra",
@@ -1987,7 +1782,7 @@
   "first_run": "Mi 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -2109,7 +1904,7 @@
   "first_run": "Mi 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -2172,25 +1967,25 @@
   },
   "v": 2
  },
- "11163258|team_corners_gast|unter": {
-  "match_id": "11163258",
-  "home": "Moss",
-  "away": "Egersund",
-  "kickoff": "Mi 19:00",
-  "kickoff_ts": 1791997200,
-  "league": "Norway Division 1",
-  "metric": "Egersund: Ecken",
-  "metric_key": "team_corners_gast",
+ "13157079|team_corners_heim|unter": {
+  "match_id": "13157079",
+  "home": "Botev Plovdiv",
+  "away": "Botev Vratsa",
+  "kickoff": "Mi 18:00",
+  "kickoff_ts": 1791993600,
+  "league": "Bulgaria Elite Cup",
+  "metric": "Botev Plovdiv: Ecken",
+  "metric_key": "team_corners_heim",
   "direction": "unter",
-  "first_run": "Mi 06:14",
+  "first_run": "Mi 10:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 6.5,
   "range": null,
   "signal": {
-   "metric": "Egersund: Ecken",
-   "metric_key": "team_corners_gast",
+   "metric": "Botev Plovdiv: Ecken",
+   "metric_key": "team_corners_heim",
    "direction": "unter",
    "line": 6.5,
    "home_series": null,
@@ -2201,7 +1996,7 @@
    "next_line": null,
    "next_note": null,
    "longterm": null,
-   "fair": 1.34,
+   "fair": 1.26,
    "ladder": null,
    "avg": null,
    "expect": null,
@@ -2215,10 +2010,10 @@
    "expect_ref": null,
    "buffer_ref": null,
    "sd": null,
-   "p_emp": 0.78,
-   "p_mod": 0.681,
-   "p_fin": 0.7476,
-   "fair_fin": 1.34,
+   "p_emp": 0.848,
+   "p_mod": 0.801,
+   "p_fin": 0.7964,
+   "fair_fin": 1.26,
    "ladder_fin": null,
    "market": null,
    "market_src": null,
@@ -2232,17 +2027,463 @@
    "b365_lines": null,
    "b365_est": null,
    "team_market": true,
-   "team": "Egersund",
+   "team": "Botev Plovdiv",
+   "serie": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "gegner": 5,
+   "erwartet": 4.4,
+   "unverified": false,
+   "no_tab": false,
+   "pending": false,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13157079|team_corners_gast|unter": {
+  "match_id": "13157079",
+  "home": "Botev Plovdiv",
+  "away": "Botev Vratsa",
+  "kickoff": "Mi 18:00",
+  "kickoff_ts": 1791993600,
+  "league": "Bulgaria Elite Cup",
+  "metric": "Botev Vratsa: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Mi 10:14",
+  "first_line": 5.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Botev Vratsa: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.32,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.746,
+   "p_mod": 0.751,
+   "p_fin": 0.7569,
+   "fair_fin": 1.32,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Botev Vratsa",
    "serie": {
     "kind": "auswärts",
     "hits": 15,
     "window": 16
    },
-   "gegner": 6,
-   "erwartet": 5.1,
+   "gegner": 5,
+   "erwartet": 4.0,
    "unverified": false,
    "no_tab": false,
    "pending": false,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13285794|corners|über": {
+  "match_id": "13285794",
+  "home": "Rodelindo Roman",
+  "away": "Puente Alto",
+  "kickoff": "Mi 18:00",
+  "kickoff_ts": 1791993600,
+  "league": "Chile Tercera",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mi 06:14",
+  "first_line": 8.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 8.5,
+  "range": null,
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    48,
+    47
+   ],
+   "next_line": 9.5,
+   "next_note": "Rodelindo Roman 5/7 (3. Lücke) gesamt, 10/12 (3. Lücke) heim",
+   "longterm": [
+    0.6756577571066046,
+    0.7207733077559811
+   ],
+   "fair": 1.53,
+   "ladder": [
+    [
+     7.5,
+     1.36
+    ],
+    [
+     8.5,
+     1.53
+    ]
+   ],
+   "avg": [
+    10.9,
+    9.8
+   ],
+   "expect": 11.0,
+   "expect_sum": 10.4,
+   "expect_matchup": 11.7,
+   "contrib": [
+    7.3,
+    4.4
+   ],
+   "buffer": 2.5,
+   "fa": [
+    [
+     5.3,
+     5.0
+    ],
+    [
+     4.9,
+     6.0
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.5",
+    "1.875",
+    "1.925"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.71,
+   "p_emp": {
+    "7.5": 0.7352941176470588,
+    "8.5": 0.6535947712418301
+   },
+   "p_mod": 0.75,
+   "p_fin": 0.695,
+   "fair_fin": 1.44,
+   "ladder_fin": [
+    [
+     7.5,
+     1.35
+    ],
+    [
+     8.5,
+     1.44
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.44",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": true,
+   "range": null
+  },
+  "v": 2
+ },
+ "13141277|goals|über": {
+  "match_id": "13141277",
+  "home": "FK Zalgiris Vilnius U19",
+  "away": "Thor/THK/Volsungur U19",
+  "kickoff": "Mi 18:00",
+  "kickoff_ts": 1791993600,
+  "league": "UEFA Youth League Domestic Path",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Mi 06:14",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    23,
+    50
+   ],
+   "next_line": 3.5,
+   "next_note": "Thor/THK/Volsungur U19 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.919878262217605,
+    0.7807332140000726
+   ],
+   "fair": 1.33,
+   "ladder": [
+    [
+     1.5,
+     1.13
+    ],
+    [
+     2.5,
+     1.33
+    ]
+   ],
+   "avg": [
+    7.3,
+    4.3
+   ],
+   "expect": 7.9,
+   "expect_sum": 5.8,
+   "expect_matchup": 10.1,
+   "contrib": [
+    6.3,
+    3.8
+   ],
+   "buffer": 5.4,
+   "fa": [
+    [
+     2.9,
+     3.4
+    ],
+    [
+     2.0,
+     1.9
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.22,
+   "p_emp": {
+    "1.5": 0.8849557522123894,
+    "2.5": 0.7518796992481203
+   },
+   "p_mod": 0.953,
+   "p_fin": 0.806,
+   "fair_fin": 1.24,
+   "ladder_fin": [
+    [
+     1.5,
+     1.15
+    ],
+    [
+     2.5,
+     1.24
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 75 % vs. Modell 95 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "12458045|yellowcards|unter": {
+  "match_id": "12458045",
+  "home": "Al-Muharraq",
+  "away": "Gol Gohar",
+  "kickoff": "Mi 18:00",
+  "kickoff_ts": 1791993600,
+  "league": "AFC Champions League Two",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 06:14",
+  "first_line": 5.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    19
+   ],
+   "next_line": 4.5,
+   "next_note": "Al-Muharraq 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Gol Gohar 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.7315609633091245,
+    0.907532365289947
+   ],
+   "fair": 1.3,
+   "ladder": [
+    [
+     5.5,
+     1.3
+    ],
+    [
+     6.5,
+     1.12
+    ]
+   ],
+   "avg": [
+    4.1,
+    4.5
+   ],
+   "expect": 4.6,
+   "expect_sum": 4.3,
+   "expect_matchup": 5.0,
+   "contrib": [
+    1.5,
+    3.5
+   ],
+   "buffer": 0.9,
+   "fa": [
+    [
+     1.9,
+     2.5
+    ],
+    [
+     2.1,
+     1.6
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.06,
+   "p_emp": {
+    "5.5": 0.7692307692307692,
+    "6.5": 0.8928571428571428
+   },
+   "p_mod": 0.669,
+   "p_fin": 0.766,
+   "fair_fin": 1.31,
+   "ladder_fin": [
+    [
+     5.5,
+     1.31
+    ],
+    [
+     6.5,
+     1.15
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.31",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
    "b365_proof": null,
    "range": null
   },
@@ -2261,7 +2502,7 @@
   "first_run": "Mi 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -2383,7 +2624,7 @@
   "first_run": "Mi 06:14",
   "first_line": 8.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 8.5,
   "range": null,
   "signal": {
@@ -2492,6 +2733,613 @@
   },
   "v": 2
  },
+ "11163258|team_corners_gast|unter": {
+  "match_id": "11163258",
+  "home": "Moss",
+  "away": "Egersund",
+  "kickoff": "Mi 19:00",
+  "kickoff_ts": 1791997200,
+  "league": "Norway Division 1",
+  "metric": "Egersund: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Mi 06:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Egersund: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.34,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.78,
+   "p_mod": 0.681,
+   "p_fin": 0.7476,
+   "fair_fin": 1.34,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Egersund",
+   "serie": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "gegner": 6,
+   "erwartet": 5.1,
+   "unverified": false,
+   "no_tab": false,
+   "pending": false,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "12188395|yellowcards|über": {
+  "match_id": "12188395",
+  "home": "SC Preussen Munster",
+  "away": "Fortuna Dusseldorf",
+  "kickoff": "Mi 19:00",
+  "kickoff_ts": 1791997200,
+  "league": "Germany 3. Liga",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Mi 06:14",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    42
+   ],
+   "next_line": 3.5,
+   "next_note": "SC Preussen Munster 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Fortuna Dusseldorf 4/6 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.8120576826252203,
+    0.8051554823912285
+   ],
+   "fair": 1.29,
+   "ladder": [
+    [
+     1.5,
+     1.28
+    ],
+    [
+     2.5,
+     1.29
+    ]
+   ],
+   "avg": [
+    3.6,
+    4.5
+   ],
+   "expect": 4.1,
+   "expect_sum": 4.0,
+   "expect_matchup": 4.2,
+   "contrib": [
+    1.7,
+    2.5
+   ],
+   "buffer": 1.6,
+   "fa": [
+    [
+     2.6,
+     2.2
+    ],
+    [
+     2.3,
+     1.8
+    ]
+   ],
+   "referee": "Felix Prigan: Ø 4.8 Karten (22 Sp.) · Ø 23.0 Fouls (17 Sp.)",
+   "b365": null,
+   "expect_ref": 4.9,
+   "buffer_ref": 2.4,
+   "sd": 2.11,
+   "p_emp": {
+    "1.5": 0.78125,
+    "2.5": 0.7751937984496123
+   },
+   "p_mod": 0.872,
+   "p_fin": 0.816,
+   "fair_fin": 1.23,
+   "ladder_fin": [
+    [
+     1.5,
+     1.18
+    ],
+    [
+     2.5,
+     1.23
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.23",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "12188395|yellowcards|unter": {
+  "match_id": "12188395",
+  "home": "SC Preussen Munster",
+  "away": "Fortuna Dusseldorf",
+  "kickoff": "Mi 19:00",
+  "kickoff_ts": 1791997200,
+  "league": "Germany 3. Liga",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 06:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    44,
+    42
+   ],
+   "next_line": 5.5,
+   "next_note": "kein Anker — SC Preussen Munster 9/11 (3. Lücke) gesamt, 13/15 (3. Lücke) heim; Fortuna Dusseldorf 7/9 (3. Lücke) gesamt, 15/17 (3. Lücke) auswärts",
+   "longterm": [
+    0.7941944579830713,
+    0.8284015172670501
+   ],
+   "fair": 1.2,
+   "ladder": [
+    [
+     6.5,
+     1.2
+    ],
+    [
+     7.5,
+     1.22
+    ]
+   ],
+   "avg": [
+    3.6,
+    4.5
+   ],
+   "expect": 4.1,
+   "expect_sum": 4.0,
+   "expect_matchup": 4.2,
+   "contrib": [
+    1.7,
+    2.5
+   ],
+   "buffer": 2.4,
+   "fa": [
+    [
+     2.6,
+     2.2
+    ],
+    [
+     2.3,
+     1.8
+    ]
+   ],
+   "referee": "Felix Prigan: Ø 4.8 Karten (22 Sp.) · Ø 23.0 Fouls (17 Sp.)",
+   "b365": null,
+   "expect_ref": 4.9,
+   "buffer_ref": 1.6,
+   "sd": 2.11,
+   "p_emp": {
+    "6.5": 0.8333333333333334,
+    "7.5": 0.819672131147541
+   },
+   "p_mod": 0.776,
+   "p_fin": 0.828,
+   "fair_fin": 1.21,
+   "ladder_fin": [
+    [
+     6.5,
+     1.21
+    ],
+    [
+     7.5,
+     1.16
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.21",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11168555|corners|über": {
+  "match_id": "11168555",
+  "home": "Bryne",
+  "away": "Raufoss",
+  "kickoff": "Mi 19:00",
+  "kickoff_ts": 1791997200,
+  "league": "Norway Division 1",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mi 06:14",
+  "first_line": 7.5,
+  "first_range": [
+   1.44,
+   2.25
+  ],
+  "last_run": "Mi 17:14",
+  "line": 7.5,
+  "range": [
+   1.44,
+   2.26
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    41
+   ],
+   "next_line": 8.5,
+   "next_note": "Bryne 3/5 (3. Lücke) gesamt, 8/10 (3. Lücke) heim",
+   "longterm": [
+    0.8175045648155861,
+    0.9412218674540391
+   ],
+   "fair": 1.22,
+   "ladder": [
+    [
+     6.5,
+     1.25
+    ],
+    [
+     7.5,
+     1.22
+    ]
+   ],
+   "avg": [
+    10.4,
+    11.9
+   ],
+   "expect": 12.5,
+   "expect_sum": 11.1,
+   "expect_matchup": 13.8,
+   "contrib": [
+    9.3,
+    4.4
+   ],
+   "buffer": 5.0,
+   "fa": [
+    [
+     5.0,
+     5.0
+    ],
+    [
+     5.1,
+     6.7
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "11.0",
+    "1.950",
+    "1.850"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.41,
+   "p_emp": {
+    "6.5": 0.8,
+    "7.5": 0.819672131147541
+   },
+   "p_mod": 0.929,
+   "p_fin": 0.794,
+   "fair_fin": 1.26,
+   "ladder_fin": [
+    [
+     6.5,
+     1.25
+    ],
+    [
+     7.5,
+     1.26
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.26",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.44,
+    2.26
+   ]
+  },
+  "v": 2
+ },
+ "13290848|team_corners_heim|unter": {
+  "match_id": "13290848",
+  "home": "Argentino de Rosario Reserves",
+  "away": "Puerto Nuevo Reserves",
+  "kickoff": "Mi 19:00",
+  "kickoff_ts": 1791997200,
+  "league": "Argentina Reserve League",
+  "metric": "Argentino de Rosario Reserves: Ecken",
+  "metric_key": "team_corners_heim",
+  "direction": "unter",
+  "first_run": "Mi 06:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Argentino de Rosario Reserves: Ecken",
+   "metric_key": "team_corners_heim",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.33,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.784,
+   "p_mod": 0.704,
+   "p_fin": 0.7545,
+   "fair_fin": 1.33,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Argentino de Rosario Reserves",
+   "serie": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "gegner": 9,
+   "erwartet": 4.7,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13290848|team_corners_gast|unter": {
+  "match_id": "13290848",
+  "home": "Argentino de Rosario Reserves",
+  "away": "Puerto Nuevo Reserves",
+  "kickoff": "Mi 19:00",
+  "kickoff_ts": 1791997200,
+  "league": "Argentina Reserve League",
+  "metric": "Puerto Nuevo Reserves: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Mi 06:14",
+  "first_line": 5.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Puerto Nuevo Reserves: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.27,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.77,
+   "p_mod": 0.834,
+   "p_fin": 0.7848,
+   "fair_fin": 1.27,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Puerto Nuevo Reserves",
+   "serie": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "gegner": 6,
+   "erwartet": 3.5,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
  "12192283|on_target|über": {
   "match_id": "12192283",
   "home": "Waldhof Mannheim",
@@ -2505,7 +3353,7 @@
   "first_run": "Mi 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -2614,10 +3462,10 @@
   },
   "v": 2
  },
- "11163389|corners|über": {
-  "match_id": "11163389",
-  "home": "Haugesund",
-  "away": "Lyn 1896",
+ "11168552|corners|über": {
+  "match_id": "11168552",
+  "home": "Stabaek",
+  "away": "Sandnes Ulf",
   "kickoff": "Mi 19:00",
   "kickoff_ts": 1791997200,
   "league": "Norway Division 1",
@@ -2625,109 +3473,109 @@
   "metric_key": "corners",
   "direction": "über",
   "first_run": "Mi 06:14",
-  "first_line": 8.5,
+  "first_line": 7.5,
   "first_range": [
-   1.58,
-   1.95
+   1.31,
+   1.47
   ],
-  "last_run": "Mi 16:14",
-  "line": 8.5,
+  "last_run": "Mi 17:14",
+  "line": 7.5,
   "range": [
-   1.59,
-   1.95
+   1.31,
+   1.47
   ],
   "signal": {
    "metric": "Ecken",
    "metric_key": "corners",
    "direction": "über",
-   "line": 8.5,
+   "line": 7.5,
    "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
     "kind": "gesamt",
     "hits": 5,
     "window": 6
    },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
+   "home_is_anchor": true,
+   "away_is_anchor": false,
    "valid": [
-    42,
-    41
+    41,
+    40
    ],
-   "next_line": 9.5,
-   "next_note": "Haugesund 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Lyn 1896 4/6 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
+   "next_line": 8.5,
+   "next_note": "Sandnes Ulf 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
    "longterm": [
-    0.7282365225787641,
-    0.8040011466779932
+    0.9151755450301703,
+    0.8386266784226298
    ],
-   "fair": 1.41,
+   "fair": 1.22,
    "ladder": [
     [
-     7.5,
-     1.26
+     6.5,
+     1.24
     ],
     [
-     8.5,
-     1.41
+     7.5,
+     1.22
     ]
    ],
    "avg": [
-    11.2,
-    12.5
+    12.0,
+    11.1
    ],
-   "expect": 13.6,
-   "expect_sum": 11.9,
-   "expect_matchup": 15.3,
+   "expect": 13.2,
+   "expect_sum": 11.6,
+   "expect_matchup": 14.9,
    "contrib": [
-    9.1,
-    6.2
+    11.1,
+    3.8
    ],
-   "buffer": 5.1,
+   "buffer": 5.7,
    "fa": [
     [
-     4.9,
-     5.7
+     7.4,
+     4.3
     ],
     [
-     5.7,
-     5.5
+     5.2,
+     5.1
     ]
    ],
    "referee": null,
    "b365": [
-    "11.5",
-    "1.950",
-    "1.850"
+    "11.0",
+    "1.800",
+    "2.000"
    ],
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.84,
+   "sd": 3.9,
    "p_emp": {
-    "7.5": 0.7936507936507936,
-    "8.5": 0.7092198581560284
+    "6.5": 0.8064516129032259,
+    "7.5": 0.819672131147541
    },
-   "p_mod": 0.908,
-   "p_fin": 0.756,
-   "fair_fin": 1.32,
+   "p_mod": 0.928,
+   "p_fin": 0.794,
+   "fair_fin": 1.26,
    "ladder_fin": [
+    [
+     6.5,
+     1.25
+    ],
     [
      7.5,
      1.26
-    ],
-    [
-     8.5,
-     1.32
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "ampel": "🟡",
-   "reason": "Historie 71 % vs. Modell 91 %",
+   "ampel": "🟢",
+   "reason": "fair 1.26",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
@@ -2743,9 +3591,85 @@
    "pending": null,
    "b365_proof": null,
    "range": [
-    1.59,
-    1.95
+    1.31,
+    1.47
    ]
+  },
+  "v": 2
+ },
+ "11168552|team_corners_heim|über": {
+  "match_id": "11168552",
+  "home": "Stabaek",
+  "away": "Sandnes Ulf",
+  "kickoff": "Mi 19:00",
+  "kickoff_ts": 1791997200,
+  "league": "Norway Division 1",
+  "metric": "Stabaek: Ecken",
+  "metric_key": "team_corners_heim",
+  "direction": "über",
+  "first_run": "Mi 06:14",
+  "first_line": 3.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 3.5,
+  "range": null,
+  "signal": {
+   "metric": "Stabaek: Ecken",
+   "metric_key": "team_corners_heim",
+   "direction": "über",
+   "line": 3.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.22,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.807,
+   "p_mod": 0.912,
+   "p_fin": 0.8206,
+   "fair_fin": 1.22,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Stabaek",
+   "serie": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 15
+   },
+   "gegner": 6,
+   "erwartet": 7.9,
+   "unverified": false,
+   "no_tab": false,
+   "pending": false,
+   "b365_proof": null,
+   "range": null
   },
   "v": 2
  },
@@ -2765,7 +3689,7 @@
    1.363,
    2.243
   ],
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 8.5,
   "range": [
    1.363,
@@ -2900,11 +3824,11 @@
    1.92,
    1.92
   ],
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 8.5,
   "range": [
-   1.92,
-   1.92
+   1.91,
+   1.91
   ],
   "signal": {
    "metric": "Ecken",
@@ -3013,8 +3937,8 @@
    "pending": null,
    "b365_proof": null,
    "range": [
-    1.92,
-    1.92
+    1.91,
+    1.91
    ]
   },
   "v": 2
@@ -3032,7 +3956,7 @@
   "first_run": "Mi 06:14",
   "first_line": 3.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 3.5,
   "range": null,
   "signal": {
@@ -3095,1240 +4019,6 @@
   },
   "v": 2
  },
- "11168552|corners|über": {
-  "match_id": "11168552",
-  "home": "Stabaek",
-  "away": "Sandnes Ulf",
-  "kickoff": "Mi 19:00",
-  "kickoff_ts": 1791997200,
-  "league": "Norway Division 1",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 7.5,
-  "first_range": [
-   1.31,
-   1.47
-  ],
-  "last_run": "Mi 16:14",
-  "line": 7.5,
-  "range": [
-   1.31,
-   1.47
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    41,
-    40
-   ],
-   "next_line": 8.5,
-   "next_note": "Sandnes Ulf 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.9151755450301703,
-    0.8386266784226298
-   ],
-   "fair": 1.22,
-   "ladder": [
-    [
-     6.5,
-     1.24
-    ],
-    [
-     7.5,
-     1.22
-    ]
-   ],
-   "avg": [
-    12.0,
-    11.1
-   ],
-   "expect": 13.2,
-   "expect_sum": 11.6,
-   "expect_matchup": 14.9,
-   "contrib": [
-    11.1,
-    3.8
-   ],
-   "buffer": 5.7,
-   "fa": [
-    [
-     7.4,
-     4.3
-    ],
-    [
-     5.2,
-     5.1
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "11.0",
-    "1.800",
-    "2.000"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.9,
-   "p_emp": {
-    "6.5": 0.8064516129032259,
-    "7.5": 0.819672131147541
-   },
-   "p_mod": 0.928,
-   "p_fin": 0.794,
-   "fair_fin": 1.26,
-   "ladder_fin": [
-    [
-     6.5,
-     1.25
-    ],
-    [
-     7.5,
-     1.26
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.26",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": [
-    1.31,
-    1.47
-   ]
-  },
-  "v": 2
- },
- "11168552|team_corners_heim|über": {
-  "match_id": "11168552",
-  "home": "Stabaek",
-  "away": "Sandnes Ulf",
-  "kickoff": "Mi 19:00",
-  "kickoff_ts": 1791997200,
-  "league": "Norway Division 1",
-  "metric": "Stabaek: Ecken",
-  "metric_key": "team_corners_heim",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 3.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 3.5,
-  "range": null,
-  "signal": {
-   "metric": "Stabaek: Ecken",
-   "metric_key": "team_corners_heim",
-   "direction": "über",
-   "line": 3.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.22,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.807,
-   "p_mod": 0.912,
-   "p_fin": 0.8206,
-   "fair_fin": 1.22,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Stabaek",
-   "serie": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 15
-   },
-   "gegner": 6,
-   "erwartet": 7.9,
-   "unverified": false,
-   "no_tab": false,
-   "pending": false,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "11168555|corners|über": {
-  "match_id": "11168555",
-  "home": "Bryne",
-  "away": "Raufoss",
-  "kickoff": "Mi 19:00",
-  "kickoff_ts": 1791997200,
-  "league": "Norway Division 1",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 7.5,
-  "first_range": [
-   1.44,
-   2.25
-  ],
-  "last_run": "Mi 16:14",
-  "line": 7.5,
-  "range": [
-   1.44,
-   2.26
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    43,
-    41
-   ],
-   "next_line": 8.5,
-   "next_note": "Bryne 3/5 (3. Lücke) gesamt, 8/10 (3. Lücke) heim",
-   "longterm": [
-    0.8175045648155861,
-    0.9412218674540391
-   ],
-   "fair": 1.22,
-   "ladder": [
-    [
-     6.5,
-     1.25
-    ],
-    [
-     7.5,
-     1.22
-    ]
-   ],
-   "avg": [
-    10.4,
-    11.9
-   ],
-   "expect": 12.5,
-   "expect_sum": 11.1,
-   "expect_matchup": 13.8,
-   "contrib": [
-    9.3,
-    4.4
-   ],
-   "buffer": 5.0,
-   "fa": [
-    [
-     5.0,
-     5.0
-    ],
-    [
-     5.1,
-     6.7
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "11.0",
-    "1.950",
-    "1.850"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.41,
-   "p_emp": {
-    "6.5": 0.8,
-    "7.5": 0.819672131147541
-   },
-   "p_mod": 0.929,
-   "p_fin": 0.794,
-   "fair_fin": 1.26,
-   "ladder_fin": [
-    [
-     6.5,
-     1.25
-    ],
-    [
-     7.5,
-     1.26
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.26",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": [
-    1.44,
-    2.26
-   ]
-  },
-  "v": 2
- },
- "13290848|team_corners_heim|unter": {
-  "match_id": "13290848",
-  "home": "Argentino de Rosario Reserves",
-  "away": "Puerto Nuevo Reserves",
-  "kickoff": "Mi 19:00",
-  "kickoff_ts": 1791997200,
-  "league": "Argentina Reserve League",
-  "metric": "Argentino de Rosario Reserves: Ecken",
-  "metric_key": "team_corners_heim",
-  "direction": "unter",
-  "first_run": "Mi 06:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Argentino de Rosario Reserves: Ecken",
-   "metric_key": "team_corners_heim",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.33,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.784,
-   "p_mod": 0.704,
-   "p_fin": 0.7545,
-   "fair_fin": 1.33,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Argentino de Rosario Reserves",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 9,
-   "erwartet": 4.7,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13290848|team_corners_gast|unter": {
-  "match_id": "13290848",
-  "home": "Argentino de Rosario Reserves",
-  "away": "Puerto Nuevo Reserves",
-  "kickoff": "Mi 19:00",
-  "kickoff_ts": 1791997200,
-  "league": "Argentina Reserve League",
-  "metric": "Puerto Nuevo Reserves: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Mi 06:14",
-  "first_line": 5.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 5.5,
-  "range": null,
-  "signal": {
-   "metric": "Puerto Nuevo Reserves: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.27,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.77,
-   "p_mod": 0.834,
-   "p_fin": 0.7848,
-   "fair_fin": 1.27,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Puerto Nuevo Reserves",
-   "serie": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 16
-   },
-   "gegner": 6,
-   "erwartet": 3.5,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "12194608|corners|über": {
-  "match_id": "12194608",
-  "home": "FC Viktoria Köln",
-  "away": "SG Sonnenhof Grossaspach",
-  "kickoff": "Mi 19:00",
-  "kickoff_ts": 1791997200,
-  "league": "Germany 3. Liga",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 7.5,
-  "first_range": [
-   1.56,
-   1.56
-  ],
-  "last_run": "Mi 16:14",
-  "line": 7.5,
-  "range": [
-   1.56,
-   1.56
-  ],
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    44,
-    9
-   ],
-   "next_line": 8.5,
-   "next_note": "kein Anker — FC Viktoria Köln 8/10 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; SG Sonnenhof Grossaspach 9 in Folge gesamt, 3 in Folge auswärts",
-   "longterm": [
-    0.7734033613674897,
-    1.0
-   ],
-   "fair": 1.29,
-   "ladder": [
-    [
-     6.5,
-     1.4
-    ],
-    [
-     7.5,
-     1.29
-    ]
-   ],
-   "avg": [
-    9.7,
-    10.0
-   ],
-   "expect": 10.2,
-   "expect_sum": 9.8,
-   "expect_matchup": 10.6,
-   "contrib": [
-    6.9,
-    3.8
-   ],
-   "buffer": 2.7,
-   "fa": [
-    [
-     5.0,
-     4.8
-    ],
-    [
-     6.4,
-     5.7
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "10.0",
-    "1.950",
-    "1.850"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.33,
-   "p_emp": {
-    "6.5": 0.7142857142857143,
-    "7.5": 0.7751937984496123
-   },
-   "p_mod": 0.791,
-   "p_fin": 0.742,
-   "fair_fin": 1.35,
-   "ladder_fin": [
-    [
-     6.5,
-     1.34
-    ],
-    [
-     7.5,
-     1.35
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.35",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": [
-    1.56,
-    1.56
-   ]
-  },
-  "v": 2
- },
- "12194608|yellowcards|über": {
-  "match_id": "12194608",
-  "home": "FC Viktoria Köln",
-  "away": "SG Sonnenhof Grossaspach",
-  "kickoff": "Mi 19:00",
-  "kickoff_ts": 1791997200,
-  "league": "Germany 3. Liga",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    44,
-    9
-   ],
-   "next_line": 3.5,
-   "next_note": "SG Sonnenhof Grossaspach 7/9 gesamt, 3 in Folge auswärts",
-   "longterm": [
-    0.9624347659483793,
-    0.9411764705882353
-   ],
-   "fair": 1.16,
-   "ladder": [
-    [
-     1.5,
-     1.25
-    ],
-    [
-     2.5,
-     1.16
-    ]
-   ],
-   "avg": [
-    5.2,
-    7.0
-   ],
-   "expect": 7.6,
-   "expect_sum": 6.1,
-   "expect_matchup": 9.2,
-   "contrib": [
-    5.7,
-    3.5
-   ],
-   "buffer": 5.1,
-   "fa": [
-    [
-     2.4,
-     2.9
-    ],
-    [
-     2.3,
-     3.1
-    ]
-   ],
-   "referee": "Cengiz Kabalakli: Ø 4.8 Karten (14 Sp.)",
-   "b365": null,
-   "expect_ref": 8.8,
-   "buffer_ref": 6.3,
-   "sd": 1.96,
-   "p_emp": {
-    "1.5": 0.8,
-    "2.5": 0.8620689655172414
-   },
-   "p_mod": 0.999,
-   "p_fin": 0.907,
-   "fair_fin": 1.1,
-   "ladder_fin": [
-    [
-     1.5,
-     1.14
-    ],
-    [
-     2.5,
-     1.1
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟡",
-   "reason": "Historie 86 % vs. Modell 100 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "12194608|on_target|über": {
-  "match_id": "12194608",
-  "home": "FC Viktoria Köln",
-  "away": "SG Sonnenhof Grossaspach",
-  "kickoff": "Mi 19:00",
-  "kickoff_ts": 1791997200,
-  "league": "Germany 3. Liga",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    44,
-    9
-   ],
-   "next_line": 7.5,
-   "next_note": "FC Viktoria Köln 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; SG Sonnenhof Grossaspach 6/8 (3. Lücke) gesamt, 1/3 (Aussetzer in den letzten 2) auswärts",
-   "longterm": [
-    0.7817089931153045,
-    1.0
-   ],
-   "fair": 1.26,
-   "ladder": [
-    [
-     5.5,
-     1.39
-    ],
-    [
-     6.5,
-     1.26
-    ]
-   ],
-   "avg": [
-    8.9,
-    10.0
-   ],
-   "expect": 9.6,
-   "expect_sum": 9.4,
-   "expect_matchup": 9.9,
-   "contrib": [
-    5.7,
-    4.2
-   ],
-   "buffer": 3.1,
-   "fa": [
-    [
-     4.8,
-     4.7
-    ],
-    [
-     5.7,
-     5.3
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 4.1,
-   "p_emp": {
-    "5.5": 0.7194244604316548,
-    "6.5": 0.7936507936507936
-   },
-   "p_mod": 0.775,
-   "p_fin": 0.777,
-   "fair_fin": 1.29,
-   "ladder_fin": [
-    [
-     5.5,
-     1.29
-    ],
-    [
-     6.5,
-     1.29
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.29",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "12194608|ht_yellowcards|über": {
-  "match_id": "12194608",
-  "home": "FC Viktoria Köln",
-  "away": "SG Sonnenhof Grossaspach",
-  "kickoff": "Mi 19:00",
-  "kickoff_ts": 1791997200,
-  "league": "Germany 3. Liga",
-  "metric": "1. HZ Gelbe Karten",
-  "metric_key": "ht_yellowcards",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 0.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 0.5,
-  "range": null,
-  "signal": {
-   "metric": "1. HZ Gelbe Karten",
-   "metric_key": "ht_yellowcards",
-   "direction": "über",
-   "line": 0.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    44,
-    9
-   ],
-   "next_line": 1.5,
-   "next_note": "FC Viktoria Köln 4/6 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; SG Sonnenhof Grossaspach 3/5 (3. Lücke) gesamt, 2/3 (Aussetzer in den letzten 2) auswärts",
-   "longterm": [
-    0.8793480112232746,
-    0.8823529411764706
-   ],
-   "fair": 1.23,
-   "ladder": [
-    [
-     0.5,
-     1.23
-    ]
-   ],
-   "avg": [
-    2.2,
-    1.7
-   ],
-   "expect": 2.3,
-   "expect_sum": 2.0,
-   "expect_matchup": 2.7,
-   "contrib": [
-    1.2,
-    1.5
-   ],
-   "buffer": 1.8,
-   "fa": [
-    [
-     1.0,
-     1.0
-    ],
-    [
-     1.0,
-     0.9
-    ]
-   ],
-   "referee": "Cengiz Kabalakli: Ø 4.8 Karten (14 Sp.)",
-   "b365": null,
-   "expect_ref": 6.2,
-   "buffer_ref": 5.7,
-   "sd": 1.27,
-   "p_emp": {
-    "0.5": 0.8130081300813008
-   },
-   "p_mod": 1.0,
-   "p_fin": 0.853,
-   "fair_fin": 1.17,
-   "ladder_fin": [
-    [
-     0.5,
-     1.17
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟡",
-   "reason": "Historie 81 % vs. Modell 100 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "12188395|yellowcards|über": {
-  "match_id": "12188395",
-  "home": "SC Preussen Munster",
-  "away": "Fortuna Dusseldorf",
-  "kickoff": "Mi 19:00",
-  "kickoff_ts": 1791997200,
-  "league": "Germany 3. Liga",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    44,
-    42
-   ],
-   "next_line": 3.5,
-   "next_note": "SC Preussen Munster 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Fortuna Dusseldorf 4/6 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
-   "longterm": [
-    0.8120576826252203,
-    0.8051554823912285
-   ],
-   "fair": 1.29,
-   "ladder": [
-    [
-     1.5,
-     1.28
-    ],
-    [
-     2.5,
-     1.29
-    ]
-   ],
-   "avg": [
-    3.6,
-    4.5
-   ],
-   "expect": 4.1,
-   "expect_sum": 4.0,
-   "expect_matchup": 4.2,
-   "contrib": [
-    1.7,
-    2.5
-   ],
-   "buffer": 1.6,
-   "fa": [
-    [
-     2.6,
-     2.2
-    ],
-    [
-     2.3,
-     1.8
-    ]
-   ],
-   "referee": "Felix Prigan: Ø 4.8 Karten (22 Sp.) · Ø 23.0 Fouls (17 Sp.)",
-   "b365": null,
-   "expect_ref": 4.9,
-   "buffer_ref": 2.4,
-   "sd": 2.11,
-   "p_emp": {
-    "1.5": 0.78125,
-    "2.5": 0.7751937984496123
-   },
-   "p_mod": 0.872,
-   "p_fin": 0.816,
-   "fair_fin": 1.23,
-   "ladder_fin": [
-    [
-     1.5,
-     1.18
-    ],
-    [
-     2.5,
-     1.23
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.23",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "12188395|yellowcards|unter": {
-  "match_id": "12188395",
-  "home": "SC Preussen Munster",
-  "away": "Fortuna Dusseldorf",
-  "kickoff": "Mi 19:00",
-  "kickoff_ts": 1791997200,
-  "league": "Germany 3. Liga",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mi 06:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    44,
-    42
-   ],
-   "next_line": 5.5,
-   "next_note": "kein Anker — SC Preussen Munster 9/11 (3. Lücke) gesamt, 13/15 (3. Lücke) heim; Fortuna Dusseldorf 7/9 (3. Lücke) gesamt, 15/17 (3. Lücke) auswärts",
-   "longterm": [
-    0.7941944579830713,
-    0.8284015172670501
-   ],
-   "fair": 1.2,
-   "ladder": [
-    [
-     6.5,
-     1.2
-    ],
-    [
-     7.5,
-     1.22
-    ]
-   ],
-   "avg": [
-    3.6,
-    4.5
-   ],
-   "expect": 4.1,
-   "expect_sum": 4.0,
-   "expect_matchup": 4.2,
-   "contrib": [
-    1.7,
-    2.5
-   ],
-   "buffer": 2.4,
-   "fa": [
-    [
-     2.6,
-     2.2
-    ],
-    [
-     2.3,
-     1.8
-    ]
-   ],
-   "referee": "Felix Prigan: Ø 4.8 Karten (22 Sp.) · Ø 23.0 Fouls (17 Sp.)",
-   "b365": null,
-   "expect_ref": 4.9,
-   "buffer_ref": 1.6,
-   "sd": 2.11,
-   "p_emp": {
-    "6.5": 0.8333333333333334,
-    "7.5": 0.819672131147541
-   },
-   "p_mod": 0.776,
-   "p_fin": 0.828,
-   "fair_fin": 1.21,
-   "ladder_fin": [
-    [
-     6.5,
-     1.21
-    ],
-    [
-     7.5,
-     1.16
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.21",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
  "12192240|corners|über": {
   "match_id": "12192240",
   "home": "Wehen SV",
@@ -4345,7 +4035,7 @@
    1.29,
    1.29
   ],
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 7.5,
   "range": [
    1.29,
@@ -4477,7 +4167,7 @@
   "first_run": "Mi 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -4599,7 +4289,7 @@
   "first_run": "Mi 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -4721,7 +4411,7 @@
   "first_run": "Mi 06:14",
   "first_line": 0.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 0.5,
   "range": null,
   "signal": {
@@ -4834,7 +4524,7 @@
   "first_run": "Mi 06:14",
   "first_line": 1.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 1.5,
   "range": null,
   "signal": {
@@ -4897,6 +4587,633 @@
   },
   "v": 2
  },
+ "12194608|corners|über": {
+  "match_id": "12194608",
+  "home": "FC Viktoria Köln",
+  "away": "SG Sonnenhof Grossaspach",
+  "kickoff": "Mi 19:00",
+  "kickoff_ts": 1791997200,
+  "league": "Germany 3. Liga",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mi 06:14",
+  "first_line": 7.5,
+  "first_range": [
+   1.56,
+   1.56
+  ],
+  "last_run": "Mi 17:14",
+  "line": 7.5,
+  "range": [
+   1.56,
+   1.56
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    44,
+    9
+   ],
+   "next_line": 8.5,
+   "next_note": "kein Anker — FC Viktoria Köln 8/10 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; SG Sonnenhof Grossaspach 9 in Folge gesamt, 3 in Folge auswärts",
+   "longterm": [
+    0.7734033613674897,
+    1.0
+   ],
+   "fair": 1.29,
+   "ladder": [
+    [
+     6.5,
+     1.4
+    ],
+    [
+     7.5,
+     1.29
+    ]
+   ],
+   "avg": [
+    9.7,
+    10.0
+   ],
+   "expect": 10.2,
+   "expect_sum": 9.8,
+   "expect_matchup": 10.6,
+   "contrib": [
+    6.9,
+    3.8
+   ],
+   "buffer": 2.7,
+   "fa": [
+    [
+     5.0,
+     4.8
+    ],
+    [
+     6.4,
+     5.7
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.950",
+    "1.850"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.33,
+   "p_emp": {
+    "6.5": 0.7142857142857143,
+    "7.5": 0.7751937984496123
+   },
+   "p_mod": 0.791,
+   "p_fin": 0.742,
+   "fair_fin": 1.35,
+   "ladder_fin": [
+    [
+     6.5,
+     1.34
+    ],
+    [
+     7.5,
+     1.35
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.35",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.56,
+    1.56
+   ]
+  },
+  "v": 2
+ },
+ "12194608|yellowcards|über": {
+  "match_id": "12194608",
+  "home": "FC Viktoria Köln",
+  "away": "SG Sonnenhof Grossaspach",
+  "kickoff": "Mi 19:00",
+  "kickoff_ts": 1791997200,
+  "league": "Germany 3. Liga",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Mi 06:14",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    44,
+    9
+   ],
+   "next_line": 3.5,
+   "next_note": "SG Sonnenhof Grossaspach 7/9 gesamt, 3 in Folge auswärts",
+   "longterm": [
+    0.9624347659483793,
+    0.9411764705882353
+   ],
+   "fair": 1.16,
+   "ladder": [
+    [
+     1.5,
+     1.25
+    ],
+    [
+     2.5,
+     1.16
+    ]
+   ],
+   "avg": [
+    5.2,
+    7.0
+   ],
+   "expect": 7.6,
+   "expect_sum": 6.1,
+   "expect_matchup": 9.2,
+   "contrib": [
+    5.7,
+    3.5
+   ],
+   "buffer": 5.1,
+   "fa": [
+    [
+     2.4,
+     2.9
+    ],
+    [
+     2.3,
+     3.1
+    ]
+   ],
+   "referee": "Cengiz Kabalakli: Ø 4.8 Karten (14 Sp.)",
+   "b365": null,
+   "expect_ref": 8.8,
+   "buffer_ref": 6.3,
+   "sd": 1.96,
+   "p_emp": {
+    "1.5": 0.8,
+    "2.5": 0.8620689655172414
+   },
+   "p_mod": 0.999,
+   "p_fin": 0.907,
+   "fair_fin": 1.1,
+   "ladder_fin": [
+    [
+     1.5,
+     1.14
+    ],
+    [
+     2.5,
+     1.1
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 86 % vs. Modell 100 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "12194608|on_target|über": {
+  "match_id": "12194608",
+  "home": "FC Viktoria Köln",
+  "away": "SG Sonnenhof Grossaspach",
+  "kickoff": "Mi 19:00",
+  "kickoff_ts": 1791997200,
+  "league": "Germany 3. Liga",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Mi 06:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    44,
+    9
+   ],
+   "next_line": 7.5,
+   "next_note": "FC Viktoria Köln 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; SG Sonnenhof Grossaspach 6/8 (3. Lücke) gesamt, 1/3 (Aussetzer in den letzten 2) auswärts",
+   "longterm": [
+    0.7817089931153045,
+    1.0
+   ],
+   "fair": 1.26,
+   "ladder": [
+    [
+     5.5,
+     1.39
+    ],
+    [
+     6.5,
+     1.26
+    ]
+   ],
+   "avg": [
+    8.9,
+    10.0
+   ],
+   "expect": 9.6,
+   "expect_sum": 9.4,
+   "expect_matchup": 9.9,
+   "contrib": [
+    5.7,
+    4.2
+   ],
+   "buffer": 3.1,
+   "fa": [
+    [
+     4.8,
+     4.7
+    ],
+    [
+     5.7,
+     5.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 4.1,
+   "p_emp": {
+    "5.5": 0.7194244604316548,
+    "6.5": 0.7936507936507936
+   },
+   "p_mod": 0.775,
+   "p_fin": 0.777,
+   "fair_fin": 1.29,
+   "ladder_fin": [
+    [
+     5.5,
+     1.29
+    ],
+    [
+     6.5,
+     1.29
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.29",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "12194608|ht_yellowcards|über": {
+  "match_id": "12194608",
+  "home": "FC Viktoria Köln",
+  "away": "SG Sonnenhof Grossaspach",
+  "kickoff": "Mi 19:00",
+  "kickoff_ts": 1791997200,
+  "league": "Germany 3. Liga",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "über",
+  "first_run": "Mi 06:14",
+  "first_line": 0.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 0.5,
+  "range": null,
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "über",
+   "line": 0.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    44,
+    9
+   ],
+   "next_line": 1.5,
+   "next_note": "FC Viktoria Köln 4/6 (3. Lücke) gesamt, 8/10 (3. Lücke) heim; SG Sonnenhof Grossaspach 3/5 (3. Lücke) gesamt, 2/3 (Aussetzer in den letzten 2) auswärts",
+   "longterm": [
+    0.8793480112232746,
+    0.8823529411764706
+   ],
+   "fair": 1.23,
+   "ladder": [
+    [
+     0.5,
+     1.23
+    ]
+   ],
+   "avg": [
+    2.2,
+    1.7
+   ],
+   "expect": 2.3,
+   "expect_sum": 2.0,
+   "expect_matchup": 2.7,
+   "contrib": [
+    1.2,
+    1.5
+   ],
+   "buffer": 1.8,
+   "fa": [
+    [
+     1.0,
+     1.0
+    ],
+    [
+     1.0,
+     0.9
+    ]
+   ],
+   "referee": "Cengiz Kabalakli: Ø 4.8 Karten (14 Sp.)",
+   "b365": null,
+   "expect_ref": 6.2,
+   "buffer_ref": 5.7,
+   "sd": 1.27,
+   "p_emp": {
+    "0.5": 0.8130081300813008
+   },
+   "p_mod": 1.0,
+   "p_fin": 0.853,
+   "fair_fin": 1.17,
+   "ladder_fin": [
+    [
+     0.5,
+     1.17
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 81 % vs. Modell 100 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11163389|corners|über": {
+  "match_id": "11163389",
+  "home": "Haugesund",
+  "away": "Lyn 1896",
+  "kickoff": "Mi 19:00",
+  "kickoff_ts": 1791997200,
+  "league": "Norway Division 1",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mi 06:14",
+  "first_line": 8.5,
+  "first_range": [
+   1.58,
+   1.95
+  ],
+  "last_run": "Mi 17:14",
+  "line": 8.5,
+  "range": [
+   1.59,
+   1.95
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    41
+   ],
+   "next_line": 9.5,
+   "next_note": "Haugesund 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Lyn 1896 4/6 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
+   "longterm": [
+    0.7282365225787641,
+    0.8040011466779932
+   ],
+   "fair": 1.41,
+   "ladder": [
+    [
+     7.5,
+     1.26
+    ],
+    [
+     8.5,
+     1.41
+    ]
+   ],
+   "avg": [
+    11.2,
+    12.5
+   ],
+   "expect": 13.6,
+   "expect_sum": 11.9,
+   "expect_matchup": 15.3,
+   "contrib": [
+    9.1,
+    6.2
+   ],
+   "buffer": 5.1,
+   "fa": [
+    [
+     4.9,
+     5.7
+    ],
+    [
+     5.7,
+     5.5
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "11.5",
+    "1.950",
+    "1.850"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.84,
+   "p_emp": {
+    "7.5": 0.7936507936507936,
+    "8.5": 0.7092198581560284
+   },
+   "p_mod": 0.908,
+   "p_fin": 0.756,
+   "fair_fin": 1.32,
+   "ladder_fin": [
+    [
+     7.5,
+     1.26
+    ],
+    [
+     8.5,
+     1.32
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 71 % vs. Modell 91 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.59,
+    1.95
+   ]
+  },
+  "v": 2
+ },
  "12101777|yellowcards|über": {
   "match_id": "12101777",
   "home": "CSKA Moscow",
@@ -4913,7 +5230,7 @@
    1.51,
    1.71
   ],
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 2.5,
   "range": [
    1.51,
@@ -5044,7 +5361,7 @@
    1.51,
    1.71
   ],
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 6.5,
   "range": [
    1.51,
@@ -5175,7 +5492,7 @@
    1.37,
    2.16
   ],
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 7.5,
   "range": [
    1.37,
@@ -5306,7 +5623,7 @@
    1.74,
    1.93
   ],
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 18.5,
   "range": [
    1.51,
@@ -5434,7 +5751,7 @@
   "first_run": "Mi 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -5510,7 +5827,7 @@
   "first_run": "Mi 07:14",
   "first_line": 5.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 5.5,
   "range": null,
   "signal": {
@@ -5573,82 +5890,6 @@
   },
   "v": 2
  },
- "13217798|team_corners_gast|unter": {
-  "match_id": "13217798",
-  "home": "Colon Reserves",
-  "away": "Independiente Rivadavia Reserves",
-  "kickoff": "Mi 20:00",
-  "kickoff_ts": 1792000800,
-  "league": "Argentina Liga Profesional Reserves",
-  "metric": "Independiente Rivadavia Reserves: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Mi 07:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Independiente Rivadavia Reserves: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.24,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.851,
-   "p_mod": 0.835,
-   "p_fin": 0.806,
-   "fair_fin": 1.24,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Independiente Rivadavia Reserves",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 6,
-   "erwartet": 4.1,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
  "13217797|team_corners_heim|unter": {
   "match_id": "13217797",
   "home": "Estudiantes LP Reserves",
@@ -5662,7 +5903,7 @@
   "first_run": "Mi 07:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -5738,7 +5979,7 @@
   "first_run": "Mi 06:14",
   "first_line": 7.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 7.5,
   "range": null,
   "signal": {
@@ -5851,6 +6092,82 @@
   },
   "v": 2
  },
+ "13217798|team_corners_gast|unter": {
+  "match_id": "13217798",
+  "home": "Colon Reserves",
+  "away": "Independiente Rivadavia Reserves",
+  "kickoff": "Mi 20:00",
+  "kickoff_ts": 1792000800,
+  "league": "Argentina Liga Profesional Reserves",
+  "metric": "Independiente Rivadavia Reserves: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Mi 07:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Independiente Rivadavia Reserves: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.24,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.851,
+   "p_mod": 0.835,
+   "p_fin": 0.806,
+   "fair_fin": 1.24,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Independiente Rivadavia Reserves",
+   "serie": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "gegner": 6,
+   "erwartet": 4.1,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
  "13277759|goals|über": {
   "match_id": "13277759",
   "home": "Operario PR U20",
@@ -5864,7 +6181,7 @@
   "first_run": "Mi 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -5986,7 +6303,7 @@
   "first_run": "Mi 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -6108,7 +6425,7 @@
   "first_run": "Mi 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -6171,82 +6488,6 @@
   },
   "v": 2
  },
- "13290284|team_corners_heim|unter": {
-  "match_id": "13290284",
-  "home": "Shifnal Town",
-  "away": "Witton Albion",
-  "kickoff": "Mi 20:45",
-  "kickoff_ts": 1792003500,
-  "league": "England Northern League Division One",
-  "metric": "Shifnal Town: Ecken",
-  "metric_key": "team_corners_heim",
-  "direction": "unter",
-  "first_run": "Mi 10:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Mi 16:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Shifnal Town: Ecken",
-   "metric_key": "team_corners_heim",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.25,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.796,
-   "p_mod": 0.859,
-   "p_fin": 0.7983,
-   "fair_fin": 1.25,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Shifnal Town",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 6,
-   "erwartet": 4.3,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
  "12101672|fouls|über": {
   "match_id": "12101672",
   "home": "Portsmouth",
@@ -6260,7 +6501,7 @@
   "first_run": "Mi 06:14",
   "first_line": 20.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 20.5,
   "range": null,
   "signal": {
@@ -6382,7 +6623,7 @@
   "first_run": "Mi 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -6445,6 +6686,82 @@
   },
   "v": 2
  },
+ "13290284|team_corners_heim|unter": {
+  "match_id": "13290284",
+  "home": "Shifnal Town",
+  "away": "Witton Albion",
+  "kickoff": "Mi 20:45",
+  "kickoff_ts": 1792003500,
+  "league": "England Northern League Division One",
+  "metric": "Shifnal Town: Ecken",
+  "metric_key": "team_corners_heim",
+  "direction": "unter",
+  "first_run": "Mi 10:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 17:14",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Shifnal Town: Ecken",
+   "metric_key": "team_corners_heim",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.25,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.796,
+   "p_mod": 0.859,
+   "p_fin": 0.7983,
+   "fair_fin": 1.25,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Shifnal Town",
+   "serie": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "gegner": 6,
+   "erwartet": 4.3,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
  "12101673|yellowcards|unter": {
   "match_id": "12101673",
   "home": "Norwich",
@@ -6461,7 +6778,7 @@
    1.4,
    1.4
   ],
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 5.5,
   "range": [
    1.4,
@@ -6589,7 +6906,7 @@
   "first_run": "Mi 07:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -6711,7 +7028,7 @@
   "first_run": "Mi 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -6833,7 +7150,7 @@
   "first_run": "Mi 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -6955,7 +7272,7 @@
   "first_run": "Mi 06:14",
   "first_line": 4.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 4.5,
   "range": null,
   "signal": {
@@ -7077,7 +7394,7 @@
   "first_run": "Mi 06:14",
   "first_line": 5.5,
   "first_range": null,
-  "last_run": "Mi 16:14",
+  "last_run": "Mi 17:14",
   "line": 5.5,
   "range": null,
   "signal": {
@@ -7137,597 +7454,6 @@
    "pending": false,
    "b365_proof": null,
    "range": null
-  },
-  "v": 2
- },
- "12471953|goals|über": {
-  "match_id": "12471953",
-  "home": "Hapoel Tel Aviv U19",
-  "away": "Maccabi Haifa U19",
-  "kickoff": "Mi 16:15",
-  "kickoff_ts": 1791987300,
-  "league": "Israel Youth League",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Mi 15:10",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    40,
-    39
-   ],
-   "next_line": 3.5,
-   "next_note": "Hapoel Tel Aviv U19 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
-   "longterm": [
-    0.5141796149026947,
-    0.7874408459614114
-   ],
-   "fair": 1.6,
-   "ladder": [
-    [
-     1.5,
-     1.28
-    ],
-    [
-     2.5,
-     1.6
-    ]
-   ],
-   "avg": [
-    2.2,
-    4.2
-   ],
-   "expect": 2.9,
-   "expect_sum": 3.2,
-   "expect_matchup": 2.7,
-   "contrib": [
-    2.0,
-    0.7
-   ],
-   "buffer": 0.4,
-   "fa": [
-    [
-     2.0,
-     0.9
-    ],
-    [
-     2.6,
-     1.5
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.18,
-   "p_emp": {
-    "1.5": 0.78125,
-    "2.5": 0.625
-   },
-   "p_mod": 0.573,
-   "p_fin": 0.607,
-   "fair_fin": 1.65,
-   "ladder_fin": [
-    [
-     1.5,
-     1.36
-    ],
-    [
-     2.5,
-     1.65
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟡",
-   "reason": "61 % knapp",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13218143|team_corners_gast|unter": {
-  "match_id": "13218143",
-  "home": "Spartakos Kitiou",
-  "away": "Krasava ENY Ypsonas",
-  "kickoff": "Mi 17:00",
-  "kickoff_ts": 1791990000,
-  "league": "Cyprus Cup",
-  "metric": "Krasava ENY Ypsonas: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Mi 15:10",
-  "first_line": 5.5,
-  "first_range": null,
-  "last_run": "Mi 15:10",
-  "line": 5.5,
-  "range": null,
-  "signal": {
-   "metric": "Krasava ENY Ypsonas: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.28,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.776,
-   "p_mod": 0.822,
-   "p_fin": 0.7834,
-   "fair_fin": 1.28,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Krasava ENY Ypsonas",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 10,
-   "erwartet": 3.7,
-   "unverified": false,
-   "no_tab": false,
-   "pending": false,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "12101800|yellowcards|über": {
-  "match_id": "12101800",
-  "home": "FC Akhmat Grozny",
-  "away": "Dinamo Moscow",
-  "kickoff": "Mi 17:30",
-  "kickoff_ts": 1791991800,
-  "league": "Russia Cup",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 2.5,
-  "first_range": [
-   1.2,
-   1.54
-  ],
-  "last_run": "Mi 15:10",
-  "line": 2.5,
-  "range": [
-   1.198,
-   1.54
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    44,
-    42
-   ],
-   "next_line": 3.5,
-   "next_note": "kein Anker — FC Akhmat Grozny 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Dinamo Moscow 9/11 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
-   "longterm": [
-    0.7082146300250187,
-    0.74232967604485
-   ],
-   "fair": 1.4,
-   "ladder": [
-    [
-     1.5,
-     1.32
-    ],
-    [
-     2.5,
-     1.4
-    ]
-   ],
-   "avg": [
-    4.1,
-    3.7
-   ],
-   "expect": 3.9,
-   "expect_sum": 3.9,
-   "expect_matchup": 4.0,
-   "contrib": [
-    2.1,
-    1.8
-   ],
-   "buffer": 1.4,
-   "fa": [
-    [
-     1.8,
-     2.0
-    ],
-    [
-     1.9,
-     2.0
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.12,
-   "p_emp": {
-    "1.5": 0.7575757575757576,
-    "2.5": 0.7142857142857143
-   },
-   "p_mod": 0.745,
-   "p_fin": 0.737,
-   "fair_fin": 1.36,
-   "ladder_fin": [
-    [
-     1.5,
-     1.24
-    ],
-    [
-     2.5,
-     1.36
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.36",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": [
-    1.198,
-    1.54
-   ]
-  },
-  "v": 2
- },
- "12101800|offsides|unter": {
-  "match_id": "12101800",
-  "home": "FC Akhmat Grozny",
-  "away": "Dinamo Moscow",
-  "kickoff": "Mi 17:30",
-  "kickoff_ts": 1791991800,
-  "league": "Russia Cup",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "Mi 06:14",
-  "first_line": 5.5,
-  "first_range": [
-   1.31,
-   1.95
-  ],
-  "last_run": "Mi 15:10",
-  "line": 5.5,
-  "range": [
-   1.19,
-   1.96
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    43,
-    37
-   ],
-   "next_line": 4.5,
-   "next_note": "Dinamo Moscow 0/2 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
-   "longterm": [
-    0.9302048772756097,
-    0.7948991196463117
-   ],
-   "fair": 1.18,
-   "ladder": [
-    [
-     5.5,
-     1.18
-    ],
-    [
-     6.5,
-     1.26
-    ]
-   ],
-   "avg": [
-    3.0,
-    4.8
-   ],
-   "expect": 4.2,
-   "expect_sum": 3.9,
-   "expect_matchup": 4.5,
-   "contrib": [
-    3.5,
-    1.0
-   ],
-   "buffer": 1.3,
-   "fa": [
-    [
-     1.6,
-     1.5
-    ],
-    [
-     1.5,
-     2.8
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.2,
-   "p_emp": {
-    "5.5": 0.8474576271186441,
-    "6.5": 0.7936507936507936
-   },
-   "p_mod": 0.723,
-   "p_fin": 0.803,
-   "fair_fin": 1.25,
-   "ladder_fin": [
-    [
-     5.5,
-     1.25
-    ],
-    [
-     6.5,
-     1.2
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟡",
-   "reason": "Historie 85 % vs. Modell 72 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": [
-    1.19,
-    1.96
-   ]
-  },
-  "v": 2
- },
- "12101800|fouls|über": {
-  "match_id": "12101800",
-  "home": "FC Akhmat Grozny",
-  "away": "Dinamo Moscow",
-  "kickoff": "Mi 17:30",
-  "kickoff_ts": 1791991800,
-  "league": "Russia Cup",
-  "metric": "Fouls",
-  "metric_key": "fouls",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 20.5,
-  "first_range": [
-   1.33,
-   2.43
-  ],
-  "last_run": "Mi 15:10",
-  "line": 20.5,
-  "range": [
-   1.33,
-   2.43
-  ],
-  "signal": {
-   "metric": "Fouls",
-   "metric_key": "fouls",
-   "direction": "über",
-   "line": 20.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    43,
-    37
-   ],
-   "next_line": 22.5,
-   "next_note": "Dinamo Moscow 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.8643901593887114,
-    0.8694830426840318
-   ],
-   "fair": 1.24,
-   "ladder": [
-    [
-     18.5,
-     1.1
-    ],
-    [
-     20.5,
-     1.24
-    ]
-   ],
-   "avg": [
-    28.4,
-    26.3
-   ],
-   "expect": 29.0,
-   "expect_sum": 27.4,
-   "expect_matchup": 30.6,
-   "contrib": [
-    13.4,
-    17.2
-   ],
-   "buffer": 8.5,
-   "fa": [
-    [
-     12.1,
-     15.5
-    ],
-    [
-     12.4,
-     13.4
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 5.56,
-   "p_emp": {
-    "18.5": 0.9090909090909091,
-    "20.5": 0.8064516129032259
-   },
-   "p_mod": 0.937,
-   "p_fin": 0.857,
-   "fair_fin": 1.17,
-   "ladder_fin": [
-    [
-     18.5,
-     1.1
-    ],
-    [
-     20.5,
-     1.17
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟡",
-   "reason": "Historie 81 % vs. Modell 94 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": [
-    1.33,
-    2.43
-   ]
   },
   "v": 2
  }
