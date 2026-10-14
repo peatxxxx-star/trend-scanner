@@ -106,7 +106,9 @@ def name_info(name):
     core = []
     for t in toks:
         t = _ALIAS.get(t, t)
-        if t in _YOUTH:
+        if t in ("u21", "u23"):
+            marks.add("R")             # Reserveteams heißen mal "II", mal "U21"/"U23"
+        elif t in _YOUTH:
             marks.add(t)
         elif t in _WOMEN:
             marks.add("W")
@@ -369,6 +371,8 @@ def selbsttest():
         (("Spartak Trnava", "Spartak Moskau"), False),
         (("Man City U19", "Manchester City U19"), True),
         (("Dinamo Moscow", "Dynamo Moscow"), True),
+        (("JK Nomme Kalju II", "Nomme Kalju U21"), True),
+        (("Nomme Kalju U19", "Nomme Kalju U21"), False),
         (("TJ Slavoj Boleraz", "Boleraz"), True),
         (("Paris Saint Germain", "Paris SG"), True),
     ]
