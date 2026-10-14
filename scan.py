@@ -3500,6 +3500,7 @@ def betlabel_fill(buckets, new_state):
     erg, proto = betlabel.hole_alle(auftraege)
     _BL.clear()
     _BL.update(erg)
+    _BL_STAND["verdacht"] = proto.get("verdacht") or []
     from zoneinfo import ZoneInfo
     _BL_STAND["zeit"] = datetime.now(ZoneInfo("Europe/Berlin")).strftime("%H:%M")
     proto["auftraege"] = len(auftraege)
@@ -3567,7 +3568,15 @@ def build_bl_block(items):
                         f"{esc(s['metric'])} {s['direction']} {s['line']} <b>{q:.2f}</b>{ab}")
     stand = f" · Stand {_BL_STAND['zeit']}" if _BL_STAND.get("zeit") else ""
     head = f"💶 <b>PASST BEI BETLABEL ({len(rows)})</b>{stand}"
-    return head + "\n" + ("\n".join(rows) if rows else "<i>gerade keine Quote über spielbar ab</i>")
+    body = "\n".join(rows) if rows else "<i>gerade keine Quote über spielbar ab</i>"
+    # 14.10. (Lucio: "zu wie viel Prozent kann ich mich auf die Liste
+    # verlassen?"): Spiele, die BetLabel wahrscheinlich nur anders benennt,
+    # werden gemeldet statt still zu fehlen — dann selbst kurz nachsehen.
+    verd = _BL_STAND.get("verdacht") or []
+    if verd:
+        body += "\n" + "\n".join(f"❓ nicht sicher zugeordnet: {esc(v['spiel'])} "
+                                  f"<i>(BetLabel: {esc(v['bl'])})</i>" for v in verd)
+    return head + "\n" + body
 
 
 def attach_extras(match, signals):

@@ -129,6 +129,17 @@ def _tok_eq(a, b):
     return False
 
 
+def _lose(a, b):
+    """Wie name_score, aber ohne Jugend/Frauen/Reserve-Prüfung (nur für
+    Verdachtsmeldungen, nie für die Zuordnung)."""
+    ca, _ = name_info(a)
+    cb, _ = name_info(b)
+    if not ca or not cb:
+        return 0.0
+    short, long_ = (ca, cb) if len(ca) <= len(cb) else (cb, ca)
+    return sum(1 for t in short if any(_tok_eq(t, u) for u in long_)) / len(short)
+
+
 def name_score(a, b):
     """0..1: Anteil der Kernwörter des kürzeren Namens, die im anderen stehen.
     -1, wenn Jugend/Frauen/Reserve-Merkmale nicht passen."""
@@ -352,6 +363,15 @@ def hole_alle(auftraege):
                              key=lambda g2: -(max(name_score(home, g2["O1"]), 0) + max(name_score(away, g2["O2"]), 0)))[:3]
                 proto["nicht_gefunden"].append(
                     f"{home} – {away} | BL zur selben Zeit: " + "; ".join(f"{g2['O1']} - {g2['O2']}" for g2 in nah))
+                # Verdacht: BetLabel hat zur selben Zeit ein Spiel, in dem eines
+                # der Teams (ohne U19/II/Frauen-Merkmal) wiederzuerkennen ist ->
+                # wahrscheinlich nur anders benannt. Wird im Telegram gemeldet.
+                for g2 in nah:
+                    if max(_lose(home, g2["O1"]), _lose(away, g2["O2"]),
+                           _lose(home, g2["O2"]), _lose(away, g2["O1"])) >= 0.6:
+                        proto.setdefault("verdacht", []).append(
+                            {"spiel": f"{home} – {away}", "bl": f"{g2['O1']} - {g2['O2']}"})
+                        break
     proto["anfragen"] = _stats["anfragen"]
     proto["fehler_anfragen"] = _stats["fehler"]
     proto["sekunden"] = round(time.time() - t0, 1)
