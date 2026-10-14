@@ -1,25 +1,1293 @@
 {
- "12101777|yellowcards|über": {
-  "match_id": "12101777",
-  "home": "CSKA Moscow",
-  "away": "Rostov",
-  "kickoff": "Mi 19:45",
-  "kickoff_ts": 1791999900,
-  "league": "Russia Cup",
+ "12101673|yellowcards|unter": {
+  "match_id": "12101673",
+  "home": "Norwich",
+  "away": "Southampton",
+  "kickoff": "Mi 20:45",
+  "kickoff_ts": 1792003500,
+  "league": "England Championship",
   "metric": "Gelbe Karten",
   "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 07:14",
+  "first_line": 5.5,
+  "first_range": [
+   1.4,
+   1.4
+  ],
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": [
+   1.4,
+   1.4
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    43,
+    44
+   ],
+   "next_line": 4.5,
+   "next_note": "Norwich 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Southampton 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.8118273785518907,
+    0.8400459482466415
+   ],
+   "fair": 1.23,
+   "ladder": [
+    [
+     5.5,
+     1.23
+    ],
+    [
+     6.5,
+     1.16
+    ]
+   ],
+   "avg": [
+    4.4,
+    3.8
+   ],
+   "expect": 4.3,
+   "expect_sum": 4.1,
+   "expect_matchup": 4.5,
+   "contrib": [
+    2.3,
+    2.2
+   ],
+   "buffer": 1.2,
+   "fa": [
+    [
+     2.0,
+     1.8
+    ],
+    [
+     1.8,
+     1.9
+    ]
+   ],
+   "referee": "Steve Martin: Ø 4.0 Karten (2 Sp.) · Ø 22.0 Fouls (3 Sp.)",
+   "b365": null,
+   "expect_ref": 4.3,
+   "buffer_ref": 1.2,
+   "sd": 2.37,
+   "p_emp": {
+    "5.5": 0.8130081300813008,
+    "6.5": 0.8620689655172414
+   },
+   "p_mod": 0.694,
+   "p_fin": 0.791,
+   "fair_fin": 1.26,
+   "ladder_fin": [
+    [
+     5.5,
+     1.26
+    ],
+    [
+     6.5,
+     1.17
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.26",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.4,
+    1.4
+   ]
+  },
+  "v": 2
+ },
+ "12101673|on_target|über": {
+  "match_id": "12101673",
+  "home": "Norwich",
+  "away": "Southampton",
+  "kickoff": "Mi 20:45",
+  "kickoff_ts": 1792003500,
+  "league": "England Championship",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Mi 07:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    41,
+    41
+   ],
+   "next_line": 7.5,
+   "next_note": "Southampton 6/8 (3. Lücke) gesamt, 13/15 (3. Lücke) auswärts",
+   "longterm": [
+    0.765458850302171,
+    0.9058502248829466
+   ],
+   "fair": 1.25,
+   "ladder": [
+    [
+     5.5,
+     1.27
+    ],
+    [
+     6.5,
+     1.25
+    ]
+   ],
+   "avg": [
+    8.7,
+    8.6
+   ],
+   "expect": 8.5,
+   "expect_sum": 8.6,
+   "expect_matchup": 8.3,
+   "contrib": [
+    5.0,
+    3.3
+   ],
+   "buffer": 2.0,
+   "fa": [
+    [
+     4.7,
+     3.7
+    ],
+    [
+     4.6,
+     4.1
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.41,
+   "p_emp": {
+    "5.5": 0.7874015748031495,
+    "6.5": 0.8
+   },
+   "p_mod": 0.797,
+   "p_fin": 0.787,
+   "fair_fin": 1.27,
+   "ladder_fin": [
+    [
+     5.5,
+     1.23
+    ],
+    [
+     6.5,
+     1.27
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.27",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "12100745|on_target|über": {
+  "match_id": "12100745",
+  "home": "Lincoln City",
+  "away": "West Ham",
+  "kickoff": "Mi 21:00",
+  "kickoff_ts": 1792004400,
+  "league": "England Championship",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Mi 06:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    41
+   ],
+   "next_line": 7.5,
+   "next_note": "Lincoln City 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "longterm": [
+    0.6737776480335401,
+    0.8654014366285102
+   ],
+   "fair": 1.33,
+   "ladder": [
+    [
+     5.5,
+     1.32
+    ],
+    [
+     6.5,
+     1.33
+    ]
+   ],
+   "avg": [
+    8.6,
+    9.9
+   ],
+   "expect": 9.4,
+   "expect_sum": 9.2,
+   "expect_matchup": 9.7,
+   "contrib": [
+    6.6,
+    3.1
+   ],
+   "buffer": 2.9,
+   "fa": [
+    [
+     4.6,
+     3.2
+    ],
+    [
+     4.5,
+     4.9
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.75,
+   "p_emp": {
+    "5.5": 0.7575757575757576,
+    "6.5": 0.7518796992481203
+   },
+   "p_mod": 0.854,
+   "p_fin": 0.79,
+   "fair_fin": 1.27,
+   "ladder_fin": [
+    [
+     5.5,
+     1.23
+    ],
+    [
+     6.5,
+     1.27
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.27",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "12100745|offsides|unter": {
+  "match_id": "12100745",
+  "home": "Lincoln City",
+  "away": "West Ham",
+  "kickoff": "Mi 21:00",
+  "kickoff_ts": 1792004400,
+  "league": "England Championship",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Mi 06:14",
+  "first_line": 4.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 4.5,
+  "range": null,
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    13,
+    45
+   ],
+   "next_line": 3.5,
+   "next_note": "West Ham 4/6 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+   "longterm": [
+    0.9109399686194188,
+    0.827525980371612
+   ],
+   "fair": 1.25,
+   "ladder": [
+    [
+     4.5,
+     1.25
+    ],
+    [
+     5.5,
+     1.13
+    ]
+   ],
+   "avg": [
+    4.2,
+    2.9
+   ],
+   "expect": 3.2,
+   "expect_sum": 3.5,
+   "expect_matchup": 2.9,
+   "contrib": [
+    1.4,
+    1.4
+   ],
+   "buffer": 1.3,
+   "fa": [
+    [
+     2.1,
+     0.8
+    ],
+    [
+     2.0,
+     1.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.04,
+   "p_emp": {
+    "4.5": 0.8,
+    "5.5": 0.8849557522123894
+   },
+   "p_mod": 0.738,
+   "p_fin": 0.791,
+   "fair_fin": 1.26,
+   "ladder_fin": [
+    [
+     4.5,
+     1.26
+    ],
+    [
+     5.5,
+     1.15
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.26",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "12100745|team_corners_heim|unter": {
+  "match_id": "12100745",
+  "home": "Lincoln City",
+  "away": "West Ham",
+  "kickoff": "Mi 21:00",
+  "kickoff_ts": 1792004400,
+  "league": "England Championship",
+  "metric": "Lincoln City: Ecken",
+  "metric_key": "team_corners_heim",
+  "direction": "unter",
+  "first_run": "Mi 06:14",
+  "first_line": 5.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Lincoln City: Ecken",
+   "metric_key": "team_corners_heim",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.37,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.673,
+   "p_mod": 0.718,
+   "p_fin": 0.7293,
+   "fair_fin": 1.37,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Lincoln City",
+   "serie": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "gegner": 7,
+   "erwartet": 4.2,
+   "unverified": false,
+   "no_tab": false,
+   "pending": false,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13041498|goals|über": {
+  "match_id": "13041498",
+  "home": "Bodo/Glimt",
+  "away": "Borussia Dortmund",
+  "kickoff": "Mi 21:00",
+  "kickoff_ts": 1792004400,
+  "league": "UEFA Champions League",
+  "metric": "Tore",
+  "metric_key": "goals",
   "direction": "über",
   "first_run": "Mi 06:14",
   "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    42,
+    45
+   ],
+   "next_line": 3.5,
+   "next_note": "Bodo/Glimt 6/8 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Borussia Dortmund 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.8799162155352279,
+    0.6526439440455937
+   ],
+   "fair": 1.42,
+   "ladder": [
+    [
+     1.5,
+     1.16
+    ],
+    [
+     2.5,
+     1.42
+    ]
+   ],
+   "avg": [
+    4.3,
+    3.3
+   ],
+   "expect": 3.8,
+   "expect_sum": 3.8,
+   "expect_matchup": 3.8,
+   "contrib": [
+    2.4,
+    1.4
+   ],
+   "buffer": 1.3,
+   "fa": [
+    [
+     2.8,
+     1.3
+    ],
+    [
+     2.1,
+     1.2
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.78,
+   "p_emp": {
+    "1.5": 0.8620689655172414,
+    "2.5": 0.7042253521126761
+   },
+   "p_mod": 0.767,
+   "p_fin": 0.714,
+   "fair_fin": 1.4,
+   "ladder_fin": [
+    [
+     1.5,
+     1.21
+    ],
+    [
+     2.5,
+     1.4
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.40",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13151319|goals|über": {
+  "match_id": "13151319",
+  "home": "Campbell",
+  "away": "Radford Highlanders",
+  "kickoff": "Do 00:00",
+  "kickoff_ts": 1792015200,
+  "league": "USA College Championship",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    33,
+    28
+   ],
+   "next_line": 3.5,
+   "next_note": "Campbell 2/4 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; Radford Highlanders 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.7656233370517299,
+    0.708050668471767
+   ],
+   "fair": 1.45,
+   "ladder": [
+    [
+     1.5,
+     1.23
+    ],
+    [
+     2.5,
+     1.45
+    ]
+   ],
+   "avg": [
+    3.0,
+    3.5
+   ],
+   "expect": 3.3,
+   "expect_sum": 3.3,
+   "expect_matchup": 3.4,
+   "contrib": [
+    2.6,
+    0.8
+   ],
+   "buffer": 0.8,
+   "fa": [
+    [
+     1.7,
+     1.6
+    ],
+    [
+     1.1,
+     2.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.98,
+   "p_emp": {
+    "1.5": 0.8130081300813008,
+    "2.5": 0.6896551724137931
+   },
+   "p_mod": 0.657,
+   "p_fin": 0.665,
+   "fair_fin": 1.5,
+   "ladder_fin": [
+    [
+     1.5,
+     1.29
+    ],
+    [
+     2.5,
+     1.5
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "67 % knapp",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13153437|offsides|unter": {
+  "match_id": "13153437",
+  "home": "Atletico Mineiro",
+  "away": "Torque",
+  "kickoff": "Do 00:00",
+  "kickoff_ts": 1792015200,
+  "league": "Copa Sudamericana",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 3.5,
   "first_range": [
-   1.51,
-   1.71
+   2.23,
+   2.23
   ],
-  "last_run": "Mi 19:14",
+  "last_run": "Mi 20:15",
+  "line": 3.5,
+  "range": [
+   2.23,
+   2.23
+  ],
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 3.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    14
+   ],
+   "next_line": 2.5,
+   "next_note": "Atletico Mineiro 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; Torque 4/6 (3. Lücke) gesamt, 5/6 auswärts",
+   "longterm": [
+    0.7794895504504612,
+    0.9066894680525309
+   ],
+   "fair": 1.4,
+   "ladder": [
+    [
+     3.5,
+     1.4
+    ],
+    [
+     4.5,
+     1.18
+    ]
+   ],
+   "avg": [
+    2.6,
+    1.6
+   ],
+   "expect": 1.5,
+   "expect_sum": 2.1,
+   "expect_matchup": 1.0,
+   "contrib": [
+    0.4,
+    0.6
+   ],
+   "buffer": 2.0,
+   "fa": [
+    [
+     1.5,
+     1.2
+    ],
+    [
+     1.2,
+     0.6
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.34,
+   "p_emp": {
+    "3.5": 0.7142857142857143,
+    "4.5": 0.8474576271186441
+   },
+   "p_mod": 0.932,
+   "p_fin": 0.831,
+   "fair_fin": 1.2,
+   "ladder_fin": [
+    [
+     3.5,
+     1.2
+    ],
+    [
+     4.5,
+     1.11
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 71 % vs. Modell 93 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    2.23,
+    2.23
+   ]
+  },
+  "v": 2
+ },
+ "13253449|corners|über": {
+  "match_id": "13253449",
+  "home": "Cerro Porteno",
+  "away": "Sportivo San Lorenzo",
+  "kickoff": "Do 00:30",
+  "kickoff_ts": 1792017000,
+  "league": "Paraguay Cup",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 8.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 8.5,
+  "range": null,
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    46,
+    50
+   ],
+   "next_line": 9.5,
+   "next_note": "Cerro Porteno 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+   "longterm": [
+    0.6853734898179649,
+    0.6316516960724151
+   ],
+   "fair": 1.59,
+   "ladder": [
+    [
+     7.5,
+     1.36
+    ],
+    [
+     8.5,
+     1.59
+    ]
+   ],
+   "avg": [
+    10.0,
+    9.1
+   ],
+   "expect": 9.8,
+   "expect_sum": 9.6,
+   "expect_matchup": 10.0,
+   "contrib": [
+    5.8,
+    4.1
+   ],
+   "buffer": 1.3,
+   "fa": [
+    [
+     4.7,
+     4.6
+    ],
+    [
+     4.3,
+     4.7
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.22,
+   "p_emp": {
+    "7.5": 0.7352941176470588,
+    "8.5": 0.6289308176100629
+   },
+   "p_mod": 0.657,
+   "p_fin": 0.661,
+   "fair_fin": 1.51,
+   "ladder_fin": [
+    [
+     7.5,
+     1.39
+    ],
+    [
+     8.5,
+     1.51
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "66 % knapp",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13253449|team_corners_gast|unter": {
+  "match_id": "13253449",
+  "home": "Cerro Porteno",
+  "away": "Sportivo San Lorenzo",
+  "kickoff": "Do 00:30",
+  "kickoff_ts": 1792017000,
+  "league": "Paraguay Cup",
+  "metric": "Sportivo San Lorenzo: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Sportivo San Lorenzo: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.25,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.815,
+   "p_mod": 0.842,
+   "p_fin": 0.7986,
+   "fair_fin": 1.25,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Sportivo San Lorenzo",
+   "serie": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "gegner": 6,
+   "erwartet": 4.4,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "12132200|goals|über": {
+  "match_id": "12132200",
+  "home": "CSD Comunicaciones",
+  "away": "Aurora",
+  "kickoff": "Do 01:00",
+  "kickoff_ts": 1792018800,
+  "league": "Guatemala Liga Nacional",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    47,
+    47
+   ],
+   "next_line": 3.5,
+   "next_note": "CSD Comunicaciones 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; Aurora 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.41870342629157703,
+    0.5213874036889139
+   ],
+   "fair": 1.99,
+   "ladder": [
+    [
+     1.5,
+     1.4
+    ],
+    [
+     2.5,
+     1.99
+    ]
+   ],
+   "avg": [
+    2.5,
+    3.2
+   ],
+   "expect": 2.8,
+   "expect_sum": 2.8,
+   "expect_matchup": 2.8,
+   "contrib": [
+    2.2,
+    0.6
+   ],
+   "buffer": 0.3,
+   "fa": [
+    [
+     1.2,
+     1.3
+    ],
+    [
+     1.0,
+     1.5
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.53,
+   "p_emp": {
+    "1.5": 0.7142857142857143,
+    "2.5": 0.5025125628140703
+   },
+   "p_mod": 0.578,
+   "p_fin": 0.561,
+   "fair_fin": 1.78,
+   "ladder_fin": [
+    [
+     1.5,
+     1.37
+    ],
+    [
+     2.5,
+     1.78
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🔴",
+   "reason": "nur 56 % Wahrscheinlichkeit",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068580|yellowcards|über": {
+  "match_id": "11068580",
+  "home": "CF Montreal",
+  "away": "Atlanta United",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 2.5,
+  "first_range": [
+   1.27,
+   1.74
+  ],
+  "last_run": "Mi 20:15",
   "line": 2.5,
   "range": [
-   1.51,
-   1.71
+   1.27,
+   1.74
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -33,73 +1301,1005 @@
    },
    "away_series": {
     "kind": "gesamt",
-    "hits": 5,
-    "window": 6
+    "hits": 10,
+    "window": 12
    },
    "home_is_anchor": true,
    "away_is_anchor": false,
    "valid": [
-    41,
+    44,
     46
    ],
    "next_line": 3.5,
-   "next_note": "CSKA Moscow 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+   "next_note": "CF Montreal 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Atlanta United 4/6 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
    "longterm": [
-    0.8083159978733524,
-    0.8016850231453762
+    0.7733039900484109,
+    0.7512098989719406
    ],
-   "fair": 1.3,
+   "fair": 1.35,
    "ladder": [
     [
      1.5,
-     1.3
+     1.2
     ],
     [
      2.5,
-     1.3
+     1.35
     ]
    ],
    "avg": [
-    3.7,
-    4.0
+    3.8,
+    4.4
    ],
-   "expect": 3.9,
-   "expect_sum": 3.8,
-   "expect_matchup": 4.0,
+   "expect": 4.2,
+   "expect_sum": 4.1,
+   "expect_matchup": 4.3,
    "contrib": [
-    1.3,
-    2.7
+    2.1,
+    2.2
    ],
-   "buffer": 1.4,
+   "buffer": 1.7,
    "fa": [
     [
-     1.8,
-     2.4
+     2.2,
+     2.0
     ],
     [
-     2.0,
-     2.1
+     2.2,
+     1.7
+    ]
+   ],
+   "referee": "Ricardo Montero Araya: Ø 4.0 Karten (17 Sp.) · Ø 21.4 Fouls (17 Sp.)",
+   "b365": null,
+   "expect_ref": 4.3,
+   "buffer_ref": 1.8,
+   "sd": 1.91,
+   "p_emp": {
+    "1.5": 0.8333333333333334,
+    "2.5": 0.7407407407407407
+   },
+   "p_mod": 0.827,
+   "p_fin": 0.783,
+   "fair_fin": 1.28,
+   "ladder_fin": [
+    [
+     1.5,
+     1.16
+    ],
+    [
+     2.5,
+     1.28
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.28",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.27,
+    1.74
+   ]
+  },
+  "v": 2
+ },
+ "11068580|yellowcards|unter": {
+  "match_id": "11068580",
+  "home": "CF Montreal",
+  "away": "Atlanta United",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 5.5,
+  "first_range": [
+   1.27,
+   1.74
+  ],
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": [
+   1.27,
+   1.74
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    46
+   ],
+   "next_line": 4.5,
+   "next_note": "Atlanta United 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.6965333327831356,
+    0.8589473994407757
+   ],
+   "fair": 1.28,
+   "ladder": [
+    [
+     5.5,
+     1.28
+    ],
+    [
+     6.5,
+     1.13
+    ]
+   ],
+   "avg": [
+    3.8,
+    4.4
+   ],
+   "expect": 4.2,
+   "expect_sum": 4.1,
+   "expect_matchup": 4.3,
+   "contrib": [
+    2.1,
+    2.2
+   ],
+   "buffer": 1.3,
+   "fa": [
+    [
+     2.2,
+     2.0
+    ],
+    [
+     2.2,
+     1.7
+    ]
+   ],
+   "referee": "Ricardo Montero Araya: Ø 4.0 Karten (17 Sp.) · Ø 21.4 Fouls (17 Sp.)",
+   "b365": null,
+   "expect_ref": 4.3,
+   "buffer_ref": 1.2,
+   "sd": 1.91,
+   "p_emp": {
+    "5.5": 0.78125,
+    "6.5": 0.8849557522123894
+   },
+   "p_mod": 0.735,
+   "p_fin": 0.794,
+   "fair_fin": 1.26,
+   "ladder_fin": [
+    [
+     5.5,
+     1.26
+    ],
+    [
+     6.5,
+     1.13
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.26",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.27,
+    1.74
+   ]
+  },
+  "v": 2
+ },
+ "11068581|yellowcards|unter": {
+  "match_id": "11068581",
+  "home": "Inter Miami CF",
+  "away": "New York City FC",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 6.5,
+  "first_range": [
+   1.24,
+   2.05
+  ],
+  "last_run": "Mi 20:15",
+  "line": 6.5,
+  "range": [
+   1.24,
+   2.05
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    44
+   ],
+   "next_line": 5.5,
+   "next_note": "kein Anker — Inter Miami CF 7/9 (3. Lücke) gesamt, 10/12 (3. Lücke) heim; New York City FC 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.8321005996150118,
+    0.8790691531114545
+   ],
+   "fair": 1.16,
+   "ladder": [
+    [
+     6.5,
+     1.16
+    ],
+    [
+     7.5,
+     1.28
+    ]
+   ],
+   "avg": [
+    4.2,
+    4.4
+   ],
+   "expect": 4.5,
+   "expect_sum": 4.3,
+   "expect_matchup": 4.8,
+   "contrib": [
+    2.8,
+    2.0
+   ],
+   "buffer": 2.0,
+   "fa": [
+    [
+     2.5,
+     1.9
+    ],
+    [
+     1.9,
+     2.5
+    ]
+   ],
+   "referee": "Lorenzo Hernandez: Ø 4.0 Karten (20 Sp.) · Ø 19.3 Fouls (20 Sp.)",
+   "b365": null,
+   "expect_ref": 4.7,
+   "buffer_ref": 1.8,
+   "sd": 2.3,
+   "p_emp": {
+    "6.5": 0.8620689655172414,
+    "7.5": 0.78125
+   },
+   "p_mod": 0.783,
+   "p_fin": 0.841,
+   "fair_fin": 1.19,
+   "ladder_fin": [
+    [
+     6.5,
+     1.19
+    ],
+    [
+     7.5,
+     1.18
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.19",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.24,
+    2.05
+   ]
+  },
+  "v": 2
+ },
+ "11068581|on_target|über": {
+  "match_id": "11068581",
+  "home": "Inter Miami CF",
+  "away": "New York City FC",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 6.5,
+  "first_range": [
+   1.29,
+   1.49
+  ],
+  "last_run": "Mi 20:15",
+  "line": 6.5,
+  "range": [
+   1.29,
+   1.49
+  ],
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    40
+   ],
+   "next_line": 7.5,
+   "next_note": "New York City FC 4/6 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "longterm": [
+    0.8851958752438516,
+    0.8367074450405022
+   ],
+   "fair": 1.22,
+   "ladder": [
+    [
+     5.5,
+     1.31
+    ],
+    [
+     6.5,
+     1.22
+    ]
+   ],
+   "avg": [
+    10.8,
+    9.5
+   ],
+   "expect": 10.9,
+   "expect_sum": 10.2,
+   "expect_matchup": 11.6,
+   "contrib": [
+    7.7,
+    4.0
+   ],
+   "buffer": 4.4,
+   "fa": [
+    [
+     5.9,
+     4.5
+    ],
+    [
+     4.5,
+     4.7
     ]
    ],
    "referee": null,
    "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 2.01,
+   "sd": 3.54,
    "p_emp": {
-    "1.5": 0.7692307692307692,
-    "2.5": 0.7692307692307692
+    "5.5": 0.7633587786259541,
+    "6.5": 0.819672131147541
    },
-   "p_mod": 0.757,
-   "p_fin": 0.765,
-   "fair_fin": 1.31,
+   "p_mod": 0.893,
+   "p_fin": 0.827,
+   "fair_fin": 1.21,
    "ladder_fin": [
     [
-     1.5,
+     5.5,
      1.22
     ],
     [
-     2.5,
+     6.5,
+     1.21
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.21",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.29,
+    1.49
+   ]
+  },
+  "v": 2
+ },
+ "11068581|fouls|über": {
+  "match_id": "11068581",
+  "home": "Inter Miami CF",
+  "away": "New York City FC",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 20.5,
+  "first_range": [
+   1.42,
+   2.5
+  ],
+  "last_run": "Mi 20:15",
+  "line": 20.5,
+  "range": [
+   1.42,
+   2.5
+  ],
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "über",
+   "line": 20.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    43,
+    43
+   ],
+   "next_line": 22.5,
+   "next_note": "kein Anker — Inter Miami CF 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; New York City FC 5/7 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.6920744623780963,
+    0.6260982155192091
+   ],
+   "fair": 1.51,
+   "ladder": [
+    [
+     18.5,
+     1.31
+    ],
+    [
+     20.5,
+     1.51
+    ]
+   ],
+   "avg": [
+    22.5,
+    22.8
+   ],
+   "expect": 22.1,
+   "expect_sum": 22.7,
+   "expect_matchup": 21.4,
+   "contrib": [
+    11.0,
+    10.5
+   ],
+   "buffer": 1.6,
+   "fa": [
+    [
+     11.2,
+     11.0
+    ],
+    [
+     11.7,
+     11.3
+    ]
+   ],
+   "referee": "Lorenzo Hernandez: Ø 4.0 Karten (20 Sp.) · Ø 19.3 Fouls (20 Sp.)",
+   "b365": null,
+   "expect_ref": 19.0,
+   "buffer_ref": -1.5,
+   "sd": 6.01,
+   "p_emp": {
+    "18.5": 0.7633587786259541,
+    "20.5": 0.6622516556291391
+   },
+   "p_mod": 0.401,
+   "p_fin": 0.608,
+   "fair_fin": 1.64,
+   "ladder_fin": [
+    [
+     18.5,
+     1.44
+    ],
+    [
+     20.5,
+     1.64
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🔴",
+   "reason": "Historie 66 % und Modell 40 % widersprechen sich",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.42,
+    2.5
+   ]
+  },
+  "v": 2
+ },
+ "11068581|team_corners_heim|unter": {
+  "match_id": "11068581",
+  "home": "Inter Miami CF",
+  "away": "New York City FC",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Inter Miami CF: Ecken",
+  "metric_key": "team_corners_heim",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Inter Miami CF: Ecken",
+   "metric_key": "team_corners_heim",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.32,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.772,
+   "p_mod": 0.72,
+   "p_fin": 0.7556,
+   "fair_fin": 1.32,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Inter Miami CF",
+   "serie": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "gegner": 7,
+   "erwartet": 5.0,
+   "unverified": false,
+   "no_tab": false,
+   "pending": false,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068581|team_corners_gast|unter": {
+  "match_id": "11068581",
+  "home": "Inter Miami CF",
+  "away": "New York City FC",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "New York City FC: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 5.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "New York City FC: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.35,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.727,
+   "p_mod": 0.715,
+   "p_fin": 0.7426,
+   "fair_fin": 1.35,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "New York City FC",
+   "serie": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "gegner": 6,
+   "erwartet": 3.9,
+   "unverified": false,
+   "no_tab": false,
+   "pending": false,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068582|yellowcards|unter": {
+  "match_id": "11068582",
+  "home": "DC United",
+  "away": "New York Red Bulls",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 5.5,
+  "first_range": [
+   1.24,
+   2.43
+  ],
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": [
+   1.24,
+   2.43
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    44
+   ],
+   "next_line": 4.5,
+   "next_note": "DC United 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; New York Red Bulls 1/3 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.8358091155207182,
+    0.9229924587128584
+   ],
+   "fair": 1.18,
+   "ladder": [
+    [
+     5.5,
+     1.18
+    ],
+    [
+     6.5,
+     1.09
+    ]
+   ],
+   "avg": [
+    4.1,
+    3.8
+   ],
+   "expect": 4.1,
+   "expect_sum": 4.0,
+   "expect_matchup": 4.2,
+   "contrib": [
+    1.4,
+    2.7
+   ],
+   "buffer": 1.4,
+   "fa": [
+    [
+     2.1,
+     1.9
+    ],
+    [
+     2.1,
+     1.5
+    ]
+   ],
+   "referee": "Guido Gonzales Jr: Ø 4.1 Karten (24 Sp.) · Ø 21.9 Fouls (22 Sp.)",
+   "b365": null,
+   "expect_ref": 4.3,
+   "buffer_ref": 1.2,
+   "sd": 1.77,
+   "p_emp": {
+    "5.5": 0.8474576271186441,
+    "6.5": 0.9174311926605504
+   },
+   "p_mod": 0.751,
+   "p_fin": 0.824,
+   "fair_fin": 1.21,
+   "ladder_fin": [
+    [
+     5.5,
+     1.21
+    ],
+    [
+     6.5,
+     1.11
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.21",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.24,
+    2.43
+   ]
+  },
+  "v": 2
+ },
+ "11068582|on_target|über": {
+  "match_id": "11068582",
+  "home": "DC United",
+  "away": "New York Red Bulls",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    41
+   ],
+   "next_line": 7.5,
+   "next_note": "DC United 4/6 (3. Lücke) gesamt, 7/9 (3. Lücke) heim",
+   "longterm": [
+    0.7543285320933598,
+    0.7786032666073083
+   ],
+   "fair": 1.33,
+   "ladder": [
+    [
+     5.5,
+     1.38
+    ],
+    [
+     6.5,
+     1.33
+    ]
+   ],
+   "avg": [
+    9.6,
+    9.2
+   ],
+   "expect": 9.6,
+   "expect_sum": 9.4,
+   "expect_matchup": 9.8,
+   "contrib": [
+    5.9,
+    3.8
+   ],
+   "buffer": 3.1,
+   "fa": [
+    [
+     3.6,
+     5.1
+    ],
+    [
+     4.2,
+     4.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.95,
+   "p_emp": {
+    "5.5": 0.7246376811594204,
+    "6.5": 0.7518796992481203
+   },
+   "p_mod": 0.784,
+   "p_fin": 0.766,
+   "fair_fin": 1.31,
+   "ladder_fin": [
+    [
+     5.5,
+     1.28
+    ],
+    [
+     6.5,
      1.31
     ]
    ],
@@ -119,38 +2319,2255 @@
    "serie": null,
    "gegner": null,
    "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068582|offsides|unter": {
+  "match_id": "11068582",
+  "home": "DC United",
+  "away": "New York Red Bulls",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 5.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    41,
+    43
+   ],
+   "next_line": 4.5,
+   "next_note": "New York Red Bulls 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    1.0,
+    0.6740198627855223
+   ],
+   "fair": 1.21,
+   "ladder": [
+    [
+     5.5,
+     1.21
+    ],
+    [
+     6.5,
+     1.24
+    ]
+   ],
+   "avg": [
+    2.4,
+    3.5
+   ],
+   "expect": 2.6,
+   "expect_sum": 3.0,
+   "expect_matchup": 2.3,
+   "contrib": [
+    1.1,
+    1.3
+   ],
+   "buffer": 2.9,
+   "fa": [
+    [
+     1.0,
+     1.6
+    ],
+    [
+     1.6,
+     2.5
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.99,
+   "p_emp": {
+    "5.5": 0.8264462809917356,
+    "6.5": 0.8064516129032259
+   },
+   "p_mod": 0.927,
+   "p_fin": 0.87,
+   "fair_fin": 1.15,
+   "ladder_fin": [
+    [
+     5.5,
+     1.15
+    ],
+    [
+     6.5,
+     1.14
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.15",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13096799|corners|über": {
+  "match_id": "13096799",
+  "home": "Independiente Santa Fe",
+  "away": "Jaguares de Cordoba",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "Colombia Primera A",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 8.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 8.5,
+  "range": null,
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    41,
+    47
+   ],
+   "next_line": 9.5,
+   "next_note": "Independiente Santa Fe 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "longterm": [
+    0.5215865933291612,
+    0.6704788306904481
+   ],
+   "fair": 1.7,
+   "ladder": [
+    [
+     7.5,
+     1.39
+    ],
+    [
+     8.5,
+     1.7
+    ]
+   ],
+   "avg": [
+    8.3,
+    8.8
+   ],
+   "expect": 8.4,
+   "expect_sum": 8.6,
+   "expect_matchup": 8.3,
+   "contrib": [
+    6.1,
+    2.3
+   ],
+   "buffer": -0.1,
+   "fa": [
+    [
+     4.5,
+     4.5
+    ],
+    [
+     4.1,
+     5.0
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "8.5",
+    "1.775",
+    "2.025"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.16,
+   "p_emp": {
+    "7.5": 0.7194244604316548,
+    "8.5": 0.5882352941176471
+   },
+   "p_mod": 0.487,
+   "p_fin": 0.6,
+   "fair_fin": 1.67,
+   "ladder_fin": [
+    [
+     7.5,
+     1.48
+    ],
+    [
+     8.5,
+     1.67
+    ]
+   ],
+   "market": 1.775,
+   "market_src": "bet365",
+   "ev": 0.065,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "60 % knapp; Puffer negativ",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": true,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068583|corners|über": {
+  "match_id": "11068583",
+  "home": "Columbus Crew",
+  "away": "Charlotte FC",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 7.5,
+  "first_range": [
+   2.11,
+   2.11
+  ],
+  "last_run": "Mi 20:15",
+  "line": 7.5,
+  "range": [
+   2.11,
+   2.11
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    47,
+    47
+   ],
+   "next_line": 8.5,
+   "next_note": "Columbus Crew 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+   "longterm": [
+    0.7387454885710113,
+    0.7979620571457205
+   ],
+   "fair": 1.35,
+   "ladder": [
+    [
+     6.5,
+     1.31
+    ],
+    [
+     7.5,
+     1.35
+    ]
+   ],
+   "avg": [
+    8.3,
+    10.8
+   ],
+   "expect": 9.8,
+   "expect_sum": 9.6,
+   "expect_matchup": 10.1,
+   "contrib": [
+    7.2,
+    2.9
+   ],
+   "buffer": 2.3,
+   "fa": [
+    [
+     5.3,
+     4.0
+    ],
+    [
+     4.6,
+     5.7
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.975",
+    "1.825"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.32,
+   "p_emp": {
+    "6.5": 0.7633587786259541,
+    "7.5": 0.7407407407407407
+   },
+   "p_mod": 0.756,
+   "p_fin": 0.721,
+   "fair_fin": 1.39,
+   "ladder_fin": [
+    [
+     6.5,
+     1.33
+    ],
+    [
+     7.5,
+     1.39
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.39",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
    "unverified": null,
    "no_tab": null,
    "pending": null,
    "b365_proof": null,
    "range": [
-    1.51,
-    1.71
+    2.11,
+    2.11
    ]
   },
   "v": 2
  },
- "12101777|yellowcards|unter": {
-  "match_id": "12101777",
-  "home": "CSKA Moscow",
-  "away": "Rostov",
-  "kickoff": "Mi 19:45",
-  "kickoff_ts": 1791999900,
-  "league": "Russia Cup",
+ "11068583|on_target|über": {
+  "match_id": "11068583",
+  "home": "Columbus Crew",
+  "away": "Charlotte FC",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 7.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 7.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    43,
+    44
+   ],
+   "next_line": 8.5,
+   "next_note": "Columbus Crew 9/11 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "longterm": [
+    0.7378519977975891,
+    0.6842207585223448
+   ],
+   "fair": 1.46,
+   "ladder": [
+    [
+     6.5,
+     1.3
+    ],
+    [
+     7.5,
+     1.46
+    ]
+   ],
+   "avg": [
+    9.0,
+    10.5
+   ],
+   "expect": 10.0,
+   "expect_sum": 9.8,
+   "expect_matchup": 10.2,
+   "contrib": [
+    6.0,
+    4.2
+   ],
+   "buffer": 2.5,
+   "fa": [
+    [
+     4.4,
+     4.8
+    ],
+    [
+     4.1,
+     5.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.85,
+   "p_emp": {
+    "6.5": 0.7692307692307692,
+    "7.5": 0.684931506849315
+   },
+   "p_mod": 0.742,
+   "p_fin": 0.728,
+   "fair_fin": 1.37,
+   "ladder_fin": [
+    [
+     6.5,
+     1.28
+    ],
+    [
+     7.5,
+     1.37
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.37",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068579|corners|über": {
+  "match_id": "11068579",
+  "home": "Toronto FC",
+  "away": "Orlando City SC",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 8.5,
+  "first_range": [
+   1.74,
+   1.825
+  ],
+  "last_run": "Mi 20:15",
+  "line": 8.5,
+  "range": [
+   1.74,
+   1.825
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    45
+   ],
+   "next_line": 9.5,
+   "next_note": "Toronto FC 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
+   "longterm": [
+    0.7210802849609845,
+    0.7290773082566562
+   ],
+   "fair": 1.47,
+   "ladder": [
+    [
+     7.5,
+     1.35
+    ],
+    [
+     8.5,
+     1.47
+    ]
+   ],
+   "avg": [
+    11.1,
+    10.7
+   ],
+   "expect": 11.8,
+   "expect_sum": 10.9,
+   "expect_matchup": 12.8,
+   "contrib": [
+    7.2,
+    5.5
+   ],
+   "buffer": 3.3,
+   "fa": [
+    [
+     4.8,
+     5.6
+    ],
+    [
+     4.4,
+     5.8
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.5",
+    "1.975",
+    "1.825"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.3,
+   "p_emp": {
+    "7.5": 0.7407407407407407,
+    "8.5": 0.6802721088435374
+   },
+   "p_mod": 0.841,
+   "p_fin": 0.729,
+   "fair_fin": 1.37,
+   "ladder_fin": [
+    [
+     7.5,
+     1.31
+    ],
+    [
+     8.5,
+     1.37
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 68 % vs. Modell 84 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.74,
+    1.825
+   ]
+  },
+  "v": 2
+ },
+ "11068579|yellowcards|unter": {
+  "match_id": "11068579",
+  "home": "Toronto FC",
+  "away": "Orlando City SC",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
   "metric": "Gelbe Karten",
   "metric_key": "yellowcards",
   "direction": "unter",
-  "first_run": "Mi 06:14",
+  "first_run": "Mi 20:15",
+  "first_line": 5.5,
+  "first_range": [
+   1.28,
+   1.52
+  ],
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": [
+   1.28,
+   1.52
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    46,
+    45
+   ],
+   "next_line": 4.5,
+   "next_note": "Orlando City SC 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.7675883281825475,
+    0.7544774591007072
+   ],
+   "fair": 1.31,
+   "ladder": [
+    [
+     5.5,
+     1.31
+    ],
+    [
+     6.5,
+     1.13
+    ]
+   ],
+   "avg": [
+    4.0,
+    4.8
+   ],
+   "expect": 4.7,
+   "expect_sum": 4.4,
+   "expect_matchup": 5.0,
+   "contrib": [
+    2.5,
+    2.6
+   ],
+   "buffer": 0.8,
+   "fa": [
+    [
+     1.9,
+     2.1
+    ],
+    [
+     2.3,
+     2.2
+    ]
+   ],
+   "referee": "Armando Villarreal: Ø 4.0 Karten (25 Sp.) · Ø 21.4 Fouls (22 Sp.)",
+   "b365": null,
+   "expect_ref": 4.9,
+   "buffer_ref": 0.6,
+   "sd": 1.88,
+   "p_emp": {
+    "5.5": 0.7633587786259541,
+    "6.5": 0.8849557522123894
+   },
+   "p_mod": 0.625,
+   "p_fin": 0.748,
+   "fair_fin": 1.34,
+   "ladder_fin": [
+    [
+     5.5,
+     1.34
+    ],
+    [
+     6.5,
+     1.17
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 76 % vs. Modell 63 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.28,
+    1.52
+   ]
+  },
+  "v": 2
+ },
+ "11068579|on_target|über": {
+  "match_id": "11068579",
+  "home": "Toronto FC",
+  "away": "Orlando City SC",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    45,
+    41
+   ],
+   "next_line": 7.5,
+   "next_note": "kein Anker — Toronto FC 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Orlando City SC 6/8 (3. Lücke) gesamt, 14/16 (3. Lücke) auswärts",
+   "longterm": [
+    0.7180526139975564,
+    0.8157020289567847
+   ],
+   "fair": 1.33,
+   "ladder": [
+    [
+     5.5,
+     1.29
+    ],
+    [
+     6.5,
+     1.33
+    ]
+   ],
+   "avg": [
+    9.7,
+    12.0
+   ],
+   "expect": 11.8,
+   "expect_sum": 10.8,
+   "expect_matchup": 12.8,
+   "contrib": [
+    7.5,
+    5.2
+   ],
+   "buffer": 5.3,
+   "fa": [
+    [
+     3.8,
+     4.5
+    ],
+    [
+     4.7,
+     6.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 4.17,
+   "p_emp": {
+    "5.5": 0.7751937984496123,
+    "6.5": 0.7518796992481203
+   },
+   "p_mod": 0.898,
+   "p_fin": 0.805,
+   "fair_fin": 1.24,
+   "ladder_fin": [
+    [
+     5.5,
+     1.21
+    ],
+    [
+     6.5,
+     1.24
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 75 % vs. Modell 90 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068579|goals|über": {
+  "match_id": "11068579",
+  "home": "Toronto FC",
+  "away": "Orlando City SC",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    45
+   ],
+   "next_line": 3.5,
+   "next_note": "Toronto FC 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Orlando City SC 4/6 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.6084091877207801,
+    0.7774547793885831
+   ],
+   "fair": 1.51,
+   "ladder": [
+    [
+     1.5,
+     1.16
+    ],
+    [
+     2.5,
+     1.51
+    ]
+   ],
+   "avg": [
+    3.9,
+    4.8
+   ],
+   "expect": 5.1,
+   "expect_sum": 4.3,
+   "expect_matchup": 5.9,
+   "contrib": [
+    3.6,
+    2.4
+   ],
+   "buffer": 2.6,
+   "fa": [
+    [
+     1.3,
+     1.6
+    ],
+    [
+     1.9,
+     2.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.19,
+   "p_emp": {
+    "1.5": 0.8620689655172414,
+    "2.5": 0.6622516556291391
+   },
+   "p_mod": 0.882,
+   "p_fin": 0.743,
+   "fair_fin": 1.35,
+   "ladder_fin": [
+    [
+     1.5,
+     1.18
+    ],
+    [
+     2.5,
+     1.35
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 66 % vs. Modell 88 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068584|corners|über": {
+  "match_id": "11068584",
+  "home": "FC Cincinnati",
+  "away": "New England Revolution",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 8.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 8.5,
+  "range": null,
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 8.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    44
+   ],
+   "next_line": 9.5,
+   "next_note": "FC Cincinnati 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "longterm": [
+    0.755736449407175,
+    0.7059693138114014
+   ],
+   "fair": 1.47,
+   "ladder": [
+    [
+     7.5,
+     1.31
+    ],
+    [
+     8.5,
+     1.47
+    ]
+   ],
+   "avg": [
+    10.3,
+    10.1
+   ],
+   "expect": 10.8,
+   "expect_sum": 10.2,
+   "expect_matchup": 11.4,
+   "contrib": [
+    7.0,
+    4.4
+   ],
+   "buffer": 2.3,
+   "fa": [
+    [
+     4.8,
+     5.2
+    ],
+    [
+     4.8,
+     4.9
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.825",
+    "1.975"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.25,
+   "p_emp": {
+    "7.5": 0.7633587786259541,
+    "8.5": 0.6802721088435374
+   },
+   "p_mod": 0.76,
+   "p_fin": 0.705,
+   "fair_fin": 1.42,
+   "ladder_fin": [
+    [
+     7.5,
+     1.33
+    ],
+    [
+     8.5,
+     1.42
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.42",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068584|yellowcards|unter": {
+  "match_id": "11068584",
+  "home": "FC Cincinnati",
+  "away": "New England Revolution",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 5.5,
+  "first_range": [
+   1.27,
+   1.93
+  ],
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": [
+   1.27,
+   1.93
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    44
+   ],
+   "next_line": 4.5,
+   "next_note": "FC Cincinnati 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
+   "longterm": [
+    0.8694087580905143,
+    0.8974331494318306
+   ],
+   "fair": 1.17,
+   "ladder": [
+    [
+     5.5,
+     1.17
+    ],
+    [
+     6.5,
+     1.09
+    ]
+   ],
+   "avg": [
+    3.9,
+    3.5
+   ],
+   "expect": 3.6,
+   "expect_sum": 3.7,
+   "expect_matchup": 3.5,
+   "contrib": [
+    1.6,
+    1.9
+   ],
+   "buffer": 1.9,
+   "fa": [
+    [
+     2.1,
+     1.8
+    ],
+    [
+     2.0,
+     1.8
+    ]
+   ],
+   "referee": "Rubiel Vazquez: Ø 3.4 Karten (34 Sp.) · Ø 22.2 Fouls (31 Sp.)",
+   "b365": null,
+   "expect_ref": 3.2,
+   "buffer_ref": 2.3,
+   "sd": 1.74,
+   "p_emp": {
+    "5.5": 0.8547008547008548,
+    "6.5": 0.9174311926605504
+   },
+   "p_mod": 0.907,
+   "p_fin": 0.883,
+   "fair_fin": 1.13,
+   "ladder_fin": [
+    [
+     5.5,
+     1.13
+    ],
+    [
+     6.5,
+     1.08
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.13",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.27,
+    1.93
+   ]
+  },
+  "v": 2
+ },
+ "11068584|on_target|über": {
+  "match_id": "11068584",
+  "home": "FC Cincinnati",
+  "away": "New England Revolution",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 7.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 7.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    42
+   ],
+   "next_line": 8.5,
+   "next_note": "FC Cincinnati 4/6 (3. Lücke) gesamt, 11/13 (3. Lücke) heim",
+   "longterm": [
+    0.7986622552734758,
+    0.8287410575534077
+   ],
+   "fair": 1.32,
+   "ladder": [
+    [
+     6.5,
+     1.24
+    ],
+    [
+     7.5,
+     1.32
+    ]
+   ],
+   "avg": [
+    11.2,
+    11.1
+   ],
+   "expect": 12.4,
+   "expect_sum": 11.1,
+   "expect_matchup": 13.7,
+   "contrib": [
+    7.6,
+    6.1
+   ],
+   "buffer": 4.9,
+   "fa": [
+    [
+     5.7,
+     5.0
+    ],
+    [
+     4.7,
+     5.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.29,
+   "p_emp": {
+    "6.5": 0.8064516129032259,
+    "7.5": 0.7575757575757576
+   },
+   "p_mod": 0.932,
+   "p_fin": 0.819,
+   "fair_fin": 1.22,
+   "ladder_fin": [
+    [
+     6.5,
+     1.18
+    ],
+    [
+     7.5,
+     1.22
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 76 % vs. Modell 93 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068584|offsides|unter": {
+  "match_id": "11068584",
+  "home": "FC Cincinnati",
+  "away": "New England Revolution",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 4.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 4.5,
+  "range": null,
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    39,
+    41
+   ],
+   "next_line": 3.5,
+   "next_note": "FC Cincinnati 6/8 (3. Lücke) gesamt, 15/17 (3. Lücke) heim; New England Revolution 2/4 (3. Lücke) gesamt, 10/12 (3. Lücke) auswärts",
+   "longterm": [
+    0.834738326665262,
+    0.8870524671439254
+   ],
+   "fair": 1.23,
+   "ladder": [
+    [
+     4.5,
+     1.23
+    ],
+    [
+     5.5,
+     1.12
+    ]
+   ],
+   "avg": [
+    1.8,
+    2.9
+   ],
+   "expect": 1.9,
+   "expect_sum": 2.4,
+   "expect_matchup": 1.5,
+   "contrib": [
+    0.6,
+    0.9
+   ],
+   "buffer": 2.6,
+   "fa": [
+    [
+     1.2,
+     1.6
+    ],
+    [
+     1.5,
+     1.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.93,
+   "p_emp": {
+    "4.5": 0.8130081300813008,
+    "5.5": 0.8928571428571428
+   },
+   "p_mod": 0.911,
+   "p_fin": 0.859,
+   "fair_fin": 1.16,
+   "ladder_fin": [
+    [
+     4.5,
+     1.16
+    ],
+    [
+     5.5,
+     1.1
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.16",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068584|ht_yellowcards|über": {
+  "match_id": "11068584",
+  "home": "FC Cincinnati",
+  "away": "New England Revolution",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 0.5,
+  "first_range": [
+   1.27,
+   1.93
+  ],
+  "last_run": "Mi 20:15",
+  "line": 0.5,
+  "range": [
+   1.27,
+   1.93
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "über",
+   "line": 0.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    44,
+    44
+   ],
+   "next_line": 1.5,
+   "next_note": "FC Cincinnati 1/3 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; New England Revolution 0/2 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.8062073657593758,
+    0.7042180713412834
+   ],
+   "fair": 1.36,
+   "ladder": [
+    [
+     0.5,
+     1.36
+    ]
+   ],
+   "avg": [
+    1.5,
+    1.3
+   ],
+   "expect": 1.7,
+   "expect_sum": 1.4,
+   "expect_matchup": 2.0,
+   "contrib": [
+    2.0,
+    0.0
+   ],
+   "buffer": 1.2,
+   "fa": [
+    [
+     0.9,
+     0.5
+    ],
+    [
+     0.4,
+     0.8
+    ]
+   ],
+   "referee": "Rubiel Vazquez: Ø 3.4 Karten (34 Sp.) · Ø 22.2 Fouls (31 Sp.)",
+   "b365": null,
+   "expect_ref": 3.9,
+   "buffer_ref": 3.4,
+   "sd": 0.95,
+   "p_emp": {
+    "0.5": 0.7352941176470588
+   },
+   "p_mod": 1.0,
+   "p_fin": 0.827,
+   "fair_fin": 1.21,
+   "ladder_fin": [
+    [
+     0.5,
+     1.21
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🔴",
+   "reason": "Historie 74 % und Modell 100 % widersprechen sich",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.27,
+    1.93
+   ]
+  },
+  "v": 2
+ },
+ "11068584|goals|über": {
+  "match_id": "11068584",
+  "home": "FC Cincinnati",
+  "away": "New England Revolution",
+  "kickoff": "Do 01:30",
+  "kickoff_ts": 1792020600,
+  "league": "USA MLS",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    44
+   ],
+   "next_line": 3.5,
+   "next_note": "New England Revolution 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+   "longterm": [
+    0.7582726409202579,
+    0.7301661821158368
+   ],
+   "fair": 1.44,
+   "ladder": [
+    [
+     1.5,
+     1.15
+    ],
+    [
+     2.5,
+     1.44
+    ]
+   ],
+   "avg": [
+    4.2,
+    3.3
+   ],
+   "expect": 4.1,
+   "expect_sum": 3.8,
+   "expect_matchup": 4.5,
+   "contrib": [
+    2.7,
+    1.7
+   ],
+   "buffer": 1.6,
+   "fa": [
+    [
+     2.1,
+     2.0
+    ],
+    [
+     1.6,
+     1.6
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.87,
+   "p_emp": {
+    "1.5": 0.8695652173913044,
+    "2.5": 0.6944444444444444
+   },
+   "p_mod": 0.804,
+   "p_fin": 0.725,
+   "fair_fin": 1.38,
+   "ladder_fin": [
+    [
+     1.5,
+     1.19
+    ],
+    [
+     2.5,
+     1.38
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.38",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13234474|team_corners_gast|unter": {
+  "match_id": "13234474",
+  "home": "Deportivo Maldonado",
+  "away": "Albion FC",
+  "kickoff": "Do 02:00",
+  "kickoff_ts": 1792022400,
+  "league": "Uruguay Cup",
+  "metric": "Albion FC: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 5.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Albion FC: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.37,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.726,
+   "p_mod": 0.671,
+   "p_fin": 0.7309,
+   "fair_fin": 1.37,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Albion FC",
+   "serie": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 15
+   },
+   "gegner": 8,
+   "erwartet": 4.5,
+   "unverified": false,
+   "no_tab": false,
+   "pending": false,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068576|yellowcards|unter": {
+  "match_id": "11068576",
+  "home": "Nashville SC",
+  "away": "Sporting Kansas City",
+  "kickoff": "Do 02:30",
+  "kickoff_ts": 1792024200,
+  "league": "USA MLS",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 5.5,
+  "first_range": [
+   1.19,
+   1.7
+  ],
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": [
+   1.19,
+   1.7
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    45
+   ],
+   "next_line": 4.5,
+   "next_note": "Nashville SC 4/6 (3. Lücke) gesamt, 8/10 (3. Lücke) heim",
+   "longterm": [
+    0.9393334934974981,
+    0.8435474469534978
+   ],
+   "fair": 1.16,
+   "ladder": [
+    [
+     5.5,
+     1.16
+    ],
+    [
+     6.5,
+     1.08
+    ]
+   ],
+   "avg": [
+    3.0,
+    2.8
+   ],
+   "expect": 2.5,
+   "expect_sum": 2.9,
+   "expect_matchup": 2.2,
+   "contrib": [
+    0.9,
+    1.3
+   ],
+   "buffer": 3.0,
+   "fa": [
+    [
+     1.7,
+     1.4
+    ],
+    [
+     1.7,
+     1.6
+    ]
+   ],
+   "referee": "Joshua Encarnacion: Ø 4.2 Karten (9 Sp.) · Ø 27.2 Fouls (5 Sp.)",
+   "b365": null,
+   "expect_ref": 2.6,
+   "buffer_ref": 2.9,
+   "sd": 1.74,
+   "p_emp": {
+    "5.5": 0.8620689655172414,
+    "6.5": 0.9259259259259258
+   },
+   "p_mod": 0.952,
+   "p_fin": 0.902,
+   "fair_fin": 1.11,
+   "ladder_fin": [
+    [
+     5.5,
+     1.11
+    ],
+    [
+     6.5,
+     1.07
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.11",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.19,
+    1.7
+   ]
+  },
+  "v": 2
+ },
+ "11068576|offsides|unter": {
+  "match_id": "11068576",
+  "home": "Nashville SC",
+  "away": "Sporting Kansas City",
+  "kickoff": "Do 02:30",
+  "kickoff_ts": 1792024200,
+  "league": "USA MLS",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 5.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    38,
+    43
+   ],
+   "next_line": 4.5,
+   "next_note": "Nashville SC 3/5 (3. Lücke) gesamt, 17/19 (Aussetzer in den letzten 2) heim",
+   "longterm": [
+    0.8988890958458621,
+    0.9430697627364296
+   ],
+   "fair": 1.13,
+   "ladder": [
+    [
+     5.5,
+     1.13
+    ],
+    [
+     6.5,
+     1.18
+    ]
+   ],
+   "avg": [
+    2.8,
+    2.3
+   ],
+   "expect": 2.2,
+   "expect_sum": 2.6,
+   "expect_matchup": 1.9,
+   "contrib": [
+    1.4,
+    0.5
+   ],
+   "buffer": 3.3,
+   "fa": [
+    [
+     1.8,
+     1.0
+    ],
+    [
+     1.0,
+     1.4
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.71,
+   "p_emp": {
+    "5.5": 0.8849557522123894,
+    "6.5": 0.8474576271186441
+   },
+   "p_mod": 0.973,
+   "p_fin": 0.909,
+   "fair_fin": 1.1,
+   "ladder_fin": [
+    [
+     5.5,
+     1.1
+    ],
+    [
+     6.5,
+     1.11
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.10",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068575|yellowcards|über": {
+  "match_id": "11068575",
+  "home": "St. Louis City SC",
+  "away": "Vancouver Whitecaps",
+  "kickoff": "Do 02:30",
+  "kickoff_ts": 1792024200,
+  "league": "USA MLS",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 2.5,
+  "first_range": [
+   1.38,
+   1.38
+  ],
+  "last_run": "Mi 20:15",
+  "line": 2.5,
+  "range": [
+   1.38,
+   1.38
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    44
+   ],
+   "next_line": 3.5,
+   "next_note": "St. Louis City SC 5/7 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Vancouver Whitecaps 9/11 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.8345473862648755,
+    0.8221237469185895
+   ],
+   "fair": 1.27,
+   "ladder": [
+    [
+     1.5,
+     1.26
+    ],
+    [
+     2.5,
+     1.27
+    ]
+   ],
+   "avg": [
+    4.5,
+    5.1
+   ],
+   "expect": 5.3,
+   "expect_sum": 4.8,
+   "expect_matchup": 5.9,
+   "contrib": [
+    2.8,
+    3.2
+   ],
+   "buffer": 2.8,
+   "fa": [
+    [
+     2.0,
+     2.2
+    ],
+    [
+     2.1,
+     2.3
+    ]
+   ],
+   "referee": "Filip Dujic: Ø 3.6 Karten (29 Sp.) · Ø 22.7 Fouls (27 Sp.)",
+   "b365": null,
+   "expect_ref": 5.0,
+   "buffer_ref": 2.5,
+   "sd": 1.97,
+   "p_emp": {
+    "1.5": 0.7936507936507936,
+    "2.5": 0.7874015748031495
+   },
+   "p_mod": 0.898,
+   "p_fin": 0.832,
+   "fair_fin": 1.2,
+   "ladder_fin": [
+    [
+     1.5,
+     1.16
+    ],
+    [
+     2.5,
+     1.2
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.20",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.38,
+    1.38
+   ]
+  },
+  "v": 2
+ },
+ "11068575|yellowcards|unter": {
+  "match_id": "11068575",
+  "home": "St. Louis City SC",
+  "away": "Vancouver Whitecaps",
+  "kickoff": "Do 02:30",
+  "kickoff_ts": 1792024200,
+  "league": "USA MLS",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
   "first_line": 6.5,
   "first_range": [
-   1.51,
-   1.71
+   1.38,
+   1.38
   ],
-  "last_run": "Mi 19:14",
+  "last_run": "Mi 20:15",
   "line": 6.5,
   "range": [
-   1.51,
-   1.71
+   1.38,
+   1.38
   ],
   "signal": {
    "metric": "Gelbe Karten",
@@ -165,25 +4582,1095 @@
    "away_series": {
     "kind": "gesamt",
     "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    44
+   ],
+   "next_line": 5.5,
+   "next_note": "Vancouver Whitecaps 3/5 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.8721663839704649,
+    0.8631815063371282
+   ],
+   "fair": 1.15,
+   "ladder": [
+    [
+     6.5,
+     1.15
+    ],
+    [
+     7.5,
+     1.2
+    ]
+   ],
+   "avg": [
+    4.5,
+    5.1
+   ],
+   "expect": 5.3,
+   "expect_sum": 4.8,
+   "expect_matchup": 5.9,
+   "contrib": [
+    2.8,
+    3.2
+   ],
+   "buffer": 1.2,
+   "fa": [
+    [
+     2.0,
+     2.2
+    ],
+    [
+     2.1,
+     2.3
+    ]
+   ],
+   "referee": "Filip Dujic: Ø 3.6 Karten (29 Sp.) · Ø 22.7 Fouls (27 Sp.)",
+   "b365": null,
+   "expect_ref": 5.0,
+   "buffer_ref": 1.5,
+   "sd": 1.97,
+   "p_emp": {
+    "6.5": 0.8695652173913044,
+    "7.5": 0.8333333333333334
+   },
+   "p_mod": 0.777,
+   "p_fin": 0.841,
+   "fair_fin": 1.19,
+   "ladder_fin": [
+    [
+     6.5,
+     1.19
+    ],
+    [
+     7.5,
+     1.15
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.19",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.38,
+    1.38
+   ]
+  },
+  "v": 2
+ },
+ "11068575|on_target|über": {
+  "match_id": "11068575",
+  "home": "St. Louis City SC",
+  "away": "Vancouver Whitecaps",
+  "kickoff": "Do 02:30",
+  "kickoff_ts": 1792024200,
+  "league": "USA MLS",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    38,
+    38
+   ],
+   "next_line": 7.5,
+   "next_note": "kein Anker — St. Louis City SC 9/11 (3. Lücke) gesamt, 12/14 (3. Lücke) heim; Vancouver Whitecaps 8/10 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.8239622931482916,
+    0.7789744253106728
+   ],
+   "fair": 1.29,
+   "ladder": [
+    [
+     5.5,
+     1.31
+    ],
+    [
+     6.5,
+     1.29
+    ]
+   ],
+   "avg": [
+    9.6,
+    7.7
+   ],
+   "expect": 8.2,
+   "expect_sum": 8.6,
+   "expect_matchup": 7.8,
+   "contrib": [
+    4.0,
+    3.8
+   ],
+   "buffer": 1.7,
+   "fa": [
+    [
+     5.2,
+     4.1
+    ],
+    [
+     5.8,
+     3.2
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.97,
+   "p_emp": {
+    "5.5": 0.7633587786259541,
+    "6.5": 0.7751937984496123
+   },
+   "p_mod": 0.716,
+   "p_fin": 0.75,
+   "fair_fin": 1.33,
+   "ladder_fin": [
+    [
+     5.5,
+     1.28
+    ],
+    [
+     6.5,
+     1.33
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.33",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068575|ht_yellowcards|über": {
+  "match_id": "11068575",
+  "home": "St. Louis City SC",
+  "away": "Vancouver Whitecaps",
+  "kickoff": "Do 02:30",
+  "kickoff_ts": 1792024200,
+  "league": "USA MLS",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 0.5,
+  "first_range": [
+   1.38,
+   1.38
+  ],
+  "last_run": "Mi 20:15",
+  "line": 0.5,
+  "range": [
+   1.38,
+   1.38
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "über",
+   "line": 0.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    44
+   ],
+   "next_line": 1.5,
+   "next_note": "St. Louis City SC 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Vancouver Whitecaps 0/2 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+   "longterm": [
+    0.7624285307504225,
+    0.6997347801175858
+   ],
+   "fair": 1.39,
+   "ladder": [
+    [
+     0.5,
+     1.39
+    ]
+   ],
+   "avg": [
+    1.3,
+    1.9
+   ],
+   "expect": 1.7,
+   "expect_sum": 1.6,
+   "expect_matchup": 1.9,
+   "contrib": [
+    1.0,
+    0.9
+   ],
+   "buffer": 1.2,
+   "fa": [
+    [
+     0.7,
+     0.7
+    ],
+    [
+     0.7,
+     0.8
+    ]
+   ],
+   "referee": "Filip Dujic: Ø 3.6 Karten (29 Sp.) · Ø 22.7 Fouls (27 Sp.)",
+   "b365": null,
+   "expect_ref": 4.0,
+   "buffer_ref": 3.5,
+   "sd": 1.31,
+   "p_emp": {
+    "0.5": 0.7194244604316548
+   },
+   "p_mod": 0.996,
+   "p_fin": 0.821,
+   "fair_fin": 1.22,
+   "ladder_fin": [
+    [
+     0.5,
+     1.22
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🔴",
+   "reason": "Historie 72 % und Modell 100 % widersprechen sich",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.38,
+    1.38
+   ]
+  },
+  "v": 2
+ },
+ "11068575|goals|über": {
+  "match_id": "11068575",
+  "home": "St. Louis City SC",
+  "away": "Vancouver Whitecaps",
+  "kickoff": "Do 02:30",
+  "kickoff_ts": 1792024200,
+  "league": "USA MLS",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    42,
+    44
+   ],
+   "next_line": 3.5,
+   "next_note": "St. Louis City SC 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Vancouver Whitecaps 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.7326022356434404,
+    0.6356892533485079
+   ],
+   "fair": 1.54,
+   "ladder": [
+    [
+     1.5,
+     1.15
+    ],
+    [
+     2.5,
+     1.54
+    ]
+   ],
+   "avg": [
+    4.3,
+    3.4
+   ],
+   "expect": 4.1,
+   "expect_sum": 3.8,
+   "expect_matchup": 4.5,
+   "contrib": [
+    2.5,
+    1.9
+   ],
+   "buffer": 1.6,
+   "fa": [
+    [
+     2.1,
+     1.5
+    ],
+    [
+     2.2,
+     1.4
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.9,
+   "p_emp": {
+    "1.5": 0.8695652173913044,
+    "2.5": 0.6493506493506493
+   },
+   "p_mod": 0.8,
+   "p_fin": 0.705,
+   "fair_fin": 1.42,
+   "ladder_fin": [
+    [
+     1.5,
+     1.2
+    ],
+    [
+     2.5,
+     1.42
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 65 % vs. Modell 80 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068578|yellowcards|über": {
+  "match_id": "11068578",
+  "home": "Chicago Fire",
+  "away": "Philadelphia Union",
+  "kickoff": "Do 02:30",
+  "kickoff_ts": 1792024200,
+  "league": "USA MLS",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 2.5,
+  "first_range": [
+   1.34,
+   1.68
+  ],
+  "last_run": "Mi 20:15",
+  "line": 2.5,
+  "range": [
+   1.34,
+   1.68
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    45
+   ],
+   "next_line": 3.5,
+   "next_note": "Chicago Fire 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "longterm": [
+    0.8422128039319139,
+    0.8921058451938874
+   ],
+   "fair": 1.22,
+   "ladder": [
+    [
+     1.5,
+     1.22
+    ],
+    [
+     2.5,
+     1.22
+    ]
+   ],
+   "avg": [
+    3.8,
+    5.1
+   ],
+   "expect": 4.8,
+   "expect_sum": 4.4,
+   "expect_matchup": 5.1,
+   "contrib": [
+    2.3,
+    2.8
+   ],
+   "buffer": 2.3,
+   "fa": [
+    [
+     2.0,
+     2.0
+    ],
+    [
+     2.4,
+     2.4
+    ]
+   ],
+   "referee": "Ricardo Fierro: Ø 3.9 Karten (14 Sp.) · Ø 23.9 Fouls (14 Sp.)",
+   "b365": null,
+   "expect_ref": 4.8,
+   "buffer_ref": 2.3,
+   "sd": 1.9,
+   "p_emp": {
+    "1.5": 0.819672131147541,
+    "2.5": 0.819672131147541
+   },
+   "p_mod": 0.887,
+   "p_fin": 0.841,
+   "fair_fin": 1.19,
+   "ladder_fin": [
+    [
+     1.5,
+     1.15
+    ],
+    [
+     2.5,
+     1.19
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.19",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.34,
+    1.68
+   ]
+  },
+  "v": 2
+ },
+ "11068578|on_target|über": {
+  "match_id": "11068578",
+  "home": "Chicago Fire",
+  "away": "Philadelphia Union",
+  "kickoff": "Do 02:30",
+  "kickoff_ts": 1792024200,
+  "league": "USA MLS",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 7.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 7.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
     "window": 10
    },
    "home_is_anchor": false,
    "away_is_anchor": true,
    "valid": [
     41,
-    46
+    41
    ],
-   "next_line": 5.5,
-   "next_note": "CSKA Moscow 1/3 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; Rostov 9/11 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "next_line": 8.5,
+   "next_note": "Chicago Fire 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim",
    "longterm": [
-    0.8052723371117874,
-    0.941684068804111
+    0.6515599483083976,
+    0.6609885885174115
    ],
-   "fair": 1.14,
+   "fair": 1.55,
    "ladder": [
     [
      6.5,
-     1.14
+     1.32
+    ],
+    [
+     7.5,
+     1.55
+    ]
+   ],
+   "avg": [
+    8.6,
+    9.7
+   ],
+   "expect": 9.2,
+   "expect_sum": 9.2,
+   "expect_matchup": 9.3,
+   "contrib": [
+    5.6,
+    3.6
+   ],
+   "buffer": 1.7,
+   "fa": [
+    [
+     5.1,
+     4.0
+    ],
+    [
+     4.8,
+     3.7
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.4,
+   "p_emp": {
+    "6.5": 0.7575757575757576,
+    "7.5": 0.6451612903225806
+   },
+   "p_mod": 0.691,
+   "p_fin": 0.696,
+   "fair_fin": 1.44,
+   "ladder_fin": [
+    [
+     6.5,
+     1.3
+    ],
+    [
+     7.5,
+     1.44
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.44",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068578|fouls|über": {
+  "match_id": "11068578",
+  "home": "Chicago Fire",
+  "away": "Philadelphia Union",
+  "kickoff": "Do 02:30",
+  "kickoff_ts": 1792024200,
+  "league": "USA MLS",
+  "metric": "Fouls",
+  "metric_key": "fouls",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 20.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 20.5,
+  "range": null,
+  "signal": {
+   "metric": "Fouls",
+   "metric_key": "fouls",
+   "direction": "über",
+   "line": 20.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    41
+   ],
+   "next_line": 22.5,
+   "next_note": "Chicago Fire 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "longterm": [
+    0.5375546419116628,
+    0.7906439551088686
+   ],
+   "fair": 1.51,
+   "ladder": [
+    [
+     18.5,
+     1.3
+    ],
+    [
+     20.5,
+     1.51
+    ]
+   ],
+   "avg": [
+    22.1,
+    24.0
+   ],
+   "expect": 22.5,
+   "expect_sum": 23.1,
+   "expect_matchup": 22.0,
+   "contrib": [
+    11.6,
+    10.4
+   ],
+   "buffer": 2.0,
+   "fa": [
+    [
+     11.8,
+     10.0
+    ],
+    [
+     13.5,
+     11.5
+    ]
+   ],
+   "referee": "Ricardo Fierro: Ø 3.9 Karten (14 Sp.) · Ø 23.9 Fouls (14 Sp.)",
+   "b365": null,
+   "expect_ref": 22.4,
+   "buffer_ref": 1.9,
+   "sd": 5.37,
+   "p_emp": {
+    "18.5": 0.7692307692307692,
+    "20.5": 0.6622516556291391
+   },
+   "p_mod": 0.638,
+   "p_fin": 0.695,
+   "fair_fin": 1.44,
+   "ladder_fin": [
+    [
+     18.5,
+     1.28
+    ],
+    [
+     20.5,
+     1.44
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.44",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068578|ht_yellowcards|über": {
+  "match_id": "11068578",
+  "home": "Chicago Fire",
+  "away": "Philadelphia Union",
+  "kickoff": "Do 02:30",
+  "kickoff_ts": 1792024200,
+  "league": "USA MLS",
+  "metric": "1. HZ Gelbe Karten",
+  "metric_key": "ht_yellowcards",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 0.5,
+  "first_range": [
+   1.34,
+   1.68
+  ],
+  "last_run": "Mi 20:15",
+  "line": 0.5,
+  "range": [
+   1.34,
+   1.68
+  ],
+  "signal": {
+   "metric": "1. HZ Gelbe Karten",
+   "metric_key": "ht_yellowcards",
+   "direction": "über",
+   "line": 0.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    45
+   ],
+   "next_line": 1.5,
+   "next_note": "Chicago Fire 1/3 (3. Lücke) gesamt, 0/2 (3. Lücke) heim; Philadelphia Union 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.7644340911029702,
+    0.8971009817515772
+   ],
+   "fair": 1.26,
+   "ladder": [
+    [
+     0.5,
+     1.26
+    ]
+   ],
+   "avg": [
+    1.1,
+    2.2
+   ],
+   "expect": 2.3,
+   "expect_sum": 1.7,
+   "expect_matchup": 2.9,
+   "contrib": [
+    2.9,
+    0.0
+   ],
+   "buffer": 1.8,
+   "fa": [
+    [
+     0.8,
+     0.5
+    ],
+    [
+     0.6,
+     1.5
+    ]
+   ],
+   "referee": "Ricardo Fierro: Ø 3.9 Karten (14 Sp.) · Ø 23.9 Fouls (14 Sp.)",
+   "b365": null,
+   "expect_ref": 5.2,
+   "buffer_ref": 4.7,
+   "sd": 1.2,
+   "p_emp": {
+    "0.5": 0.7936507936507936
+   },
+   "p_mod": 1.0,
+   "p_fin": 0.847,
+   "fair_fin": 1.18,
+   "ladder_fin": [
+    [
+     0.5,
+     1.18
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 79 % vs. Modell 100 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.34,
+    1.68
+   ]
+  },
+  "v": 2
+ },
+ "11068578|team_corners_gast|über": {
+  "match_id": "11068578",
+  "home": "Chicago Fire",
+  "away": "Philadelphia Union",
+  "kickoff": "Do 02:30",
+  "kickoff_ts": 1792024200,
+  "league": "USA MLS",
+  "metric": "Philadelphia Union: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 3.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 3.5,
+  "range": null,
+  "signal": {
+   "metric": "Philadelphia Union: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "über",
+   "line": 3.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.31,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.755,
+   "p_mod": 0.81,
+   "p_fin": 0.7617,
+   "fair_fin": 1.31,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Philadelphia Union",
+   "serie": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "gegner": 8,
+   "erwartet": 5.7,
+   "unverified": false,
+   "no_tab": false,
+   "pending": false,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068577|corners|über": {
+  "match_id": "11068577",
+  "home": "FC Dallas",
+  "away": "Seattle Sounders",
+  "kickoff": "Do 02:30",
+  "kickoff_ts": 1792024200,
+  "league": "USA MLS",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 7.5,
+  "first_range": [
+   1.79,
+   1.93
+  ],
+  "last_run": "Mi 20:15",
+  "line": 7.5,
+  "range": [
+   1.79,
+   1.93
+  ],
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    44
+   ],
+   "next_line": 8.5,
+   "next_note": "FC Dallas 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+   "longterm": [
+    0.8842496849364123,
+    0.8588631581629745
+   ],
+   "fair": 1.22,
+   "ladder": [
+    [
+     6.5,
+     1.25
     ],
     [
      7.5,
@@ -191,38 +5678,548 @@
     ]
    ],
    "avg": [
-    3.7,
-    4.0
+    10.3,
+    10.9
    ],
-   "expect": 3.9,
-   "expect_sum": 3.8,
-   "expect_matchup": 4.0,
+   "expect": 11.2,
+   "expect_sum": 10.6,
+   "expect_matchup": 11.8,
    "contrib": [
-    1.3,
-    2.7
+    6.7,
+    5.1
+   ],
+   "buffer": 3.7,
+   "fa": [
+    [
+     4.1,
+     6.9
+    ],
+    [
+     4.8,
+     6.2
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "10.0",
+    "1.900",
+    "1.900"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.3,
+   "p_emp": {
+    "6.5": 0.8,
+    "7.5": 0.819672131147541
+   },
+   "p_mod": 0.869,
+   "p_fin": 0.777,
+   "fair_fin": 1.29,
+   "ladder_fin": [
+    [
+     6.5,
+     1.27
+    ],
+    [
+     7.5,
+     1.29
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.29",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.79,
+    1.93
+   ]
+  },
+  "v": 2
+ },
+ "11068577|yellowcards|unter": {
+  "match_id": "11068577",
+  "home": "FC Dallas",
+  "away": "Seattle Sounders",
+  "kickoff": "Do 02:30",
+  "kickoff_ts": 1792024200,
+  "league": "USA MLS",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 5.5,
+  "first_range": [
+   1.26,
+   1.82
+  ],
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": [
+   1.26,
+   1.82
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    44
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — FC Dallas 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Seattle Sounders 19/21 (3. Lücke) gesamt, 16/18 (3. Lücke) auswärts",
+   "longterm": [
+    0.708141043543241,
+    0.9188980699734713
+   ],
+   "fair": 1.25,
+   "ladder": [
+    [
+     5.5,
+     1.25
+    ],
+    [
+     6.5,
+     1.07
+    ]
+   ],
+   "avg": [
+    4.0,
+    2.5
+   ],
+   "expect": 2.9,
+   "expect_sum": 3.3,
+   "expect_matchup": 2.6,
+   "contrib": [
+    1.1,
+    1.5
    ],
    "buffer": 2.6,
    "fa": [
     [
-     1.8,
-     2.4
+     2.4,
+     1.9
     ],
     [
-     2.0,
-     2.1
+     1.4,
+     1.6
+    ]
+   ],
+   "referee": "Jon Freemon: Ø 4.5 Karten (29 Sp.) · Ø 21.7 Fouls (28 Sp.)",
+   "b365": null,
+   "expect_ref": 3.3,
+   "buffer_ref": 2.2,
+   "sd": 1.97,
+   "p_emp": {
+    "5.5": 0.8,
+    "6.5": 0.9345794392523364
+   },
+   "p_mod": 0.868,
+   "p_fin": 0.849,
+   "fair_fin": 1.18,
+   "ladder_fin": [
+    [
+     5.5,
+     1.18
+    ],
+    [
+     6.5,
+     1.08
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.18",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.26,
+    1.82
+   ]
+  },
+  "v": 2
+ },
+ "11068577|on_target|über": {
+  "match_id": "11068577",
+  "home": "FC Dallas",
+  "away": "Seattle Sounders",
+  "kickoff": "Do 02:30",
+  "kickoff_ts": 1792024200,
+  "league": "USA MLS",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    42,
+    41
+   ],
+   "next_line": 7.5,
+   "next_note": "kein Anker — FC Dallas 9/11 (3. Lücke) gesamt, 10/12 (3. Lücke) heim; Seattle Sounders 8/10 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.9121261444844808,
+    0.7954955866191489
+   ],
+   "fair": 1.23,
+   "ladder": [
+    [
+     5.5,
+     1.26
+    ],
+    [
+     6.5,
+     1.23
+    ]
+   ],
+   "avg": [
+    9.7,
+    9.5
+   ],
+   "expect": 9.9,
+   "expect_sum": 9.6,
+   "expect_matchup": 10.3,
+   "contrib": [
+    6.0,
+    4.2
+   ],
+   "buffer": 3.4,
+   "fa": [
+    [
+     4.2,
+     5.0
+    ],
+    [
+     4.5,
+     5.1
     ]
    ],
    "referee": null,
    "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 2.01,
+   "sd": 3.45,
    "p_emp": {
-    "6.5": 0.8771929824561404,
-    "7.5": 0.819672131147541
+    "5.5": 0.7936507936507936,
+    "6.5": 0.8130081300813008
    },
-   "p_mod": 0.902,
-   "p_fin": 0.889,
+   "p_mod": 0.838,
+   "p_fin": 0.806,
+   "fair_fin": 1.24,
+   "ladder_fin": [
+    [
+     5.5,
+     1.22
+    ],
+    [
+     6.5,
+     1.24
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.24",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068577|offsides|unter": {
+  "match_id": "11068577",
+  "home": "FC Dallas",
+  "away": "Seattle Sounders",
+  "kickoff": "Do 02:30",
+  "kickoff_ts": 1792024200,
+  "league": "USA MLS",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 3.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 3.5,
+  "range": null,
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 3.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    39
+   ],
+   "next_line": 2.5,
+   "next_note": "FC Dallas 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Seattle Sounders 2/4 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+   "longterm": [
+    0.7211649348773796,
+    0.8968564777680164
+   ],
+   "fair": 1.36,
+   "ladder": [
+    [
+     3.5,
+     1.36
+    ],
+    [
+     4.5,
+     1.21
+    ]
+   ],
+   "avg": [
+    3.6,
+    2.5
+   ],
+   "expect": 2.7,
+   "expect_sum": 3.0,
+   "expect_matchup": 2.4,
+   "contrib": [
+    1.3,
+    1.1
+   ],
+   "buffer": 0.8,
+   "fa": [
+    [
+     1.8,
+     1.2
+    ],
+    [
+     1.4,
+     1.2
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.56,
+   "p_emp": {
+    "3.5": 0.7352941176470588,
+    "4.5": 0.8264462809917356
+   },
+   "p_mod": 0.696,
+   "p_fin": 0.752,
+   "fair_fin": 1.33,
+   "ladder_fin": [
+    [
+     3.5,
+     1.33
+    ],
+    [
+     4.5,
+     1.17
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.33",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068574|yellowcards|unter": {
+  "match_id": "11068574",
+  "home": "Real Salt Lake",
+  "away": "San Jose Earthquakes",
+  "kickoff": "Do 03:30",
+  "kickoff_ts": 1792027800,
+  "league": "USA MLS",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 6.5,
+  "first_range": [
+   1.38,
+   1.6
+  ],
+  "last_run": "Mi 20:15",
+  "line": 6.5,
+  "range": [
+   1.38,
+   1.6
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    45
+   ],
+   "next_line": 5.5,
+   "next_note": "Real Salt Lake 1/3 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "longterm": [
+    0.9005336857658869,
+    0.9342926214059046
+   ],
+   "fair": 1.1,
+   "ladder": [
+    [
+     6.5,
+     1.1
+    ],
+    [
+     7.5,
+     1.21
+    ]
+   ],
+   "avg": [
+    4.1,
+    3.8
+   ],
+   "expect": 4.1,
+   "expect_sum": 4.0,
+   "expect_matchup": 4.2,
+   "contrib": [
+    1.8,
+    2.3
+   ],
+   "buffer": 2.4,
+   "fa": [
+    [
+     2.3,
+     1.8
+    ],
+    [
+     2.4,
+     1.8
+    ]
+   ],
+   "referee": "Sergii Demianchuk: Ø 4.1 Karten (17 Sp.) · Ø 21.8 Fouls (16 Sp.)",
+   "b365": null,
+   "expect_ref": 4.3,
+   "buffer_ref": 2.2,
+   "sd": 1.85,
+   "p_emp": {
+    "6.5": 0.9090909090909091,
+    "7.5": 0.8264462809917356
+   },
+   "p_mod": 0.883,
+   "p_fin": 0.894,
    "fair_fin": 1.12,
    "ladder_fin": [
     [
@@ -255,39 +6252,33 @@
    "pending": null,
    "b365_proof": null,
    "range": [
-    1.51,
-    1.71
+    1.38,
+    1.6
    ]
   },
   "v": 2
  },
- "12101777|on_target|über": {
-  "match_id": "12101777",
-  "home": "CSKA Moscow",
-  "away": "Rostov",
-  "kickoff": "Mi 19:45",
-  "kickoff_ts": 1791999900,
-  "league": "Russia Cup",
+ "11068574|on_target|über": {
+  "match_id": "11068574",
+  "home": "Real Salt Lake",
+  "away": "San Jose Earthquakes",
+  "kickoff": "Do 03:30",
+  "kickoff_ts": 1792027800,
+  "league": "USA MLS",
   "metric": "Schüsse aufs Tor",
   "metric_key": "on_target",
   "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 7.5,
-  "first_range": [
-   1.37,
-   2.16
-  ],
-  "last_run": "Mi 19:14",
-  "line": 7.5,
-  "range": [
-   1.37,
-   2.16
-  ],
+  "first_run": "Mi 20:15",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 6.5,
+  "range": null,
   "signal": {
    "metric": "Schüsse aufs Tor",
    "metric_key": "on_target",
    "direction": "über",
-   "line": 7.5,
+   "line": 6.5,
    "home_series": {
     "kind": "gesamt",
     "hits": 5,
@@ -301,68 +6292,190 @@
    "home_is_anchor": false,
    "away_is_anchor": true,
    "valid": [
-    40,
-    46
+    42,
+    41
    ],
-   "next_line": 8.5,
-   "next_note": "CSKA Moscow 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "next_line": 7.5,
+   "next_note": "Real Salt Lake 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; San Jose Earthquakes 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
    "longterm": [
-    0.6809732849626307,
-    0.6278976183515267
+    0.7363058155174184,
+    0.7744210158114503
    ],
-   "fair": 1.55,
+   "fair": 1.34,
    "ladder": [
     [
-     6.5,
-     1.4
+     5.5,
+     1.35
     ],
     [
-     7.5,
-     1.55
+     6.5,
+     1.34
     ]
    ],
    "avg": [
-    9.4,
-    9.2
+    9.9,
+    9.8
    ],
-   "expect": 9.3,
-   "expect_sum": 9.3,
-   "expect_matchup": 9.4,
+   "expect": 10.6,
+   "expect_sum": 9.9,
+   "expect_matchup": 11.4,
    "contrib": [
-    4.9,
-    4.4
+    8.1,
+    3.2
    ],
-   "buffer": 1.8,
+   "buffer": 4.1,
    "fa": [
     [
-     4.8,
-     4.2
+     5.2,
+     4.3
     ],
     [
-     4.7,
-     3.4
+     4.8,
+     4.9
     ]
    ],
    "referee": null,
    "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.5,
+   "sd": 3.52,
    "p_emp": {
-    "6.5": 0.7142857142857143,
-    "7.5": 0.6451612903225806
+    "5.5": 0.7407407407407407,
+    "6.5": 0.7462686567164178
    },
-   "p_mod": 0.696,
-   "p_fin": 0.698,
-   "fair_fin": 1.43,
+   "p_mod": 0.878,
+   "p_fin": 0.796,
+   "fair_fin": 1.26,
    "ladder_fin": [
     [
-     6.5,
-     1.33
+     5.5,
+     1.23
     ],
     [
-     7.5,
-     1.43
+     6.5,
+     1.26
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 75 % vs. Modell 88 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068574|offsides|unter": {
+  "match_id": "11068574",
+  "home": "Real Salt Lake",
+  "away": "San Jose Earthquakes",
+  "kickoff": "Do 03:30",
+  "kickoff_ts": 1792027800,
+  "league": "USA MLS",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 4.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 4.5,
+  "range": null,
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    42,
+    43
+   ],
+   "next_line": 3.5,
+   "next_note": "San Jose Earthquakes 2/4 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.7530947472638418,
+    0.8339112919191992
+   ],
+   "fair": 1.3,
+   "ladder": [
+    [
+     4.5,
+     1.3
+    ],
+    [
+     5.5,
+     1.16
+    ]
+   ],
+   "avg": [
+    2.4,
+    3.7
+   ],
+   "expect": 2.9,
+   "expect_sum": 3.0,
+   "expect_matchup": 2.7,
+   "contrib": [
+    2.1,
+    0.6
+   ],
+   "buffer": 1.6,
+   "fa": [
+    [
+     1.7,
+     1.4
+    ],
+    [
+     1.1,
+     2.2
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.42,
+   "p_emp": {
+    "4.5": 0.7692307692307692,
+    "5.5": 0.8620689655172414
+   },
+   "p_mod": 0.746,
+   "p_fin": 0.783,
+   "fair_fin": 1.28,
+   "ladder_fin": [
+    [
+     4.5,
+     1.28
+    ],
+    [
+     5.5,
+     1.17
     ]
    ],
    "market": null,
@@ -370,7 +6483,135 @@
    "ev": null,
    "light": "🟢",
    "ampel": "🟢",
-   "reason": "fair 1.43",
+   "reason": "fair 1.28",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068941|yellowcards|unter": {
+  "match_id": "11068941",
+  "home": "Colorado Rapids",
+  "away": "Minnesota United",
+  "kickoff": "Do 03:30",
+  "kickoff_ts": 1792027800,
+  "league": "USA MLS",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 5.5,
+  "first_range": [
+   1.45,
+   1.45
+  ],
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": [
+   1.45,
+   1.45
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    47
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — Colorado Rapids 7/9 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Minnesota United 13/15 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "longterm": [
+    0.6119743142291668,
+    0.8739512445530204
+   ],
+   "fair": 1.32,
+   "ladder": [
+    [
+     5.5,
+     1.32
+    ],
+    [
+     6.5,
+     1.15
+    ]
+   ],
+   "avg": [
+    4.8,
+    3.6
+   ],
+   "expect": 4.4,
+   "expect_sum": 4.2,
+   "expect_matchup": 4.6,
+   "contrib": [
+    2.2,
+    2.4
+   ],
+   "buffer": 1.1,
+   "fa": [
+    [
+     2.4,
+     2.2
+    ],
+    [
+     2.1,
+     1.6
+    ]
+   ],
+   "referee": "Victor Rivas: Ø 4.9 Karten (27 Sp.) · Ø 21.5 Fouls (25 Sp.)",
+   "b365": null,
+   "expect_ref": 5.3,
+   "buffer_ref": 0.2,
+   "sd": 2.02,
+   "p_emp": {
+    "5.5": 0.7575757575757576,
+    "6.5": 0.8695652173913044
+   },
+   "p_mod": 0.539,
+   "p_fin": 0.715,
+   "fair_fin": 1.4,
+   "ladder_fin": [
+    [
+     5.5,
+     1.4
+    ],
+    [
+     6.5,
+     1.22
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 76 % vs. Modell 54 %",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
@@ -386,39 +6627,161 @@
    "pending": null,
    "b365_proof": null,
    "range": [
-    1.37,
-    2.16
+    1.45,
+    1.45
    ]
   },
   "v": 2
  },
- "12101777|fouls|über": {
-  "match_id": "12101777",
-  "home": "CSKA Moscow",
-  "away": "Rostov",
-  "kickoff": "Mi 19:45",
-  "kickoff_ts": 1791999900,
-  "league": "Russia Cup",
-  "metric": "Fouls",
-  "metric_key": "fouls",
+ "11068941|on_target|über": {
+  "match_id": "11068941",
+  "home": "Colorado Rapids",
+  "away": "Minnesota United",
+  "kickoff": "Do 03:30",
+  "kickoff_ts": 1792027800,
+  "league": "USA MLS",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
   "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 18.5,
+  "first_run": "Mi 20:15",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    42
+   ],
+   "next_line": 7.5,
+   "next_note": "kein Anker — Colorado Rapids 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Minnesota United 7/9 (3. Lücke) gesamt, 7/9 (3. Lücke) auswärts",
+   "longterm": [
+    0.708064089724517,
+    0.8086717384737105
+   ],
+   "fair": 1.34,
+   "ladder": [
+    [
+     5.5,
+     1.38
+    ],
+    [
+     6.5,
+     1.34
+    ]
+   ],
+   "avg": [
+    8.9,
+    9.6
+   ],
+   "expect": 9.4,
+   "expect_sum": 9.3,
+   "expect_matchup": 9.6,
+   "contrib": [
+    6.2,
+    3.4
+   ],
+   "buffer": 2.9,
+   "fa": [
+    [
+     4.1,
+     4.7
+    ],
+    [
+     4.5,
+     4.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.36,
+   "p_emp": {
+    "5.5": 0.7246376811594204,
+    "6.5": 0.7462686567164178
+   },
+   "p_mod": 0.806,
+   "p_fin": 0.771,
+   "fair_fin": 1.3,
+   "ladder_fin": [
+    [
+     5.5,
+     1.27
+    ],
+    [
+     6.5,
+     1.3
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.30",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13259030|yellowcards|über": {
+  "match_id": "13259030",
+  "home": "Atletico Nacional Medellin",
+  "away": "Independiente Medellin",
+  "kickoff": "Do 03:30",
+  "kickoff_ts": 1792027800,
+  "league": "Colombia Cup",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 2.5,
   "first_range": [
-   1.74,
-   1.93
+   1.19,
+   1.63
   ],
-  "last_run": "Mi 19:14",
-  "line": 18.5,
+  "last_run": "Mi 20:15",
+  "line": 2.5,
   "range": [
-   1.51,
-   2.12
+   1.19,
+   1.63
   ],
   "signal": {
-   "metric": "Fouls",
-   "metric_key": "fouls",
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
    "direction": "über",
-   "line": 18.5,
+   "line": 2.5,
    "home_series": {
     "kind": "gesamt",
     "hits": 10,
@@ -427,73 +6790,73 @@
    "away_series": {
     "kind": "gesamt",
     "hits": 10,
-    "window": 10
+    "window": 12
    },
-   "home_is_anchor": true,
+   "home_is_anchor": false,
    "away_is_anchor": true,
    "valid": [
-    37,
-    45
+    39,
+    44
    ],
-   "next_line": 20.5,
-   "next_note": "CSKA Moscow 2/4 (3. Lücke) gesamt, 15/17 (3. Lücke) heim",
+   "next_line": 3.5,
+   "next_note": "Atletico Nacional Medellin 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
    "longterm": [
-    0.9167985180892608,
-    1.0
+    0.8381117882547394,
+    0.8085978611548033
    ],
-   "fair": 1.11,
+   "fair": 1.28,
    "ladder": [
     [
-     16.5,
-     1.18
+     1.5,
+     1.27
     ],
     [
-     18.5,
-     1.11
+     2.5,
+     1.28
     ]
    ],
    "avg": [
-    24.3,
-    29.1
+    4.5,
+    4.5
    ],
-   "expect": 28.2,
-   "expect_sum": 26.7,
-   "expect_matchup": 29.7,
+   "expect": 4.9,
+   "expect_sum": 4.5,
+   "expect_matchup": 5.4,
    "contrib": [
-    13.7,
-    16.0
+    1.8,
+    3.5
    ],
-   "buffer": 9.7,
+   "buffer": 2.4,
    "fa": [
     [
-     11.2,
-     13.9
+     2.4,
+     2.5
     ],
     [
-     14.5,
-     14.4
+     2.7,
+     2.1
     ]
    ],
    "referee": null,
    "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 5.1,
+   "sd": 2.39,
    "p_emp": {
-    "16.5": 0.8474576271186441,
-    "18.5": 0.9009009009009008
+    "1.5": 0.7874015748031495,
+    "2.5": 0.78125
    },
-   "p_mod": 0.971,
-   "p_fin": 0.904,
-   "fair_fin": 1.11,
+   "p_mod": 0.842,
+   "p_fin": 0.806,
+   "fair_fin": 1.24,
    "ladder_fin": [
     [
-     16.5,
-     1.12
+     1.5,
+     1.19
     ],
     [
-     18.5,
-     1.11
+     2.5,
+     1.24
     ]
    ],
    "market": null,
@@ -501,7 +6864,7 @@
    "ev": null,
    "light": "🟢",
    "ampel": "🟢",
-   "reason": "fair 1.11",
+   "reason": "fair 1.24",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
@@ -517,457 +6880,37 @@
    "pending": null,
    "b365_proof": null,
    "range": [
-    1.51,
-    2.12
+    1.19,
+    1.63
    ]
   },
   "v": 2
  },
- "12101777|team_corners_gast|unter": {
-  "match_id": "12101777",
-  "home": "CSKA Moscow",
-  "away": "Rostov",
-  "kickoff": "Mi 19:45",
-  "kickoff_ts": 1791999900,
-  "league": "Russia Cup",
-  "metric": "Rostov: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Mi 06:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Mi 19:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Rostov: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.27,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.792,
-   "p_mod": 0.821,
-   "p_fin": 0.7872,
-   "fair_fin": 1.27,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Rostov",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 8,
-   "erwartet": 4.3,
-   "unverified": false,
-   "no_tab": false,
-   "pending": false,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13217796|team_corners_heim|unter": {
-  "match_id": "13217796",
-  "home": "CA Tigre Reserves",
-  "away": "Argentinos Jrs Reserves",
-  "kickoff": "Mi 20:00",
-  "kickoff_ts": 1792000800,
-  "league": "Argentina Liga Profesional Reserves",
-  "metric": "CA Tigre Reserves: Ecken",
-  "metric_key": "team_corners_heim",
-  "direction": "unter",
-  "first_run": "Mi 07:14",
-  "first_line": 5.5,
-  "first_range": null,
-  "last_run": "Mi 19:14",
-  "line": 5.5,
-  "range": null,
-  "signal": {
-   "metric": "CA Tigre Reserves: Ecken",
-   "metric_key": "team_corners_heim",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.27,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.799,
-   "p_mod": 0.823,
-   "p_fin": 0.7895,
-   "fair_fin": 1.27,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "CA Tigre Reserves",
-   "serie": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 15
-   },
-   "gegner": 7,
-   "erwartet": 3.8,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13217798|team_corners_gast|unter": {
-  "match_id": "13217798",
-  "home": "Colon Reserves",
-  "away": "Independiente Rivadavia Reserves",
-  "kickoff": "Mi 20:00",
-  "kickoff_ts": 1792000800,
-  "league": "Argentina Liga Profesional Reserves",
-  "metric": "Independiente Rivadavia Reserves: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Mi 07:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Mi 19:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Independiente Rivadavia Reserves: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.24,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.851,
-   "p_mod": 0.835,
-   "p_fin": 0.806,
-   "fair_fin": 1.24,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Independiente Rivadavia Reserves",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 6,
-   "erwartet": 4.1,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13217797|team_corners_heim|unter": {
-  "match_id": "13217797",
-  "home": "Estudiantes LP Reserves",
-  "away": "Lanus Reserves",
-  "kickoff": "Mi 20:00",
-  "kickoff_ts": 1792000800,
-  "league": "Argentina Liga Profesional Reserves",
-  "metric": "Estudiantes LP Reserves: Ecken",
-  "metric_key": "team_corners_heim",
-  "direction": "unter",
-  "first_run": "Mi 07:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Mi 19:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Estudiantes LP Reserves: Ecken",
-   "metric_key": "team_corners_heim",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.3,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.785,
-   "p_mod": 0.748,
-   "p_fin": 0.7665,
-   "fair_fin": 1.3,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Estudiantes LP Reserves",
-   "serie": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 16
-   },
-   "gegner": 8,
-   "erwartet": 4.6,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13277759|goals|über": {
-  "match_id": "13277759",
-  "home": "Operario PR U20",
-  "away": "Nautico Capibaribe U20",
-  "kickoff": "Mi 20:00",
-  "kickoff_ts": 1792000800,
-  "league": "Copa do Brasil U20",
-  "metric": "Tore",
-  "metric_key": "goals",
+ "13259030|on_target|über": {
+  "match_id": "13259030",
+  "home": "Atletico Nacional Medellin",
+  "away": "Independiente Medellin",
+  "kickoff": "Do 03:30",
+  "kickoff_ts": 1792027800,
+  "league": "Colombia Cup",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
   "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Mi 19:14",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    43
-   ],
-   "next_line": 3.5,
-   "next_note": "Operario PR U20 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Nautico Capibaribe U20 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.7100147467055585,
-    0.7554920625575773
-   ],
-   "fair": 1.47,
-   "ladder": [
-    [
-     1.5,
-     1.21
-    ],
-    [
-     2.5,
-     1.47
-    ]
-   ],
-   "avg": [
-    3.9,
-    3.4
-   ],
-   "expect": 3.9,
-   "expect_sum": 3.6,
-   "expect_matchup": 4.2,
-   "contrib": [
-    2.1,
-    2.1
-   ],
-   "buffer": 1.4,
-   "fa": [
-    [
-     1.5,
-     1.8
-    ],
-    [
-     2.4,
-     0.9
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.4,
-   "p_emp": {
-    "1.5": 0.8264462809917356,
-    "2.5": 0.6802721088435374
-   },
-   "p_mod": 0.72,
-   "p_fin": 0.686,
-   "fair_fin": 1.46,
-   "ladder_fin": [
-    [
-     1.5,
-     1.26
-    ],
-    [
-     2.5,
-     1.46
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.46",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13217856|corners|über": {
-  "match_id": "13217856",
-  "home": "Rosario Central Reserves",
-  "away": "CA Aldosivi Reserves",
-  "kickoff": "Mi 20:00",
-  "kickoff_ts": 1792000800,
-  "league": "Argentina Liga Profesional Reserves",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Mi 06:14",
+  "first_run": "Mi 20:15",
   "first_line": 7.5,
-  "first_range": null,
-  "last_run": "Mi 19:14",
+  "first_range": [
+   1.96,
+   1.96
+  ],
+  "last_run": "Mi 20:15",
   "line": 7.5,
-  "range": null,
+  "range": [
+   1.96,
+   1.96
+  ],
   "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
    "direction": "über",
    "line": 7.5,
    "home_series": {
@@ -981,204 +6924,78 @@
     "window": 12
    },
    "home_is_anchor": true,
-   "away_is_anchor": true,
+   "away_is_anchor": false,
    "valid": [
-    50,
-    50
+    39,
+    43
    ],
    "next_line": 8.5,
-   "next_note": "CA Aldosivi Reserves 7/9 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "next_note": "Atletico Nacional Medellin 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
    "longterm": [
-    0.786021455055188,
-    0.7390187537921904
+    0.8299951405010224,
+    0.6370081666447147
    ],
-   "fair": 1.35,
+   "fair": 1.45,
    "ladder": [
     [
      6.5,
-     1.41
+     1.23
     ],
     [
      7.5,
-     1.35
+     1.45
     ]
    ],
    "avg": [
-    9.1,
-    8.8
+    10.2,
+    9.6
    ],
-   "expect": 8.7,
-   "expect_sum": 8.9,
-   "expect_matchup": 8.6,
+   "expect": 10.5,
+   "expect_sum": 9.9,
+   "expect_matchup": 11.1,
    "contrib": [
-    4.8,
-    3.8
+    7.6,
+    3.4
    ],
-   "buffer": 1.2,
+   "buffer": 3.0,
    "fa": [
     [
-     5.2,
+     6.4,
+     3.9
+    ],
+    [
+     5.0,
      4.0
-    ],
-    [
-     4.1,
-     4.9
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "8.5",
-    "1.825",
-    "1.975"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.02,
-   "p_emp": {
-    "6.5": 0.7092198581560284,
-    "7.5": 0.7407407407407407
-   },
-   "p_mod": 0.654,
-   "p_fin": 0.692,
-   "fair_fin": 1.44,
-   "ladder_fin": [
-    [
-     6.5,
-     1.4
-    ],
-    [
-     7.5,
-     1.44
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.44",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "12458167|yellowcards|unter": {
-  "match_id": "12458167",
-  "home": "Al-Faisaly Amman",
-  "away": "Al-Nahda",
-  "kickoff": "Mi 20:15",
-  "kickoff_ts": 1792001700,
-  "league": "AFC Champions League Two",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mi 06:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Mi 19:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    44
-   ],
-   "next_line": 5.5,
-   "next_note": "Al-Faisaly Amman 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) heim",
-   "longterm": [
-    0.8857237217296514,
-    0.9534410845763994
-   ],
-   "fair": 1.1,
-   "ladder": [
-    [
-     6.5,
-     1.1
-    ],
-    [
-     7.5,
-     1.2
-    ]
-   ],
-   "avg": [
-    3.9,
-    3.1
-   ],
-   "expect": 3.3,
-   "expect_sum": 3.5,
-   "expect_matchup": 3.1,
-   "contrib": [
-    1.6,
-    1.5
-   ],
-   "buffer": 3.2,
-   "fa": [
-    [
-     1.7,
-     2.2
-    ],
-    [
-     1.8,
-     2.0
     ]
    ],
    "referee": null,
    "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 1.98,
+   "sd": 3.33,
    "p_emp": {
-    "6.5": 0.9090909090909091,
-    "7.5": 0.8333333333333334
+    "6.5": 0.8130081300813008,
+    "7.5": 0.6896551724137931
    },
-   "p_mod": 0.947,
-   "p_fin": 0.917,
-   "fair_fin": 1.09,
+   "p_mod": 0.816,
+   "p_fin": 0.755,
+   "fair_fin": 1.32,
    "ladder_fin": [
     [
      6.5,
-     1.09
+     1.22
     ],
     [
      7.5,
-     1.11
+     1.32
     ]
    ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.09",
+   "ampel": "🟡",
+   "reason": "Historie 69 % vs. Modell 82 %",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
@@ -1189,35 +7006,38 @@
    "serie": null,
    "gegner": null,
    "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
    "b365_proof": null,
-   "range": null
+   "range": [
+    1.96,
+    1.96
+   ]
   },
   "v": 2
  },
- "12458167|team_yellowcards_gast|unter": {
-  "match_id": "12458167",
-  "home": "Al-Faisaly Amman",
-  "away": "Al-Nahda",
-  "kickoff": "Mi 20:15",
-  "kickoff_ts": 1792001700,
-  "league": "AFC Champions League Two",
-  "metric": "Al-Nahda: Gelbe Karten",
-  "metric_key": "team_yellowcards_gast",
-  "direction": "unter",
-  "first_run": "Mi 06:14",
-  "first_line": 2.5,
+ "12028696|team_corners_gast|über": {
+  "match_id": "12028696",
+  "home": "Alajuelense",
+  "away": "Herediano",
+  "kickoff": "Do 04:00",
+  "kickoff_ts": 1792029600,
+  "league": "Costa Rica Primera Division",
+  "metric": "Herediano: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 3.5,
   "first_range": null,
-  "last_run": "Mi 19:14",
-  "line": 2.5,
+  "last_run": "Mi 20:15",
+  "line": 3.5,
   "range": null,
   "signal": {
-   "metric": "Al-Nahda: Gelbe Karten",
-   "metric_key": "team_yellowcards_gast",
-   "direction": "unter",
-   "line": 2.5,
+   "metric": "Herediano: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "über",
+   "line": 3.5,
    "home_series": null,
    "away_series": null,
    "home_is_anchor": null,
@@ -1226,7 +7046,7 @@
    "next_line": null,
    "next_note": null,
    "longterm": null,
-   "fair": 1.31,
+   "fair": 1.39,
    "ladder": null,
    "avg": null,
    "expect": null,
@@ -1240,10 +7060,10 @@
    "expect_ref": null,
    "buffer_ref": null,
    "sd": null,
-   "p_emp": 0.747,
-   "p_mod": 0.764,
-   "p_fin": 0.7612,
-   "fair_fin": 1.31,
+   "p_emp": 0.686,
+   "p_mod": 0.775,
+   "p_fin": 0.7218,
+   "fair_fin": 1.39,
    "ladder_fin": null,
    "market": null,
    "market_src": null,
@@ -1257,17 +7077,1660 @@
    "b365_lines": null,
    "b365_est": null,
    "team_market": true,
-   "team": "Al-Nahda",
+   "team": "Herediano",
    "serie": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 15
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
    },
-   "gegner": 6,
-   "erwartet": 1.7,
+   "gegner": 8,
+   "erwartet": 5.7,
+   "unverified": false,
+   "no_tab": false,
+   "pending": false,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068571|yellowcards|unter": {
+  "match_id": "11068571",
+  "home": "San Diego FC",
+  "away": "Houston Dynamo",
+  "kickoff": "Do 04:30",
+  "kickoff_ts": 1792031400,
+  "league": "USA MLS",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 5.5,
+  "first_range": [
+   1.21,
+   2.45
+  ],
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": [
+   1.21,
+   2.45
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    46,
+    42
+   ],
+   "next_line": 4.5,
+   "next_note": "San Diego FC 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Houston Dynamo 3/5 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.8213435989458048,
+    0.7570370776186268
+   ],
+   "fair": 1.27,
+   "ladder": [
+    [
+     5.5,
+     1.27
+    ],
+    [
+     6.5,
+     1.15
+    ]
+   ],
+   "avg": [
+    3.6,
+    3.9
+   ],
+   "expect": 3.7,
+   "expect_sum": 3.8,
+   "expect_matchup": 3.7,
+   "contrib": [
+    1.6,
+    2.1
+   ],
+   "buffer": 1.8,
+   "fa": [
+    [
+     1.9,
+     2.2
+    ],
+    [
+     1.9,
+     2.3
+    ]
+   ],
+   "referee": "Serhii Boiko: Ø 3.7 Karten (23 Sp.) · Ø 19.2 Fouls (23 Sp.)",
+   "b365": null,
+   "expect_ref": 3.6,
+   "buffer_ref": 1.9,
+   "sd": 2.04,
+   "p_emp": {
+    "5.5": 0.7874015748031495,
+    "6.5": 0.8695652173913044
+   },
+   "p_mod": 0.824,
+   "p_fin": 0.829,
+   "fair_fin": 1.21,
+   "ladder_fin": [
+    [
+     5.5,
+     1.21
+    ],
+    [
+     6.5,
+     1.12
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.21",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.21,
+    2.45
+   ]
+  },
+  "v": 2
+ },
+ "11068571|on_target|über": {
+  "match_id": "11068571",
+  "home": "San Diego FC",
+  "away": "Houston Dynamo",
+  "kickoff": "Do 04:30",
+  "kickoff_ts": 1792031400,
+  "league": "USA MLS",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    43,
+    38
+   ],
+   "next_line": 7.5,
+   "next_note": "Houston Dynamo 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.7975773719729821,
+    0.7233878175241665
+   ],
+   "fair": 1.34,
+   "ladder": [
+    [
+     5.5,
+     1.35
+    ],
+    [
+     6.5,
+     1.34
+    ]
+   ],
+   "avg": [
+    9.5,
+    8.9
+   ],
+   "expect": 9.2,
+   "expect_sum": 9.2,
+   "expect_matchup": 9.2,
+   "contrib": [
+    5.1,
+    4.2
+   ],
+   "buffer": 2.7,
+   "fa": [
+    [
+     4.7,
+     4.8
+    ],
+    [
+     4.4,
+     4.2
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.21,
+   "p_emp": {
+    "5.5": 0.7407407407407407,
+    "6.5": 0.7462686567164178
+   },
+   "p_mod": 0.8,
+   "p_fin": 0.769,
+   "fair_fin": 1.3,
+   "ladder_fin": [
+    [
+     5.5,
+     1.26
+    ],
+    [
+     6.5,
+     1.3
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.30",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
    "unverified": true,
    "no_tab": true,
    "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068571|offsides|unter": {
+  "match_id": "11068571",
+  "home": "San Diego FC",
+  "away": "Houston Dynamo",
+  "kickoff": "Do 04:30",
+  "kickoff_ts": 1792031400,
+  "league": "USA MLS",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 3.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 3.5,
+  "range": null,
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 3.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    40
+   ],
+   "next_line": 2.5,
+   "next_note": "San Diego FC 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim",
+   "longterm": [
+    0.5586034626365572,
+    0.7905585687702654
+   ],
+   "fair": 1.57,
+   "ladder": [
+    [
+     3.5,
+     1.57
+    ],
+    [
+     4.5,
+     1.27
+    ]
+   ],
+   "avg": [
+    3.8,
+    2.1
+   ],
+   "expect": 2.5,
+   "expect_sum": 2.9,
+   "expect_matchup": 2.0,
+   "contrib": [
+    0.9,
+    1.1
+   ],
+   "buffer": 1.0,
+   "fa": [
+    [
+     2.0,
+     2.0
+    ],
+    [
+     1.3,
+     1.1
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.09,
+   "p_emp": {
+    "3.5": 0.6369426751592356,
+    "4.5": 0.7874015748031495
+   },
+   "p_mod": 0.684,
+   "p_fin": 0.711,
+   "fair_fin": 1.41,
+   "ladder_fin": [
+    [
+     3.5,
+     1.41
+    ],
+    [
+     4.5,
+     1.22
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.41",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068571|team_corners_gast|unter": {
+  "match_id": "11068571",
+  "home": "San Diego FC",
+  "away": "Houston Dynamo",
+  "kickoff": "Do 04:30",
+  "kickoff_ts": 1792031400,
+  "league": "USA MLS",
+  "metric": "Houston Dynamo: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Houston Dynamo: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.26,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.808,
+   "p_mod": 0.82,
+   "p_fin": 0.7912,
+   "fair_fin": 1.26,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Houston Dynamo",
+   "serie": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "gegner": 8,
+   "erwartet": 4.3,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068572|yellowcards|unter": {
+  "match_id": "11068572",
+  "home": "Los Angeles FC",
+  "away": "Austin FC",
+  "kickoff": "Do 04:30",
+  "kickoff_ts": 1792031400,
+  "league": "USA MLS",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 5.5,
+  "first_range": [
+   1.21,
+   2.02
+  ],
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": [
+   1.21,
+   2.02
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    47,
+    44
+   ],
+   "next_line": 4.5,
+   "next_note": "Los Angeles FC 6/8 (3. Lücke) gesamt, 7/9 (3. Lücke) heim",
+   "longterm": [
+    0.7534414534429922,
+    0.7476485264260659
+   ],
+   "fair": 1.32,
+   "ladder": [
+    [
+     5.5,
+     1.32
+    ],
+    [
+     6.5,
+     1.13
+    ]
+   ],
+   "avg": [
+    3.7,
+    4.1
+   ],
+   "expect": 3.9,
+   "expect_sum": 3.9,
+   "expect_matchup": 3.9,
+   "contrib": [
+    1.8,
+    2.2
+   ],
+   "buffer": 1.6,
+   "fa": [
+    [
+     1.8,
+     2.2
+    ],
+    [
+     2.2,
+     2.2
+    ]
+   ],
+   "referee": "Jair Antonio Marrufo: Ø 2.7 Karten (19 Sp.) · Ø 19.8 Fouls (19 Sp.)",
+   "b365": null,
+   "expect_ref": 3.1,
+   "buffer_ref": 2.4,
+   "sd": 2.0,
+   "p_emp": {
+    "5.5": 0.7575757575757576,
+    "6.5": 0.8849557522123894
+   },
+   "p_mod": 0.885,
+   "p_fin": 0.84,
+   "fair_fin": 1.19,
+   "ladder_fin": [
+    [
+     5.5,
+     1.19
+    ],
+    [
+     6.5,
+     1.1
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 76 % vs. Modell 88 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.21,
+    2.02
+   ]
+  },
+  "v": 2
+ },
+ "11068572|on_target|über": {
+  "match_id": "11068572",
+  "home": "Los Angeles FC",
+  "away": "Austin FC",
+  "kickoff": "Do 04:30",
+  "kickoff_ts": 1792031400,
+  "league": "USA MLS",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 7.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 7.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    41
+   ],
+   "next_line": 8.5,
+   "next_note": "Los Angeles FC 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Austin FC 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.6252011460081944,
+    0.8134895116626597
+   ],
+   "fair": 1.45,
+   "ladder": [
+    [
+     6.5,
+     1.26
+    ],
+    [
+     7.5,
+     1.45
+    ]
+   ],
+   "avg": [
+    8.4,
+    10.2
+   ],
+   "expect": 9.6,
+   "expect_sum": 9.3,
+   "expect_matchup": 9.9,
+   "contrib": [
+    7.1,
+    2.8
+   ],
+   "buffer": 2.1,
+   "fa": [
+    [
+     4.5,
+     4.3
+    ],
+    [
+     3.6,
+     6.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.25,
+   "p_emp": {
+    "6.5": 0.7936507936507936,
+    "7.5": 0.6896551724137931
+   },
+   "p_mod": 0.741,
+   "p_fin": 0.729,
+   "fair_fin": 1.37,
+   "ladder_fin": [
+    [
+     6.5,
+     1.26
+    ],
+    [
+     7.5,
+     1.37
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.37",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068572|offsides|unter": {
+  "match_id": "11068572",
+  "home": "Los Angeles FC",
+  "away": "Austin FC",
+  "kickoff": "Do 04:30",
+  "kickoff_ts": 1792031400,
+  "league": "USA MLS",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 4.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 4.5,
+  "range": null,
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    41,
+    42
+   ],
+   "next_line": 3.5,
+   "next_note": "Los Angeles FC 6/8 (3. Lücke) gesamt, 2/4 (3. Lücke) heim",
+   "longterm": [
+    0.7807572424564352,
+    0.8952357485659042
+   ],
+   "fair": 1.25,
+   "ladder": [
+    [
+     4.5,
+     1.25
+    ],
+    [
+     5.5,
+     1.13
+    ]
+   ],
+   "avg": [
+    3.0,
+    2.6
+   ],
+   "expect": 2.5,
+   "expect_sum": 2.8,
+   "expect_matchup": 2.1,
+   "contrib": [
+    1.2,
+    1.0
+   ],
+   "buffer": 2.0,
+   "fa": [
+    [
+     1.4,
+     1.2
+    ],
+    [
+     1.5,
+     1.2
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.86,
+   "p_emp": {
+    "4.5": 0.8,
+    "5.5": 0.8849557522123894
+   },
+   "p_mod": 0.859,
+   "p_fin": 0.835,
+   "fair_fin": 1.2,
+   "ladder_fin": [
+    [
+     4.5,
+     1.2
+    ],
+    [
+     5.5,
+     1.11
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.20",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068573|yellowcards|unter": {
+  "match_id": "11068573",
+  "home": "LA Galaxy",
+  "away": "Portland Timbers",
+  "kickoff": "Do 04:30",
+  "kickoff_ts": 1792031400,
+  "league": "USA MLS",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 5.5,
+  "first_range": [
+   1.2,
+   1.67
+  ],
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": [
+   1.2,
+   1.67
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    44
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — LA Galaxy 6/8 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Portland Timbers 9/11 (3. Lücke) gesamt, 13/15 (3. Lücke) auswärts",
+   "longterm": [
+    0.7535332682418127,
+    0.8732322550877686
+   ],
+   "fair": 1.24,
+   "ladder": [
+    [
+     5.5,
+     1.24
+    ],
+    [
+     6.5,
+     1.12
+    ]
+   ],
+   "avg": [
+    4.7,
+    3.4
+   ],
+   "expect": 4.1,
+   "expect_sum": 4.0,
+   "expect_matchup": 4.1,
+   "contrib": [
+    2.1,
+    2.0
+   ],
+   "buffer": 1.4,
+   "fa": [
+    [
+     1.9,
+     2.1
+    ],
+    [
+     1.8,
+     2.2
+    ]
+   ],
+   "referee": "Christopher Penso: Ø 4.2 Karten (24 Sp.) · Ø 20.7 Fouls (24 Sp.)",
+   "b365": null,
+   "expect_ref": 4.4,
+   "buffer_ref": 1.1,
+   "sd": 1.88,
+   "p_emp": {
+    "5.5": 0.8064516129032259,
+    "6.5": 0.8928571428571428
+   },
+   "p_mod": 0.721,
+   "p_fin": 0.798,
+   "fair_fin": 1.25,
+   "ladder_fin": [
+    [
+     5.5,
+     1.25
+    ],
+    [
+     6.5,
+     1.13
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.25",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.2,
+    1.67
+   ]
+  },
+  "v": 2
+ },
+ "11068573|on_target|über": {
+  "match_id": "11068573",
+  "home": "LA Galaxy",
+  "away": "Portland Timbers",
+  "kickoff": "Do 04:30",
+  "kickoff_ts": 1792031400,
+  "league": "USA MLS",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    42,
+    43
+   ],
+   "next_line": 7.5,
+   "next_note": "Portland Timbers 7/9 (3. Lücke) gesamt, 19/21 (3. Lücke) auswärts",
+   "longterm": [
+    0.9393192016825088,
+    0.8734306425000993
+   ],
+   "fair": 1.18,
+   "ladder": [
+    [
+     5.5,
+     1.21
+    ],
+    [
+     6.5,
+     1.18
+    ]
+   ],
+   "avg": [
+    10.8,
+    10.3
+   ],
+   "expect": 11.4,
+   "expect_sum": 10.6,
+   "expect_matchup": 12.3,
+   "contrib": [
+    7.5,
+    4.9
+   ],
+   "buffer": 4.9,
+   "fa": [
+    [
+     5.2,
+     5.0
+    ],
+    [
+     4.7,
+     5.7
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.96,
+   "p_emp": {
+    "5.5": 0.8264462809917356,
+    "6.5": 0.8474576271186441
+   },
+   "p_mod": 0.951,
+   "p_fin": 0.857,
+   "fair_fin": 1.17,
+   "ladder_fin": [
+    [
+     5.5,
+     1.16
+    ],
+    [
+     6.5,
+     1.17
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.17",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068573|offsides|unter": {
+  "match_id": "11068573",
+  "home": "LA Galaxy",
+  "away": "Portland Timbers",
+  "kickoff": "Do 04:30",
+  "kickoff_ts": 1792031400,
+  "league": "USA MLS",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 5.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    36,
+    43
+   ],
+   "next_line": 4.5,
+   "next_note": "Portland Timbers 6/8 (3. Lücke) gesamt, 15/17 (3. Lücke) auswärts",
+   "longterm": [
+    0.9199220223215379,
+    0.8092912876236635
+   ],
+   "fair": 1.18,
+   "ladder": [
+    [
+     5.5,
+     1.18
+    ],
+    [
+     6.5,
+     1.24
+    ]
+   ],
+   "avg": [
+    3.0,
+    3.3
+   ],
+   "expect": 2.9,
+   "expect_sum": 3.2,
+   "expect_matchup": 2.7,
+   "contrib": [
+    1.4,
+    1.3
+   ],
+   "buffer": 2.6,
+   "fa": [
+    [
+     1.6,
+     1.6
+    ],
+    [
+     2.3,
+     1.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.05,
+   "p_emp": {
+    "5.5": 0.8474576271186441,
+    "6.5": 0.8064516129032259
+   },
+   "p_mod": 0.898,
+   "p_fin": 0.867,
+   "fair_fin": 1.15,
+   "ladder_fin": [
+    [
+     5.5,
+     1.15
+    ],
+    [
+     6.5,
+     1.14
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.15",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068573|goals|über": {
+  "match_id": "11068573",
+  "home": "LA Galaxy",
+  "away": "Portland Timbers",
+  "kickoff": "Do 04:30",
+  "kickoff_ts": 1792031400,
+  "league": "USA MLS",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    44,
+    44
+   ],
+   "next_line": 3.5,
+   "next_note": "LA Galaxy 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; Portland Timbers 4/6 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.674721970610092,
+    0.7904408636663547
+   ],
+   "fair": 1.45,
+   "ladder": [
+    [
+     1.5,
+     1.15
+    ],
+    [
+     2.5,
+     1.45
+    ]
+   ],
+   "avg": [
+    2.6,
+    3.4
+   ],
+   "expect": 2.9,
+   "expect_sum": 3.0,
+   "expect_matchup": 2.8,
+   "contrib": [
+    1.7,
+    1.1
+   ],
+   "buffer": 0.4,
+   "fa": [
+    [
+     1.5,
+     1.7
+    ],
+    [
+     1.8,
+     1.9
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.81,
+   "p_emp": {
+    "1.5": 0.8695652173913044,
+    "2.5": 0.6896551724137931
+   },
+   "p_mod": 0.587,
+   "p_fin": 0.638,
+   "fair_fin": 1.57,
+   "ladder_fin": [
+    [
+     1.5,
+     1.28
+    ],
+    [
+     2.5,
+     1.57
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "64 % knapp",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "11068573|team_yellowcards_gast|unter": {
+  "match_id": "11068573",
+  "home": "LA Galaxy",
+  "away": "Portland Timbers",
+  "kickoff": "Do 04:30",
+  "kickoff_ts": 1792031400,
+  "league": "USA MLS",
+  "metric": "Portland Timbers: Gelbe Karten",
+  "metric_key": "team_yellowcards_gast",
+  "direction": "unter",
+  "first_run": "Mi 20:15",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Portland Timbers: Gelbe Karten",
+   "metric_key": "team_yellowcards_gast",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.29,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.763,
+   "p_mod": 0.778,
+   "p_fin": 0.7759,
+   "fair_fin": 1.29,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Portland Timbers",
+   "serie": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "gegner": 5,
+   "erwartet": 1.6,
+   "unverified": false,
+   "no_tab": false,
+   "pending": false,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13293062|goals|über": {
+  "match_id": "13293062",
+  "home": "Hunters FC",
+  "away": "Khovd FC",
+  "kickoff": "Do 07:00",
+  "kickoff_ts": 1792040400,
+  "league": "Mongolia Premier League",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    49,
+    50
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — Hunters FC 10/12 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Khovd FC 19/21 (3. Lücke) gesamt, 11/13 (3. Lücke) auswärts",
+   "longterm": [
+    0.7095928156748912,
+    0.9330884275521971
+   ],
+   "fair": 1.33,
+   "ladder": [
+    [
+     1.5,
+     1.1
+    ],
+    [
+     2.5,
+     1.33
+    ]
+   ],
+   "avg": [
+    4.7,
+    5.9
+   ],
+   "expect": 7.5,
+   "expect_sum": 5.3,
+   "expect_matchup": 9.8,
+   "contrib": [
+    7.9,
+    1.9
+   ],
+   "buffer": 5.0,
+   "fa": [
+    [
+     2.4,
+     1.7
+    ],
+    [
+     2.4,
+     3.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.75,
+   "p_emp": {
+    "1.5": 0.9090909090909091,
+    "2.5": 0.7518796992481203
+   },
+   "p_mod": 0.965,
+   "p_fin": 0.81,
+   "fair_fin": 1.23,
+   "ladder_fin": [
+    [
+     1.5,
+     1.14
+    ],
+    [
+     2.5,
+     1.23
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 75 % vs. Modell 97 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13292385|goals|über": {
+  "match_id": "13292385",
+  "home": "MEG",
+  "away": "FC Real Bengaluru",
+  "kickoff": "Do 07:30",
+  "kickoff_ts": 1792042200,
+  "league": "India Bangalore Super Division",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Mi 20:15",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Mi 20:15",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    50,
+    33
+   ],
+   "next_line": 3.5,
+   "next_note": "MEG 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; FC Real Bengaluru 3/5 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.643640940660842,
+    0.5938326682033713
+   ],
+   "fair": 1.65,
+   "ladder": [
+    [
+     1.5,
+     1.22
+    ],
+    [
+     2.5,
+     1.65
+    ]
+   ],
+   "avg": [
+    3.6,
+    2.9
+   ],
+   "expect": 3.3,
+   "expect_sum": 3.3,
+   "expect_matchup": 3.3,
+   "contrib": [
+    1.8,
+    1.5
+   ],
+   "buffer": 0.8,
+   "fa": [
+    [
+     1.7,
+     1.7
+    ],
+    [
+     1.3,
+     1.6
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.94,
+   "p_emp": {
+    "1.5": 0.819672131147541,
+    "2.5": 0.6060606060606061
+   },
+   "p_mod": 0.66,
+   "p_fin": 0.634,
+   "fair_fin": 1.58,
+   "ladder_fin": [
+    [
+     1.5,
+     1.28
+    ],
+    [
+     2.5,
+     1.58
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "63 % knapp",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
    "b365_proof": null,
    "range": null
   },
@@ -1539,701 +9002,6 @@
    },
    "gegner": 7,
    "erwartet": 1.5,
-   "unverified": false,
-   "no_tab": false,
-   "pending": false,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "12101673|yellowcards|unter": {
-  "match_id": "12101673",
-  "home": "Norwich",
-  "away": "Southampton",
-  "kickoff": "Mi 20:45",
-  "kickoff_ts": 1792003500,
-  "league": "England Championship",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Mi 07:14",
-  "first_line": 5.5,
-  "first_range": [
-   1.4,
-   1.4
-  ],
-  "last_run": "Mi 19:14",
-  "line": 5.5,
-  "range": [
-   1.4,
-   1.4
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    43,
-    44
-   ],
-   "next_line": 4.5,
-   "next_note": "Norwich 5/7 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Southampton 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "longterm": [
-    0.8118273785518907,
-    0.8400459482466415
-   ],
-   "fair": 1.23,
-   "ladder": [
-    [
-     5.5,
-     1.23
-    ],
-    [
-     6.5,
-     1.16
-    ]
-   ],
-   "avg": [
-    4.4,
-    3.8
-   ],
-   "expect": 4.3,
-   "expect_sum": 4.1,
-   "expect_matchup": 4.5,
-   "contrib": [
-    2.3,
-    2.2
-   ],
-   "buffer": 1.2,
-   "fa": [
-    [
-     2.0,
-     1.8
-    ],
-    [
-     1.8,
-     1.9
-    ]
-   ],
-   "referee": "Steve Martin: Ø 4.0 Karten (2 Sp.) · Ø 22.0 Fouls (3 Sp.)",
-   "b365": null,
-   "expect_ref": 4.3,
-   "buffer_ref": 1.2,
-   "sd": 2.37,
-   "p_emp": {
-    "5.5": 0.8130081300813008,
-    "6.5": 0.8620689655172414
-   },
-   "p_mod": 0.694,
-   "p_fin": 0.791,
-   "fair_fin": 1.26,
-   "ladder_fin": [
-    [
-     5.5,
-     1.26
-    ],
-    [
-     6.5,
-     1.17
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.26",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": [
-    1.4,
-    1.4
-   ]
-  },
-  "v": 2
- },
- "12101673|on_target|über": {
-  "match_id": "12101673",
-  "home": "Norwich",
-  "away": "Southampton",
-  "kickoff": "Mi 20:45",
-  "kickoff_ts": 1792003500,
-  "league": "England Championship",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "über",
-  "first_run": "Mi 07:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Mi 19:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    41,
-    41
-   ],
-   "next_line": 7.5,
-   "next_note": "Southampton 6/8 (3. Lücke) gesamt, 13/15 (3. Lücke) auswärts",
-   "longterm": [
-    0.765458850302171,
-    0.9058502248829466
-   ],
-   "fair": 1.25,
-   "ladder": [
-    [
-     5.5,
-     1.27
-    ],
-    [
-     6.5,
-     1.25
-    ]
-   ],
-   "avg": [
-    8.7,
-    8.6
-   ],
-   "expect": 8.5,
-   "expect_sum": 8.6,
-   "expect_matchup": 8.3,
-   "contrib": [
-    5.0,
-    3.3
-   ],
-   "buffer": 2.0,
-   "fa": [
-    [
-     4.7,
-     3.7
-    ],
-    [
-     4.6,
-     4.1
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.41,
-   "p_emp": {
-    "5.5": 0.7874015748031495,
-    "6.5": 0.8
-   },
-   "p_mod": 0.797,
-   "p_fin": 0.787,
-   "fair_fin": 1.27,
-   "ladder_fin": [
-    [
-     5.5,
-     1.23
-    ],
-    [
-     6.5,
-     1.27
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.27",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13041498|goals|über": {
-  "match_id": "13041498",
-  "home": "Bodo/Glimt",
-  "away": "Borussia Dortmund",
-  "kickoff": "Mi 21:00",
-  "kickoff_ts": 1792004400,
-  "league": "UEFA Champions League",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Mi 19:14",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    42,
-    45
-   ],
-   "next_line": 3.5,
-   "next_note": "Bodo/Glimt 6/8 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Borussia Dortmund 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
-   "longterm": [
-    0.8799162155352279,
-    0.6526439440455937
-   ],
-   "fair": 1.42,
-   "ladder": [
-    [
-     1.5,
-     1.16
-    ],
-    [
-     2.5,
-     1.42
-    ]
-   ],
-   "avg": [
-    4.3,
-    3.3
-   ],
-   "expect": 3.8,
-   "expect_sum": 3.8,
-   "expect_matchup": 3.8,
-   "contrib": [
-    2.4,
-    1.4
-   ],
-   "buffer": 1.3,
-   "fa": [
-    [
-     2.8,
-     1.3
-    ],
-    [
-     2.1,
-     1.2
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.78,
-   "p_emp": {
-    "1.5": 0.8620689655172414,
-    "2.5": 0.7042253521126761
-   },
-   "p_mod": 0.767,
-   "p_fin": 0.714,
-   "fair_fin": 1.4,
-   "ladder_fin": [
-    [
-     1.5,
-     1.21
-    ],
-    [
-     2.5,
-     1.4
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.40",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "12100745|on_target|über": {
-  "match_id": "12100745",
-  "home": "Lincoln City",
-  "away": "West Ham",
-  "kickoff": "Mi 21:00",
-  "kickoff_ts": 1792004400,
-  "league": "England Championship",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "über",
-  "first_run": "Mi 06:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Mi 19:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    42,
-    41
-   ],
-   "next_line": 7.5,
-   "next_note": "Lincoln City 4/6 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
-   "longterm": [
-    0.6737776480335401,
-    0.8654014366285102
-   ],
-   "fair": 1.33,
-   "ladder": [
-    [
-     5.5,
-     1.32
-    ],
-    [
-     6.5,
-     1.33
-    ]
-   ],
-   "avg": [
-    8.6,
-    9.9
-   ],
-   "expect": 9.4,
-   "expect_sum": 9.2,
-   "expect_matchup": 9.7,
-   "contrib": [
-    6.6,
-    3.1
-   ],
-   "buffer": 2.9,
-   "fa": [
-    [
-     4.6,
-     3.2
-    ],
-    [
-     4.5,
-     4.9
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.75,
-   "p_emp": {
-    "5.5": 0.7575757575757576,
-    "6.5": 0.7518796992481203
-   },
-   "p_mod": 0.854,
-   "p_fin": 0.79,
-   "fair_fin": 1.27,
-   "ladder_fin": [
-    [
-     5.5,
-     1.23
-    ],
-    [
-     6.5,
-     1.27
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.27",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "12100745|offsides|unter": {
-  "match_id": "12100745",
-  "home": "Lincoln City",
-  "away": "West Ham",
-  "kickoff": "Mi 21:00",
-  "kickoff_ts": 1792004400,
-  "league": "England Championship",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "Mi 06:14",
-  "first_line": 4.5,
-  "first_range": null,
-  "last_run": "Mi 19:14",
-  "line": 4.5,
-  "range": null,
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 4.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    13,
-    45
-   ],
-   "next_line": 3.5,
-   "next_note": "West Ham 4/6 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
-   "longterm": [
-    0.9109399686194188,
-    0.827525980371612
-   ],
-   "fair": 1.25,
-   "ladder": [
-    [
-     4.5,
-     1.25
-    ],
-    [
-     5.5,
-     1.13
-    ]
-   ],
-   "avg": [
-    4.2,
-    2.9
-   ],
-   "expect": 3.2,
-   "expect_sum": 3.5,
-   "expect_matchup": 2.9,
-   "contrib": [
-    1.4,
-    1.4
-   ],
-   "buffer": 1.3,
-   "fa": [
-    [
-     2.1,
-     0.8
-    ],
-    [
-     2.0,
-     1.0
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.04,
-   "p_emp": {
-    "4.5": 0.8,
-    "5.5": 0.8849557522123894
-   },
-   "p_mod": 0.738,
-   "p_fin": 0.791,
-   "fair_fin": 1.26,
-   "ladder_fin": [
-    [
-     4.5,
-     1.26
-    ],
-    [
-     5.5,
-     1.15
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.26",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "12100745|team_corners_heim|unter": {
-  "match_id": "12100745",
-  "home": "Lincoln City",
-  "away": "West Ham",
-  "kickoff": "Mi 21:00",
-  "kickoff_ts": 1792004400,
-  "league": "England Championship",
-  "metric": "Lincoln City: Ecken",
-  "metric_key": "team_corners_heim",
-  "direction": "unter",
-  "first_run": "Mi 06:14",
-  "first_line": 5.5,
-  "first_range": null,
-  "last_run": "Mi 19:14",
-  "line": 5.5,
-  "range": null,
-  "signal": {
-   "metric": "Lincoln City: Ecken",
-   "metric_key": "team_corners_heim",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.37,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.673,
-   "p_mod": 0.718,
-   "p_fin": 0.7293,
-   "fair_fin": 1.37,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Lincoln City",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 7,
-   "erwartet": 4.2,
    "unverified": false,
    "no_tab": false,
    "pending": false,
