@@ -5685,6 +5685,10 @@ def _run():
         _msg = ((_ev.get("head_commit") or {}).get("message") or "")
     except Exception:
         _msg = ""
+    if "BetLabel-Sonde" in _msg:
+        import sonde_betlabel
+        sonde_betlabel.run(sys.modules[__name__])
+        return
     if "Rundencheck" in _msg:
         import rundencheck
         rundencheck.run(sys.modules[__name__])
