@@ -504,7 +504,7 @@ def _leitern_kompakt(val, basis):
     return out
 
 
-def archiv_sammeln(scanner_spiele, pfad, deadline_ts, pause=0.7, max_fehler=25):
+def archiv_sammeln(scanner_spiele, pfad, deadline_ts, pause=0.0, max_fehler=25, threads=8):
     """scanner_spiele: [{id, home, away, kickoff_ts}] (BetsAPI) für die Zuordnung."""
     import gzip as _gz
     t0 = time.time()
@@ -553,7 +553,10 @@ def archiv_sammeln(scanner_spiele, pfad, deadline_ts, pause=0.7, max_fehler=25):
             e["m"].update(_leitern_kompakt(val, ARCHIV_TITEL[tg] + ARCHIV_TEIL[pn]))
         return e
 
-    with ThreadPoolExecutor(3) as ex:
+    # 15.10. (Lucio: "lass einfach limitless holzen" – GitHub zahlt man nach
+    # Minuten): volle Geschwindigkeit; die Notbremse bei Fehlern bleibt,
+    # damit eine Sperre nie die Live-Quoten trifft.
+    with ThreadPoolExecutor(threads) as ex:
         for e in ex.map(eins, spiele):
             if e and e["m"]:
                 with lock:

@@ -662,5 +662,5 @@ Lucio: „Ich finde in dem Fall beides relevant.“ Bei Spielen in einem anderen
 ## 23. Marktarchiv (15.10.)
 
 Lucio: Strategie-Suche über alle Spiele und Märkte. Täglich im Lauf um 11:13 (nach dem Telegram-Versand) sichert der Scanner das komplette BetLabel-Angebot der nächsten 24 h: alle Über/Unter-Linien (Tore, Ecken, Gelbe, Schüsse aufs Tor, Torschüsse, Abseits, Fouls, Einwürfe, Abstöße), Halbzeiten, Team-Märkte, 1X2 → `runs/archiv/bl_<Datum>.json.gz`. Ergebnisse werden in den Folgeläufen nachgetragen.
-- Gebremst (3 parallel, Pause je Abfrage), Notbremse bei 25 Fehlern, Zeitgrenze 40 min Gesamtlauf – die Live-Quoten haben Vorrang.
+- Volle Geschwindigkeit (8 parallel, Lucio: GitHub-Minuten sparen), Notbremse bei 25 Fehlern, Zeitgrenze 40 min Gesamtlauf – die Live-Quoten haben Vorrang.
 - Auswertung nach 3–4 Wochen (Mitte November): Treffer vs. BetLabel-Quote je Markt/Linie/Liga/Quotenbereich; Wochen 1–2 finden, Wochen 3–4 gegenprüfen. Übernahme nur mit Lucios Go.
