@@ -664,3 +664,9 @@ Lucio: „Ich finde in dem Fall beides relevant.“ Bei Spielen in einem anderen
 Lucio: Strategie-Suche über alle Spiele und Märkte. Täglich im Lauf um 11:13 (nach dem Telegram-Versand) sichert der Scanner das komplette BetLabel-Angebot der nächsten 24 h: alle Über/Unter-Linien (Tore, Ecken, Gelbe, Schüsse aufs Tor, Torschüsse, Abseits, Fouls, Einwürfe, Abstöße), Halbzeiten, Team-Märkte, 1X2 → `runs/archiv/bl_<Datum>.json.gz`. Ergebnisse werden in den Folgeläufen nachgetragen.
 - Volle Geschwindigkeit (16 parallel, Lucio: GitHub-Minuten sparen), Notbremse bei 25 Fehlern, Zeitgrenze 40 min Gesamtlauf – die Live-Quoten haben Vorrang.
 - Auswertung nach 3–4 Wochen (Mitte November): Treffer vs. BetLabel-Quote je Markt/Linie/Liga/Quotenbereich; Wochen 1–2 finden, Wochen 3–4 gegenprüfen. Übernahme nur mit Lucios Go.
+
+## 24. GitHub-Kosten und Projektgröße (15.10.)
+
+- Projekt war 2,07 GB groß und wuchs ~150 MB/Tag: Der Statistik-Speicher (8 MB gz) wurde stündlich komplett neu abgelegt. Seit 15.10. liegt er in `cache/stats/` als 64 Textdateien (eine Zeile je Spiel) – Git speichert nur noch die geänderten Zeilen.
+- BetLabel-Spielliste wird nur alle 3 h neu geladen (`cache/bl_spiele.json.gz`), sonst ~2 min je Stundenlauf; neu laden nur, wenn ein Tipp-Spiel neu fehlt.
+- Die alte Historie (2 GB) bleibt unangetastet – Verkleinern ginge nur durch Umschreiben der Git-Historie, das nur mit Lucios ausdrücklichem Go.

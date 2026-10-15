@@ -9,7 +9,7 @@ import scan, betlabel
 
 R = Path(__file__).parent
 H = json.load(open(R / "cache/history.json"))
-S = json.load(gzip.open(R / "cache/stats.json.gz"))
+S = scan.load_cache()
 MK = ["goals", "corners", "yellowcards", "on_target", "offsides", "fouls"]
 
 

@@ -724,10 +724,37 @@ def _today_num() -> int:
     return int(time.time() // 86400)
 
 
+# 15.10.: Statistik-Speicher in 64 Teilen als Textzeilen statt einer 8-MB-
+# gz-Datei. Grund: Jede stündliche gz-Version wurde von Git komplett neu
+# abgelegt (~150 MB/Tag, Projekt 2 GB). Als Text speichert Git nur die
+# geänderten Zeilen. Eine Zeile je Spiel: "<id>\t<json>", sortiert.
+CACHE_DIR = Path(__file__).parent / "cache" / "stats"
+CACHE_SHARDS = 64
+
+
+def _shard(eid) -> int:
+    try:
+        return int(eid) % CACHE_SHARDS
+    except (TypeError, ValueError):
+        return sum(map(ord, str(eid))) % CACHE_SHARDS
+
+
+def _load_shards() -> dict:
+    raw = {}
+    for f in sorted(CACHE_DIR.glob("s*.txt")):
+        for line in f.read_text(encoding="utf-8").splitlines():
+            if "\t" in line:
+                k, v = line.split("\t", 1)
+                raw[k] = json.loads(v)
+    return raw
+
+
 def load_cache() -> dict:
     raw = {}
     try:
-        if CACHE_FILE.exists():
+        if CACHE_DIR.exists() and any(CACHE_DIR.glob("s*.txt")):
+            raw = _load_shards()
+        elif CACHE_FILE.exists():
             with gzip.open(CACHE_FILE, "rt", encoding="utf-8") as f:
                 raw = json.load(f)
         elif CACHE_FILE_LEGACY.exists():                    # einmalige Migration
@@ -764,10 +791,22 @@ def save_cache(cache: dict) -> None:
         elif t_used < cutoff:
             continue
         slim[k] = v
-    tmp = CACHE_FILE.with_suffix(".tmp")
-    with gzip.open(tmp, "wt", encoding="utf-8", compresslevel=6) as f:
-        json.dump(slim, f, separators=(",", ":"))
-    tmp.replace(CACHE_FILE)
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    teile = [[] for _ in range(CACHE_SHARDS)]
+    for k in sorted(slim, key=lambda x: (len(str(x)), str(x))):
+        teile[_shard(k)].append(f"{k}\t{json.dumps(slim[k], separators=(',', ':'), sort_keys=True)}")
+    for i, zeilen in enumerate(teile):
+        pfad = CACHE_DIR / f"s{i:02d}.txt"
+        neu = "\n".join(zeilen) + "\n"
+        if not pfad.exists() or pfad.read_text(encoding="utf-8") != neu:
+            tmp = pfad.with_suffix(".tmp")
+            tmp.write_text(neu, encoding="utf-8")
+            tmp.replace(pfad)
+    if CACHE_FILE.exists():            # alte gz-Datei nach der Umstellung entfernen
+        try:
+            CACHE_FILE.unlink()
+        except OSError:
+            pass
     if CACHE_FILE_LEGACY.exists():
         try:
             CACHE_FILE_LEGACY.unlink()
