@@ -1391,7 +1391,7 @@ def fetch_team_history(team_id: str, cache: dict, hcache: dict = None):
             slim = cache.get(e["id"], {})
             if slim:
                 slim["t"] = today              # Nutzung vermerken (Cache-Pflege)
-            history.append({"stats": slim, "is_home": e["h"], "label": e["l"]})
+            history.append({"stats": slim, "is_home": e["h"], "label": e["l"], "lg": e.get("lg", "")})
     return history
 
 
@@ -2656,7 +2656,8 @@ _SNAPSHOT_KEYS = ("metric", "metric_key", "direction", "line", "home_series",
                   "referee", "b365", "expect_ref", "buffer_ref",
                   "sd", "p_emp", "p_mod", "p_fin", "fair_fin", "ladder_fin", "market",
                   "market_src", "ev", "light", "ampel", "reason", "b365_quote", "b365_checked", "b365_near", "b365_lines", "b365_est",
-                  "team_market", "team", "serie", "gegner", "erwartet", "unverified", "no_tab", "pending", "b365_proof")
+                  "team_market", "team", "serie", "gegner", "erwartet", "unverified", "no_tab", "pending", "b365_proof",
+                  "fav", "vp_puffer", "vp_liga", "vp_cross", "vp_1x2", "vp_ref", "vp_seite")
 
 
 def signal_snapshot(s):
@@ -3593,12 +3594,10 @@ def fmt_bl(match, s) -> str:
     return f" · 💶 BL – <i>{esc(grund)}</i>"
 
 
-def build_bl_block(items):
-    """Alle ✅-Tipps, deren BetLabel-Quote über 'spielbar ab' liegt — nach
-    Anstoß. Damit lässt sich der Schein direkt bauen."""
-    if not _BL:
-        return None
-    rows = []
+def bl_tipps(items):
+    """[(match, signal, BL-Quote, spielbar ab, key)] aller ✅-Tipps, deren
+    BetLabel-Quote über 'spielbar ab' liegt (Inhalt der BetLabel-Liste)."""
+    out = []
     for match, entries in items:
         for _, s, _ in entries:
             if s.get("light") != "🟢":
@@ -3606,13 +3605,48 @@ def build_bl_block(items):
             st = bl_status(match, s)
             if not st or not st[0] or st[1] is False:
                 continue
-            q = st[0]
             mn, _ = play_min(s)
             if not mn:                 # "nicht spielen"-Markt (z. B. 1. HZ Gelbe über) gehört nie in die Liste
                 continue
-            ab = f" (ab {mn:.2f})"
-            rows.append(f"• {match['kickoff']} {esc(match['home'])} – {esc(match['away'])}: "
-                        f"{esc(s['metric'])} {s['direction']} {s['line']} <b>{q:.2f}</b>{ab}")
+            out.append((match, s, st[0], mn, _bl_key(match, s)))
+    return out
+
+
+# 15.10.: Urteil des Agenten (agent.py) unter jedem Tipp der BetLabel-Liste
+AGENT_ANZEIGE = True
+AGENT_AN = os.environ.get("AGENT", "1") != "0"
+
+
+def agent_zeile(match, s):
+    try:
+        import agent
+        return agent.agent_zeile(_bl_key(match, s))
+    except Exception as exc:
+        print(f"  Agent-Zeile: {exc}")
+        return ""
+
+
+def build_bl_block(items):
+    """Alle ✅-Tipps, deren BetLabel-Quote über 'spielbar ab' liegt — nach
+    Anstoß. Damit lässt sich der Schein direkt bauen."""
+    if not _BL:
+        return None
+    rows = []
+    for match, s, q, mn, _key in bl_tipps(items):
+        ab = f" (ab {mn:.2f})"
+        row = (f"• {match['kickoff']} {esc(match['home'])} – {esc(match['away'])}: "
+               f"{esc(s['metric'])} {s['direction']} {s['line']} <b>{q:.2f}</b>{ab}")
+        if VORPRUEFUNG:
+            try:
+                vp = fmt_vp(vp_bewertung(match, s, q))
+                if vp:
+                    row += "\n" + vp
+            except Exception as exc:
+                print(f"  Vorprüfung-Anzeige: {exc}")
+            ag = agent_zeile(match, s) if AGENT_ANZEIGE else ""
+            if ag:
+                row += "\n" + ag
+        rows.append(row)
     stand = f" · Stand {_BL_STAND['zeit']}" if _BL_STAND.get("zeit") else ""
     head = f"💶 <b>PASST BEI BETLABEL ({len(rows)})</b>{stand}"
     body = "\n".join(rows) if rows else "<i>gerade keine Quote über spielbar ab</i>"
@@ -3624,6 +3658,254 @@ def build_bl_block(items):
         body += "\n" + "\n".join(f"❓ nicht sicher zugeordnet: {esc(v['spiel'])} "
                                   f"<i>(BetLabel: {esc(v['bl'])})</i>" for v in verd)
     return head + "\n" + body
+
+
+# ----------------------------------------------------------------------------
+# 15.10. (Lucio: "Könntest du deine Bewertung spielen oder nicht spielen ...
+# automatisieren?" -> "Ja"): REGELWERK 20 automatisch, Teil A (feste Regeln).
+# Alles, was sich aus den Daten ablesen lässt, prüft der Scanner selbst und
+# schreibt es in die BetLabel-Liste: 1 Quote, 2 Rolle, 3 Puffer, 4 Datenbasis,
+# 5 Wettbewerb, 6 Schiri, 8 Quotenabstand. Punkt 7 (Gegner/Spielverlauf,
+# Rotation, News) braucht Websuche -> Teil B (agent.py).
+# Die Daten werden in check() gesammelt (dort liegen die Historien) und mit
+# dem Signal gespeichert (vp_*), die Bewertung passiert erst beim Bericht,
+# weil erst dann die BetLabel-Quote feststeht.
+VORPRUEFUNG = os.environ.get("VORPRUEFUNG", "1") != "0"
+VP_N = 10                       # so viele jüngste gültige Spiele je Team
+VP_KNAPP = {"fouls": 1.5, "throwins": 2.5, "goalkicks": 1.5, "freekicks": 1.5,
+            "shots_total": 1.5}  # "genau an der Linie" = höchstens so weit weg (sonst 0,5)
+VP_ABSTAND = 0.25               # Prüfpunkt 8: BL-Quote mehr als 25 % über fair
+VP_REF_MIN = 5                  # Schiri-Schnitt erst ab so vielen Spielen werten
+VP_POKAL = ("cup", "pokal", "copa", "coupe", "coppa", "taca", "taça", "beker", "kupa",
+            "kupok", "puchar", "pohar", "pohár", "trophy", "shield", "play-off", "playoff",
+            "play off", "qualif", "knockout", "relegation", "promotion")
+VP_INTERNATIONAL = ("uefa", "champions league", "europa league", "conference league",
+                    "libertadores", "sudamericana", "concacaf", "afc ", "caf ")
+VP_NAMEN = {1: "Quote", 2: "Rolle", 3: "Puffer", 4: "Daten", 5: "Wettbewerb", 6: "Schiri", 8: "Abstand"}
+
+
+def _vp_werte(history, metric, eigen=False):
+    """Jüngste VP_N gültige Werte: Spielsumme oder (eigen) die eigene Zahl."""
+    out = []
+    for m in history:
+        tot = metric_total(m, metric)
+        if tot is None:
+            continue
+        if eigen:
+            pair = (m.get("stats") or {}).get(metric)
+            if not pair:
+                continue
+            tot = pair[0] if m["is_home"] else pair[1]
+        out.append(tot)
+        if len(out) >= VP_N:
+            break
+    return out
+
+
+def _vp_puffer(werte, line, direction, metric):
+    """{n, hits, knapp (Treffer genau an der Linie), knapp_raus (knapp verfehlt), werte}"""
+    k = VP_KNAPP.get(metric, 0.5) + 1e-9
+    try:
+        L = float(line)
+    except (TypeError, ValueError):
+        return None
+    hits = knapp = raus = 0
+    for v in werte:
+        hit = v > L if direction == "über" else v < L
+        if hit:
+            hits += 1
+            knapp += abs(v - L) <= k
+        else:
+            raus += abs(v - L) <= k
+    return {"n": len(werte), "hits": hits, "knapp": knapp, "knapp_raus": raus, "werte": werte}
+
+
+def _vp_liga_anteil(history, league):
+    lg = [m.get("lg") for m in history[:VP_N] if m.get("lg")]
+    if not lg:
+        return None
+    return round(sum(1 for x in lg if x == league) / len(lg), 2)
+
+
+def _vp_1x2(odds_json):
+    rows = ((odds_json or {}).get("results") or {}).get("odds") or {}
+    for r in rows.get("1_1") or []:
+        if r.get("ss") in (None, "") and r.get("time_str") in (None, ""):
+            try:
+                return [float(r.get("home_od")), float(r.get("draw_od")), float(r.get("away_od"))]
+            except (TypeError, ValueError):
+                continue
+    return None
+
+
+def vp_daten(match, hist_home, hist_away, signals, team):
+    """Sammelt die Vorprüfungs-Daten an jedem Signal (Gesamt- und Team-Märkte).
+    Kostet höchstens zwei Anfragen je Spiel (1X2, Schiri) — und nur, wenn
+    attach_extras sie nicht ohnehin schon geholt hat."""
+    if "_vp_odds" not in match:
+        match["_vp_odds"] = api_get("/v2/event/odds", event_id=match["id"])
+    x12 = _vp_1x2(match.get("_vp_odds"))
+    karten = any(s.get("metric_key") in ("yellowcards", "ht_yellowcards") for s in signals) \
+        or any(t.get("metric_key") == "yellowcards" for t in team)
+    if karten and "_vp_ref" not in match:
+        view = api_get("/v1/event/view", event_id=match["id"])
+        res = (view.get("results") or [{}])[0]
+        match["_vp_ref"] = ((res.get("extra") or {}).get("referee")) or {}
+    ref = match.get("_vp_ref") or {}
+    ref_info = None
+    if ref.get("id"):
+        d = _ref_stats.get(str(ref["id"])) or {}
+        c = d.get("cards") or []
+        ref_info = {"name": ref.get("name", "?"), "n": len(c),
+                    "avg": round(sum(c) / len(c), 2) if c else None}
+    liga = [_vp_liga_anteil(hist_home, match.get("league")),
+            _vp_liga_anteil(hist_away, match.get("league"))]
+    cross = bool(match.get("_cross_league"))
+    for s in signals:
+        mk = s.get("metric_key")
+        s["vp_puffer"] = [_vp_puffer(_vp_werte(h, mk), s.get("line"), s.get("direction"), mk)
+                          for h in (hist_home, hist_away)]
+        s.update(vp_liga=liga, vp_cross=cross, vp_1x2=x12,
+                 vp_ref=ref_info if mk in ("yellowcards", "ht_yellowcards", "fouls") else None)
+    for t in team:
+        mk = t.get("metric_key")
+        h = hist_home if t.get("seite") == "heim" else hist_away
+        t["vp_puffer"] = [_vp_puffer(_vp_werte(h, mk, eigen=True), t.get("line"), t.get("direction"), mk)]
+        t.update(vp_liga=liga, vp_cross=cross, vp_1x2=x12,
+                 vp_ref=ref_info if mk == "yellowcards" else None)
+
+
+def _vp_basis(s):
+    """(Markt-Basis ohne team_/Seite, Seite 'heim'/'gast'/None)."""
+    mk = s.get("metric_key") or ""
+    if mk.startswith("team_"):
+        teile = mk.split("_")
+        return "_".join(teile[1:-1]), teile[-1]
+    return mk, None
+
+
+def vp_bewertung(match, s, quote=None):
+    """Prüfpunkte 1-6 und 8 für einen Tipp.
+    -> [(punkt, status, text)], status: ok / warn / stop / offen."""
+    out = []
+    basis, seite = _vp_basis(s)
+    richtung = s.get("direction")
+    try:
+        L = float(s.get("line"))
+    except (TypeError, ValueError):
+        L = None
+    fair = s.get("fair_fin") or s.get("fair")
+    mn, _ = play_min(s)
+    # 1 Signal + Quote
+    if quote and mn:
+        out.append((1, "ok" if quote >= mn - 1e-9 else "stop",
+                    f"BL {quote:.2f} {'≥' if quote >= mn - 1e-9 else '<'} spielbar ab {mn:.2f}"))
+    elif mn is None and fair:
+        out.append((1, "stop", "Markt laut Regelwerk nicht spielen"))
+    else:
+        out.append((1, "offen", "keine BetLabel-Quote"))
+    # 2 Rolle
+    x12 = s.get("vp_1x2")
+    if x12:
+        h, _, a = x12
+        if seite:
+            eigen, gegner = (h, a) if seite == "heim" else (a, h)
+            name = s.get("team") or ""
+            rolle = ("klarer Favorit" if eigen <= FAV_KLAR_MAX else
+                     "klarer Außenseiter" if gegner <= FAV_KLAR_MAX else
+                     "Favorit" if eigen < gegner else "Außenseiter")
+            txt = f"{name} {rolle} ({eigen:.2f})"
+            if basis == "corners" and richtung == "unter" and eigen <= FAV_KLAR_MAX:
+                out.append((2, "stop", txt + " – Team-Ecken unter als klarer Favorit: nicht spielen"))
+            elif basis == "corners" and richtung == "über" and gegner <= FAV_KLAR_MAX:
+                out.append((2, "warn", txt + " – Ecken über als klarer Außenseiter"))
+            elif basis == "yellowcards" and richtung == "unter" and gegner <= FAV_KLAR_MAX:
+                out.append((2, "warn", txt + " – Außenseiter foulen mehr"))
+            else:
+                out.append((2, "ok", txt))
+        else:
+            fav = fav_class(x12)
+            txt = (f"Favorit {match['home'] if h < a else match['away']} ({min(h, a):.2f})"
+                   if fav != "ausgeglichen" else f"ausgeglichen ({h:.2f}/{a:.2f})")
+            if basis in ("yellowcards", "fouls") and richtung == "unter" and fav == "ausgeglichen":
+                out.append((2, "warn", txt + " – enges Spiel, eher mehr Karten"))
+            else:
+                out.append((2, "ok", txt))
+    else:
+        out.append((2, "offen", "keine 1X2-Quote"))
+    # 3 Puffer
+    pp = [p for p in (s.get("vp_puffer") or []) if p]
+    if pp:
+        namen = [s.get("team") or ""] if seite else [match["home"], match["away"]]
+        teile, warn = [], False
+        for name, p in zip(namen, pp):
+            teile.append(f"{name} {p['hits']}/{p['n']}, {p['knapp']}x genau an der Linie")
+            if p["hits"] and 2 * p["knapp"] >= p["hits"]:
+                warn = True
+        out.append((3, "warn" if warn else "ok",
+                    ("dünner Puffer: " if warn else "") + " · ".join(teile)))
+    else:
+        out.append((3, "offen", "keine Einzelwerte gespeichert"))
+    # 4 Datenbasis
+    w4 = []
+    lg = (match.get("league") or "").lower()
+    pokal = any(w in lg for w in VP_POKAL)
+    international = any(w in lg for w in VP_INTERNATIONAL)
+    if s.get("vp_cross") and not (pokal or international):
+        w4.append("Teams aus verschiedenen Ligen")
+    if any(p["n"] < 8 for p in pp):
+        w4.append("weniger als 8 Spiele mit Daten")
+    if youth_or_reserve(match):
+        w4.append("Jugend/Reserve – Zuordnung prüfen")
+    out.append((4, "warn" if w4 else "ok", " · ".join(w4) if w4 else
+                ("Werte aus den heimischen Ligen" if international else "Datenbasis unauffällig")))
+    # 5 Wettbewerb
+    out.append((5, "warn" if pokal else "ok",
+                "Pokal/K.o. – Rotation und Spielverlauf beachten" if pokal else "Liga-/Gruppenspiel"))
+    # 6 Schiri (nur Karten/Fouls)
+    if basis in ("yellowcards", "ht_yellowcards", "fouls"):
+        r = s.get("vp_ref")
+        if not r:
+            out.append((6, "offen", "Schiri noch nicht angesetzt"))
+        elif r.get("avg") is None or r["n"] < VP_REF_MIN:
+            out.append((6, "offen", f"Schiri {r['name']} – zu wenige Spiele ({r['n']})"))
+        else:
+            avg = r["avg"]
+            vgl = avg / 2 if seite else avg          # Team-Markt: halber Spielschnitt
+            txt = f"Schiri {r['name']} Ø {avg:.1f} Gelbe ({r['n']} Sp.)"
+            if basis == "yellowcards" and L is not None:
+                schlecht = vgl > L - 0.5 if richtung == "unter" else vgl < L + 0.5
+                out.append((6, "warn" if schlecht else "ok", txt))
+            else:
+                out.append((6, "ok", txt))
+    else:
+        out.append((6, "ok", "entfällt (kein Kartenmarkt)"))
+    # 8 Quotenabstand
+    if quote and fair:
+        gap = quote / fair - 1
+        out.append((8, "warn" if gap > VP_ABSTAND else "ok",
+                    f"BL {gap * 100:+.0f} % gegen fair {fair:.2f}"
+                    + (" – Grund suchen" if gap > VP_ABSTAND else "")))
+    else:
+        out.append((8, "offen", "keine Quote zum Vergleich"))
+    return out
+
+
+def fmt_vp(punkte) -> str:
+    """Kurzzeile für die BetLabel-Liste: Zahl der grünen Punkte + nur die
+    Warnungen im Klartext (Telegram am Handy)."""
+    if not punkte:
+        return ""
+    ok = sum(1 for _, st, _ in punkte if st == "ok")
+    stop = [t for _, st, t in punkte if st == "stop"]
+    warn = [t for _, st, t in punkte if st == "warn"]
+    offen = [VP_NAMEN.get(p, str(p)) for p, st, _ in punkte if st == "offen"]
+    teile = [f"🔎 {ok}/{len(punkte)} ✓"]
+    teile += [f"⛔ {esc(t)}" for t in stop]
+    teile += [f"⚠️ {esc(t)}" for t in warn]
+    if offen:
+        teile.append(f"offen: {', '.join(offen)}")
+    return "   " + " · ".join(teile)
 
 
 def attach_extras(match, signals):
@@ -3682,6 +3964,7 @@ def attach_extras(match, signals):
             for s in signals:
                 if s["metric_key"] in ("yellowcards", "offsides"):
                     s["fav"] = fav
+            match["_vp_odds"] = _odds_cache.get("o")
         except BudgetExhausted:
             raise
         except Exception as exc:
@@ -3711,6 +3994,7 @@ def attach_extras(match, signals):
             view = api_get("/v1/event/view", event_id=match["id"])
             res = (view.get("results") or [{}])[0]
             ref = ((res.get("extra") or {}).get("referee")) or {}
+            match["_vp_ref"] = ref
             if ref.get("id"):
                 note = referee_note(ref["id"], ref.get("name", "?"))
                 for s in signals:
@@ -5502,7 +5786,9 @@ def team_to_signal(t):
             "fair": t["fair"], "fair_fin": t["fair"], "p_fin": t["p"],
             "p_emp": t.get("p_emp"), "p_mod": t.get("p_mod"), "light": "🟢",
             "unverified": bool(t.get("unverified")), "no_tab": bool(t.get("no_tab")),
-            "pending": bool(t.get("pending"))}
+            "pending": bool(t.get("pending")),
+            "vp_seite": t.get("seite"),
+            **{k: v for k, v in t.items() if k.startswith("vp_")}}
 
 
 def team_signals(match, hist_home, hist_away):
@@ -6105,6 +6391,15 @@ def _run():
         exo = [sg for sg in exo
                if (sg.get("fair_fin") or sg.get("fair") or 0) >= MIN_FAIR
                and sg.get("light") != "🔴"]
+        if VORPRUEFUNG and (signals or team):
+            _t = time.time()
+            try:
+                vp_daten(match, hist_home, hist_away, signals, team)
+            except BudgetExhausted:
+                raise
+            except Exception as exc:
+                print(f"  Vorprüfung {match['home']}–{match['away']}: {exc}")
+            _zeit_add("vorpruefung", time.time() - _t)
         return signals, gated_out, unverifiable, who, team, exo
 
     who_hits = []
@@ -6279,6 +6574,22 @@ def _run():
                  if _s24_stats['last_error'] else ""))
     print(f"Anfragen gesamt: {_request_count} · Dauer {int(time.time() - t_start)} s · "
           f"{_cold_teams[0]} Teams nachgeladen · {len(deferred)} Spiele verschoben")
+    # 15.10. (Lucio: "Ja und danach B"): Zweitprüfung durch den Agenten für
+    # alle Tipps der BetLabel-Liste ohne heutiges Urteil — nach dem Bericht,
+    # damit die Liste nie wartet. Neue Urteile kommen als eigene Nachricht.
+    if AGENT_AN and BETLABEL_QUOTES and _BL:
+        try:
+            import agent
+            text, proto = agent.laufen(sys.modules[__name__],
+                                       bl_tipps(day_list(buckets, new_state)))
+            log["agent"] = proto
+            (RUNS_DIR / f"{now:%Y-%m-%d_%H%M}.json").write_text(
+                json.dumps(log, ensure_ascii=False, indent=1))
+            if text and TG_TOKEN and TG_CHAT:
+                for c in split_message(text):
+                    send_telegram(c)
+        except Exception as exc:
+            print(f"Agent: {type(exc).__name__}: {exc}")
     # 15.10. (Lucio): Marktarchiv – nach dem Telegram-Versand, damit die
     # Meldung nie wartet. Ergebnisse vom Vortag morgens, Sammeln um 11 Uhr.
     try:
@@ -7696,6 +8007,23 @@ def selftest():
     if "1.52</b> ✅" not in _t31a or "❌" not in _t31b or "ohne 5.5" not in _t31c or fmt_bl(_m31, _s31) != "" \
             or "PASST BEI BETLABEL (0)" not in (_blk or ""):
         print("FEHLER Fall 31: BetLabel-Anzeige", _t31a, _t31b, _t31c, _blk); ok = False
+    # Fall 32 (15.10.): Vorprüfung — Puffer "genau an der Linie", Regeln
+    _p32 = _vp_puffer([1, 1, 1, 1, 1, 1, 2, 0, 0, 1], 1.5, "unter", "yellowcards")
+    if (_p32["hits"], _p32["knapp"], _p32["knapp_raus"]) != (9, 7, 1):
+        print("FEHLER Fall 32: Puffer", _p32); ok = False
+    _m32 = {"id": "m32", "home": "A", "away": "B", "league": "Eredivisie"}
+    _s32 = {"metric": "A: Ecken", "metric_key": "team_corners_heim", "direction": "unter",
+            "line": 4.5, "fair_fin": 1.4, "team_market": True, "team": "A",
+            "vp_1x2": [1.30, 5.0, 9.0], "vp_puffer": [_p32]}
+    _v32 = dict((p, (st, t)) for p, st, t in vp_bewertung(_m32, _s32, 1.80))
+    if _v32[2][0] != "stop" or _v32[3][0] != "warn" or _v32[8][0] != "warn" or _v32[6][0] != "ok":
+        print("FEHLER Fall 32: Bewertung", _v32); ok = False
+    _m32b = {"id": "m32b", "home": "A", "away": "B", "league": "Uruguay Cup"}
+    _v32b = dict((p, st) for p, st, t in vp_bewertung(_m32b, dict(_s32, vp_cross=True), 1.45))
+    if _v32b[5] != "warn" or _v32b[4] != "ok" or _v32b[8] != "ok":
+        print("FEHLER Fall 32: Pokal/Cross", _v32b); ok = False
+    if "⛔" not in fmt_vp(vp_bewertung(_m32, _s32, 1.80)):
+        print("FEHLER Fall 32: Anzeige"); ok = False
     print("Selbsttest OK" if ok else "Selbsttest FEHLGESCHLAGEN")
     sys.exit(0 if ok else 1)
 

@@ -74,6 +74,8 @@ jobs:
           BETSAPI_TOKEN_B365: ${{ secrets.BETSAPI_TOKEN_B365 || secrets.BETSAPI_TOKEN_TRIAL || secrets.BETSAPI_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # 15.10.: Zweitprüfung per Claude-Agent (agent.py) – ohne Secret passiert nichts
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PYTHONUNBUFFERED: "1"
           BACKFILL: ${{ inputs.modus == 'nachladen' && '1' || '0' }}
           INVENTORY: ${{ inputs.modus == 'inventar' && '1' || '0' }}

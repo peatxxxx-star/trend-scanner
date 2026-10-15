@@ -670,3 +670,22 @@ Lucio: Strategie-Suche über alle Spiele und Märkte. Täglich im Lauf um 11:13 
 - Projekt war 2,07 GB groß und wuchs ~150 MB/Tag: Der Statistik-Speicher (8 MB gz) wurde stündlich komplett neu abgelegt. Seit 15.10. liegt er in `cache/stats/` als 64 Textdateien (eine Zeile je Spiel) – Git speichert nur noch die geänderten Zeilen.
 - BetLabel-Spielliste wird nur alle 3 h neu geladen (`cache/bl_spiele.json.gz`), sonst ~2 min je Stundenlauf; neu laden nur, wenn ein Tipp-Spiel neu fehlt.
 - Die alte Historie (2 GB) bleibt unangetastet – Verkleinern ginge nur durch Umschreiben der Git-Historie, das nur mit Lucios ausdrücklichem Go.
+
+## 25. Automatische Zweitprüfung (15.10.)
+
+Lucio: „Könntest du deine Bewertung spielen oder nicht spielen … automatisieren mit einem Agenten?“ → „Ja und danach B“.
+
+**Teil A – Vorprüfung im Scanner (feste Regeln, kostenlos).** Unter jedem Tipp der Liste „PASST BEI BETLABEL“ steht eine Zeile `🔎 x/7 ✓`, dazu nur die Warnungen im Klartext:
+1. Quote: BL-Quote gegen „spielbar ab“.
+2. Rolle aus der 1X2-Quote. ⛔ Team-Ecken unter als klarer Favorit (≤ 1,60). ⚠️ Team-Ecken über als klarer Außenseiter, Team-Karten unter als klarer Außenseiter, Karten/Fouls unter bei ausgeglichenem Spiel.
+3. Puffer: letzte 10 Spiele einzeln. ⚠️ wenn mindestens die Hälfte der Treffer genau an der Linie lag (Abstand 0,5; Fouls/Schüsse 1,5, Einwürfe 2,5).
+4. Daten: ⚠️ Teams aus verschiedenen Ligen (außer Pokal/Europapokal, dort normal), weniger als 8 Spiele mit Daten, Jugend/Reserve.
+5. Wettbewerb: ⚠️ Pokal/K.o./Play-off/Quali am Liga-Namen erkannt.
+6. Schiri (nur Karten/Fouls): Ø Gelbe aus der eigenen Datenbank ab 5 Spielen. ⚠️ wenn der Schnitt gegen die Richtung spricht (Team-Markt: halber Spielschnitt).
+8. Abstand: ⚠️ BL-Quote > 25 % über fair.
+Punkt 7 (Gegner, Rotation, News) geht nur mit Websuche → Teil B.
+
+**Teil B – Agent (`agent.py`, Claude über die API).** Nach jedem Bericht prüft der Agent alle Tipps der BetLabel-Liste, die heute noch kein Urteil haben: feste Liste 1–8 mit Websuche (Schiri, Rotation, Aufstellung, Tabelle, Hin-/Rückspiel), Urteil „spielen“/„nicht spielen“ mit Grund. Neue Urteile kommen als eigene Nachricht „🤖 ZWEITPRÜFUNG“, danach steht das Urteil in jeder Liste unter dem Tipp (`🤖 …`). Je Tipp ein Urteil pro Tag (`state/agent.json`).
+- Schlüssel: GitHub-Secret `ANTHROPIC_API_KEY` (Lucio legt es selbst an, nie im Chat). Ohne Secret läuft nur Teil A.
+- Modell `claude-sonnet-5-5`, höchstens 5 Websuchen je Tipp. Kostenbremse: 20 Tipps und 3 $ je Tag (`AGENT_MAX_TAG`, `AGENT_MAX_USD_TAG`). Kosten je Lauf stehen im Lauf-Protokoll unter `agent`.
+- Das Urteil ersetzt nicht Lucios Entscheidung. Auswertung wie beim Veto-Log: Agent-Urteile gegen Ergebnisse, nach ~30 Urteilen.
