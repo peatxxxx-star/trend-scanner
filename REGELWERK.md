@@ -642,6 +642,7 @@ Nachtrag 14.10. abends (Lucio: „Hatten wir das nicht geklärt?“): Am selben 
 - Antwort je Tipp IMMER als feste Liste 1–8, jeder Punkt mit ✓ (geprüft, Ergebnis) oder ⚠️ (nicht prüfbar + warum). Kein Punkt darf fehlen.
 - „spielen“ nur, wenn alle 8 Punkte stehen. Ist ein Punkt nicht prüfbar, steht das als ⚠️ ausdrücklich da.
 - Gilt auch für Spaßscheine und bei Zeitdruck.
+- 15.10. (Lucio: „da müsstest du schon von alleine dran denken“): ⚠️ nur für echte Unsicherheit im Spiel (dünner Puffer, Widerspruch, Rotation) – NIE für eigene Suchprobleme. Fehlen Daten, erst selbst beschaffen: anderer Teamname (`team_werte.py` sucht unscharf), Ergebnis-/Statistik-Abruf über die API, Websuche. Erst wenn das alles nichts bringt, „Daten fehlen“ melden – mit dem, was versucht wurde.
 
 ## 21. BetLabel-Quote je Tipp im Telegram (14.10.)
 

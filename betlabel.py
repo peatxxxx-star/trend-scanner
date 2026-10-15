@@ -122,11 +122,21 @@ def name_info(name):
 
 
 def _tok_eq(a, b):
+    """Gleiches Wort, Wort ist Anfang des anderen (Bayer/Bayern) oder fast
+    gleich (Sevilla/Seville). 15.10.: vorher reichten 4 gleiche Anfangs-
+    buchstaben – dadurch war "Paris" = "Parikrma"."""
     if a == b:
         return True
-    if len(a) >= 4 and len(b) >= 4 and (a.startswith(b[:4]) and b.startswith(a[:4])):
+    if min(len(a), len(b)) < 4:
+        return False
+    if a.startswith(b) or b.startswith(a):
         return True
-    return False
+    k = 0
+    for x, y in zip(a, b):
+        if x != y:
+            break
+        k += 1
+    return k >= 0.8 * max(len(a), len(b))
 
 
 def _lose(a, b):
@@ -393,6 +403,9 @@ def selbsttest():
         (("Dinamo Moscow", "Dynamo Moscow"), True),
         (("JK Nomme Kalju II", "Nomme Kalju U21"), True),
         (("Nomme Kalju U19", "Nomme Kalju U21"), False),
+        (("PSG", "Parikrma FC"), False),
+        (("Sevilla", "Seville"), True),
+        (("Bayer Leverkusen", "Bayer 04 Leverkusen"), True),
         (("TJ Slavoj Boleraz", "Boleraz"), True),
         (("Paris Saint Germain", "Paris SG"), True),
     ]
