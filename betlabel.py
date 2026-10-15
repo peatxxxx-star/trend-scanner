@@ -171,8 +171,20 @@ def name_score(a, b):
 
 
 # ---------------------------------------------------------------- Spielliste
+_SPIELE_CACHE = {"t": 0, "v": None}
+
+
 def lade_spiele():
-    """Alle Vor-Spiel-Fußballspiele: [{I, L, O1, O2, S}]."""
+    """Alle Vor-Spiel-Fußballspiele: [{I, L, O1, O2, S}]. 15.10.: innerhalb
+    eines Laufs (30 min) nur einmal laden – das Archiv nutzt dieselbe Liste."""
+    if _SPIELE_CACHE["v"] is not None and time.time() - _SPIELE_CACHE["t"] < 1800:
+        return _SPIELE_CACHE["v"]
+    v = _lade_spiele_neu()
+    _SPIELE_CACHE.update(t=time.time(), v=v)
+    return v
+
+
+def _lade_spiele_neu():
     champs = _get("GetChampsZip", sport=1, lng="de", country=1).get("Value") or []
     champs = [c for c in champs
               if c.get("LI") and not any(w in (c.get("L") or "").lower() for w in CHAMP_SKIP)]
@@ -519,6 +531,10 @@ def archiv_sammeln(scanner_spiele, pfad, deadline_ts, pause=0.0, max_fehler=25, 
         g, swap = finde_spiel(spiele, m["home"], m["away"], m.get("kickoff_ts"))
         if g and g["I"] not in zu:
             zu[g["I"]] = {"ev": str(m["id"]), "swap": bool(swap), "liga": m.get("league")}
+    # 15.10.: Spiele ohne Gegenstück in unserer Datenbank lassen sich nie
+    # auswerten (kein Ergebnis) – gar nicht erst abfragen.
+    alle_bl = len(spiele)
+    spiele = [g for g in spiele if g["I"] in zu]
     ergebnis, stop = [], {"grund": None}
     lock = threading.Lock()
 
@@ -561,7 +577,8 @@ def archiv_sammeln(scanner_spiele, pfad, deadline_ts, pause=0.0, max_fehler=25, 
             if e and e["m"]:
                 with lock:
                     ergebnis.append(e)
-    info = {"zeit": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()), "spiele_bl": len(spiele),
+    info = {"zeit": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()), "spiele_bl": alle_bl,
+            "abgefragt": len(spiele),
             "gesichert": len(ergebnis), "zugeordnet": sum(1 for e in ergebnis if e.get("ev")),
             "linien": sum(len(v) for e in ergebnis for v in e["m"].values()),
             "anfragen": _stats["anfragen"], "fehler": _stats["fehler"], "abbruch": stop["grund"],
