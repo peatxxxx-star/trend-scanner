@@ -5811,6 +5811,19 @@ def _run():
         _msg = ((_ev.get("head_commit") or {}).get("message") or "")
     except Exception:
         _msg = ""
+    if "Ergebnis-Abruf:" in _msg:
+        # 15.10.: Endstände/Statistiken einzelner Spiele sofort holen (Veto-
+        # Protokoll, Scheine) — IDs hinter "Ergebnis-Abruf:" kommagetrennt.
+        _ids = [x.strip() for x in _msg.split("Ergebnis-Abruf:", 1)[1].splitlines()[0].split(",") if x.strip()]
+        _out = {}
+        for i in range(0, len(_ids), 10):
+            v = api_get("/v1/event/view", event_id=",".join(_ids[i:i + 10]))
+            for ev in v.get("results", []):
+                _out[ev["id"]] = {"slim": slim_event(ev), "ss": ev.get("ss"), "time_status": ev.get("time_status"),
+                                  "home": (ev.get("home") or {}).get("name"), "away": (ev.get("away") or {}).get("name")}
+        (RUNS_DIR / f"ergebnisse_{datetime.now():%Y-%m-%d_%H%M}.json").write_text(json.dumps(_out, ensure_ascii=False, indent=1))
+        print("Ergebnisse:", len(_out))
+        return
     if "BetLabel-Dump" in _msg:
         # 14.10.: alle BetLabel-Linien einer Liga sichern (Einzelanalyse),
         # Stichwort hinter "BetLabel-Dump:" in der Commit-Nachricht.
