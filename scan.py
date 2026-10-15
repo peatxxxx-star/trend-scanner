@@ -2877,7 +2877,7 @@ def build_match_block(match, entries):
             fair = s.get("fair_fin") or s.get("fair")
             check = (" · ✓ <i>Markt bei bet365</i>" if s.get("b365_proof")
                      else unverified_note(s) if s.get("unverified")
-                     else " · <i>Quote selbst prüfen</i>" if s.get("no_odds_check") else "")
+                     else " · <i>Quote selbst prüfen</i>" if (s.get("no_odds_check") and not (bl_status(match, s) or (None,))[0]) else "")
             lines.append(head + (f" · Fair {fair:.2f}" if fair else "") + fmt_play(s) + fmt_bl(match, s) + fmt_b365(s) + check
                          + buffer_evidence(s, short=True))
             lines.append(f"   {esc(match['home'])} {fmt_series(s['home_series'], s['home_is_anchor'])}"
@@ -3534,6 +3534,12 @@ def fmt_bl(match, s) -> str:
         return f" · 💶 BL <b>{q:.2f}</b> ✅" if passt else f" · 💶 BL {q:.2f} ❌ <i>zu tief</i>"
     if r.get("nah"):
         L, c = r["nah"]
+        try:
+            weit = abs(float(L) - float(s.get("line"))) > 1.01
+        except (TypeError, ValueError):
+            weit = True
+        if weit:                       # 15.10.: "ohne 2.5 (5.5: 1.48)" sagt nichts – nur Nachbarlinien ±1
+            return ""
         return f" · 💶 BL ohne {s.get('line')} <i>({L:g}: {c:.2f})</i>"
     grund = r.get("fehlt") or "keine Quote"
     # 14.10. (Lucio): "Markt noch nicht da" ist Müll — solange BetLabel den
