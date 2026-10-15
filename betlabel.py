@@ -185,7 +185,9 @@ def lade_spiele():
         except Exception:
             return []
         return [{"I": g.get("I"), "L": g.get("L"), "O1": g.get("O1"), "O2": g.get("O2"),
-                 "S": int(g.get("S") or 0)} for g in v if g.get("I") and g.get("O1") and g.get("O2")]
+                 "S": int(g.get("S") or 0),
+                 "x12": {str(e.get("T")): e.get("C") for e in g.get("E") or [] if e.get("G") == 1}}
+                for g in v if g.get("I") and g.get("O1") and g.get("O2")]
 
     spiele = []
     with ThreadPoolExecutor(THREADS) as ex:
@@ -479,3 +481,88 @@ def dump_liga(stichwort, pfad):
     import pathlib
     pathlib.Path(pfad).write_text(json.dumps(out, ensure_ascii=False, indent=0))
     print(f"BetLabel-Dump {stichwort}: {len(out)} Spiele")
+
+
+# ----------------------------------------------------------------------------
+# 15.10. (Lucio): Marktarchiv – einmal täglich das komplette BetLabel-Angebot
+# (alle Über/Unter-Linien, Halbzeiten, Team-Märkte, 1X2) der nächsten 24 h
+# sichern; die Ergebnisse kommen am nächsten Morgen dazu. Grundlage für die
+# Strategie-Auswertung nach 3–4 Wochen. Gebremst + Notbremse bei Fehlern,
+# damit die Live-Quoten im Telegram nie gefährdet werden.
+ARCHIV_TITEL = {"Eckstöße": "corners", "Gelbe Karten": "yellowcards", "Schüsse auf das Tor": "on_target",
+                "Abseitsstellungen": "offsides", "Fouls": "fouls", "Torschüsse": "shots_total",
+                "Einwürfe": "throwins", "Abstöße": "goalkicks", "": "goals"}
+ARCHIV_TEIL = {"": "", "1. Halbzeit": "_h1", "2. Halbzeit": "_h2"}
+
+
+def _leitern_kompakt(val, basis):
+    out = {}
+    for name, gr, a, b in ((basis, 17, 9, 10), (basis + "_heim", 15, 11, 12), (basis + "_gast", 62, 13, 14)):
+        lad = _leiter(val, gr, a, b)
+        if lad:
+            out[name] = {("o" if d == "über" else "u") + f"{L:g}": q for (d, L), q in sorted(lad.items())}
+    return out
+
+
+def archiv_sammeln(scanner_spiele, pfad, deadline_ts, pause=0.7, max_fehler=25):
+    """scanner_spiele: [{id, home, away, kickoff_ts}] (BetsAPI) für die Zuordnung."""
+    import gzip as _gz
+    t0 = time.time()
+    _stats["anfragen"] = 0
+    _stats["fehler"] = 0
+    spiele = lade_spiele()
+    jetzt = time.time()
+    spiele = [g for g in spiele if jetzt < g["S"] < jetzt + 24 * 3600]
+    # BetsAPI-Zuordnung (für die Ergebnisse)
+    zu = {}
+    for m in scanner_spiele:
+        g, swap = finde_spiel(spiele, m["home"], m["away"], m.get("kickoff_ts"))
+        if g and g["I"] not in zu:
+            zu[g["I"]] = {"ev": str(m["id"]), "swap": bool(swap), "liga": m.get("league")}
+    ergebnis, stop = [], {"grund": None}
+    lock = threading.Lock()
+
+    def eins(g):
+        if stop["grund"]:
+            return None
+        if time.time() > deadline_ts:
+            stop["grund"] = "Zeitgrenze"
+            return None
+        if _stats["fehler"] >= max_fehler:
+            stop["grund"] = "Notbremse (Fehler)"
+            return None
+        e = {"I": g["I"], "S": g["S"], "L": g["L"], "O1": g["O1"], "O2": g["O2"], "x12": g.get("x12"),
+             **(zu.get(g["I"]) or {}), "m": {}}
+        try:
+            haupt = _spiel_detail(g["I"])
+            time.sleep(pause)
+        except Exception:
+            return None
+        e["m"].update(_leitern_kompakt(haupt, "goals"))
+        for sg in haupt.get("SG") or []:
+            tg, pn = (sg.get("TG") or "").strip(), (sg.get("PN") or "").strip()
+            if tg not in ARCHIV_TITEL or pn not in ARCHIV_TEIL or (tg == "" and pn == ""):
+                continue
+            if stop["grund"] or time.time() > deadline_ts:
+                break
+            try:
+                val = _spiel_detail(sg.get("CI") or sg.get("I"))
+                time.sleep(pause)
+            except Exception:
+                continue
+            e["m"].update(_leitern_kompakt(val, ARCHIV_TITEL[tg] + ARCHIV_TEIL[pn]))
+        return e
+
+    with ThreadPoolExecutor(3) as ex:
+        for e in ex.map(eins, spiele):
+            if e and e["m"]:
+                with lock:
+                    ergebnis.append(e)
+    info = {"zeit": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()), "spiele_bl": len(spiele),
+            "gesichert": len(ergebnis), "zugeordnet": sum(1 for e in ergebnis if e.get("ev")),
+            "linien": sum(len(v) for e in ergebnis for v in e["m"].values()),
+            "anfragen": _stats["anfragen"], "fehler": _stats["fehler"], "abbruch": stop["grund"],
+            "sekunden": round(time.time() - t0)}
+    with _gz.open(pfad, "wt", encoding="utf-8") as f:
+        json.dump({"info": info, "spiele": ergebnis}, f, ensure_ascii=False, separators=(",", ":"))
+    return info

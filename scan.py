@@ -5797,6 +5797,67 @@ def token_check():
     send_telegram(txt)
 
 
+ARCHIV_DIR = RUNS_DIR / "archiv"
+ARCHIV_STUNDE = 11          # Sammeln im Lauf um 11:13
+ARCHIV_MAX_MIN = 40         # Gesamtlaufzeit-Grenze inkl. Scan
+
+
+def _msg_aus_event():
+    try:
+        ev = json.loads(Path(os.environ.get("GITHUB_EVENT_PATH", "")).read_text())
+        return ((ev.get("head_commit") or {}).get("message") or "")
+    except Exception:
+        return ""
+
+
+def marktarchiv(t_start, msg=""):
+    from zoneinfo import ZoneInfo
+    import gzip as _gz
+    import betlabel
+    jetzt = datetime.now(ZoneInfo("Europe/Berlin"))
+    ARCHIV_DIR.mkdir(parents=True, exist_ok=True)
+    # 1) Ergebnisse für frühere Archive nachtragen (alle ohne Ergebnis, max. 3 Tage zurück)
+    for tage in (1, 2, 3):
+        tag = (jetzt - timedelta(days=tage)).strftime("%Y-%m-%d")
+        pfad = ARCHIV_DIR / f"bl_{tag}.json.gz"
+        if not pfad.exists():
+            continue
+        daten = json.load(_gz.open(pfad, "rt", encoding="utf-8"))
+        offen = [e["ev"] for e in daten["spiele"] if e.get("ev") and "erg" not in e]
+        if not offen:
+            continue
+        erg = {}
+        try:
+            for i in range(0, len(offen), 10):
+                v = api_get("/v1/event/view", event_id=",".join(offen[i:i + 10]))
+                for ev in v.get("results", []):
+                    if str(ev.get("time_status")) == "3":
+                        erg[str(ev["id"])] = slim_event(ev)
+        except BudgetExhausted:
+            print("Marktarchiv: API-Limit beim Ergebnis-Nachtrag – Rest im nächsten Lauf")
+        for e in daten["spiele"]:
+            if e.get("ev") in erg:
+                e["erg"] = erg[e["ev"]]
+        with _gz.open(pfad, "wt", encoding="utf-8") as f:
+            json.dump(daten, f, ensure_ascii=False, separators=(",", ":"))
+        print(f"Marktarchiv {tag}: {len(erg)} Ergebnisse nachgetragen")
+    # 2) Heute sammeln (einmal am Tag um 11 Uhr oder per "Marktarchiv" in der Commit-Nachricht)
+    heute = jetzt.strftime("%Y-%m-%d")
+    pfad = ARCHIV_DIR / f"bl_{heute}.json.gz"
+    if pfad.exists() and "Marktarchiv" not in msg:
+        return
+    if jetzt.hour != ARCHIV_STUNDE and "Marktarchiv" not in msg:
+        return
+    deadline = t_start + ARCHIV_MAX_MIN * 60
+    if time.time() > deadline - 5 * 60:
+        print("Marktarchiv: zu wenig Zeit übrig – übersprungen")
+        return
+    spiele = fetch_matches_in_window(datetime.now(timezone.utc), datetime.now(timezone.utc) + timedelta(hours=24))
+    spiele = spiele if isinstance(spiele, list) else list(spiele.values()) if isinstance(spiele, dict) else list(spiele)
+    info = betlabel.archiv_sammeln(spiele, str(pfad), deadline)
+    print("Marktarchiv:", info)
+
+
 def _run():
     if os.environ.get("TOKENCHECK") == "1":
         token_check()
@@ -6179,6 +6240,12 @@ def _run():
                  if _s24_stats['last_error'] else ""))
     print(f"Anfragen gesamt: {_request_count} · Dauer {int(time.time() - t_start)} s · "
           f"{_cold_teams[0]} Teams nachgeladen · {len(deferred)} Spiele verschoben")
+    # 15.10. (Lucio): Marktarchiv – nach dem Telegram-Versand, damit die
+    # Meldung nie wartet. Ergebnisse vom Vortag morgens, Sammeln um 11 Uhr.
+    try:
+        marktarchiv(t_start, _msg_aus_event())
+    except Exception as exc:
+        print(f"Marktarchiv: {type(exc).__name__}: {exc}")
 
 
 # ----------------------------------------------------------------------------
