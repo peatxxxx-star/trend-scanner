@@ -504,7 +504,7 @@ def _leitern_kompakt(val, basis):
     return out
 
 
-def archiv_sammeln(scanner_spiele, pfad, deadline_ts, pause=0.0, max_fehler=25, threads=8):
+def archiv_sammeln(scanner_spiele, pfad, deadline_ts, pause=0.0, max_fehler=25, threads=16):
     """scanner_spiele: [{id, home, away, kickoff_ts}] (BetsAPI) für die Zuordnung."""
     import gzip as _gz
     t0 = time.time()
