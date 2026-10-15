@@ -67,8 +67,10 @@ Regeln:
 - Kurz und klar, Deutsch, jeder Punkt höchstens ein Satz.
 - Im JSON keine Zitat-Markierungen, keine Quellen-Tags, kein HTML – nur Klartext.
 
+Es können mehrere Tipps zum selben Spiel kommen (TIPP 1, TIPP 2 …) – recherchiere das Spiel einmal und bewerte jeden Tipp einzeln. Liegt eine Recherche aus einem früheren Lauf vor, nutze sie und suche nur nach, was fehlt oder sich geändert haben kann (z. B. Aufstellung kurz vor Anpfiff).
+
 Antworte am Ende AUSSCHLIESSLICH mit diesem JSON (kein Text davor oder danach):
-{"urteil": "spielen" oder "nicht spielen", "grund": "der entscheidende Grund in einem Satz", "punkte": [{"nr": 1, "status": "✓" oder "⚠️", "text": "..."}, ... bis nr 8]}"""
+{"spiel_info": "Recherche zum Spiel in 2-3 Sätzen (Schiri, Rotation/Ausfälle, Kontext) – wird für spätere Tipps desselben Spiels wiederverwendet", "tipps": [{"tipp": 1, "urteil": "spielen" oder "nicht spielen", "grund": "der entscheidende Grund in einem Satz", "punkte": [{"nr": 1, "status": "✓" oder "⚠️", "text": "..."}, ... bis nr 8]}]}"""
 
 
 def _sauber(txt):
@@ -98,7 +100,9 @@ def _heute():
 def _aufraeumen(d):
     """Urteile älter als 3 Tage raus."""
     grenze = time.time() - 3 * 86400
-    return {k: v for k, v in d.items() if k == "_tag" or (v.get("ts") or 0) > grenze}
+    out = {k: v for k, v in d.items() if k in ("_tag", "_spiele") or (v.get("ts") or 0) > grenze}
+    out["_spiele"] = {k: v for k, v in (out.get("_spiele") or {}).items() if (v.get("ts") or 0) > grenze}
+    return out
 
 
 _CACHE = {"d": None}
@@ -160,18 +164,19 @@ def _json_aus(txt):
     for start in [i for i, ch in enumerate(txt) if ch == "{"]:
         try:
             erg = json.loads(txt[start:e + 1])
-            if isinstance(erg, dict) and "urteil" in erg:
+            if isinstance(erg, dict) and isinstance(erg.get("tipps"), list):
                 return _ohne_zitate(erg)
         except json.JSONDecodeError:
             continue
     return None
 
 
-def frage_claude(text):
+def frage_claude(text, max_suchen=None):
     """Ein Tipp -> (Antwort-JSON, Kosten-Dict). Fehler: AgentFehler mit Kosten."""
     msgs = [{"role": "user", "content": text}]
     kosten = {"in": 0, "out": 0, "suchen": 0}
-    tools = [{"type": "web_search_20250305", "name": "web_search", "max_uses": MAX_SUCHEN}]
+    tools = [{"type": "web_search_20250305", "name": "web_search",
+              "max_uses": MAX_SUCHEN if max_suchen is None else max_suchen}]
     verlauf = []                              # stop_reason je Aufruf (Diagnose)
     antwort, erg = None, None
     for schritt in range(7):
@@ -211,23 +216,11 @@ def frage_claude(text):
     raise AgentFehler(f"kein Urteil ({' > '.join(verlauf)})", kosten)
 
 
-def tipp_text(scan, match, s, q, mn):
-    """Alles, was der Agent über den Tipp wissen muss."""
-    tage = ("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag")
-    _n = datetime.now(BERLIN)
-    jetzt = f"{tage[_n.weekday()]} {_n:%d.%m.%Y %H:%M}"
-    ko = datetime.fromtimestamp(match.get("kickoff_ts") or 0, BERLIN).strftime("%d.%m.%Y %H:%M") \
-        if match.get("kickoff_ts") else match.get("kickoff")
+def _tipp_teil(scan, match, s, q, mn):
     fair = s.get("fair_fin") or s.get("fair")
-    zeilen = [
-        f"Jetzt: {jetzt} (deutsche Zeit).",
-        f"Spiel: {match['home']} – {match['away']}",
-        f"Wettbewerb: {match.get('league', '')}",
-        f"Anstoß: {ko} (deutsche Zeit)",
-        f"Tipp: {s.get('metric')} {s.get('direction')} {s.get('line')}"
-        + (f" (Team-Markt: {s.get('team')})" if s.get("team_market") else " (beide Teams zusammen)"),
-        f"BetLabel-Quote: {q:.2f} · faire Quote Scanner: {fair:.2f} · spielbar ab: {mn:.2f}",
-    ]
+    zeilen = [f"Tipp: {s.get('metric')} {s.get('direction')} {s.get('line')}"
+              + (f" (Team-Markt: {s.get('team')})" if s.get("team_market") else " (beide Teams zusammen)"),
+              f"BetLabel-Quote: {q:.2f} · faire Quote Scanner: {fair:.2f} · spielbar ab: {mn:.2f}"]
     if s.get("team_market") and s.get("serie"):
         sr = s["serie"]
         zeilen.append(f"Scanner-Serie {s.get('team')}: {sr.get('hits')}/{sr.get('window')} ({sr.get('kind')}); "
@@ -245,20 +238,40 @@ def tipp_text(scan, match, s, q, mn):
             art = "eigene Werte" if s.get("team_market") else "Spielsummen"
             zeilen.append(f"Letzte {p['n']} Spiele {name} ({art}, jüngstes zuerst): "
                           f"{', '.join(str(v) for v in p['werte'])}")
-    if s.get("vp_1x2"):
-        h, d, a = s["vp_1x2"]
-        zeilen.append(f"1X2-Quoten (bet365, vor dem Spiel): Heim {h} · Remis {d} · Gast {a}")
     if s.get("vp_ref"):
         r = s["vp_ref"]
         zeilen.append(f"Angesetzter Schiri laut Datenquelle: {r['name']}"
                       + (f", Ø {r['avg']} Gelbe in {r['n']} Spielen unserer Datenbank" if r.get("avg") is not None else ""))
-    if s.get("vp_liga"):
-        zeilen.append(f"Anteil der letzten 10 Spiele im selben Wettbewerb: Heim {s['vp_liga'][0]}, Gast {s['vp_liga'][1]}")
-    zeilen.append("")
     zeilen.append("Automatische Vorprüfung des Scanners:")
     for nr, st, t in scan.vp_bewertung(match, s, q):
         zeilen.append(f"{nr}. [{st}] {t}")
     zeilen.append("7. [offen] Gegner/Spielverlauf/Rotation – bitte recherchieren")
+    return zeilen
+
+
+def spiel_text(scan, match, tipps, info_alt=None):
+    """Alles, was der Agent über ein Spiel und seine Tipps wissen muss.
+    tipps: [(match, s, q, mn, key)] desselben Spiels."""
+    tage = ("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag")
+    _n = datetime.now(BERLIN)
+    ko = datetime.fromtimestamp(match.get("kickoff_ts") or 0, BERLIN).strftime("%d.%m.%Y %H:%M") \
+        if match.get("kickoff_ts") else match.get("kickoff")
+    zeilen = [f"Jetzt: {tage[_n.weekday()]} {_n:%d.%m.%Y %H:%M} (deutsche Zeit).",
+              f"Spiel: {match['home']} – {match['away']}",
+              f"Wettbewerb: {match.get('league', '')}",
+              f"Anstoß: {ko} (deutsche Zeit)"]
+    s0 = tipps[0][1]
+    if s0.get("vp_1x2"):
+        h, d, a = s0["vp_1x2"]
+        zeilen.append(f"1X2-Quoten (bet365, vor dem Spiel): Heim {h} · Remis {d} · Gast {a}")
+    if s0.get("vp_liga"):
+        zeilen.append(f"Anteil der letzten 10 Spiele im selben Wettbewerb: Heim {s0['vp_liga'][0]}, Gast {s0['vp_liga'][1]}")
+    if info_alt:
+        zeilen.append(f"Recherche aus einem früheren Lauf heute: {info_alt}")
+    for n, (m, s, q, mn, key) in enumerate(tipps, 1):
+        zeilen.append("")
+        zeilen.append(f"TIPP {n}")
+        zeilen += _tipp_teil(scan, m, s, q, mn)
     return "\n".join(zeilen)
 
 
@@ -313,19 +326,28 @@ def laufen(scan, tipps):
         return hinweis, proto
     t0 = time.time()
     neu = []
+    # 15.10. (Lucio: "Spiele am Tag nicht doppelt prüfen"): ein Aufruf je
+    # Spiel für alle offenen Tipps; die Recherche (spiel_info) wird gemerkt
+    # und bei später dazukommenden Tipps desselben Spiels mitgegeben – dann
+    # höchstens eine Nachsuche.
+    spiele = d.setdefault("_spiele", {})
+    gruppen = {}
+    for t in offen:
+        gruppen.setdefault(str(t[0].get("id")), []).append(t)
 
-    def eins(t):
-        match, s, q, mn, key = t
+    def eins(mid, ts):
         if time.time() - t0 > FRIST_S:
             raise TimeoutError("Frist")
-        erg, kosten = frage_claude(tipp_text(scan, match, s, q, mn))
-        return t, erg, kosten
+        alt = spiele.get(mid) if (spiele.get(mid) or {}).get("datum") == _heute() else None
+        erg, kosten = frage_claude(spiel_text(scan, ts[0][0], ts, alt and alt.get("info")),
+                                   max_suchen=1 if alt else None)
+        return mid, ts, erg, kosten
 
     with ThreadPoolExecutor(max_workers=PARALLEL) as pool:
-        futs = [pool.submit(eins, t) for t in offen]
+        futs = [pool.submit(eins, mid, ts) for mid, ts in gruppen.items()]
         for f in as_completed(futs):
             try:
-                t, erg, kosten = f.result()
+                mid, ts, erg, kosten = f.result()
             except Exception as exc:
                 proto["fehler"].append(_sauber(f"{type(exc).__name__}: {str(exc)[:300]}"))
                 k = getattr(exc, "kosten", None) or {}
@@ -333,16 +355,25 @@ def laufen(scan, tipps):
                     tag["usd"] = round(tag["usd"] + k["usd"], 4)
                     proto["usd"] = round(proto["usd"] + k["usd"], 4)
                 continue
-            match, s, q, mn, key = t
-            d[key] = {"datum": _heute(), "ts": int(time.time()), "quote": q,
-                      "spiel": f"{match['home']} – {match['away']}",
-                      "tipp": f"{s.get('metric')} {s.get('direction')} {s.get('line')}",
-                      "urteil": erg.get("urteil"), "grund": erg.get("grund"),
-                      "punkte": erg.get("punkte"), "kosten": kosten}
-            tag["anzahl"] += 1
             tag["usd"] = round(tag["usd"] + kosten["usd"], 4)
             proto["usd"] = round(proto["usd"] + kosten["usd"], 4)
-            neu.append((match, s, q, mn, d[key]))
+            proto.setdefault("spiele", 0)
+            proto["spiele"] += 1
+            if erg.get("spiel_info"):
+                spiele[mid] = {"datum": _heute(), "ts": int(time.time()), "info": erg["spiel_info"]}
+            je = {int(x.get("tipp") or 0): x for x in erg.get("tipps") or [] if isinstance(x, dict)}
+            for n, (match, s, q, mn, key) in enumerate(ts, 1):
+                v = je.get(n) or (erg["tipps"][0] if len(ts) == 1 and erg.get("tipps") else None)
+                if not v or not v.get("urteil"):
+                    proto["fehler"].append(f"kein Urteil für Tipp {n} ({match['home']} – {match['away']})")
+                    continue
+                d[key] = {"datum": _heute(), "ts": int(time.time()), "quote": q,
+                          "spiel": f"{match['home']} – {match['away']}",
+                          "tipp": f"{s.get('metric')} {s.get('direction')} {s.get('line')}",
+                          "urteil": v.get("urteil"), "grund": v.get("grund"),
+                          "punkte": v.get("punkte"), "kosten": dict(kosten, anteil=round(1 / len(ts), 2))}
+                tag["anzahl"] += 1
+                neu.append((match, s, q, mn, d[key]))
     # 15.10. (Lucio: "Geht ein Hinweis bei Tg, wenn mein Guthaben leer ist?"):
     # Konto-/Schlüsselprobleme einmal am Tag melden statt still zu scheitern.
     alle = " ".join(proto["fehler"]).lower()
