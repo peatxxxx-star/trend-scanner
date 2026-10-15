@@ -130,39 +130,66 @@ def _api(body):
             raise RuntimeError(f"HTTP {exc.code}: {txt}")
 
 
+class AgentFehler(Exception):
+    def __init__(self, msg, kosten=None):
+        super().__init__(msg)
+        self.kosten = kosten or {}
+
+
+ROH = Path(__file__).parent / "runs" / "agent_roh.json"
+
+
+def _json_aus(txt):
+    e = txt.rfind("}")
+    for start in [i for i, ch in enumerate(txt) if ch == "{"]:
+        try:
+            erg = json.loads(txt[start:e + 1])
+            if isinstance(erg, dict) and "urteil" in erg:
+                return erg
+        except json.JSONDecodeError:
+            continue
+    return None
+
+
 def frage_claude(text):
-    """Ein Tipp -> (Antwort-JSON, Kosten-Dict)."""
+    """Ein Tipp -> (Antwort-JSON, Kosten-Dict). Fehler: AgentFehler mit Kosten."""
     msgs = [{"role": "user", "content": text}]
     kosten = {"in": 0, "out": 0, "suchen": 0}
-    body = {"model": MODELL, "max_tokens": 2500, "system": SYSTEM, "messages": msgs,
-            "tools": [{"type": "web_search_20250305", "name": "web_search", "max_uses": MAX_SUCHEN}]}
-    antwort = None
-    for _ in range(4):                       # pause_turn: Suche läuft weiter
+    tools = [{"type": "web_search_20250305", "name": "web_search", "max_uses": MAX_SUCHEN}]
+    verlauf = []                              # stop_reason je Aufruf (Diagnose)
+    antwort, erg = None, None
+    for schritt in range(7):
+        body = {"model": MODELL, "max_tokens": 4000, "system": SYSTEM,
+                "messages": msgs, "tools": tools}
+        if schritt >= 5:                      # letzte Chance: keine Suche mehr
+            body["tool_choice"] = {"type": "none"}
         antwort = _api(body)
         u = antwort.get("usage") or {}
         kosten["in"] += (u.get("input_tokens") or 0) + (u.get("cache_creation_input_tokens") or 0)
         kosten["out"] += u.get("output_tokens") or 0
         kosten["suchen"] += ((u.get("server_tool_use") or {}).get("web_search_requests") or 0)
-        if antwort.get("stop_reason") != "pause_turn":
+        sr = antwort.get("stop_reason")
+        inhalt = antwort.get("content") or []
+        verlauf.append(f"{sr}:{'/'.join(b.get('type', '?')[:12] for b in inhalt)}")
+        txt = "".join(b.get("text", "") for b in inhalt if b.get("type") == "text")
+        erg = _json_aus(txt)
+        if erg or sr == "refusal":
             break
-        msgs = msgs + [{"role": "assistant", "content": antwort.get("content") or []}]
-        body = dict(body, messages=msgs)
+        msgs = msgs + [{"role": "assistant", "content": inhalt}]
+        if sr != "pause_turn":
+            # fertig, aber ohne JSON -> ausdrücklich nachfordern
+            msgs.append({"role": "user", "content": "Gib jetzt ausschließlich das JSON aus, ohne weiteren Text."})
     kosten["usd"] = round(kosten["in"] / 1e6 * PREIS_IN + kosten["out"] / 1e6 * PREIS_OUT
                           + kosten["suchen"] * PREIS_SUCHE, 4)
-    txt = "".join(b.get("text", "") for b in (antwort or {}).get("content") or []
-                  if b.get("type") == "text")
-    a, e = txt.find("{"), txt.rfind("}")
-    if a < 0 or e <= a:
-        raise ValueError(f"kein JSON in der Antwort: {txt[:200]!r}")
-    # letztes vollständiges JSON-Objekt (Text vor dem JSON ignorieren)
-    for start in [i for i, ch in enumerate(txt) if ch == "{"]:
-        try:
-            erg = json.loads(txt[start:e + 1])
-            if isinstance(erg, dict) and "urteil" in erg:
-                return erg, kosten
-        except json.JSONDecodeError:
-            continue
-    raise ValueError(f"JSON nicht lesbar: {txt[a:a + 200]!r}")
+    kosten["verlauf"] = verlauf
+    if erg:
+        return erg, kosten
+    try:
+        ROH.parent.mkdir(parents=True, exist_ok=True)
+        ROH.write_text(json.dumps({"verlauf": verlauf, "antwort": antwort}, ensure_ascii=False, indent=1)[:200000])
+    except Exception:
+        pass
+    raise AgentFehler(f"kein Urteil ({' > '.join(verlauf)})", kosten)
 
 
 def tipp_text(scan, match, s, q, mn):
@@ -275,7 +302,11 @@ def laufen(scan, tipps):
             try:
                 t, erg, kosten = f.result()
             except Exception as exc:
-                proto["fehler"].append(_sauber(f"{type(exc).__name__}: {str(exc)[:200]}"))
+                proto["fehler"].append(_sauber(f"{type(exc).__name__}: {str(exc)[:300]}"))
+                k = getattr(exc, "kosten", None) or {}
+                if k.get("usd"):
+                    tag["usd"] = round(tag["usd"] + k["usd"], 4)
+                    proto["usd"] = round(proto["usd"] + k["usd"], 4)
                 continue
             match, s, q, mn, key = t
             d[key] = {"datum": _heute(), "ts": int(time.time()), "quote": q,
