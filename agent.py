@@ -65,6 +65,7 @@ Regeln:
 - Nichts erfinden. Zahlen nur aus den Daten oder aus Quellen.
 - „spielen“ nur, wenn kein Punkt ernsthaft dagegen spricht. Im Zweifel bei mehreren echten Warnungen: „nicht spielen“.
 - Kurz und klar, Deutsch, jeder Punkt höchstens ein Satz.
+- Im JSON keine Zitat-Markierungen, keine Quellen-Tags, kein HTML – nur Klartext.
 
 Antworte am Ende AUSSCHLIESSLICH mit diesem JSON (kein Text davor oder danach):
 {"urteil": "spielen" oder "nicht spielen", "grund": "der entscheidende Grund in einem Satz", "punkte": [{"nr": 1, "status": "✓" oder "⚠️", "text": "..."}, ... bis nr 8]}"""
@@ -139,13 +140,28 @@ class AgentFehler(Exception):
 ROH = Path(__file__).parent / "runs" / "agent_roh.json"
 
 
+def _ohne_zitate(x):
+    """15.10.: Die Websuche hängt Zitat-Markierungen an (<cite index=...>).
+    Im Telegram sähe das wie Kauderwelsch aus -> rausnehmen, Text behalten."""
+    import re
+    if isinstance(x, str):
+        x = re.sub(r"</cite>\)?", "", x)
+        x = re.sub(r"\(?<?cite\b[^>]*>", "", x)
+        return re.sub(r"\s{2,}", " ", x).strip()
+    if isinstance(x, list):
+        return [_ohne_zitate(v) for v in x]
+    if isinstance(x, dict):
+        return {k: _ohne_zitate(v) for k, v in x.items()}
+    return x
+
+
 def _json_aus(txt):
     e = txt.rfind("}")
     for start in [i for i, ch in enumerate(txt) if ch == "{"]:
         try:
             erg = json.loads(txt[start:e + 1])
             if isinstance(erg, dict) and "urteil" in erg:
-                return erg
+                return _ohne_zitate(erg)
         except json.JSONDecodeError:
             continue
     return None
@@ -175,8 +191,11 @@ def frage_claude(text):
         erg = _json_aus(txt)
         if erg or sr == "refusal":
             break
-        msgs = msgs + [{"role": "assistant", "content": inhalt}]
+        if inhalt:
+            msgs = msgs + [{"role": "assistant", "content": inhalt}]
         if sr != "pause_turn":
+            if schritt >= 2:
+                break
             # fertig, aber ohne JSON -> ausdrücklich nachfordern
             msgs.append({"role": "user", "content": "Gib jetzt ausschließlich das JSON aus, ohne weiteren Text."})
     kosten["usd"] = round(kosten["in"] / 1e6 * PREIS_IN + kosten["out"] / 1e6 * PREIS_OUT
