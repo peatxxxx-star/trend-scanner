@@ -27,7 +27,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+API_KEY = (os.environ.get("ANTHROPIC_API_KEY") or "").strip()   # 15.10.: Zeilenumbruch aus dem Secret entfernen
 # Modell umstellen ohne Code: GitHub -> Settings -> Secrets and variables ->
 # Actions -> Reiter "Variables" -> AGENT_MODEL (leer = Sonnet 5.5)
 MODELL = os.environ.get("AGENT_MODEL") or "claude-sonnet-5-5"
@@ -68,6 +68,14 @@ Regeln:
 
 Antworte am Ende AUSSCHLIESSLICH mit diesem JSON (kein Text davor oder danach):
 {"urteil": "spielen" oder "nicht spielen", "grund": "der entscheidende Grund in einem Satz", "punkte": [{"nr": 1, "status": "✓" oder "⚠️", "text": "..."}, ... bis nr 8]}"""
+
+
+def _sauber(txt):
+    """15.10.: Fehlertexte dürfen den Schlüssel nie enthalten (landen im Repo)."""
+    import re
+    if API_KEY:
+        txt = txt.replace(API_KEY, "[Schlüssel]")
+    return re.sub(r"sk-ant-[A-Za-z0-9_\-]+", "[Schlüssel]", txt)
 
 
 def _lade():
@@ -267,7 +275,7 @@ def laufen(scan, tipps):
             try:
                 t, erg, kosten = f.result()
             except Exception as exc:
-                proto["fehler"].append(f"{type(exc).__name__}: {str(exc)[:200]}")
+                proto["fehler"].append(_sauber(f"{type(exc).__name__}: {str(exc)[:200]}"))
                 continue
             match, s, q, mn, key = t
             d[key] = {"datum": _heute(), "ts": int(time.time()), "quote": q,
