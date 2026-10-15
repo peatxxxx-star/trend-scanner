@@ -299,12 +299,18 @@ def laufen(scan, tipps):
     frei = max(0, min(MAX_TAG - tag["anzahl"], len(offen)))
     if tag["usd"] >= MAX_USD_TAG:
         frei = 0
+    hinweis = None
     if len(offen) > frei:
         proto["uebersprungen"] = len(offen) - frei
+        if not tag.get("warn_bremse"):
+            tag["warn_bremse"] = True
+            hinweis = (f"🤖⚠️ <b>Zweitprüfung pausiert</b> – Tagesbremse erreicht "
+                       f"({tag['anzahl']} Tipps, {tag['usd']:.2f} $). "
+                       f"{len(offen) - frei} Tipp(s) heute ohne Agent-Urteil, morgen geht es weiter.")
     offen = offen[:frei]
     if not offen:
         _speichere(d | {"_tag": tag})
-        return None, proto
+        return hinweis, proto
     t0 = time.time()
     neu = []
 
@@ -337,6 +343,18 @@ def laufen(scan, tipps):
             tag["usd"] = round(tag["usd"] + kosten["usd"], 4)
             proto["usd"] = round(proto["usd"] + kosten["usd"], 4)
             neu.append((match, s, q, mn, d[key]))
+    # 15.10. (Lucio: "Geht ein Hinweis bei Tg, wenn mein Guthaben leer ist?"):
+    # Konto-/Schlüsselprobleme einmal am Tag melden statt still zu scheitern.
+    alle = " ".join(proto["fehler"]).lower()
+    grund = ("Guthaben aufgebraucht – bitte in der Anthropic-Konsole unter Billing aufladen"
+             if "credit balance" in alle or "billing" in alle else
+             "Schlüssel ungültig oder gesperrt – bitte das GitHub-Secret ANTHROPIC_API_KEY prüfen"
+             if "http 401" in alle or "http 403" in alle else
+             "Monats-Ausgabengrenze in der Anthropic-Konsole erreicht"
+             if "limit" in alle and "http 400" in alle else None)
+    if grund and not neu and tag.get("warn_konto") != grund:
+        tag["warn_konto"] = grund
+        hinweis = f"🤖⚠️ <b>Zweitprüfung ausgefallen</b> – {grund}. Die Vorprüfung 🔎 läuft weiter."
     d["_tag"] = tag
     _speichere(d)
     _CACHE["d"] = d
@@ -346,8 +364,9 @@ def laufen(scan, tipps):
     print(f"Agent: {len(neu)} Urteile, {proto['usd']:.3f} $ (heute {tag['usd']:.2f} $), "
           f"{proto['sekunden']} s, Fehler {len(proto['fehler'])}", flush=True)
     if not neu:
-        return None, proto
+        return hinweis, proto
     neu.sort(key=lambda x: x[0].get("kickoff_ts") or 0)
     stand = datetime.now(BERLIN).strftime("%H:%M")
     kopf = f"🤖 <b>ZWEITPRÜFUNG ({len(neu)})</b> · Stand {stand}"
-    return kopf + "\n\n" + "\n\n".join(_block(*x) for x in neu), proto
+    text = kopf + "\n\n" + "\n\n".join(_block(*x) for x in neu)
+    return (hinweis + "\n\n" + text if hinweis else text), proto
