@@ -12,7 +12,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -134,7 +134,7 @@
   "first_run": "Do 07:13",
   "first_line": 5.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 5.5,
   "range": null,
   "signal": {
@@ -256,7 +256,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -378,7 +378,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -487,204 +487,6 @@
   },
   "v": 2
  },
- "12458033|yellowcards|unter": {
-  "match_id": "12458033",
-  "home": "Svay Rieng FC",
-  "away": "Shanghai Shenhua",
-  "kickoff": "Do 14:15",
-  "kickoff_ts": 1792066500,
-  "league": "AFC Champions League Two",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 5.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 5.5,
-  "range": null,
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    47,
-    48
-   ],
-   "next_line": 4.5,
-   "next_note": "kein Anker — Svay Rieng FC 9/11 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Shanghai Shenhua 14/16 (3. Lücke) gesamt, 12/14 (3. Lücke) auswärts",
-   "longterm": [
-    0.7911031417041192,
-    0.8409948521021668
-   ],
-   "fair": 1.24,
-   "ladder": [
-    [
-     5.5,
-     1.24
-    ],
-    [
-     6.5,
-     1.13
-    ]
-   ],
-   "avg": [
-    3.1,
-    3.1
-   ],
-   "expect": 2.8,
-   "expect_sum": 3.1,
-   "expect_matchup": 2.5,
-   "contrib": [
-    1.0,
-    1.5
-   ],
-   "buffer": 2.7,
-   "fa": [
-    [
-     1.9,
-     1.8
-    ],
-    [
-     1.6,
-     1.9
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.02,
-   "p_emp": {
-    "5.5": 0.8064516129032259,
-    "6.5": 0.8849557522123894
-   },
-   "p_mod": 0.909,
-   "p_fin": 0.866,
-   "fair_fin": 1.15,
-   "ladder_fin": [
-    [
-     5.5,
-     1.15
-    ],
-    [
-     6.5,
-     1.09
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.15",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "12458033|team_yellowcards_heim|unter": {
-  "match_id": "12458033",
-  "home": "Svay Rieng FC",
-  "away": "Shanghai Shenhua",
-  "kickoff": "Do 14:15",
-  "kickoff_ts": 1792066500,
-  "league": "AFC Champions League Two",
-  "metric": "Svay Rieng FC: Gelbe Karten",
-  "metric_key": "team_yellowcards_heim",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Svay Rieng FC: Gelbe Karten",
-   "metric_key": "team_yellowcards_heim",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.33,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.731,
-   "p_mod": 0.758,
-   "p_fin": 0.7504,
-   "fair_fin": 1.33,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Svay Rieng FC",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 7,
-   "erwartet": 1.7,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
  "12456950|yellowcards|unter": {
   "match_id": "12456950",
   "home": "Tampines Rovers FC",
@@ -698,7 +500,7 @@
   "first_run": "Do 06:14",
   "first_line": 5.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 5.5,
   "range": null,
   "signal": {
@@ -807,204 +609,6 @@
   },
   "v": 2
  },
- "12458027|yellowcards|unter": {
-  "match_id": "12458027",
-  "home": "Kuching City FC",
-  "away": "Kitchee",
-  "kickoff": "Do 14:15",
-  "kickoff_ts": 1792066500,
-  "league": "AFC Champions League Two",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    47,
-    46
-   ],
-   "next_line": 5.5,
-   "next_note": "Kitchee 4/6 (3. Lücke) gesamt, 16/18 (3. Lücke) auswärts",
-   "longterm": [
-    0.9675162027251356,
-    0.8330224982084111
-   ],
-   "fair": 1.12,
-   "ladder": [
-    [
-     6.5,
-     1.12
-    ],
-    [
-     7.5,
-     1.2
-    ]
-   ],
-   "avg": [
-    2.4,
-    3.8
-   ],
-   "expect": 2.8,
-   "expect_sum": 3.1,
-   "expect_matchup": 2.4,
-   "contrib": [
-    1.1,
-    1.3
-   ],
-   "buffer": 3.7,
-   "fa": [
-    [
-     1.3,
-     1.5
-    ],
-    [
-     2.1,
-     2.3
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.99,
-   "p_emp": {
-    "6.5": 0.8928571428571428,
-    "7.5": 0.8333333333333334
-   },
-   "p_mod": 0.969,
-   "p_fin": 0.919,
-   "fair_fin": 1.09,
-   "ladder_fin": [
-    [
-     6.5,
-     1.09
-    ],
-    [
-     7.5,
-     1.1
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.09",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "12458027|team_yellowcards_heim|unter": {
-  "match_id": "12458027",
-  "home": "Kuching City FC",
-  "away": "Kitchee",
-  "kickoff": "Do 14:15",
-  "kickoff_ts": 1792066500,
-  "league": "AFC Champions League Two",
-  "metric": "Kuching City FC: Gelbe Karten",
-  "metric_key": "team_yellowcards_heim",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Kuching City FC: Gelbe Karten",
-   "metric_key": "team_yellowcards_heim",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.18,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.785,
-   "p_mod": 0.902,
-   "p_fin": 0.8479,
-   "fair_fin": 1.18,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Kuching City FC",
-   "serie": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 16
-   },
-   "gegner": 5,
-   "erwartet": 1.1,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
  "12457737|yellowcards|unter": {
   "match_id": "12457737",
   "home": "BG Pathum United",
@@ -1018,7 +622,7 @@
   "first_run": "Do 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -1140,7 +744,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -1203,6 +807,402 @@
   },
   "v": 2
  },
+ "12458033|yellowcards|unter": {
+  "match_id": "12458033",
+  "home": "Svay Rieng FC",
+  "away": "Shanghai Shenhua",
+  "kickoff": "Do 14:15",
+  "kickoff_ts": 1792066500,
+  "league": "AFC Champions League Two",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 5.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    47,
+    48
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — Svay Rieng FC 9/11 (3. Lücke) gesamt, 7/9 (3. Lücke) heim; Shanghai Shenhua 14/16 (3. Lücke) gesamt, 12/14 (3. Lücke) auswärts",
+   "longterm": [
+    0.7911031417041192,
+    0.8409948521021668
+   ],
+   "fair": 1.24,
+   "ladder": [
+    [
+     5.5,
+     1.24
+    ],
+    [
+     6.5,
+     1.13
+    ]
+   ],
+   "avg": [
+    3.1,
+    3.1
+   ],
+   "expect": 2.8,
+   "expect_sum": 3.1,
+   "expect_matchup": 2.5,
+   "contrib": [
+    1.0,
+    1.5
+   ],
+   "buffer": 2.7,
+   "fa": [
+    [
+     1.9,
+     1.8
+    ],
+    [
+     1.6,
+     1.9
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.02,
+   "p_emp": {
+    "5.5": 0.8064516129032259,
+    "6.5": 0.8849557522123894
+   },
+   "p_mod": 0.909,
+   "p_fin": 0.866,
+   "fair_fin": 1.15,
+   "ladder_fin": [
+    [
+     5.5,
+     1.15
+    ],
+    [
+     6.5,
+     1.09
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.15",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "12458033|team_yellowcards_heim|unter": {
+  "match_id": "12458033",
+  "home": "Svay Rieng FC",
+  "away": "Shanghai Shenhua",
+  "kickoff": "Do 14:15",
+  "kickoff_ts": 1792066500,
+  "league": "AFC Champions League Two",
+  "metric": "Svay Rieng FC: Gelbe Karten",
+  "metric_key": "team_yellowcards_heim",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Svay Rieng FC: Gelbe Karten",
+   "metric_key": "team_yellowcards_heim",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.33,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.731,
+   "p_mod": 0.758,
+   "p_fin": 0.7504,
+   "fair_fin": 1.33,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Svay Rieng FC",
+   "serie": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "gegner": 7,
+   "erwartet": 1.7,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "12458027|yellowcards|unter": {
+  "match_id": "12458027",
+  "home": "Kuching City FC",
+  "away": "Kitchee",
+  "kickoff": "Do 14:15",
+  "kickoff_ts": 1792066500,
+  "league": "AFC Champions League Two",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    47,
+    46
+   ],
+   "next_line": 5.5,
+   "next_note": "Kitchee 4/6 (3. Lücke) gesamt, 16/18 (3. Lücke) auswärts",
+   "longterm": [
+    0.9675162027251356,
+    0.8330224982084111
+   ],
+   "fair": 1.12,
+   "ladder": [
+    [
+     6.5,
+     1.12
+    ],
+    [
+     7.5,
+     1.2
+    ]
+   ],
+   "avg": [
+    2.4,
+    3.8
+   ],
+   "expect": 2.8,
+   "expect_sum": 3.1,
+   "expect_matchup": 2.4,
+   "contrib": [
+    1.1,
+    1.3
+   ],
+   "buffer": 3.7,
+   "fa": [
+    [
+     1.3,
+     1.5
+    ],
+    [
+     2.1,
+     2.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.99,
+   "p_emp": {
+    "6.5": 0.8928571428571428,
+    "7.5": 0.8333333333333334
+   },
+   "p_mod": 0.969,
+   "p_fin": 0.919,
+   "fair_fin": 1.09,
+   "ladder_fin": [
+    [
+     6.5,
+     1.09
+    ],
+    [
+     7.5,
+     1.1
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.09",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "12458027|team_yellowcards_heim|unter": {
+  "match_id": "12458027",
+  "home": "Kuching City FC",
+  "away": "Kitchee",
+  "kickoff": "Do 14:15",
+  "kickoff_ts": 1792066500,
+  "league": "AFC Champions League Two",
+  "metric": "Kuching City FC: Gelbe Karten",
+  "metric_key": "team_yellowcards_heim",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Kuching City FC: Gelbe Karten",
+   "metric_key": "team_yellowcards_heim",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.18,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.785,
+   "p_mod": 0.902,
+   "p_fin": 0.8479,
+   "fair_fin": 1.18,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Kuching City FC",
+   "serie": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 16
+   },
+   "gegner": 5,
+   "erwartet": 1.1,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
  "13119389|goals|über": {
   "match_id": "13119389",
   "home": "Lillestrom U19",
@@ -1216,7 +1216,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -1338,7 +1338,7 @@
   "first_run": "Do 06:14",
   "first_line": 3.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 3.5,
   "range": null,
   "signal": {
@@ -1414,7 +1414,7 @@
   "first_run": "Do 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -1477,6 +1477,82 @@
   },
   "v": 2
  },
+ "13049251|team_corners_gast|unter": {
+  "match_id": "13049251",
+  "home": "Al Hashemeya",
+  "away": "Shabab Al-Aqaba SC",
+  "kickoff": "Do 17:00",
+  "kickoff_ts": 1792076400,
+  "league": "Jordan Division 1",
+  "metric": "Shabab Al-Aqaba SC: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Shabab Al-Aqaba SC: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.21,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.827,
+   "p_mod": 0.927,
+   "p_fin": 0.8239,
+   "fair_fin": 1.21,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Shabab Al-Aqaba SC",
+   "serie": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "gegner": 8,
+   "erwartet": 3.4,
+   "unverified": false,
+   "no_tab": false,
+   "pending": false,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
  "13225075|corners|über": {
   "match_id": "13225075",
   "home": "Al-Arabi Irbid",
@@ -1490,7 +1566,7 @@
   "first_run": "Do 06:14",
   "first_line": 8.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 8.5,
   "range": null,
   "signal": {
@@ -1619,7 +1695,7 @@
    1.34,
    2.02
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 6.5,
   "range": [
    1.34,
@@ -1750,7 +1826,7 @@
    1.61,
    2.029
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 5.5,
   "range": [
    1.61,
@@ -1881,7 +1957,7 @@
    1.51,
    1.83
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 20.5,
   "range": [
    1.51,
@@ -2009,7 +2085,7 @@
   "first_run": "Do 06:14",
   "first_line": 38.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 38.5,
   "range": null,
   "signal": {
@@ -2131,7 +2207,7 @@
   "first_run": "Do 06:14",
   "first_line": 12.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 12.5,
   "range": null,
   "signal": {
@@ -2253,7 +2329,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -2375,7 +2451,7 @@
   "first_run": "Do 06:14",
   "first_line": 8.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 8.5,
   "range": null,
   "signal": {
@@ -2504,12 +2580,9 @@
    1.49,
    1.85
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 6.5,
-  "range": [
-   1.49,
-   1.85
-  ],
+  "range": null,
   "signal": {
    "metric": "Schüsse aufs Tor",
    "metric_key": "on_target",
@@ -2608,14 +2681,11 @@
    "serie": null,
    "gegner": null,
    "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
    "b365_proof": null,
-   "range": [
-    1.49,
-    1.85
-   ]
+   "range": null
   },
   "v": 2
  },
@@ -2635,12 +2705,9 @@
    1.58,
    1.58
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 5.5,
-  "range": [
-   1.58,
-   1.58
-  ],
+  "range": null,
   "signal": {
    "metric": "Abseits",
    "metric_key": "offsides",
@@ -2739,980 +2806,11 @@
    "serie": null,
    "gegner": null,
    "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": [
-    1.58,
-    1.58
-   ]
-  },
-  "v": 2
- },
- "13044855|offsides|unter": {
-  "match_id": "13044855",
-  "home": "FK Egnatia",
-  "away": "Midtjylland",
-  "kickoff": "Do 18:45",
-  "kickoff_ts": 1792082700,
-  "league": "UEFA Conference League",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 5.5,
-  "first_range": [
-   1.85,
-   1.85
-  ],
-  "last_run": "Do 08:13",
-  "line": 5.5,
-  "range": [
-   1.85,
-   1.85
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    19,
-    27
-   ],
-   "next_line": 4.5,
-   "next_note": "kein Anker — FK Egnatia 6/8 (3. Lücke) gesamt, 7/9 heim; Midtjylland 7/9 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.8013840070877413,
-    0.9477446624215651
-   ],
-   "fair": 1.17,
-   "ladder": [
-    [
-     5.5,
-     1.17
-    ],
-    [
-     6.5,
-     1.3
-    ]
-   ],
-   "avg": [
-    3.3,
-    3.7
-   ],
-   "expect": 3.5,
-   "expect_sum": 3.5,
-   "expect_matchup": 3.5,
-   "contrib": [
-    2.1,
-    1.4
-   ],
-   "buffer": 2.0,
-   "fa": [
-    [
-     1.8,
-     2.0
-    ],
-    [
-     1.6,
-     1.7
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.73,
-   "p_emp": {
-    "5.5": 0.8547008547008548,
-    "6.5": 0.7692307692307692
-   },
-   "p_mod": 0.876,
-   "p_fin": 0.862,
-   "fair_fin": 1.16,
-   "ladder_fin": [
-    [
-     5.5,
-     1.16
-    ],
-    [
-     6.5,
-     1.16
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.16",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": [
-    1.85,
-    1.85
-   ]
-  },
-  "v": 2
- },
- "13044477|yellowcards|unter": {
-  "match_id": "13044477",
-  "home": "Gent",
-  "away": "AGF Aarhus",
-  "kickoff": "Do 18:45",
-  "kickoff_ts": 1792082700,
-  "league": "UEFA Conference League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 5.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 5.5,
-  "range": null,
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    43,
-    39
-   ],
-   "next_line": 4.5,
-   "next_note": "kein Anker — Gent 15/17 (3. Lücke) gesamt, 13/15 (3. Lücke) heim; AGF Aarhus 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.8944221476425447,
-    0.7756300855820901
-   ],
-   "fair": 1.22,
-   "ladder": [
-    [
-     5.5,
-     1.22
-    ],
-    [
-     6.5,
-     1.09
-    ]
-   ],
-   "avg": [
-    2.9,
-    3.6
-   ],
-   "expect": 3.0,
-   "expect_sum": 3.3,
-   "expect_matchup": 2.8,
-   "contrib": [
-    1.6,
-    1.2
-   ],
-   "buffer": 2.5,
-   "fa": [
-    [
-     1.6,
-     1.4
-    ],
-    [
-     1.3,
-     2.4
-    ]
-   ],
-   "referee": "Bulat Sariyev: Ø 3.4 Karten (5 Sp.) · Ø 29.0 Fouls (2 Sp.)",
-   "b365": null,
-   "expect_ref": 2.9,
-   "buffer_ref": 2.6,
-   "sd": 1.92,
-   "p_emp": {
-    "5.5": 0.819672131147541,
-    "6.5": 0.9174311926605504
-   },
-   "p_mod": 0.912,
-   "p_fin": 0.872,
-   "fair_fin": 1.15,
-   "ladder_fin": [
-    [
-     5.5,
-     1.15
-    ],
-    [
-     6.5,
-     1.08
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.15",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
    "unverified": true,
    "no_tab": true,
    "pending": true,
    "b365_proof": null,
    "range": null
-  },
-  "v": 2
- },
- "13044477|offsides|unter": {
-  "match_id": "13044477",
-  "home": "Gent",
-  "away": "AGF Aarhus",
-  "kickoff": "Do 18:45",
-  "kickoff_ts": 1792082700,
-  "league": "UEFA Conference League",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 4.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 4.5,
-  "range": null,
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 4.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    30,
-    24
-   ],
-   "next_line": 3.5,
-   "next_note": "kein Anker — Gent 7/9 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; AGF Aarhus 20/22 (3. Lücke) gesamt, 10/12 auswärts",
-   "longterm": [
-    0.8485106264629149,
-    0.9753765961768723
-   ],
-   "fair": 1.2,
-   "ladder": [
-    [
-     4.5,
-     1.2
-    ],
-    [
-     5.5,
-     1.11
-    ]
-   ],
-   "avg": [
-    2.6,
-    1.9
-   ],
-   "expect": 1.8,
-   "expect_sum": 2.3,
-   "expect_matchup": 1.4,
-   "contrib": [
-    0.8,
-    0.6
-   ],
-   "buffer": 2.7,
-   "fa": [
-    [
-     1.9,
-     1.0
-    ],
-    [
-     1.2,
-     0.8
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.55,
-   "p_emp": {
-    "4.5": 0.8333333333333334,
-    "5.5": 0.9009009009009008
-   },
-   "p_mod": 0.959,
-   "p_fin": 0.885,
-   "fair_fin": 1.13,
-   "ladder_fin": [
-    [
-     4.5,
-     1.13
-    ],
-    [
-     5.5,
-     1.09
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟡",
-   "reason": "Historie 83 % vs. Modell 96 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13044477|team_yellowcards_gast|unter": {
-  "match_id": "13044477",
-  "home": "Gent",
-  "away": "AGF Aarhus",
-  "kickoff": "Do 18:45",
-  "kickoff_ts": 1792082700,
-  "league": "UEFA Conference League",
-  "metric": "AGF Aarhus: Gelbe Karten",
-  "metric_key": "team_yellowcards_gast",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "AGF Aarhus: Gelbe Karten",
-   "metric_key": "team_yellowcards_gast",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.21,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.788,
-   "p_mod": 0.848,
-   "p_fin": 0.8232,
-   "fair_fin": 1.21,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "AGF Aarhus",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 9,
-   "erwartet": 1.4,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13044632|offsides|unter": {
-  "match_id": "13044632",
-  "home": "Riga FC",
-  "away": "Kairat Almaty",
-  "kickoff": "Do 18:45",
-  "kickoff_ts": 1792082700,
-  "league": "UEFA Conference League",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 5.5,
-  "first_range": [
-   1.46,
-   1.63
-  ],
-  "last_run": "Do 08:13",
-  "line": 5.5,
-  "range": [
-   1.46,
-   1.63
-  ],
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    38,
-    7
-   ],
-   "next_line": 4.5,
-   "next_note": "kein Anker — Riga FC 10/12 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Kairat Almaty 6/7 gesamt, 3 in Folge auswärts",
-   "longterm": [
-    0.9438810523185945,
-    0.9290561817415729
-   ],
-   "fair": 1.13,
-   "ladder": [
-    [
-     5.5,
-     1.13
-    ],
-    [
-     6.5,
-     1.32
-    ]
-   ],
-   "avg": [
-    3.8,
-    2.1
-   ],
-   "expect": 2.8,
-   "expect_sum": 3.0,
-   "expect_matchup": 2.6,
-   "contrib": [
-    2.1,
-    0.4
-   ],
-   "buffer": 2.7,
-   "fa": [
-    [
-     2.0,
-     0.8
-    ],
-    [
-     0.4,
-     2.6
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.85,
-   "p_emp": {
-    "5.5": 0.8849557522123894,
-    "6.5": 0.7575757575757576
-   },
-   "p_mod": 0.928,
-   "p_fin": 0.892,
-   "fair_fin": 1.12,
-   "ladder_fin": [
-    [
-     5.5,
-     1.12
-    ],
-    [
-     6.5,
-     1.16
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.12",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": [
-    1.46,
-    1.63
-   ]
-  },
-  "v": 2
- },
- "13043511|yellowcards|unter": {
-  "match_id": "13043511",
-  "home": "CS U Craiova",
-  "away": "Getafe",
-  "kickoff": "Do 18:45",
-  "kickoff_ts": 1792082700,
-  "league": "UEFA Conference League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 6.5,
-  "first_range": [
-   1.49,
-   1.81
-  ],
-  "last_run": "Do 08:13",
-  "line": 6.5,
-  "range": [
-   1.49,
-   1.81
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    43,
-    43
-   ],
-   "next_line": 5.5,
-   "next_note": "Getafe 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "longterm": [
-    0.8571290339421098,
-    0.7286060440169041
-   ],
-   "fair": 1.22,
-   "ladder": [
-    [
-     6.5,
-     1.22
-    ],
-    [
-     7.5,
-     1.28
-    ]
-   ],
-   "avg": [
-    4.1,
-    6.0
-   ],
-   "expect": 5.9,
-   "expect_sum": 5.1,
-   "expect_matchup": 6.6,
-   "contrib": [
-    2.3,
-    4.3
-   ],
-   "buffer": 0.6,
-   "fa": [
-    [
-     2.0,
-     2.4
-    ],
-    [
-     2.8,
-     2.1
-    ]
-   ],
-   "referee": "David Smajc: Ø 4.5 Karten (22 Sp.) · Ø 27.0 Fouls (4 Sp.)",
-   "b365": null,
-   "expect_ref": 6.6,
-   "buffer_ref": -0.1,
-   "sd": 2.04,
-   "p_emp": {
-    "6.5": 0.819672131147541,
-    "7.5": 0.78125
-   },
-   "p_mod": 0.48,
-   "p_fin": 0.716,
-   "fair_fin": 1.4,
-   "ladder_fin": [
-    [
-     6.5,
-     1.4
-    ],
-    [
-     7.5,
-     1.3
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🔴",
-   "reason": "Historie 82 % und Modell 48 % widersprechen sich",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": [
-    1.49,
-    1.81
-   ]
-  },
-  "v": 2
- },
- "13044416|yellowcards|unter": {
-  "match_id": "13044416",
-  "home": "Hajduk Split",
-  "away": "Ajax",
-  "kickoff": "Do 18:45",
-  "kickoff_ts": 1792082700,
-  "league": "UEFA Conference League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    41,
-    43
-   ],
-   "next_line": 5.5,
-   "next_note": "Ajax 6/8 (3. Lücke) gesamt, 14/16 (3. Lücke) auswärts",
-   "longterm": [
-    0.9537037839261656,
-    1.0
-   ],
-   "fair": 1.06,
-   "ladder": [
-    [
-     6.5,
-     1.06
-    ],
-    [
-     7.5,
-     1.2
-    ]
-   ],
-   "avg": [
-    3.8,
-    3.3
-   ],
-   "expect": 3.4,
-   "expect_sum": 3.5,
-   "expect_matchup": 3.3,
-   "contrib": [
-    1.4,
-    1.9
-   ],
-   "buffer": 3.1,
-   "fa": [
-    [
-     2.1,
-     2.2
-    ],
-    [
-     1.4,
-     1.7
-    ]
-   ],
-   "referee": "Christian-Petru Ciochirca: Ø 3.8 Karten (22 Sp.) · Ø 17.7 Fouls (15 Sp.)",
-   "b365": null,
-   "expect_ref": 3.4,
-   "buffer_ref": 3.1,
-   "sd": 1.93,
-   "p_emp": {
-    "6.5": 0.9433962264150942,
-    "7.5": 0.8333333333333334
-   },
-   "p_mod": 0.946,
-   "p_fin": 0.929,
-   "fair_fin": 1.08,
-   "ladder_fin": [
-    [
-     6.5,
-     1.08
-    ],
-    [
-     7.5,
-     1.11
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.08",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13044416|on_target|über": {
-  "match_id": "13044416",
-  "home": "Hajduk Split",
-  "away": "Ajax",
-  "kickoff": "Do 18:45",
-  "kickoff_ts": 1792082700,
-  "league": "UEFA Conference League",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 6.5,
-  "first_range": [
-   1.79,
-   1.93
-  ],
-  "last_run": "Do 08:13",
-  "line": 6.5,
-  "range": [
-   1.79,
-   1.93
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    37,
-    36
-   ],
-   "next_line": 7.5,
-   "next_note": "Hajduk Split 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
-   "longterm": [
-    0.7872218861584583,
-    0.9475210028034848
-   ],
-   "fair": 1.22,
-   "ladder": [
-    [
-     5.5,
-     1.27
-    ],
-    [
-     6.5,
-     1.22
-    ]
-   ],
-   "avg": [
-    9.1,
-    11.2
-   ],
-   "expect": 10.1,
-   "expect_sum": 10.1,
-   "expect_matchup": 10.0,
-   "contrib": [
-    5.8,
-    4.2
-   ],
-   "buffer": 3.6,
-   "fa": [
-    [
-     5.7,
-     3.2
-    ],
-    [
-     6.6,
-     4.3
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.17,
-   "p_emp": {
-    "5.5": 0.7874015748031495,
-    "6.5": 0.819672131147541
-   },
-   "p_mod": 0.872,
-   "p_fin": 0.82,
-   "fair_fin": 1.22,
-   "ladder_fin": [
-    [
-     5.5,
-     1.21
-    ],
-    [
-     6.5,
-     1.22
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.22",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": [
-    1.79,
-    1.93
-   ]
   },
   "v": 2
  },
@@ -3732,7 +2830,7 @@
    1.62,
    1.67
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 6.5,
   "range": [
    1.62,
@@ -3860,7 +2958,7 @@
   "first_run": "Do 06:14",
   "first_line": 4.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 4.5,
   "range": null,
   "signal": {
@@ -3969,10 +3067,10 @@
   },
   "v": 2
  },
- "13044932|yellowcards|unter": {
-  "match_id": "13044932",
-  "home": "CSKA Sofia",
-  "away": "Monaco",
+ "13044416|yellowcards|unter": {
+  "match_id": "13044416",
+  "home": "Hajduk Split",
+  "away": "Ajax",
   "kickoff": "Do 18:45",
   "kickoff_ts": 1792082700,
   "league": "UEFA Conference League",
@@ -3982,7 +3080,7 @@
   "first_run": "Do 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -3993,78 +3091,78 @@
    "home_series": {
     "kind": "gesamt",
     "hits": 10,
-    "window": 12
+    "window": 10
    },
    "away_series": {
     "kind": "gesamt",
     "hits": 10,
     "window": 10
    },
-   "home_is_anchor": false,
+   "home_is_anchor": true,
    "away_is_anchor": true,
    "valid": [
-    37,
-    42
+    41,
+    43
    ],
    "next_line": 5.5,
-   "next_note": "CSKA Sofia 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+   "next_note": "Ajax 6/8 (3. Lücke) gesamt, 14/16 (3. Lücke) auswärts",
    "longterm": [
-    0.8133732081551464,
-    0.9757774521980599
+    0.9537037839261656,
+    1.0
    ],
-   "fair": 1.12,
+   "fair": 1.06,
    "ladder": [
     [
      6.5,
-     1.12
+     1.06
     ],
     [
      7.5,
-     1.26
+     1.2
     ]
    ],
    "avg": [
-    4.6,
-    3.4
+    3.8,
+    3.3
    ],
-   "expect": 4.1,
-   "expect_sum": 4.0,
-   "expect_matchup": 4.1,
+   "expect": 3.4,
+   "expect_sum": 3.5,
+   "expect_matchup": 3.3,
    "contrib": [
-    1.6,
-    2.5
+    1.4,
+    1.9
    ],
-   "buffer": 2.4,
+   "buffer": 3.1,
    "fa": [
     [
-     2.5,
+     2.1,
      2.2
     ],
     [
-     2.1,
-     1.6
+     1.4,
+     1.7
     ]
    ],
-   "referee": "Joao Goncalves: Ø 4.8 Karten (34 Sp.) · Ø 24.2 Fouls (22 Sp.)",
+   "referee": "Christian-Petru Ciochirca: Ø 3.8 Karten (22 Sp.) · Ø 17.7 Fouls (15 Sp.)",
    "b365": null,
-   "expect_ref": 4.9,
-   "buffer_ref": 1.6,
-   "sd": 1.84,
+   "expect_ref": 3.4,
+   "buffer_ref": 3.1,
+   "sd": 1.93,
    "p_emp": {
-    "6.5": 0.8928571428571428,
-    "7.5": 0.7936507936507936
+    "6.5": 0.9433962264150942,
+    "7.5": 0.8333333333333334
    },
-   "p_mod": 0.808,
-   "p_fin": 0.861,
-   "fair_fin": 1.16,
+   "p_mod": 0.946,
+   "p_fin": 0.929,
+   "fair_fin": 1.08,
    "ladder_fin": [
     [
      6.5,
-     1.16
+     1.08
     ],
     [
      7.5,
-     1.15
+     1.11
     ]
    ],
    "market": null,
@@ -4072,7 +3170,7 @@
    "ev": null,
    "light": "🟢",
    "ampel": "🟢",
-   "reason": "fair 1.16",
+   "reason": "fair 1.08",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
@@ -4091,10 +3189,10 @@
   },
   "v": 2
  },
- "13044932|on_target|über": {
-  "match_id": "13044932",
-  "home": "CSKA Sofia",
-  "away": "Monaco",
+ "13044416|on_target|über": {
+  "match_id": "13044416",
+  "home": "Hajduk Split",
+  "away": "Ajax",
   "kickoff": "Do 18:45",
   "kickoff_ts": 1792082700,
   "league": "UEFA Conference League",
@@ -4104,14 +3202,14 @@
   "first_run": "Do 06:14",
   "first_line": 6.5,
   "first_range": [
-   1.29,
-   1.73
+   1.79,
+   1.93
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 6.5,
   "range": [
-   1.29,
-   1.73
+   1.91,
+   2.5
   ],
   "signal": {
    "metric": "Schüsse aufs Tor",
@@ -4120,79 +3218,79 @@
    "line": 6.5,
    "home_series": {
     "kind": "gesamt",
-    "hits": 10,
-    "window": 11
+    "hits": 5,
+    "window": 6
    },
    "away_series": {
     "kind": "gesamt",
     "hits": 10,
-    "window": 12
+    "window": 10
    },
    "home_is_anchor": false,
    "away_is_anchor": true,
    "valid": [
-    32,
-    41
+    37,
+    36
    ],
    "next_line": 7.5,
-   "next_note": "kein Anker — CSKA Sofia 13/15 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Monaco 6/8 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "next_note": "Hajduk Split 5/7 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
    "longterm": [
-    0.7285844648948389,
-    0.7965153487465605
+    0.7872218861584583,
+    0.9475210028034848
    ],
-   "fair": 1.33,
+   "fair": 1.22,
    "ladder": [
     [
      5.5,
-     1.41
+     1.27
     ],
     [
      6.5,
-     1.33
+     1.22
     ]
    ],
    "avg": [
-    9.7,
-    10.1
+    9.1,
+    11.2
    ],
-   "expect": 10.3,
-   "expect_sum": 9.9,
-   "expect_matchup": 10.8,
+   "expect": 10.1,
+   "expect_sum": 10.1,
+   "expect_matchup": 10.0,
    "contrib": [
-    6.7,
-    4.0
+    5.8,
+    4.2
    ],
-   "buffer": 3.8,
+   "buffer": 3.6,
    "fa": [
     [
      5.7,
-     3.1
+     3.2
     ],
     [
-     5.0,
-     4.8
+     6.6,
+     4.3
     ]
    ],
    "referee": null,
    "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 3.72,
+   "sd": 3.17,
    "p_emp": {
-    "5.5": 0.7092198581560284,
-    "6.5": 0.7518796992481203
+    "5.5": 0.7874015748031495,
+    "6.5": 0.819672131147541
    },
-   "p_mod": 0.846,
-   "p_fin": 0.787,
-   "fair_fin": 1.27,
+   "p_mod": 0.872,
+   "p_fin": 0.82,
+   "fair_fin": 1.22,
    "ladder_fin": [
     [
      5.5,
-     1.26
+     1.21
     ],
     [
      6.5,
-     1.27
+     1.22
     ]
    ],
    "market": null,
@@ -4200,7 +3298,7 @@
    "ev": null,
    "light": "🟢",
    "ampel": "🟢",
-   "reason": "fair 1.27",
+   "reason": "fair 1.22",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
@@ -4216,9 +3314,265 @@
    "pending": null,
    "b365_proof": null,
    "range": [
-    1.29,
-    1.73
+    1.91,
+    2.5
    ]
+  },
+  "v": 2
+ },
+ "13043511|yellowcards|unter": {
+  "match_id": "13043511",
+  "home": "CS U Craiova",
+  "away": "Getafe",
+  "kickoff": "Do 18:45",
+  "kickoff_ts": 1792082700,
+  "league": "UEFA Conference League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 6.5,
+  "first_range": [
+   1.49,
+   1.81
+  ],
+  "last_run": "Do 09:13",
+  "line": 6.5,
+  "range": [
+   1.49,
+   1.81
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    43,
+    43
+   ],
+   "next_line": 5.5,
+   "next_note": "Getafe 3/5 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.8571290339421098,
+    0.7286060440169041
+   ],
+   "fair": 1.22,
+   "ladder": [
+    [
+     6.5,
+     1.22
+    ],
+    [
+     7.5,
+     1.28
+    ]
+   ],
+   "avg": [
+    4.1,
+    6.0
+   ],
+   "expect": 5.9,
+   "expect_sum": 5.1,
+   "expect_matchup": 6.6,
+   "contrib": [
+    2.3,
+    4.3
+   ],
+   "buffer": 0.6,
+   "fa": [
+    [
+     2.0,
+     2.4
+    ],
+    [
+     2.8,
+     2.1
+    ]
+   ],
+   "referee": "David Smajc: Ø 4.5 Karten (22 Sp.) · Ø 27.0 Fouls (4 Sp.)",
+   "b365": null,
+   "expect_ref": 6.6,
+   "buffer_ref": -0.1,
+   "sd": 2.04,
+   "p_emp": {
+    "6.5": 0.819672131147541,
+    "7.5": 0.78125
+   },
+   "p_mod": 0.48,
+   "p_fin": 0.716,
+   "fair_fin": 1.4,
+   "ladder_fin": [
+    [
+     6.5,
+     1.4
+    ],
+    [
+     7.5,
+     1.3
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🔴",
+   "reason": "Historie 82 % und Modell 48 % widersprechen sich",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": [
+    1.49,
+    1.81
+   ]
+  },
+  "v": 2
+ },
+ "13044632|offsides|unter": {
+  "match_id": "13044632",
+  "home": "Riga FC",
+  "away": "Kairat Almaty",
+  "kickoff": "Do 18:45",
+  "kickoff_ts": 1792082700,
+  "league": "UEFA Conference League",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 5.5,
+  "first_range": [
+   1.46,
+   1.63
+  ],
+  "last_run": "Do 09:13",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    38,
+    7
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — Riga FC 10/12 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Kairat Almaty 6/7 gesamt, 3 in Folge auswärts",
+   "longterm": [
+    0.9438810523185945,
+    0.9290561817415729
+   ],
+   "fair": 1.13,
+   "ladder": [
+    [
+     5.5,
+     1.13
+    ],
+    [
+     6.5,
+     1.32
+    ]
+   ],
+   "avg": [
+    3.8,
+    2.1
+   ],
+   "expect": 2.8,
+   "expect_sum": 3.0,
+   "expect_matchup": 2.6,
+   "contrib": [
+    2.1,
+    0.4
+   ],
+   "buffer": 2.7,
+   "fa": [
+    [
+     2.0,
+     0.8
+    ],
+    [
+     0.4,
+     2.6
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.85,
+   "p_emp": {
+    "5.5": 0.8849557522123894,
+    "6.5": 0.7575757575757576
+   },
+   "p_mod": 0.928,
+   "p_fin": 0.892,
+   "fair_fin": 1.12,
+   "ladder_fin": [
+    [
+     5.5,
+     1.12
+    ],
+    [
+     6.5,
+     1.16
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.12",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
   },
   "v": 2
  },
@@ -4238,7 +3592,7 @@
    1.77,
    1.88
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 6.5,
   "range": [
    1.77,
@@ -4369,12 +3723,9 @@
    1.63,
    1.63
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 4.5,
-  "range": [
-   1.63,
-   1.63
-  ],
+  "range": null,
   "signal": {
    "metric": "Abseits",
    "metric_key": "offsides",
@@ -4473,14 +3824,703 @@
    "serie": null,
    "gegner": null,
    "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
    "b365_proof": null,
-   "range": [
-    1.63,
-    1.63
-   ]
+   "range": null
+  },
+  "v": 2
+ },
+ "13044477|yellowcards|unter": {
+  "match_id": "13044477",
+  "home": "Gent",
+  "away": "AGF Aarhus",
+  "kickoff": "Do 18:45",
+  "kickoff_ts": 1792082700,
+  "league": "UEFA Conference League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 5.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    39
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — Gent 15/17 (3. Lücke) gesamt, 13/15 (3. Lücke) heim; AGF Aarhus 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.8944221476425447,
+    0.7756300855820901
+   ],
+   "fair": 1.22,
+   "ladder": [
+    [
+     5.5,
+     1.22
+    ],
+    [
+     6.5,
+     1.09
+    ]
+   ],
+   "avg": [
+    2.9,
+    3.6
+   ],
+   "expect": 3.0,
+   "expect_sum": 3.3,
+   "expect_matchup": 2.8,
+   "contrib": [
+    1.6,
+    1.2
+   ],
+   "buffer": 2.5,
+   "fa": [
+    [
+     1.6,
+     1.4
+    ],
+    [
+     1.3,
+     2.4
+    ]
+   ],
+   "referee": "Bulat Sariyev: Ø 3.4 Karten (5 Sp.) · Ø 29.0 Fouls (2 Sp.)",
+   "b365": null,
+   "expect_ref": 2.9,
+   "buffer_ref": 2.6,
+   "sd": 1.92,
+   "p_emp": {
+    "5.5": 0.819672131147541,
+    "6.5": 0.9174311926605504
+   },
+   "p_mod": 0.912,
+   "p_fin": 0.872,
+   "fair_fin": 1.15,
+   "ladder_fin": [
+    [
+     5.5,
+     1.15
+    ],
+    [
+     6.5,
+     1.08
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.15",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13044477|offsides|unter": {
+  "match_id": "13044477",
+  "home": "Gent",
+  "away": "AGF Aarhus",
+  "kickoff": "Do 18:45",
+  "kickoff_ts": 1792082700,
+  "league": "UEFA Conference League",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 4.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 4.5,
+  "range": null,
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    30,
+    24
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — Gent 7/9 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; AGF Aarhus 20/22 (3. Lücke) gesamt, 10/12 auswärts",
+   "longterm": [
+    0.8485106264629149,
+    0.9753765961768723
+   ],
+   "fair": 1.2,
+   "ladder": [
+    [
+     4.5,
+     1.2
+    ],
+    [
+     5.5,
+     1.11
+    ]
+   ],
+   "avg": [
+    2.6,
+    1.9
+   ],
+   "expect": 1.8,
+   "expect_sum": 2.3,
+   "expect_matchup": 1.4,
+   "contrib": [
+    0.8,
+    0.6
+   ],
+   "buffer": 2.7,
+   "fa": [
+    [
+     1.9,
+     1.0
+    ],
+    [
+     1.2,
+     0.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.55,
+   "p_emp": {
+    "4.5": 0.8333333333333334,
+    "5.5": 0.9009009009009008
+   },
+   "p_mod": 0.959,
+   "p_fin": 0.885,
+   "fair_fin": 1.13,
+   "ladder_fin": [
+    [
+     4.5,
+     1.13
+    ],
+    [
+     5.5,
+     1.09
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 83 % vs. Modell 96 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13044477|team_yellowcards_gast|unter": {
+  "match_id": "13044477",
+  "home": "Gent",
+  "away": "AGF Aarhus",
+  "kickoff": "Do 18:45",
+  "kickoff_ts": 1792082700,
+  "league": "UEFA Conference League",
+  "metric": "AGF Aarhus: Gelbe Karten",
+  "metric_key": "team_yellowcards_gast",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "AGF Aarhus: Gelbe Karten",
+   "metric_key": "team_yellowcards_gast",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.21,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.788,
+   "p_mod": 0.848,
+   "p_fin": 0.8232,
+   "fair_fin": 1.21,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "AGF Aarhus",
+   "serie": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "gegner": 9,
+   "erwartet": 1.4,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13044855|offsides|unter": {
+  "match_id": "13044855",
+  "home": "FK Egnatia",
+  "away": "Midtjylland",
+  "kickoff": "Do 18:45",
+  "kickoff_ts": 1792082700,
+  "league": "UEFA Conference League",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 5.5,
+  "first_range": [
+   1.85,
+   1.85
+  ],
+  "last_run": "Do 09:13",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    19,
+    27
+   ],
+   "next_line": 4.5,
+   "next_note": "kein Anker — FK Egnatia 6/8 (3. Lücke) gesamt, 7/9 heim; Midtjylland 7/9 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.8013840070877413,
+    0.9477446624215651
+   ],
+   "fair": 1.17,
+   "ladder": [
+    [
+     5.5,
+     1.17
+    ],
+    [
+     6.5,
+     1.3
+    ]
+   ],
+   "avg": [
+    3.3,
+    3.7
+   ],
+   "expect": 3.5,
+   "expect_sum": 3.5,
+   "expect_matchup": 3.5,
+   "contrib": [
+    2.1,
+    1.4
+   ],
+   "buffer": 2.0,
+   "fa": [
+    [
+     1.8,
+     2.0
+    ],
+    [
+     1.6,
+     1.7
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.73,
+   "p_emp": {
+    "5.5": 0.8547008547008548,
+    "6.5": 0.7692307692307692
+   },
+   "p_mod": 0.876,
+   "p_fin": 0.862,
+   "fair_fin": 1.16,
+   "ladder_fin": [
+    [
+     5.5,
+     1.16
+    ],
+    [
+     6.5,
+     1.16
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.16",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13044932|yellowcards|unter": {
+  "match_id": "13044932",
+  "home": "CSKA Sofia",
+  "away": "Monaco",
+  "kickoff": "Do 18:45",
+  "kickoff_ts": 1792082700,
+  "league": "UEFA Conference League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    37,
+    42
+   ],
+   "next_line": 5.5,
+   "next_note": "CSKA Sofia 4/6 (3. Lücke) gesamt, 6/8 (3. Lücke) heim",
+   "longterm": [
+    0.8133732081551464,
+    0.9757774521980599
+   ],
+   "fair": 1.12,
+   "ladder": [
+    [
+     6.5,
+     1.12
+    ],
+    [
+     7.5,
+     1.26
+    ]
+   ],
+   "avg": [
+    4.6,
+    3.4
+   ],
+   "expect": 4.1,
+   "expect_sum": 4.0,
+   "expect_matchup": 4.1,
+   "contrib": [
+    1.6,
+    2.5
+   ],
+   "buffer": 2.4,
+   "fa": [
+    [
+     2.5,
+     2.2
+    ],
+    [
+     2.1,
+     1.6
+    ]
+   ],
+   "referee": "Joao Goncalves: Ø 4.8 Karten (34 Sp.) · Ø 24.2 Fouls (22 Sp.)",
+   "b365": null,
+   "expect_ref": 4.9,
+   "buffer_ref": 1.6,
+   "sd": 1.84,
+   "p_emp": {
+    "6.5": 0.8928571428571428,
+    "7.5": 0.7936507936507936
+   },
+   "p_mod": 0.808,
+   "p_fin": 0.861,
+   "fair_fin": 1.16,
+   "ladder_fin": [
+    [
+     6.5,
+     1.16
+    ],
+    [
+     7.5,
+     1.15
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.16",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13044932|on_target|über": {
+  "match_id": "13044932",
+  "home": "CSKA Sofia",
+  "away": "Monaco",
+  "kickoff": "Do 18:45",
+  "kickoff_ts": 1792082700,
+  "league": "UEFA Conference League",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Do 06:14",
+  "first_line": 6.5,
+  "first_range": [
+   1.29,
+   1.73
+  ],
+  "last_run": "Do 09:13",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    32,
+    41
+   ],
+   "next_line": 7.5,
+   "next_note": "kein Anker — CSKA Sofia 13/15 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Monaco 6/8 (3. Lücke) gesamt, 9/11 (3. Lücke) auswärts",
+   "longterm": [
+    0.7285844648948389,
+    0.7965153487465605
+   ],
+   "fair": 1.33,
+   "ladder": [
+    [
+     5.5,
+     1.41
+    ],
+    [
+     6.5,
+     1.33
+    ]
+   ],
+   "avg": [
+    9.7,
+    10.1
+   ],
+   "expect": 10.3,
+   "expect_sum": 9.9,
+   "expect_matchup": 10.8,
+   "contrib": [
+    6.7,
+    4.0
+   ],
+   "buffer": 3.8,
+   "fa": [
+    [
+     5.7,
+     3.1
+    ],
+    [
+     5.0,
+     4.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.72,
+   "p_emp": {
+    "5.5": 0.7092198581560284,
+    "6.5": 0.7518796992481203
+   },
+   "p_mod": 0.846,
+   "p_fin": 0.787,
+   "fair_fin": 1.27,
+   "ladder_fin": [
+    [
+     5.5,
+     1.26
+    ],
+    [
+     6.5,
+     1.27
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.27",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
   },
   "v": 2
  },
@@ -4497,7 +4537,7 @@
   "first_run": "Do 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -4573,7 +4613,7 @@
   "first_run": "Do 06:14",
   "first_line": 12.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 12.5,
   "range": null,
   "signal": {
@@ -4698,7 +4738,7 @@
    1.36,
    1.67
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 2.5,
   "range": [
    1.36,
@@ -4829,11 +4869,11 @@
    1.31,
    2.4
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 7.5,
   "range": [
-   1.31,
-   2.4
+   1.3,
+   2.36
   ],
   "signal": {
    "metric": "Schüsse aufs Tor",
@@ -4938,8 +4978,8 @@
    "pending": null,
    "b365_proof": null,
    "range": [
-    1.31,
-    2.4
+    1.3,
+    2.36
    ]
   },
   "v": 2
@@ -4960,11 +5000,11 @@
    1.22,
    1.41
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 5.5,
   "range": [
    1.22,
-   1.41
+   1.4
   ],
   "signal": {
    "metric": "Abseits",
@@ -5070,7 +5110,7 @@
    "b365_proof": null,
    "range": [
     1.22,
-    1.41
+    1.4
    ]
   },
   "v": 2
@@ -5091,11 +5131,11 @@
    1.72,
    1.72
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 20.5,
   "range": [
-   1.72,
-   1.72
+   1.71,
+   2.08
   ],
   "signal": {
    "metric": "Fouls",
@@ -5200,8 +5240,8 @@
    "pending": null,
    "b365_proof": null,
    "range": [
-    1.72,
-    1.72
+    1.71,
+    2.08
    ]
   },
   "v": 2
@@ -5219,7 +5259,7 @@
   "first_run": "Do 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -5295,7 +5335,7 @@
   "first_run": "Do 06:14",
   "first_line": 3.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 3.5,
   "range": null,
   "signal": {
@@ -5371,7 +5411,7 @@
   "first_run": "Do 06:14",
   "first_line": 8.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 8.5,
   "range": null,
   "signal": {
@@ -5497,7 +5537,7 @@
   "first_run": "Do 06:14",
   "first_line": 3.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 3.5,
   "range": null,
   "signal": {
@@ -5573,7 +5613,7 @@
   "first_run": "Do 06:14",
   "first_line": 7.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 7.5,
   "range": null,
   "signal": {
@@ -5686,128 +5726,6 @@
   },
   "v": 2
  },
- "13292906|goals|über": {
-  "match_id": "13292906",
-  "home": "Ullern U19",
-  "away": "Nordstrand U19",
-  "kickoff": "Do 20:15",
-  "kickoff_ts": 1792088100,
-  "league": "Norway Interkretsserie U19",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    50,
-    50
-   ],
-   "next_line": 3.5,
-   "next_note": "kein Anker — Ullern U19 14/16 (3. Lücke) gesamt, 14/16 (3. Lücke) heim; Nordstrand U19 14/16 (3. Lücke) gesamt, 19/21 (3. Lücke) auswärts",
-   "longterm": [
-    0.919394723115431,
-    0.8739164123200157
-   ],
-   "fair": 1.25,
-   "ladder": [
-    [
-     1.5,
-     1.12
-    ],
-    [
-     2.5,
-     1.25
-    ]
-   ],
-   "avg": [
-    5.6,
-    6.5
-   ],
-   "expect": 9.3,
-   "expect_sum": 6.1,
-   "expect_matchup": 12.6,
-   "contrib": [
-    9.9,
-    2.6
-   ],
-   "buffer": 6.8,
-   "fa": [
-    [
-     2.9,
-     2.4
-    ],
-    [
-     1.6,
-     3.3
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.58,
-   "p_emp": {
-    "1.5": 0.8928571428571428,
-    "2.5": 0.8
-   },
-   "p_mod": 0.996,
-   "p_fin": 0.841,
-   "fair_fin": 1.19,
-   "ladder_fin": [
-    [
-     1.5,
-     1.14
-    ],
-    [
-     2.5,
-     1.19
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟡",
-   "reason": "Historie 80 % vs. Modell 100 %",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
  "13292905|goals|über": {
   "match_id": "13292905",
   "home": "Ready U19",
@@ -5821,7 +5739,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -5930,6 +5848,128 @@
   },
   "v": 2
  },
+ "13292906|goals|über": {
+  "match_id": "13292906",
+  "home": "Ullern U19",
+  "away": "Nordstrand U19",
+  "kickoff": "Do 20:15",
+  "kickoff_ts": 1792088100,
+  "league": "Norway Interkretsserie U19",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Do 06:14",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    50,
+    50
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — Ullern U19 14/16 (3. Lücke) gesamt, 14/16 (3. Lücke) heim; Nordstrand U19 14/16 (3. Lücke) gesamt, 19/21 (3. Lücke) auswärts",
+   "longterm": [
+    0.919394723115431,
+    0.8739164123200157
+   ],
+   "fair": 1.25,
+   "ladder": [
+    [
+     1.5,
+     1.12
+    ],
+    [
+     2.5,
+     1.25
+    ]
+   ],
+   "avg": [
+    5.6,
+    6.5
+   ],
+   "expect": 9.3,
+   "expect_sum": 6.1,
+   "expect_matchup": 12.6,
+   "contrib": [
+    9.9,
+    2.6
+   ],
+   "buffer": 6.8,
+   "fa": [
+    [
+     2.9,
+     2.4
+    ],
+    [
+     1.6,
+     3.3
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.58,
+   "p_emp": {
+    "1.5": 0.8928571428571428,
+    "2.5": 0.8
+   },
+   "p_mod": 0.996,
+   "p_fin": 0.841,
+   "fair_fin": 1.19,
+   "ladder_fin": [
+    [
+     1.5,
+     1.14
+    ],
+    [
+     2.5,
+     1.19
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 80 % vs. Modell 100 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
  "13292907|goals|über": {
   "match_id": "13292907",
   "home": "Skeid U19",
@@ -5943,7 +5983,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -6065,7 +6105,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -6187,7 +6227,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -6309,7 +6349,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -6431,7 +6471,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -6553,7 +6593,7 @@
   "first_run": "Do 06:14",
   "first_line": 5.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 5.5,
   "range": null,
   "signal": {
@@ -6678,7 +6718,7 @@
    1.64,
    1.64
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 4.5,
   "range": [
    1.64,
@@ -6806,7 +6846,7 @@
   "first_run": "Do 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -6931,12 +6971,9 @@
    1.43,
    2.05
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 6.5,
-  "range": [
-   1.43,
-   2.05
-  ],
+  "range": null,
   "signal": {
    "metric": "Schüsse aufs Tor",
    "metric_key": "on_target",
@@ -7035,14 +7072,11 @@
    "serie": null,
    "gegner": null,
    "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
    "b365_proof": null,
-   "range": [
-    1.43,
-    2.05
-   ]
+   "range": null
   },
   "v": 2
  },
@@ -7062,12 +7096,9 @@
    1.58,
    1.79
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 4.5,
-  "range": [
-   1.58,
-   1.79
-  ],
+  "range": null,
   "signal": {
    "metric": "Abseits",
    "metric_key": "offsides",
@@ -7166,14 +7197,11 @@
    "serie": null,
    "gegner": null,
    "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
    "b365_proof": null,
-   "range": [
-    1.58,
-    1.79
-   ]
+   "range": null
   },
   "v": 2
  },
@@ -7190,7 +7218,7 @@
   "first_run": "Do 06:14",
   "first_line": 1.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 1.5,
   "range": null,
   "signal": {
@@ -7253,1405 +7281,6 @@
   },
   "v": 2
  },
- "13044475|yellowcards|unter": {
-  "match_id": "13044475",
-  "home": "Sint-Truidense",
-  "away": "FC Iberia 1999",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1792090800,
-  "league": "UEFA Conference League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    42,
-    36
-   ],
-   "next_line": 5.5,
-   "next_note": "FC Iberia 1999 4/6 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
-   "longterm": [
-    0.9685458853020203,
-    0.8010462949917683
-   ],
-   "fair": 1.13,
-   "ladder": [
-    [
-     6.5,
-     1.13
-    ],
-    [
-     7.5,
-     1.25
-    ]
-   ],
-   "avg": [
-    3.3,
-    4.7
-   ],
-   "expect": 4.0,
-   "expect_sum": 4.0,
-   "expect_matchup": 4.1,
-   "contrib": [
-    1.7,
-    2.4
-   ],
-   "buffer": 2.5,
-   "fa": [
-    [
-     1.7,
-     1.9
-    ],
-    [
-     2.5,
-     2.2
-    ]
-   ],
-   "referee": "Mehmet Turkmen: Ø 3.8 Karten (26 Sp.) · Ø 22.9 Fouls (18 Sp.)",
-   "b365": null,
-   "expect_ref": 4.0,
-   "buffer_ref": 2.5,
-   "sd": 1.94,
-   "p_emp": {
-    "6.5": 0.8849557522123894,
-    "7.5": 0.8
-   },
-   "p_mod": 0.901,
-   "p_fin": 0.892,
-   "fair_fin": 1.12,
-   "ladder_fin": [
-    [
-     6.5,
-     1.12
-    ],
-    [
-     7.5,
-     1.13
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.12",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13044475|offsides|unter": {
-  "match_id": "13044475",
-  "home": "Sint-Truidense",
-  "away": "FC Iberia 1999",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1792090800,
-  "league": "UEFA Conference League",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 4.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 4.5,
-  "range": null,
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 4.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    35,
-    25
-   ],
-   "next_line": 3.5,
-   "next_note": "Sint-Truidense 7/9 (3. Lücke) gesamt, 10/12 (3. Lücke) heim; FC Iberia 1999 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.8424830147520804,
-    0.8718828997838668
-   ],
-   "fair": 1.25,
-   "ladder": [
-    [
-     4.5,
-     1.25
-    ],
-    [
-     5.5,
-     1.11
-    ]
-   ],
-   "avg": [
-    2.5,
-    2.6
-   ],
-   "expect": 2.2,
-   "expect_sum": 2.6,
-   "expect_matchup": 1.9,
-   "contrib": [
-    1.2,
-    0.7
-   ],
-   "buffer": 2.3,
-   "fa": [
-    [
-     1.5,
-     1.4
-    ],
-    [
-     1.4,
-     1.0
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.67,
-   "p_emp": {
-    "4.5": 0.8,
-    "5.5": 0.9009009009009008
-   },
-   "p_mod": 0.916,
-   "p_fin": 0.856,
-   "fair_fin": 1.17,
-   "ladder_fin": [
-    [
-     4.5,
-     1.17
-    ],
-    [
-     5.5,
-     1.09
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.17",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13044759|goals|über": {
-  "match_id": "13044759",
-  "home": "TSG Hoffenheim",
-  "away": "Besiktas",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1792090800,
-  "league": "UEFA Europa League",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    41,
-    43
-   ],
-   "next_line": 3.5,
-   "next_note": "TSG Hoffenheim 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Besiktas 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
-   "longterm": [
-    0.7707167163471738,
-    0.5849130556994282
-   ],
-   "fair": 1.55,
-   "ladder": [
-    [
-     1.5,
-     1.28
-    ],
-    [
-     2.5,
-     1.55
-    ]
-   ],
-   "avg": [
-    3.4,
-    2.4
-   ],
-   "expect": 2.7,
-   "expect_sum": 2.9,
-   "expect_matchup": 2.6,
-   "contrib": [
-    1.4,
-    1.2
-   ],
-   "buffer": 0.2,
-   "fa": [
-    [
-     2.1,
-     1.9
-    ],
-    [
-     1.9,
-     0.9
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.14,
-   "p_emp": {
-    "1.5": 0.78125,
-    "2.5": 0.6451612903225806
-   },
-   "p_mod": 0.537,
-   "p_fin": 0.601,
-   "fair_fin": 1.66,
-   "ladder_fin": [
-    [
-     1.5,
-     1.38
-    ],
-    [
-     2.5,
-     1.66
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟡",
-   "reason": "60 % knapp",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13044831|yellowcards|unter": {
-  "match_id": "13044831",
-  "home": "SK Brann",
-  "away": "Lincoln Red Imps FC",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1792090800,
-  "league": "UEFA Conference League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    40,
-    21
-   ],
-   "next_line": 5.5,
-   "next_note": "Lincoln Red Imps FC 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "longterm": [
-    0.9510743536168915,
-    0.7915723456295305
-   ],
-   "fair": 1.13,
-   "ladder": [
-    [
-     6.5,
-     1.13
-    ],
-    [
-     7.5,
-     1.28
-    ]
-   ],
-   "avg": [
-    3.5,
-    3.0
-   ],
-   "expect": 2.9,
-   "expect_sum": 3.2,
-   "expect_matchup": 2.5,
-   "contrib": [
-    1.2,
-    1.3
-   ],
-   "buffer": 3.6,
-   "fa": [
-    [
-     1.4,
-     2.1
-    ],
-    [
-     1.9,
-     2.2
-    ]
-   ],
-   "referee": "Dalibor Cerny: Ø 3.4 Karten (36 Sp.) · Ø 22.9 Fouls (7 Sp.)",
-   "b365": null,
-   "expect_ref": 2.7,
-   "buffer_ref": 3.8,
-   "sd": 2.08,
-   "p_emp": {
-    "6.5": 0.8849557522123894,
-    "7.5": 0.78125
-   },
-   "p_mod": 0.966,
-   "p_fin": 0.915,
-   "fair_fin": 1.09,
-   "ladder_fin": [
-    [
-     6.5,
-     1.09
-    ],
-    [
-     7.5,
-     1.13
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.09",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13044831|on_target|über": {
-  "match_id": "13044831",
-  "home": "SK Brann",
-  "away": "Lincoln Red Imps FC",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1792090800,
-  "league": "UEFA Conference League",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 6.5,
-  "first_range": [
-   1.76,
-   1.76
-  ],
-  "last_run": "Do 08:13",
-  "line": 6.5,
-  "range": [
-   1.76,
-   1.76
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    32,
-    12
-   ],
-   "next_line": 7.5,
-   "next_note": "Lincoln Red Imps FC 6/8 (3. Lücke) gesamt, 3/4 (Aussetzer in den letzten 2) auswärts",
-   "longterm": [
-    0.7401399654951835,
-    0.8453556483683152
-   ],
-   "fair": 1.34,
-   "ladder": [
-    [
-     5.5,
-     1.34
-    ],
-    [
-     6.5,
-     1.34
-    ]
-   ],
-   "avg": [
-    9.3,
-    9.0
-   ],
-   "expect": 9.2,
-   "expect_sum": 9.2,
-   "expect_matchup": 9.3,
-   "contrib": [
-    5.6,
-    3.7
-   ],
-   "buffer": 2.7,
-   "fa": [
-    [
-     4.6,
-     5.1
-    ],
-    [
-     4.3,
-     5.1
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.99,
-   "p_emp": {
-    "5.5": 0.7462686567164178,
-    "6.5": 0.7462686567164178
-   },
-   "p_mod": 0.817,
-   "p_fin": 0.775,
-   "fair_fin": 1.29,
-   "ladder_fin": [
-    [
-     5.5,
-     1.25
-    ],
-    [
-     6.5,
-     1.29
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.29",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": [
-    1.76,
-    1.76
-   ]
-  },
-  "v": 2
- },
- "13044831|offsides|unter": {
-  "match_id": "13044831",
-  "home": "SK Brann",
-  "away": "Lincoln Red Imps FC",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1792090800,
-  "league": "UEFA Conference League",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 5.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 5.5,
-  "range": null,
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    30,
-    9
-   ],
-   "next_line": 4.5,
-   "next_note": "SK Brann 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Lincoln Red Imps FC 5/7 (3. Lücke) gesamt, 2/3 auswärts",
-   "longterm": [
-    0.9746082683821384,
-    0.7949939471288909
-   ],
-   "fair": 1.15,
-   "ladder": [
-    [
-     5.5,
-     1.15
-    ],
-    [
-     6.5,
-     1.33
-    ]
-   ],
-   "avg": [
-    2.9,
-    4.0
-   ],
-   "expect": 3.3,
-   "expect_sum": 3.5,
-   "expect_matchup": 3.2,
-   "contrib": [
-    0.7,
-    2.5
-   ],
-   "buffer": 2.2,
-   "fa": [
-    [
-     1.7,
-     1.2
-    ],
-    [
-     1.7,
-     1.8
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.71,
-   "p_emp": {
-    "5.5": 0.8695652173913044,
-    "6.5": 0.7518796992481203
-   },
-   "p_mod": 0.901,
-   "p_fin": 0.877,
-   "fair_fin": 1.14,
-   "ladder_fin": [
-    [
-     5.5,
-     1.14
-    ],
-    [
-     6.5,
-     1.16
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.14",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13044831|team_yellowcards_heim|unter": {
-  "match_id": "13044831",
-  "home": "SK Brann",
-  "away": "Lincoln Red Imps FC",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1792090800,
-  "league": "UEFA Conference League",
-  "metric": "SK Brann: Gelbe Karten",
-  "metric_key": "team_yellowcards_heim",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "SK Brann: Gelbe Karten",
-   "metric_key": "team_yellowcards_heim",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.25,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.753,
-   "p_mod": 0.834,
-   "p_fin": 0.7988,
-   "fair_fin": 1.25,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "SK Brann",
-   "serie": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 15
-   },
-   "gegner": 7,
-   "erwartet": 1.5,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13044972|yellowcards|unter": {
-  "match_id": "13044972",
-  "home": "Atalanta",
-  "away": "Pafos FC",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1792090800,
-  "league": "UEFA Conference League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 5.5,
-  "first_range": [
-   1.59,
-   2.0
-  ],
-  "last_run": "Do 08:13",
-  "line": 5.5,
-  "range": [
-   1.59,
-   2.0
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    43,
-    41
-   ],
-   "next_line": 4.5,
-   "next_note": "Pafos FC 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
-   "longterm": [
-    0.9527496935365719,
-    0.5842098472728753
-   ],
-   "fair": 1.29,
-   "ladder": [
-    [
-     5.5,
-     1.29
-    ],
-    [
-     6.5,
-     1.12
-    ]
-   ],
-   "avg": [
-    2.2,
-    4.7
-   ],
-   "expect": 3.1,
-   "expect_sum": 3.4,
-   "expect_matchup": 2.7,
-   "contrib": [
-    1.1,
-    1.6
-   ],
-   "buffer": 2.4,
-   "fa": [
-    [
-     1.3,
-     1.3
-    ],
-    [
-     2.3,
-     2.3
-    ]
-   ],
-   "referee": "Adam Ladeback: Ø 2.8 Karten (32 Sp.) · Ø 20.9 Fouls (27 Sp.)",
-   "b365": null,
-   "expect_ref": 2.4,
-   "buffer_ref": 3.1,
-   "sd": 2.55,
-   "p_emp": {
-    "5.5": 0.7751937984496123,
-    "6.5": 0.8928571428571428
-   },
-   "p_mod": 0.888,
-   "p_fin": 0.847,
-   "fair_fin": 1.18,
-   "ladder_fin": [
-    [
-     5.5,
-     1.18
-    ],
-    [
-     6.5,
-     1.1
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.18",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": [
-    1.59,
-    2.0
-   ]
-  },
-  "v": 2
- },
- "13044972|on_target|über": {
-  "match_id": "13044972",
-  "home": "Atalanta",
-  "away": "Pafos FC",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1792090800,
-  "league": "UEFA Conference League",
-  "metric": "Schüsse aufs Tor",
-  "metric_key": "on_target",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 6.5,
-  "first_range": [
-   1.34,
-   2.27
-  ],
-  "last_run": "Do 08:13",
-  "line": 6.5,
-  "range": [
-   1.34,
-   2.27
-  ],
-  "signal": {
-   "metric": "Schüsse aufs Tor",
-   "metric_key": "on_target",
-   "direction": "über",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    41,
-    36
-   ],
-   "next_line": 7.5,
-   "next_note": "Atalanta 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
-   "longterm": [
-    0.6578943579957763,
-    0.9228948753004482
-   ],
-   "fair": 1.32,
-   "ladder": [
-    [
-     5.5,
-     1.28
-    ],
-    [
-     6.5,
-     1.32
-    ]
-   ],
-   "avg": [
-    8.9,
-    9.6
-   ],
-   "expect": 9.2,
-   "expect_sum": 9.2,
-   "expect_matchup": 9.3,
-   "contrib": [
-    4.0,
-    5.2
-   ],
-   "buffer": 2.7,
-   "fa": [
-    [
-     4.7,
-     4.4
-    ],
-    [
-     5.8,
-     4.0
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.19,
-   "p_emp": {
-    "5.5": 0.78125,
-    "6.5": 0.7575757575757576
-   },
-   "p_mod": 0.801,
-   "p_fin": 0.774,
-   "fair_fin": 1.29,
-   "ladder_fin": [
-    [
-     5.5,
-     1.24
-    ],
-    [
-     6.5,
-     1.29
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.29",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "range": [
-    1.34,
-    2.27
-   ]
-  },
-  "v": 2
- },
- "13044972|team_yellowcards_heim|unter": {
-  "match_id": "13044972",
-  "home": "Atalanta",
-  "away": "Pafos FC",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1792090800,
-  "league": "UEFA Conference League",
-  "metric": "Atalanta: Gelbe Karten",
-  "metric_key": "team_yellowcards_heim",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Atalanta: Gelbe Karten",
-   "metric_key": "team_yellowcards_heim",
-   "direction": "unter",
-   "line": 2.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.19,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.794,
-   "p_mod": 0.881,
-   "p_fin": 0.8425,
-   "fair_fin": 1.19,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Atalanta",
-   "serie": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 15
-   },
-   "gegner": 6,
-   "erwartet": 1.3,
-   "unverified": false,
-   "no_tab": false,
-   "pending": false,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13044915|yellowcards|unter": {
-  "match_id": "13044915",
-  "home": "FC Copenhagen",
-  "away": "Braga",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1792090800,
-  "league": "UEFA Conference League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    41,
-    43
-   ],
-   "next_line": 5.5,
-   "next_note": "Braga 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
-   "longterm": [
-    0.9851716894295119,
-    0.8216015315092206
-   ],
-   "fair": 1.12,
-   "ladder": [
-    [
-     6.5,
-     1.12
-    ],
-    [
-     7.5,
-     1.23
-    ]
-   ],
-   "avg": [
-    2.9,
-    4.9
-   ],
-   "expect": 3.8,
-   "expect_sum": 3.9,
-   "expect_matchup": 3.8,
-   "contrib": [
-    1.8,
-    1.9
-   ],
-   "buffer": 2.7,
-   "fa": [
-    [
-     1.8,
-     1.4
-    ],
-    [
-     2.2,
-     2.5
-    ]
-   ],
-   "referee": "Joey Kooij: Ø 3.4 Karten (39 Sp.) · Ø 21.8 Fouls (33 Sp.)",
-   "b365": null,
-   "expect_ref": 3.4,
-   "buffer_ref": 3.1,
-   "sd": 1.92,
-   "p_emp": {
-    "6.5": 0.8928571428571428,
-    "7.5": 0.8130081300813008
-   },
-   "p_mod": 0.947,
-   "p_fin": 0.911,
-   "fair_fin": 1.1,
-   "ladder_fin": [
-    [
-     6.5,
-     1.1
-    ],
-    [
-     7.5,
-     1.12
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.10",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13044915|offsides|unter": {
-  "match_id": "13044915",
-  "home": "FC Copenhagen",
-  "away": "Braga",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1792090800,
-  "league": "UEFA Conference League",
-  "metric": "Abseits",
-  "metric_key": "offsides",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 4.5,
-  "first_range": null,
-  "last_run": "Do 08:13",
-  "line": 4.5,
-  "range": null,
-  "signal": {
-   "metric": "Abseits",
-   "metric_key": "offsides",
-   "direction": "unter",
-   "line": 4.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    28,
-    32
-   ],
-   "next_line": 3.5,
-   "next_note": "FC Copenhagen 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Braga 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.8029395877183587,
-    0.769060508423357
-   ],
-   "fair": 1.32,
-   "ladder": [
-    [
-     4.5,
-     1.32
-    ],
-    [
-     5.5,
-     1.17
-    ]
-   ],
-   "avg": [
-    3.3,
-    3.1
-   ],
-   "expect": 3.1,
-   "expect_sum": 3.2,
-   "expect_matchup": 2.9,
-   "contrib": [
-    1.9,
-    1.0
-   ],
-   "buffer": 1.4,
-   "fa": [
-    [
-     1.6,
-     1.1
-    ],
-    [
-     1.3,
-     1.6
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.92,
-   "p_emp": {
-    "4.5": 0.7575757575757576,
-    "5.5": 0.8547008547008548
-   },
-   "p_mod": 0.767,
-   "p_fin": 0.786,
-   "fair_fin": 1.27,
-   "ladder_fin": [
-    [
-     4.5,
-     1.27
-    ],
-    [
-     5.5,
-     1.15
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.27",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
  "13044440|yellowcards|unter": {
   "match_id": "13044440",
   "home": "Brighton",
@@ -8668,7 +7297,7 @@
    1.47,
    2.28
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 5.5,
   "range": [
    1.49,
@@ -8799,7 +7428,7 @@
    1.64,
    2.0
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 6.5,
   "range": [
    1.85,
@@ -8930,12 +7559,9 @@
    1.72,
    1.72
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 5.5,
-  "range": [
-   1.72,
-   1.72
-  ],
+  "range": null,
   "signal": {
    "metric": "Abseits",
    "metric_key": "offsides",
@@ -9034,14 +7660,1398 @@
    "serie": null,
    "gegner": null,
    "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13044759|goals|über": {
+  "match_id": "13044759",
+  "home": "TSG Hoffenheim",
+  "away": "Besiktas",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1792090800,
+  "league": "UEFA Europa League",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Do 06:14",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    41,
+    43
+   ],
+   "next_line": 3.5,
+   "next_note": "TSG Hoffenheim 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Besiktas 2/4 (3. Lücke) gesamt, 1/3 (3. Lücke) auswärts",
+   "longterm": [
+    0.7707167163471738,
+    0.5849130556994282
+   ],
+   "fair": 1.55,
+   "ladder": [
+    [
+     1.5,
+     1.28
+    ],
+    [
+     2.5,
+     1.55
+    ]
+   ],
+   "avg": [
+    3.4,
+    2.4
+   ],
+   "expect": 2.7,
+   "expect_sum": 2.9,
+   "expect_matchup": 2.6,
+   "contrib": [
+    1.4,
+    1.2
+   ],
+   "buffer": 0.2,
+   "fa": [
+    [
+     2.1,
+     1.9
+    ],
+    [
+     1.9,
+     0.9
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.14,
+   "p_emp": {
+    "1.5": 0.78125,
+    "2.5": 0.6451612903225806
+   },
+   "p_mod": 0.537,
+   "p_fin": 0.601,
+   "fair_fin": 1.66,
+   "ladder_fin": [
+    [
+     1.5,
+     1.38
+    ],
+    [
+     2.5,
+     1.66
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "60 % knapp",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13044475|yellowcards|unter": {
+  "match_id": "13044475",
+  "home": "Sint-Truidense",
+  "away": "FC Iberia 1999",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1792090800,
+  "league": "UEFA Conference League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    42,
+    36
+   ],
+   "next_line": 5.5,
+   "next_note": "FC Iberia 1999 4/6 (3. Lücke) gesamt, 8/10 (3. Lücke) auswärts",
+   "longterm": [
+    0.9685458853020203,
+    0.8010462949917683
+   ],
+   "fair": 1.13,
+   "ladder": [
+    [
+     6.5,
+     1.13
+    ],
+    [
+     7.5,
+     1.25
+    ]
+   ],
+   "avg": [
+    3.3,
+    4.7
+   ],
+   "expect": 4.0,
+   "expect_sum": 4.0,
+   "expect_matchup": 4.1,
+   "contrib": [
+    1.7,
+    2.4
+   ],
+   "buffer": 2.5,
+   "fa": [
+    [
+     1.7,
+     1.9
+    ],
+    [
+     2.5,
+     2.2
+    ]
+   ],
+   "referee": "Mehmet Turkmen: Ø 3.8 Karten (26 Sp.) · Ø 22.9 Fouls (18 Sp.)",
+   "b365": null,
+   "expect_ref": 4.0,
+   "buffer_ref": 2.5,
+   "sd": 1.94,
+   "p_emp": {
+    "6.5": 0.8849557522123894,
+    "7.5": 0.8
+   },
+   "p_mod": 0.901,
+   "p_fin": 0.892,
+   "fair_fin": 1.12,
+   "ladder_fin": [
+    [
+     6.5,
+     1.12
+    ],
+    [
+     7.5,
+     1.13
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.12",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13044475|offsides|unter": {
+  "match_id": "13044475",
+  "home": "Sint-Truidense",
+  "away": "FC Iberia 1999",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1792090800,
+  "league": "UEFA Conference League",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 4.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 4.5,
+  "range": null,
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    35,
+    25
+   ],
+   "next_line": 3.5,
+   "next_note": "Sint-Truidense 7/9 (3. Lücke) gesamt, 10/12 (3. Lücke) heim; FC Iberia 1999 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.8424830147520804,
+    0.8718828997838668
+   ],
+   "fair": 1.25,
+   "ladder": [
+    [
+     4.5,
+     1.25
+    ],
+    [
+     5.5,
+     1.11
+    ]
+   ],
+   "avg": [
+    2.5,
+    2.6
+   ],
+   "expect": 2.2,
+   "expect_sum": 2.6,
+   "expect_matchup": 1.9,
+   "contrib": [
+    1.2,
+    0.7
+   ],
+   "buffer": 2.3,
+   "fa": [
+    [
+     1.5,
+     1.4
+    ],
+    [
+     1.4,
+     1.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.67,
+   "p_emp": {
+    "4.5": 0.8,
+    "5.5": 0.9009009009009008
+   },
+   "p_mod": 0.916,
+   "p_fin": 0.856,
+   "fair_fin": 1.17,
+   "ladder_fin": [
+    [
+     4.5,
+     1.17
+    ],
+    [
+     5.5,
+     1.09
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.17",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13044831|yellowcards|unter": {
+  "match_id": "13044831",
+  "home": "SK Brann",
+  "away": "Lincoln Red Imps FC",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1792090800,
+  "league": "UEFA Conference League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    40,
+    21
+   ],
+   "next_line": 5.5,
+   "next_note": "Lincoln Red Imps FC 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.9510743536168915,
+    0.7915723456295305
+   ],
+   "fair": 1.13,
+   "ladder": [
+    [
+     6.5,
+     1.13
+    ],
+    [
+     7.5,
+     1.28
+    ]
+   ],
+   "avg": [
+    3.5,
+    3.0
+   ],
+   "expect": 2.9,
+   "expect_sum": 3.2,
+   "expect_matchup": 2.5,
+   "contrib": [
+    1.2,
+    1.3
+   ],
+   "buffer": 3.6,
+   "fa": [
+    [
+     1.4,
+     2.1
+    ],
+    [
+     1.9,
+     2.2
+    ]
+   ],
+   "referee": "Dalibor Cerny: Ø 3.4 Karten (36 Sp.) · Ø 22.9 Fouls (7 Sp.)",
+   "b365": null,
+   "expect_ref": 2.7,
+   "buffer_ref": 3.8,
+   "sd": 2.08,
+   "p_emp": {
+    "6.5": 0.8849557522123894,
+    "7.5": 0.78125
+   },
+   "p_mod": 0.966,
+   "p_fin": 0.915,
+   "fair_fin": 1.09,
+   "ladder_fin": [
+    [
+     6.5,
+     1.09
+    ],
+    [
+     7.5,
+     1.13
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.09",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13044831|on_target|über": {
+  "match_id": "13044831",
+  "home": "SK Brann",
+  "away": "Lincoln Red Imps FC",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1792090800,
+  "league": "UEFA Conference League",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Do 06:14",
+  "first_line": 6.5,
+  "first_range": [
+   1.76,
+   1.76
+  ],
+  "last_run": "Do 09:13",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    32,
+    12
+   ],
+   "next_line": 7.5,
+   "next_note": "Lincoln Red Imps FC 6/8 (3. Lücke) gesamt, 3/4 (Aussetzer in den letzten 2) auswärts",
+   "longterm": [
+    0.7401399654951835,
+    0.8453556483683152
+   ],
+   "fair": 1.34,
+   "ladder": [
+    [
+     5.5,
+     1.34
+    ],
+    [
+     6.5,
+     1.34
+    ]
+   ],
+   "avg": [
+    9.3,
+    9.0
+   ],
+   "expect": 9.2,
+   "expect_sum": 9.2,
+   "expect_matchup": 9.3,
+   "contrib": [
+    5.6,
+    3.7
+   ],
+   "buffer": 2.7,
+   "fa": [
+    [
+     4.6,
+     5.1
+    ],
+    [
+     4.3,
+     5.1
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.99,
+   "p_emp": {
+    "5.5": 0.7462686567164178,
+    "6.5": 0.7462686567164178
+   },
+   "p_mod": 0.817,
+   "p_fin": 0.775,
+   "fair_fin": 1.29,
+   "ladder_fin": [
+    [
+     5.5,
+     1.25
+    ],
+    [
+     6.5,
+     1.29
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.29",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13044831|offsides|unter": {
+  "match_id": "13044831",
+  "home": "SK Brann",
+  "away": "Lincoln Red Imps FC",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1792090800,
+  "league": "UEFA Conference League",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 5.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    30,
+    9
+   ],
+   "next_line": 4.5,
+   "next_note": "SK Brann 8/10 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Lincoln Red Imps FC 5/7 (3. Lücke) gesamt, 2/3 auswärts",
+   "longterm": [
+    0.9746082683821384,
+    0.7949939471288909
+   ],
+   "fair": 1.15,
+   "ladder": [
+    [
+     5.5,
+     1.15
+    ],
+    [
+     6.5,
+     1.33
+    ]
+   ],
+   "avg": [
+    2.9,
+    4.0
+   ],
+   "expect": 3.3,
+   "expect_sum": 3.5,
+   "expect_matchup": 3.2,
+   "contrib": [
+    0.7,
+    2.5
+   ],
+   "buffer": 2.2,
+   "fa": [
+    [
+     1.7,
+     1.2
+    ],
+    [
+     1.7,
+     1.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.71,
+   "p_emp": {
+    "5.5": 0.8695652173913044,
+    "6.5": 0.7518796992481203
+   },
+   "p_mod": 0.901,
+   "p_fin": 0.877,
+   "fair_fin": 1.14,
+   "ladder_fin": [
+    [
+     5.5,
+     1.14
+    ],
+    [
+     6.5,
+     1.16
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.14",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13044831|team_yellowcards_heim|unter": {
+  "match_id": "13044831",
+  "home": "SK Brann",
+  "away": "Lincoln Red Imps FC",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1792090800,
+  "league": "UEFA Conference League",
+  "metric": "SK Brann: Gelbe Karten",
+  "metric_key": "team_yellowcards_heim",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "SK Brann: Gelbe Karten",
+   "metric_key": "team_yellowcards_heim",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.25,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.753,
+   "p_mod": 0.834,
+   "p_fin": 0.7988,
+   "fair_fin": 1.25,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "SK Brann",
+   "serie": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 15
+   },
+   "gegner": 7,
+   "erwartet": 1.5,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13044915|yellowcards|unter": {
+  "match_id": "13044915",
+  "home": "FC Copenhagen",
+  "away": "Braga",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1792090800,
+  "league": "UEFA Conference League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    41,
+    43
+   ],
+   "next_line": 5.5,
+   "next_note": "Braga 6/8 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.9851716894295119,
+    0.8216015315092206
+   ],
+   "fair": 1.12,
+   "ladder": [
+    [
+     6.5,
+     1.12
+    ],
+    [
+     7.5,
+     1.23
+    ]
+   ],
+   "avg": [
+    2.9,
+    4.9
+   ],
+   "expect": 3.8,
+   "expect_sum": 3.9,
+   "expect_matchup": 3.8,
+   "contrib": [
+    1.8,
+    1.9
+   ],
+   "buffer": 2.7,
+   "fa": [
+    [
+     1.8,
+     1.4
+    ],
+    [
+     2.2,
+     2.5
+    ]
+   ],
+   "referee": "Joey Kooij: Ø 3.4 Karten (39 Sp.) · Ø 21.8 Fouls (33 Sp.)",
+   "b365": null,
+   "expect_ref": 3.4,
+   "buffer_ref": 3.1,
+   "sd": 1.92,
+   "p_emp": {
+    "6.5": 0.8928571428571428,
+    "7.5": 0.8130081300813008
+   },
+   "p_mod": 0.947,
+   "p_fin": 0.911,
+   "fair_fin": 1.1,
+   "ladder_fin": [
+    [
+     6.5,
+     1.1
+    ],
+    [
+     7.5,
+     1.12
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.10",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13044915|offsides|unter": {
+  "match_id": "13044915",
+  "home": "FC Copenhagen",
+  "away": "Braga",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1792090800,
+  "league": "UEFA Conference League",
+  "metric": "Abseits",
+  "metric_key": "offsides",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 4.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 4.5,
+  "range": null,
+  "signal": {
+   "metric": "Abseits",
+   "metric_key": "offsides",
+   "direction": "unter",
+   "line": 4.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    28,
+    32
+   ],
+   "next_line": 3.5,
+   "next_note": "FC Copenhagen 7/9 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Braga 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.8029395877183587,
+    0.769060508423357
+   ],
+   "fair": 1.32,
+   "ladder": [
+    [
+     4.5,
+     1.32
+    ],
+    [
+     5.5,
+     1.17
+    ]
+   ],
+   "avg": [
+    3.3,
+    3.1
+   ],
+   "expect": 3.1,
+   "expect_sum": 3.2,
+   "expect_matchup": 2.9,
+   "contrib": [
+    1.9,
+    1.0
+   ],
+   "buffer": 1.4,
+   "fa": [
+    [
+     1.6,
+     1.1
+    ],
+    [
+     1.3,
+     1.6
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.92,
+   "p_emp": {
+    "4.5": 0.7575757575757576,
+    "5.5": 0.8547008547008548
+   },
+   "p_mod": 0.767,
+   "p_fin": 0.786,
+   "fair_fin": 1.27,
+   "ladder_fin": [
+    [
+     4.5,
+     1.27
+    ],
+    [
+     5.5,
+     1.15
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.27",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13044972|yellowcards|unter": {
+  "match_id": "13044972",
+  "home": "Atalanta",
+  "away": "Pafos FC",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1792090800,
+  "league": "UEFA Conference League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 5.5,
+  "first_range": [
+   1.59,
+   2.0
+  ],
+  "last_run": "Do 09:13",
+  "line": 5.5,
+  "range": [
+   1.59,
+   2.0
+  ],
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    43,
+    41
+   ],
+   "next_line": 4.5,
+   "next_note": "Pafos FC 4/6 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
+   "longterm": [
+    0.9527496935365719,
+    0.5842098472728753
+   ],
+   "fair": 1.29,
+   "ladder": [
+    [
+     5.5,
+     1.29
+    ],
+    [
+     6.5,
+     1.12
+    ]
+   ],
+   "avg": [
+    2.2,
+    4.7
+   ],
+   "expect": 3.1,
+   "expect_sum": 3.4,
+   "expect_matchup": 2.7,
+   "contrib": [
+    1.1,
+    1.6
+   ],
+   "buffer": 2.4,
+   "fa": [
+    [
+     1.3,
+     1.3
+    ],
+    [
+     2.3,
+     2.3
+    ]
+   ],
+   "referee": "Adam Ladeback: Ø 2.8 Karten (32 Sp.) · Ø 20.9 Fouls (27 Sp.)",
+   "b365": null,
+   "expect_ref": 2.4,
+   "buffer_ref": 3.1,
+   "sd": 2.55,
+   "p_emp": {
+    "5.5": 0.7751937984496123,
+    "6.5": 0.8928571428571428
+   },
+   "p_mod": 0.888,
+   "p_fin": 0.847,
+   "fair_fin": 1.18,
+   "ladder_fin": [
+    [
+     5.5,
+     1.18
+    ],
+    [
+     6.5,
+     1.1
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.18",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
    "unverified": null,
    "no_tab": null,
    "pending": null,
    "b365_proof": null,
    "range": [
-    1.72,
-    1.72
+    1.59,
+    2.0
    ]
+  },
+  "v": 2
+ },
+ "13044972|on_target|über": {
+  "match_id": "13044972",
+  "home": "Atalanta",
+  "away": "Pafos FC",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1792090800,
+  "league": "UEFA Conference League",
+  "metric": "Schüsse aufs Tor",
+  "metric_key": "on_target",
+  "direction": "über",
+  "first_run": "Do 06:14",
+  "first_line": 6.5,
+  "first_range": [
+   1.34,
+   2.27
+  ],
+  "last_run": "Do 09:13",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Schüsse aufs Tor",
+   "metric_key": "on_target",
+   "direction": "über",
+   "line": 6.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": true,
+   "valid": [
+    41,
+    36
+   ],
+   "next_line": 7.5,
+   "next_note": "Atalanta 5/7 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+   "longterm": [
+    0.6578943579957763,
+    0.9228948753004482
+   ],
+   "fair": 1.32,
+   "ladder": [
+    [
+     5.5,
+     1.28
+    ],
+    [
+     6.5,
+     1.32
+    ]
+   ],
+   "avg": [
+    8.9,
+    9.6
+   ],
+   "expect": 9.2,
+   "expect_sum": 9.2,
+   "expect_matchup": 9.3,
+   "contrib": [
+    4.0,
+    5.2
+   ],
+   "buffer": 2.7,
+   "fa": [
+    [
+     4.7,
+     4.4
+    ],
+    [
+     5.8,
+     4.0
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.19,
+   "p_emp": {
+    "5.5": 0.78125,
+    "6.5": 0.7575757575757576
+   },
+   "p_mod": 0.801,
+   "p_fin": 0.774,
+   "fair_fin": 1.29,
+   "ladder_fin": [
+    [
+     5.5,
+     1.24
+    ],
+    [
+     6.5,
+     1.29
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.29",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13044972|team_yellowcards_heim|unter": {
+  "match_id": "13044972",
+  "home": "Atalanta",
+  "away": "Pafos FC",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1792090800,
+  "league": "UEFA Conference League",
+  "metric": "Atalanta: Gelbe Karten",
+  "metric_key": "team_yellowcards_heim",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Atalanta: Gelbe Karten",
+   "metric_key": "team_yellowcards_heim",
+   "direction": "unter",
+   "line": 2.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.19,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.794,
+   "p_mod": 0.881,
+   "p_fin": 0.8425,
+   "fair_fin": 1.19,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Atalanta",
+   "serie": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 15
+   },
+   "gegner": 6,
+   "erwartet": 1.3,
+   "unverified": false,
+   "no_tab": false,
+   "pending": false,
+   "b365_proof": null,
+   "range": null
   },
   "v": 2
  },
@@ -9061,7 +9071,7 @@
    0.0,
    0.0
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 5.5,
   "range": [
    0.0,
@@ -9192,12 +9202,9 @@
    1.64,
    2.32
   ],
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 5.5,
-  "range": [
-   1.6,
-   2.05
-  ],
+  "range": null,
   "signal": {
    "metric": "Abseits",
    "metric_key": "offsides",
@@ -9296,14 +9303,11 @@
    "serie": null,
    "gegner": null,
    "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
    "b365_proof": null,
-   "range": [
-    1.6,
-    2.05
-   ]
+   "range": null
   },
   "v": 2
  },
@@ -9320,7 +9324,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -9396,7 +9400,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -9459,6 +9463,82 @@
   },
   "v": 2
  },
+ "13170980|team_corners_gast|unter": {
+  "match_id": "13170980",
+  "home": "Independiente del Valle (W)",
+  "away": "Belgrano (W)",
+  "kickoff": "Do 22:00",
+  "kickoff_ts": 1792094400,
+  "league": "Copa Libertadores Women",
+  "metric": "Belgrano (W): Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Do 09:13",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Belgrano (W): Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.23,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.834,
+   "p_mod": 0.871,
+   "p_fin": 0.8112,
+   "fair_fin": 1.23,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Belgrano (W)",
+   "serie": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "gegner": 9,
+   "erwartet": 3.9,
+   "unverified": false,
+   "no_tab": false,
+   "pending": false,
+   "b365_proof": null,
+   "range": null
+  },
+  "v": 2
+ },
  "13111698|corners|über": {
   "match_id": "13111698",
   "home": "Barranquilla FC",
@@ -9472,7 +9552,7 @@
   "first_run": "Do 06:14",
   "first_line": 7.5,
   "first_range": null,
-  "last_run": "Do 08:13",
+  "last_run": "Do 09:13",
   "line": 7.5,
   "range": null,
   "signal": {
@@ -9702,158 +9782,6 @@
    "unverified": true,
    "no_tab": true,
    "pending": true,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13049251|team_corners_gast|unter": {
-  "match_id": "13049251",
-  "home": "Al Hashemeya",
-  "away": "Shabab Al-Aqaba SC",
-  "kickoff": "Do 17:00",
-  "kickoff_ts": 1792076400,
-  "league": "Jordan Division 1",
-  "metric": "Shabab Al-Aqaba SC: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Do 07:13",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Shabab Al-Aqaba SC: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.21,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.827,
-   "p_mod": 0.927,
-   "p_fin": 0.8239,
-   "fair_fin": 1.21,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Shabab Al-Aqaba SC",
-   "serie": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 16
-   },
-   "gegner": 8,
-   "erwartet": 3.4,
-   "unverified": false,
-   "no_tab": false,
-   "pending": false,
-   "b365_proof": null,
-   "range": null
-  },
-  "v": 2
- },
- "13170980|team_corners_gast|unter": {
-  "match_id": "13170980",
-  "home": "Independiente del Valle (W)",
-  "away": "Belgrano (W)",
-  "kickoff": "Do 22:00",
-  "kickoff_ts": 1792094400,
-  "league": "Copa Libertadores Women",
-  "metric": "Belgrano (W): Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Do 07:13",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Belgrano (W): Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.23,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.834,
-   "p_mod": 0.871,
-   "p_fin": 0.8112,
-   "fair_fin": 1.23,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Belgrano (W)",
-   "serie": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 16
-   },
-   "gegner": 9,
-   "erwartet": 3.9,
-   "unverified": false,
-   "no_tab": false,
-   "pending": false,
    "b365_proof": null,
    "range": null
   },
