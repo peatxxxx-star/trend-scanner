@@ -13,6 +13,7 @@ Team-Über/Unter: Gruppe 15 = Heim (T 11/12), Gruppe 62 = Gast (T 13/14).
 """
 import gzip
 import json
+from pathlib import Path
 import re
 import threading
 import time
@@ -174,14 +175,44 @@ def name_score(a, b):
 _SPIELE_CACHE = {"t": 0, "v": None}
 
 
-def lade_spiele():
-    """Alle Vor-Spiel-Fußballspiele: [{I, L, O1, O2, S}]. 15.10.: innerhalb
-    eines Laufs (30 min) nur einmal laden – das Archiv nutzt dieselbe Liste."""
-    if _SPIELE_CACHE["v"] is not None and time.time() - _SPIELE_CACHE["t"] < 1800:
+LISTE_DATEI = Path(__file__).parent / "cache" / "bl_spiele.json.gz"
+LISTE_MAX_ALTER = 3 * 3600     # 15.10. (GitHub-Minuten): Spielliste nur alle 3 h neu
+
+
+def lade_spiele(frisch=False):
+    """Alle Vor-Spiel-Fußballspiele: [{I, L, O1, O2, S, x12}].
+    15.10.: Die komplette Liste kostet ~380 Abfragen (~2 min Laufzeit). Sie wird
+    deshalb in cache/ gespeichert und nur alle 3 h neu geladen; Spiele, die
+    nicht in der gespeicherten Liste stehen, lösen eine frische Liste aus
+    (hole_alle). Innerhalb eines Laufs immer nur einmal laden."""
+    if not frisch and _SPIELE_CACHE["v"] is not None:
         return _SPIELE_CACHE["v"]
+    if not frisch:
+        try:
+            with gzip.open(LISTE_DATEI, "rt", encoding="utf-8") as f:
+                d = json.load(f)
+            if time.time() - d["t"] < LISTE_MAX_ALTER:
+                jetzt = time.time()
+                v = [g for g in d["v"] if g["S"] > jetzt - 3 * 3600]
+                _SPIELE_CACHE.update(t=d["t"], v=v, aus_datei=True, misses=d.get("misses") or [])
+                return v
+        except Exception:
+            pass
     v = _lade_spiele_neu()
-    _SPIELE_CACHE.update(t=time.time(), v=v)
+    _SPIELE_CACHE.update(t=time.time(), v=v, aus_datei=False, misses=[])
+    _liste_speichern()
     return v
+
+
+def _liste_speichern():
+    try:
+        LISTE_DATEI.parent.mkdir(exist_ok=True)
+        with gzip.open(LISTE_DATEI, "wt", encoding="utf-8") as f:
+            json.dump({"t": _SPIELE_CACHE["t"], "v": _SPIELE_CACHE["v"],
+                       "misses": _SPIELE_CACHE.get("misses") or []},
+                      f, ensure_ascii=False, separators=(",", ":"))
+    except Exception:
+        pass
 
 
 def _lade_spiele_neu():
@@ -371,6 +402,23 @@ def hole_alle(auftraege):
                 res[sk] = r
         return key, g, res, q.get("_titel")
 
+    # Fehlt ein Spiel in der gespeicherten Liste, einmal frisch laden – aber
+    # nicht wegen Spielen, die schon bei der letzten frischen Liste fehlten
+    # (die hat BetLabel schlicht nicht im Angebot).
+    def _schluessel(h, a, ko):
+        return f"{h}|{a}|{ko}"
+    fehlt = {_schluessel(h, a, ko) for k, (h, a, ko, _) in auftraege.items()
+             if not finde_spiel(spiele, h, a, ko)[0]}
+    if _SPIELE_CACHE.get("aus_datei") and fehlt - set(_SPIELE_CACHE.get("misses") or []):
+        spiele = lade_spiele(frisch=True)
+        proto["liste_neu"] = len(fehlt)
+        proto["spiele_bl"] = len(spiele)
+        fehlt = {_schluessel(h, a, ko) for k, (h, a, ko, _) in auftraege.items()
+                 if not finde_spiel(spiele, h, a, ko)[0]}
+    if not _SPIELE_CACHE.get("aus_datei"):
+        _SPIELE_CACHE["misses"] = sorted(fehlt)
+        _liste_speichern()
+    proto["liste_aus_datei"] = bool(_SPIELE_CACHE.get("aus_datei"))
     with ThreadPoolExecutor(THREADS) as ex:
         for key, g, res, titel in ex.map(eins, list(auftraege.items())):
             ergebnis.update(res)
