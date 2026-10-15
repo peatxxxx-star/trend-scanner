@@ -28,15 +28,19 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-MODELL = os.environ.get("AGENT_MODEL", "claude-sonnet-5-5")
+# Modell umstellen ohne Code: GitHub -> Settings -> Secrets and variables ->
+# Actions -> Reiter "Variables" -> AGENT_MODEL (leer = Sonnet 5.5)
+MODELL = os.environ.get("AGENT_MODEL") or "claude-sonnet-5-5"
 MAX_TAG = int(os.environ.get("AGENT_MAX_TAG", "20"))          # Tipps je Tag
 MAX_USD_TAG = float(os.environ.get("AGENT_MAX_USD_TAG", "3.0"))
 MAX_SUCHEN = int(os.environ.get("AGENT_MAX_SUCHEN", "5"))     # Websuchen je Tipp
 PARALLEL = 4
 FRIST_S = 8 * 60                 # nach so vielen Sekunden keine neuen Aufrufe mehr
 # Preise in US-Dollar (Stand Okt. 2026, Sonnet 5.5): je Mio. Token / je Suche
-PREIS_IN = float(os.environ.get("AGENT_PREIS_IN", "2.0"))
-PREIS_OUT = float(os.environ.get("AGENT_PREIS_OUT", "10.0"))
+_PREISE = {"opus": (4.0, 20.0), "sonnet": (2.0, 10.0), "haiku": (1.0, 5.0)}
+_p = next((v for k, v in _PREISE.items() if k in MODELL), _PREISE["sonnet"])
+PREIS_IN = float(os.environ.get("AGENT_PREIS_IN") or _p[0])
+PREIS_OUT = float(os.environ.get("AGENT_PREIS_OUT") or _p[1])
 PREIS_SUCHE = 0.01
 
 DATEI = Path(__file__).parent / "state" / "agent.json"
