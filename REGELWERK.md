@@ -658,3 +658,9 @@ Lucio: „Ich finde in dem Fall beides relevant.“ Bei Spielen in einem anderen
 - Zeigen beide in dieselbe Richtung (z. B. AEK Fouls: Liga 10/10, CL 22/24) → starker Tipp.
 - Widersprechen sie sich (z. B. Feyenoord–Como Ecken: Liga je 7/10 drüber, CL 5 und 6) → Warnzeichen: nur spielen, wenn die Quote den Widerspruch deutlich bezahlt, sonst anderen Markt suchen.
 - Gleiches Muster wie Betis U19 (nationale Jugend wenig Karten, Youth League viele).
+
+## 23. Marktarchiv (15.10.)
+
+Lucio: Strategie-Suche über alle Spiele und Märkte. Täglich im Lauf um 11:13 (nach dem Telegram-Versand) sichert der Scanner das komplette BetLabel-Angebot der nächsten 24 h: alle Über/Unter-Linien (Tore, Ecken, Gelbe, Schüsse aufs Tor, Torschüsse, Abseits, Fouls, Einwürfe, Abstöße), Halbzeiten, Team-Märkte, 1X2 → `runs/archiv/bl_<Datum>.json.gz`. Ergebnisse werden in den Folgeläufen nachgetragen.
+- Gebremst (3 parallel, Pause je Abfrage), Notbremse bei 25 Fehlern, Zeitgrenze 40 min Gesamtlauf – die Live-Quoten haben Vorrang.
+- Auswertung nach 3–4 Wochen (Mitte November): Treffer vs. BetLabel-Quote je Markt/Linie/Liga/Quotenbereich; Wochen 1–2 finden, Wochen 3–4 gegenprüfen. Übernahme nur mit Lucios Go.
