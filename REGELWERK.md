@@ -698,3 +698,9 @@ Lucio: „sonst lassen wir zu viele Chancen liegen und das ist genauso kontrapro
 - Gilt auch für Claudes eigene Zweitprüfung im Chat (Regelwerk 20): weiche Punkte = ⚠️ benennen, nicht als Veto.
 - 🔔 **JETZT SPIELBAR:** Steht ein Tipp mit ✅ oder ⚠️ neu in der BetLabel-Liste (oder kommt nach Rausfallen zurück), kommt sofort eine kurze Meldung – damit Lucio die frühe Quote mitnimmt (Quoten fallen im Tagesverlauf, z. B. 16.10. Frankfurt–Köln 1,22 → 1,12).
 - Auswertung: Nach ~30 Urteilen ✅ gegen ⚠️ gegen ⛔ nach Ergebnis vergleichen. Laufen ⚠️ nicht schlechter als ✅, fällt die Warnstufe weg; laufen ⛔ nicht schlechter, fällt auch das Veto weg. Liegt es an Markt/Liga, wird dort angesetzt.
+
+### 25b. Gemischte Team-IDs (16.10.)
+Anlass Pachuca – „Mineros Zacatecas CDMX“: Die Datenquelle führte zwei Clubs (Mineros de Zacatecas + Mineros CDMX, Liga TDP) unter einer Team-ID, die Serie war eine Mischung. Lucio: „sowas darf eigentlich nicht passieren … wenn etwas nicht spielbar ist, brauche ich es nicht angezeigt bekommen.“
+- Erkennung im Scanner: In den 15 jüngsten Spielen eines Teams liegen mindestens 2 Spielpaare weniger als 36 Stunden auseinander → zwei Clubs unter einer ID → **das ganze Spiel fliegt aus dem Scan** (keine Signale, keine Anzeige). Steht im Lauf-Protokoll unter `gemischt`.
+- Kein Rekonstruieren der Serien: Nach dem Aufteilen blieben meist zu wenige Spiele für eine Serie.
+- Nicht über „gemeinsame Gegner“: Das markiert auch echte Fälle aus verschiedenen Regionalgruppen (Test 16.10.: Israel Liga Bet North, beide Teams mit sauberen eigenen Daten).

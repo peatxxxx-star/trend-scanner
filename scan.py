@@ -1089,6 +1089,24 @@ def is_cross_league(hist_home, hist_away) -> bool:
     return c is not None and c <= CROSS_MAX_COMMON
 
 
+# 16.10. (Lucio: "sowas darf eigentlich nicht passieren … wenn etwas nicht
+# spielbar ist, brauche ich es nicht angezeigt bekommen"): Die Datenquelle legt
+# manchmal zwei Clubs unter EINER Team-ID ab (Mineros Zacatecas CDMX = Mineros
+# de Zacatecas + Mineros CDMX, Liga TDP). Dann ist jede Serie dieses Teams eine
+# Mischung. Erkennung: ein echtes Team spielt nicht zweimal binnen 36 Stunden –
+# finden sich in den jüngsten Spielen mehrere solcher Paare, fliegt das ganze
+# Spiel aus dem Scan (kein Signal, keine Anzeige).
+MIX_N = 15                  # so viele jüngste Spiele je Team prüfen
+MIX_ABSTAND = 36 * 3600     # zwei Spiele näher als 36 h = zwei verschiedene Clubs (Sa/Mo-Takt bleibt drüber)
+MIX_PAARE = 2               # ab so vielen solchen Paaren gilt die ID als gemischt
+
+
+def team_gemischt(history) -> bool:
+    ts = sorted((m.get("t") or 0) for m in history[:MIX_N] if m.get("t"))
+    paare = sum(1 for a, b in zip(ts, ts[1:]) if b - a < MIX_ABSTAND)
+    return paare >= MIX_PAARE
+
+
 def fetch_matches_in_window(now=None, end=None):
     """Alle noch nicht gestarteten Spiele im Prüffenster."""
     if now is None or end is None:
@@ -1174,7 +1192,8 @@ def _fetch_ended_list(team_id: str):
         home, away = e.get("home") or {}, e.get("away") or {}
         slim.append({"id": e["id"], "h": str(home.get("id")) == str(team_id),
                      "l": f'{home.get("name", "?")} - {away.get("name", "?")}',
-                     "lg": (e.get("league") or {}).get("name", "")})
+                     "lg": (e.get("league") or {}).get("name", ""),
+                     "t": int(e.get("time") or 0)})     # 16.10.: Anstoßzeit (gemischte Team-IDs erkennen)
     return slim
 
 
@@ -1345,7 +1364,8 @@ def fetch_team_history(team_id: str, cache: dict, hcache: dict = None):
     if hcache is not None:
         with _cache_lock:
             entry = hcache.get(str(team_id))
-            if entry and time.time() - entry.get("ts", 0) < HISTORY_TTL:
+            if entry and time.time() - entry.get("ts", 0) < HISTORY_TTL \
+                    and (not entry["events"] or "t" in entry["events"][0]):   # 16.10.: alte Listen ohne Zeit neu holen
                 events = entry["events"]
     if events is None:
         events = _fetch_ended_list(team_id)
@@ -1391,7 +1411,8 @@ def fetch_team_history(team_id: str, cache: dict, hcache: dict = None):
             slim = cache.get(e["id"], {})
             if slim:
                 slim["t"] = today              # Nutzung vermerken (Cache-Pflege)
-            history.append({"stats": slim, "is_home": e["h"], "label": e["l"], "lg": e.get("lg", "")})
+            history.append({"stats": slim, "is_home": e["h"], "label": e["l"], "lg": e.get("lg", ""),
+                            "t": e.get("t", 0)})
     return history
 
 
@@ -6310,6 +6331,11 @@ def _run():
         # 0) "Wer hat mehr" (nur Sa/So): Modell ist rechnerisch billig, der
         #    scores24-Nachweis wird nur für Kandidaten geholt.
         who = who_more(match, hist_home, hist_away) if who_day else []
+        # 16.10.: Team-ID mit zwei Clubs -> Spiel komplett raus
+        if team_gemischt(hist_home) or team_gemischt(hist_away):
+            match["_gemischt"] = True
+            print(f"  gemischte Team-Daten, Spiel raus: {match['home']} – {match['away']}", flush=True)
+            return [], [], [], [], [], []
         team = team_signals(match, hist_home, hist_away) if TEAM_ENABLED else []
         # 07.10.: Teams aus verschiedenen Ligen -> Über-Märkte Karten/Ecken/Fouls raus
         if CROSS_LEAGUE_FILTER and is_cross_league(hist_home, hist_away):
@@ -6471,6 +6497,7 @@ def _run():
         "zeit": dict({k: int(v) for k, v in _zeit.items()},
                      vorlauf=int(t_start - _t_run), spiele=int(time.time() - t_start)),
         "teams_nachgeladen": _cold_teams[0],
+        "gemischt": [f"{m['home']} – {m['away']} ({m.get('league', '')})" for m in matches if m.get("_gemischt")],
         "s24": {k: v for k, v in _s24_stats.items() if k not in ("reiter", "last_error")},
         "b365_rettung": dict(_b365_rescue_stats),
         "s24_namen_diag": list(_s24_name_diag),
@@ -8024,6 +8051,13 @@ def selftest():
         print("FEHLER Fall 32: Pokal/Cross", _v32b); ok = False
     if "⛔" not in fmt_vp(vp_bewertung(_m32, _s32, 1.80)):
         print("FEHLER Fall 32: Anzeige"); ok = False
+    # Fall 33 (16.10.): gemischte Team-ID (zwei Clubs) erkennen
+    _w = 7 * 86400
+    _echt = [{"t": 1_000_000 + i * _w} for i in range(15)]
+    _misch = [{"t": 1_000_000 + i * _w} for i in range(8)] + [{"t": 1_000_000 + i * _w + 86400} for i in range(7)]
+    _pokal = [{"t": 1_000_000 + i * _w} for i in range(14)] + [{"t": 1_000_000 + 3 * _w + 3 * 86400 + 3600}]
+    if team_gemischt(_echt) or not team_gemischt(_misch) or team_gemischt(_pokal) or team_gemischt([{}] * 15):
+        print("FEHLER Fall 33: gemischte Team-ID"); ok = False
     print("Selbsttest OK" if ok else "Selbsttest FEHLGESCHLAGEN")
     sys.exit(0 if ok else 1)
 
