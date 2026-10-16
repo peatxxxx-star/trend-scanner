@@ -3648,6 +3648,15 @@ def agent_zeile(match, s):
         return ""
 
 
+def agent_gesperrt(key) -> bool:
+    try:
+        import agent
+        v = agent.urteil(key)
+        return bool(v) and agent.stufe(v) == "nein"
+    except Exception:
+        return False
+
+
 def build_bl_block(items):
     """Alle ✅-Tipps, deren BetLabel-Quote über 'spielbar ab' liegt — nach
     Anstoß. Damit lässt sich der Schein direkt bauen."""
@@ -3655,6 +3664,10 @@ def build_bl_block(items):
         return None
     rows = []
     for match, s, q, mn, _key in bl_tipps(items):
+        # 16.10. (Lucio: "wenn etwas nicht spielbar ist … brauche ich es auch
+        # nicht angezeigt bekommen"): ⛔ vom Agenten (harte Datenfehler) raus
+        if AGENT_ANZEIGE and agent_gesperrt(_key):
+            continue
         ab = f" (ab {mn:.2f})"
         row = (f"• {match['kickoff']} {esc(match['home'])} – {esc(match['away'])}: "
                f"{esc(s['metric'])} {s['direction']} {s['line']} <b>{q:.2f}</b>{ab}")

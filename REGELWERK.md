@@ -701,6 +701,7 @@ Lucio: „sonst lassen wir zu viele Chancen liegen und das ist genauso kontrapro
 
 ### 25b. Gemischte Team-IDs (16.10.)
 Anlass Pachuca – „Mineros Zacatecas CDMX“: Die Datenquelle führte zwei Clubs (Mineros de Zacatecas + Mineros CDMX, Liga TDP) unter einer Team-ID, die Serie war eine Mischung. Lucio: „sowas darf eigentlich nicht passieren … wenn etwas nicht spielbar ist, brauche ich es nicht angezeigt bekommen.“
-- Erkennung im Scanner: In den 15 jüngsten Spielen eines Teams liegen mindestens 2 Spielpaare weniger als 36 Stunden auseinander → zwei Clubs unter einer ID → **das ganze Spiel fliegt aus dem Scan** (keine Signale, keine Anzeige). Steht im Lauf-Protokoll unter `gemischt`.
+- **Stand 16.10. 12:20: Erkennung AUS (`MIX_AKTIV = False`).** Erster Live-Lauf traf 18 echte Spiele (Burnley–Wolves, irische Liga …): Die Datenquelle führt verlegte Spiele doppelt mit gleicher Anstoßzeit, das sieht aus wie zwei Clubs. Mineros selbst wurde nicht erkannt (nur 1 Paar < 36 h). Bis eine bessere Methode da ist, fängt der Agent solche Fälle als ⛔ ab, und ⛔-Tipps werden in der BetLabel-Liste gar nicht mehr angezeigt.
+- Ursprünglicher Ansatz: In den 15 jüngsten Spielen eines Teams liegen mindestens 2 Spielpaare weniger als 36 Stunden auseinander → zwei Clubs unter einer ID → **das ganze Spiel fliegt aus dem Scan** (keine Signale, keine Anzeige). Steht im Lauf-Protokoll unter `gemischt`.
 - Kein Rekonstruieren der Serien: Nach dem Aufteilen blieben meist zu wenige Spiele für eine Serie.
 - Nicht über „gemeinsame Gegner“: Das markiert auch echte Fälle aus verschiedenen Regionalgruppen (Test 16.10.: Israel Liga Bet North, beide Teams mit sauberen eigenen Daten).
