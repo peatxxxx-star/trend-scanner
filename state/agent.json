@@ -1,8 +1,8 @@
 {
  "_tag": {
   "datum": "2026-10-16",
-  "anzahl": 6,
-  "usd": 0.8947
+  "anzahl": 7,
+  "usd": 1.0024
  },
  "13236113|corners|über|8.5": {
   "datum": "2026-10-15",
@@ -89,6 +89,11 @@
    "datum": "2026-10-16",
    "ts": 1792124304,
    "info": "Schiri ist Manuel Jesús Orellana Cid (VAR Pizarro), laut Datenbank Ø 6.12 Gelbe pro Spiel, also klar über der Linie 5.5. Deportivo (8., 10 Punkte) fehlen Amatucci (gesperrt), Casadó, Aubameyang und Eddahchouri. Levante (Abstiegszone, 6 Punkte aus 7 Spielen) fehlen Sotelo, Etta Eyong und Primo, und am Mittwoch folgt das Nachholspiel gegen Athletic, also ist Rotation möglich. Beide sind seit vier Spielen sieglos und direkte Konkurrenten im Abstiegskampf. Die Aufstellungen sind noch nicht bestätigt, nur wahrscheinliche Elf liegen vor."
+  },
+  "11997981": {
+   "datum": "2026-10-16",
+   "ts": 1792135122,
+   "info": "Schiri ist Matteo Marchetti (Ostia Lido), Ø 3.91 Gelbe in 22 Spielen laut Scanner-Datenbank. Frosinone (Platz 9, 10 Punkte) kommt vom 0:3 in Neapel und spielt wohl mit derselben Elf, Ausfälle nur Grillitsch und Birligea. Sassuolo (11., 8 Punkte, noch ohne Auswärtssieg) fehlen Idzes, Leysen, Candé, Walukiewicz und Koné in der Abwehr. Frosinone hat laut Diretta.it die meisten Fouls der Liga (99). In der Serie A sah Frosinone bisher 12 Gelbe in 6 Spielen und Sassuolo 9 in 6 Spielen (jeweils nur eigene Karten). Keine Sperren, Liga-Spiel ohne Pokal- oder Derby-Charakter. Eine Aufstellung vom Spieltag lag nicht vor, nur wahrscheinliche Elf."
   }
  },
  "13009032|goals|über|2.5": {
@@ -457,6 +462,67 @@
     "end_turn:text"
    ],
    "anteil": 0.5
+  }
+ },
+ "11997981|yellowcards|über|3.5": {
+  "datum": "2026-10-16",
+  "ts": 1792135122,
+  "quote": 1.69,
+  "spiel": "Frosinone – Sassuolo",
+  "tipp": "Gelbe Karten über 3.5",
+  "urteil": "nicht spielen",
+  "grund": "Von 16 Treffern in den letzten 20 Spielen lagen 9 genau bei 4 Karten (dünner Puffer), und der Schiri-Schnitt von 3.91 liegt nur knapp über der Linie.",
+  "punkte": [
+   {
+    "nr": 1,
+    "status": "✓",
+    "text": "BetLabel 1.69 liegt über 'spielbar ab' 1.51 und über der fairen Quote 1.43."
+   },
+   {
+    "nr": 2,
+    "status": "✓",
+    "text": "Ausgeglichene Partie (Heim 2.30, Gast 2.75), kein klarer Favorit; die Ecken-Regel ist hier nicht relevant."
+   },
+   {
+    "nr": 3,
+    "status": "⚠️",
+    "text": "Frosinone 8/10, davon 4x genau 4 (die Hälfte der Treffer); Sassuolo 8/10, davon 5x genau 4 (mehr als die Hälfte), also klar dünner Puffer."
+   },
+   {
+    "nr": 4,
+    "status": "✓",
+    "text": "Datenbasis unauffällig, reine Serie-A-Werte beider Teams in der aktuellen Saison."
+   },
+   {
+    "nr": 5,
+    "status": "✓",
+    "text": "Normales Ligaspiel am 7. Spieltag, kein Pokal, Derby oder Hin-/Rückspiel."
+   },
+   {
+    "nr": 6,
+    "status": "⚠️",
+    "text": "Marchetti hat Ø 3.91 Gelbe (22 Spiele), also nur etwa 0.4 über der Linie von 3.5 und unter der Erwartung 4.4."
+   },
+   {
+    "nr": 7,
+    "status": "✓",
+    "text": "Frosinone hat die meisten Fouls der Liga (99), Sassuolo hat eine dezimierte Abwehr und sucht den ersten Auswärtssieg, keine Rotation oder Sperren erkennbar."
+   },
+   {
+    "nr": 8,
+    "status": "✓",
+    "text": "Abstand zur fairen Quote ist mit +18 % unter 25 %, keine Erklärung nötig."
+   }
+  ],
+  "kosten": {
+   "in": 32160,
+   "out": 2337,
+   "suchen": 2,
+   "usd": 0.1077,
+   "verlauf": [
+    "end_turn:thinking/server_tool_/server_tool_/web_search_t/web_search_t/thinking/text"
+   ],
+   "anteil": 1.0
   }
  }
 }
