@@ -1099,6 +1099,7 @@ def is_cross_league(hist_home, hist_away) -> bool:
 MIX_N = 15                  # so viele jüngste Spiele je Team prüfen
 MIX_ABSTAND = 36 * 3600     # zwei Spiele näher als 36 h = zwei verschiedene Clubs (Sa/Mo-Takt bleibt drüber)
 MIX_PAARE = 2               # ab so vielen solchen Paaren gilt die ID als gemischt
+MIX_AKTIV = False           # 16.10. 12:20: AUS – erster Lauf traf echte Teams (Burnley, Shamrock Rovers …), wird untersucht
 
 
 def team_gemischt(history) -> bool:
@@ -6332,7 +6333,7 @@ def _run():
         #    scores24-Nachweis wird nur für Kandidaten geholt.
         who = who_more(match, hist_home, hist_away) if who_day else []
         # 16.10.: Team-ID mit zwei Clubs -> Spiel komplett raus
-        if team_gemischt(hist_home) or team_gemischt(hist_away):
+        if MIX_AKTIV and (team_gemischt(hist_home) or team_gemischt(hist_away)):
             match["_gemischt"] = True
             print(f"  gemischte Team-Daten, Spiel raus: {match['home']} – {match['away']}", flush=True)
             return [], [], [], [], [], []
