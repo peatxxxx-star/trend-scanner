@@ -62,6 +62,7 @@ _ALIAS = {"man": "manchester", "psg": "paris", "utd": "united", "st": "saint", "
 _YOUTH = {"u17", "u18", "u19", "u20", "u21", "u22", "u23"}
 _WOMEN = {"w", "women", "frauen", "damen", "fem", "femenino", "feminine", "feminino", "ladies", "dames", "zene", "kobiety"}
 _RES = {"ii", "b", "2", "reserves", "res", "reserve", "amateure"}
+_YOUTH_WORT = {"youth", "junior", "juniors", "jugend", "juvenil", "juveniles", "academy"}   # 16.10.: BetLabel "(Youth)" = U19
 
 _lock = threading.Lock()
 _stats = {"anfragen": 0, "fehler": 0}
@@ -111,6 +112,8 @@ def name_info(name):
             marks.add("R")             # Reserveteams heißen mal "II", mal "U21"/"U23"
         elif t in _YOUTH:
             marks.add(t)
+        elif t in _YOUTH_WORT:
+            marks.add("Y")
         elif t in _WOMEN:
             marks.add("W")
         elif t in _RES:
@@ -118,8 +121,17 @@ def name_info(name):
         elif t not in _GENERIC and len(t) >= 2:
             core.append(t)
     if not core:                       # nur Allerweltswörter -> doch nehmen
-        core = [t for t in toks if t not in _YOUTH and t not in _WOMEN and t not in _RES]
+        core = [t for t in toks if t not in _YOUTH and t not in _WOMEN and t not in _RES
+                and t not in _YOUTH_WORT]
     return core, frozenset(marks)
+
+
+def _marks_ok(ma, mb):
+    """Merkmale passen. 16.10.: "Youth" (ohne Alter) passt zu jeder U17-U20."""
+    if ma == mb:
+        return True
+    jung = lambda m: frozenset("Y" if x in ("u17", "u18", "u19", "u20") else x for x in m)
+    return ("Y" in ma or "Y" in mb) and jung(ma) == jung(mb)
 
 
 def _tok_eq(a, b):
@@ -156,7 +168,7 @@ def name_score(a, b):
     -1, wenn Jugend/Frauen/Reserve-Merkmale nicht passen."""
     ca, ma = name_info(a)
     cb, mb = name_info(b)
-    if ma != mb:
+    if not _marks_ok(ma, mb):
         return -1.0
     if not ca or not cb:
         return 0.0
