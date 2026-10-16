@@ -1099,6 +1099,7 @@ def is_cross_league(hist_home, hist_away) -> bool:
 # 16.10. (Lucio: "diese Mannschaft … komplett sperren, dass die nicht nochmal
 # aufploppen kann"): Team-IDs, unter denen nachweislich zwei Clubs liegen.
 # Spiele mit diesen Teams fliegen komplett raus. Neue Fälle hier eintragen.
+_GESPERRTE_SPIELE = set()   # Spiel-IDs dieses Laufs mit gesperrtem Team (auch aus dem Gedächtnis raus)
 GESPERRTE_TEAMS = {
     "1208487": "Mineros Zacatecas CDMX – mischt Mineros de Zacatecas und Mineros CDMX (Liga TDP), 16.10.",
 }
@@ -3628,6 +3629,8 @@ def bl_tipps(items):
     BetLabel-Quote über 'spielbar ab' liegt (Inhalt der BetLabel-Liste)."""
     out = []
     for match, entries in items:
+        if str(match.get("id")) in _GESPERRTE_SPIELE:
+            continue
         for _, s, _ in entries:
             if s.get("light") != "🟢":
                 continue
@@ -6439,6 +6442,7 @@ def _run():
         # 16.10.: Team-ID mit zwei Clubs -> Spiel komplett raus
         if str(match.get("home_id")) in GESPERRTE_TEAMS or str(match.get("away_id")) in GESPERRTE_TEAMS:
             match["_gemischt"] = True
+            _GESPERRTE_SPIELE.add(str(match["id"]))
             return [], [], [], [], [], []
         if MIX_AKTIV and (team_gemischt(hist_home) or team_gemischt(hist_away)):
             match["_gemischt"] = True
@@ -6590,6 +6594,14 @@ def _run():
     buckets, new_state = classify_signals(
         state, all_hits, checked_ids, {m["id"] for m in matches},
         int(now.timestamp()), run_label, gate_dropped, unverifiable)
+    # 16.10.: gesperrte Teams (GESPERRTE_TEAMS) auch aus Gedächtnis und Bericht
+    if _GESPERRTE_SPIELE:
+        new_state = {k: v for k, v in new_state.items()
+                     if str(v.get("match_id")) not in _GESPERRTE_SPIELE}
+        for _b in ("new", "changed", "same"):
+            buckets[_b] = [(m, sg) for m, sg in buckets[_b] if str(m.get("id")) not in _GESPERRTE_SPIELE]
+        buckets["dropped"] = [(e, r) for e, r in buckets["dropped"]
+                              if str(e.get("match_id")) not in _GESPERRTE_SPIELE]
 
     RUNS_DIR.mkdir(parents=True, exist_ok=True)
     b365_probe_sichern()
