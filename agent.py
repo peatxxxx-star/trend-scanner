@@ -63,14 +63,18 @@ Der Scanner hat 1-6 und 8 schon vorgeprüft (Daten unten). Übernimm, was stimmt
 Regeln:
 - ⚠️ NUR für echte Unsicherheit im Spiel (dünner Puffer, Widerspruch, Rotation). NIE für eigene Suchprobleme. Findest du etwas nicht, schreib kurz, wonach du gesucht hast, und bewerte mit dem, was da ist.
 - Nichts erfinden. Zahlen nur aus den Daten oder aus Quellen.
-- „spielen“ nur, wenn kein Punkt ernsthaft dagegen spricht. Im Zweifel bei mehreren echten Warnungen: „nicht spielen“.
+- DREI Urteile (16.10., Lucio: „sonst lassen wir zu viele Chancen liegen“ – von 6 Vetos aus weichen Gründen waren 5 falsch):
+  • „spielen“: nichts Nennenswertes dagegen.
+  • „spielen mit Risiko“: weiche Bedenken – dünner Puffer, Schiri knapp an der Linie, Rotations-/Aufstellungsgerüchte, Quotenabstand ohne Erklärung, Saisonstart, Pokal. Das ist KEIN Ausschluss; nenne das Risiko im Grund.
+  • „nicht spielen“: NUR bei harten Fakten – (a) Daten passen nachweislich nicht zum Spiel (falscher Gegner/falsches Team, Jugend/Reserve/Frauen verwechselt, Spiel abgesagt/verlegt), (b) Team-Ecken unter als klarer Favorit (eigene Siegquote ≤ 1,60), (c) BetLabel-Quote liegt unter „spielbar ab“, (d) offiziell bestätigte Aufstellung, die die Serie sinnlos macht (komplette B-Elf beider Teams laut offizieller Aufstellung, nicht laut Vorbericht).
+  • Im Zweifel: „spielen mit Risiko“, nicht „nicht spielen“. Die Scanner-Serien haben sich bisher als stärker erwiesen als Bauchgefühl.
 - Kurz und klar, Deutsch, jeder Punkt höchstens ein Satz.
 - Im JSON keine Zitat-Markierungen, keine Quellen-Tags, kein HTML – nur Klartext.
 
 Es können mehrere Tipps zum selben Spiel kommen (TIPP 1, TIPP 2 …) – recherchiere das Spiel einmal und bewerte jeden Tipp einzeln. Liegt eine Recherche aus einem früheren Lauf vor, nutze sie und suche nur nach, was fehlt oder sich geändert haben kann (z. B. Aufstellung kurz vor Anpfiff).
 
 Antworte am Ende AUSSCHLIESSLICH mit diesem JSON (kein Text davor oder danach):
-{"spiel_info": "Recherche zum Spiel in 2-3 Sätzen (Schiri, Rotation/Ausfälle, Kontext) – wird für spätere Tipps desselben Spiels wiederverwendet", "tipps": [{"tipp": 1, "urteil": "spielen" oder "nicht spielen", "grund": "der entscheidende Grund in einem Satz", "punkte": [{"nr": 1, "status": "✓" oder "⚠️", "text": "..."}, ... bis nr 8]}]}"""
+{"spiel_info": "Recherche zum Spiel in 2-3 Sätzen (Schiri, Rotation/Ausfälle, Kontext) – wird für spätere Tipps desselben Spiels wiederverwendet", "tipps": [{"tipp": 1, "urteil": "spielen" oder "spielen mit Risiko" oder "nicht spielen", "grund": "der entscheidende Grund in einem Satz", "punkte": [{"nr": 1, "status": "✓" oder "⚠️", "text": "..."}, ... bis nr 8]}]}"""
 
 
 def _sauber(txt):
@@ -100,21 +104,37 @@ def _heute():
 def _aufraeumen(d):
     """Urteile älter als 3 Tage raus."""
     grenze = time.time() - 3 * 86400
-    out = {k: v for k, v in d.items() if k in ("_tag", "_spiele") or (v.get("ts") or 0) > grenze}
+    out = {k: v for k, v in d.items() if k.startswith("_") or (v.get("ts") or 0) > grenze}
     out["_spiele"] = {k: v for k, v in (out.get("_spiele") or {}).items() if (v.get("ts") or 0) > grenze}
     return out
 
 
 _CACHE = {"d": None}
+REGEL_VERSION = 2        # 16.10.: dreistufiges Urteil – ältere Urteile werden neu gefällt
+
+
+def _gueltig(v):
+    return bool(v) and v.get("datum") == _heute() and v.get("rv") == REGEL_VERSION
+
+
+def stufe(v):
+    """'ja' / 'risiko' / 'nein' aus dem Urteilstext."""
+    u = (v or {}).get("urteil", "").strip().lower()
+    if u.startswith("nicht"):
+        return "nein"
+    if "risiko" in u:
+        return "risiko"
+    return "ja"
+
+
+_STUFE = {"ja": ("✅", "spielen"), "risiko": ("⚠️", "spielen mit Risiko"), "nein": ("⛔", "nicht spielen")}
 
 
 def urteil(key):
     if _CACHE["d"] is None:
         _CACHE["d"] = _lade()
     v = _CACHE["d"].get(key)
-    if v and v.get("datum") == _heute():
-        return v
-    return None
+    return v if _gueltig(v) else None
 
 
 def _api(body):
@@ -279,25 +299,24 @@ def agent_zeile(key):
     v = urteil(key)
     if not v:
         return ""
-    ja = v.get("urteil", "").strip().lower() == "spielen"
     from html import escape
-    return (f"   🤖 <b>{'spielen' if ja else 'nicht spielen'}</b> – "
-            f"<i>{escape(v.get('grund', ''))}</i>")
+    sym, txt = _STUFE[stufe(v)]
+    return f"   🤖 {sym} <b>{txt}</b> – <i>{escape(v.get('grund', ''))}</i>"
 
 
 def _block(match, s, q, mn, v):
     from html import escape as esc
-    ja = v.get("urteil", "").strip().lower() == "spielen"
+    sym, txt = _STUFE[stufe(v)]
     z = [f"⚽ <b>{esc(match['home'])} – {esc(match['away'])}</b>",
          f"🕒 {match.get('kickoff')} · {esc(match.get('league', ''))}",
          f"<b>{esc(str(s.get('metric')))} {s.get('direction')} {s.get('line')}</b> · BL <b>{q:.2f}</b> (ab {mn:.2f})"]
     for p in sorted(v.get("punkte") or [], key=lambda p: p.get("nr", 0)):
         z.append(f"{p.get('nr')}. {p.get('status', '')} {esc(str(p.get('text', '')))}")
-    z.append(f"➡️ <b>{'SPIELEN' if ja else 'NICHT SPIELEN'}</b> – {esc(v.get('grund', ''))}")
+    z.append(f"➡️ {sym} <b>{txt.upper()}</b> – {esc(v.get('grund', ''))}")
     return "\n".join(z)
 
 
-def laufen(scan, tipps):
+def _urteile(scan, tipps):
     """tipps: [(match, signal, quote, spielbar_ab, key)] aus der BetLabel-Liste.
     -> (Telegram-Text oder None, Protokoll)"""
     proto = {"modell": MODELL, "neu": 0, "fehler": [], "usd": 0.0}
@@ -308,7 +327,7 @@ def laufen(scan, tipps):
     tag = d.get("_tag") or {}
     if tag.get("datum") != _heute():
         tag = {"datum": _heute(), "anzahl": 0, "usd": 0.0}
-    offen = [t for t in tipps if not (d.get(t[4]) and d[t[4]].get("datum") == _heute())]
+    offen = [t for t in tipps if not _gueltig(d.get(t[4]))]
     frei = max(0, min(MAX_TAG - tag["anzahl"], len(offen)))
     if tag["usd"] >= MAX_USD_TAG:
         frei = 0
@@ -367,7 +386,7 @@ def laufen(scan, tipps):
                 if not v or not v.get("urteil"):
                     proto["fehler"].append(f"kein Urteil für Tipp {n} ({match['home']} – {match['away']})")
                     continue
-                d[key] = {"datum": _heute(), "ts": int(time.time()), "quote": q,
+                d[key] = {"datum": _heute(), "rv": REGEL_VERSION, "ts": int(time.time()), "quote": q,
                           "spiel": f"{match['home']} – {match['away']}",
                           "tipp": f"{s.get('metric')} {s.get('direction')} {s.get('line')}",
                           "urteil": v.get("urteil"), "grund": v.get("grund"),
@@ -401,3 +420,48 @@ def laufen(scan, tipps):
     kopf = f"🤖 <b>ZWEITPRÜFUNG ({len(neu)})</b> · Stand {stand}"
     text = kopf + "\n\n" + "\n\n".join(_block(*x) for x in neu)
     return (hinweis + "\n\n" + text if hinweis else text), proto
+
+
+def _ping(tipps):
+    """16.10. (Lucio: frühe Quote mitnehmen): Tipps, die seit dem letzten Lauf
+    NEU in der BetLabel-Liste stehen und ✅ oder ⚠️ haben -> kurze Meldung
+    ganz oben. Fällt ein Tipp raus und kommt wieder, wird er erneut gemeldet."""
+    from html import escape as esc
+    d = _lade()
+    alt = d.get("_ping") or {}
+    vorher = set(alt.get("keys") or []) if alt.get("datum") == _heute() else set()
+    jetzt, neu = [], []
+    for match, s, q, mn, key in tipps:
+        v = d.get(key)
+        if not _gueltig(v) or stufe(v) == "nein":
+            continue
+        jetzt.append(key)
+        if key not in vorher:
+            neu.append((match, s, q, mn, v))
+    d["_ping"] = {"datum": _heute(), "keys": jetzt}
+    _speichere(d)
+    _CACHE["d"] = d
+    if not neu:
+        return None
+    neu.sort(key=lambda x: x[0].get("kickoff_ts") or 0)
+    z = [f"🔔 <b>JETZT SPIELBAR ({len(neu)})</b>"]
+    for match, s, q, mn, v in neu:
+        sym, _ = _STUFE[stufe(v)]
+        z.append(f"{sym} {match.get('kickoff')} {esc(match['home'])} – {esc(match['away'])}: "
+                 f"{esc(str(s.get('metric')))} {s.get('direction')} {s.get('line')} <b>{q:.2f}</b> (ab {mn:.2f})")
+    return "\n".join(z)
+
+
+def laufen(scan, tipps):
+    """Urteile fällen, dann Ping für neu spielbare Tipps. -> (Text, Protokoll)"""
+    text, proto = _urteile(scan, tipps)
+    if not API_KEY:
+        return text, proto
+    try:
+        ping = _ping(tipps)
+    except Exception as exc:
+        ping = None
+        proto.setdefault("fehler", []).append(f"Ping: {exc}")
+    proto["ping"] = bool(ping)
+    teile = [t for t in (ping, text) if t]
+    return ("\n\n".join(teile) if teile else None), proto

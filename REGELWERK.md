@@ -690,3 +690,11 @@ Punkt 7 (Gegner, Rotation, News) geht nur mit Websuche → Teil B.
 - Modell `claude-sonnet-5-5` (umstellbar ohne Code über die GitHub-Variable `AGENT_MODEL`, z. B. `claude-opus-5-5`), höchstens 5 Websuchen je Tipp. Kostenbremse: 20 Tipps und 3 $ je Tag (`AGENT_MAX_TAG`, `AGENT_MAX_USD_TAG`). Kosten je Lauf stehen im Lauf-Protokoll unter `agent`.
 - Telegram-Hinweis „🤖⚠️“ (einmal am Tag je Grund): Guthaben leer, Schlüssel ungültig, Ausgabengrenze erreicht oder Tagesbremse greift. Die Vorprüfung 🔎 läuft in allen Fällen weiter.
 - Das Urteil ersetzt nicht Lucios Entscheidung. Auswertung wie beim Veto-Log: Agent-Urteile gegen Ergebnisse, nach ~30 Urteilen.
+
+### 25a. Dreistufiges Urteil und Ping (16.10.)
+Lucio: „sonst lassen wir zu viele Chancen liegen und das ist genauso kontraproduktiv wie schlechte Tipps.“ Anlass: Von 6 Vetos aus weichen Gründen (dünner Puffer, Quotenabstand, Rotation, Favorit) waren 5 falsch (`veto.csv`).
+- **Das Tor ist Scanner-Serie + BetLabel-Quote ≥ „spielbar ab“.** Was in der BetLabel-Liste steht, ist grundsätzlich spielbar.
+- Agent-Urteil dreistufig: ✅ **spielen** · ⚠️ **spielen mit Risiko** (alle weichen Bedenken – Puffer, Schiri knapp, Rotationsgerüchte, Quotenabstand, Saisonstart, Pokal; Risiko steht im Grund, sperrt aber nicht) · ⛔ **nicht spielen** nur bei harten Fakten: Daten passen nachweislich nicht (falsches Team/Gegner, Jugend/Reserve/Frauen verwechselt, Spiel verlegt), Team-Ecken unter als klarer Favorit (≤ 1,60), BL-Quote unter „spielbar ab“, offiziell bestätigte B-Elf beider Teams. Im Zweifel ⚠️.
+- Gilt auch für Claudes eigene Zweitprüfung im Chat (Regelwerk 20): weiche Punkte = ⚠️ benennen, nicht als Veto.
+- 🔔 **JETZT SPIELBAR:** Steht ein Tipp mit ✅ oder ⚠️ neu in der BetLabel-Liste (oder kommt nach Rausfallen zurück), kommt sofort eine kurze Meldung – damit Lucio die frühe Quote mitnimmt (Quoten fallen im Tagesverlauf, z. B. 16.10. Frankfurt–Köln 1,22 → 1,12).
+- Auswertung: Nach ~30 Urteilen ✅ gegen ⚠️ gegen ⛔ nach Ergebnis vergleichen. Laufen ⚠️ nicht schlechter als ✅, fällt die Warnstufe weg; laufen ⛔ nicht schlechter, fällt auch das Veto weg. Liegt es an Markt/Liga, wird dort angesetzt.
