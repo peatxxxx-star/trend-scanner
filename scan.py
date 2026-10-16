@@ -6300,7 +6300,9 @@ def marktarchiv(t_start, msg=""):
     pfad = ARCHIV_DIR / f"bl_{heute}.json.gz"
     if pfad.exists() and "Marktarchiv" not in msg:
         return
-    if jetzt.hour != ARCHIV_STUNDE and "Marktarchiv" not in msg:
+    # 16.10.: ab 11 Uhr im ERSTEN Lauf, der stattfindet (vorher nur genau um
+    # 11 – fiel der 11:13-Lauf aus, fehlte der ganze Tag)
+    if jetzt.hour < ARCHIV_STUNDE and "Marktarchiv" not in msg:
         return
     deadline = t_start + ARCHIV_MAX_MIN * 60
     if time.time() > deadline - 5 * 60:
