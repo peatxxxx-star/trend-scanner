@@ -26,7 +26,7 @@ from concurrent.futures import ThreadPoolExecutor
 BASE = "https://betlabel.com/service-api/LineFeed/"
 UA = ("Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/126.0 Mobile Safari/537.36")
-THREADS = 8
+THREADS = 16          # 16.10. (GitHub-Minuten): 8 -> 16, das Marktarchiv läuft seit 15.10. fehlerfrei mit 16
 
 # Unterspiel je Markt: (Titel TG, Abschnitt PN). "" = Hauptspiel/ganzes Spiel.
 SUB = {
@@ -188,6 +188,7 @@ _SPIELE_CACHE = {"t": 0, "v": None}
 
 
 LISTE_DATEI = Path(__file__).parent / "cache" / "bl_spiele.json.gz"
+LISTE_NACHLADEN_AB = 100 * 60   # 16.10.: fehlende Spiele lösen frühestens nach 100 min ein Neuladen aus
 LISTE_MAX_ALTER = 3 * 3600     # 15.10. (GitHub-Minuten): Spielliste nur alle 3 h neu
 
 
@@ -421,7 +422,11 @@ def hole_alle(auftraege):
         return f"{h}|{a}|{ko}"
     fehlt = {_schluessel(h, a, ko) for k, (h, a, ko, _) in auftraege.items()
              if not finde_spiel(spiele, h, a, ko)[0]}
-    if _SPIELE_CACHE.get("aus_datei") and fehlt - set(_SPIELE_CACHE.get("misses") or []):
+    # 16.10. (GitHub-Minuten): frisch laden nur, wenn die gespeicherte Liste
+    # mindestens LISTE_NACHLADEN_AB alt ist – sonst kostete fast jeder zweite
+    # Lauf ~2-4 min für Spiele, die BetLabel ohnehin (noch) nicht anbietet.
+    alt_genug = time.time() - (_SPIELE_CACHE.get("t") or 0) >= LISTE_NACHLADEN_AB
+    if _SPIELE_CACHE.get("aus_datei") and alt_genug and fehlt - set(_SPIELE_CACHE.get("misses") or []):
         spiele = lade_spiele(frisch=True)
         proto["liste_neu"] = len(fehlt)
         proto["spiele_bl"] = len(spiele)

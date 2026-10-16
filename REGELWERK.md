@@ -713,3 +713,10 @@ Lucio: „Lass uns einfach erstmal nur bei den Serien und fairer Quote bleiben. 
 - 🔔 JETZT SPIELBAR kommt jetzt vom Scanner selbst (`state/ping.json`), ohne Agent.
 - `GESPERRTE_TEAMS` in scan.py: Team-IDs mit nachweislich zwei Clubs fliegen komplett raus (erster Eintrag: Mineros Zacatecas CDMX, ID 1208487).
 - Wann der Agent zurückkommt: erst, wenn die Auswertung (25.10. / Mitte November) einen Bereich zeigt, in dem Rotation/Aufstellung/Schiri den Unterschied machen – dann gezielt nur dort.
+
+### 24a. GitHub-Minuten sparen (16.10.)
+Stand: normaler Tag ~60–70 Minuten (16 Stundenläufe à 3–4 abgerechnete Minuten + Marktarchiv ~10 min + Nacht-/Ersatzläufe) → ~1.900–2.100 Minuten/Monat, also an der 2.000er-Grenze eines kostenlosen Kontos. Lucio: „Alles, was Zeit spart, gerne – wenn es den normalen Ablauf nicht beeinträchtigt.“
+- BetLabel-Abfragen mit 16 statt 8 parallelen Abrufen (Marktarchiv läuft damit fehlerfrei): Tipp-Quoten ~40 s → ~20 s je Lauf, Neuladen der Spielliste ~2,5 → ~1,3 min.
+- Fehlende Spiele lösen ein Neuladen der BetLabel-Spielliste frühestens 100 min nach dem letzten Laden aus (vorher fast jeder zweite Lauf, je 2–4 min).
+- Keine zusätzlichen Kontrollläufe von Claude ohne Not – jeder kostet 3–4 Minuten.
+- Nicht gemacht: weniger Läufe am Morgen (würde frühe Quoten/Pings kosten).
