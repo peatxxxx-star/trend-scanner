@@ -455,7 +455,7 @@ def _ping(tipps):
 def laufen(scan, tipps):
     """Urteile fällen, dann Ping für neu spielbare Tipps. -> (Text, Protokoll)"""
     text, proto = _urteile(scan, tipps)
-    if not API_KEY:
+    if not API_KEY or True:      # 16.10.: Ping macht jetzt scan.bl_ping (auch ohne Agent)
         return text, proto
     try:
         ping = _ping(tipps)

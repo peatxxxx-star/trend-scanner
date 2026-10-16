@@ -1096,6 +1096,12 @@ def is_cross_league(hist_home, hist_away) -> bool:
 # Mischung. Erkennung: ein echtes Team spielt nicht zweimal binnen 36 Stunden –
 # finden sich in den jüngsten Spielen mehrere solcher Paare, fliegt das ganze
 # Spiel aus dem Scan (kein Signal, keine Anzeige).
+# 16.10. (Lucio: "diese Mannschaft … komplett sperren, dass die nicht nochmal
+# aufploppen kann"): Team-IDs, unter denen nachweislich zwei Clubs liegen.
+# Spiele mit diesen Teams fliegen komplett raus. Neue Fälle hier eintragen.
+GESPERRTE_TEAMS = {
+    "1208487": "Mineros Zacatecas CDMX – mischt Mineros de Zacatecas und Mineros CDMX (Liga TDP), 16.10.",
+}
 MIX_N = 15                  # so viele jüngste Spiele je Team prüfen
 MIX_ABSTAND = 36 * 3600     # zwei Spiele näher als 36 h = zwei verschiedene Clubs (Sa/Mo-Takt bleibt drüber)
 MIX_PAARE = 2               # ab so vielen solchen Paaren gilt die ID als gemischt
@@ -3636,8 +3642,11 @@ def bl_tipps(items):
 
 
 # 15.10.: Urteil des Agenten (agent.py) unter jedem Tipp der BetLabel-Liste
-AGENT_ANZEIGE = True
-AGENT_AN = os.environ.get("AGENT", "1") != "0"
+# 16.10. nachmittags (Lucio: "lass uns einfach erstmal nur bei den Serien und
+# fairer Quote bleiben. Den Agenten können wir später wieder dazunehmen"):
+# Agent AUS. Wieder an: GitHub-Variable AGENT=1 oder hier auf "1" setzen.
+AGENT_AN = os.environ.get("AGENT", "0") == "1"
+AGENT_ANZEIGE = AGENT_AN
 
 
 def agent_zeile(match, s):
@@ -3647,6 +3656,36 @@ def agent_zeile(match, s):
     except Exception as exc:
         print(f"  Agent-Zeile: {exc}")
         return ""
+
+
+PING_DATEI = Path(__file__).parent / "state" / "ping.json"
+
+
+def bl_ping(items):
+    """16.10. (Lucio: frühe Quote mitnehmen): Tipps, die seit dem letzten Lauf
+    NEU in der BetLabel-Liste stehen -> kurze Meldung 🔔 JETZT SPIELBAR.
+    Fällt ein Tipp raus und kommt wieder, wird er erneut gemeldet.
+    Läuft ohne Agent (Symbol aus der Vorprüfung)."""
+    from zoneinfo import ZoneInfo
+    heute = datetime.now(ZoneInfo("Europe/Berlin")).strftime("%Y-%m-%d")
+    try:
+        alt = json.loads(PING_DATEI.read_text(encoding="utf-8"))
+    except Exception:
+        alt = {}
+    vorher = set(alt.get("keys") or []) if alt.get("datum") == heute else set()
+    eintraege = bl_eintraege(items)
+    neu = [e for e in eintraege if e[4] not in vorher]
+    PING_DATEI.parent.mkdir(parents=True, exist_ok=True)
+    PING_DATEI.write_text(json.dumps({"datum": heute, "keys": [e[4] for e in eintraege]},
+                                     ensure_ascii=False), encoding="utf-8")
+    if not neu:
+        return None
+    z = [f"🔔 <b>JETZT SPIELBAR ({len(neu)})</b>"]
+    for match, s, q, mn, _key, sym, kurz in neu:
+        z.append(f"{sym} <b>{match['kickoff']}</b> {esc(match['home'])} – {esc(match['away'])}\n"
+                 f"      {esc(s['metric'])} {s['direction']} {s['line']} · <b>{q:.2f}</b> (ab {mn:.2f})"
+                 + (f"\n      <i>{esc(' · '.join(kurz))}</i>" if kurz else ""))
+    return "\n".join(z)
 
 
 def agent_gesperrt(key) -> bool:
@@ -3686,18 +3725,11 @@ def vp_kurz(punkte):
     return out
 
 
-def build_bl_block(items):
-    """Alle Tipps, deren BetLabel-Quote über 'spielbar ab' liegt — nach
-    Anstoß. Damit lässt sich der Schein direkt bauen.
-    16.10.: steht ganz unten im Bericht, je Tipp 2-3 kurze Zeilen:
-    Urteil-Symbol + Anstoß + Spiel / Markt + Quote / Warn-Stichworte.
-    Die ausführliche Begründung steht in der ZWEITPRÜFUNG-Nachricht."""
-    if not _BL:
-        return None
-    rows = []
+def bl_eintraege(items):
+    """Spielbare Einträge der BetLabel-Liste: [(match, s, q, ab, key, Symbol,
+    Warn-Stichworte)]. ⛔ (Favoritenregel bzw. Agent-Sperre) fehlt ganz."""
+    out = []
     for match, s, q, mn, _key in bl_tipps(items):
-        # 16.10. (Lucio: "wenn etwas nicht spielbar ist … brauche ich es auch
-        # nicht angezeigt bekommen"): ⛔ vom Agenten (harte Datenfehler) raus
         if AGENT_ANZEIGE and agent_gesperrt(_key):
             continue
         kurz, sym = [], None
@@ -3709,7 +3741,7 @@ def build_bl_block(items):
                     sym = "⛔"
             except Exception as exc:
                 print(f"  Vorprüfung-Anzeige: {exc}")
-        if AGENT_ANZEIGE:
+        if AGENT_ANZEIGE and sym != "⛔":
             try:
                 import agent
                 v = agent.urteil(_key)
@@ -3721,6 +3753,19 @@ def build_bl_block(items):
             sym = "⚠️" if kurz else "✅"
         if sym == "⛔":
             continue
+        out.append((match, s, q, mn, _key, sym, kurz))
+    return out
+
+
+def build_bl_block(items):
+    """Alle Tipps, deren BetLabel-Quote über 'spielbar ab' liegt — nach
+    Anstoß. Damit lässt sich der Schein direkt bauen.
+    16.10.: steht ganz unten im Bericht, je Tipp 2-3 kurze Zeilen:
+    Symbol + Anstoß + Spiel / Markt + Quote / Warn-Stichworte."""
+    if not _BL:
+        return None
+    rows = []
+    for match, s, q, mn, _key, sym, kurz in bl_eintraege(items):
         row = (f"{sym} <b>{match['kickoff']}</b> {esc(match['home'])} – {esc(match['away'])}\n"
                f"      {esc(s['metric'])} {s['direction']} {s['line']} · <b>{q:.2f}</b> (ab {mn:.2f})")
         if kurz:
@@ -3728,7 +3773,8 @@ def build_bl_block(items):
         rows.append(row)
     stand = f" · Stand {_BL_STAND['zeit']}" if _BL_STAND.get("zeit") else ""
     head = (f"{SEP}\n💶 <b>PASST BEI BETLABEL ({len(rows)})</b>{stand}\n"
-            f"<i>✅ spielen · ⚠️ mit Risiko · Details in der ZWEITPRÜFUNG</i>")
+            + (f"<i>✅ spielen · ⚠️ mit Risiko · Details in der ZWEITPRÜFUNG</i>" if AGENT_ANZEIGE
+               else f"<i>✅ ohne Hinweis · ⚠️ mit Hinweis (spielbar)</i>"))
     body = "\n\n".join(rows) if rows else "<i>gerade keine Quote über spielbar ab</i>"
     # 14.10. (Lucio: "zu wie viel Prozent kann ich mich auf die Liste
     # verlassen?"): Spiele, die BetLabel wahrscheinlich nur anders benennt,
@@ -6391,6 +6437,9 @@ def _run():
         #    scores24-Nachweis wird nur für Kandidaten geholt.
         who = who_more(match, hist_home, hist_away) if who_day else []
         # 16.10.: Team-ID mit zwei Clubs -> Spiel komplett raus
+        if str(match.get("home_id")) in GESPERRTE_TEAMS or str(match.get("away_id")) in GESPERRTE_TEAMS:
+            match["_gemischt"] = True
+            return [], [], [], [], [], []
         if MIX_AKTIV and (team_gemischt(hist_home) or team_gemischt(hist_away)):
             match["_gemischt"] = True
             print(f"  gemischte Team-Daten, Spiel raus: {match['home']} – {match['away']}", flush=True)
@@ -6663,6 +6712,14 @@ def _run():
     # 15.10. (Lucio: "Ja und danach B"): Zweitprüfung durch den Agenten für
     # alle Tipps der BetLabel-Liste ohne heutiges Urteil — nach dem Bericht,
     # damit die Liste nie wartet. Neue Urteile kommen als eigene Nachricht.
+    if BETLABEL_QUOTES and _BL:
+        try:
+            ping = bl_ping(day_list(buckets, new_state))
+            log["ping"] = bool(ping)
+            if ping and TG_TOKEN and TG_CHAT:
+                send_telegram(ping)
+        except Exception as exc:
+            print(f"Ping: {type(exc).__name__}: {exc}")
     if AGENT_AN and BETLABEL_QUOTES and _BL:
         try:
             import agent

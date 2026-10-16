@@ -705,3 +705,11 @@ Anlass Pachuca – „Mineros Zacatecas CDMX“: Die Datenquelle führte zwei Cl
 - Ursprünglicher Ansatz: In den 15 jüngsten Spielen eines Teams liegen mindestens 2 Spielpaare weniger als 36 Stunden auseinander → zwei Clubs unter einer ID → **das ganze Spiel fliegt aus dem Scan** (keine Signale, keine Anzeige). Steht im Lauf-Protokoll unter `gemischt`.
 - Kein Rekonstruieren der Serien: Nach dem Aufteilen blieben meist zu wenige Spiele für eine Serie.
 - Nicht über „gemeinsame Gegner“: Das markiert auch echte Fälle aus verschiedenen Regionalgruppen (Test 16.10.: Israel Liga Bet North, beide Teams mit sauberen eigenen Daten).
+
+### 25c. Agent aus – nur Serien + faire Quote (16.10. nachmittags)
+Lucio: „Lass uns einfach erstmal nur bei den Serien und fairer Quote bleiben. Den Agenten können wir später immer noch wieder dazunehmen, wenn wir merken, dass er nötig ist.“
+- Agent AUS (`AGENT_AN`, wieder an mit GitHub-Variable `AGENT=1`). Code und `state/agent.json` bleiben.
+- BetLabel-Liste ganz unten im Bericht, je Tipp: Symbol (✅ ohne Hinweis / ⚠️ mit Hinweis – beides spielbar) · Anstoß · Spiel / Markt · Quote (ab …) / Warn-Stichworte aus der Vorprüfung. ⛔ (Favoritenregel) erscheint nicht.
+- 🔔 JETZT SPIELBAR kommt jetzt vom Scanner selbst (`state/ping.json`), ohne Agent.
+- `GESPERRTE_TEAMS` in scan.py: Team-IDs mit nachweislich zwei Clubs fliegen komplett raus (erster Eintrag: Mineros Zacatecas CDMX, ID 1208487).
+- Wann der Agent zurückkommt: erst, wenn die Auswertung (25.10. / Mitte November) einen Bereich zeigt, in dem Rotation/Aufstellung/Schiri den Unterschied machen – dann gezielt nur dort.
