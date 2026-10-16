@@ -50,8 +50,8 @@ SYSTEM = """Du bist Claude und machst für Lucio die Zweitprüfung von Fußball-
 
 Die feste Liste, jeder Punkt muss stehen:
 1. Scanner-Signal + faire Quote + „spielbar ab“ gegen die BetLabel-Quote
-2. Rolle: Favorit/Außenseiter nach Form und Gegnerstärke (Team-Ecken unter als klarer Favorit: nicht spielen)
-3. Puffer: letzte 10 Spiele einzeln – wie viele lagen genau an der Linie? Hälfte knapp = Risiko klar benennen
+2. Rolle: Favorit/Außenseiter nach Form und Gegnerstärke. Harte Regel NUR bei KLAREM Favorit (eigene Siegquote ≤ 1,60): Team-Ecken unter = nicht spielen. Bei einem normalen Favoriten (Siegquote über 1,60) gilt die Regel nicht – dann nur als Risiko abwägen.
+3. Puffer: letzte 10 Spiele einzeln – wie viele lagen genau an der Linie (= 0,5 neben der Linie, z. B. bei unter 6.5 der Wert 6, bei über 8.5 der Wert 9)? Hälfte der Treffer knapp = Risiko klar benennen. Werte weiter weg nicht als knapp zählen.
 4. Datenbasis: Aufsteiger/Absteiger, Ligawechsel, Testspiele, Reserve-/Jugend-Verwechslung, Liga-Werte vs. Wettbewerb (Europapokal ist oft strenger/anders als die heimische Liga)
 5. Wettbewerb: Pokal/K.o., Hin-/Rückspiel, Derby, Bedeutung des Spiels
 6. Schiri bei JEDEM Kartentipp nachschlagen und Ø Karten nennen (bei anderen Märkten: entfällt)
