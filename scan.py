@@ -3126,10 +3126,11 @@ def assemble_report(buckets, run_label, new_state=None, deferred_note=None):
             head += (f"\n⏳ {deferred_note[0]} Spiele wegen API-Limit auf den nächsten Lauf "
                      f"verschoben (ab {deferred_note[1]})")
         blocks = [head]
+        blocks += [build_match_block(m, e) for m, e in items]
+        # 16.10. (Lucio: "von oben nach ganz unten verlegen"): Liste ans Ende
         _blb = build_bl_block(items)
         if _blb:
             blocks.append(_blb)
-        blocks += [build_match_block(m, e) for m, e in items]
     else:
         blocks = [f"📊 {total_day} Signale heute · 🆕 {n['new']} neu · {lcount}\n{legend}"]
         blocks += [build_match_block(m, e) for m, e in items]
@@ -3657,9 +3658,40 @@ def agent_gesperrt(key) -> bool:
         return False
 
 
+def vp_kurz(punkte):
+    """16.10. (Lucio: "schlanker und übersichtlicher"): Warnungen der
+    Vorprüfung als Stichworte -> ['dünner Puffer', 'Schiri Ø 6.1', '+31 % über fair']."""
+    import re as _re
+    out = []
+    for nr, st, t in punkte:
+        if st not in ("warn", "stop"):
+            continue
+        if nr == 2:
+            out.append("Favoritenregel" if st == "stop" else "Rolle")
+        elif nr == 3:
+            out.append("dünner Puffer")
+        elif nr == 4:
+            out += [{"Teams aus verschiedenen Ligen": "versch. Ligen",
+                     "weniger als 8 Spiele mit Daten": "wenig Daten",
+                     "Jugend/Reserve – Zuordnung prüfen": "Jugend/Reserve"}.get(x, x)
+                    for x in t.split(" · ")]
+        elif nr == 5:
+            out.append("Pokal/K.o.")
+        elif nr == 6:
+            m = _re.search(r"Ø ([\d.]+)", t)
+            out.append(f"Schiri Ø {m.group(1)}" if m else "Schiri")
+        elif nr == 8:
+            m = _re.search(r"([+-]\d+) %", t)
+            out.append(f"{m.group(1)} % über fair" if m else "Quotenabstand")
+    return out
+
+
 def build_bl_block(items):
-    """Alle ✅-Tipps, deren BetLabel-Quote über 'spielbar ab' liegt — nach
-    Anstoß. Damit lässt sich der Schein direkt bauen."""
+    """Alle Tipps, deren BetLabel-Quote über 'spielbar ab' liegt — nach
+    Anstoß. Damit lässt sich der Schein direkt bauen.
+    16.10.: steht ganz unten im Bericht, je Tipp 2-3 kurze Zeilen:
+    Urteil-Symbol + Anstoß + Spiel / Markt + Quote / Warn-Stichworte.
+    Die ausführliche Begründung steht in der ZWEITPRÜFUNG-Nachricht."""
     if not _BL:
         return None
     rows = []
@@ -3668,23 +3700,36 @@ def build_bl_block(items):
         # nicht angezeigt bekommen"): ⛔ vom Agenten (harte Datenfehler) raus
         if AGENT_ANZEIGE and agent_gesperrt(_key):
             continue
-        ab = f" (ab {mn:.2f})"
-        row = (f"• {match['kickoff']} {esc(match['home'])} – {esc(match['away'])}: "
-               f"{esc(s['metric'])} {s['direction']} {s['line']} <b>{q:.2f}</b>{ab}")
+        kurz, sym = [], None
         if VORPRUEFUNG:
             try:
-                vp = fmt_vp(vp_bewertung(match, s, q))
-                if vp:
-                    row += "\n" + vp
+                pk = vp_bewertung(match, s, q)
+                kurz = vp_kurz(pk)
+                if any(st == "stop" for _, st, _ in pk):
+                    sym = "⛔"
             except Exception as exc:
                 print(f"  Vorprüfung-Anzeige: {exc}")
-            ag = agent_zeile(match, s) if AGENT_ANZEIGE else ""
-            if ag:
-                row += "\n" + ag
+        if AGENT_ANZEIGE:
+            try:
+                import agent
+                v = agent.urteil(_key)
+                if v:
+                    sym = agent._STUFE[agent.stufe(v)][0]
+            except Exception as exc:
+                print(f"  Agent-Anzeige: {exc}")
+        if sym is None:
+            sym = "⚠️" if kurz else "✅"
+        if sym == "⛔":
+            continue
+        row = (f"{sym} <b>{match['kickoff']}</b> {esc(match['home'])} – {esc(match['away'])}\n"
+               f"      {esc(s['metric'])} {s['direction']} {s['line']} · <b>{q:.2f}</b> (ab {mn:.2f})")
+        if kurz:
+            row += f"\n      <i>{esc(' · '.join(kurz))}</i>"
         rows.append(row)
     stand = f" · Stand {_BL_STAND['zeit']}" if _BL_STAND.get("zeit") else ""
-    head = f"💶 <b>PASST BEI BETLABEL ({len(rows)})</b>{stand}"
-    body = "\n".join(rows) if rows else "<i>gerade keine Quote über spielbar ab</i>"
+    head = (f"{SEP}\n💶 <b>PASST BEI BETLABEL ({len(rows)})</b>{stand}\n"
+            f"<i>✅ spielen · ⚠️ mit Risiko · Details in der ZWEITPRÜFUNG</i>")
+    body = "\n\n".join(rows) if rows else "<i>gerade keine Quote über spielbar ab</i>"
     # 14.10. (Lucio: "zu wie viel Prozent kann ich mich auf die Liste
     # verlassen?"): Spiele, die BetLabel wahrscheinlich nur anders benennt,
     # werden gemeldet statt still zu fehlen — dann selbst kurz nachsehen.
@@ -3692,7 +3737,7 @@ def build_bl_block(items):
     if verd:
         body += "\n" + "\n".join(f"❓ nicht sicher zugeordnet: {esc(v['spiel'])} "
                                   f"<i>(BetLabel: {esc(v['bl'])})</i>" for v in verd)
-    return head + "\n" + body
+    return head + "\n\n" + body
 
 
 # ----------------------------------------------------------------------------
