@@ -736,3 +736,5 @@ Lucio: „Team Fouls über … Geiler Markt“ → „gerne schon mit rein, zumi
 - Backtest (Cache, 10/10): über 9,5 80 % (Grundrate 69 %), über 10,5 79 % (60 %), über 11,5 68 % (50 %). Modell-p rund 4 Punkte zu optimistisch → `TEAM_RECAL[("fouls","über")] = (0.009, 0.943)`.
 - BetLabel bietet Team-Fouls nur in ca. 3 % der Spiele an (EL/ECL, Top-5, Russland, Argentinien, A-League …). Die Quote kommt automatisch über `fouls_heim/fouls_gast`.
 - Bewertung am 25.10. / Mitte November mit den anderen Märkten.
+
+- 18.10. abends: auch **Schüsse aufs Tor über** ausgeblendet (Lucio: „unterstreicht meinen Verdacht, der Markt raus jetzt sofort“ – Zenit und Lorient am selben Tag). Wird weiter berechnet und mit BL-Quote geloggt; Bewertung am 25.10.

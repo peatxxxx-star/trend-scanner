@@ -3749,6 +3749,7 @@ def vp_kurz(punkte):
 AUSGEBLENDET = {
     ("team_yellowcards", "unter"),     # Team-Gelbe unter (beide Seiten)
     ("goals", "über"),                 # Tore über (Scanner liefert nur 2.5)
+    ("on_target", "über"),             # 18.10. (Lucio): Schüsse aufs Tor über "raus jetzt sofort"
 }
 
 
