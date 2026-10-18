@@ -3659,6 +3659,8 @@ def bl_tipps(items):
             mn, _ = play_min(s)
             if not mn:                 # "nicht spielen"-Markt (z. B. 1. HZ Gelbe über) gehört nie in die Liste
                 continue
+            if st[0] < BL_MIN_QUOTE:   # 18.10.: Mindestquote 1.30
+                continue
             out.append((match, s, st[0], mn, _bl_key(match, s)))
     return out
 
@@ -3757,7 +3759,13 @@ AUSGEBLENDET = {
     # ("team_yellowcards", "unter") – 18.10. abends wieder rein (Lucio: "Team Gelbe unter wieder rein")
     ("goals", "über"),                 # Tore über (Scanner liefert nur 2.5)
     ("on_target", "über"),             # 18.10. (Lucio): Schüsse aufs Tor über "raus jetzt sofort"
+    # 18.10. nachts (Lucio nach Markt-Auswertung "kannst du machen"): schwach mit BL-Quote
+    ("team_corners", "über"),          # Team-Ecken über: BL-Tipps 68 %, ROI −18 %; offline 73 % heim / 66 % ausw.
+    ("ht_yellowcards", "über"),        # 1. HZ Gelbe über: BL-Tipps 58 %, ROI −21 %
 }
+# 18.10. nachts (Lucio): BL-Liste nur ab dieser Quote – darunter im Schnitt −14 %
+# (10 Tipps 15.–18.10.). Jugend/Reserve bleibt ausdrücklich drin.
+BL_MIN_QUOTE = 1.30
 
 
 def ausgeblendet(s) -> bool:

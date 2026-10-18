@@ -739,3 +739,14 @@ Lucio: „Team Fouls über … Geiler Markt“ → „gerne schon mit rein, zumi
 
 - 18.10. abends: auch **Schüsse aufs Tor über** ausgeblendet (Lucio: „unterstreicht meinen Verdacht, der Markt raus jetzt sofort“ – Zenit und Lorient am selben Tag). Wird weiter berechnet und mit BL-Quote geloggt; Bewertung am 25.10.
 - 18.10. abends: **Team-Gelbe unter wieder sichtbar** (Lucio nach Tagesauswertung 16/18). Ausgeblendet bleiben Tore über und SaT über; Entscheidung 25.10. nach Einzelwetten-ROI zur BL-Quote.
+
+## 26b. Markt-Urteil 18.10. nachts (808 Tipps mit BL-Quote, 15.–18.10.)
+
+Lucio: Emotionen raus, nur noch spielen, was in den Analysen gut aussieht.
+- **Spielen (BL-Liste):** Gelbe unter, Team-Ecken unter, Abseits unter, Ecken über (gesamt).
+- **Beobachten:** Team-Gelbe unter, Gelbe über, Team-Fouls über, Fouls über.
+- **Ausgeblendet (läuft im Hintergrund weiter):** Tore über, SaT über, Team-Ecken über, 1. HZ Gelbe über.
+- **BL-Liste ab Quote 1.30** (`BL_MIN_QUOTE`), darunter im Schnitt −14 %.
+- **Jugend/Reserve bleibt drin** (Lucio ausdrücklich).
+- Zahlen: BL-Liste 83 Tipps, 69 % bei Ø 1.49 → +2 %; nicht spielbar 575 Tipps, 76 % bei Ø 1.23 → −7 %.
+- Regeln ändern nur an Stichtagen (25.10., Mitte November), nicht wegen einzelner Scheine.
