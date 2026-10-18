@@ -738,3 +738,4 @@ Lucio: „Team Fouls über … Geiler Markt“ → „gerne schon mit rein, zumi
 - Bewertung am 25.10. / Mitte November mit den anderen Märkten.
 
 - 18.10. abends: auch **Schüsse aufs Tor über** ausgeblendet (Lucio: „unterstreicht meinen Verdacht, der Markt raus jetzt sofort“ – Zenit und Lorient am selben Tag). Wird weiter berechnet und mit BL-Quote geloggt; Bewertung am 25.10.
+- 18.10. abends: **Team-Gelbe unter wieder sichtbar** (Lucio nach Tagesauswertung 16/18). Ausgeblendet bleiben Tore über und SaT über; Entscheidung 25.10. nach Einzelwetten-ROI zur BL-Quote.

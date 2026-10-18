@@ -3747,7 +3747,7 @@ def vp_kurz(punkte):
 # aber weiter berechnet, mit BetLabel-Quote protokolliert und ausgewertet –
 # so zeigt die Auswertung am 25.10., ob das Rausnehmen richtig war.
 AUSGEBLENDET = {
-    ("team_yellowcards", "unter"),     # Team-Gelbe unter (beide Seiten)
+    # ("team_yellowcards", "unter") – 18.10. abends wieder rein (Lucio: "Team Gelbe unter wieder rein")
     ("goals", "über"),                 # Tore über (Scanner liefert nur 2.5)
     ("on_target", "über"),             # 18.10. (Lucio): Schüsse aufs Tor über "raus jetzt sofort"
 }
