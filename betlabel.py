@@ -58,11 +58,16 @@ _GENERIC = {"fc", "fk", "sk", "sc", "cf", "ac", "as", "cd", "ud", "sd", "ca", "c
 _ALIAS = {"man": "manchester", "psg": "paris", "utd": "united", "st": "saint", "sankt": "saint",
           "spb": "petersburg", "moskva": "moscow", "moskau": "moscow", "munchen": "munich",
           "koln": "cologne", "dinamo": "dynamo", "inter": "internazionale", "wolves": "wolverhampton",
-          "spurs": "tottenham", "sheff": "sheffield", "nottm": "nottingham", "athletico": "athletic"}
+          "spurs": "tottenham", "sheff": "sheffield", "nottm": "nottingham", "athletico": "athletic",
+          # 18.10. (Lucio, ❓-Zeilen vom Wochenende)
+          "jjk": "jyvaskyla", "jrs": "juniors", "jr": "junior", "akademia": "academy", "akademie": "academy"}
+# ganze Namen, die BetLabel anders führt (Reserveteams mit eigenem Namen)
+_NAME_ERSATZ = {"recreativo granada": "granada ii"}
 _YOUTH = {"u17", "u18", "u19", "u20", "u21", "u22", "u23"}
 _WOMEN = {"w", "women", "frauen", "damen", "fem", "femenino", "feminine", "feminino", "ladies", "dames", "zene", "kobiety"}
-_RES = {"ii", "b", "2", "reserves", "res", "reserve", "amateure"}
-_YOUTH_WORT = {"youth", "junior", "juniors", "jugend", "juvenil", "juveniles", "academy"}   # 16.10.: BetLabel "(Youth)" = U19
+_RES = {"ii", "b", "2", "reserves", "res", "reserve", "amateure",
+        "promesas", "akatemia"}   # 18.10.: Valladolid Promesas = Real Valladolid II, SJK Akatemia = SJK II
+_YOUTH_WORT = {"youth", "jugend", "juvenil", "juveniles"}   # 18.10.: "academy"/"junior(s)" raus – Teil echter Vereinsnamen (Puskás Akadémia, Argentinos Juniors)   # 16.10.: BetLabel "(Youth)" = U19
 
 _lock = threading.Lock()
 _stats = {"anfragen": 0, "fehler": 0}
@@ -99,6 +104,8 @@ def _norm_tokens(name):
     n = "".join(c for c in n if not unicodedata.combining(c)).lower()
     n = n.replace("ø", "o").replace("æ", "ae").replace("ß", "ss").replace("ł", "l").replace("đ", "d")
     n = re.sub(r"\(([^)]*)\)", r" \1 ", n)
+    for alt, neu in _NAME_ERSATZ.items():
+        n = n.replace(alt, neu)
     return [t for t in re.split(r"[^a-z0-9]+", n) if t]
 
 
@@ -456,8 +463,12 @@ def hole_alle(auftraege):
                 # der Teams (ohne U19/II/Frauen-Merkmal) wiederzuerkennen ist ->
                 # wahrscheinlich nur anders benannt. Wird im Telegram gemeldet.
                 for g2 in nah:
+                    # 18.10.: nur, wenn BEIDE Teams wiederzuerkennen sind (sonst
+                    # Fehlalarme wie Gallos – San Pedro vs. San Pedro – Nouadhibou)
+                    gerade = min(_lose(home, g2["O1"]), _lose(away, g2["O2"]))
+                    quer = min(_lose(home, g2["O2"]), _lose(away, g2["O1"]))
                     if max(_lose(home, g2["O1"]), _lose(away, g2["O2"]),
-                           _lose(home, g2["O2"]), _lose(away, g2["O1"])) >= 0.6:
+                           _lose(home, g2["O2"]), _lose(away, g2["O1"])) >= 0.6 and max(gerade, quer) >= 0.3:
                         proto.setdefault("verdacht", []).append(
                             {"spiel": f"{home} – {away}", "bl": f"{g2['O1']} - {g2['O2']}"})
                         break
