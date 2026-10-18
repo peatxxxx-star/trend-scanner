@@ -2478,6 +2478,7 @@ TEAM_RECAL = {
     ("corners", "über"): (0.160, 0.769),
     ("yellowcards", "unter"): (0.014, 0.989),
     ("yellowcards", "über"): (0.117, 0.828),
+    ("fouls", "über"): (0.009, 0.943),       # 18.10.: Backtest 1.750 Serien, Modell ~4 Pkt. zu optimistisch
 }
 
 
@@ -5838,13 +5839,20 @@ def build_who_block(rows):
 # 20.09. (Lucio): "nur Karten und Ecken" — Schüsse aufs Tor bleiben draußen;
 # "Unter Ecken auch hier raus" — Team-Ecken nur über, Team-Karten über und unter.
 TEAM_METRICS = {"corners": [3.5, 4.5, 5.5, 6.5],
-                "yellowcards": [1.5, 2.5]}
+                "yellowcards": [1.5, 2.5],
+                # 18.10. (Lucio: "Team Fouls über … Geiler Markt", "gerne schon mit
+                # rein, zumindest die über Teile"). Offline-Backtest 10/10-Serie:
+                # über 9,5 80 % (Grundrate 69 %), über 10,5 79 % (60 %), über 11,5
+                # 68 % (50 %). BetLabel bietet Team-Fouls nur in EL/ECL, Top-5,
+                # Russland, Argentinien u. ä. an (ca. 3 % der Spiele), Linien ab ~8,5.
+                "fouls": [8.5, 9.5, 10.5, 11.5, 12.5, 13.5]}
 # 06.10. (Lucio): Team-Ecken UNTER wieder rein — im Offline-Backtest der
 # stärkste Markt überhaupt (unter 3,5/4,5/5,5: +19/+8/+3 Punkte über einem
 # Modell aus "eigene Ecken" und "Gegner lässt zu"). Unter 6,5 bleibt über
 # TEAM_TRIVIAL_BASE draußen (Grundrate 77 %).
-TEAM_EXCLUDED = set()
-TEAM_NAMES = {"corners": "Ecken", "yellowcards": "Gelbe Karten", "on_target": "Schüsse aufs Tor"}
+TEAM_EXCLUDED = {("fouls", "unter")}   # 18.10.: Team-Fouls nur über
+TEAM_NAMES = {"corners": "Ecken", "yellowcards": "Gelbe Karten", "on_target": "Schüsse aufs Tor",
+              "fouls": "Fouls"}
 TEAM_MAX_MISSES = 0          # Anker LÜCKENLOS (10 von 10 gesamt; in der Rolle 15 mit
 TEAM_MAX_MISSES_ROLE = 1     # max. 1 Lücke). Lucio wörtlich: "letzte 10 Spiele IMMER
                              # mehr gehabt". Backtest: 10 von <=12 -> 1,8 Signale je

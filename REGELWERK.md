@@ -727,3 +727,12 @@ Lucio nach dem ersten Wochenende ohne Agent: „Teamwetten, also eine Mannschaft
 - Sie werden weiter berechnet, mit BetLabel-Quote protokolliert und ausgewertet (25.10.) – damit lässt sich prüfen, ob das Rausnehmen richtig war.
 - Datenlage zum Zeitpunkt der Entscheidung: Wochenende 16.–17.10. (BetLabel-Liste, Einzelwetten): Tore über 10/18 (−10 %), Team-Gelbe unter 4/6 (−3 %), gesamt 49/72 (+1 %). Langfristig (3.9.–16.10.): Tore über 77 % (n=520, erwartet 75 %), Team-Gelbe unter 78 % (n=46, erwartet 81 %).
 - **Gelbe über** bleibt drin (Lucio unsicher): langfristig 82 % bei n=165, besser als erwartet; am Wochenende nur 1/3. Entscheidung am 25.10. mit Rendite-Zahlen.
+
+## 26a. Team-Fouls über (18.10.)
+
+Lucio: „Team Fouls über … Geiler Markt“ → „gerne schon mit rein, zumindest die über Teile“.
+- `TEAM_METRICS["fouls"] = [8.5 … 13.5]`, nur über (`TEAM_EXCLUDED` enthält Fouls unter).
+- Gleiche Regeln wie Team-Ecken/-Karten: 10/10-Serie (bzw. Rolle 15 mit max. 1 Lücke) und Gegner-Filter (Gegner zog in seinen letzten 10 Spielen mind. 5-mal mehr Fouls als die Linie).
+- Backtest (Cache, 10/10): über 9,5 80 % (Grundrate 69 %), über 10,5 79 % (60 %), über 11,5 68 % (50 %). Modell-p rund 4 Punkte zu optimistisch → `TEAM_RECAL[("fouls","über")] = (0.009, 0.943)`.
+- BetLabel bietet Team-Fouls nur in ca. 3 % der Spiele an (EL/ECL, Top-5, Russland, Argentinien, A-League …). Die Quote kommt automatisch über `fouls_heim/fouls_gast`.
+- Bewertung am 25.10. / Mitte November mit den anderen Märkten.
