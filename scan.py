@@ -224,11 +224,19 @@ def league_knows(league, group) -> bool:
     return bool(ts) and time.time() - ts < LEAGUE_MEM_DAYS * 86400
 YOUTH_RESERVE_KEYS = ("u16", "u17", "u18", "u19", "u20", "u21", "u22", "u23", "youth",
                       "junior", "reserve", "primavera", " ii", " b)")
+# 18.10. (Lucio: "Shenzhen Juniors … hat der Scanner gedacht, das wäre ein
+# Jugendreservespiel, China League One ist eine normale Profiliga"):
+# "Juniors" ist Teil echter Vereinsnamen (Shenzhen Juniors, Boca Juniors,
+# Argentinos Juniors) – zählt nur noch als ganzes Wort "junior".
+import re as _re_yr
+_YR_MUSTER = _re_yr.compile(r"\bu1[6-9]\b|\bu2[0-3]\b|\byouth\b|\bjunior\b|reserve|primavera| ii\b| b\)")
 
 
 def youth_or_reserve(match) -> bool:
     txt = f" {match.get('league', '')} | {match.get('home', '')} | {match.get('away', '')} ".lower()
-    return any(k in txt for k in YOUTH_RESERVE_KEYS)
+    return bool(_YR_MUSTER.search(txt))
+
+
 S24_BASE = "https://scores24.live/de/soccer"
 S24_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
           "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36")
