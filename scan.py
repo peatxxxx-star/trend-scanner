@@ -3101,6 +3101,9 @@ def assemble_report(buckets, run_label, new_state=None, deferred_note=None):
     # Anpfiff), strikt nach Anstoßzeit; neue seit dem letzten Lauf tragen
     # 🆕, der Rest ▸. Geändert/weggefallen wird nicht extra ausgewiesen.
     items = day_list(buckets, new_state or {})
+    # 18.10.: ausgeblendete Märkte (AUSGEBLENDET) erscheinen nirgends im Bericht
+    items = [(m, [e for e in entries if not ausgeblendet(e[1])]) for m, entries in items]
+    items = [(m, entries) for m, entries in items if entries]
     total_day = sum(len(e) for _, e in items)
     if not total_day:
         return None
@@ -3728,11 +3731,32 @@ def vp_kurz(punkte):
     return out
 
 
+# 18.10. (Lucio nach dem Wochenende: "Teamwetten, eine Mannschaft maximal 2
+# gelbe Karten, spiele ich nicht mehr … Puffer zu klein" und "Tore über 2.5
+# wollte ich auch raus, ist mir zu sehr russisch Roulette"):
+# Diese Märkte werden NICHT mehr angezeigt (Bericht, BetLabel-Liste, Ping),
+# aber weiter berechnet, mit BetLabel-Quote protokolliert und ausgewertet –
+# so zeigt die Auswertung am 25.10., ob das Rausnehmen richtig war.
+AUSGEBLENDET = {
+    ("team_yellowcards", "unter"),     # Team-Gelbe unter (beide Seiten)
+    ("goals", "über"),                 # Tore über (Scanner liefert nur 2.5)
+}
+
+
+def ausgeblendet(s) -> bool:
+    mk = s.get("metric_key") or ""
+    if mk.startswith("team_"):
+        mk = "_".join(mk.split("_")[:-1])        # team_yellowcards_heim -> team_yellowcards
+    return (mk, s.get("direction")) in AUSGEBLENDET
+
+
 def bl_eintraege(items):
     """Spielbare Einträge der BetLabel-Liste: [(match, s, q, ab, key, Symbol,
     Warn-Stichworte)]. ⛔ (Favoritenregel bzw. Agent-Sperre) fehlt ganz."""
     out = []
     for match, s, q, mn, _key in bl_tipps(items):
+        if ausgeblendet(s):
+            continue
         if AGENT_ANZEIGE and agent_gesperrt(_key):
             continue
         kurz, sym = [], None
@@ -7708,8 +7732,11 @@ def selftest():
     ts23 = [team_to_signal(dict(x, gegner=x.get("gegner", 6))) for x in t23]
     b23, ns23 = classify_signals({}, [(m23, ts23)], {"t23"}, {"t23"}, 1000, "Di 10:17")
     txt23 = "\n".join(assemble_report(b23, "Di 10:17", ns23) or [])
-    if not ts23 or not all(f"{s['metric']} {s['direction']} {s['line']}" in txt23 for s in ts23) \
-            or "🆕" not in txt23 or "Gegner" not in txt23:
+    _sicht23 = [s for s in ts23 if not ausgeblendet(s)]
+    _weg23 = [s for s in ts23 if ausgeblendet(s)]
+    if not _sicht23 or not all(f"{s['metric']} {s['direction']} {s['line']}" in txt23 for s in _sicht23) \
+            or "🆕" not in txt23 or "Gegner" not in txt23 \
+            or any(f"{s['metric']} {s['direction']} {s['line']}" in txt23 for s in _weg23):
         print("FEHLER Fall 23i: Team-Signale fehlen in der Hauptliste")
         ok = False
     if not all(state_entry_ok(v) for v in ns23.values()):
@@ -7717,7 +7744,7 @@ def selftest():
         ok = False
     b23b, ns23b = classify_signals(ns23, [], {"t23"}, {"t23"}, 1000, "Di 12:17")
     txt23b = "\n".join(assemble_report(b23b, "Di 12:17", ns23b) or [])
-    if set(ns23b) != set(ns23) or not all(s["metric"] in txt23b for s in ts23):
+    if set(ns23b) != set(ns23) or not all(s["metric"] in txt23b for s in _sicht23):
         print("FEHLER Fall 23k: Team-Signale müssen bis Anpfiff in der Liste bleiben")
         ok = False
     if state_entry_ok({"v": STATE_VERSION, "metric_key": "team_corners_heim",

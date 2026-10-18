@@ -720,3 +720,10 @@ Stand: normaler Tag ~60–70 Minuten (16 Stundenläufe à 3–4 abgerechnete Min
 - Fehlende Spiele lösen ein Neuladen der BetLabel-Spielliste frühestens 100 min nach dem letzten Laden aus (vorher fast jeder zweite Lauf, je 2–4 min).
 - Keine zusätzlichen Kontrollläufe von Claude ohne Not – jeder kostet 3–4 Minuten.
 - Nicht gemacht: weniger Läufe am Morgen (würde frühe Quoten/Pings kosten).
+
+## 26. Ausgeblendete Märkte (18.10.)
+Lucio nach dem ersten Wochenende ohne Agent: „Teamwetten, also eine Mannschaft maximal 2 gelbe Karten, spiele ich nicht mehr … der Puffer ist mir einfach zu klein“ und „Tore über 2.5 wollte ich auch raus, ist mir zu sehr russisch Roulette“.
+- `AUSGEBLENDET` in scan.py: **Team-Gelbe unter** (beide Seiten) und **Tore über 2.5** erscheinen nicht mehr im Bericht, in der BetLabel-Liste und im Ping.
+- Sie werden weiter berechnet, mit BetLabel-Quote protokolliert und ausgewertet (25.10.) – damit lässt sich prüfen, ob das Rausnehmen richtig war.
+- Datenlage zum Zeitpunkt der Entscheidung: Wochenende 16.–17.10. (BetLabel-Liste, Einzelwetten): Tore über 10/18 (−10 %), Team-Gelbe unter 4/6 (−3 %), gesamt 49/72 (+1 %). Langfristig (3.9.–16.10.): Tore über 77 % (n=520, erwartet 75 %), Team-Gelbe unter 78 % (n=46, erwartet 81 %).
+- **Gelbe über** bleibt drin (Lucio unsicher): langfristig 82 % bei n=165, besser als erwartet; am Wochenende nur 1/3. Entscheidung am 25.10. mit Rendite-Zahlen.
