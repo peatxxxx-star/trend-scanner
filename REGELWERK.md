@@ -750,3 +750,4 @@ Lucio: Emotionen raus, nur noch spielen, was in den Analysen gut aussieht.
 - **Jugend/Reserve bleibt drin** (Lucio ausdrücklich).
 - Zahlen: BL-Liste 83 Tipps, 69 % bei Ø 1.49 → +2 %; nicht spielbar 575 Tipps, 76 % bei Ø 1.23 → −7 %.
 - Regeln ändern nur an Stichtagen (25.10., Mitte November), nicht wegen einzelner Scheine.
+- 19.10. (Lucio): **Regeln eingefroren bis Ende November.** Keine Änderungen wegen einzelner Scheine oder Tage. 25.10. nur noch als Zwischenstand (keine Regeländerung, außer bei echten Fehlern). Technisches (Winterzeit 24.10., Bugfixes) läuft normal weiter.
