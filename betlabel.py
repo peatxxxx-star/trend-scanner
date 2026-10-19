@@ -60,7 +60,9 @@ _ALIAS = {"man": "manchester", "psg": "paris", "utd": "united", "st": "saint", "
           "koln": "cologne", "dinamo": "dynamo", "inter": "internazionale", "wolves": "wolverhampton",
           "spurs": "tottenham", "sheff": "sheffield", "nottm": "nottingham", "athletico": "athletic",
           # 18.10. (Lucio, ❓-Zeilen vom Wochenende)
-          "jjk": "jyvaskyla", "jrs": "juniors", "jr": "junior", "akademia": "academy", "akademie": "academy"}
+          "jjk": "jyvaskyla", "jrs": "juniors", "jr": "junior", "akademia": "academy", "akademie": "academy",
+          # 19.10. (Lucio, ❓ Al Qadisiya Al Khubar U21 – Al Hazm U21): arabische Umschrift
+          "khubar": "khobar", "hazm": "hazem", "qadisiya": "qadisiyah"}
 # ganze Namen, die BetLabel anders führt (Reserveteams mit eigenem Namen)
 _NAME_ERSATZ = {"recreativo granada": "granada ii"}
 _YOUTH = {"u17", "u18", "u19", "u20", "u21", "u22", "u23"}
