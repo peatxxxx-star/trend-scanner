@@ -3706,10 +3706,17 @@ def bl_ping(items):
         return None
     z = [f"🔔 <b>JETZT SPIELBAR ({len(neu)})</b>"]
     for match, s, q, mn, _key, sym, kurz in neu:
-        z.append(f"{sym} <b>{match['kickoff']}</b> {esc(match['home'])} – {esc(match['away'])}\n"
-                 f"      {esc(s['metric'])} {s['direction']} {s['line']} · <b>{q:.2f}</b> (ab {mn:.2f})"
-                 + (f"\n      <i>{esc(' · '.join(kurz))}</i>" if kurz else ""))
+        z.append(_bl_zeile(match, s, q, mn, sym, kurz))
     return "\n".join(z)
+
+
+def _bl_zeile(match, s, q, mn, sym, kurz):
+    """Ein Tipp der BetLabel-Liste / des Pings. 20.10. (Lucio): mit Liga,
+    damit das Spiel bei BetLabel schneller zu finden ist."""
+    liga = f"\n      🏆 {esc(match['league'])}" if match.get("league") else ""
+    return (f"{sym} <b>{match['kickoff']}</b> {esc(match['home'])} – {esc(match['away'])}{liga}\n"
+            f"      {esc(s['metric'])} {s['direction']} {s['line']} · <b>{q:.2f}</b> (ab {mn:.2f})"
+            + (f"\n      <i>{esc(' · '.join(kurz))}</i>" if kurz else ""))
 
 
 def agent_gesperrt(key) -> bool:
@@ -3818,11 +3825,7 @@ def build_bl_block(items):
         return None
     rows = []
     for match, s, q, mn, _key, sym, kurz in bl_eintraege(items):
-        row = (f"{sym} <b>{match['kickoff']}</b> {esc(match['home'])} – {esc(match['away'])}\n"
-               f"      {esc(s['metric'])} {s['direction']} {s['line']} · <b>{q:.2f}</b> (ab {mn:.2f})")
-        if kurz:
-            row += f"\n      <i>{esc(' · '.join(kurz))}</i>"
-        rows.append(row)
+        rows.append(_bl_zeile(match, s, q, mn, sym, kurz))
     stand = f" · Stand {_BL_STAND['zeit']}" if _BL_STAND.get("zeit") else ""
     head = (f"{SEP}\n💶 <b>PASST BEI BETLABEL ({len(rows)})</b>{stand}\n"
             + (f"<i>✅ spielen · ⚠️ mit Risiko · Details in der ZWEITPRÜFUNG</i>" if AGENT_ANZEIGE
