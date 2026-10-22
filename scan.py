@@ -3744,7 +3744,8 @@ def vp_kurz(punkte):
         if st not in ("warn", "stop"):
             continue
         if nr == 2:
-            out.append("Favoritenregel" if st == "stop" else "Rolle")
+            out.append("Favoritenregel" if st == "stop" else
+                       ("klarer Favorit" if "als klarer Favorit" in t else "Rolle"))
         elif nr == 3:
             out.append("dünner Puffer")
         elif nr == 4:
@@ -4004,7 +4005,10 @@ def vp_bewertung(match, s, quote=None):
                      "Favorit" if eigen < gegner else "Außenseiter")
             txt = f"{name} {rolle} ({eigen:.2f})"
             if basis == "corners" and richtung == "unter" and eigen <= FAV_KLAR_MAX:
-                out.append((2, "stop", txt + " – Team-Ecken unter als klarer Favorit: nicht spielen"))
+                # 22.10. (Lucio: "rein nach Zahlen"): kein ⛔ mehr, nur ⚠️. Klare Favoriten
+                # treffen seltener (Backtest 66–75 %, live 73 %), BetLabel zahlt dafür
+                # aber im Schnitt 1,62 (nötig 62 %) – die Sperre warf Value raus.
+                out.append((2, "warn", txt + " – Team-Ecken unter als klarer Favorit"))
             elif basis == "corners" and richtung == "über" and gegner <= FAV_KLAR_MAX:
                 out.append((2, "warn", txt + " – Ecken über als klarer Außenseiter"))
             elif basis == "yellowcards" and richtung == "unter" and gegner <= FAV_KLAR_MAX:
@@ -8247,13 +8251,13 @@ def selftest():
             "line": 4.5, "fair_fin": 1.4, "team_market": True, "team": "A",
             "vp_1x2": [1.30, 5.0, 9.0], "vp_puffer": [_p32]}
     _v32 = dict((p, (st, t)) for p, st, t in vp_bewertung(_m32, _s32, 1.80))
-    if _v32[2][0] != "stop" or _v32[3][0] != "warn" or _v32[8][0] != "warn" or _v32[6][0] != "ok":
+    if _v32[2][0] != "warn" or "klarer Favorit" not in _v32[2][1] or _v32[3][0] != "warn" or _v32[8][0] != "warn" or _v32[6][0] != "ok":
         print("FEHLER Fall 32: Bewertung", _v32); ok = False
     _m32b = {"id": "m32b", "home": "A", "away": "B", "league": "Uruguay Cup"}
     _v32b = dict((p, st) for p, st, t in vp_bewertung(_m32b, dict(_s32, vp_cross=True), 1.45))
     if _v32b[5] != "warn" or _v32b[4] != "ok" or _v32b[8] != "ok":
         print("FEHLER Fall 32: Pokal/Cross", _v32b); ok = False
-    if "⛔" not in fmt_vp(vp_bewertung(_m32, _s32, 1.80)):
+    if "⛔" in fmt_vp(vp_bewertung(_m32, _s32, 1.80)):   # 22.10.: Favoritenregel nur noch ⚠️
         print("FEHLER Fall 32: Anzeige"); ok = False
     # Fall 33 (16.10.): gemischte Team-ID (zwei Clubs) erkennen
     _w = 7 * 86400
