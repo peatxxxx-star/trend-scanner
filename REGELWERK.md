@@ -751,3 +751,4 @@ Lucio: Emotionen raus, nur noch spielen, was in den Analysen gut aussieht.
 - Zahlen: BL-Liste 83 Tipps, 69 % bei Ø 1.49 → +2 %; nicht spielbar 575 Tipps, 76 % bei Ø 1.23 → −7 %.
 - Regeln ändern nur an Stichtagen (25.10., Mitte November), nicht wegen einzelner Scheine.
 - 19.10. (Lucio): **Regeln eingefroren bis Ende November.** Keine Änderungen wegen einzelner Scheine oder Tage. 25.10. nur noch als Zwischenstand (keine Regeländerung, außer bei echten Fehlern). Technisches (Winterzeit 24.10., Bugfixes) läuft normal weiter.
+- 22.10. Bugfix (Lucio: „sowas ist unschön“): „II“/„B)“ zählen nur noch in TEAMnamen als Reserve-Hinweis. Im Ligennamen (Germany Bundesliga II, Poland II Liga, Hungary NB II, Lithuania II Lyga …) hieß es fälschlich Jugend/Reserve. Regressionstest über 6.320 Spiele: nur diese Zweitligen ändern sich (58 Spiele).

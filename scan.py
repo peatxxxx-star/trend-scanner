@@ -237,11 +237,18 @@ _YR_MUSTER = _re_yr.compile(r"\bu1[6-9]\b|\bu2[0-3]\b|\byouth\b|\bjunior\b|reser
 _YR_PROFI = _re_yr.compile(r"(atl[eé]tico |club )?junior( fc| de barranquilla| barranquilla)?")
 
 
+# 22.10. (Lucio: "sowas ist unschön"): "II"/"B)" sind nur in TEAMnamen ein
+# Reserve-Hinweis (Flora II, Real Madrid B). Im Ligennamen bedeutet "II" die
+# zweite Liga ("Germany Bundesliga II") – die wurde bisher als Reserve markiert.
+_YR_LIGA = _re_yr.compile(r"\bu1[6-9]\b|\bu2[0-3]\b|\byouth\b|\bjunior\b|reserve|primavera")
+
+
 def youth_or_reserve(match) -> bool:
     teams = [t for t in (match.get('home', ''), match.get('away', ''))
              if not _YR_PROFI.fullmatch((t or "").strip().lower())]
-    txt = f" {match.get('league', '')} | " + " | ".join(teams).lower() + " "
-    return bool(_YR_MUSTER.search(txt.lower()))
+    liga = f" {match.get('league', '')} ".lower()
+    txt = " | " + " | ".join(teams).lower() + " "
+    return bool(_YR_LIGA.search(liga) or _YR_MUSTER.search(txt))
 
 
 S24_BASE = "https://scores24.live/de/soccer"
@@ -8176,7 +8183,9 @@ def selftest():
             youth_or_reserve({"league": "Ukraine Vyscha Liga", "home": "Zorya", "away": "Livyi Bereh"}) or \
             youth_or_reserve({"league": "Colombia Primera A", "home": "Deportivo Cali", "away": "Junior"}) or \
             youth_or_reserve({"league": "Colombia Primera A", "home": "Atletico Junior", "away": "Millonarios"}) or \
-            not youth_or_reserve({"league": "Friendly", "home": "Basel Junior", "away": "B"}):
+            not youth_or_reserve({"league": "Friendly", "home": "Basel Junior", "away": "B"}) or \
+            youth_or_reserve({"league": "Germany Bundesliga II", "home": "Hertha BSC", "away": "Schalke 04"}) or \
+            not youth_or_reserve({"league": "Estonia Esiliiga", "home": "Flora II", "away": "Parnu"}):
         print("FEHLER Fall Jugend/Reserve-Erkennung")
         ok = False
     _league_mem.clear()
