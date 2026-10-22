@@ -3666,7 +3666,7 @@ def bl_tipps(items):
             mn, _ = play_min(s)
             if not mn:                 # "nicht spielen"-Markt (z. B. 1. HZ Gelbe über) gehört nie in die Liste
                 continue
-            if st[0] < BL_MIN_QUOTE:   # 18.10.: Mindestquote 1.30
+            if st[0] < BL_MIN_QUOTE or st[0] > BL_MAX_QUOTE:   # 18.10.: ab 1.30 · 22.10.: bis 2.00
                 continue
             out.append((match, s, st[0], mn, _bl_key(match, s)))
     return out
@@ -3781,6 +3781,8 @@ AUSGEBLENDET = {
 # 18.10. nachts (Lucio): BL-Liste nur ab dieser Quote – darunter im Schnitt −14 %
 # (10 Tipps 15.–18.10.). Jugend/Reserve bleibt ausdrücklich drin.
 BL_MIN_QUOTE = 1.30
+# 22.10. (Lucio): "alles über 2 spielen wir auf jeden Fall nicht" – je Tipp höchstens 2,00
+BL_MAX_QUOTE = 2.00
 
 
 def ausgeblendet(s) -> bool:
