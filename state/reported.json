@@ -1,1185 +1,173 @@
 {
- "13331824|team_corners_heim|unter": {
-  "match_id": "13331824",
-  "home": "Hapoel Kfar Qasm Shuaa",
-  "away": "Ironi Beit Dagan",
-  "kickoff": "Do 19:30",
-  "kickoff_ts": 1792690200,
-  "league": "Israel Liga Bet South",
-  "metric": "Hapoel Kfar Qasm Shuaa: Ecken",
-  "metric_key": "team_corners_heim",
-  "direction": "unter",
+ "13043456|goals|über": {
+  "match_id": "13043456",
+  "home": "TSG Hoffenheim",
+  "away": "Lyon",
+  "kickoff": "Do 21:00",
+  "kickoff_ts": 1792695600,
+  "league": "UEFA Europa League",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
   "first_run": "Do 06:14",
-  "first_line": 5.5,
+  "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 19:14",
-  "line": 5.5,
+  "last_run": "Do 20:15",
+  "line": 2.5,
   "range": null,
   "signal": {
-   "metric": "Hapoel Kfar Qasm Shuaa: Ecken",
-   "metric_key": "team_corners_heim",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.21,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    41,
+    44
+   ],
+   "next_line": 3.5,
+   "next_note": "TSG Hoffenheim 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Lyon 2/4 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
+   "longterm": [
+    0.788871165542521,
+    0.6225475022118195
+   ],
+   "fair": 1.5,
+   "ladder": [
+    [
+     1.5,
+     1.17
+    ],
+    [
+     2.5,
+     1.5
+    ]
+   ],
+   "avg": [
+    3.5,
+    2.4
+   ],
+   "expect": 2.8,
+   "expect_sum": 3.0,
+   "expect_matchup": 2.6,
+   "contrib": [
+    1.3,
+    1.3
+   ],
+   "buffer": 0.3,
+   "fa": [
+    [
+     2.0,
+     1.8
+    ],
+    [
+     2.0,
+     1.2
+    ]
+   ],
    "referee": null,
    "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.808,
-   "p_mod": 0.951,
-   "p_fin": 0.8252,
-   "fair_fin": 1.21,
-   "ladder_fin": null,
+   "sd": 2.19,
+   "p_emp": {
+    "1.5": 0.8547008547008548,
+    "2.5": 0.6666666666666666
+   },
+   "p_mod": 0.554,
+   "p_fin": 0.616,
+   "fair_fin": 1.62,
+   "ladder_fin": [
+    [
+     1.5,
+     1.32
+    ],
+    [
+     2.5,
+     1.62
+    ]
+   ],
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "ampel": null,
-   "reason": null,
+   "ampel": "🟡",
+   "reason": "62 % knapp",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
    "b365_lines": null,
    "b365_est": null,
-   "team_market": true,
-   "team": "Hapoel Kfar Qasm Shuaa",
-   "serie": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 16
-   },
-   "gegner": 10,
-   "erwartet": 3.0,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
    "b365_proof": null,
    "fav": null,
    "vp_puffer": [
     {
      "n": 10,
      "hits": 9,
-     "knapp": 1,
+     "knapp": 2,
      "knapp_raus": 1,
      "werte": [
       3,
+      5,
+      5,
+      4,
+      2,
+      3,
+      5,
+      5,
+      4,
+      4
+     ]
+    },
+    {
+     "n": 10,
+     "hits": 7,
+     "knapp": 4,
+     "knapp_raus": 2,
+     "werte": [
+      3,
+      5,
+      3,
       4,
       3,
+      0,
+      4,
       2,
-      1,
-      5,
-      6,
-      3,
       3,
       2
      ]
     }
    ],
    "vp_liga": [
-    1.0,
-    0.9
+    0.2,
+    0.2
    ],
-   "vp_cross": false,
+   "vp_cross": true,
    "vp_1x2": [
-    2.8,
-    3.7,
-    2.05
-   ],
-   "vp_ref": null,
-   "vp_seite": "heim",
-   "range": null
-  },
-  "v": 2
- },
- "13337894|team_corners_heim|unter": {
-  "match_id": "13337894",
-  "home": "Maccabi Bnei Abu Snan",
-  "away": "FC Ahva Kfar Manda",
-  "kickoff": "Do 19:30",
-  "kickoff_ts": 1792690200,
-  "league": "Israel Liga Bet North",
-  "metric": "Maccabi Bnei Abu Snan: Ecken",
-  "metric_key": "team_corners_heim",
-  "direction": "unter",
-  "first_run": "Do 19:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Do 19:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Maccabi Bnei Abu Snan: Ecken",
-   "metric_key": "team_corners_heim",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.21,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.847,
-   "p_mod": 0.918,
-   "p_fin": 0.8266,
-   "fair_fin": 1.21,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Maccabi Bnei Abu Snan",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 6,
-   "erwartet": 4.0,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 10,
-     "knapp": 2,
-     "knapp_raus": 0,
-     "werte": [
-      5,
-      6,
-      4,
-      3,
-      4,
-      4,
-      5,
-      4,
-      3,
-      6
-     ]
-    }
-   ],
-   "vp_liga": [
-    1.0,
-    1.0
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    1.8,
+    2.05,
     4.1,
-    3.2
-   ],
-   "vp_ref": null,
-   "vp_seite": "heim",
-   "range": null
-  },
-  "v": 2
- },
- "13337894|team_corners_gast|unter": {
-  "match_id": "13337894",
-  "home": "Maccabi Bnei Abu Snan",
-  "away": "FC Ahva Kfar Manda",
-  "kickoff": "Do 19:30",
-  "kickoff_ts": 1792690200,
-  "league": "Israel Liga Bet North",
-  "metric": "FC Ahva Kfar Manda: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Do 19:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Do 19:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "FC Ahva Kfar Manda: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.21,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.851,
-   "p_mod": 0.905,
-   "p_fin": 0.8245,
-   "fair_fin": 1.21,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "FC Ahva Kfar Manda",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 9,
-   "erwartet": 3.3,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 10,
-     "knapp": 2,
-     "knapp_raus": 0,
-     "werte": [
-      6,
-      6,
-      4,
-      3,
-      3,
-      1,
-      0,
-      1,
-      0,
-      0
-     ]
-    }
-   ],
-   "vp_liga": [
-    1.0,
-    1.0
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    1.8,
-    4.1,
-    3.2
-   ],
-   "vp_ref": null,
-   "vp_seite": "gast",
-   "range": null
-  },
-  "v": 2
- },
- "13217789|team_corners_gast|unter": {
-  "match_id": "13217789",
-  "home": "Godoy Cruz Reserves",
-  "away": "Instituto AC Cordoba Reserves",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1792692000,
-  "league": "Argentina Liga Profesional Reserves",
-  "metric": "Instituto AC Cordoba Reserves: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 5.5,
-  "first_range": null,
-  "last_run": "Do 19:14",
-  "line": 5.5,
-  "range": null,
-  "signal": {
-   "metric": "Instituto AC Cordoba Reserves: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.33,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.733,
-   "p_mod": 0.752,
-   "p_fin": 0.7537,
-   "fair_fin": 1.33,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Instituto AC Cordoba Reserves",
-   "serie": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 16
-   },
-   "gegner": 7,
-   "erwartet": 4.0,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 7,
-     "knapp": 1,
-     "knapp_raus": 1,
-     "werte": [
-      6,
-      4,
-      2,
-      4,
-      3,
-      8,
-      5,
-      4,
-      2,
-      10
-     ]
-    }
-   ],
-   "vp_liga": [
-    1.0,
-    1.0
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    2.2,
-    3.3,
-    2.875
-   ],
-   "vp_ref": null,
-   "vp_seite": "gast",
-   "range": null
-  },
-  "v": 2
- },
- "13217787|corners|über": {
-  "match_id": "13217787",
-  "home": "Atletico Tucuman Reserves",
-  "away": "Gimnasia Mendoza Reserves",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1792692000,
-  "league": "Argentina Liga Profesional Reserves",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 7.5,
-  "first_range": null,
-  "last_run": "Do 19:14",
-  "line": 7.5,
-  "range": null,
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    50
-   ],
-   "next_line": 8.5,
-   "next_note": "Atletico Tucuman Reserves 1/3 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Gimnasia Mendoza Reserves 7/9 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.7159118507196828,
-    0.9101982954305399
-   ],
-   "fair": 1.3,
-   "ladder": [
-    [
-     6.5,
-     1.31
-    ],
-    [
-     7.5,
-     1.3
-    ]
-   ],
-   "avg": [
-    9.4,
-    11.0
-   ],
-   "expect": 10.7,
-   "expect_sum": 10.2,
-   "expect_matchup": 11.3,
-   "contrib": [
-    6.1,
-    5.2
-   ],
-   "buffer": 3.2,
-   "fa": [
-    [
-     4.1,
-     4.5
-    ],
-    [
-     5.4,
-     4.9
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "9.5",
-    "1.950",
-    "1.850"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.18,
-   "p_emp": {
-    "6.5": 0.7633587786259541,
-    "7.5": 0.7692307692307692
-   },
-   "p_mod": 0.843,
-   "p_fin": 0.755,
-   "fair_fin": 1.32,
-   "ladder_fin": [
-    [
-     6.5,
-     1.3
-    ],
-    [
-     7.5,
-     1.32
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.32",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 7,
-     "knapp": 4,
-     "knapp_raus": 0,
-     "werte": [
-      8,
-      12,
-      8,
-      6,
-      13,
-      8,
-      11,
-      8,
-      6,
-      4
-     ]
-    },
-    {
-     "n": 10,
-     "hits": 9,
-     "knapp": 2,
-     "knapp_raus": 1,
-     "werte": [
-      16,
-      13,
-      7,
-      8,
-      9,
-      15,
-      11,
-      9,
-      18,
-      8
-     ]
-    }
-   ],
-   "vp_liga": [
-    1.0,
-    1.0
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    2.15,
-    3.3,
-    2.8
+    3.1
    ],
    "vp_ref": null,
    "vp_seite": null,
-   "range": null
-  },
-  "v": 2
- },
- "13334307|team_corners_gast|unter": {
-  "match_id": "13334307",
-  "home": "Temperley Reserves",
-  "away": "CA Atlanta Reserves",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1792692000,
-  "league": "Argentina Nacional Reserve League",
-  "metric": "CA Atlanta Reserves: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 5.5,
-  "first_range": null,
-  "last_run": "Do 19:14",
-  "line": 5.5,
-  "range": null,
-  "signal": {
-   "metric": "CA Atlanta Reserves: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.35,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.708,
-   "p_mod": 0.718,
-   "p_fin": 0.7385,
-   "fair_fin": 1.35,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "CA Atlanta Reserves",
-   "serie": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 16
-   },
-   "gegner": 8,
-   "erwartet": 4.3,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 8,
-     "knapp": 3,
-     "knapp_raus": 1,
-     "werte": [
-      2,
-      4,
-      5,
-      3,
-      5,
-      3,
-      2,
-      6,
-      5,
-      7
-     ]
-    }
-   ],
-   "vp_liga": [
-    1.0,
-    1.0
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    1.5,
-    3.7,
-    5.5
-   ],
-   "vp_ref": null,
-   "vp_seite": "gast",
-   "range": null
-  },
-  "v": 2
- },
- "13217840|corners|über": {
-  "match_id": "13217840",
-  "home": "Racing Club Reserves",
-  "away": "San Lorenzo Reserves",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1792692000,
-  "league": "Argentina Liga Profesional Reserves",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 7.5,
-  "first_range": null,
-  "last_run": "Do 19:14",
-  "line": 7.5,
-  "range": null,
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    50,
-    49
-   ],
-   "next_line": 8.5,
-   "next_note": "Racing Club Reserves 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; San Lorenzo Reserves 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.7359035543392192,
-    0.8078293407537196
-   ],
-   "fair": 1.34,
-   "ladder": [
-    [
-     6.5,
-     1.34
-    ],
-    [
-     7.5,
-     1.34
-    ]
-   ],
-   "avg": [
-    9.0,
-    10.3
-   ],
-   "expect": 9.8,
-   "expect_sum": 9.6,
-   "expect_matchup": 10.0,
-   "contrib": [
-    5.4,
-    4.6
-   ],
-   "buffer": 2.3,
-   "fa": [
-    [
-     4.6,
-     4.5
-    ],
-    [
-     5.0,
-     5.0
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "9.5",
-    "1.950",
-    "1.850"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.18,
-   "p_emp": {
-    "6.5": 0.7462686567164178,
-    "7.5": 0.7462686567164178
-   },
-   "p_mod": 0.765,
-   "p_fin": 0.726,
-   "fair_fin": 1.38,
-   "ladder_fin": [
-    [
-     6.5,
-     1.33
-    ],
-    [
-     7.5,
-     1.38
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.38",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 7,
-     "knapp": 3,
-     "knapp_raus": 2,
-     "werte": [
-      9,
-      8,
-      9,
-      11,
-      12,
-      7,
-      8,
-      8,
-      7,
-      4
-     ]
-    },
-    {
-     "n": 10,
-     "hits": 9,
-     "knapp": 2,
-     "knapp_raus": 0,
-     "werte": [
-      8,
-      8,
-      9,
-      10,
-      5,
-      11,
-      11,
-      9,
-      18,
-      12
-     ]
-    }
-   ],
-   "vp_liga": [
-    1.0,
-    1.0
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    2.15,
-    3.4,
-    2.9
-   ],
-   "vp_ref": null,
-   "vp_seite": null,
-   "range": null
-  },
-  "v": 2
- },
- "13217839|corners|über": {
-  "match_id": "13217839",
-  "home": "Huracan Reserves",
-  "away": "Boca Juniors Reserves",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1792692000,
-  "league": "Argentina Liga Profesional Reserves",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 7.5,
-  "first_range": null,
-  "last_run": "Do 19:14",
-  "line": 7.5,
-  "range": null,
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": true,
-   "valid": [
-    50,
-    49
-   ],
-   "next_line": 8.5,
-   "next_note": "Boca Juniors Reserves 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.824065842072735,
-    0.7222933873289837
-   ],
-   "fair": 1.34,
-   "ladder": [
-    [
-     6.5,
-     1.33
-    ],
-    [
-     7.5,
-     1.34
-    ]
-   ],
-   "avg": [
-    10.4,
-    9.6
-   ],
-   "expect": 10.4,
-   "expect_sum": 10.0,
-   "expect_matchup": 10.9,
-   "contrib": [
-    3.8,
-    7.1
-   ],
-   "buffer": 2.9,
-   "fa": [
-    [
-     4.2,
-     5.1
-    ],
-    [
-     6.3,
-     3.0
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "9.0",
-    "2.000",
-    "1.800"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.09,
-   "p_emp": {
-    "6.5": 0.7518796992481203,
-    "7.5": 0.7462686567164178
-   },
-   "p_mod": 0.826,
-   "p_fin": 0.743,
-   "fair_fin": 1.35,
-   "ladder_fin": [
-    [
-     6.5,
-     1.31
-    ],
-    [
-     7.5,
-     1.35
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.35",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 9,
-     "knapp": 0,
-     "knapp_raus": 0,
-     "werte": [
-      12,
-      10,
-      10,
-      10,
-      11,
-      6,
-      13,
-      14,
-      9,
-      10
-     ]
-    },
-    {
-     "n": 10,
-     "hits": 9,
-     "knapp": 2,
-     "knapp_raus": 1,
-     "werte": [
-      9,
-      11,
-      8,
-      8,
-      14,
-      10,
-      13,
-      12,
-      7,
-      12
-     ]
-    }
-   ],
-   "vp_liga": [
-    1.0,
-    1.0
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    3.3,
-    3.4,
-    1.95
-   ],
-   "vp_ref": null,
-   "vp_seite": null,
-   "range": null
-  },
-  "v": 2
- },
- "13217839|team_corners_gast|über": {
-  "match_id": "13217839",
-  "home": "Huracan Reserves",
-  "away": "Boca Juniors Reserves",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1792692000,
-  "league": "Argentina Liga Profesional Reserves",
-  "metric": "Boca Juniors Reserves: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 3.5,
-  "first_range": null,
-  "last_run": "Do 19:14",
-  "line": 3.5,
-  "range": null,
-  "signal": {
-   "metric": "Boca Juniors Reserves: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "über",
-   "line": 3.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.29,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.747,
-   "p_mod": 0.85,
-   "p_fin": 0.7741,
-   "fair_fin": 1.29,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Boca Juniors Reserves",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 6,
-   "erwartet": 6.8,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 10,
-     "knapp": 2,
-     "knapp_raus": 0,
-     "werte": [
-      8,
-      11,
-      4,
-      4,
-      13,
-      7,
-      9,
-      9,
-      7,
-      10
-     ]
-    }
-   ],
-   "vp_liga": [
-    1.0,
-    1.0
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    3.3,
-    3.4,
-    1.95
-   ],
-   "vp_ref": null,
-   "vp_seite": "gast",
    "range": null
   },
   "v": 2
@@ -1197,7 +185,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 19:14",
+  "last_run": "Do 20:15",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -1348,8 +336,8 @@
    "vp_cross": true,
    "vp_1x2": [
     2.0,
-    3.8,
-    3.3
+    3.9,
+    3.25
    ],
    "vp_ref": null,
    "vp_seite": null,
@@ -1370,7 +358,7 @@
   "first_run": "Do 06:14",
   "first_line": 7.5,
   "first_range": null,
-  "last_run": "Do 19:14",
+  "last_run": "Do 20:15",
   "line": 7.5,
   "range": null,
   "signal": {
@@ -1534,179 +522,6 @@
   },
   "v": 2
  },
- "13043456|goals|über": {
-  "match_id": "13043456",
-  "home": "TSG Hoffenheim",
-  "away": "Lyon",
-  "kickoff": "Do 21:00",
-  "kickoff_ts": 1792695600,
-  "league": "UEFA Europa League",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 2.5,
-  "first_range": null,
-  "last_run": "Do 19:14",
-  "line": 2.5,
-  "range": null,
-  "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    41,
-    44
-   ],
-   "next_line": 3.5,
-   "next_note": "TSG Hoffenheim 3/5 (3. Lücke) gesamt, 4/6 (3. Lücke) heim; Lyon 2/4 (3. Lücke) gesamt, 0/2 (3. Lücke) auswärts",
-   "longterm": [
-    0.788871165542521,
-    0.6225475022118195
-   ],
-   "fair": 1.5,
-   "ladder": [
-    [
-     1.5,
-     1.17
-    ],
-    [
-     2.5,
-     1.5
-    ]
-   ],
-   "avg": [
-    3.5,
-    2.4
-   ],
-   "expect": 2.8,
-   "expect_sum": 3.0,
-   "expect_matchup": 2.6,
-   "contrib": [
-    1.3,
-    1.3
-   ],
-   "buffer": 0.3,
-   "fa": [
-    [
-     2.0,
-     1.8
-    ],
-    [
-     2.0,
-     1.2
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.19,
-   "p_emp": {
-    "1.5": 0.8547008547008548,
-    "2.5": 0.6666666666666666
-   },
-   "p_mod": 0.554,
-   "p_fin": 0.616,
-   "fair_fin": 1.62,
-   "ladder_fin": [
-    [
-     1.5,
-     1.32
-    ],
-    [
-     2.5,
-     1.62
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟡",
-   "reason": "62 % knapp",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 9,
-     "knapp": 2,
-     "knapp_raus": 1,
-     "werte": [
-      3,
-      5,
-      5,
-      4,
-      2,
-      3,
-      5,
-      5,
-      4,
-      4
-     ]
-    },
-    {
-     "n": 10,
-     "hits": 7,
-     "knapp": 4,
-     "knapp_raus": 2,
-     "werte": [
-      3,
-      5,
-      3,
-      4,
-      3,
-      0,
-      4,
-      2,
-      3,
-      2
-     ]
-    }
-   ],
-   "vp_liga": [
-    0.2,
-    0.2
-   ],
-   "vp_cross": true,
-   "vp_1x2": [
-    2.0,
-    4.1,
-    3.25
-   ],
-   "vp_ref": null,
-   "vp_seite": null,
-   "range": null
-  },
-  "v": 2
- },
  "13309746|goals|über": {
   "match_id": "13309746",
   "home": "Jackson State (W)",
@@ -1720,7 +535,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 19:14",
+  "last_run": "Do 20:15",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -1876,105 +691,102 @@
   },
   "v": 2
  },
- "12312243|yellowcards|unter": {
-  "match_id": "12312243",
-  "home": "Al Ahli Jeddah",
-  "away": "Al Khaleej Saihat",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1792692000,
-  "league": "Saudi Arabia Pro League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 5.5,
+ "13278803|goals|über": {
+  "match_id": "13278803",
+  "home": "Atletico Mineiro U20",
+  "away": "Amazonas U20",
+  "kickoff": "Fr 00:00",
+  "kickoff_ts": 1792706400,
+  "league": "Copa do Brasil U20",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Do 20:15",
+  "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 14:14",
-  "line": 5.5,
-  "range": [
-   1.3,
-   1.62
-  ],
+  "last_run": "Do 20:15",
+  "line": 2.5,
+  "range": null,
   "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
    "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "away_series": {
     "kind": "gesamt",
     "hits": 5,
     "window": 6
    },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
+   "home_is_anchor": true,
+   "away_is_anchor": false,
    "valid": [
-    43,
-    48
+    49,
+    32
    ],
-   "next_line": 4.5,
-   "next_note": "Al Ahli Jeddah 4/6 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; Al Khaleej Saihat 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "next_line": 3.5,
+   "next_note": "Amazonas U20 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
    "longterm": [
-    0.7472714986402281,
-    0.8492476706413662
+    0.7609149431337493,
+    0.783004747267487
    ],
-   "fair": 1.26,
+   "fair": 1.42,
    "ladder": [
     [
-     5.5,
-     1.26
+     1.5,
+     1.18
     ],
     [
-     6.5,
-     1.09
+     2.5,
+     1.42
     ]
    ],
    "avg": [
-    3.4,
-    4.1
+    4.0,
+    4.4
    ],
-   "expect": 3.7,
-   "expect_sum": 3.7,
-   "expect_matchup": 3.6,
+   "expect": 3.9,
+   "expect_sum": 4.2,
+   "expect_matchup": 3.5,
    "contrib": [
-    1.4,
-    2.3
+    1.9,
+    1.7
    ],
-   "buffer": 1.8,
+   "buffer": 1.4,
    "fa": [
     [
-     1.9,
-     2.3
+     2.5,
+     1.2
     ],
     [
-     1.9,
-     1.8
+     2.9,
+     1.2
     ]
    ],
    "referee": null,
    "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 1.87,
+   "sd": 2.13,
    "p_emp": {
-    "5.5": 0.7936507936507936,
-    "6.5": 0.9174311926605504
+    "1.5": 0.8474576271186441,
+    "2.5": 0.7042253521126761
    },
-   "p_mod": 0.832,
-   "p_fin": 0.834,
-   "fair_fin": 1.2,
+   "p_mod": 0.744,
+   "p_fin": 0.705,
+   "fair_fin": 1.42,
    "ladder_fin": [
     [
-     5.5,
-     1.2
+     1.5,
+     1.23
     ],
     [
-     6.5,
-     1.09
+     2.5,
+     1.42
     ]
    ],
    "market": null,
@@ -1982,7 +794,7 @@
    "ev": null,
    "light": "🟢",
    "ampel": "🟢",
-   "reason": "fair 1.20",
+   "reason": "fair 1.42",
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
@@ -1997,82 +809,534 @@
    "no_tab": null,
    "pending": null,
    "b365_proof": null,
-   "fav": "klar",
+   "fav": null,
    "vp_puffer": [
     {
      "n": 10,
-     "hits": 7,
-     "knapp": 1,
-     "knapp_raus": 2,
+     "hits": 10,
+     "knapp": 2,
+     "knapp_raus": 0,
      "werte": [
-      1,
-      3,
+      7,
       5,
-      8,
       3,
-      1,
-      6,
       4,
       6,
+      6,
+      5,
+      4,
+      4,
       3
      ]
     },
     {
      "n": 10,
-     "hits": 9,
+     "hits": 8,
      "knapp": 2,
      "knapp_raus": 1,
      "werte": [
+      5,
+      5,
+      5,
+      1,
+      3,
+      5,
+      2,
+      3,
+      7,
+      10
+     ]
+    }
+   ],
+   "vp_liga": [
+    0.2,
+    0.2
+   ],
+   "vp_cross": true,
+   "vp_1x2": [
+    1.142,
+    7.0,
+    13.0
+   ],
+   "vp_ref": null,
+   "vp_seite": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13310163|goals|über": {
+  "match_id": "13310163",
+  "home": "Alabama State (W)",
+  "away": "Arkansas Pine Bluff (W)",
+  "kickoff": "Fr 01:00",
+  "kickoff_ts": 1792710000,
+  "league": "USA College Championship Women",
+  "metric": "Tore",
+  "metric_key": "goals",
+  "direction": "über",
+  "first_run": "Do 20:15",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Do 20:15",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Tore",
+   "metric_key": "goals",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    29,
+    24
+   ],
+   "next_line": 3.5,
+   "next_note": "kein Anker — Alabama State (W) 10/12 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Arkansas Pine Bluff (W) 12/14 (3. Lücke) gesamt, 8/10 auswärts",
+   "longterm": [
+    0.7944016847652348,
+    0.9326927095291556
+   ],
+   "fair": 1.31,
+   "ladder": [
+    [
+     1.5,
+     1.13
+    ],
+    [
+     2.5,
+     1.31
+    ]
+   ],
+   "avg": [
+    3.4,
+    10.8
+   ],
+   "expect": 5.7,
+   "expect_sum": 7.1,
+   "expect_matchup": 4.3,
+   "contrib": [
+    4.1,
+    0.2
+   ],
+   "buffer": 3.2,
+   "fa": [
+    [
+     0.7,
+     3.2
+    ],
+    [
+     0.6,
+     7.2
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 4.61,
+   "p_emp": {
+    "1.5": 0.8849557522123894,
+    "2.5": 0.7633587786259541
+   },
+   "p_mod": 0.756,
+   "p_fin": 0.733,
+   "fair_fin": 1.36,
+   "ladder_fin": [
+    [
+     1.5,
+     1.24
+    ],
+    [
+     2.5,
+     1.36
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.36",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "fav": null,
+   "vp_puffer": [
+    {
+     "n": 10,
+     "hits": 8,
+     "knapp": 0,
+     "knapp_raus": 0,
+     "werte": [
       4,
+      1,
+      0,
+      5,
+      4,
+      5,
+      4,
+      4,
+      4,
+      4
+     ]
+    },
+    {
+     "n": 10,
+     "hits": 10,
+     "knapp": 0,
+     "knapp_raus": 0,
+     "werte": [
+      17,
+      8,
+      8,
+      13,
+      12,
+      25,
+      6,
+      7,
+      9,
+      11
+     ]
+    }
+   ],
+   "vp_liga": [
+    1.0,
+    1.0
+   ],
+   "vp_cross": false,
+   "vp_1x2": null,
+   "vp_ref": null,
+   "vp_seite": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13257322|yellowcards|über": {
+  "match_id": "13257322",
+  "home": "Atletico Nacional Medellin",
+  "away": "Deportivo Pasto",
+  "kickoff": "Fr 03:00",
+  "kickoff_ts": 1792717200,
+  "league": "Colombia Primera A",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
+  "direction": "über",
+  "first_run": "Do 20:15",
+  "first_line": 2.5,
+  "first_range": null,
+  "last_run": "Do 20:15",
+  "line": 2.5,
+  "range": null,
+  "signal": {
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
+   "direction": "über",
+   "line": 2.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    40,
+    43
+   ],
+   "next_line": 3.5,
+   "next_note": "Atletico Nacional Medellin 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Deportivo Pasto 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.810027249173485,
+    0.8312139656664038
+   ],
+   "fair": 1.29,
+   "ladder": [
+    [
+     1.5,
+     1.28
+    ],
+    [
+     2.5,
+     1.29
+    ]
+   ],
+   "avg": [
+    4.4,
+    5.2
+   ],
+   "expect": 5.5,
+   "expect_sum": 4.8,
+   "expect_matchup": 6.1,
+   "contrib": [
+    2.0,
+    4.1
+   ],
+   "buffer": 3.0,
+   "fa": [
+    [
+     2.3,
+     2.5
+    ],
+    [
+     3.0,
+     2.2
+    ]
+   ],
+   "referee": "Carlos Andres Marquez Ortega: Ø 6.2 Karten (23 Sp.) · Ø 22.8 Fouls (12 Sp.)",
+   "b365": null,
+   "expect_ref": 8.0,
+   "buffer_ref": 5.5,
+   "sd": 2.51,
+   "p_emp": {
+    "1.5": 0.78125,
+    "2.5": 0.7751937984496123
+   },
+   "p_mod": 0.986,
+   "p_fin": 0.864,
+   "fair_fin": 1.16,
+   "ladder_fin": [
+    [
+     1.5,
+     1.15
+    ],
+    [
+     2.5,
+     1.16
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟡",
+   "reason": "Historie 78 % vs. Modell 99 %",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "fav": "klar",
+   "vp_puffer": [
+    {
+     "n": 10,
+     "hits": 8,
+     "knapp": 3,
+     "knapp_raus": 2,
+     "werte": [
       2,
       5,
+      3,
+      2,
+      10,
+      5,
+      7,
+      3,
+      3,
+      6
+     ]
+    },
+    {
+     "n": 10,
+     "hits": 8,
+     "knapp": 2,
+     "knapp_raus": 1,
+     "werte": [
+      3,
+      4,
+      1,
+      6,
       6,
       2,
+      10,
+      5,
+      3,
+      8
+     ]
+    }
+   ],
+   "vp_liga": [
+    0.9,
+    0.9
+   ],
+   "vp_cross": false,
+   "vp_1x2": [
+    1.25,
+    5.75,
+    11.0
+   ],
+   "vp_ref": {
+    "name": "Carlos Andres Marquez Ortega",
+    "n": 23,
+    "avg": 6.22
+   },
+   "vp_seite": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13257322|team_corners_gast|unter": {
+  "match_id": "13257322",
+  "home": "Atletico Nacional Medellin",
+  "away": "Deportivo Pasto",
+  "kickoff": "Fr 03:00",
+  "kickoff_ts": 1792717200,
+  "league": "Colombia Primera A",
+  "metric": "Deportivo Pasto: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Do 20:15",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Do 20:15",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Deportivo Pasto: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.25,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.81,
+   "p_mod": 0.846,
+   "p_fin": 0.7984,
+   "fair_fin": 1.25,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Deportivo Pasto",
+   "serie": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "gegner": 9,
+   "erwartet": 4.3,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "fav": null,
+   "vp_puffer": [
+    {
+     "n": 10,
+     "hits": 9,
+     "knapp": 1,
+     "knapp_raus": 0,
+     "werte": [
       4,
-      2,
-      2,
+      3,
+      4,
+      5,
+      3,
+      6,
+      5,
+      8,
       2,
       5
      ]
     }
    ],
    "vp_liga": [
-    0.7,
+    0.9,
     0.9
    ],
    "vp_cross": false,
    "vp_1x2": [
-    1.3,
-    5.0,
-    7.0
+    1.25,
+    5.75,
+    11.0
    ],
    "vp_ref": null,
-   "vp_seite": null,
-   "range": [
-    1.3,
-    1.62
-   ]
+   "vp_seite": "gast",
+   "range": null
   },
   "v": 2
  },
- "12312243|team_corners_heim|unter": {
-  "match_id": "12312243",
-  "home": "Al Ahli Jeddah",
-  "away": "Al Khaleej Saihat",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1792692000,
-  "league": "Saudi Arabia Pro League",
-  "metric": "Al Ahli Jeddah: Ecken",
+ "12222275|team_corners_heim|unter": {
+  "match_id": "12222275",
+  "home": "Oaxaca",
+  "away": "Cruz Azul Hidalgo",
+  "kickoff": "Fr 03:00",
+  "kickoff_ts": 1792717200,
+  "league": "Mexico Liga de Expansion",
+  "metric": "Oaxaca: Ecken",
   "metric_key": "team_corners_heim",
   "direction": "unter",
-  "first_run": "Do 06:14",
+  "first_run": "Do 20:15",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Do 14:14",
+  "last_run": "Do 20:15",
   "line": 6.5,
   "range": null,
   "signal": {
-   "metric": "Al Ahli Jeddah: Ecken",
+   "metric": "Oaxaca: Ecken",
    "metric_key": "team_corners_heim",
    "direction": "unter",
    "line": 6.5,
@@ -2098,9 +1362,9 @@
    "expect_ref": null,
    "buffer_ref": null,
    "sd": null,
-   "p_emp": 0.82,
-   "p_mod": 0.831,
-   "p_fin": 0.7969,
+   "p_emp": 0.817,
+   "p_mod": 0.843,
+   "p_fin": 0.7993,
    "fair_fin": 1.25,
    "ladder_fin": null,
    "market": null,
@@ -2115,14 +1379,14 @@
    "b365_lines": null,
    "b365_est": null,
    "team_market": true,
-   "team": "Al Ahli Jeddah",
+   "team": "Oaxaca",
    "serie": {
     "kind": "gesamt",
     "hits": 10,
     "window": 10
    },
-   "gegner": 7,
-   "erwartet": 4.3,
+   "gegner": 6,
+   "erwartet": 3.9,
    "unverified": false,
    "no_tab": false,
    "pending": false,
@@ -2132,34 +1396,143 @@
     {
      "n": 10,
      "hits": 10,
-     "knapp": 1,
+     "knapp": 2,
      "knapp_raus": 0,
      "werte": [
-      1,
-      3,
-      4,
-      3,
+      2,
       6,
+      0,
+      6,
+      2,
+      2,
+      3,
+      2,
       5,
-      5,
-      4,
-      4,
-      4
+      3
      ]
     }
    ],
    "vp_liga": [
-    0.7,
-    0.9
+    1.0,
+    1.0
    ],
    "vp_cross": false,
    "vp_1x2": [
-    1.3,
-    5.0,
-    7.0
+    2.0,
+    3.6,
+    3.5
    ],
    "vp_ref": null,
    "vp_seite": "heim",
+   "range": null
+  },
+  "v": 2
+ },
+ "13338117|team_corners_gast|unter": {
+  "match_id": "13338117",
+  "home": "Beitar Ramat Gan",
+  "away": "Hakoah Amidar Ramat Gan",
+  "kickoff": "Fr 08:00",
+  "kickoff_ts": 1792735200,
+  "league": "Israel Liga Bet South",
+  "metric": "Hakoah Amidar Ramat Gan: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Do 20:15",
+  "first_line": 5.5,
+  "first_range": null,
+  "last_run": "Do 20:15",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Hakoah Amidar Ramat Gan: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.32,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.734,
+   "p_mod": 0.773,
+   "p_fin": 0.7594,
+   "fair_fin": 1.32,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Hakoah Amidar Ramat Gan",
+   "serie": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "gegner": 7,
+   "erwartet": 3.9,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "fav": null,
+   "vp_puffer": [
+    {
+     "n": 10,
+     "hits": 8,
+     "knapp": 2,
+     "knapp_raus": 1,
+     "werte": [
+      2,
+      2,
+      3,
+      5,
+      0,
+      7,
+      5,
+      3,
+      1,
+      6
+     ]
+    }
+   ],
+   "vp_liga": [
+    0.9,
+    1.0
+   ],
+   "vp_cross": false,
+   "vp_1x2": [
+    2.5,
+    3.4,
+    2.35
+   ],
+   "vp_ref": null,
+   "vp_seite": "gast",
    "range": null
   },
   "v": 2
