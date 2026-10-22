@@ -1,0 +1,38 @@
+name: Claude-Nachricht
+
+# 22.10. (Lucio): Die Push-Benachrichtigung aus dem Chat kommt nicht an –
+# Claude schickt das Ergebnis des stündlichen 3er-Checks deshalb zusätzlich
+# per Telegram. Claude schreibt den Text in die Datei "claude_msg.txt" und
+# pusht sie; dieser Workflow verschickt den Inhalt mit dem vorhandenen Bot.
+# Der Schlüssel bleibt im GitHub-Secret und taucht nirgends im Log auf.
+
+on:
+  push:
+    branches: [main]
+    paths: ["claude_msg.txt"]
+
+permissions:
+  contents: read
+
+jobs:
+  senden:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Telegram senden
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 - <<'EOF'
+          import os, json, urllib.request, urllib.parse
+          text = open("claude_msg.txt", encoding="utf-8").read().strip()[:4000]
+          url = "https://api.telegram.org/bot" + os.environ["TELEGRAM_BOT_TOKEN"] + "/sendMessage"
+          body = urllib.parse.urlencode({"chat_id": os.environ["TELEGRAM_CHAT_ID"], "text": text,
+                                         "disable_web_page_preview": "true"}).encode()
+          with urllib.request.urlopen(urllib.request.Request(url, data=body), timeout=30) as r:
+              ok = json.loads(r.read().decode()).get("ok", False)
+          print("gesendet" if ok else "Telegram hat abgelehnt")
+          raise SystemExit(0 if ok else 1)
+          EOF
