@@ -1,0 +1,3561 @@
+{
+ "run_utc": "2026-10-22T19:15:08+00:00",
+ "matches_checked": 103,
+ "requests": 15,
+ "hits": [
+  {
+   "match": {
+    "id": "13309746",
+    "league": "USA College Championship Women",
+    "league_id": "838",
+    "home": "Jackson State (W)",
+    "away": "Alcorn State (W)",
+    "home_id": "1200516",
+    "away_id": "1200624",
+    "kickoff": "Do 22:00",
+    "kickoff_ts": 1792699200,
+    "bet365_id": null,
+    "_vp_odds": {
+     "success": 1,
+     "results": {
+      "stats": {},
+      "odds": {}
+     }
+    }
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": true,
+     "valid": [
+      30,
+      28
+     ],
+     "next_line": 3.5,
+     "next_note": "Jackson State (W) 6/8 (3. Lücke) gesamt, 4/6 (3. Lücke) heim",
+     "longterm": [
+      0.6939696329830344,
+      0.6967073355499817
+     ],
+     "fair": 1.53,
+     "ladder": [
+      [
+       1.5,
+       1.21
+      ],
+      [
+       2.5,
+       1.53
+      ]
+     ],
+     "avg": [
+      3.5,
+      3.8
+     ],
+     "expect_sum": 3.6,
+     "expect_matchup": 4.9,
+     "contrib": [
+      4.2,
+      0.7
+     ],
+     "expect": 4.3,
+     "buffer": 1.8,
+     "fa": [
+      [
+       1.7,
+       1.4
+      ],
+      [
+       2.6,
+       1.8
+      ]
+     ],
+     "sd": 3.03,
+     "p_emp": {
+      "1.5": 0.8264462809917356,
+      "2.5": 0.6535947712418301
+     },
+     "no_odds_check": true,
+     "p_mod": 0.724,
+     "p_fin": 0.677,
+     "kal": 0.94,
+     "fair_fin": 1.48,
+     "ladder_fin": [
+      [
+       1.5,
+       1.28
+      ],
+      [
+       2.5,
+       1.48
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "68 % knapp",
+     "light": "🟢",
+     "vp_puffer": [
+      {
+       "n": 10,
+       "hits": 8,
+       "knapp": 2,
+       "knapp_raus": 1,
+       "werte": [
+        5,
+        3,
+        3,
+        5,
+        4,
+        6,
+        6,
+        5,
+        2,
+        0
+       ]
+      },
+      {
+       "n": 10,
+       "hits": 8,
+       "knapp": 0,
+       "knapp_raus": 1,
+       "werte": [
+        4,
+        17,
+        4,
+        0,
+        6,
+        5,
+        4,
+        2,
+        11,
+        7
+       ]
+      }
+     ],
+     "vp_liga": [
+      1.0,
+      1.0
+     ],
+     "vp_cross": false,
+     "vp_1x2": null,
+     "vp_ref": null,
+     "first_run": "Do 06:14"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13278803",
+    "league": "Copa do Brasil U20",
+    "league_id": "46753",
+    "home": "Atletico Mineiro U20",
+    "away": "Amazonas U20",
+    "home_id": "51132",
+    "away_id": "441203",
+    "kickoff": "Fr 00:00",
+    "kickoff_ts": 1792706400,
+    "bet365_id": "203293595",
+    "_cross_league": true,
+    "_vp_odds": {
+     "success": 1,
+     "results": {
+      "stats": {
+       "matching_dir": 1,
+       "odds_update": {
+        "1_1": 1792695077,
+        "1_2": 1792696029,
+        "1_3": 1792696029,
+        "1_5": 1792691992,
+        "1_6": 1792687654,
+        "1_8": 1792694269
+       }
+      },
+      "odds": {
+       "1_1": [
+        {
+         "id": "292353897",
+         "home_od": "1.142",
+         "draw_od": "7.000",
+         "away_od": "13.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792667021"
+        },
+        {
+         "id": "292353300",
+         "home_od": "1.181",
+         "draw_od": "6.250",
+         "away_od": "11.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792666022"
+        },
+        {
+         "id": "292352625",
+         "home_od": "1.250",
+         "draw_od": "5.500",
+         "away_od": "8.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792664836"
+        },
+        {
+         "id": "292351699",
+         "home_od": "1.333",
+         "draw_od": "4.750",
+         "away_od": "7.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792663585"
+        },
+        {
+         "id": "292290275",
+         "home_od": "1.363",
+         "draw_od": "4.750",
+         "away_od": "6.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792593465"
+        },
+        {
+         "id": "292286573",
+         "home_od": "1.333",
+         "draw_od": "4.750",
+         "away_od": "7.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792590614"
+        }
+       ],
+       "1_2": [
+        {
+         "id": "260515337",
+         "home_od": "1.850",
+         "handicap": "-2.25",
+         "away_od": "1.950",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792666685"
+        },
+        {
+         "id": "260514221",
+         "home_od": "1.825",
+         "handicap": "-1.75",
+         "away_od": "1.975",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792664347"
+        },
+        {
+         "id": "260513928",
+         "home_od": "1.850",
+         "handicap": "-1.5",
+         "away_od": "1.950",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792663765"
+        },
+        {
+         "id": "260458746",
+         "home_od": "1.925",
+         "handicap": "-1.5",
+         "away_od": "1.875",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792590815"
+        }
+       ],
+       "1_3": [
+        {
+         "id": "444409340",
+         "over_od": "1.925",
+         "handicap": "3.5",
+         "under_od": "1.875",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792676146"
+        },
+        {
+         "id": "444405941",
+         "over_od": "1.925",
+         "handicap": "3.0,3.5",
+         "under_od": "1.875",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792674251"
+        },
+        {
+         "id": "444405252",
+         "over_od": "1.925",
+         "handicap": "3.5",
+         "under_od": "1.875",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792673693"
+        },
+        {
+         "id": "444403650",
+         "over_od": "1.925",
+         "handicap": "3.0,3.5",
+         "under_od": "1.875",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792672414"
+        },
+        {
+         "id": "444400983",
+         "over_od": "1.925",
+         "handicap": "3.5",
+         "under_od": "1.875",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792670285"
+        },
+        {
+         "id": "444396115",
+         "over_od": "1.925",
+         "handicap": "3.0,3.5",
+         "under_od": "1.875",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792664347"
+        },
+        {
+         "id": "444311754",
+         "over_od": "1.850",
+         "handicap": "3.0,3.5",
+         "under_od": "1.950",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792597209"
+        },
+        {
+         "id": "444302298",
+         "over_od": "1.850",
+         "handicap": "3.0",
+         "under_od": "1.950",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792590815"
+        }
+       ],
+       "1_4": [],
+       "1_5": [
+        {
+         "id": "108798585",
+         "home_od": "1.950",
+         "handicap": "-1",
+         "away_od": "1.850",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792671136"
+        },
+        {
+         "id": "108777404",
+         "home_od": "1.800",
+         "handicap": "-0.5",
+         "away_od": "2.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792602576"
+        }
+       ],
+       "1_6": [
+        {
+         "id": "193441702",
+         "over_od": "2.000",
+         "handicap": "1.5",
+         "under_od": "1.800",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792682770"
+        },
+        {
+         "id": "193392453",
+         "over_od": "1.750",
+         "handicap": "1.0,1.5",
+         "under_od": "2.050",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792596848"
+        }
+       ],
+       "1_7": [],
+       "1_8": [
+        {
+         "id": "148738699",
+         "home_od": "1.444",
+         "draw_od": "3.000",
+         "away_od": "10.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792675899"
+        },
+        {
+         "id": "148738614",
+         "home_od": "1.533",
+         "draw_od": "3.000",
+         "away_od": "8.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792675829"
+        },
+        {
+         "id": "148736970",
+         "home_od": "1.727",
+         "draw_od": "2.750",
+         "away_od": "6.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792674139"
+        },
+        {
+         "id": "148735351",
+         "home_od": "1.444",
+         "draw_od": "3.000",
+         "away_od": "10.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792671644"
+        },
+        {
+         "id": "148733731",
+         "home_od": "1.533",
+         "draw_od": "3.000",
+         "away_od": "8.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792667838"
+        },
+        {
+         "id": "148733154",
+         "home_od": "1.727",
+         "draw_od": "2.750",
+         "away_od": "6.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792666433"
+        },
+        {
+         "id": "148732916",
+         "home_od": "1.615",
+         "draw_od": "2.875",
+         "away_od": "7.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792665672"
+        },
+        {
+         "id": "148699536",
+         "home_od": "1.727",
+         "draw_od": "2.750",
+         "away_od": "6.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792595962"
+        },
+        {
+         "id": "148699067",
+         "home_od": "1.800",
+         "draw_od": "2.600",
+         "away_od": "6.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792595154"
+        },
+        {
+         "id": "148698650",
+         "home_od": "1.727",
+         "draw_od": "2.750",
+         "away_od": "6.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792594067"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 5,
+      "window": 6
+     },
+     "home_is_anchor": true,
+     "away_is_anchor": false,
+     "valid": [
+      49,
+      32
+     ],
+     "next_line": 3.5,
+     "next_note": "Amazonas U20 4/6 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.7609149431337493,
+      0.783004747267487
+     ],
+     "fair": 1.42,
+     "ladder": [
+      [
+       1.5,
+       1.18
+      ],
+      [
+       2.5,
+       1.42
+      ]
+     ],
+     "avg": [
+      4.0,
+      4.4
+     ],
+     "expect_sum": 4.2,
+     "expect_matchup": 3.5,
+     "contrib": [
+      1.9,
+      1.7
+     ],
+     "expect": 3.9,
+     "buffer": 1.4,
+     "fa": [
+      [
+       2.5,
+       1.2
+      ],
+      [
+       2.9,
+       1.2
+      ]
+     ],
+     "sd": 2.13,
+     "p_emp": {
+      "1.5": 0.8474576271186441,
+      "2.5": 0.7042253521126761
+     },
+     "no_odds_check": true,
+     "p_mod": 0.744,
+     "p_fin": 0.705,
+     "kal": 0.94,
+     "fair_fin": 1.42,
+     "ladder_fin": [
+      [
+       1.5,
+       1.23
+      ],
+      [
+       2.5,
+       1.42
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.42",
+     "light": "🟢",
+     "vp_puffer": [
+      {
+       "n": 10,
+       "hits": 10,
+       "knapp": 2,
+       "knapp_raus": 0,
+       "werte": [
+        7,
+        5,
+        3,
+        4,
+        6,
+        6,
+        5,
+        4,
+        4,
+        3
+       ]
+      },
+      {
+       "n": 10,
+       "hits": 8,
+       "knapp": 2,
+       "knapp_raus": 1,
+       "werte": [
+        5,
+        5,
+        5,
+        1,
+        3,
+        5,
+        2,
+        3,
+        7,
+        10
+       ]
+      }
+     ],
+     "vp_liga": [
+      0.2,
+      0.2
+     ],
+     "vp_cross": true,
+     "vp_1x2": [
+      1.142,
+      7.0,
+      13.0
+     ],
+     "vp_ref": null,
+     "first_run": "Do 20:15"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13310163",
+    "league": "USA College Championship Women",
+    "league_id": "838",
+    "home": "Alabama State (W)",
+    "away": "Arkansas Pine Bluff (W)",
+    "home_id": "1200531",
+    "away_id": "1200476",
+    "kickoff": "Fr 01:00",
+    "kickoff_ts": 1792710000,
+    "bet365_id": null,
+    "_vp_odds": {
+     "success": 1,
+     "results": {
+      "stats": {},
+      "odds": {}
+     }
+    }
+   },
+   "signals": [
+    {
+     "metric": "Tore",
+     "metric_key": "goals",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 10
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      29,
+      24
+     ],
+     "next_line": 3.5,
+     "next_note": "kein Anker — Alabama State (W) 10/12 (3. Lücke) gesamt, 3/5 (3. Lücke) heim; Arkansas Pine Bluff (W) 12/14 (3. Lücke) gesamt, 8/10 auswärts",
+     "longterm": [
+      0.7944016847652348,
+      0.9326927095291556
+     ],
+     "fair": 1.31,
+     "ladder": [
+      [
+       1.5,
+       1.13
+      ],
+      [
+       2.5,
+       1.31
+      ]
+     ],
+     "avg": [
+      3.4,
+      10.8
+     ],
+     "expect_sum": 7.1,
+     "expect_matchup": 4.3,
+     "contrib": [
+      4.1,
+      0.2
+     ],
+     "expect": 5.7,
+     "buffer": 3.2,
+     "fa": [
+      [
+       0.7,
+       3.2
+      ],
+      [
+       0.6,
+       7.2
+      ]
+     ],
+     "sd": 4.61,
+     "p_emp": {
+      "1.5": 0.8849557522123894,
+      "2.5": 0.7633587786259541
+     },
+     "no_odds_check": true,
+     "p_mod": 0.756,
+     "p_fin": 0.733,
+     "kal": 0.94,
+     "fair_fin": 1.36,
+     "ladder_fin": [
+      [
+       1.5,
+       1.24
+      ],
+      [
+       2.5,
+       1.36
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟢",
+     "reason": "fair 1.36",
+     "light": "🟢",
+     "vp_puffer": [
+      {
+       "n": 10,
+       "hits": 8,
+       "knapp": 0,
+       "knapp_raus": 0,
+       "werte": [
+        4,
+        1,
+        0,
+        5,
+        4,
+        5,
+        4,
+        4,
+        4,
+        4
+       ]
+      },
+      {
+       "n": 10,
+       "hits": 10,
+       "knapp": 0,
+       "knapp_raus": 0,
+       "werte": [
+        17,
+        8,
+        8,
+        13,
+        12,
+        25,
+        6,
+        7,
+        9,
+        11
+       ]
+      }
+     ],
+     "vp_liga": [
+      1.0,
+      1.0
+     ],
+     "vp_cross": false,
+     "vp_1x2": null,
+     "vp_ref": null,
+     "first_run": "Do 20:15"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13257322",
+    "league": "Colombia Primera A",
+    "league_id": "254",
+    "home": "Atletico Nacional Medellin",
+    "away": "Deportivo Pasto",
+    "home_id": "1429",
+    "away_id": "7830",
+    "kickoff": "Fr 03:00",
+    "kickoff_ts": 1792717200,
+    "bet365_id": "203236669",
+    "_vp_odds": {
+     "success": 1,
+     "results": {
+      "stats": {
+       "matching_dir": 1,
+       "odds_update": {
+        "1_1": 1792694027,
+        "1_2": 1792696399,
+        "1_3": 1792696399,
+        "1_4": 1792685594,
+        "1_5": 1792689327,
+        "1_6": 1792690382,
+        "1_7": 1792691038,
+        "1_8": 1792694746
+       }
+      },
+      "odds": {
+       "1_1": [
+        {
+         "id": "292384473",
+         "home_od": "1.250",
+         "draw_od": "5.750",
+         "away_od": "11.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792692784"
+        },
+        {
+         "id": "292370424",
+         "home_od": "1.222",
+         "draw_od": "6.000",
+         "away_od": "11.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792682936"
+        },
+        {
+         "id": "292370351",
+         "home_od": "1.222",
+         "draw_od": "6.250",
+         "away_od": "12.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792682857"
+        },
+        {
+         "id": "292369448",
+         "home_od": "1.222",
+         "draw_od": "6.000",
+         "away_od": "11.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792682136"
+        },
+        {
+         "id": "292367985",
+         "home_od": "1.250",
+         "draw_od": "5.750",
+         "away_od": "10.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792680791"
+        },
+        {
+         "id": "292367485",
+         "home_od": "1.270",
+         "draw_od": "5.750",
+         "away_od": "10.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792680392"
+        },
+        {
+         "id": "292355583",
+         "home_od": "1.285",
+         "draw_od": "5.500",
+         "away_od": "9.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792669706"
+        },
+        {
+         "id": "292351883",
+         "home_od": "1.285",
+         "draw_od": "5.500",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792663937"
+        },
+        {
+         "id": "292351535",
+         "home_od": "1.285",
+         "draw_od": "5.750",
+         "away_od": "9.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792663352"
+        },
+        {
+         "id": "292350767",
+         "home_od": "1.270",
+         "draw_od": "5.750",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792662374"
+        },
+        {
+         "id": "292350447",
+         "home_od": "1.250",
+         "draw_od": "6.000",
+         "away_od": "9.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792661806"
+        },
+        {
+         "id": "292349890",
+         "home_od": "1.270",
+         "draw_od": "6.000",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792660897"
+        },
+        {
+         "id": "292348156",
+         "home_od": "1.285",
+         "draw_od": "5.750",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792658235"
+        },
+        {
+         "id": "292341177",
+         "home_od": "1.285",
+         "draw_od": "5.750",
+         "away_od": "8.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792646059"
+        },
+        {
+         "id": "292338759",
+         "home_od": "1.285",
+         "draw_od": "5.000",
+         "away_od": "9.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792641877"
+        },
+        {
+         "id": "292284788",
+         "home_od": "1.270",
+         "draw_od": "5.250",
+         "away_od": "10.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792589314"
+        },
+        {
+         "id": "292281320",
+         "home_od": "1.222",
+         "draw_od": "5.500",
+         "away_od": "12.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792586959"
+        }
+       ],
+       "1_2": [
+        {
+         "id": "260540314",
+         "home_od": "2.000",
+         "handicap": "-1.75",
+         "away_od": "1.800",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792692935"
+        },
+        {
+         "id": "260529365",
+         "home_od": "1.975",
+         "handicap": "-1.75",
+         "away_od": "1.825",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792683375"
+        },
+        {
+         "id": "260528377",
+         "home_od": "1.950",
+         "handicap": "-1.75",
+         "away_od": "1.850",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792682502"
+        },
+        {
+         "id": "260526774",
+         "home_od": "1.975",
+         "handicap": "-1.75",
+         "away_od": "1.825",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792680804"
+        },
+        {
+         "id": "260515518",
+         "home_od": "1.850",
+         "handicap": "-1.5",
+         "away_od": "1.950",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792667013"
+        },
+        {
+         "id": "260515162",
+         "home_od": "1.825",
+         "handicap": "-1.5",
+         "away_od": "1.975",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792666299"
+        },
+        {
+         "id": "260514993",
+         "home_od": "1.800",
+         "handicap": "-1.5",
+         "away_od": "2.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792665868"
+        },
+        {
+         "id": "260514598",
+         "home_od": "1.850",
+         "handicap": "-1.5",
+         "away_od": "1.950",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792665090"
+        },
+        {
+         "id": "260512417",
+         "home_od": "1.975",
+         "handicap": "-1.75",
+         "away_od": "1.825",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792661151"
+        },
+        {
+         "id": "260511556",
+         "home_od": "2.000",
+         "handicap": "-1.75",
+         "away_od": "1.800",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792659155"
+        },
+        {
+         "id": "260504676",
+         "home_od": "1.825",
+         "handicap": "-1.5",
+         "away_od": "1.975",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792643555"
+        },
+        {
+         "id": "260503839",
+         "home_od": "1.850",
+         "handicap": "-1.5",
+         "away_od": "1.950",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792641987"
+        },
+        {
+         "id": "260501242",
+         "home_od": "1.825",
+         "handicap": "-1.5",
+         "away_od": "1.975",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792637193"
+        },
+        {
+         "id": "260457574",
+         "home_od": "1.800",
+         "handicap": "-1.5",
+         "away_od": "2.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792589942"
+        },
+        {
+         "id": "260455023",
+         "home_od": "1.900",
+         "handicap": "-1.75",
+         "away_od": "1.900",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792588215"
+        }
+       ],
+       "1_3": [
+        {
+         "id": "444439246",
+         "over_od": "1.950",
+         "handicap": "2.5,3.0",
+         "under_od": "1.850",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792692935"
+        },
+        {
+         "id": "444429337",
+         "over_od": "1.900",
+         "handicap": "2.5,3.0",
+         "under_od": "1.900",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792688195"
+        },
+        {
+         "id": "444420934",
+         "over_od": "1.925",
+         "handicap": "2.5,3.0",
+         "under_od": "1.875",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792683375"
+        },
+        {
+         "id": "444416884",
+         "over_od": "1.900",
+         "handicap": "2.5,3.0",
+         "under_od": "1.900",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792680804"
+        },
+        {
+         "id": "444410813",
+         "over_od": "1.925",
+         "handicap": "2.5,3.0",
+         "under_od": "1.875",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792677011"
+        },
+        {
+         "id": "444410195",
+         "over_od": "1.900",
+         "handicap": "2.5,3.0",
+         "under_od": "1.900",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792676606"
+        },
+        {
+         "id": "444409043",
+         "over_od": "1.950",
+         "handicap": "2.5,3.0",
+         "under_od": "1.850",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792675971"
+        },
+        {
+         "id": "444407752",
+         "over_od": "1.975",
+         "handicap": "2.5,3.0",
+         "under_od": "1.825",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792675245"
+        },
+        {
+         "id": "444403627",
+         "over_od": "1.950",
+         "handicap": "2.5,3.0",
+         "under_od": "1.850",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792672481"
+        },
+        {
+         "id": "444402556",
+         "over_od": "1.950",
+         "handicap": "3.0",
+         "under_od": "1.850",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792671678"
+        },
+        {
+         "id": "444401416",
+         "over_od": "1.925",
+         "handicap": "2.5,3.0",
+         "under_od": "1.875",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792670713"
+        },
+        {
+         "id": "444400601",
+         "over_od": "1.950",
+         "handicap": "2.5,3.0",
+         "under_od": "1.850",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792669871"
+        },
+        {
+         "id": "444399613",
+         "over_od": "1.900",
+         "handicap": "3.0",
+         "under_od": "1.900",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792668651"
+        },
+        {
+         "id": "444398880",
+         "over_od": "1.900",
+         "handicap": "2.5,3.0",
+         "under_od": "1.900",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792667718"
+        },
+        {
+         "id": "444398405",
+         "over_od": "1.850",
+         "handicap": "2.5,3.0",
+         "under_od": "1.950",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792667013"
+        },
+        {
+         "id": "444397817",
+         "over_od": "1.825",
+         "handicap": "2.5,3.0",
+         "under_od": "1.975",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792666299"
+        },
+        {
+         "id": "444397513",
+         "over_od": "1.800",
+         "handicap": "2.5,3.0",
+         "under_od": "2.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792665868"
+        },
+        {
+         "id": "444393030",
+         "over_od": "1.850",
+         "handicap": "2.5,3.0",
+         "under_od": "1.950",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792661151"
+        },
+        {
+         "id": "444391419",
+         "over_od": "1.900",
+         "handicap": "2.5,3.0",
+         "under_od": "1.900",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792659155"
+        },
+        {
+         "id": "444388556",
+         "over_od": "1.800",
+         "handicap": "2.5,3.0",
+         "under_od": "2.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792655922"
+        },
+        {
+         "id": "444381123",
+         "over_od": "1.775",
+         "handicap": "2.5,3.0",
+         "under_od": "2.025",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792645827"
+        },
+        {
+         "id": "444379329",
+         "over_od": "2.025",
+         "handicap": "3.0",
+         "under_od": "1.775",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792643555"
+        },
+        {
+         "id": "444377991",
+         "over_od": "1.800",
+         "handicap": "2.5,3.0",
+         "under_od": "2.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792641987"
+        },
+        {
+         "id": "444314863",
+         "over_od": "1.775",
+         "handicap": "2.5,3.0",
+         "under_od": "2.025",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792599540"
+        },
+        {
+         "id": "444312251",
+         "over_od": "1.775",
+         "handicap": "3.0",
+         "under_od": "2.025",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792597539"
+        },
+        {
+         "id": "444303543",
+         "over_od": "1.775",
+         "handicap": "2.5,3.0",
+         "under_od": "2.025",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792591694"
+        },
+        {
+         "id": "444300469",
+         "over_od": "1.775",
+         "handicap": "3.0",
+         "under_od": "2.025",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792589942"
+        },
+        {
+         "id": "444296380",
+         "over_od": "2.025",
+         "handicap": "3.0",
+         "under_od": "1.775",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792588215"
+        }
+       ],
+       "1_4": [
+        {
+         "id": "197141187",
+         "over_od": "1.900",
+         "handicap": "9.0",
+         "under_od": "1.900",
+         "ss": null,
+         "ss2": null,
+         "time_str": null,
+         "add_time": "1792599485"
+        }
+       ],
+       "1_5": [
+        {
+         "id": "108807485",
+         "home_od": "1.975",
+         "handicap": "-0.75",
+         "away_od": "1.825",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792689327"
+        },
+        {
+         "id": "108803568",
+         "home_od": "2.050",
+         "handicap": "-0.75",
+         "away_od": "1.750",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792682086"
+        },
+        {
+         "id": "108793114",
+         "home_od": "2.025",
+         "handicap": "-0.75",
+         "away_od": "1.775",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792645659"
+        },
+        {
+         "id": "108773540",
+         "home_od": "2.000",
+         "handicap": "-0.75",
+         "away_od": "1.800",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792592817"
+        }
+       ],
+       "1_6": [
+        {
+         "id": "193441425",
+         "over_od": "2.075",
+         "handicap": "1.0,1.5",
+         "under_od": "1.725",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792682416"
+        },
+        {
+         "id": "193389779",
+         "over_od": "2.000",
+         "handicap": "1.0,1.5",
+         "under_od": "1.800",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792592094"
+        }
+       ],
+       "1_7": [
+        {
+         "id": "101575977",
+         "over_od": "2.050",
+         "handicap": "4.5",
+         "under_od": "1.750",
+         "ss": null,
+         "ss2": null,
+         "time_str": null,
+         "add_time": "1792691038"
+        },
+        {
+         "id": "101557868",
+         "over_od": "2.075",
+         "handicap": "4.5",
+         "under_od": "1.725",
+         "ss": null,
+         "ss2": null,
+         "time_str": null,
+         "add_time": "1792599065"
+        },
+        {
+         "id": "101557067",
+         "over_od": "2.050",
+         "handicap": "4.5",
+         "under_od": "1.750",
+         "ss": null,
+         "ss2": null,
+         "time_str": null,
+         "add_time": "1792593073"
+        }
+       ],
+       "1_8": [
+        {
+         "id": "148753032",
+         "home_od": "1.666",
+         "draw_od": "2.600",
+         "away_od": "11.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792694746"
+        },
+        {
+         "id": "148743211",
+         "home_od": "1.666",
+         "draw_od": "2.625",
+         "away_od": "11.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792682410"
+        },
+        {
+         "id": "148740492",
+         "home_od": "1.727",
+         "draw_od": "2.500",
+         "away_od": "9.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792678622"
+        },
+        {
+         "id": "148734559",
+         "home_od": "1.666",
+         "draw_od": "2.625",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792670014"
+        },
+        {
+         "id": "148732992",
+         "home_od": "1.727",
+         "draw_od": "2.600",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792665807"
+        },
+        {
+         "id": "148730475",
+         "home_od": "1.666",
+         "draw_od": "2.625",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792659007"
+        },
+        {
+         "id": "148728109",
+         "home_od": "1.727",
+         "draw_od": "2.625",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792652069"
+        },
+        {
+         "id": "148726560",
+         "home_od": "1.727",
+         "draw_od": "2.625",
+         "away_od": "8.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792647070"
+        },
+        {
+         "id": "148698310",
+         "home_od": "1.666",
+         "draw_od": "2.625",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792593326"
+        },
+        {
+         "id": "148698171",
+         "home_od": "1.615",
+         "draw_od": "2.750",
+         "away_od": "10.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792593143"
+        },
+        {
+         "id": "148696628",
+         "home_od": "1.666",
+         "draw_od": "2.625",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792590043"
+        },
+        {
+         "id": "148693797",
+         "home_od": "1.615",
+         "draw_od": "2.750",
+         "away_od": "10.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792587176"
+        }
+       ]
+      }
+     }
+    },
+    "_vp_ref": {
+     "id": "1484754",
+     "name": "Carlos Andres Marquez Ortega",
+     "cc": "co"
+    }
+   },
+   "signals": [
+    {
+     "metric": "Gelbe Karten",
+     "metric_key": "yellowcards",
+     "line": 2.5,
+     "direction": "über",
+     "home_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "away_series": {
+      "kind": "gesamt",
+      "hits": 10,
+      "window": 12
+     },
+     "home_is_anchor": false,
+     "away_is_anchor": true,
+     "valid": [
+      40,
+      43
+     ],
+     "next_line": 3.5,
+     "next_note": "Atletico Nacional Medellin 1/3 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Deportivo Pasto 3/5 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+     "longterm": [
+      0.810027249173485,
+      0.8312139656664038
+     ],
+     "fair": 1.29,
+     "ladder": [
+      [
+       1.5,
+       1.28
+      ],
+      [
+       2.5,
+       1.29
+      ]
+     ],
+     "avg": [
+      4.4,
+      5.2
+     ],
+     "expect_sum": 4.8,
+     "expect_matchup": 6.1,
+     "contrib": [
+      2.0,
+      4.1
+     ],
+     "expect": 5.5,
+     "buffer": 3.0,
+     "fa": [
+      [
+       2.3,
+       2.5
+      ],
+      [
+       3.0,
+       2.2
+      ]
+     ],
+     "sd": 2.51,
+     "p_emp": {
+      "1.5": 0.78125,
+      "2.5": 0.7751937984496123
+     },
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "fav": "klar",
+     "referee": "Carlos Andres Marquez Ortega: Ø 6.2 Karten (23 Sp.) · Ø 22.8 Fouls (12 Sp.)",
+     "expect_ref": 8.0,
+     "buffer_ref": 5.5,
+     "p_mod": 0.986,
+     "p_fin": 0.864,
+     "kal": 0.95,
+     "fair_fin": 1.16,
+     "ladder_fin": [
+      [
+       1.5,
+       1.15
+      ],
+      [
+       2.5,
+       1.16
+      ]
+     ],
+     "market": null,
+     "market_src": null,
+     "ev": null,
+     "ampel": "🟡",
+     "reason": "Historie 78 % vs. Modell 99 %",
+     "light": "🟢",
+     "vp_puffer": [
+      {
+       "n": 10,
+       "hits": 8,
+       "knapp": 3,
+       "knapp_raus": 2,
+       "werte": [
+        2,
+        5,
+        3,
+        2,
+        10,
+        5,
+        7,
+        3,
+        3,
+        6
+       ]
+      },
+      {
+       "n": 10,
+       "hits": 8,
+       "knapp": 2,
+       "knapp_raus": 1,
+       "werte": [
+        3,
+        4,
+        1,
+        6,
+        6,
+        2,
+        10,
+        5,
+        3,
+        8
+       ]
+      }
+     ],
+     "vp_liga": [
+      0.9,
+      0.9
+     ],
+     "vp_cross": false,
+     "vp_1x2": [
+      1.25,
+      5.75,
+      11.0
+     ],
+     "vp_ref": {
+      "name": "Carlos Andres Marquez Ortega",
+      "n": 23,
+      "avg": 6.22
+     },
+     "first_run": "Do 20:15"
+    },
+    {
+     "metric": "Deportivo Pasto: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 6.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Deportivo Pasto",
+     "serie": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "gegner": 9,
+     "erwartet": 4.3,
+     "fair": 1.25,
+     "fair_fin": 1.25,
+     "p_fin": 0.7984,
+     "p_emp": 0.81,
+     "p_mod": 0.846,
+     "light": "🟢",
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "vp_seite": "gast",
+     "vp_puffer": [
+      {
+       "n": 10,
+       "hits": 9,
+       "knapp": 1,
+       "knapp_raus": 0,
+       "werte": [
+        4,
+        3,
+        4,
+        5,
+        3,
+        6,
+        5,
+        8,
+        2,
+        5
+       ]
+      }
+     ],
+     "vp_liga": [
+      0.9,
+      0.9
+     ],
+     "vp_cross": false,
+     "vp_1x2": [
+      1.25,
+      5.75,
+      11.0
+     ],
+     "vp_ref": null,
+     "first_run": "Do 20:15"
+    }
+   ]
+  },
+  {
+   "match": {
+    "id": "13338117",
+    "league": "Israel Liga Bet South",
+    "league_id": "1310",
+    "home": "Beitar Ramat Gan",
+    "away": "Hakoah Amidar Ramat Gan",
+    "home_id": "9581",
+    "away_id": "46118",
+    "kickoff": "Fr 08:00",
+    "kickoff_ts": 1792735200,
+    "bet365_id": "203307895",
+    "_vp_odds": {
+     "success": 1,
+     "results": {
+      "stats": {
+       "matching_dir": 1,
+       "odds_update": {
+        "1_1": 1792696107,
+        "1_2": 1792696386,
+        "1_3": 1792696386,
+        "1_5": 1792684396,
+        "1_6": 1792675191,
+        "1_8": 1792693389
+       }
+      },
+      "odds": {
+       "1_1": [
+        {
+         "id": "292352724",
+         "home_od": "2.500",
+         "draw_od": "3.400",
+         "away_od": "2.350",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792665096"
+        }
+       ],
+       "1_2": [
+        {
+         "id": "260515015",
+         "home_od": "1.975",
+         "handicap": "0",
+         "away_od": "1.825",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792665786"
+        }
+       ],
+       "1_3": [
+        {
+         "id": "444397549",
+         "over_od": "1.900",
+         "handicap": "2.5",
+         "under_od": "1.900",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792665786"
+        }
+       ],
+       "1_4": [],
+       "1_5": [
+        {
+         "id": "108797943",
+         "home_od": "1.950",
+         "handicap": "0",
+         "away_od": "1.850",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792668309"
+        }
+       ],
+       "1_6": [
+        {
+         "id": "193432039",
+         "over_od": "1.825",
+         "handicap": "1.0",
+         "under_od": "1.975",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792669583"
+        }
+       ],
+       "1_7": [],
+       "1_8": [
+        {
+         "id": "148733078",
+         "home_od": "3.200",
+         "draw_od": "2.200",
+         "away_od": "3.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792666121"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "signals": [
+    {
+     "metric": "Hakoah Amidar Ramat Gan: Ecken",
+     "metric_key": "team_corners_gast",
+     "line": 5.5,
+     "direction": "unter",
+     "team_market": true,
+     "team": "Hakoah Amidar Ramat Gan",
+     "serie": {
+      "kind": "auswärts",
+      "hits": 15,
+      "window": 16
+     },
+     "gegner": 7,
+     "erwartet": 3.9,
+     "fair": 1.32,
+     "fair_fin": 1.32,
+     "p_fin": 0.7594,
+     "p_emp": 0.734,
+     "p_mod": 0.773,
+     "light": "🟢",
+     "unverified": true,
+     "no_tab": true,
+     "pending": true,
+     "vp_seite": "gast",
+     "vp_puffer": [
+      {
+       "n": 10,
+       "hits": 8,
+       "knapp": 2,
+       "knapp_raus": 1,
+       "werte": [
+        2,
+        2,
+        3,
+        5,
+        0,
+        7,
+        5,
+        3,
+        1,
+        6
+       ]
+      }
+     ],
+     "vp_liga": [
+      0.9,
+      1.0
+     ],
+     "vp_cross": false,
+     "vp_1x2": [
+      2.5,
+      3.4,
+      2.35
+     ],
+     "vp_ref": null,
+     "first_run": "Do 20:15"
+    }
+   ]
+  }
+ ],
+ "s24_reiter": {
+  "doublechance": 7,
+  "totals": 7,
+  "handicaps": 4,
+  "results": 5,
+  "corners": 1
+ },
+ "dauer_s": 72,
+ "zeit": {
+  "historie": 0,
+  "pruefung": 0,
+  "scores24": 35,
+  "extras": 0,
+  "vorpruefung": 1,
+  "vorlauf": 62,
+  "spiele": 9
+ },
+ "teams_nachgeladen": 0,
+ "gemischt": [],
+ "s24": {
+  "ok": 7,
+  "no_link": 11,
+  "fetch_fail": 10,
+  "err_keine_trends": 47,
+  "err_falsches_spiel": 6
+ },
+ "b365_rettung": {
+  "karten_katalog_nicht_im_paket": 3
+ },
+ "s24_namen_diag": [
+  {
+   "spiel": "Universidad de Chile (W) – Deportivo Cali (W)",
+   "liga": "Copa Libertadores Women",
+   "anstoss": "Do 22:00",
+   "slug": "22-10-2026-universidad-de-chile-w-asociacion-deportivo-cali-w-",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Fort Lauderdale Utd (W) – Carolina Ascent (W)",
+   "liga": "USA USL Super League Women",
+   "anstoss": "Fr 01:30",
+   "slug": "23-10-2026-fort-lauderdale-utd-w-carolina-ascent-women",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Michigan State (W) – Penn State (W)",
+   "liga": "USA College Championship Women",
+   "anstoss": "Fr 00:00",
+   "slug": "23-10-2026-michigan-state-w-penn-state-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Motagua – Alajuelense",
+   "liga": "CONCACAF Central American Cup",
+   "anstoss": "Fr 03:00",
+   "slug": "23-10-2026-motagua-liga-deportiva-alajuelense",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "UCV – Atletico Barinas",
+   "liga": "Venezuela Cup",
+   "anstoss": "Fr 01:30",
+   "slug": "23-10-2026-ucv-atletico-barinas",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Fluminense RJ (W) – Flamengo (W)",
+   "liga": "Copa do Brazil Women",
+   "anstoss": "Fr 00:00",
+   "slug": "22-10-2026-fluminense-w-flamengo-w-",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Porto PE – Central SC",
+   "liga": "Brazil Campeonato Pernambucano",
+   "anstoss": "Fr 01:00",
+   "slug": "24-10-2026-porto-pe-central",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Deportivo Chiriqui (W) – Inter Panama CF (W)",
+   "liga": "Panama First Division Women",
+   "anstoss": "Do 23:00",
+   "slug": "22-10-2026-deportivo-chiriqui-w-inter-panama-cf-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "LDU Quito (W) – Bolivar (W)",
+   "liga": "Copa Libertadores Women",
+   "anstoss": "Fr 02:00",
+   "slug": "23-10-2026-deportivo-quito-w-bolivar-w-",
+   "namen_im_json": [
+    "Deportivo Quito (w)",
+    "Deportivo Quito (w) hat ein Tor erzielt",
+    "Deportivo Quito (w) hat in der 1. Halbzeit ein Tor erzielt",
+    "deportivo-quito-w-",
+    "totals"
+   ],
+   "json_kopf": "{\"data\":[{\"name\":\"totals\",\"count\":2,\"bookmakers\":[],\"trends\":[{\"id\":\"4e226e3354a542b550e0aa6b748b7848\",\"trend_type\":\"single\",\"conflict_group\":0,\"prediction\":{\"value\":null,\"type\":[\"total_t1_over\",0.5],\"bookmaker_slug\":null},\"grouped_facts\":[{\"title\":\"Deportivo Quito (w) hat ein Tor erzielt\",\"facts\":["
+  },
+  {
+   "spiel": "Oaxaca – Cruz Azul Hidalgo",
+   "liga": "Mexico Liga de Expansion",
+   "anstoss": "Fr 03:00",
+   "slug": "23-10-2026-alebrijes-de-oaxaca-cd-cruz-azul-hidalgo",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Always Ready – The Strongest",
+   "liga": "Bolivia Copa Division Profesional",
+   "anstoss": "Fr 02:00",
+   "slug": "23-10-2026-always-ready-the-strongest",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Alabama State (W) – Arkansas Pine Bluff (W)",
+   "liga": "USA College Championship Women",
+   "anstoss": "Fr 01:00",
+   "slug": "23-10-2026-alabama-state-w-arkansas-pine-bluff-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Botafogo RJ U20 – Palmeiras U20",
+   "liga": "Copa do Brasil U20",
+   "anstoss": "Do 21:30",
+   "slug": "22-10-2026-guinea-bissau-u20-mauritania-u20",
+   "namen_im_json": [
+    "Mauritania U20",
+    "Mauritania U20 hat ein Tor erzielt",
+    "mauritania-u20-8",
+    "totals"
+   ],
+   "json_kopf": "{\"data\":[{\"name\":\"totals\",\"count\":1,\"bookmakers\":[],\"trends\":[{\"id\":\"cfab26c322d58051c38076c20a6e13ce\",\"trend_type\":\"single\",\"conflict_group\":0,\"prediction\":{\"value\":null,\"type\":[\"total_t2_over\",0.5],\"bookmaker_slug\":null},\"grouped_facts\":[{\"title\":\"Mauritania U20 hat ein Tor erzielt\",\"facts\":[{\"tea"
+  },
+  {
+   "spiel": "Atlas (W) – Leon (W)",
+   "liga": "Mexico Liga MX Femenil",
+   "anstoss": "Fr 03:06",
+   "slug": "23-10-2026-atlas-w-leon-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Ohio State (W) – Rutgers Women",
+   "liga": "USA College Championship Women",
+   "anstoss": "Fr 01:00",
+   "slug": "23-10-2026-ohio-state-w-rutgers-women",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Flamengo – Estudiantes LP",
+   "liga": "Copa Libertadores",
+   "anstoss": "Fr 02:30",
+   "slug": "23-10-2026-flamengo-estudiantes-lp",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Universidad de Chile (W) – Deportivo Cali (W)",
+   "liga": "Copa Libertadores Women",
+   "anstoss": "Do 22:00",
+   "slug": "22-10-2026-universidad-de-chile-w-deportivo-cali-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Michigan State (W) – Penn State (W)",
+   "liga": "USA College Championship Women",
+   "anstoss": "Fr 00:00",
+   "slug": "22-10-2026-michigan-state-w-penn-state-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "UCV – Atletico Barinas",
+   "liga": "Venezuela Cup",
+   "anstoss": "Fr 01:30",
+   "slug": "22-10-2026-ucv-atletico-barinas",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Fluminense RJ (W) – Flamengo (W)",
+   "liga": "Copa do Brazil Women",
+   "anstoss": "Fr 00:00",
+   "slug": "23-10-2026-fluminense-rj-w-flamengo-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Porto PE – Central SC",
+   "liga": "Brazil Campeonato Pernambucano",
+   "anstoss": "Fr 01:00",
+   "slug": "23-10-2026-porto-pe-central-sc",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Fort Lauderdale Utd (W) – Carolina Ascent (W)",
+   "liga": "USA USL Super League Women",
+   "anstoss": "Fr 01:30",
+   "slug": "23-10-2026-fort-lauderdale-utd-w-carolina-ascent-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Deportivo Chiriqui (W) – Inter Panama CF (W)",
+   "liga": "Panama First Division Women",
+   "anstoss": "Do 23:00",
+   "slug": "21-10-2026-deportivo-chiriqui-w-inter-panama-cf-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "LDU Quito (W) – Bolivar (W)",
+   "liga": "Copa Libertadores Women",
+   "anstoss": "Fr 02:00",
+   "slug": "23-10-2026-ldu-quito-w-bolivar-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Always Ready – The Strongest",
+   "liga": "Bolivia Copa Division Profesional",
+   "anstoss": "Fr 02:00",
+   "slug": "22-10-2026-always-ready-the-strongest",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Oaxaca – Cruz Azul Hidalgo",
+   "liga": "Mexico Liga de Expansion",
+   "anstoss": "Fr 03:00",
+   "slug": "23-10-2026-oaxaca-cruz-azul-hidalgo",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Atlas (W) – Leon (W)",
+   "liga": "Mexico Liga MX Femenil",
+   "anstoss": "Fr 03:06",
+   "slug": "22-10-2026-atlas-w-leon-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Alabama State (W) – Arkansas Pine Bluff (W)",
+   "liga": "USA College Championship Women",
+   "anstoss": "Fr 01:00",
+   "slug": "22-10-2026-alabama-state-w-arkansas-pine-bluff-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Cumbaya – El Nacional",
+   "liga": "Ecuador LigaPro Serie B",
+   "anstoss": "Do 22:00",
+   "slug": "21-10-2026-cumbaya-el-nacional",
+   "namen_im_json": [
+    "El Nacional",
+    "El Nacional Gewinnt mit einem Handicap von +2.5",
+    "El Nacional hat ein Gegentor kassiert",
+    "El Nacional hat in der 1. Halbzeit ein Gegentor kassiert",
+    "El Nacional hat in der 2. Halbzeit ein Gegentor kassiert",
+    "El Nacional hat nicht gewonnen",
+    "El Nacional hat unter 1.5 Tore erzielt",
+    "doublechance",
+    "el-nacional-quito",
+    "handicaps",
+    "totals"
+   ],
+   "json_kopf": "{\"data\":[{\"name\":\"doublechance\",\"min_odd\":1.06,\"max_odd\":1.06,\"count\":1,\"bookmakers\":[],\"trends\":[{\"id\":\"e3a128e8e6f690376dd99eca2988276d\",\"trend_type\":\"single\",\"conflict_group\":0,\"prediction\":{\"value\":1.06,\"type\":[\"double_chance\",\"x1\"],\"bookmaker_slug\":\"S24\"},\"grouped_facts\":[{\"title\":\"El Nacional "
+  },
+  {
+   "spiel": "Jackson State (W) – Alcorn State (W)",
+   "liga": "USA College Championship Women",
+   "anstoss": "Do 22:00",
+   "slug": "22-10-2026-jackson-state-w-alcorn-state-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Atletico Mineiro U20 – Amazonas U20",
+   "liga": "Copa do Brasil U20",
+   "anstoss": "Fr 00:00",
+   "slug": "24-10-2026-vicenza-u19-sampdoria-u20",
+   "namen_im_json": [
+    "LR Vicenza U19",
+    "Sampdoria U20",
+    "Sampdoria U20 hat in der 1. Halbzeit ein Tor erzielt",
+    "Sampdoria U20 hat in der 2. Halbzeit ein Tor erzielt",
+    "Sampdoria U20 hat nicht verloren",
+    "Unter 3.5 erzielten Toren",
+    "Vicenza U19 Gewinnt mit einem Handicap von +1.5",
+    "Vicenza U19 hat ein Tor erzielt",
+    "Vicenza U19 hat in der 1. Halbzeit ein Tor erzielt",
+    "Vicenza U19 hat nicht verloren",
+    "\\u00dcber 1.5 erzielten Toren",
+    "doublechance"
+   ],
+   "json_kopf": "{\"data\":[{\"name\":\"doublechance\",\"count\":2,\"bookmakers\":[],\"trends\":[{\"id\":\"d9843d88767e9242b918bf992c22e846\",\"trend_type\":\"conflict\",\"conflict_group\":4,\"prediction\":{\"value\":null,\"type\":[\"double_chance\",\"x1\"],\"bookmaker_slug\":null},\"grouped_facts\":[{\"title\":\"Vicenza U19 hat nicht verloren\",\"facts\":["
+  },
+  {
+   "spiel": "Botafogo RJ U20 – Palmeiras U20",
+   "liga": "Copa do Brasil U20",
+   "anstoss": "Do 21:30",
+   "slug": "22-10-2026-botafogo-rj-u20-palmeiras-u20",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Ohio State (W) – Rutgers Women",
+   "liga": "USA College Championship Women",
+   "anstoss": "Fr 01:00",
+   "slug": "22-10-2026-ohio-state-w-rutgers-women",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Flamengo – Estudiantes LP",
+   "liga": "Copa Libertadores",
+   "anstoss": "Fr 02:30",
+   "slug": "22-10-2026-flamengo-estudiantes-lp",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Auto Esporte – Cruzeiro PB",
+   "liga": "Brazil Campeonato Paraibano 2",
+   "anstoss": "Fr 00:30",
+   "slug": "23-10-2026-auto-esporte-cruzeiro-pb",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Roots FC – Parikrma FC",
+   "liga": "India Bangalore Super Division",
+   "anstoss": "Fr 07:30",
+   "slug": "23-10-2026-roots-fc-parikrma-fc",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Porto PE – Central SC",
+   "liga": "Brazil Campeonato Pernambucano",
+   "anstoss": "Fr 01:00",
+   "slug": "22-10-2026-porto-pe-central-sc",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "LDU Quito (W) – Bolivar (W)",
+   "liga": "Copa Libertadores Women",
+   "anstoss": "Fr 02:00",
+   "slug": "22-10-2026-ldu-quito-w-bolivar-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Fort Lauderdale Utd (W) – Carolina Ascent (W)",
+   "liga": "USA USL Super League Women",
+   "anstoss": "Fr 01:30",
+   "slug": "22-10-2026-fort-lauderdale-utd-w-carolina-ascent-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Oaxaca – Cruz Azul Hidalgo",
+   "liga": "Mexico Liga de Expansion",
+   "anstoss": "Fr 03:00",
+   "slug": "22-10-2026-oaxaca-cruz-azul-hidalgo",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Atletico Mineiro U20 – Amazonas U20",
+   "liga": "Copa do Brasil U20",
+   "anstoss": "Fr 00:00",
+   "slug": "24-10-2026-udinese-u20-mantova-u19",
+   "namen_im_json": [
+    "Mantova U19",
+    "Mantova U19 hat ein Gegentor kassiert",
+    "Mantova U19 hat ein Tor erzielt",
+    "Mantova U19 hat ein Tor erzielt und ein Gegentor kassiert",
+    "Mantova U19 hat in der 2. Halbzeit ein Gegentor kassiert",
+    "Mantova U19 hat in der 2. Halbzeit ein Tor erzielt",
+    "Udinese U20",
+    "Udinese U20 hat ein Tor erzielt",
+    "Udinese U20 hat in der 1. Halbzeit ein Tor erzielt",
+    "btts",
+    "lm-mantova-u19",
+    "totals"
+   ],
+   "json_kopf": "{\"data\":[{\"name\":\"totals\",\"count\":6,\"bookmakers\":[],\"trends\":[{\"id\":\"269c1719f69d262d499f8acefb747afd\",\"trend_type\":\"surefire\",\"conflict_group\":0,\"prediction\":{\"value\":null,\"type\":[\"total_t1_over\",0.5],\"bookmaker_slug\":null},\"grouped_facts\":[{\"title\":\"Udinese U20 hat ein Tor erzielt\",\"facts\":[{\"team"
+  },
+  {
+   "spiel": "Cumbaya – El Nacional",
+   "liga": "Ecuador LigaPro Serie B",
+   "anstoss": "Do 22:00",
+   "slug": "22-10-2026-cumbaya-el-nacional",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Jackson State (W) – Alcorn State (W)",
+   "liga": "USA College Championship Women",
+   "anstoss": "Do 22:00",
+   "slug": "21-10-2026-jackson-state-w-alcorn-state-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Motagua – Alajuelense",
+   "liga": "CONCACAF Central American Cup",
+   "anstoss": "Fr 03:00",
+   "slug": "23-10-2026-motagua-alajuelense",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Botafogo RJ U20 – Palmeiras U20",
+   "liga": "Copa do Brasil U20",
+   "anstoss": "Do 21:30",
+   "slug": "21-10-2026-botafogo-rj-u20-palmeiras-u20",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Roots FC – Parikrma FC",
+   "liga": "India Bangalore Super Division",
+   "anstoss": "Fr 07:30",
+   "slug": "22-10-2026-roots-fc-parikrma-fc",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Universidad de Chile (W) – Deportivo Cali (W)",
+   "liga": "Copa Libertadores Women",
+   "anstoss": "Do 22:00",
+   "slug": "21-10-2026-universidad-de-chile-w-deportivo-cali-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Fluminense RJ (W) – Flamengo (W)",
+   "liga": "Copa do Brazil Women",
+   "anstoss": "Fr 00:00",
+   "slug": "22-10-2026-fluminense-rj-w-flamengo-w",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Atletico Mineiro U20 – Amazonas U20",
+   "liga": "Copa do Brasil U20",
+   "anstoss": "Fr 00:00",
+   "slug": "23-10-2026-atletico-mineiro-u20-amazonas-u20",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Auto Esporte – Cruzeiro PB",
+   "liga": "Brazil Campeonato Paraibano 2",
+   "anstoss": "Fr 00:30",
+   "slug": "22-10-2026-auto-esporte-cruzeiro-pb",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Cumbaya – El Nacional",
+   "liga": "Ecuador LigaPro Serie B",
+   "anstoss": "Do 22:00",
+   "slug": "21-10-2026-cumbaya-el-nacional",
+   "namen_im_json": [
+    "El Nacional",
+    "El Nacional Gewinnt mit einem Handicap von +2.5",
+    "El Nacional hat ein Gegentor kassiert",
+    "El Nacional hat in der 1. Halbzeit ein Gegentor kassiert",
+    "El Nacional hat in der 2. Halbzeit ein Gegentor kassiert",
+    "El Nacional hat nicht gewonnen",
+    "El Nacional hat unter 1.5 Tore erzielt",
+    "doublechance",
+    "el-nacional-quito",
+    "handicaps",
+    "totals"
+   ],
+   "json_kopf": "{\"data\":[{\"name\":\"doublechance\",\"min_odd\":1.06,\"max_odd\":1.06,\"count\":1,\"bookmakers\":[],\"trends\":[{\"id\":\"e3a128e8e6f690376dd99eca2988276d\",\"trend_type\":\"single\",\"conflict_group\":0,\"prediction\":{\"value\":1.06,\"type\":[\"double_chance\",\"x1\"],\"bookmaker_slug\":\"S24\"},\"grouped_facts\":[{\"title\":\"El Nacional "
+  },
+  {
+   "spiel": "Motagua – Alajuelense",
+   "liga": "CONCACAF Central American Cup",
+   "anstoss": "Fr 03:00",
+   "slug": "22-10-2026-motagua-alajuelense",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  },
+  {
+   "spiel": "Atletico Mineiro U20 – Amazonas U20",
+   "liga": "Copa do Brasil U20",
+   "anstoss": "Fr 00:00",
+   "slug": "22-10-2026-atletico-mineiro-u20-amazonas-u20",
+   "namen_im_json": [],
+   "json_kopf": "{\"data\":[]}"
+  }
+ ],
+ "new": [],
+ "changed": [],
+ "dropped": [
+  "12222275|team_corners_heim|unter"
+ ],
+ "betlabel": {
+  "spiele_bl": 2622,
+  "gefunden": 4,
+  "nicht_gefunden": [
+   "Jackson State (W) – Alcorn State (W) | BL zur selben Zeit: Libertad Asuncion (Women) - Club Nacional (Women); Universidad de Chile (Women) - Deportivo Cali (Women); Cumbaya - Club Deportivo El Nacional",
+   "Alabama State (W) – Arkansas Pine Bluff (W) | BL zur selben Zeit: Mount Pleasant Academy - Club Sando; Clube Atletico do Porto - Central Sport Club; Santa Fe FC - Universidad O&M II"
+  ],
+  "titel": {
+   "": 4,
+   "Eckstöße": 2,
+   "Gelbe Karten": 1,
+   "Spielerstatistik": 1
+  },
+  "liste_aus_datei": true,
+  "tipps": [
+   [
+    "13309746|goals|über|2.5",
+    null,
+    null,
+    null,
+    "Spiel nicht bei BetLabel"
+   ],
+   [
+    "13278803|goals|über|2.5",
+    "Atletico Mineiro U20 - Amazonas U20",
+    1.27,
+    null,
+    null
+   ],
+   [
+    "13310163|goals|über|2.5",
+    null,
+    null,
+    null,
+    "Spiel nicht bei BetLabel"
+   ],
+   [
+    "13257322|team_corners_gast|unter|6.5",
+    "Club Atletico Nacional SA - Deportivo Pasto",
+    null,
+    [
+     3.5,
+     1.41
+    ],
+    null
+   ],
+   [
+    "13257322|yellowcards|über|2.5",
+    "Club Atletico Nacional SA - Deportivo Pasto",
+    null,
+    [
+     3.5,
+     1.18
+    ],
+    null
+   ],
+   [
+    "12222275|team_corners_heim|unter|6.5",
+    "Alebrijes de Oaxaca - Cruz Azul Hidalgo",
+    1.421,
+    null,
+    null
+   ],
+   [
+    "13338117|team_corners_gast|unter|5.5",
+    "Beitar Ramat Gan - Hakoah Amidar Ramat Gan",
+    null,
+    null,
+    "Markt nicht im Angebot"
+   ]
+  ],
+  "anfragen": 7,
+  "fehler_anfragen": 0,
+  "sekunden": 1.5,
+  "auftraege": 6,
+  "mit_quote": 2
+ },
+ "team_totals": [
+  {
+   "match": {
+    "id": "13257322",
+    "league": "Colombia Primera A",
+    "league_id": "254",
+    "home": "Atletico Nacional Medellin",
+    "away": "Deportivo Pasto",
+    "home_id": "1429",
+    "away_id": "7830",
+    "kickoff": "Fr 03:00",
+    "kickoff_ts": 1792717200,
+    "bet365_id": "203236669",
+    "_vp_odds": {
+     "success": 1,
+     "results": {
+      "stats": {
+       "matching_dir": 1,
+       "odds_update": {
+        "1_1": 1792694027,
+        "1_2": 1792696399,
+        "1_3": 1792696399,
+        "1_4": 1792685594,
+        "1_5": 1792689327,
+        "1_6": 1792690382,
+        "1_7": 1792691038,
+        "1_8": 1792694746
+       }
+      },
+      "odds": {
+       "1_1": [
+        {
+         "id": "292384473",
+         "home_od": "1.250",
+         "draw_od": "5.750",
+         "away_od": "11.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792692784"
+        },
+        {
+         "id": "292370424",
+         "home_od": "1.222",
+         "draw_od": "6.000",
+         "away_od": "11.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792682936"
+        },
+        {
+         "id": "292370351",
+         "home_od": "1.222",
+         "draw_od": "6.250",
+         "away_od": "12.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792682857"
+        },
+        {
+         "id": "292369448",
+         "home_od": "1.222",
+         "draw_od": "6.000",
+         "away_od": "11.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792682136"
+        },
+        {
+         "id": "292367985",
+         "home_od": "1.250",
+         "draw_od": "5.750",
+         "away_od": "10.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792680791"
+        },
+        {
+         "id": "292367485",
+         "home_od": "1.270",
+         "draw_od": "5.750",
+         "away_od": "10.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792680392"
+        },
+        {
+         "id": "292355583",
+         "home_od": "1.285",
+         "draw_od": "5.500",
+         "away_od": "9.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792669706"
+        },
+        {
+         "id": "292351883",
+         "home_od": "1.285",
+         "draw_od": "5.500",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792663937"
+        },
+        {
+         "id": "292351535",
+         "home_od": "1.285",
+         "draw_od": "5.750",
+         "away_od": "9.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792663352"
+        },
+        {
+         "id": "292350767",
+         "home_od": "1.270",
+         "draw_od": "5.750",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792662374"
+        },
+        {
+         "id": "292350447",
+         "home_od": "1.250",
+         "draw_od": "6.000",
+         "away_od": "9.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792661806"
+        },
+        {
+         "id": "292349890",
+         "home_od": "1.270",
+         "draw_od": "6.000",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792660897"
+        },
+        {
+         "id": "292348156",
+         "home_od": "1.285",
+         "draw_od": "5.750",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792658235"
+        },
+        {
+         "id": "292341177",
+         "home_od": "1.285",
+         "draw_od": "5.750",
+         "away_od": "8.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792646059"
+        },
+        {
+         "id": "292338759",
+         "home_od": "1.285",
+         "draw_od": "5.000",
+         "away_od": "9.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792641877"
+        },
+        {
+         "id": "292284788",
+         "home_od": "1.270",
+         "draw_od": "5.250",
+         "away_od": "10.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792589314"
+        },
+        {
+         "id": "292281320",
+         "home_od": "1.222",
+         "draw_od": "5.500",
+         "away_od": "12.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792586959"
+        }
+       ],
+       "1_2": [
+        {
+         "id": "260540314",
+         "home_od": "2.000",
+         "handicap": "-1.75",
+         "away_od": "1.800",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792692935"
+        },
+        {
+         "id": "260529365",
+         "home_od": "1.975",
+         "handicap": "-1.75",
+         "away_od": "1.825",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792683375"
+        },
+        {
+         "id": "260528377",
+         "home_od": "1.950",
+         "handicap": "-1.75",
+         "away_od": "1.850",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792682502"
+        },
+        {
+         "id": "260526774",
+         "home_od": "1.975",
+         "handicap": "-1.75",
+         "away_od": "1.825",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792680804"
+        },
+        {
+         "id": "260515518",
+         "home_od": "1.850",
+         "handicap": "-1.5",
+         "away_od": "1.950",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792667013"
+        },
+        {
+         "id": "260515162",
+         "home_od": "1.825",
+         "handicap": "-1.5",
+         "away_od": "1.975",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792666299"
+        },
+        {
+         "id": "260514993",
+         "home_od": "1.800",
+         "handicap": "-1.5",
+         "away_od": "2.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792665868"
+        },
+        {
+         "id": "260514598",
+         "home_od": "1.850",
+         "handicap": "-1.5",
+         "away_od": "1.950",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792665090"
+        },
+        {
+         "id": "260512417",
+         "home_od": "1.975",
+         "handicap": "-1.75",
+         "away_od": "1.825",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792661151"
+        },
+        {
+         "id": "260511556",
+         "home_od": "2.000",
+         "handicap": "-1.75",
+         "away_od": "1.800",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792659155"
+        },
+        {
+         "id": "260504676",
+         "home_od": "1.825",
+         "handicap": "-1.5",
+         "away_od": "1.975",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792643555"
+        },
+        {
+         "id": "260503839",
+         "home_od": "1.850",
+         "handicap": "-1.5",
+         "away_od": "1.950",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792641987"
+        },
+        {
+         "id": "260501242",
+         "home_od": "1.825",
+         "handicap": "-1.5",
+         "away_od": "1.975",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792637193"
+        },
+        {
+         "id": "260457574",
+         "home_od": "1.800",
+         "handicap": "-1.5",
+         "away_od": "2.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792589942"
+        },
+        {
+         "id": "260455023",
+         "home_od": "1.900",
+         "handicap": "-1.75",
+         "away_od": "1.900",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792588215"
+        }
+       ],
+       "1_3": [
+        {
+         "id": "444439246",
+         "over_od": "1.950",
+         "handicap": "2.5,3.0",
+         "under_od": "1.850",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792692935"
+        },
+        {
+         "id": "444429337",
+         "over_od": "1.900",
+         "handicap": "2.5,3.0",
+         "under_od": "1.900",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792688195"
+        },
+        {
+         "id": "444420934",
+         "over_od": "1.925",
+         "handicap": "2.5,3.0",
+         "under_od": "1.875",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792683375"
+        },
+        {
+         "id": "444416884",
+         "over_od": "1.900",
+         "handicap": "2.5,3.0",
+         "under_od": "1.900",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792680804"
+        },
+        {
+         "id": "444410813",
+         "over_od": "1.925",
+         "handicap": "2.5,3.0",
+         "under_od": "1.875",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792677011"
+        },
+        {
+         "id": "444410195",
+         "over_od": "1.900",
+         "handicap": "2.5,3.0",
+         "under_od": "1.900",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792676606"
+        },
+        {
+         "id": "444409043",
+         "over_od": "1.950",
+         "handicap": "2.5,3.0",
+         "under_od": "1.850",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792675971"
+        },
+        {
+         "id": "444407752",
+         "over_od": "1.975",
+         "handicap": "2.5,3.0",
+         "under_od": "1.825",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792675245"
+        },
+        {
+         "id": "444403627",
+         "over_od": "1.950",
+         "handicap": "2.5,3.0",
+         "under_od": "1.850",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792672481"
+        },
+        {
+         "id": "444402556",
+         "over_od": "1.950",
+         "handicap": "3.0",
+         "under_od": "1.850",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792671678"
+        },
+        {
+         "id": "444401416",
+         "over_od": "1.925",
+         "handicap": "2.5,3.0",
+         "under_od": "1.875",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792670713"
+        },
+        {
+         "id": "444400601",
+         "over_od": "1.950",
+         "handicap": "2.5,3.0",
+         "under_od": "1.850",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792669871"
+        },
+        {
+         "id": "444399613",
+         "over_od": "1.900",
+         "handicap": "3.0",
+         "under_od": "1.900",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792668651"
+        },
+        {
+         "id": "444398880",
+         "over_od": "1.900",
+         "handicap": "2.5,3.0",
+         "under_od": "1.900",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792667718"
+        },
+        {
+         "id": "444398405",
+         "over_od": "1.850",
+         "handicap": "2.5,3.0",
+         "under_od": "1.950",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792667013"
+        },
+        {
+         "id": "444397817",
+         "over_od": "1.825",
+         "handicap": "2.5,3.0",
+         "under_od": "1.975",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792666299"
+        },
+        {
+         "id": "444397513",
+         "over_od": "1.800",
+         "handicap": "2.5,3.0",
+         "under_od": "2.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792665868"
+        },
+        {
+         "id": "444393030",
+         "over_od": "1.850",
+         "handicap": "2.5,3.0",
+         "under_od": "1.950",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792661151"
+        },
+        {
+         "id": "444391419",
+         "over_od": "1.900",
+         "handicap": "2.5,3.0",
+         "under_od": "1.900",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792659155"
+        },
+        {
+         "id": "444388556",
+         "over_od": "1.800",
+         "handicap": "2.5,3.0",
+         "under_od": "2.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792655922"
+        },
+        {
+         "id": "444381123",
+         "over_od": "1.775",
+         "handicap": "2.5,3.0",
+         "under_od": "2.025",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792645827"
+        },
+        {
+         "id": "444379329",
+         "over_od": "2.025",
+         "handicap": "3.0",
+         "under_od": "1.775",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792643555"
+        },
+        {
+         "id": "444377991",
+         "over_od": "1.800",
+         "handicap": "2.5,3.0",
+         "under_od": "2.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792641987"
+        },
+        {
+         "id": "444314863",
+         "over_od": "1.775",
+         "handicap": "2.5,3.0",
+         "under_od": "2.025",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792599540"
+        },
+        {
+         "id": "444312251",
+         "over_od": "1.775",
+         "handicap": "3.0",
+         "under_od": "2.025",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792597539"
+        },
+        {
+         "id": "444303543",
+         "over_od": "1.775",
+         "handicap": "2.5,3.0",
+         "under_od": "2.025",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792591694"
+        },
+        {
+         "id": "444300469",
+         "over_od": "1.775",
+         "handicap": "3.0",
+         "under_od": "2.025",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792589942"
+        },
+        {
+         "id": "444296380",
+         "over_od": "2.025",
+         "handicap": "3.0",
+         "under_od": "1.775",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792588215"
+        }
+       ],
+       "1_4": [
+        {
+         "id": "197141187",
+         "over_od": "1.900",
+         "handicap": "9.0",
+         "under_od": "1.900",
+         "ss": null,
+         "ss2": null,
+         "time_str": null,
+         "add_time": "1792599485"
+        }
+       ],
+       "1_5": [
+        {
+         "id": "108807485",
+         "home_od": "1.975",
+         "handicap": "-0.75",
+         "away_od": "1.825",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792689327"
+        },
+        {
+         "id": "108803568",
+         "home_od": "2.050",
+         "handicap": "-0.75",
+         "away_od": "1.750",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792682086"
+        },
+        {
+         "id": "108793114",
+         "home_od": "2.025",
+         "handicap": "-0.75",
+         "away_od": "1.775",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792645659"
+        },
+        {
+         "id": "108773540",
+         "home_od": "2.000",
+         "handicap": "-0.75",
+         "away_od": "1.800",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792592817"
+        }
+       ],
+       "1_6": [
+        {
+         "id": "193441425",
+         "over_od": "2.075",
+         "handicap": "1.0,1.5",
+         "under_od": "1.725",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792682416"
+        },
+        {
+         "id": "193389779",
+         "over_od": "2.000",
+         "handicap": "1.0,1.5",
+         "under_od": "1.800",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792592094"
+        }
+       ],
+       "1_7": [
+        {
+         "id": "101575977",
+         "over_od": "2.050",
+         "handicap": "4.5",
+         "under_od": "1.750",
+         "ss": null,
+         "ss2": null,
+         "time_str": null,
+         "add_time": "1792691038"
+        },
+        {
+         "id": "101557868",
+         "over_od": "2.075",
+         "handicap": "4.5",
+         "under_od": "1.725",
+         "ss": null,
+         "ss2": null,
+         "time_str": null,
+         "add_time": "1792599065"
+        },
+        {
+         "id": "101557067",
+         "over_od": "2.050",
+         "handicap": "4.5",
+         "under_od": "1.750",
+         "ss": null,
+         "ss2": null,
+         "time_str": null,
+         "add_time": "1792593073"
+        }
+       ],
+       "1_8": [
+        {
+         "id": "148753032",
+         "home_od": "1.666",
+         "draw_od": "2.600",
+         "away_od": "11.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792694746"
+        },
+        {
+         "id": "148743211",
+         "home_od": "1.666",
+         "draw_od": "2.625",
+         "away_od": "11.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792682410"
+        },
+        {
+         "id": "148740492",
+         "home_od": "1.727",
+         "draw_od": "2.500",
+         "away_od": "9.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792678622"
+        },
+        {
+         "id": "148734559",
+         "home_od": "1.666",
+         "draw_od": "2.625",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792670014"
+        },
+        {
+         "id": "148732992",
+         "home_od": "1.727",
+         "draw_od": "2.600",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792665807"
+        },
+        {
+         "id": "148730475",
+         "home_od": "1.666",
+         "draw_od": "2.625",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792659007"
+        },
+        {
+         "id": "148728109",
+         "home_od": "1.727",
+         "draw_od": "2.625",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792652069"
+        },
+        {
+         "id": "148726560",
+         "home_od": "1.727",
+         "draw_od": "2.625",
+         "away_od": "8.500",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792647070"
+        },
+        {
+         "id": "148698310",
+         "home_od": "1.666",
+         "draw_od": "2.625",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792593326"
+        },
+        {
+         "id": "148698171",
+         "home_od": "1.615",
+         "draw_od": "2.750",
+         "away_od": "10.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792593143"
+        },
+        {
+         "id": "148696628",
+         "home_od": "1.666",
+         "draw_od": "2.625",
+         "away_od": "9.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792590043"
+        },
+        {
+         "id": "148693797",
+         "home_od": "1.615",
+         "draw_od": "2.750",
+         "away_od": "10.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792587176"
+        }
+       ]
+      }
+     }
+    },
+    "_vp_ref": {
+     "id": "1484754",
+     "name": "Carlos Andres Marquez Ortega",
+     "cc": "co"
+    }
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Deportivo Pasto",
+    "line": 6.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "auswärts",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7984,
+    "fair": 1.25,
+    "p_emp": 0.81,
+    "p_mod": 0.846,
+    "erwartet": 4.3,
+    "basis": 43,
+    "gegner": 9,
+    "unverified": true,
+    "no_tab": true,
+    "pending": true,
+    "vp_puffer": [
+     {
+      "n": 10,
+      "hits": 9,
+      "knapp": 1,
+      "knapp_raus": 0,
+      "werte": [
+       4,
+       3,
+       4,
+       5,
+       3,
+       6,
+       5,
+       8,
+       2,
+       5
+      ]
+     }
+    ],
+    "vp_liga": [
+     0.9,
+     0.9
+    ],
+    "vp_cross": false,
+    "vp_1x2": [
+     1.25,
+     5.75,
+     11.0
+    ],
+    "vp_ref": null
+   }
+  },
+  {
+   "match": {
+    "id": "13338117",
+    "league": "Israel Liga Bet South",
+    "league_id": "1310",
+    "home": "Beitar Ramat Gan",
+    "away": "Hakoah Amidar Ramat Gan",
+    "home_id": "9581",
+    "away_id": "46118",
+    "kickoff": "Fr 08:00",
+    "kickoff_ts": 1792735200,
+    "bet365_id": "203307895",
+    "_vp_odds": {
+     "success": 1,
+     "results": {
+      "stats": {
+       "matching_dir": 1,
+       "odds_update": {
+        "1_1": 1792696107,
+        "1_2": 1792696386,
+        "1_3": 1792696386,
+        "1_5": 1792684396,
+        "1_6": 1792675191,
+        "1_8": 1792693389
+       }
+      },
+      "odds": {
+       "1_1": [
+        {
+         "id": "292352724",
+         "home_od": "2.500",
+         "draw_od": "3.400",
+         "away_od": "2.350",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792665096"
+        }
+       ],
+       "1_2": [
+        {
+         "id": "260515015",
+         "home_od": "1.975",
+         "handicap": "0",
+         "away_od": "1.825",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792665786"
+        }
+       ],
+       "1_3": [
+        {
+         "id": "444397549",
+         "over_od": "1.900",
+         "handicap": "2.5",
+         "under_od": "1.900",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792665786"
+        }
+       ],
+       "1_4": [],
+       "1_5": [
+        {
+         "id": "108797943",
+         "home_od": "1.950",
+         "handicap": "0",
+         "away_od": "1.850",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792668309"
+        }
+       ],
+       "1_6": [
+        {
+         "id": "193432039",
+         "over_od": "1.825",
+         "handicap": "1.0",
+         "under_od": "1.975",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792669583"
+        }
+       ],
+       "1_7": [],
+       "1_8": [
+        {
+         "id": "148733078",
+         "home_od": "3.200",
+         "draw_od": "2.200",
+         "away_od": "3.000",
+         "ss": null,
+         "time_str": null,
+         "add_time": "1792666121"
+        }
+       ]
+      }
+     }
+    }
+   },
+   "signal": {
+    "metric_key": "corners",
+    "metric": "Ecken",
+    "seite": "gast",
+    "team": "Hakoah Amidar Ramat Gan",
+    "line": 5.5,
+    "direction": "unter",
+    "serie": {
+     "kind": "auswärts",
+     "hits": 15,
+     "window": 16
+    },
+    "p": 0.7594,
+    "fair": 1.32,
+    "p_emp": 0.734,
+    "p_mod": 0.773,
+    "erwartet": 3.9,
+    "basis": 49,
+    "gegner": 7,
+    "unverified": true,
+    "no_tab": true,
+    "pending": true,
+    "vp_puffer": [
+     {
+      "n": 10,
+      "hits": 8,
+      "knapp": 2,
+      "knapp_raus": 1,
+      "werte": [
+       2,
+       2,
+       3,
+       5,
+       0,
+       7,
+       5,
+       3,
+       1,
+       6
+      ]
+     }
+    ],
+    "vp_liga": [
+     0.9,
+     1.0
+    ],
+    "vp_cross": false,
+    "vp_1x2": [
+     2.5,
+     3.4,
+     2.35
+    ],
+    "vp_ref": null
+   }
+  }
+ ],
+ "neue_maerkte": []
+}
