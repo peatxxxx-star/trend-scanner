@@ -1,157 +1,93 @@
 {
- "12432950|goals|über": {
-  "match_id": "12432950",
-  "home": "Ganjabasar FK",
-  "away": "Zaqatala",
-  "kickoff": "Do 13:00",
-  "kickoff_ts": 1792666800,
-  "league": "Azerbaijan Division 1",
-  "metric": "Tore",
-  "metric_key": "goals",
-  "direction": "über",
+ "13323359|team_corners_heim|unter": {
+  "match_id": "13323359",
+  "home": "Hawassa City FC",
+  "away": "Ethiopia Nigd Bank",
+  "kickoff": "Do 14:00",
+  "kickoff_ts": 1792670400,
+  "league": "Ethiopia Premier League",
+  "metric": "Hawassa City FC: Ecken",
+  "metric_key": "team_corners_heim",
+  "direction": "unter",
   "first_run": "Do 06:14",
-  "first_line": 2.5,
+  "first_line": 5.5,
   "first_range": null,
-  "last_run": "Do 12:14",
-  "line": 2.5,
+  "last_run": "Do 13:14",
+  "line": 5.5,
   "range": null,
   "signal": {
-   "metric": "Tore",
-   "metric_key": "goals",
-   "direction": "über",
-   "line": 2.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    49,
-    50
-   ],
-   "next_line": 3.5,
-   "next_note": "Ganjabasar FK 0/2 (3. Lücke) gesamt, 2/4 (3. Lücke) heim; Zaqatala 3/5 (3. Lücke) gesamt, 3/5 (3. Lücke) auswärts",
-   "longterm": [
-    0.6585297202090462,
-    0.6072173206192734
-   ],
-   "fair": 1.63,
-   "ladder": [
-    [
-     1.5,
-     1.31
-    ],
-    [
-     2.5,
-     1.63
-    ]
-   ],
-   "avg": [
-    3.5,
-    3.0
-   ],
-   "expect": 3.4,
-   "expect_sum": 3.2,
-   "expect_matchup": 3.5,
-   "contrib": [
-    2.7,
-    0.8
-   ],
-   "buffer": 0.9,
-   "fa": [
-    [
-     1.3,
-     1.8
-    ],
-    [
-     1.0,
-     1.6
-    ]
-   ],
+   "metric": "Hawassa City FC: Ecken",
+   "metric_key": "team_corners_heim",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.29,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
    "referee": null,
    "b365": null,
    "expect_ref": null,
    "buffer_ref": null,
-   "sd": 1.85,
-   "p_emp": {
-    "1.5": 0.7633587786259541,
-    "2.5": 0.6134969325153374
-   },
-   "p_mod": 0.687,
-   "p_fin": 0.647,
-   "fair_fin": 1.55,
-   "ladder_fin": [
-    [
-     1.5,
-     1.3
-    ],
-    [
-     2.5,
-     1.55
-    ]
-   ],
+   "sd": null,
+   "p_emp": 0.734,
+   "p_mod": 0.833,
+   "p_fin": 0.7752,
+   "fair_fin": 1.29,
+   "ladder_fin": null,
    "market": null,
    "market_src": null,
    "ev": null,
    "light": "🟢",
-   "ampel": "🟡",
-   "reason": "65 % knapp",
+   "ampel": null,
+   "reason": null,
    "b365_quote": null,
    "b365_checked": null,
    "b365_near": null,
    "b365_lines": null,
    "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
+   "team_market": true,
+   "team": "Hawassa City FC",
+   "serie": {
+    "kind": "heim",
+    "hits": 15,
+    "window": 16
+   },
+   "gegner": 9,
+   "erwartet": 3.4,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
    "b365_proof": null,
    "fav": null,
    "vp_puffer": [
     {
      "n": 10,
      "hits": 8,
-     "knapp": 5,
+     "knapp": 3,
      "knapp_raus": 1,
      "werte": [
-      3,
-      2,
-      3,
-      3,
-      3,
       5,
       1,
+      4,
+      2,
+      7,
+      0,
+      5,
       5,
       6,
-      3
-     ]
-    },
-    {
-     "n": 10,
-     "hits": 9,
-     "knapp": 5,
-     "knapp_raus": 0,
-     "werte": [
-      4,
-      6,
-      3,
-      3,
-      4,
-      3,
-      3,
-      3,
-      8,
       1
      ]
     }
@@ -162,12 +98,121 @@
    ],
    "vp_cross": false,
    "vp_1x2": [
-    1.25,
-    5.75,
-    7.5
+    2.75,
+    2.7,
+    2.625
    ],
    "vp_ref": null,
-   "vp_seite": null,
+   "vp_seite": "heim",
+   "range": null
+  },
+  "v": 2
+ },
+ "13323359|team_corners_gast|unter": {
+  "match_id": "13323359",
+  "home": "Hawassa City FC",
+  "away": "Ethiopia Nigd Bank",
+  "kickoff": "Do 14:00",
+  "kickoff_ts": 1792670400,
+  "league": "Ethiopia Premier League",
+  "metric": "Ethiopia Nigd Bank: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Do 13:14",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Ethiopia Nigd Bank: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.25,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.802,
+   "p_mod": 0.87,
+   "p_fin": 0.8027,
+   "fair_fin": 1.25,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Ethiopia Nigd Bank",
+   "serie": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "gegner": 9,
+   "erwartet": 3.5,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "fav": null,
+   "vp_puffer": [
+    {
+     "n": 10,
+     "hits": 9,
+     "knapp": 0,
+     "knapp_raus": 1,
+     "werte": [
+      0,
+      2,
+      7,
+      3,
+      4,
+      2,
+      0,
+      3,
+      0,
+      5
+     ]
+    }
+   ],
+   "vp_liga": [
+    1.0,
+    1.0
+   ],
+   "vp_cross": false,
+   "vp_1x2": [
+    2.75,
+    2.7,
+    2.625
+   ],
+   "vp_ref": null,
+   "vp_seite": "gast",
    "range": null
   },
   "v": 2
@@ -188,11 +233,11 @@
    1.52,
    1.67
   ],
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 7.5,
   "range": [
-   1.52,
-   1.67
+   1.41,
+   1.57
   ],
   "signal": {
    "metric": "Ecken",
@@ -348,9 +393,118 @@
    "vp_ref": null,
    "vp_seite": null,
    "range": [
-    1.52,
-    1.67
+    1.41,
+    1.57
    ]
+  },
+  "v": 2
+ },
+ "13018076|team_corners_gast|unter": {
+  "match_id": "13018076",
+  "home": "Cong An Ha Noi",
+  "away": "Thanh Hoa",
+  "kickoff": "Do 14:15",
+  "kickoff_ts": 1792671300,
+  "league": "Vietnam V-League",
+  "metric": "Thanh Hoa: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 5.5,
+  "first_range": null,
+  "last_run": "Do 13:14",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Thanh Hoa: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.25,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.782,
+   "p_mod": 0.872,
+   "p_fin": 0.7979,
+   "fair_fin": 1.25,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Thanh Hoa",
+   "serie": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "gegner": 10,
+   "erwartet": 3.1,
+   "unverified": false,
+   "no_tab": false,
+   "pending": false,
+   "b365_proof": null,
+   "fav": null,
+   "vp_puffer": [
+    {
+     "n": 10,
+     "hits": 9,
+     "knapp": 0,
+     "knapp_raus": 1,
+     "werte": [
+      6,
+      0,
+      4,
+      2,
+      2,
+      1,
+      1,
+      4,
+      1,
+      1
+     ]
+    }
+   ],
+   "vp_liga": [
+    0.5,
+    0.9
+   ],
+   "vp_cross": false,
+   "vp_1x2": [
+    1.222,
+    5.5,
+    11.0
+   ],
+   "vp_ref": null,
+   "vp_seite": "gast",
+   "range": null
   },
   "v": 2
  },
@@ -367,7 +521,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -517,12 +671,121 @@
    ],
    "vp_cross": false,
    "vp_1x2": [
-    1.055,
+    1.062,
     13.0,
-    23.0
+    21.0
    ],
    "vp_ref": null,
    "vp_seite": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13323153|team_corners_gast|unter": {
+  "match_id": "13323153",
+  "home": "Wolaita Dicha",
+  "away": "Bahir Dar Kenema FC",
+  "kickoff": "Do 15:00",
+  "kickoff_ts": 1792674000,
+  "league": "Ethiopia Premier League",
+  "metric": "Bahir Dar Kenema FC: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Do 13:14",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Bahir Dar Kenema FC: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 6.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.2,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.867,
+   "p_mod": 0.916,
+   "p_fin": 0.8316,
+   "fair_fin": 1.2,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Bahir Dar Kenema FC",
+   "serie": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
+   },
+   "gegner": 10,
+   "erwartet": 3.9,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "fav": null,
+   "vp_puffer": [
+    {
+     "n": 10,
+     "hits": 10,
+     "knapp": 1,
+     "knapp_raus": 0,
+     "werte": [
+      4,
+      5,
+      5,
+      2,
+      2,
+      2,
+      2,
+      3,
+      6,
+      5
+     ]
+    }
+   ],
+   "vp_liga": [
+    1.0,
+    1.0
+   ],
+   "vp_cross": false,
+   "vp_1x2": [
+    2.55,
+    2.75,
+    2.8
+   ],
+   "vp_ref": null,
+   "vp_seite": "gast",
    "range": null
   },
   "v": 2
@@ -540,7 +803,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -713,7 +976,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -886,7 +1149,7 @@
   "first_run": "Do 06:14",
   "first_line": 5.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 5.5,
   "range": null,
   "signal": {
@@ -1055,7 +1318,7 @@
   "first_run": "Do 06:14",
   "first_line": 7.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 7.5,
   "range": null,
   "signal": {
@@ -1228,7 +1491,7 @@
   "first_run": "Do 06:14",
   "first_line": 3.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 3.5,
   "range": null,
   "signal": {
@@ -1337,7 +1600,7 @@
   "first_run": "Do 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -1446,7 +1709,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -1619,7 +1882,7 @@
   "first_run": "Do 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -1728,7 +1991,7 @@
   "first_run": "Do 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -1901,7 +2164,7 @@
   "first_run": "Do 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -2010,7 +2273,7 @@
   "first_run": "Do 06:14",
   "first_line": 5.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 5.5,
   "range": null,
   "signal": {
@@ -2106,186 +2369,6 @@
   },
   "v": 2
  },
- "13049243|corners|über": {
-  "match_id": "13049243",
-  "home": "Al-Sareeh",
-  "away": "Jerash SC",
-  "kickoff": "Do 17:00",
-  "kickoff_ts": 1792681200,
-  "league": "Jordan Division 1",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 7.5,
-  "first_range": [
-   1.397,
-   1.397
-  ],
-  "last_run": "Do 12:14",
-  "line": 7.5,
-  "range": null,
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 12
-   },
-   "home_is_anchor": true,
-   "away_is_anchor": false,
-   "valid": [
-    46,
-    39
-   ],
-   "next_line": 8.5,
-   "next_note": "Al-Sareeh 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Jerash SC 2/4 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
-   "longterm": [
-    0.746547814950302,
-    0.7371337091992362
-   ],
-   "fair": 1.39,
-   "ladder": [
-    [
-     6.5,
-     1.31
-    ],
-    [
-     7.5,
-     1.39
-    ]
-   ],
-   "avg": [
-    9.1,
-    9.5
-   ],
-   "expect": 9.2,
-   "expect_sum": 9.3,
-   "expect_matchup": 9.1,
-   "contrib": [
-    4.2,
-    4.9
-   ],
-   "buffer": 1.7,
-   "fa": [
-    [
-     4.8,
-     4.4
-    ],
-    [
-     4.9,
-     4.5
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "9.0",
-    "1.975",
-    "1.825"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 2.63,
-   "p_emp": {
-    "6.5": 0.7633587786259541,
-    "7.5": 0.7194244604316548
-   },
-   "p_mod": 0.741,
-   "p_fin": 0.711,
-   "fair_fin": 1.41,
-   "ladder_fin": [
-    [
-     6.5,
-     1.33
-    ],
-    [
-     7.5,
-     1.41
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.41",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 8,
-     "knapp": 2,
-     "knapp_raus": 1,
-     "werte": [
-      14,
-      8,
-      12,
-      8,
-      6,
-      14,
-      10,
-      13,
-      7,
-      9
-     ]
-    },
-    {
-     "n": 10,
-     "hits": 8,
-     "knapp": 1,
-     "knapp_raus": 1,
-     "werte": [
-      7,
-      5,
-      11,
-      10,
-      8,
-      11,
-      10,
-      10,
-      13,
-      11
-     ]
-    }
-   ],
-   "vp_liga": [
-    0.8,
-    0.8
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    2.625,
-    3.2,
-    2.375
-   ],
-   "vp_ref": null,
-   "vp_seite": null,
-   "range": null
-  },
-  "v": 2
- },
  "13225053|corners|über": {
   "match_id": "13225053",
   "home": "Al Hussein SC",
@@ -2299,7 +2382,7 @@
   "first_run": "Do 06:14",
   "first_line": 8.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 8.5,
   "range": null,
   "signal": {
@@ -2463,6 +2546,186 @@
   },
   "v": 2
  },
+ "13049243|corners|über": {
+  "match_id": "13049243",
+  "home": "Al-Sareeh",
+  "away": "Jerash SC",
+  "kickoff": "Do 17:00",
+  "kickoff_ts": 1792681200,
+  "league": "Jordan Division 1",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 06:14",
+  "first_line": 7.5,
+  "first_range": [
+   1.397,
+   1.397
+  ],
+  "last_run": "Do 13:14",
+  "line": 7.5,
+  "range": null,
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 12
+   },
+   "home_is_anchor": true,
+   "away_is_anchor": false,
+   "valid": [
+    46,
+    39
+   ],
+   "next_line": 8.5,
+   "next_note": "Al-Sareeh 2/4 (3. Lücke) gesamt, 5/7 (3. Lücke) heim; Jerash SC 2/4 (3. Lücke) gesamt, 6/8 (3. Lücke) auswärts",
+   "longterm": [
+    0.746547814950302,
+    0.7371337091992362
+   ],
+   "fair": 1.39,
+   "ladder": [
+    [
+     6.5,
+     1.31
+    ],
+    [
+     7.5,
+     1.39
+    ]
+   ],
+   "avg": [
+    9.1,
+    9.5
+   ],
+   "expect": 9.2,
+   "expect_sum": 9.3,
+   "expect_matchup": 9.1,
+   "contrib": [
+    4.2,
+    4.9
+   ],
+   "buffer": 1.7,
+   "fa": [
+    [
+     4.8,
+     4.4
+    ],
+    [
+     4.9,
+     4.5
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "9.0",
+    "1.975",
+    "1.825"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 2.63,
+   "p_emp": {
+    "6.5": 0.7633587786259541,
+    "7.5": 0.7194244604316548
+   },
+   "p_mod": 0.741,
+   "p_fin": 0.711,
+   "fair_fin": 1.41,
+   "ladder_fin": [
+    [
+     6.5,
+     1.33
+    ],
+    [
+     7.5,
+     1.41
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.41",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": true,
+   "fav": null,
+   "vp_puffer": [
+    {
+     "n": 10,
+     "hits": 8,
+     "knapp": 2,
+     "knapp_raus": 1,
+     "werte": [
+      14,
+      8,
+      12,
+      8,
+      6,
+      14,
+      10,
+      13,
+      7,
+      9
+     ]
+    },
+    {
+     "n": 10,
+     "hits": 8,
+     "knapp": 1,
+     "knapp_raus": 1,
+     "werte": [
+      7,
+      5,
+      11,
+      10,
+      8,
+      11,
+      10,
+      10,
+      13,
+      11
+     ]
+    }
+   ],
+   "vp_liga": [
+    0.8,
+    0.8
+   ],
+   "vp_cross": false,
+   "vp_1x2": [
+    2.625,
+    3.2,
+    2.375
+   ],
+   "vp_ref": null,
+   "vp_seite": null,
+   "range": null
+  },
+  "v": 2
+ },
  "13284911|goals|über": {
   "match_id": "13284911",
   "home": "Maccabi Holon (W)",
@@ -2476,7 +2739,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -2649,7 +2912,7 @@
   "first_run": "Do 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -2758,7 +3021,7 @@
   "first_run": "Do 06:14",
   "first_line": 7.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 7.5,
   "range": null,
   "signal": {
@@ -2912,9 +3175,9 @@
    ],
    "vp_cross": false,
    "vp_1x2": [
-    1.95,
+    2.1,
     4.5,
-    2.6
+    2.4
    ],
    "vp_ref": null,
    "vp_seite": null,
@@ -2935,7 +3198,7 @@
   "first_run": "Do 06:14",
   "first_line": 5.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 5.5,
   "range": null,
   "signal": {
@@ -3085,9 +3348,9 @@
    ],
    "vp_cross": false,
    "vp_1x2": [
-    1.833,
-    4.2,
-    3.0
+    1.85,
+    4.1,
+    2.9
    ],
    "vp_ref": null,
    "vp_seite": null,
@@ -3108,7 +3371,7 @@
   "first_run": "Do 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -3194,9 +3457,9 @@
    ],
    "vp_cross": false,
    "vp_1x2": [
-    1.833,
-    4.2,
-    3.0
+    1.85,
+    4.1,
+    2.9
    ],
    "vp_ref": null,
    "vp_seite": "gast",
@@ -3217,7 +3480,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -3390,7 +3653,7 @@
   "first_run": "Do 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -3499,7 +3762,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -3672,7 +3935,7 @@
   "first_run": "Do 06:14",
   "first_line": 6.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 6.5,
   "range": null,
   "signal": {
@@ -3781,7 +4044,7 @@
   "first_run": "Do 06:14",
   "first_line": 5.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 5.5,
   "range": null,
   "signal": {
@@ -3877,24 +4140,24 @@
   },
   "v": 2
  },
- "13217789|team_corners_gast|unter": {
-  "match_id": "13217789",
-  "home": "Godoy Cruz Reserves",
-  "away": "Instituto AC Cordoba Reserves",
+ "13334307|team_corners_gast|unter": {
+  "match_id": "13334307",
+  "home": "Temperley Reserves",
+  "away": "CA Atlanta Reserves",
   "kickoff": "Do 20:00",
   "kickoff_ts": 1792692000,
-  "league": "Argentina Liga Profesional Reserves",
-  "metric": "Instituto AC Cordoba Reserves: Ecken",
+  "league": "Argentina Nacional Reserve League",
+  "metric": "CA Atlanta Reserves: Ecken",
   "metric_key": "team_corners_gast",
   "direction": "unter",
   "first_run": "Do 06:14",
   "first_line": 5.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 5.5,
   "range": null,
   "signal": {
-   "metric": "Instituto AC Cordoba Reserves: Ecken",
+   "metric": "CA Atlanta Reserves: Ecken",
    "metric_key": "team_corners_gast",
    "direction": "unter",
    "line": 5.5,
@@ -3906,7 +4169,7 @@
    "next_line": null,
    "next_note": null,
    "longterm": null,
-   "fair": 1.33,
+   "fair": 1.35,
    "ladder": null,
    "avg": null,
    "expect": null,
@@ -3920,10 +4183,10 @@
    "expect_ref": null,
    "buffer_ref": null,
    "sd": null,
-   "p_emp": 0.733,
-   "p_mod": 0.752,
-   "p_fin": 0.7537,
-   "fair_fin": 1.33,
+   "p_emp": 0.708,
+   "p_mod": 0.718,
+   "p_fin": 0.7385,
+   "fair_fin": 1.35,
    "ladder_fin": null,
    "market": null,
    "market_src": null,
@@ -3937,14 +4200,14 @@
    "b365_lines": null,
    "b365_est": null,
    "team_market": true,
-   "team": "Instituto AC Cordoba Reserves",
+   "team": "CA Atlanta Reserves",
    "serie": {
     "kind": "auswärts",
     "hits": 15,
     "window": 16
    },
-   "gegner": 7,
-   "erwartet": 4.0,
+   "gegner": 8,
+   "erwartet": 4.3,
    "unverified": true,
    "no_tab": true,
    "pending": true,
@@ -3953,20 +4216,20 @@
    "vp_puffer": [
     {
      "n": 10,
-     "hits": 7,
-     "knapp": 1,
+     "hits": 8,
+     "knapp": 3,
      "knapp_raus": 1,
      "werte": [
-      6,
-      4,
       2,
       4,
-      3,
-      8,
       5,
-      4,
+      3,
+      5,
+      3,
       2,
-      10
+      6,
+      5,
+      7
      ]
     }
    ],
@@ -3976,654 +4239,12 @@
    ],
    "vp_cross": false,
    "vp_1x2": [
-    2.2,
-    3.3,
-    2.875
+    1.5,
+    3.7,
+    5.5
    ],
    "vp_ref": null,
    "vp_seite": "gast",
-   "range": null
-  },
-  "v": 2
- },
- "13217840|corners|über": {
-  "match_id": "13217840",
-  "home": "Racing Club Reserves",
-  "away": "San Lorenzo Reserves",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1792692000,
-  "league": "Argentina Liga Profesional Reserves",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 7.5,
-  "first_range": null,
-  "last_run": "Do 12:14",
-  "line": 7.5,
-  "range": null,
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 5
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    50,
-    49
-   ],
-   "next_line": 8.5,
-   "next_note": "Racing Club Reserves 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; San Lorenzo Reserves 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
-   "longterm": [
-    0.7359035543392192,
-    0.8078293407537196
-   ],
-   "fair": 1.34,
-   "ladder": [
-    [
-     6.5,
-     1.34
-    ],
-    [
-     7.5,
-     1.34
-    ]
-   ],
-   "avg": [
-    9.0,
-    10.3
-   ],
-   "expect": 9.8,
-   "expect_sum": 9.6,
-   "expect_matchup": 10.0,
-   "contrib": [
-    5.4,
-    4.6
-   ],
-   "buffer": 2.3,
-   "fa": [
-    [
-     4.6,
-     4.5
-    ],
-    [
-     5.0,
-     5.0
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "9.5",
-    "1.950",
-    "1.850"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.18,
-   "p_emp": {
-    "6.5": 0.7462686567164178,
-    "7.5": 0.7462686567164178
-   },
-   "p_mod": 0.765,
-   "p_fin": 0.726,
-   "fair_fin": 1.38,
-   "ladder_fin": [
-    [
-     6.5,
-     1.33
-    ],
-    [
-     7.5,
-     1.38
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.38",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 7,
-     "knapp": 3,
-     "knapp_raus": 2,
-     "werte": [
-      9,
-      8,
-      9,
-      11,
-      12,
-      7,
-      8,
-      8,
-      7,
-      4
-     ]
-    },
-    {
-     "n": 10,
-     "hits": 9,
-     "knapp": 2,
-     "knapp_raus": 0,
-     "werte": [
-      8,
-      8,
-      9,
-      10,
-      5,
-      11,
-      11,
-      9,
-      18,
-      12
-     ]
-    }
-   ],
-   "vp_liga": [
-    1.0,
-    1.0
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    2.1,
-    3.4,
-    3.0
-   ],
-   "vp_ref": null,
-   "vp_seite": null,
-   "range": null
-  },
-  "v": 2
- },
- "13217787|corners|über": {
-  "match_id": "13217787",
-  "home": "Atletico Tucuman Reserves",
-  "away": "Gimnasia Mendoza Reserves",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1792692000,
-  "league": "Argentina Liga Profesional Reserves",
-  "metric": "Ecken",
-  "metric_key": "corners",
-  "direction": "über",
-  "first_run": "Do 06:14",
-  "first_line": 7.5,
-  "first_range": null,
-  "last_run": "Do 12:14",
-  "line": 7.5,
-  "range": null,
-  "signal": {
-   "metric": "Ecken",
-   "metric_key": "corners",
-   "direction": "über",
-   "line": 7.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    48,
-    50
-   ],
-   "next_line": 8.5,
-   "next_note": "Atletico Tucuman Reserves 1/3 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Gimnasia Mendoza Reserves 7/9 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
-   "longterm": [
-    0.7159118507196828,
-    0.9101982954305399
-   ],
-   "fair": 1.3,
-   "ladder": [
-    [
-     6.5,
-     1.31
-    ],
-    [
-     7.5,
-     1.3
-    ]
-   ],
-   "avg": [
-    9.4,
-    11.0
-   ],
-   "expect": 10.7,
-   "expect_sum": 10.2,
-   "expect_matchup": 11.3,
-   "contrib": [
-    6.1,
-    5.2
-   ],
-   "buffer": 3.2,
-   "fa": [
-    [
-     4.1,
-     4.5
-    ],
-    [
-     5.4,
-     4.9
-    ]
-   ],
-   "referee": null,
-   "b365": [
-    "9.5",
-    "1.950",
-    "1.850"
-   ],
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 3.18,
-   "p_emp": {
-    "6.5": 0.7633587786259541,
-    "7.5": 0.7692307692307692
-   },
-   "p_mod": 0.843,
-   "p_fin": 0.755,
-   "fair_fin": 1.32,
-   "ladder_fin": [
-    [
-     6.5,
-     1.3
-    ],
-    [
-     7.5,
-     1.32
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.32",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 7,
-     "knapp": 4,
-     "knapp_raus": 0,
-     "werte": [
-      8,
-      12,
-      8,
-      6,
-      13,
-      8,
-      11,
-      8,
-      6,
-      4
-     ]
-    },
-    {
-     "n": 10,
-     "hits": 9,
-     "knapp": 2,
-     "knapp_raus": 1,
-     "werte": [
-      16,
-      13,
-      7,
-      8,
-      9,
-      15,
-      11,
-      9,
-      18,
-      8
-     ]
-    }
-   ],
-   "vp_liga": [
-    1.0,
-    1.0
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    2.15,
-    3.3,
-    2.8
-   ],
-   "vp_ref": null,
-   "vp_seite": null,
-   "range": null
-  },
-  "v": 2
- },
- "12312243|yellowcards|unter": {
-  "match_id": "12312243",
-  "home": "Al Ahli Jeddah",
-  "away": "Al Khaleej Saihat",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1792692000,
-  "league": "Saudi Arabia Pro League",
-  "metric": "Gelbe Karten",
-  "metric_key": "yellowcards",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 5.5,
-  "first_range": null,
-  "last_run": "Do 12:14",
-  "line": 5.5,
-  "range": [
-   1.3,
-   1.62
-  ],
-  "signal": {
-   "metric": "Gelbe Karten",
-   "metric_key": "yellowcards",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": {
-    "kind": "gesamt",
-    "hits": 5,
-    "window": 6
-   },
-   "away_series": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 11
-   },
-   "home_is_anchor": false,
-   "away_is_anchor": true,
-   "valid": [
-    43,
-    48
-   ],
-   "next_line": 4.5,
-   "next_note": "Al Ahli Jeddah 4/6 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; Al Khaleej Saihat 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
-   "longterm": [
-    0.7472714986402281,
-    0.8492476706413662
-   ],
-   "fair": 1.26,
-   "ladder": [
-    [
-     5.5,
-     1.26
-    ],
-    [
-     6.5,
-     1.09
-    ]
-   ],
-   "avg": [
-    3.4,
-    4.1
-   ],
-   "expect": 3.7,
-   "expect_sum": 3.7,
-   "expect_matchup": 3.6,
-   "contrib": [
-    1.4,
-    2.3
-   ],
-   "buffer": 1.8,
-   "fa": [
-    [
-     1.9,
-     2.3
-    ],
-    [
-     1.9,
-     1.8
-    ]
-   ],
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": 1.87,
-   "p_emp": {
-    "5.5": 0.7936507936507936,
-    "6.5": 0.9174311926605504
-   },
-   "p_mod": 0.832,
-   "p_fin": 0.834,
-   "fair_fin": 1.2,
-   "ladder_fin": [
-    [
-     5.5,
-     1.2
-    ],
-    [
-     6.5,
-     1.09
-    ]
-   ],
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": "🟢",
-   "reason": "fair 1.20",
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": null,
-   "team": null,
-   "serie": null,
-   "gegner": null,
-   "erwartet": null,
-   "unverified": null,
-   "no_tab": null,
-   "pending": null,
-   "b365_proof": null,
-   "fav": "klar",
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 7,
-     "knapp": 1,
-     "knapp_raus": 2,
-     "werte": [
-      1,
-      3,
-      5,
-      8,
-      3,
-      1,
-      6,
-      4,
-      6,
-      3
-     ]
-    },
-    {
-     "n": 10,
-     "hits": 9,
-     "knapp": 2,
-     "knapp_raus": 1,
-     "werte": [
-      4,
-      2,
-      5,
-      6,
-      2,
-      4,
-      2,
-      2,
-      2,
-      5
-     ]
-    }
-   ],
-   "vp_liga": [
-    0.7,
-    0.9
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    1.333,
-    4.75,
-    7.0
-   ],
-   "vp_ref": null,
-   "vp_seite": null,
-   "range": [
-    1.3,
-    1.62
-   ]
-  },
-  "v": 2
- },
- "12312243|team_corners_heim|unter": {
-  "match_id": "12312243",
-  "home": "Al Ahli Jeddah",
-  "away": "Al Khaleej Saihat",
-  "kickoff": "Do 20:00",
-  "kickoff_ts": 1792692000,
-  "league": "Saudi Arabia Pro League",
-  "metric": "Al Ahli Jeddah: Ecken",
-  "metric_key": "team_corners_heim",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Do 12:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Al Ahli Jeddah: Ecken",
-   "metric_key": "team_corners_heim",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.25,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.82,
-   "p_mod": 0.831,
-   "p_fin": 0.7969,
-   "fair_fin": 1.25,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Al Ahli Jeddah",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 7,
-   "erwartet": 4.3,
-   "unverified": false,
-   "no_tab": false,
-   "pending": false,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 10,
-     "knapp": 1,
-     "knapp_raus": 0,
-     "werte": [
-      1,
-      3,
-      4,
-      3,
-      6,
-      5,
-      5,
-      4,
-      4,
-      4
-     ]
-    }
-   ],
-   "vp_liga": [
-    0.7,
-    0.9
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    1.333,
-    4.75,
-    7.0
-   ],
-   "vp_ref": null,
-   "vp_seite": "heim",
    "range": null
   },
   "v": 2
@@ -4641,7 +4262,7 @@
   "first_run": "Do 06:14",
   "first_line": 7.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 7.5,
   "range": null,
   "signal": {
@@ -4818,7 +4439,7 @@
   "first_run": "Do 06:14",
   "first_line": 3.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 3.5,
   "range": null,
   "signal": {
@@ -4914,27 +4535,206 @@
   },
   "v": 2
  },
- "13334307|team_corners_gast|unter": {
-  "match_id": "13334307",
-  "home": "Temperley Reserves",
-  "away": "CA Atlanta Reserves",
+ "12312243|yellowcards|unter": {
+  "match_id": "12312243",
+  "home": "Al Ahli Jeddah",
+  "away": "Al Khaleej Saihat",
   "kickoff": "Do 20:00",
   "kickoff_ts": 1792692000,
-  "league": "Argentina Nacional Reserve League",
-  "metric": "CA Atlanta Reserves: Ecken",
-  "metric_key": "team_corners_gast",
+  "league": "Saudi Arabia Pro League",
+  "metric": "Gelbe Karten",
+  "metric_key": "yellowcards",
   "direction": "unter",
   "first_run": "Do 06:14",
   "first_line": 5.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 5.5,
-  "range": null,
+  "range": [
+   1.3,
+   1.62
+  ],
   "signal": {
-   "metric": "CA Atlanta Reserves: Ecken",
-   "metric_key": "team_corners_gast",
+   "metric": "Gelbe Karten",
+   "metric_key": "yellowcards",
    "direction": "unter",
    "line": 5.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    43,
+    48
+   ],
+   "next_line": 4.5,
+   "next_note": "Al Ahli Jeddah 4/6 (3. Lücke) gesamt, 11/13 (3. Lücke) heim; Al Khaleej Saihat 7/9 (3. Lücke) gesamt, 5/7 (3. Lücke) auswärts",
+   "longterm": [
+    0.7472714986402281,
+    0.8492476706413662
+   ],
+   "fair": 1.26,
+   "ladder": [
+    [
+     5.5,
+     1.26
+    ],
+    [
+     6.5,
+     1.09
+    ]
+   ],
+   "avg": [
+    3.4,
+    4.1
+   ],
+   "expect": 3.7,
+   "expect_sum": 3.7,
+   "expect_matchup": 3.6,
+   "contrib": [
+    1.4,
+    2.3
+   ],
+   "buffer": 1.8,
+   "fa": [
+    [
+     1.9,
+     2.3
+    ],
+    [
+     1.9,
+     1.8
+    ]
+   ],
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 1.87,
+   "p_emp": {
+    "5.5": 0.7936507936507936,
+    "6.5": 0.9174311926605504
+   },
+   "p_mod": 0.832,
+   "p_fin": 0.834,
+   "fair_fin": 1.2,
+   "ladder_fin": [
+    [
+     5.5,
+     1.2
+    ],
+    [
+     6.5,
+     1.09
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.20",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": null,
+   "no_tab": null,
+   "pending": null,
+   "b365_proof": null,
+   "fav": "klar",
+   "vp_puffer": [
+    {
+     "n": 10,
+     "hits": 7,
+     "knapp": 1,
+     "knapp_raus": 2,
+     "werte": [
+      1,
+      3,
+      5,
+      8,
+      3,
+      1,
+      6,
+      4,
+      6,
+      3
+     ]
+    },
+    {
+     "n": 10,
+     "hits": 9,
+     "knapp": 2,
+     "knapp_raus": 1,
+     "werte": [
+      4,
+      2,
+      5,
+      6,
+      2,
+      4,
+      2,
+      2,
+      2,
+      5
+     ]
+    }
+   ],
+   "vp_liga": [
+    0.7,
+    0.9
+   ],
+   "vp_cross": false,
+   "vp_1x2": [
+    1.3,
+    5.0,
+    7.0
+   ],
+   "vp_ref": null,
+   "vp_seite": null,
+   "range": [
+    1.3,
+    1.62
+   ]
+  },
+  "v": 2
+ },
+ "12312243|team_corners_heim|unter": {
+  "match_id": "12312243",
+  "home": "Al Ahli Jeddah",
+  "away": "Al Khaleej Saihat",
+  "kickoff": "Do 20:00",
+  "kickoff_ts": 1792692000,
+  "league": "Saudi Arabia Pro League",
+  "metric": "Al Ahli Jeddah: Ecken",
+  "metric_key": "team_corners_heim",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 6.5,
+  "first_range": null,
+  "last_run": "Do 13:14",
+  "line": 6.5,
+  "range": null,
+  "signal": {
+   "metric": "Al Ahli Jeddah: Ecken",
+   "metric_key": "team_corners_heim",
+   "direction": "unter",
+   "line": 6.5,
    "home_series": null,
    "away_series": null,
    "home_is_anchor": null,
@@ -4943,7 +4743,7 @@
    "next_line": null,
    "next_note": null,
    "longterm": null,
-   "fair": 1.35,
+   "fair": 1.25,
    "ladder": null,
    "avg": null,
    "expect": null,
@@ -4957,10 +4757,10 @@
    "expect_ref": null,
    "buffer_ref": null,
    "sd": null,
-   "p_emp": 0.708,
-   "p_mod": 0.718,
-   "p_fin": 0.7385,
-   "fair_fin": 1.35,
+   "p_emp": 0.82,
+   "p_mod": 0.831,
+   "p_fin": 0.7969,
+   "fair_fin": 1.25,
    "ladder_fin": null,
    "market": null,
    "market_src": null,
@@ -4974,14 +4774,173 @@
    "b365_lines": null,
    "b365_est": null,
    "team_market": true,
-   "team": "CA Atlanta Reserves",
+   "team": "Al Ahli Jeddah",
    "serie": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 16
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 10
    },
-   "gegner": 8,
+   "gegner": 7,
    "erwartet": 4.3,
+   "unverified": false,
+   "no_tab": false,
+   "pending": false,
+   "b365_proof": null,
+   "fav": null,
+   "vp_puffer": [
+    {
+     "n": 10,
+     "hits": 10,
+     "knapp": 1,
+     "knapp_raus": 0,
+     "werte": [
+      1,
+      3,
+      4,
+      3,
+      6,
+      5,
+      5,
+      4,
+      4,
+      4
+     ]
+    }
+   ],
+   "vp_liga": [
+    0.7,
+    0.9
+   ],
+   "vp_cross": false,
+   "vp_1x2": [
+    1.3,
+    5.0,
+    7.0
+   ],
+   "vp_ref": null,
+   "vp_seite": "heim",
+   "range": null
+  },
+  "v": 2
+ },
+ "13217787|corners|über": {
+  "match_id": "13217787",
+  "home": "Atletico Tucuman Reserves",
+  "away": "Gimnasia Mendoza Reserves",
+  "kickoff": "Do 20:00",
+  "kickoff_ts": 1792692000,
+  "league": "Argentina Liga Profesional Reserves",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 06:14",
+  "first_line": 7.5,
+  "first_range": null,
+  "last_run": "Do 13:14",
+  "line": 7.5,
+  "range": null,
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 6
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    48,
+    50
+   ],
+   "next_line": 8.5,
+   "next_note": "Atletico Tucuman Reserves 1/3 (3. Lücke) gesamt, 6/8 (3. Lücke) heim; Gimnasia Mendoza Reserves 7/9 (3. Lücke) gesamt, 2/4 (3. Lücke) auswärts",
+   "longterm": [
+    0.7159118507196828,
+    0.9101982954305399
+   ],
+   "fair": 1.3,
+   "ladder": [
+    [
+     6.5,
+     1.31
+    ],
+    [
+     7.5,
+     1.3
+    ]
+   ],
+   "avg": [
+    9.4,
+    11.0
+   ],
+   "expect": 10.7,
+   "expect_sum": 10.2,
+   "expect_matchup": 11.3,
+   "contrib": [
+    6.1,
+    5.2
+   ],
+   "buffer": 3.2,
+   "fa": [
+    [
+     4.1,
+     4.5
+    ],
+    [
+     5.4,
+     4.9
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "9.5",
+    "1.950",
+    "1.850"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.18,
+   "p_emp": {
+    "6.5": 0.7633587786259541,
+    "7.5": 0.7692307692307692
+   },
+   "p_mod": 0.843,
+   "p_fin": 0.755,
+   "fair_fin": 1.32,
+   "ladder_fin": [
+    [
+     6.5,
+     1.3
+    ],
+    [
+     7.5,
+     1.32
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.32",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
    "unverified": true,
    "no_tab": true,
    "pending": true,
@@ -4990,20 +4949,38 @@
    "vp_puffer": [
     {
      "n": 10,
-     "hits": 8,
-     "knapp": 3,
+     "hits": 7,
+     "knapp": 4,
+     "knapp_raus": 0,
+     "werte": [
+      8,
+      12,
+      8,
+      6,
+      13,
+      8,
+      11,
+      8,
+      6,
+      4
+     ]
+    },
+    {
+     "n": 10,
+     "hits": 9,
+     "knapp": 2,
      "knapp_raus": 1,
      "werte": [
-      2,
-      4,
-      5,
-      3,
-      5,
-      3,
-      2,
-      6,
-      5,
-      7
+      16,
+      13,
+      7,
+      8,
+      9,
+      15,
+      11,
+      9,
+      18,
+      8
      ]
     }
    ],
@@ -5013,9 +4990,295 @@
    ],
    "vp_cross": false,
    "vp_1x2": [
-    1.5,
-    3.7,
-    5.5
+    2.15,
+    3.3,
+    2.8
+   ],
+   "vp_ref": null,
+   "vp_seite": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13217840|corners|über": {
+  "match_id": "13217840",
+  "home": "Racing Club Reserves",
+  "away": "San Lorenzo Reserves",
+  "kickoff": "Do 20:00",
+  "kickoff_ts": 1792692000,
+  "league": "Argentina Liga Profesional Reserves",
+  "metric": "Ecken",
+  "metric_key": "corners",
+  "direction": "über",
+  "first_run": "Do 06:14",
+  "first_line": 7.5,
+  "first_range": null,
+  "last_run": "Do 13:14",
+  "line": 7.5,
+  "range": null,
+  "signal": {
+   "metric": "Ecken",
+   "metric_key": "corners",
+   "direction": "über",
+   "line": 7.5,
+   "home_series": {
+    "kind": "gesamt",
+    "hits": 5,
+    "window": 5
+   },
+   "away_series": {
+    "kind": "gesamt",
+    "hits": 10,
+    "window": 11
+   },
+   "home_is_anchor": false,
+   "away_is_anchor": true,
+   "valid": [
+    50,
+    49
+   ],
+   "next_line": 8.5,
+   "next_note": "Racing Club Reserves 4/6 (3. Lücke) gesamt, 1/3 (3. Lücke) heim; San Lorenzo Reserves 2/4 (3. Lücke) gesamt, 4/6 (3. Lücke) auswärts",
+   "longterm": [
+    0.7359035543392192,
+    0.8078293407537196
+   ],
+   "fair": 1.34,
+   "ladder": [
+    [
+     6.5,
+     1.34
+    ],
+    [
+     7.5,
+     1.34
+    ]
+   ],
+   "avg": [
+    9.0,
+    10.3
+   ],
+   "expect": 9.8,
+   "expect_sum": 9.6,
+   "expect_matchup": 10.0,
+   "contrib": [
+    5.4,
+    4.6
+   ],
+   "buffer": 2.3,
+   "fa": [
+    [
+     4.6,
+     4.5
+    ],
+    [
+     5.0,
+     5.0
+    ]
+   ],
+   "referee": null,
+   "b365": [
+    "9.5",
+    "1.950",
+    "1.850"
+   ],
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": 3.18,
+   "p_emp": {
+    "6.5": 0.7462686567164178,
+    "7.5": 0.7462686567164178
+   },
+   "p_mod": 0.765,
+   "p_fin": 0.726,
+   "fair_fin": 1.38,
+   "ladder_fin": [
+    [
+     6.5,
+     1.33
+    ],
+    [
+     7.5,
+     1.38
+    ]
+   ],
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": "🟢",
+   "reason": "fair 1.38",
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": null,
+   "team": null,
+   "serie": null,
+   "gegner": null,
+   "erwartet": null,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "fav": null,
+   "vp_puffer": [
+    {
+     "n": 10,
+     "hits": 7,
+     "knapp": 3,
+     "knapp_raus": 2,
+     "werte": [
+      9,
+      8,
+      9,
+      11,
+      12,
+      7,
+      8,
+      8,
+      7,
+      4
+     ]
+    },
+    {
+     "n": 10,
+     "hits": 9,
+     "knapp": 2,
+     "knapp_raus": 0,
+     "werte": [
+      8,
+      8,
+      9,
+      10,
+      5,
+      11,
+      11,
+      9,
+      18,
+      12
+     ]
+    }
+   ],
+   "vp_liga": [
+    1.0,
+    1.0
+   ],
+   "vp_cross": false,
+   "vp_1x2": [
+    2.1,
+    3.4,
+    3.0
+   ],
+   "vp_ref": null,
+   "vp_seite": null,
+   "range": null
+  },
+  "v": 2
+ },
+ "13217789|team_corners_gast|unter": {
+  "match_id": "13217789",
+  "home": "Godoy Cruz Reserves",
+  "away": "Instituto AC Cordoba Reserves",
+  "kickoff": "Do 20:00",
+  "kickoff_ts": 1792692000,
+  "league": "Argentina Liga Profesional Reserves",
+  "metric": "Instituto AC Cordoba Reserves: Ecken",
+  "metric_key": "team_corners_gast",
+  "direction": "unter",
+  "first_run": "Do 06:14",
+  "first_line": 5.5,
+  "first_range": null,
+  "last_run": "Do 13:14",
+  "line": 5.5,
+  "range": null,
+  "signal": {
+   "metric": "Instituto AC Cordoba Reserves: Ecken",
+   "metric_key": "team_corners_gast",
+   "direction": "unter",
+   "line": 5.5,
+   "home_series": null,
+   "away_series": null,
+   "home_is_anchor": null,
+   "away_is_anchor": null,
+   "valid": null,
+   "next_line": null,
+   "next_note": null,
+   "longterm": null,
+   "fair": 1.33,
+   "ladder": null,
+   "avg": null,
+   "expect": null,
+   "expect_sum": null,
+   "expect_matchup": null,
+   "contrib": null,
+   "buffer": null,
+   "fa": null,
+   "referee": null,
+   "b365": null,
+   "expect_ref": null,
+   "buffer_ref": null,
+   "sd": null,
+   "p_emp": 0.733,
+   "p_mod": 0.752,
+   "p_fin": 0.7537,
+   "fair_fin": 1.33,
+   "ladder_fin": null,
+   "market": null,
+   "market_src": null,
+   "ev": null,
+   "light": "🟢",
+   "ampel": null,
+   "reason": null,
+   "b365_quote": null,
+   "b365_checked": null,
+   "b365_near": null,
+   "b365_lines": null,
+   "b365_est": null,
+   "team_market": true,
+   "team": "Instituto AC Cordoba Reserves",
+   "serie": {
+    "kind": "auswärts",
+    "hits": 15,
+    "window": 16
+   },
+   "gegner": 7,
+   "erwartet": 4.0,
+   "unverified": true,
+   "no_tab": true,
+   "pending": true,
+   "b365_proof": null,
+   "fav": null,
+   "vp_puffer": [
+    {
+     "n": 10,
+     "hits": 7,
+     "knapp": 1,
+     "knapp_raus": 1,
+     "werte": [
+      6,
+      4,
+      2,
+      4,
+      3,
+      8,
+      5,
+      4,
+      2,
+      10
+     ]
+    }
+   ],
+   "vp_liga": [
+    1.0,
+    1.0
+   ],
+   "vp_cross": false,
+   "vp_1x2": [
+    2.2,
+    3.3,
+    2.875
    ],
    "vp_ref": null,
    "vp_seite": "gast",
@@ -5036,7 +5299,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -5209,7 +5472,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -5382,7 +5645,7 @@
   "first_run": "Do 06:14",
   "first_line": 7.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 7.5,
   "range": null,
   "signal": {
@@ -5559,7 +5822,7 @@
   "first_run": "Do 06:14",
   "first_line": 2.5,
   "first_range": null,
-  "last_run": "Do 12:14",
+  "last_run": "Do 13:14",
   "line": 2.5,
   "range": null,
   "signal": {
@@ -5711,442 +5974,6 @@
    "vp_1x2": null,
    "vp_ref": null,
    "vp_seite": null,
-   "range": null
-  },
-  "v": 2
- },
- "13323153|team_corners_gast|unter": {
-  "match_id": "13323153",
-  "home": "Wolaita Dicha",
-  "away": "Bahir Dar Kenema FC",
-  "kickoff": "Do 14:00",
-  "kickoff_ts": 1792670400,
-  "league": "Ethiopia Premier League",
-  "metric": "Bahir Dar Kenema FC: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Do 11:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Bahir Dar Kenema FC: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.2,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.867,
-   "p_mod": 0.916,
-   "p_fin": 0.8316,
-   "fair_fin": 1.2,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Bahir Dar Kenema FC",
-   "serie": {
-    "kind": "gesamt",
-    "hits": 10,
-    "window": 10
-   },
-   "gegner": 10,
-   "erwartet": 3.9,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 10,
-     "knapp": 1,
-     "knapp_raus": 0,
-     "werte": [
-      4,
-      5,
-      5,
-      2,
-      2,
-      2,
-      2,
-      3,
-      6,
-      5
-     ]
-    }
-   ],
-   "vp_liga": [
-    1.0,
-    1.0
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    2.55,
-    2.75,
-    2.8
-   ],
-   "vp_ref": null,
-   "vp_seite": "gast",
-   "range": null
-  },
-  "v": 2
- },
- "13323359|team_corners_heim|unter": {
-  "match_id": "13323359",
-  "home": "Hawassa City FC",
-  "away": "Ethiopia Nigd Bank",
-  "kickoff": "Do 14:00",
-  "kickoff_ts": 1792670400,
-  "league": "Ethiopia Premier League",
-  "metric": "Hawassa City FC: Ecken",
-  "metric_key": "team_corners_heim",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 5.5,
-  "first_range": null,
-  "last_run": "Do 11:14",
-  "line": 5.5,
-  "range": null,
-  "signal": {
-   "metric": "Hawassa City FC: Ecken",
-   "metric_key": "team_corners_heim",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.29,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.734,
-   "p_mod": 0.833,
-   "p_fin": 0.7752,
-   "fair_fin": 1.29,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Hawassa City FC",
-   "serie": {
-    "kind": "heim",
-    "hits": 15,
-    "window": 16
-   },
-   "gegner": 9,
-   "erwartet": 3.4,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 8,
-     "knapp": 3,
-     "knapp_raus": 1,
-     "werte": [
-      5,
-      1,
-      4,
-      2,
-      7,
-      0,
-      5,
-      5,
-      6,
-      1
-     ]
-    }
-   ],
-   "vp_liga": [
-    1.0,
-    1.0
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    2.75,
-    2.7,
-    2.625
-   ],
-   "vp_ref": null,
-   "vp_seite": "heim",
-   "range": null
-  },
-  "v": 2
- },
- "13323359|team_corners_gast|unter": {
-  "match_id": "13323359",
-  "home": "Hawassa City FC",
-  "away": "Ethiopia Nigd Bank",
-  "kickoff": "Do 14:00",
-  "kickoff_ts": 1792670400,
-  "league": "Ethiopia Premier League",
-  "metric": "Ethiopia Nigd Bank: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 6.5,
-  "first_range": null,
-  "last_run": "Do 11:14",
-  "line": 6.5,
-  "range": null,
-  "signal": {
-   "metric": "Ethiopia Nigd Bank: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 6.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.25,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.802,
-   "p_mod": 0.87,
-   "p_fin": 0.8027,
-   "fair_fin": 1.25,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Ethiopia Nigd Bank",
-   "serie": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 16
-   },
-   "gegner": 9,
-   "erwartet": 3.5,
-   "unverified": true,
-   "no_tab": true,
-   "pending": true,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 9,
-     "knapp": 0,
-     "knapp_raus": 1,
-     "werte": [
-      0,
-      2,
-      7,
-      3,
-      4,
-      2,
-      0,
-      3,
-      0,
-      5
-     ]
-    }
-   ],
-   "vp_liga": [
-    1.0,
-    1.0
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    2.75,
-    2.7,
-    2.625
-   ],
-   "vp_ref": null,
-   "vp_seite": "gast",
-   "range": null
-  },
-  "v": 2
- },
- "13018076|team_corners_gast|unter": {
-  "match_id": "13018076",
-  "home": "Cong An Ha Noi",
-  "away": "Thanh Hoa",
-  "kickoff": "Do 14:15",
-  "kickoff_ts": 1792671300,
-  "league": "Vietnam V-League",
-  "metric": "Thanh Hoa: Ecken",
-  "metric_key": "team_corners_gast",
-  "direction": "unter",
-  "first_run": "Do 06:14",
-  "first_line": 5.5,
-  "first_range": null,
-  "last_run": "Do 11:14",
-  "line": 5.5,
-  "range": null,
-  "signal": {
-   "metric": "Thanh Hoa: Ecken",
-   "metric_key": "team_corners_gast",
-   "direction": "unter",
-   "line": 5.5,
-   "home_series": null,
-   "away_series": null,
-   "home_is_anchor": null,
-   "away_is_anchor": null,
-   "valid": null,
-   "next_line": null,
-   "next_note": null,
-   "longterm": null,
-   "fair": 1.25,
-   "ladder": null,
-   "avg": null,
-   "expect": null,
-   "expect_sum": null,
-   "expect_matchup": null,
-   "contrib": null,
-   "buffer": null,
-   "fa": null,
-   "referee": null,
-   "b365": null,
-   "expect_ref": null,
-   "buffer_ref": null,
-   "sd": null,
-   "p_emp": 0.782,
-   "p_mod": 0.872,
-   "p_fin": 0.7979,
-   "fair_fin": 1.25,
-   "ladder_fin": null,
-   "market": null,
-   "market_src": null,
-   "ev": null,
-   "light": "🟢",
-   "ampel": null,
-   "reason": null,
-   "b365_quote": null,
-   "b365_checked": null,
-   "b365_near": null,
-   "b365_lines": null,
-   "b365_est": null,
-   "team_market": true,
-   "team": "Thanh Hoa",
-   "serie": {
-    "kind": "auswärts",
-    "hits": 15,
-    "window": 16
-   },
-   "gegner": 10,
-   "erwartet": 3.1,
-   "unverified": false,
-   "no_tab": false,
-   "pending": false,
-   "b365_proof": null,
-   "fav": null,
-   "vp_puffer": [
-    {
-     "n": 10,
-     "hits": 9,
-     "knapp": 0,
-     "knapp_raus": 1,
-     "werte": [
-      6,
-      0,
-      4,
-      2,
-      2,
-      1,
-      1,
-      4,
-      1,
-      1
-     ]
-    }
-   ],
-   "vp_liga": [
-    0.5,
-    0.9
-   ],
-   "vp_cross": false,
-   "vp_1x2": [
-    1.222,
-    5.5,
-    10.0
-   ],
-   "vp_ref": null,
-   "vp_seite": "gast",
    "range": null
   },
   "v": 2
