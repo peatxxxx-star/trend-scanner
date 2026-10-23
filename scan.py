@@ -3772,7 +3772,7 @@ def vp_kurz(punkte):
 # so zeigt die Auswertung am 25.10., ob das Rausnehmen richtig war.
 AUSGEBLENDET = {
     # ("team_yellowcards", "unter") – 18.10. abends wieder rein (Lucio: "Team Gelbe unter wieder rein")
-    ("goals", "über"),                 # Tore über (Scanner liefert nur 2.5)
+    # ("goals", "über") – 23.10. (Lucio, nach Auswertung BL-Liste: 24/34 über "ab", +14 %): "muss wieder mit rein"
     ("on_target", "über"),             # 18.10. (Lucio): Schüsse aufs Tor über "raus jetzt sofort"
     # 18.10. nachts (Lucio nach Markt-Auswertung "kannst du machen"): schwach mit BL-Quote
     ("team_corners", "über"),          # Team-Ecken über: BL-Tipps 68 %, ROI −18 %; offline 73 % heim / 66 % ausw.
