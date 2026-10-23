@@ -287,8 +287,10 @@ S24_GROUPS = {
 # 22.09. (Lucio): "Abseits unter wieder rein" — in seiner eigenen Wett-Historie
 # 9/11 = 82 % bei +18 % Rendite; mein Rauswurf am 21.09. beruhte auf einer
 # Zahl, die über und unter zusammengeworfen hatte.
+# 23.10. (Lucio): "goals" raus aus UNTER_RAUS, damit "Tore unter 3,5" im Hintergrund
+# mitläuft (siehe AUSGEBLENDET_LINIEN). Unter 1,5/2,5/4,5 bleiben in EXCLUDED_LINES gesperrt.
 UNTER_RAUS = ("ht_yellowcards", "throwins", "goalkicks",
-              "corners", "ht_corners", "goals", "on_target",
+              "corners", "ht_corners", "on_target",
               "shots_total", "fouls", "freekicks", "ht_goals", "h2_goals")
 # 17.09. abends (Lucio): "alles einschalten, auch beim Fußball — alle
 # Über-Märkte, bei denen die Trefferquote der Strategie mindestens 75 % lag,
@@ -475,12 +477,14 @@ METRICS = {
 # EXCLUDED_MARKETS, für Fälle wie "Tore unter 2,5" (60 % im Backtest).
 EXCLUDED_LINES = {("goals", "unter", 1.5), ("goals", "unter", 2.5),
                   ("goals", "über", 4.5),
-                  ("goals", "unter", 4.5), ("goals", "unter", 3.5),
+                  ("goals", "unter", 4.5),
+                  # ("goals", "unter", 3.5) – 23.10. frei, nur im Hintergrund (AUSGEBLENDET_LINIEN)
                   # 17.09. spät: wieder wie vorher — nur "Tore über 2,5".
                   # 18.09.: "Tore über 1,5" kurz drin (Backtest 82,2 % in
                   # 5.886 Fällen, Fair ≈ 1,22), am selben Tag wieder raus —
                   # Lucio: "das müllt nur" (Meldung von 4 auf 15 Seiten).
-                  ("goals", "über", 1.5), ("goals", "über", 3.5),
+                  # ("goals", "über", 1.5) – 23.10. frei, nur im Hintergrund (AUSGEBLENDET_LINIEN)
+                  ("goals", "über", 3.5),
                   # 15.09. (Lucio): 1. HZ Gelbe Karten bleiben drin, aber die
                   # Linie "unter 2,5" muss raus.
                   ("ht_yellowcards", "unter", 2.5),
@@ -2455,14 +2459,14 @@ CALIBRATION = {
 }
 
 
-def calibrate(p, metric, direction):
+def calibrate(p, metric, direction, line=None):
     """Modell-Wahrscheinlichkeit auf das gemessene Niveau ziehen."""
     f = CALIBRATION.get((metric, direction))
     if p is None:
         return p
     if f:
         p = max(0.02, min(0.985, p * f))
-    return recalibrate(p, metric, direction)
+    return recalibrate(p, metric, direction, line=line)
 
 
 # 06.10. NACHKALIBRIERUNG (Lucio: "machen wir genauso"). Offline-Backtest der
@@ -2496,13 +2500,32 @@ TEAM_RECAL = {
 }
 
 
-def recalibrate(p, metric, direction, team=False):
+# 23.10. Nachkorrektur je LINIE (zusätzlich, nach RECAL): p_neu = a + b * p.
+# Offline-Backtest der Live-Logik (evaluate_match + assess_signal), kreuzvalidiert
+# (Anpassung auf geraden, Prüfung auf ungeraden Spiel-IDs):
+#   Tore über 1,5  (n=1.838): angezeigt 74,3 %, echt 80,3 % · Fehler je Quartil 5,7 -> 0,8 Pkt.
+#   Tore unter 3,5 (n=545):   angezeigt 72,4 %, echt 76,7 % · Fehler je Quartil 5,8 -> 3,1 Pkt.
+# Bestehende Linien (Tore über 2,5 usw.) bleiben unverändert (Regeln eingefroren).
+RECAL_LINE = {
+    ("goals", "über", 1.5): (0.004, 1.075),
+    ("goals", "unter", 3.5): (0.553, 0.295),
+}
+
+
+def recalibrate(p, metric, direction, team=False, line=None):
     if not RECAL_ENABLED or p is None:
         return p
     ab = (TEAM_RECAL if team else RECAL).get((metric, direction))
-    if not ab:
-        return p
-    return max(0.02, min(0.985, ab[0] + ab[1] * p))
+    if ab:
+        p = max(0.02, min(0.985, ab[0] + ab[1] * p))
+    if line is not None and not team:
+        try:
+            lab = RECAL_LINE.get((metric, direction, float(line)))
+        except (TypeError, ValueError):
+            lab = None
+        if lab:
+            p = max(0.02, min(0.985, lab[0] + lab[1] * p))
+    return p
 
 
 def assess_signal(s):
@@ -2517,7 +2540,7 @@ def assess_signal(s):
         s["light"], s["reason"] = "🟡", "zu wenig Daten für die Rechnung"
         return s
     p_mod = model_prob(mean, sd, line, direction)
-    p_fin = calibrate(0.5 * p_emp + 0.5 * p_mod, metric, direction)
+    p_fin = calibrate(0.5 * p_emp + 0.5 * p_mod, metric, direction, line=line)
     s["p_mod"], s["p_fin"] = round(p_mod, 3), round(p_fin, 3)
     s["kal"] = CALIBRATION.get((metric, direction))
     s["fair_fin"] = round(1 / p_fin, 2) if p_fin > 0.02 else None
@@ -2526,6 +2549,7 @@ def assess_signal(s):
     for L, _ in (s.get("ladder") or []):
         pe = p_emp_map.get(str(L))
         pm = model_prob(mean, sd, L, direction)
+        # 23.10.: Leiter bewusst OHNE RECAL_LINE (sonst ändert sich die bet365-Umrechnung bestehender Signale)
         pf = calibrate(0.5 * pe + 0.5 * pm if pe else pm, metric, direction)
         lad.append([L, round(1 / pf, 2) if pf > 0.02 else None])
     s["ladder_fin"] = lad
@@ -3778,6 +3802,14 @@ AUSGEBLENDET = {
     ("team_corners", "über"),          # Team-Ecken über: BL-Tipps 68 %, ROI −18 %; offline 73 % heim / 66 % ausw.
     ("ht_yellowcards", "über"),        # 1. HZ Gelbe über: BL-Tipps 58 %, ROI −21 %
 }
+# 23.10. (Lucio: "auf jeden Fall mitschreiben"): einzelne Linien nur im Hintergrund –
+# berechnet, mit BetLabel-Quote protokolliert, ausgewertet, aber nirgends angezeigt.
+# Backtest (Scanner-Logik offline, ~7.000 Spiele): Tore über 1,5 80,3 % (n=1.838),
+# Tore unter 3,5 76,7 % (n=545). Urteil bei der Kalibrierung Ende November.
+AUSGEBLENDET_LINIEN = {
+    ("goals", "über", 1.5),
+    ("goals", "unter", 3.5),
+}
 # 18.10. nachts (Lucio): BL-Liste nur ab dieser Quote – darunter im Schnitt −14 %
 # (10 Tipps 15.–18.10.). Jugend/Reserve bleibt ausdrücklich drin.
 BL_MIN_QUOTE = 1.30
@@ -3789,7 +3821,12 @@ def ausgeblendet(s) -> bool:
     mk = s.get("metric_key") or ""
     if mk.startswith("team_"):
         mk = "_".join(mk.split("_")[:-1])        # team_yellowcards_heim -> team_yellowcards
-    return (mk, s.get("direction")) in AUSGEBLENDET
+    if (mk, s.get("direction")) in AUSGEBLENDET:
+        return True
+    try:
+        return (mk, s.get("direction"), float(s.get("line"))) in AUSGEBLENDET_LINIEN
+    except (TypeError, ValueError):
+        return False
 
 
 def bl_eintraege(items):
@@ -7490,7 +7527,7 @@ def selftest():
     # --- Fall 25z: gesperrte Linie fliegt aus dem Gedächtnis (18.09.)
     st25 = {"k1": {"match_id": "m1", "home": "A", "away": "B", "kickoff": "x",
                    "kickoff_ts": 10 ** 10, "metric_key": "goals", "direction": "über",
-                   "line": 1.5, "metric": "Tore"},
+                   "line": 3.5, "metric": "Tore"},     # 23.10.: 1,5 ist frei (Hintergrund) -> 3,5 als gesperrtes Beispiel
             "k2": {"match_id": "m1", "home": "A", "away": "B", "kickoff": "x",
                    "kickoff_ts": 10 ** 10, "metric_key": "corners", "direction": "über",
                    "line": 7.5, "metric": "Ecken"}}
@@ -8268,6 +8305,19 @@ def selftest():
     _pokal = [{"t": 1_000_000 + i * _w} for i in range(14)] + [{"t": 1_000_000 + 3 * _w + 3 * 86400 + 3600}]
     if team_gemischt(_echt) or not team_gemischt(_misch) or team_gemischt(_pokal) or team_gemischt([{}] * 15):
         print("FEHLER Fall 33: gemischte Team-ID"); ok = False
+    # Fall 40 (23.10.): Tore über 1,5 / unter 3,5 laufen im Hintergrund, Tore über 2,5 sichtbar,
+    # Linien-Nachkorrektur greift nur für die neuen Linien
+    if not ausgeblendet({"metric_key": "goals", "direction": "über", "line": 1.5}) \
+            or not ausgeblendet({"metric_key": "goals", "direction": "unter", "line": 3.5}) \
+            or ausgeblendet({"metric_key": "goals", "direction": "über", "line": 2.5}):
+        print("FEHLER Fall 40a: Ausblenden je Linie stimmt nicht"); ok = False
+    if ("goals", "unter") in EXCLUDED_MARKETS or ("goals", "unter", 2.5) not in EXCLUDED_LINES \
+            or ("goals", "unter", 3.5) in EXCLUDED_LINES or ("goals", "über", 1.5) in EXCLUDED_LINES:
+        print("FEHLER Fall 40b: Tore-Linien falsch gesperrt"); ok = False
+    if calibrate(0.80, "goals", "über", line=2.5) != calibrate(0.80, "goals", "über") \
+            or abs(calibrate(0.80, "goals", "über", line=1.5) - (0.004 + 1.075 * calibrate(0.80, "goals", "über"))) > 1e-9 \
+            or abs(calibrate(0.80, "goals", "unter", line=3.5) - (0.553 + 0.295 * 0.80)) > 1e-9:
+        print("FEHLER Fall 40c: Linien-Kalibrierung Tore"); ok = False
     print("Selbsttest OK" if ok else "Selbsttest FEHLGESCHLAGEN")
     sys.exit(0 if ok else 1)
 
