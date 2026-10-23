@@ -62,9 +62,13 @@ _ALIAS = {"man": "manchester", "psg": "paris", "utd": "united", "st": "saint", "
           # 18.10. (Lucio, ❓-Zeilen vom Wochenende)
           "jjk": "jyvaskyla", "jrs": "juniors", "jr": "junior", "akademia": "academy", "akademie": "academy",
           # 19.10. (Lucio, ❓ Al Qadisiya Al Khubar U21 – Al Hazm U21): arabische Umschrift
-          "khubar": "khobar", "hazm": "hazem", "qadisiya": "qadisiyah"}
+          "khubar": "khobar", "hazm": "hazem", "qadisiya": "qadisiyah",
+          # 23.10. (Lucio, ❓ Maccabi Bnei Jadeidi-Makr – Bnei HaGolan VeHaGalil = BL Maccabi Bnei Jadida – Bnei Mamba Golan)
+          "jadeidi": "jadida", "hagolan": "golan"}
 # ganze Namen, die BetLabel anders führt (Reserveteams mit eigenem Namen)
-_NAME_ERSATZ = {"recreativo granada": "granada ii"}
+_NAME_ERSATZ = {"recreativo granada": "granada ii",
+               # 23.10. (Lucio, ❓ CD Pioneros Junior = BL Pioneros de Cancun II, Mexiko Liga TDP)
+               "pioneros junior": "pioneros de cancun ii"}
 _YOUTH = {"u17", "u18", "u19", "u20", "u21", "u22", "u23"}
 _WOMEN = {"w", "women", "frauen", "damen", "fem", "femenino", "feminine", "feminino", "ladies", "dames", "zene", "kobiety"}
 _RES = {"ii", "b", "2", "reserves", "res", "reserve", "amateure",
@@ -484,6 +488,10 @@ def selbsttest():
     ok = True
     pruef = [
         (("Slovan Bratislava U19", "ŠK Slovan Bratislava U19"), True),
+        # 23.10.: ❓-Fälle (Pioneros Junior = Pioneros de Cancun II, nicht die erste Mannschaft)
+        (("CD Pioneros Junior", "Pioneros de Cancun II"), True),
+        (("CD Pioneros Junior", "Pioneros de Cancun"), False),
+        (("Maccabi Bnei Jadeidi-Makr", "Maccabi Bnei Jadida"), True),
         (("Slovan Bratislava U19", "ŠK Slovan Bratislava"), False),
         (("MSK Povazska Bystrica", "Povazska Bystrica"), True),
         (("FC Kosice", "FC Košice"), True),
