@@ -270,6 +270,17 @@ def _lade_spiele_neu():
     return out
 
 
+def _voll(a, b):
+    """Beide Namen decken sich vollständig (jedes Kernwort des einen steht im anderen)."""
+    ca, _ = name_info(a)
+    cb, _ = name_info(b)
+    if not ca or not cb:
+        return False
+    if "".join(ca) == "".join(cb):
+        return True
+    return all(any(_tok_eq(t, u) for u in cb) for t in ca) and all(any(_tok_eq(t, u) for u in ca) for t in cb)
+
+
 def finde_spiel(spiele, home, away, kickoff_ts):
     """(Spiel, vertauscht) oder (None, None)."""
     best, best_sc, swap = None, 0.0, False
@@ -286,8 +297,13 @@ def finde_spiel(spiele, home, away, kickoff_ts):
             # Ein Team sicher erkannt + Anstoß auf 5 min gleich: Das ist das
             # Spiel, auch wenn BetLabel den Gegner ganz anders nennt (ein Team
             # spielt nie zwei Spiele gleichzeitig).
+            # 24.10. (Lucio, "Go"): Fall 3 nur noch, wenn das sichere Team in BEIDE
+            # Richtungen voll passt. Vorher reichte "Pribram" ⊂ "Spartak Pribram", und
+            # Spartak Pribram – Sobeslav landete bei Arsenal Ceska Lipa – 1. Pribram
+            # (anderer Verein, anderes Spiel, falsche Quote in der BL-Liste).
+            voll = (sh >= 0.99 and _voll(home, o1)) or (sa >= 0.99 and _voll(away, o2))
             ok = (sh >= 0.6 and sa >= 0.6) or (max(sh, sa) >= 0.99 and min(sh, sa) >= 0.3 and dt <= 600) \
-                or (max(sh, sa) >= 0.99 and dt <= 300)
+                or (voll and dt <= 300)
             if not ok:
                 continue
             sc = sh + sa - (dt / 3600) * 0.3 - (0.2 if sw else 0)
@@ -526,6 +542,13 @@ def selbsttest():
     g, sw = finde_spiel(spiele, "Paris Saint Germain", "Manchester City", 1000)
     if not g or g["I"] != 2 or not sw:
         print("BetLabel: vertauschtes Spiel nicht erkannt"); ok = False
+    # 24.10.: Teilname reicht nicht mehr für "sicheres Team" (Spartak Pribram ≠ 1. Pribram)
+    sp2 = [{"I": 7, "L": "x", "O1": "Arsenal Ceska Lipa", "O2": "1. Pribram", "S": 5000}]
+    if finde_spiel(sp2, "Spartak Pribram", "Spartak Sobeslav", 5000)[0]:
+        print("BetLabel: Spartak Pribram – Sobeslav falsch zugeordnet"); ok = False
+    sp3 = [{"I": 8, "L": "x", "O1": "Hapoel Tel Aviv", "O2": "Bnei Lol", "S": 6000}]
+    if not finde_spiel(sp3, "Hapoel Tel Aviv", "Maccabi Xyz", 6000)[0]:
+        print("BetLabel: sicheres Team + gleiche Zeit muss weiter reichen"); ok = False
     val = {"GE": [{"G": 17, "E": [[{"T": 9, "P": 5.5, "C": 2.22}], [{"T": 10, "P": 5.5, "C": 1.58}, {"T": 10, "P": 6.5, "C": 1.3}]]},
                   {"G": 15, "E": [[{"T": 11, "P": 4.5, "C": 1.9}], [{"T": 12, "P": 4.5, "C": 1.8}]]},
                   {"G": 62, "E": [[{"T": 13, "P": 3.5, "C": 2.0}], [{"T": 14, "P": 3.5, "C": 1.7}]]}]}
