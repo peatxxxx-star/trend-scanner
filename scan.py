@@ -3815,6 +3815,8 @@ AUSGEBLENDET_LINIEN = {
 BL_MIN_QUOTE = 1.30
 # 22.10. (Lucio): "alles über 2 spielen wir auf jeden Fall nicht" – je Tipp höchstens 2,00
 BL_MAX_QUOTE = 2.00
+# 24.10. (Lucio): Jugend/Reserve-Tipps nicht in der BL-Liste/Ping, nur im Hintergrund
+BL_OHNE_JUGEND = True
 
 
 def ausgeblendet(s) -> bool:
@@ -3835,6 +3837,11 @@ def bl_eintraege(items):
     out = []
     for match, s, q, mn, _key in bl_tipps(items):
         if ausgeblendet(s):
+            continue
+        # 24.10. abends (Lucio, nach Zahlen: BL-Liste Jugend/Reserve 13/21 = 62 %, nötig 64 %,
+        # ROI −5 %; Profi 71/94 = 76 %, +14 %): "ab jetzt bitte erstmal raus und im Hintergrund
+        # weiter beobachten" – Signal, BL-Quote und Ergebnis werden weiter protokolliert.
+        if BL_OHNE_JUGEND and youth_or_reserve(match):
             continue
         if AGENT_ANZEIGE and agent_gesperrt(_key):
             continue
@@ -8318,6 +8325,11 @@ def selftest():
             or abs(calibrate(0.80, "goals", "über", line=1.5) - (0.004 + 1.075 * calibrate(0.80, "goals", "über"))) > 1e-9 \
             or abs(calibrate(0.80, "goals", "unter", line=3.5) - (0.553 + 0.295 * 0.80)) > 1e-9:
         print("FEHLER Fall 40c: Linien-Kalibrierung Tore"); ok = False
+    # Fall 41 (24.10.): Jugend/Reserve fliegt aus der BL-Liste, Profi bleibt
+    _m41 = {"id": "y41", "home": "Alianza FC Reserves", "away": "Isidro Metapan Reserves", "league": "El Salvador Reserves League",
+            "kickoff": "Sa 20:00", "kickoff_ts": int(time.time()) + 7200}
+    if not youth_or_reserve(_m41) or youth_or_reserve({"home": "Orense", "away": "Delfin SC", "league": "Ecuador LigaPro"}):
+        print("FEHLER Fall 41: Jugend/Reserve-Erkennung für die BL-Liste"); ok = False
     print("Selbsttest OK" if ok else "Selbsttest FEHLGESCHLAGEN")
     sys.exit(0 if ok else 1)
 
