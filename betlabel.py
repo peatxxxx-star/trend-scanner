@@ -68,11 +68,14 @@ _ALIAS = {"man": "manchester", "psg": "paris", "utd": "united", "st": "saint", "
 # ganze Namen, die BetLabel anders führt (Reserveteams mit eigenem Namen)
 _NAME_ERSATZ = {"recreativo granada": "granada ii",
                # 23.10. (Lucio, ❓ CD Pioneros Junior = BL Pioneros de Cancun II, Mexiko Liga TDP)
-               "pioneros junior": "pioneros de cancun ii"}
+               "pioneros junior": "pioneros de cancun ii",
+               # 24.10. (Lucio, ❓): russische "M"-Teams (Reserve) führt BetLabel als "(Youth)"
+               "chayka m": "chayka youth"}
 _YOUTH = {"u17", "u18", "u19", "u20", "u21", "u22", "u23"}
 _WOMEN = {"w", "women", "frauen", "damen", "fem", "femenino", "feminine", "feminino", "ladies", "dames", "zene", "kobiety"}
 _RES = {"ii", "b", "2", "reserves", "res", "reserve", "amateure",
-        "promesas", "akatemia"}   # 18.10.: Valladolid Promesas = Real Valladolid II, SJK Akatemia = SJK II
+        "promesas", "akatemia",
+        "amateur"}   # 24.10.: BetLabel "First Vienna (Amateur)" = First Vienna II   # 18.10.: Valladolid Promesas = Real Valladolid II, SJK Akatemia = SJK II
 _YOUTH_WORT = {"youth", "jugend", "juvenil", "juveniles"}   # 18.10.: "academy"/"junior(s)" raus – Teil echter Vereinsnamen (Puskás Akadémia, Argentinos Juniors)   # 16.10.: BetLabel "(Youth)" = U19
 
 _lock = threading.Lock()
@@ -506,6 +509,9 @@ def selbsttest():
         (("Slovan Bratislava U19", "ŠK Slovan Bratislava U19"), True),
         # 23.10.: ❓-Fälle (Pioneros Junior = Pioneros de Cancun II, nicht die erste Mannschaft)
         (("CD Pioneros Junior", "Pioneros de Cancun II"), True),
+        (("First Vienna II", "First Vienna (Amateur)"), True),
+        (("First Vienna", "First Vienna (Amateur)"), False),
+        (("Chayka M", "Chayka Peschanokopskoye (Youth)"), True),
         (("CD Pioneros Junior", "Pioneros de Cancun"), False),
         (("Maccabi Bnei Jadeidi-Makr", "Maccabi Bnei Jadida"), True),
         (("Slovan Bratislava U19", "ŠK Slovan Bratislava"), False),
