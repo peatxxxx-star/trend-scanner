@@ -10,11 +10,11 @@ on:
     # Einträge hier bleiben nur als Rückfallebene. Doppelte Läufe verhindert
     # scan.py: liegt der letzte Lauf weniger als MIN_ABSTAND_MIN (45) zurück,
     # bricht der neue nach Sekunden ab.
-    # Sommerzeit: 04-19 UTC = 06-21 Uhr (Winter ab 25.10.: "13 5-20 * * *").
-    - cron: "13 4-19 * * *"
+    # Winterzeit ab 25.10.: 05-20 UTC = 06-21 Uhr (Sommer ab 29.03.2027: wieder "13 4-19 * * *", Vorwärmen "17 21,1 * * *").
+    - cron: "13 5-20 * * *"
     # 07.10. (Lucio): kein später Fr/Sa-Lauf mehr ("bleibe eh nie lange wach").
     # Vorwärm-Läufe (laden nachts die Teams des nächsten Tages, kein Bericht).
-    - cron: "17 21,1 * * *"
+    - cron: "17 22,2 * * *"
   # 20.09.: Start per Push auf die Datei "scan_now" (Inhalt egal) — damit
   # ein Lauf auch ohne den "Run workflow"-Knopf ausgelöst werden kann
   # (z.B. von Claude aus, wenn der Zeitplan ausfällt).
