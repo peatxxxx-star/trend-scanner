@@ -10,7 +10,7 @@ on:
     # Einträge hier bleiben nur als Rückfallebene. Doppelte Läufe verhindert
     # scan.py: liegt der letzte Lauf weniger als MIN_ABSTAND_MIN (45) zurück,
     # bricht der neue nach Sekunden ab.
-    # Winterzeit ab 25.10.: 05-20 UTC = 06-21 Uhr (Sommer ab 29.03.2027: wieder "13 4-19 * * *", Vorwärmen "17 21,1 * * *").
+    # Winterzeit ab 25.10.: 05-20 UTC = 06-21 Uhr (Sommer ab 28.03.2027: wieder "13 4-19 * * *", Vorwärmen "17 21,1 * * *").
     - cron: "13 5-20 * * *"
     # 07.10. (Lucio): kein später Fr/Sa-Lauf mehr ("bleibe eh nie lange wach").
     # Vorwärm-Läufe (laden nachts die Teams des nächsten Tages, kein Bericht).
