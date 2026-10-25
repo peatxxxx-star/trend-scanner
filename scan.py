@@ -3625,6 +3625,12 @@ def betlabel_fill(buckets, new_state):
     _BL_STAND["zeit"] = datetime.now(ZoneInfo("Europe/Berlin")).strftime("%H:%M")
     proto["auftraege"] = len(auftraege)
     proto["mit_quote"] = sum(1 for r in erg.values() if r.get("q"))
+    # 25.10. (Lucio): Team-Tipps nur mit H2H-Serie 5/5 – nur für Team-Tipps mit BL-Quote prüfen
+    try:
+        proto["h2h"] = h2h_pruefen(buckets, new_state)
+    except Exception as exc:
+        proto["h2h"] = {"fehler": f"{type(exc).__name__}: {exc}"}
+        print(f"  H2H: {exc}", flush=True)
     print(f"BetLabel: {proto.get('gefunden', 0)}/{len(auftraege)} Spiele gefunden, "
           f"{proto['mit_quote']}/{len(erg)} Tipps mit Quote, {proto.get('sekunden')} s", flush=True)
     return proto
@@ -3835,6 +3841,104 @@ def ausgeblendet(s) -> bool:
         return False
 
 
+# 25.10. abends (Lucio, nach 0/5 Scheinen + Spaß-Schein: "Ich will Team-Picks jeglicher Art
+# nur noch drin haben, wenn auch eine H2H-Serie von min. 5 glatt besteht" -> "Direkter
+# Vergleich"): Ein Team-Tipp (team_*) kommt nur noch in BL-Liste und Ping, wenn das Team
+# in den letzten 5 direkten Duellen GENAU DIESER beiden Teams den Tipp jedes Mal getroffen
+# hätte (5/5, kein Aussetzer, egal ob Heim oder Auswärts). Weniger als 5 Duelle mit
+# Statistik = nicht drin. Signal, Quote und Ergebnis laufen im Hintergrund weiter.
+H2H_PFLICHT_TEAM = True
+H2H_N = 5
+_H2H = {}          # _bl_key -> {"ok": bool, "werte": [...], "grund": str}
+
+
+def _h2h_wert(slim, basis, team_heim_im_duell):
+    if basis in ("goals",):
+        pair = slim.get("goals")
+    else:
+        pair = slim.get(basis)
+    if not pair or pair[0] is None or pair[1] is None or min(pair) < 0:
+        return None
+    return pair[0] if team_heim_im_duell else pair[1]
+
+
+def h2h_pruefen(buckets, new_state):
+    """Für alle Team-Tipps mit BL-Quote: letzte H2H_N Duelle laden (/v1/event/history,
+    Statistik über /v1/event/view) und 5/5 prüfen. Ergebnis in _H2H und im Protokoll."""
+    import betlabel
+    _H2H.clear()
+    log = []
+    je_spiel = {}
+    now = time.time()
+    for match, entries in day_list(buckets, new_state or {}):
+        ko = match.get("kickoff_ts") or 0
+        if ko and ko < now:
+            continue
+        for _, sig, _ in entries:
+            mk = sig.get("metric_key") or ""
+            if not mk.startswith("team_"):
+                continue
+            key = _bl_key(match, sig)
+            if not (_BL.get(key) or {}).get("q"):
+                continue
+            je_spiel.setdefault(match["id"], (match, []))[1].append((sig, key))
+    for mid, (match, sigs) in je_spiel.items():
+        duelle = []
+        try:
+            hist = api_get("/v1/event/history", event_id=mid, qty=10)
+            res = hist.get("results") or {}
+            roh = [e for e in (res.get("h2h") or [])
+                   if str(e.get("time_status")) == "3" and "friendl" not in
+                   str((e.get("league") or {}).get("name", "")).lower()]
+            roh.sort(key=lambda e: int(e.get("time") or 0), reverse=True)
+            ids = [str(e["id"]) for e in roh[:H2H_N + 3]]
+            stats = {}
+            for i in range(0, len(ids), 10):
+                view = api_get("/v1/event/view", event_id=",".join(ids[i:i + 10]))
+                for ev in view.get("results", []):
+                    stats[str(ev["id"])] = (slim_event(ev), str((ev.get("home") or {}).get("id")))
+            for e in roh[:H2H_N + 3]:
+                if str(e["id"]) in stats:
+                    duelle.append((str(e["id"]),) + stats[str(e["id"])])
+        except Exception as exc:
+            for sig, key in sigs:
+                _H2H[key] = {"ok": False, "werte": [], "grund": f"H2H-Abruf: {exc}"}
+            log.append({"spiel": f"{match['home']} – {match['away']}", "fehler": str(exc)})
+            continue
+        for sig, key in sigs:
+            basis, seite = betlabel.basis_und_seite(sig["metric_key"])
+            team_id = str(match.get("home_id") if seite == "heim" else match.get("away_id"))
+            werte = []
+            for eid, slim, heim_id in duelle:
+                v = _h2h_wert(slim, basis, heim_id == team_id)
+                if v is not None:
+                    werte.append(v)
+                if len(werte) >= H2H_N:
+                    break
+            try:
+                L = float(sig.get("line"))
+            except (TypeError, ValueError):
+                L = None
+            if L is None or len(werte) < H2H_N:
+                ok, grund = False, f"nur {len(werte)} Duelle mit Statistik"
+            else:
+                hits = sum((v > L) if sig.get("direction") == "über" else (v < L) for v in werte)
+                ok, grund = hits == H2H_N, f"H2H {hits}/{H2H_N}"
+            _H2H[key] = {"ok": ok, "werte": werte, "grund": grund}
+            log.append({"key": key, "spiel": f"{match['home']} – {match['away']}",
+                        "tipp": f"{sig.get('metric')} {sig.get('direction')} {sig.get('line')}",
+                        "werte": werte, "ok": ok, "grund": grund})
+    print(f"  H2H: {sum(1 for v in _H2H.values() if v['ok'])}/{len(_H2H)} Team-Tipps mit 5/5", flush=True)
+    return log
+
+
+def h2h_ok(s, key):
+    mk = s.get("metric_key") or ""
+    if not (H2H_PFLICHT_TEAM and mk.startswith("team_")):
+        return True
+    return bool((_H2H.get(key) or {}).get("ok"))
+
+
 def bl_eintraege(items):
     """Spielbare Einträge der BetLabel-Liste: [(match, s, q, ab, key, Symbol,
     Warn-Stichworte)]. ⛔ (Favoritenregel bzw. Agent-Sperre) fehlt ganz."""
@@ -3846,6 +3950,8 @@ def bl_eintraege(items):
         # ROI −5 %; Profi 71/94 = 76 %, +14 %): "ab jetzt bitte erstmal raus und im Hintergrund
         # weiter beobachten" – Signal, BL-Quote und Ergebnis werden weiter protokolliert.
         if BL_OHNE_JUGEND and youth_or_reserve(match):
+            continue
+        if not h2h_ok(s, _key):
             continue
         if AGENT_ANZEIGE and agent_gesperrt(_key):
             continue
@@ -8334,6 +8440,20 @@ def selftest():
             "kickoff": "Sa 20:00", "kickoff_ts": int(time.time()) + 7200}
     if not youth_or_reserve(_m41) or youth_or_reserve({"home": "Orense", "away": "Delfin SC", "league": "Ecuador LigaPro"}):
         print("FEHLER Fall 41: Jugend/Reserve-Erkennung für die BL-Liste"); ok = False
+    # Fall 42 (25.10.): Team-Tipps nur mit H2H 5/5, Gesamtmärkte unberührt
+    _alt42 = dict(_H2H)
+    _H2H.clear()
+    _H2H["a"] = {"ok": True}
+    _H2H["b"] = {"ok": False}
+    if not h2h_ok({"metric_key": "team_yellowcards_heim"}, "a") \
+            or h2h_ok({"metric_key": "team_fouls_gast"}, "b") \
+            or h2h_ok({"metric_key": "team_corners_heim"}, "fehlt") \
+            or not h2h_ok({"metric_key": "yellowcards"}, "fehlt"):
+        print("FEHLER Fall 42: H2H-Pflicht für Team-Tipps"); ok = False
+    if _h2h_wert({"corners": [7, 3]}, "corners", True) != 7 or _h2h_wert({"corners": [7, 3]}, "corners", False) != 3 \
+            or _h2h_wert({"goals": None}, "goals", True) is not None:
+        print("FEHLER Fall 42b: H2H-Wert je Team"); ok = False
+    _H2H.clear(); _H2H.update(_alt42)
     print("Selbsttest OK" if ok else "Selbsttest FEHLGESCHLAGEN")
     sys.exit(0 if ok else 1)
 
