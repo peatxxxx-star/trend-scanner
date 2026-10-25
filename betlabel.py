@@ -64,13 +64,21 @@ _ALIAS = {"man": "manchester", "psg": "paris", "utd": "united", "st": "saint", "
           # 19.10. (Lucio, ❓ Al Qadisiya Al Khubar U21 – Al Hazm U21): arabische Umschrift
           "khubar": "khobar", "hazm": "hazem", "qadisiya": "qadisiyah",
           # 23.10. (Lucio, ❓ Maccabi Bnei Jadeidi-Makr – Bnei HaGolan VeHaGalil = BL Maccabi Bnei Jadida – Bnei Mamba Golan)
-          "jadeidi": "jadida", "hagolan": "golan"}
+          "jadeidi": "jadida", "hagolan": "golan",
+          # 25.10. (Lucio, ❓ Hapoel Rishon Letzion U19 = BL Hapoel Rishon Lezion Yehuda U19)
+          "letzion": "lezion"}
 # ganze Namen, die BetLabel anders führt (Reserveteams mit eigenem Namen)
 _NAME_ERSATZ = {"recreativo granada": "granada ii",
                # 23.10. (Lucio, ❓ CD Pioneros Junior = BL Pioneros de Cancun II, Mexiko Liga TDP)
                "pioneros junior": "pioneros de cancun ii",
                # 24.10. (Lucio, ❓): russische "M"-Teams (Reserve) führt BetLabel als "(Youth)"
-               "chayka m": "chayka youth"}
+               "chayka m": "chayka youth",
+               # 25.10. (Lucio, Sonntags-Check: "das mit der Zuordnung geht gar nicht")
+               "cadiz mirandilla": "cadiz ii",              # Cádiz Mirandilla = Cádiz II (Tercera)
+               "olimpo b blanca": "olimpo bahia blanca",    # "B Blanca" = Bahía Blanca, kein Reserveteam
+               "vejgaard b": "vejgaard",                    # Vejgaard B(oldspilklub) = Vereinsname, kein Reserveteam
+               "barcelona guayaquil": "barcelona sporting guayaquil",   # BL "Barcelona Sporting Club"
+               "slavia prague iii": "slavia prague u20"}    # BL "Slavia Prague III" = Scanner "Slavia Prague U20"
 _YOUTH = {"u17", "u18", "u19", "u20", "u21", "u22", "u23"}
 _WOMEN = {"w", "women", "frauen", "damen", "fem", "femenino", "feminine", "feminino", "ladies", "dames", "zene", "kobiety"}
 _RES = {"ii", "b", "2", "reserves", "res", "reserve", "amateure",
@@ -114,7 +122,8 @@ def _norm_tokens(name):
     n = n.replace("ø", "o").replace("æ", "ae").replace("ß", "ss").replace("ł", "l").replace("đ", "d")
     n = re.sub(r"\(([^)]*)\)", r" \1 ", n)
     for alt, neu in _NAME_ERSATZ.items():
-        n = n.replace(alt, neu)
+        # 25.10.: nur ganze Wörter ersetzen ("vejgaard b" darf "vejgaard boldklub" nicht treffen)
+        n = re.sub(r"(?<![a-z0-9])" + re.escape(alt) + r"(?![a-z0-9])", neu, n)
     return [t for t in re.split(r"[^a-z0-9]+", n) if t]
 
 
@@ -514,6 +523,15 @@ def selbsttest():
         (("Chayka M", "Chayka Peschanokopskoye (Youth)"), True),
         (("CD Pioneros Junior", "Pioneros de Cancun"), False),
         (("Maccabi Bnei Jadeidi-Makr", "Maccabi Bnei Jadida"), True),
+        # 25.10.: ❓-Fälle aus dem Sonntags-Check
+        (("Cadiz Mirandilla", "Cadiz II"), True),
+        (("Cadiz Mirandilla", "Cadiz"), False),
+        (("Olimpo B Blanca", "Club Olimpo"), True),
+        (("Vejgaard B", "Vejgaard"), True),
+        (("Barcelona Guayaquil", "Barcelona Sporting Club"), True),
+        (("Slavia Prague U20", "Slavia Prague III"), True),
+        (("Slavia Prague U20", "Slavia Prague"), False),
+        (("Hapoel Rishon Letzion U19", "Hapoel Rishon Lezion Yehuda U19"), True),
         (("Slovan Bratislava U19", "ŠK Slovan Bratislava"), False),
         (("MSK Povazska Bystrica", "Povazska Bystrica"), True),
         (("FC Kosice", "FC Košice"), True),
