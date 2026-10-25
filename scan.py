@@ -6567,6 +6567,36 @@ def _run():
         (RUNS_DIR / f"ergebnisse_{datetime.now():%Y-%m-%d_%H%M}.json").write_text(json.dumps(_out, ensure_ascii=False, indent=1))
         print("Ergebnisse:", len(_out))
         return
+    if "H2H-Test:" in _msg:
+        # 25.10.: Test der H2H-Pflicht für Team-Tipps – Event-IDs hinter "H2H-Test:".
+        # Schreibt runs/h2h_test_<Zeit>.json (Rohdaten + Werte je Team), ändert nichts.
+        _ids = [x.strip() for x in _msg.split("H2H-Test:", 1)[1].splitlines()[0].split(",") if x.strip()]
+        _out = {}
+        for _eid in _ids:
+            try:
+                h = api_get("/v1/event/history", event_id=_eid, qty=10)
+                res = h.get("results") or {}
+                roh = [e for e in (res.get("h2h") or []) if str(e.get("time_status")) == "3"]
+                roh.sort(key=lambda e: int(e.get("time") or 0), reverse=True)
+                ids = [str(e["id"]) for e in roh[:8]]
+                det = {}
+                if ids:
+                    v = api_get("/v1/event/view", event_id=",".join(ids))
+                    for ev in v.get("results", []):
+                        sl = slim_event(ev)
+                        det[str(ev["id"])] = {"heim": (ev.get("home") or {}).get("name"),
+                                              "heim_id": str((ev.get("home") or {}).get("id")),
+                                              "gast": (ev.get("away") or {}).get("name"), "ss": ev.get("ss"),
+                                              "liga": (ev.get("league") or {}).get("name"),
+                                              "corners": sl.get("corners"), "yellowcards": sl.get("yellowcards"),
+                                              "fouls": sl.get("fouls"), "goals": sl.get("goals")}
+                _out[_eid] = {"keys": list(res.keys()), "h2h_roh": len(res.get("h2h") or []),
+                              "beendet": len(roh), "duelle": [det.get(i, {"id": i, "fehlt": True}) for i in ids]}
+            except Exception as exc:
+                _out[_eid] = {"fehler": f"{type(exc).__name__}: {exc}"}
+        (RUNS_DIR / f"h2h_test_{datetime.now():%Y-%m-%d_%H%M}.json").write_text(json.dumps(_out, ensure_ascii=False, indent=1))
+        print("H2H-Test:", {k: (v.get("fehler") or v.get("beendet")) for k, v in _out.items()})
+        return
     if "BetLabel-Dump" in _msg:
         # 14.10.: alle BetLabel-Linien einer Liga sichern (Einzelanalyse),
         # Stichwort hinter "BetLabel-Dump:" in der Commit-Nachricht.
