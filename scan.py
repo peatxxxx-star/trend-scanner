@@ -3801,6 +3801,10 @@ AUSGEBLENDET = {
     # 18.10. nachts (Lucio nach Markt-Auswertung "kannst du machen"): schwach mit BL-Quote
     ("team_corners", "über"),          # Team-Ecken über: BL-Tipps 68 %, ROI −18 %; offline 73 % heim / 66 % ausw.
     ("ht_yellowcards", "über"),        # 1. HZ Gelbe über: BL-Tipps 58 %, ROI −21 %
+    # 25.10. (Lucio, Ausnahme vom Einfrieren: "Der Markt kommt jetzt sofort raus, es reicht mir"):
+    # Team-Ecken unter – gespielte Beine bis 22.10. 25/35 (+9 %), ab 23.10. nur noch ~55 % (−20 %),
+    # am 25.10. Osnabrück (6), Konyaspor (9), Jagiellonia (7) gekippt. Läuft im Hintergrund weiter.
+    ("team_corners", "unter"),
 }
 # 23.10. (Lucio: "auf jeden Fall mitschreiben"): einzelne Linien nur im Hintergrund –
 # berechnet, mit BetLabel-Quote protokolliert, ausgewertet, aber nirgends angezeigt.
