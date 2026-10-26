@@ -42,3 +42,6 @@ Reihenfolge (im Ordner ausführen, Pfade in den Skripten anpassen):
 25. `bewegung.py` – BL-Quote Archiv (Vormittag) / erste / letzte stündliche Quote vor Anstoß; ROI je Zeitpunkt
 26. `b365_vergleich.py` – BL vs. bet365 (BetsAPI-Quotenhistorie aus den Läufen) auf exakt gleicher x.5-Torlinie
 27. `b365_alle.py`, `b365_asian.py` – dasselbe für Viertel-/Ganzzahl-Linien (Poisson-Umrechnung bzw. konvertierungsfrei als BL-Kombiwette)
+28. `schrumpf.py` – BL-Median je Spiel (Linie bei 50 %) gegen Team-Historie: unterschätzt BL Extreme? (Ecken/Tore/Gelb)
+29. `halbzeit.py` – Ecken-Anteil 1. HZ: BL (fast fest 47 %) vs. Historie
+30. `verschiebung.py` – BL-Leiter um Historie+Liga-Korrektur verschieben, Schätzung/Test über Kreuz
