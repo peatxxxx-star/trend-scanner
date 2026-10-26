@@ -17,6 +17,7 @@ B = ZoneInfo("Europe/Berlin")
 AB = sys.argv[1] if len(sys.argv) > 1 else "2026-10-26"
 
 tipps = {}
+erst_q = {}          # erste angezeigte Quote je Spiel+Tipp (Quotenbewegung bis Anstoß)
 for f in sorted(glob.glob(str(REPO / "runs" / "2026-*_*.json"))):
     name = Path(f).name
     if any(x in name for x in ("prewarm", "ergeb", "dump", "h2h", "archiv")) or name[:10] < AB:
@@ -35,6 +36,7 @@ for f in sorted(glob.glob(str(REPO / "runs" / "2026-*_*.json"))):
         if lauf_ts and lauf_ts > ko:
             continue
         tipps[t["match_id"]] = t          # späterer Lauf überschreibt früheren
+        erst_q.setdefault((t["match_id"], t["seite"], t["richtung"], t["linie"]), t["q"])
 
 erg = {}
 for f in glob.glob(str(REPO / "runs" / "archiv" / "bl_*.json.gz")):
@@ -93,5 +95,15 @@ print("\nje Tag:")
 for tag in sorted({z["tag"] for z in zeilen}):
     x = [z for z in zeilen if z["tag"] == tag]
     print(f"  {tag}: {len(x)} Tipps, {sum(z['hit'] for z in x)} Treffer, ROI {sum((z['q'] if z['hit'] else 0) - 1 for z in x) / len(x):+.1%}")
+# Quotenbewegung: sinkt die BL-Quote zwischen erster Anzeige und Anstoß, hat der Markt
+# sich in unsere Richtung bewegt (gutes Zeichen, unabhängig vom Ergebnis).
+bew = []
+for mid, t in tipps.items():
+    q0 = erst_q.get((mid, t["seite"], t["richtung"], t["linie"]))
+    if q0:
+        bew.append(t["q"] / q0 - 1)
+if bew:
+    print(f"\nQuotenbewegung erste Anzeige → letzter Lauf vor Anstoß: Ø {sum(bew) / len(bew):+.1%} "
+          f"(gefallen {sum(1 for b in bew if b < 0)}, gleich {sum(1 for b in bew if b == 0)}, gestiegen {sum(1 for b in bew if b > 0)})")
 if fehlt:
     print("\nOhne Ergebnis (Ergebnis-Abruf):", ",".join(fehlt))
