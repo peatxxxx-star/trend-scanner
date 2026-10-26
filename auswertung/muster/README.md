@@ -13,3 +13,9 @@ Reihenfolge (im Ordner ausführen, Pfade in den Skripten anpassen):
 6. `netz_feat.py` – je Spiel und Team Mittel für/gegen von Ecken, Gelben, Toren, SaT, Torschüssen, Fouls, Abseits, HZ-Ecken über 3/5/10/15 Spiele (gesamt) und 5/10 (Rolle), nur Spiele vor Anstoß → `netz.parquet`
 7. `netz_stufe1.py` – Zusatzwert jedes Merkmals über das Basismodell (Teamschnitt im selben Markt + Liga + Heim), Korrelation mit dem Rest bis 30.09. vs. ab 01.10.
 8. `netz_stufe2.py` / `netz_karten.py` – Basis- vs. Spinnennetz-Modell (Poisson, Training vor 15.10.) gegen BL-Linien 15.–25.10.
+
+## Karten komplett (26.10. nachmittags)
+9. `karten_voll_feat.py` – Team-Zeilen mit Spinnennetz + H2H (letzte 6 Duelle) + Schiri + Wettbewerb (Pokal/Europa/Jugend) + Pause/Europacup + Monat; Ziele Spiel/1. HZ/2. HZ
+10. `karten_voll_model.py <varianten> gbr|glm` – Boosting (Poisson) bzw. Poisson-GLM, Training vor 15.10., gegen alle 9 BL-Kartenmärkte
+11. `kv_robust.py` – Schwellen, Quotenbänder, Richtung, Markt, Land, Bootstrap
+12. `kv_final.py` – Mittel aus Boosting + GLM (netz+wettb), nur Spiel-Märkte, Edge > 5 %, Quote 1,30–2,00, 1 Tipp je Spiel; Einzel/2er/3er
