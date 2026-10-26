@@ -21,6 +21,10 @@ MODELL_DATEI = Path(__file__).parent / "modelle" / "karten_modell.json"
 ARCHIV = Path(__file__).parent / "runs" / "archiv"
 V = ("corners", "yellowcards", "goals", "on_target", "shots_total", "fouls", "offsides", "ht_corners")
 MIN_EDGE = 0.05
+# 26.10.: Vorteil über 20 % = Modell übersieht vermutlich etwas (Derby, Abstiegskampf …).
+# Backtest je Vorteil: 5–20 % → 190 Tipps, 70 %, +17,7 % (beide Zeiträume im Plus);
+# über 20 % → 76 Tipps, Treffer 58 % statt erwarteter 73 %, ROI ±0. Solche Spiele fliegen raus.
+MAX_EDGE = 0.20
 Q_MIN, Q_MAX = 1.30, 2.00
 _M = None
 _LG = {}
@@ -290,6 +294,9 @@ def fuellen(gemischt=frozenset()):
                                      "p": round(p, 4), "edge": round(edge, 4)})
             if kand:
                 best = max(kand, key=lambda k: k["edge"])
+                if best["edge"] > MAX_EDGE:
+                    proto["zu_hoch"] = proto.get("zu_hoch", 0) + 1
+                    continue
                 m = r["match"]
                 team = None
                 if best["seite"] != "tot":

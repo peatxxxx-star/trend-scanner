@@ -771,7 +771,7 @@ Lucio: „nur noch das spielen und den Rest jetzt erstmal so lange rausnehmen, b
 - **Modell:** Erwartete Gelbe je Team aus Boosting (Poisson) und Poisson-GLM; Datei `modelle/karten_modell.json`, trainiert auf ~200.000 Team-Spielen.
   - Merkmale: eigene und gegnerische Werte bei Ecken, Gelben, Toren, SaT, Torschüssen, Fouls, HZ-Ecken über 3/5/10/15 Spiele bzw. 5/10 in der Rolle; Liga-Schnitt Gelbe/Fouls; Heim; Pokal/Europa/Jugend; Monat; Pause; Europacup in den letzten 5 Tagen.
   - H2H und Schiri brachten keinen Zusatznutzen.
-- **Tipp-Regel:** BL-Linien Gelbe gesamt / Heim / Gast fürs ganze Spiel (nicht 1./2. HZ), x.5-Linien, Quote 1,30–2,00, Vorteil = Modell-Wahrscheinlichkeit × Quote − 1 > 5 %, je Spiel der beste Tipp. Wahrscheinlichkeit = Mittel beider Modelle (negativ-binomial).
+- **Tipp-Regel:** BL-Linien Gelbe gesamt / Heim / Gast fürs ganze Spiel (nicht 1./2. HZ), x.5-Linien, Quote 1,30–2,00, Vorteil = Modell-Wahrscheinlichkeit × Quote − 1 > 5 %, je Spiel der beste Tipp. Liegt dessen Vorteil über 20 %, fliegt das Spiel raus (`MAX_EDGE`), weil das Modell dann vermutlich etwas übersieht (Derby o. ä.). Backtest über 20 %: 58 % statt 73 % erwartet, ROI ±0; 5–20 %: 190 Tipps, +17,7 %. Wahrscheinlichkeit = Mittel beider Modelle (negativ-binomial).
 - **Backtest 15.–25.10.** (Training vor 15.10.): 266 Tipps, 68 % bei Ø 1,68 → +13 % (15.–20.: +16,5 %, 21.–25.: +7,4 %, 9/11 Tage im Plus).
   - 2er in Anstoß-Reihenfolge: +26 %, längste Verlustserie 6.
   - 3er: +28 %, längste Verlustserie 11.
