@@ -34,3 +34,4 @@ Reihenfolge (im Ordner ausführen, Pfade in den Skripten anpassen):
 
 ## Abseits (26.10. abends)
 21. `abseits.py` – Abseits gesamt/Heim/Gast gegen BL (Basis/Netz/+Wettbewerb, Boosting/GLM)
+22. `markt_live.py test <metrik>` – generischer Test eines Statistik-Markts (z. B. on_target) mit Live-Merkmalen gegen BL
