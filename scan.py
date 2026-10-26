@@ -6948,7 +6948,7 @@ def _run():
     if KARTEN_AKTIV:
         try:
             import karten
-            _kt, _kp = karten.fuellen(frozenset(str(m["id"]) for m in matches if m.get("_gemischt")))
+            _kt, _kp = karten.fuellen(frozenset(str(m["id"]) for m in matches if m.get("_gemischt")), api_get=api_get)
             log["karten"] = {"protokoll": _kp, "tipps": _kt}
             print(f"Karten-Modell: {_kp.get('tipps', 0)} Tipps ({_kp.get('mit_linien', 0)} Spiele mit BL-Linien, "
                   f"{_kp.get('abgefragt', 0)} abgefragt, {_kp.get('sekunden')} s)", flush=True)

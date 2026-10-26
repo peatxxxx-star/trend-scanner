@@ -27,6 +27,9 @@ MIN_EDGE = 0.05
 MAX_EDGE = 0.20
 Q_MIN, Q_MAX = 1.30, 2.00
 _M = None
+_RM = None          # Schiri-Modell (Gelbe gesamt), modelle/karten_schiri_modell.json
+_REF = {}           # Schiri-ID -> [Gelbe gesamt je früherem Spiel]
+SCHIRI_DATEI = Path(__file__).parent / "modelle" / "karten_schiri_modell.json"
 _LG = {}
 _MU = {}            # match_id -> dict
 _lock = threading.Lock()
@@ -41,6 +44,13 @@ def modell():
         _M = json.loads(MODELL_DATEI.read_text())
         _M["_parsed"] = [_parse(f) for f in _M["features"]]
     return _M
+
+
+def schiri_modell():
+    global _RM
+    if _RM is None:
+        _RM = json.loads(SCHIRI_DATEI.read_text())
+    return _RM
 
 
 def _parse(name):
@@ -77,6 +87,12 @@ def liga_init(cache, hcache):
             vals = [s[var][0] + s[var][1] for _, s in lst if _ok(s.get(var))][-400:]
             out[var] = sum(vals) / len(vals) if len(vals) >= 30 else None
         _LG[lg] = out
+    # 26.10. abends: Schiri-Historie für das Schiri-Modell (Gelbe gesamt je Spiel)
+    _REF.clear()
+    for eid, sl in cache.items():
+        r = sl.get("ref") if isinstance(sl, dict) else None
+        if r and _ok(sl.get("yellowcards")):
+            _REF.setdefault(str(r[0]), []).append(sl["yellowcards"][0] + sl["yellowcards"][1])
 
 
 def _profil(hist):
@@ -192,9 +208,62 @@ def merke(match, hist_home, hist_away):
     xa = _features(pa, ph, False, True, 0, ctx)
     r = {"g_h": _gbr(xh), "g_a": _gbr(xa), "l_h": _glm(xh), "l_a": _glm(xa),
          "match": {k: match.get(k) for k in ("id", "home", "away", "league", "kickoff", "kickoff_ts")}}
+    try:
+        r["sb"] = _schiri_basis(hist_home, hist_away, lgm.get("yellowcards"), rh, ra, eh, ea)
+    except Exception:
+        r["sb"] = None
     with _lock:
         _MU[str(match["id"])] = r
     return r
+
+
+def _team10(hist):
+    """Letzte 10 Spiele mit gültigen Gelben (neueste zuerst): (für, gegen, Fouls-für-Schnitt) wie im Training."""
+    f, a, fo = [], [], []
+    for h in hist or []:
+        s = h.get("stats") or {}
+        y = s.get("yellowcards")
+        if not _ok(y):
+            continue
+        o = 0 if h.get("is_home") else 1
+        f.append(y[o]); a.append(y[1 - o])
+        p = s.get("fouls")
+        if _ok(p):
+            fo.append(p[o])
+        if len(f) >= 10:
+            break
+    if len(f) < 5:
+        return None
+    return sum(f) / len(f), sum(a) / len(a), (sum(fo) / len(fo) if fo else None)
+
+
+def _schiri_basis(hist_home, hist_away, lgm, rh, ra, eh, ea):
+    th, ta = _team10(hist_home), _team10(hist_away)
+    if not th or not ta:
+        return None
+    RM = schiri_modell()
+    lgm = lgm or RM["lgm_fallback"]
+    exp_team = (th[0] + ta[1]) / 2 + (ta[0] + th[1]) / 2
+    fo_known = th[2] is not None and ta[2] is not None
+    fo = math.log(max((th[2] + ta[2]) / 2, 3)) if fo_known else math.log(11)
+    return {"lgm": lgm, "l_lg": math.log(max(lgm, 0.5)), "l_team": math.log(max(exp_team, 0.5)),
+            "fo": fo, "fo_known": int(fo_known), "rest_min": min(rh, ra), "eu": eh + ea}
+
+
+def schiri_mu(sb, ref_id):
+    """Erwartete Gelbe gesamt aus dem Schiri-Modell; ref_id None = Schiri unbekannt."""
+    RM = schiri_modell()
+    lst = _REF.get(str(ref_id)) if ref_id else None
+    k = RM.get("shrink_k", 6)
+    if lst:
+        ref_s = (sum(lst) + k * sb["lgm"]) / (len(lst) + k)
+        ref_rel, known = math.log(max(ref_s, 0.5) / max(sb["lgm"], 0.5)), 1
+    else:
+        ref_rel, known = 0.0, 0
+    x = {"l_lg": sb["l_lg"], "l_team": sb["l_team"], "ref_rel": ref_rel, "ref_known": known,
+         "fo": sb["fo"], "fo_known": sb["fo_known"], "rest_min": sb["rest_min"], "eu": sb["eu"]}
+    z = RM["intercept"] + sum(c * x[f] for f, c in zip(RM["features"], RM["coef"]))
+    return math.exp(z), known
 
 
 def _nb_over(mu, L, disp):
@@ -224,7 +293,13 @@ def p_linie(r, seite, richtung, L, swap=False):
         else:
             po = _nb_over(h if seite == "heim" else a, L, M[mod]["disp_team"])
         ps.append(po if richtung == "über" else 1 - po)
-    return sum(ps) / len(ps)
+    p = sum(ps) / len(ps)
+    # 26.10. abends: Gelbe gesamt = Mittel aus Team-Ensemble und Schiri-Modell
+    # (Backtest Vorteil 5–20 %: +17,7 % → +20,8 %, gesamt-Tipps +27,6 % → +38,2 %)
+    if seite == "tot" and r.get("ref_mu"):
+        po = _nb_over(r["ref_mu"], L, schiri_modell()["disp"])
+        p = (p + (po if richtung == "über" else 1 - po)) / 2
+    return p
 
 
 def karten_ligen():
@@ -240,7 +315,21 @@ def karten_ligen():
     return out
 
 
-def fuellen(gemischt=frozenset()):
+def _schiri_holen(ids, api_get):
+    out = {}
+    for i in range(0, len(ids), 10):
+        try:
+            v = api_get("/v1/event/view", event_id=",".join(ids[i:i + 10]))
+        except Exception:
+            continue
+        for ev in v.get("results", []):
+            ref = ((ev.get("extra") or {}).get("referee") or {})
+            if ref.get("id"):
+                out[str(ev["id"])] = (str(ref["id"]), ref.get("name"))
+    return out
+
+
+def fuellen(gemischt=frozenset(), api_get=None):
     """Nach dem Scan: BL-Kartenlinien holen, Tipps auswählen. Liefert (tipps, protokoll)."""
     import betlabel
     t0 = time.time()
@@ -262,6 +351,14 @@ def fuellen(gemischt=frozenset()):
         if not g or (ligen and g.get("L") not in ligen):
             continue
         auftr.append((mid, r, g, swap))
+
+    schiri = _schiri_holen([a[0] for a in auftr], api_get) if (api_get and auftr) else {}
+    proto["schiri_bekannt"] = len(schiri)
+    for mid, r, g, swap in auftr:
+        if r.get("sb"):
+            ref = schiri.get(str(mid))
+            r["ref_mu"], r["ref_known"] = schiri_mu(r["sb"], ref[0] if ref else None)
+            r["schiri"] = ref[1] if ref else None
 
     def eins(a):
         mid, r, g, swap = a
@@ -305,7 +402,8 @@ def fuellen(gemischt=frozenset()):
                 tipps.append(dict(best, match_id=mid, bl_id=g["I"], swap=bool(swap), team=team,
                                   spiel=f"{m['home']} – {m['away']}", liga=m.get("league"),
                                   kickoff_ts=m.get("kickoff_ts"), kickoff=m.get("kickoff"),
-                                  mu={k: round(v, 3) for k, v in r.items() if k != "match"}))
+                                  schiri=r.get("schiri"),
+                                  mu={k: round(v, 3) for k, v in r.items() if isinstance(v, (int, float))}))
     tipps.sort(key=lambda t: t.get("kickoff_ts") or 0)
     proto["tipps"] = len(tipps)
     proto["sekunden"] = round(time.time() - t0, 1)
