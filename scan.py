@@ -6568,6 +6568,33 @@ def _run():
         (RUNS_DIR / f"ergebnisse_{datetime.now():%Y-%m-%d_%H%M}.json").write_text(json.dumps(_out, ensure_ascii=False, indent=1))
         print("Ergebnisse:", len(_out))
         return
+    if "Archiv-Teams" in _msg:
+        # 26.10.: Team-IDs zu allen Spielen im Marktarchiv (für die Muster-Analyse).
+        # Schreibt runs/archiv_teams.json {ev: [heim_id, gast_id, heim, gast, liga_id, liga]}.
+        import gzip as _gz
+        pfad = RUNS_DIR / "archiv_teams.json"
+        try:
+            out = json.loads(pfad.read_text())
+        except Exception:
+            out = {}
+        evs = []
+        for f in sorted(ARCHIV_DIR.glob("bl_*.json.gz")):
+            for e in json.load(_gz.open(f, "rt", encoding="utf-8"))["spiele"]:
+                if e.get("ev") and e["ev"] not in out:
+                    evs.append(e["ev"])
+        evs = list(dict.fromkeys(evs))
+        try:
+            for i in range(0, len(evs), 10):
+                v = api_get("/v1/event/view", event_id=",".join(evs[i:i + 10]))
+                for ev in v.get("results", []):
+                    out[str(ev["id"])] = [str((ev.get("home") or {}).get("id")), str((ev.get("away") or {}).get("id")),
+                                          (ev.get("home") or {}).get("name"), (ev.get("away") or {}).get("name"),
+                                          str((ev.get("league") or {}).get("id")), (ev.get("league") or {}).get("name")]
+        except BudgetExhausted:
+            print("Archiv-Teams: API-Limit – Rest beim nächsten Mal")
+        pfad.write_text(json.dumps(out, ensure_ascii=False))
+        print("Archiv-Teams:", len(out), "von", len(evs) + len(out))
+        return
     if "H2H-Test:" in _msg:
         # 25.10.: Test der H2H-Pflicht für Team-Tipps – Event-IDs hinter "H2H-Test:".
         # Schreibt runs/h2h_test_<Zeit>.json (Rohdaten + Werte je Team), ändert nichts.
