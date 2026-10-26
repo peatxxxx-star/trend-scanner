@@ -7004,6 +7004,17 @@ def _run():
             except Exception as exc:
                 log["tore35"] = {"fehler": f"{type(exc).__name__}: {exc}"}
                 print(f"Tore-3.5-Block: {type(exc).__name__}: {exc}", flush=True)
+            # 26.10. abends (Lucio: „das Offensichtliche – Favorit macht mehr Ecken“): Außenseiter
+            # Team-Ecken unter bei Favorit ≥ 75 % (karten.ecken_fuellen) – Test-Phase.
+            try:
+                _te, _pe = karten.ecken_fuellen(matches, frozenset(str(m["id"]) for m in matches if m.get("_gemischt")))
+                log["ecken_fav"] = {"protokoll": _pe, "tipps": _te}
+                print(f"Außenseiter-Ecken: {_pe.get('tipps', 0)} Tipps ({_pe.get('fav_klar', 0)} Spiele mit Favorit ≥ 75 %, "
+                      f"{_pe.get('abgefragt', 0)} abgefragt, {_pe.get('sekunden')} s)", flush=True)
+                _txt += "\n\n" + karten.ecken_block(_te, esc)
+            except Exception as exc:
+                log["ecken_fav"] = {"fehler": f"{type(exc).__name__}: {exc}"}
+                print(f"Außenseiter-Ecken-Block: {type(exc).__name__}: {exc}", flush=True)
             karten_chunks = split_message(_txt)
         except Exception as exc:
             log["karten"] = {"fehler": f"{type(exc).__name__}: {exc}"}

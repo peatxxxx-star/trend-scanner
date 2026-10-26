@@ -660,6 +660,16 @@ def karten_leitern(gid):
     return {}
 
 
+def ecken_leitern(gid):
+    """26.10. abends: Ecken-Linien (ganzes Spiel) eines BL-Spiels, 2 Abfragen:
+    {"corners": {...}, "corners_heim": {...}, "corners_gast": {...}} in BL-Orientierung. Leer ohne Ecken-Markt."""
+    haupt = _spiel_detail(gid)
+    for sg in haupt.get("SG") or []:
+        if (sg.get("TG") or "").strip() == "Eckstöße" and (sg.get("PN") or "").strip() == "":
+            return _leitern_kompakt(_spiel_detail(sg.get("CI") or sg.get("I")), "corners")
+    return {}
+
+
 def tore_leitern(gid):
     """26.10. abends: Tor-Linien (ganzes Spiel) eines BL-Spiels aus dem Hauptmarkt, 1 Abfrage:
     {"goals": {"o3.5": q, ...}, "goals_heim": {...}, "goals_gast": {...}} in BL-Orientierung."""

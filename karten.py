@@ -311,6 +311,114 @@ def tore_fuellen(gemischt=frozenset()):
     return tipps, proto
 
 
+# 26.10. abends (Lucio: „das Offensichtliche – der Favorit macht mehr Ecken“): BL setzt Team-Ecken-Linien
+# auch bei haushohen Favoriten auf ~57 % Treffer. Backtest 15.–25.10. (auswertung/muster/favorit.py):
+# Außenseiter Team-Ecken UNTER bei Favorit ≥ 75 % (BL-1X2 ohne Marge), Linie mit Quote am nächsten an 1,60
+# (1,30–2,10): 79 Tipps, 75 % (BL 58 %), Ø 1,61, +19 % (15.–20. +24 %, 21.–25. +13,5 %), 90 %-Spanne +6…+32 %;
+# ohne Jugend/Frauen 67 Tipps +19 %. Stufenweise: Fav 60–70 % ±0, 75–80 % +14 %, 80–85 % +28 %, > 85 % +29 %.
+ECKEN_FAV_MIN = 0.75
+ECKEN_Q_MIN, ECKEN_Q_MAX, ECKEN_Q_ZIEL = 1.30, 2.10, 1.60
+VIRTUELL_RE = re.compile(r"virtual|esoccer|e-?sport|cyber|fifa")
+
+
+def _p12(x12):
+    try:
+        q1, qx, q2 = float(x12["1"]), float(x12["2"]), float(x12["3"])
+        s = 1 / q1 + 1 / qx + 1 / q2
+        return (1 / q1) / s, (1 / q2) / s
+    except Exception:
+        return None
+
+
+def ecken_fuellen(matches, gemischt=frozenset()):
+    """Nach dem Scan: gescannte Spiele mit klarem Favoriten (≥ 75 %) → Außenseiter Team-Ecken unter."""
+    import betlabel
+    t0 = time.time()
+    proto = {"spiele": len(matches), "zugeordnet": 0, "fav_klar": 0, "abgefragt": 0, "fehler": 0, "ohne_linie": 0}
+    try:
+        spiele = betlabel.lade_spiele()
+    except Exception as exc:
+        proto["fehler_liste"] = str(exc)
+        return [], proto
+    jetzt = time.time()
+    auftr, gesehen = [], set()
+    for m in matches:
+        mid = str(m.get("id"))
+        if mid in gemischt or (m.get("kickoff_ts") or 0) < jetzt + 300:
+            continue
+        g, swap = betlabel.finde_spiel(spiele, m["home"], m["away"], m.get("kickoff_ts"))
+        if not g or g["I"] in gesehen:
+            continue
+        gesehen.add(g["I"])
+        proto["zugeordnet"] += 1
+        if VIRTUELL_RE.search(str(g.get("L") or "").lower()) or tore_jugend(m, g.get("L")) \
+                or tore_jugend({"home": g.get("O1"), "away": g.get("O2")}):
+            continue
+        p = _p12(g.get("x12") or {})
+        if not p or max(p) < ECKEN_FAV_MIN:
+            continue
+        proto["fav_klar"] += 1
+        auftr.append((mid, m, g, p))
+
+    def eins(a):
+        try:
+            return a, betlabel.ecken_leitern(a[2]["I"])
+        except Exception:
+            return a, None
+
+    tipps = []
+    with ThreadPoolExecutor(8) as ex:
+        for (mid, m, g, p), lad in ex.map(eins, auftr):
+            proto["abgefragt"] += 1
+            if lad is None:
+                proto["fehler"] += 1
+                continue
+            fav_heim = p[0] >= p[1]
+            key = "corners_gast" if fav_heim else "corners_heim"        # Außenseiter (BL-Orientierung)
+            best = None
+            for lk, q in (lad.get(key) or {}).items():
+                if lk[0] != "u":
+                    continue
+                L = float(lk[1:])
+                if abs(L - int(L) - 0.5) > 1e-9 or not (ECKEN_Q_MIN <= q <= ECKEN_Q_MAX):
+                    continue
+                if best is None or abs(q - ECKEN_Q_ZIEL) < abs(best[1] - ECKEN_Q_ZIEL):
+                    best = (L, q)
+            if not best:
+                proto["ohne_linie"] += 1
+                continue
+            team = g["O2"] if fav_heim else g["O1"]
+            fav = g["O1"] if fav_heim else g["O2"]
+            tipps.append(dict(match_id=mid, bl_id=g["I"], seite="gast" if fav_heim else "heim", team=team, favorit=fav,
+                              p_fav=round(max(p), 3), linie=best[0], richtung="unter", q=best[1],
+                              spiel=f"{g['O1']} – {g['O2']}", liga=g.get("L"), kickoff_ts=g.get("S")))
+    tipps.sort(key=lambda t: t.get("kickoff_ts") or 0)
+    proto["tipps"] = len(tipps)
+    proto["sekunden"] = round(time.time() - t0, 1)
+    return tipps, proto
+
+
+def ecken_block(tipps, esc=lambda s: s):
+    import datetime as _dt
+    from zoneinfo import ZoneInfo
+    B = ZoneInfo("Europe/Berlin")
+    kopf = "🟧 <b>AUSSENSEITER-ECKEN UNTER</b> · klarer Favorit ≥ 75 % · NEU, Test-Phase"
+    if not tipps:
+        return kopf + "\n<i>gerade kein Spiel mit Favorit ≥ 75 % und Außenseiter-Ecken-Linie 1,30–2,10</i>"
+    z = [kopf, f"<i>{len(tipps)} Tipps · Team-Ecken des Außenseiters unter · Siegchance aus der BL-1X2-Quote</i>", ""]
+    for t in tipps:
+        ko = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%H:%M") if t.get("kickoff_ts") else "?"
+        z.append(f"{ko} {esc(t['spiel'])} <i>({esc(t.get('liga') or '')})</i>")
+        z.append(f"   Ecken {esc(t['team'])} unter {t['linie']:g} @{t['q']:.2f} · {esc(t['favorit'])} Siegchance {t['p_fav']:.0%}")
+    if len(tipps) >= 2:
+        z.append("")
+        z.append("<b>2er nach Anstoß</b>")
+        for i in range(len(tipps) // 2):
+            a, b = tipps[2 * i], tipps[2 * i + 1]
+            z.append(f"{i + 1}) {esc(a['team'])} + {esc(b['team'])} @{a['q'] * b['q']:.2f}")
+    return "\n".join(z)
+
+
 def tore_block(tipps, esc=lambda s: s, max_zeilen=15):
     import datetime as _dt
     from zoneinfo import ZoneInfo
@@ -579,4 +687,7 @@ def selbsttest():
             or not tore_jugend({"league": "Norway Division 3 Group 3", "home": "Sogndal 2", "away": "Brann 2"}) \
             or tore_jugend({"league": "Norway Division 2", "home": "Fana", "away": "Brattvag"}):
         print("Tore 3.5: Jugend-Erkennung falsch"); ok = False
+    p = _p12({"1": 1.20, "2": 6.0, "3": 13.0})
+    if not p or not (0.75 < p[0] < 0.85 and p[1] < 0.1) or _p12({}) is not None:
+        print("Außenseiter-Ecken: 1X2 ohne Marge falsch", p); ok = False
     return ok
