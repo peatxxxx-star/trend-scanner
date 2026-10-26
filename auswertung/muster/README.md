@@ -19,3 +19,9 @@ Reihenfolge (im Ordner ausführen, Pfade in den Skripten anpassen):
 10. `karten_voll_model.py <varianten> gbr|glm` – Boosting (Poisson) bzw. Poisson-GLM, Training vor 15.10., gegen alle 9 BL-Kartenmärkte
 11. `kv_robust.py` – Schwellen, Quotenbänder, Richtung, Markt, Land, Bootstrap
 12. `kv_final.py` – Mittel aus Boosting + GLM (netz+wettb), nur Spiel-Märkte, Edge > 5 %, Quote 1,30–2,00, 1 Tipp je Spiel; Einzel/2er/3er
+
+## Ecken (26.10. abends)
+13. `ecken_feat.py` – Team-Zeilen + Ecken-Ziele + Anteile (Ecken/Schüsse/SaT), Tordifferenz, erwartete Tordifferenz, Dominanz, geblockte Schüsse, Streuung
+14. `ecken_stufe1.py` – Zusatzwert je Merkmal + Quintile
+15. `ecken_bl.py` – alle BL-Eckenlinien inkl. ganzzahliger Linien (Push)
+16. `ecken_model.py <varianten> gbr` – Modelle gegen alle 9 Eckenmärkte (NB-Verteilung, Push berücksichtigt)
