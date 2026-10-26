@@ -31,3 +31,6 @@ Reihenfolge (im Ordner ausführen, Pfade in den Skripten anpassen):
 18. `tore_model.py <varianten> gbr` – Basis / Rating / Rating+xG-Ersatz / alles gegen alle BL-Torlinien (x.5)
 19. `tore_tiefer.py` – Modell-vs-BL-Abweichung, Liga-Trend, Länder-Stabilität, Serie × Modell × Trend, Wochentag/Uhrzeit
 20. `serien_tore.py`, `serien_ecken.py` – Serien-Logik mit BL-Quote seit 14.10. (alle Signale / BL-Liste)
+
+## Abseits (26.10. abends)
+21. `abseits.py` – Abseits gesamt/Heim/Gast gegen BL (Basis/Netz/+Wettbewerb, Boosting/GLM)
