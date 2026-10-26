@@ -660,6 +660,12 @@ def karten_leitern(gid):
     return {}
 
 
+def tore_leitern(gid):
+    """26.10. abends: Tor-Linien (ganzes Spiel) eines BL-Spiels aus dem Hauptmarkt, 1 Abfrage:
+    {"goals": {"o3.5": q, ...}, "goals_heim": {...}, "goals_gast": {...}} in BL-Orientierung."""
+    return _leitern_kompakt(_spiel_detail(gid), "goals")
+
+
 def archiv_sammeln(scanner_spiele, pfad, deadline_ts, pause=0.0, max_fehler=25, threads=16):
     """scanner_spiele: [{id, home, away, kickoff_ts}] (BetsAPI) für die Zuordnung."""
     import gzip as _gz

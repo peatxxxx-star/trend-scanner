@@ -6993,6 +6993,17 @@ def _run():
                 _txt += "\n" + "\n".join(_z)
             except Exception as exc:
                 print(f"Tore-Block: {type(exc).__name__}: {exc}", flush=True)
+            # 26.10. abends (Lucio: "Bau solange bis sie heute schon mit reinkönnen"): Tore über 3.5
+            # bei torreichen Teams (Massensuche, karten.tore_fuellen) – Test-Phase.
+            try:
+                _t35, _p35 = karten.tore_fuellen(frozenset(str(m["id"]) for m in matches if m.get("_gemischt")))
+                log["tore35"] = {"protokoll": _p35, "tipps": _t35}
+                print(f"Tore 3.5: {_p35.get('tipps', 0)} Tipps ({_p35.get('xg_hoch', 0)} Spiele mit xG ≥ 3,75, "
+                      f"{_p35.get('abgefragt', 0)} abgefragt, {_p35.get('sekunden')} s)", flush=True)
+                _txt += "\n\n" + karten.tore_block(_t35, esc)
+            except Exception as exc:
+                log["tore35"] = {"fehler": f"{type(exc).__name__}: {exc}"}
+                print(f"Tore-3.5-Block: {type(exc).__name__}: {exc}", flush=True)
             karten_chunks = split_message(_txt)
         except Exception as exc:
             log["karten"] = {"fehler": f"{type(exc).__name__}: {exc}"}

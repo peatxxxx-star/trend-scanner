@@ -37,6 +37,18 @@ CUP_RE = re.compile(r"cup|pokal|copa|coupe|coppa|ta[cç]a|beker|trophy|shield|kn
 UEFA_RE = re.compile(r"uefa|champions|europa|conference|libertadores|sudamericana|concacaf|afc|caf ")
 YOUTH_RE = re.compile(r"u1\d|u2\d|youth|reserve|primavera|junior|jugend|juvenil")
 
+# 26.10. abends (Lucio: "Bau solange bis sie heute schon mit reinkönnen"): TORE ÜBER 3.5 bei
+# torreichen Teams aus der Massensuche (auswertung/muster/bulk_*.py). Erwartete Tore aus der
+# Tor-Historie beider Teams (für/gegen, je 10 Spiele) ≥ 3,75, keine Jugend/Reserve/Frauen,
+# BL-Quote Über 3.5 zwischen 1,30 und 2,10. Backtest 15.–25.10. (Regel dort gefunden) mit der
+# Live-Berechnung (alle Pflichtspiele, ohne Testspiele): 353 Tipps, 62 %, Ø 1,79, +9,5 %
+# (15.–20. +11 %, 21.–25. +8 %); Schwelle 3,5 / 4,0: +7 %. Über 2.5 im selben Topf ±0 → nur 3.5.
+TORE_XG_MIN = 3.75
+TORE_LINIE = 3.5
+TORE_Q_MIN, TORE_Q_MAX = 1.30, 2.10
+TORE_JUGEND_RE = re.compile(r"u1\d|u2\d|youth|junior|reserve|primavera|juvenil|\bii\b|women|frauen|femen|\(w\)")
+_TORE = {}          # match_id -> {"x_goals", "match"}
+
 
 def modell():
     global _M
@@ -202,6 +214,14 @@ def merke(match, hist_home, hist_away):
            "monat": _dt.datetime.fromtimestamp(t0, _dt.timezone.utc).month,
            "rest_own": rh, "rest_opp": ra, "eu_own": eh, "eu_opp": ea}
     ph, pa = _profil(hist_home), _profil(hist_away)
+    try:
+        xg = x_goals(ph, pa)
+        if xg is not None:
+            with _lock:
+                _TORE[str(match["id"])] = {"x_goals": xg, "match": {k: match.get(k) for k in
+                                           ("id", "home", "away", "league", "kickoff", "kickoff_ts")}}
+    except Exception:
+        pass
     if len(ph) < 5 or len(pa) < 5:
         return None
     xh = _features(ph, pa, True, False, 1, ctx)
@@ -215,6 +235,98 @@ def merke(match, hist_home, hist_away):
     with _lock:
         _MU[str(match["id"])] = r
     return r
+
+
+def x_goals(ph, pa):
+    """Erwartete Tore wie im Training (netz.parquet): (Heim für + Gast gegen)/2 + (Gast für + Heim gegen)/2,
+    je Mittel der letzten 10 Spiele (mind. 6 mit Toren)."""
+    hf, ha = _mean_fa(ph, "goals", 10)
+    af, aa = _mean_fa(pa, "goals", 10)
+    if hf is None or af is None:
+        return None
+    return (hf + aa) / 2 + (af + ha) / 2
+
+
+def tore_jugend(m, bl_liga=""):
+    txt = " ".join(str(m.get(k) or "") for k in ("league", "home", "away")) + " " + str(bl_liga or "")
+    return bool(TORE_JUGEND_RE.search(txt.lower()))
+
+
+def tore_fuellen(gemischt=frozenset()):
+    """Nach dem Scan: für Spiele mit erwarteten Toren ≥ TORE_XG_MIN die BL-Torlinie Über 3.5 holen."""
+    import betlabel
+    t0 = time.time()
+    kand = [(mid, r) for mid, r in list(_TORE.items()) if r["x_goals"] >= TORE_XG_MIN]
+    proto = {"spiele_xg": len(_TORE), "xg_hoch": len(kand), "abgefragt": 0, "fehler": 0, "ohne_linie": 0, "quote_raus": 0}
+    try:
+        spiele = betlabel.lade_spiele()
+    except Exception as exc:
+        proto["fehler_liste"] = str(exc)
+        return [], proto
+    jetzt = time.time()
+    auftr = []
+    for mid, r in kand:
+        m = r["match"]
+        if mid in gemischt or (m.get("kickoff_ts") or 0) < jetzt + 300 or tore_jugend(m):
+            continue
+        g, swap = betlabel.finde_spiel(spiele, m["home"], m["away"], m.get("kickoff_ts"))
+        if not g or tore_jugend(m, g.get("L")):
+            continue
+        auftr.append((mid, r, g, swap))
+
+    def eins(a):
+        try:
+            return a, betlabel.tore_leitern(a[2]["I"])
+        except Exception:
+            return a, None
+
+    tipps = []
+    with ThreadPoolExecutor(8) as ex:
+        for (mid, r, g, swap), lad in ex.map(eins, auftr):
+            proto["abgefragt"] += 1
+            if lad is None:
+                proto["fehler"] += 1
+                continue
+            q = (lad.get("goals") or {}).get(f"o{TORE_LINIE:g}")
+            if not q:
+                proto["ohne_linie"] += 1
+                continue
+            if not (TORE_Q_MIN <= q <= TORE_Q_MAX):
+                proto["quote_raus"] += 1
+                continue
+            m = r["match"]
+            tipps.append(dict(match_id=mid, bl_id=g["I"], swap=bool(swap), linie=TORE_LINIE, richtung="über", q=q,
+                              x_goals=round(r["x_goals"], 2), spiel=f"{m['home']} – {m['away']}", liga=m.get("league"),
+                              kickoff_ts=m.get("kickoff_ts"), kickoff=m.get("kickoff")))
+    tipps.sort(key=lambda t: t.get("kickoff_ts") or 0)
+    proto["tipps"] = len(tipps)
+    proto["sekunden"] = round(time.time() - t0, 1)
+    return tipps, proto
+
+
+def tore_block(tipps, esc=lambda s: s, max_zeilen=15):
+    import datetime as _dt
+    from zoneinfo import ZoneInfo
+    B = ZoneInfo("Europe/Berlin")
+    kopf = "🟥 <b>TORE ÜBER 3.5 · torreiche Teams</b> · NEU, Test-Phase"
+    if not tipps:
+        return kopf + "\n<i>gerade kein Spiel mit erwarteten Toren ≥ 3,75 und Über-3.5-Quote 1,30–2,10</i>"
+    zeige = tipps
+    if len(tipps) > max_zeilen:     # nur Anzeige kürzen: die torreichsten, wieder nach Anstoß
+        zeige = sorted(sorted(tipps, key=lambda t: -t["x_goals"])[:max_zeilen], key=lambda t: t.get("kickoff_ts") or 0)
+    z = [kopf, f"<i>{len(tipps)} Tipps · erwartete Tore aus den letzten 10 Spielen beider Teams ≥ 3,75 · ohne Jugend"
+               + (f" · gezeigt die {max_zeilen} torreichsten" if len(zeige) < len(tipps) else "") + "</i>", ""]
+    for t in zeige:
+        ko = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%H:%M") if t.get("kickoff_ts") else "?"
+        z.append(f"{ko} {esc(t['spiel'])} <i>({esc(t.get('liga') or '')})</i>")
+        z.append(f"   Tore über 3.5 @{t['q']:.2f} · erwartet {t['x_goals']:.2f} Tore")
+    if len(zeige) >= 2:
+        z.append("")
+        z.append("<b>2er nach Anstoß</b>")
+        for i in range(len(zeige) // 2):
+            a, b = zeige[2 * i], zeige[2 * i + 1]
+            z.append(f"{i + 1}) {esc(a['spiel'].split(' – ')[0])} + {esc(b['spiel'].split(' – ')[0])} @{a['q'] * b['q']:.2f}")
+    return "\n".join(z)
 
 
 def _team10(hist):
@@ -450,4 +562,12 @@ def selbsttest():
         print("Karten: Linien-Wahrscheinlichkeit falsch"); ok = False
     if abs(p_linie(r, "heim", "über", 1.5, swap=True) - p_linie(r, "gast", "über", 1.5)) > 1e-9:
         print("Karten: Seitentausch falsch"); ok = False
+    # Tore über 3.5: erwartete Tore wie im Training
+    ph = [(True, {"goals": (3, 1)})] * 10
+    pa = [(False, {"goals": (2, 2)})] * 10
+    if x_goals(ph, pa) is None or abs(x_goals(ph, pa) - ((3 + 2) / 2 + (2 + 1) / 2)) > 1e-9 or x_goals(ph[:5], pa) is not None:
+        print("Tore 3.5: erwartete Tore falsch"); ok = False
+    if not tore_jugend({"league": "Germany Bundesliga U19"}) or tore_jugend({"league": "England Premier League", "home": "Brentford", "away": "Liverpool"}) \
+            or not tore_jugend({"league": "Norway Division 2", "home": "Brann II", "away": "Fana"}):
+        print("Tore 3.5: Jugend-Erkennung falsch"); ok = False
     return ok
