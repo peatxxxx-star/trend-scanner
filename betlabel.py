@@ -649,6 +649,17 @@ def _leitern_kompakt(val, basis):
     return out
 
 
+def karten_leitern(gid):
+    """26.10.: Gelbe-Karten-Linien (ganzes Spiel) eines BL-Spiels für das Karten-Modell:
+    {"yellowcards": {"o3.5": q, "u3.5": q, ...}, "yellowcards_heim": {...}, "yellowcards_gast": {...}}
+    in BL-Orientierung (heim = O1). Leer, wenn BL keine Karten anbietet. 1–2 Abfragen."""
+    haupt = _spiel_detail(gid)
+    for sg in haupt.get("SG") or []:
+        if (sg.get("TG") or "").strip() == "Gelbe Karten" and (sg.get("PN") or "").strip() == "":
+            return _leitern_kompakt(_spiel_detail(sg.get("CI") or sg.get("I")), "yellowcards")
+    return {}
+
+
 def archiv_sammeln(scanner_spiele, pfad, deadline_ts, pause=0.0, max_fehler=25, threads=16):
     """scanner_spiele: [{id, home, away, kickoff_ts}] (BetsAPI) für die Zuordnung."""
     import gzip as _gz

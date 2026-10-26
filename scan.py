@@ -3590,6 +3590,12 @@ def fmt_play(s) -> str:
 # Abruf einmal je Lauf direkt vor dem Bericht, nur für die ✅-Tipps, deren
 # Spiel noch nicht läuft. Anzeige: 💶 BL <Quote> ✅/❌ gegen "spielbar ab".
 BETLABEL_QUOTES = os.environ.get("BETLABEL", "1") != "0"
+# 26.10. (Lucio: "nur noch das spielen und den Rest jetzt erstmal so lange rausnehmen,
+# bis wir genau nach demselben Muster auch die anderen Märkte analysiert haben"):
+# Telegram zeigt nur noch den Karten-Block (karten.py). Serien-Signale, BL-Liste und
+# Ping werden weiter berechnet und protokolliert, aber nicht mehr verschickt.
+KARTEN_AKTIV = os.environ.get("KARTEN", "1") != "0"
+SERIEN_ANZEIGE = os.environ.get("SERIEN_ANZEIGE", "0") == "1"
 _BL = {}
 _BL_STAND = {"zeit": None}
 
@@ -6685,6 +6691,12 @@ def _run():
     # ausgeschlossene Märkte und Einträge alter Gedächtnis-Versionen werfen
     state = {k: v for k, v in state.items() if state_entry_ok(v)}
     matches = fetch_matches_in_window()
+    if KARTEN_AKTIV:
+        try:
+            import karten
+            karten.liga_init(cache, hcache)
+        except Exception as exc:
+            print(f"Karten-Liga-Schnitte: {type(exc).__name__}: {exc}", flush=True)
     # Anstoß-Reihenfolge: frühe Spiele zuerst. Am API-Limit wird NICHT
     # gewartet (kostet nur GitHub-Minuten) — der Rest wandert in den
     # nächsten Lauf (06.09.: 2-Stunden-Lauf am Sonntagmorgen).
@@ -6710,6 +6722,12 @@ def _run():
         hist_home = fetch_team_history(match["home_id"], cache, hcache)
         hist_away = fetch_team_history(match["away_id"], cache, hcache)
         _zeit_add("historie", time.time() - _t); _t = time.time()
+        if KARTEN_AKTIV:
+            try:
+                import karten
+                karten.merke(match, hist_home, hist_away)
+            except Exception as exc:
+                print(f"  Karten-Modell {match.get('id')}: {type(exc).__name__}: {exc}", flush=True)
         signals = evaluate_match(match, hist_home, hist_away)
         _zeit_add("pruefung", time.time() - _t)
         # Neue Märkte (Einwürfe/Abstöße/Freistöße) laufen getrennt: für sie
@@ -6926,6 +6944,20 @@ def _run():
             print(f"BetLabel-Quoten nicht abrufbar: {exc}", flush=True)
     chunks = assemble_report(buckets, run_label, new_state,
                              deferred_note=(len(deferred), deferred[0]["kickoff"]) if deferred else None)
+    karten_chunks = None
+    if KARTEN_AKTIV:
+        try:
+            import karten
+            _kt, _kp = karten.fuellen(frozenset(str(m["id"]) for m in matches if m.get("_gemischt")))
+            log["karten"] = {"protokoll": _kp, "tipps": _kt}
+            print(f"Karten-Modell: {_kp.get('tipps', 0)} Tipps ({_kp.get('mit_linien', 0)} Spiele mit BL-Linien, "
+                  f"{_kp.get('abgefragt', 0)} abgefragt, {_kp.get('sekunden')} s)", flush=True)
+            karten_chunks = split_message(f"🟨🟨🟨 <b>TREND-SCAN {run_label}</b> 🟨🟨🟨\n\n"
+                                          + karten.block(_kt, now_berlin().strftime("%H:%M"), esc))
+        except Exception as exc:
+            log["karten"] = {"fehler": f"{type(exc).__name__}: {exc}"}
+            print(f"Karten-Modell: {type(exc).__name__}: {exc}", flush=True)
+            karten_chunks = [f"🟨 KARTEN-MODELL: Fehler in diesem Lauf ({type(exc).__name__}) – nächster Lauf versucht es erneut."]
     # --- Team-Märkte (täglich): eigene Nachricht, 🧪 bis zum Preisvergleich ---
     log["team_totals"] = [{"match": m, "signal": t_} for m, t_ in team_hits]
     log["neue_maerkte"] = [{"match": m, "signal": e_} for m, e_ in exo_hits]
@@ -6959,6 +6991,8 @@ def _run():
                 chunks = (chunks or []) + extra
         except Exception as exc:
             print(f"Bonus-Picks übersprungen: {exc}")
+    if KARTEN_AKTIV and not SERIEN_ANZEIGE:
+        chunks = karten_chunks
     # Störungs-Warnung: Wenn die Verfügbarkeits-Prüfung (scores24) flächendeckend
     # ausfällt, fliegen ALLE Signale raus und die Nachricht wäre grundlos leer.
     # Dann kommt stattdessen eine klare Ansage (10.09.: HTTP 406).
@@ -6968,7 +7002,7 @@ def _run():
                 f"Der nächste Lauf holt sie nach.")
         chunks = [hint + "\n\n" + chunks[0]] + chunks[1:]
     fails = _s24_stats["fetch_fail"]
-    if GATE_ENABLED and fails >= 10 and _s24_stats["ok"] == 0:
+    if GATE_ENABLED and fails >= 10 and _s24_stats["ok"] == 0 and SERIEN_ANZEIGE:
         codes = ", ".join(f"{k[5:]}x{v}" for k, v in sorted(_s24_stats.items())
                           if k.startswith("http_"))
         warn = ("🚨 <b>scores24 nicht erreichbar</b>\n"
@@ -6989,6 +7023,7 @@ def _run():
                 print(c)
     else:
         print("Keine Treffer in diesem Lauf")
+    (RUNS_DIR / f"{now:%Y-%m-%d_%H%M}.json").write_text(json.dumps(log, ensure_ascii=False, indent=1))
     # Gedächtnis erst ganz am Ende sichern — ein abgebrochener Lauf lässt den
     # alten Stand unangetastet (sonst wäre beim nächsten Mal alles "neu").
     # Kam die Nachricht nicht an, bleibt der alte Stand ebenfalls stehen,
@@ -7010,7 +7045,7 @@ def _run():
     # 15.10. (Lucio: "Ja und danach B"): Zweitprüfung durch den Agenten für
     # alle Tipps der BetLabel-Liste ohne heutiges Urteil — nach dem Bericht,
     # damit die Liste nie wartet. Neue Urteile kommen als eigene Nachricht.
-    if BETLABEL_QUOTES and _BL:
+    if BETLABEL_QUOTES and _BL and SERIEN_ANZEIGE:
         try:
             ping = bl_ping(day_list(buckets, new_state))
             log["ping"] = bool(ping)
@@ -8498,6 +8533,13 @@ def selftest():
             "kickoff": "Sa 20:00", "kickoff_ts": int(time.time()) + 7200}
     if not youth_or_reserve(_m41) or youth_or_reserve({"home": "Orense", "away": "Delfin SC", "league": "Ecuador LigaPro"}):
         print("FEHLER Fall 41: Jugend/Reserve-Erkennung für die BL-Liste"); ok = False
+    # Fall 43 (26.10.): Karten-Modell lädt und rechnet plausibel
+    try:
+        import karten
+        if not karten.selbsttest():
+            print("FEHLER Fall 43: Karten-Modell"); ok = False
+    except Exception as exc:
+        print("FEHLER Fall 43: Karten-Modell", exc); ok = False
     # Fall 42 (25.10.): Team-Tipps nur mit H2H 5/5, Gesamtmärkte unberührt
     _alt42 = dict(_H2H)
     _H2H.clear()
