@@ -6952,8 +6952,28 @@ def _run():
             log["karten"] = {"protokoll": _kp, "tipps": _kt}
             print(f"Karten-Modell: {_kp.get('tipps', 0)} Tipps ({_kp.get('mit_linien', 0)} Spiele mit BL-Linien, "
                   f"{_kp.get('abgefragt', 0)} abgefragt, {_kp.get('sekunden')} s)", flush=True)
-            karten_chunks = split_message(f"🟨🟨🟨 <b>TREND-SCAN {run_label}</b> 🟨🟨🟨\n\n"
-                                          + karten.block(_kt, now_berlin().strftime("%H:%M"), esc))
+            _txt = f"🟨🟨🟨 <b>TREND-SCAN {run_label}</b> 🟨🟨🟨\n\n" + karten.block(_kt, now_berlin().strftime("%H:%M"), esc)
+            # 26.10. (Lucio): Ecken gesamt über aus der Serien-Logik bleibt (Papier) – einziger
+            # Serien-Markt mit Vorteil: BL-Liste 9 Tipps +20 %, gespielt 10 Beine 9/10 (+37 %);
+            # alle Ecken-über-Signale ohne Quoten-Filter dagegen −8 %. Nur Tipps mit Quote ≥ "ab".
+            try:
+                _ek = [(m, s_, q, mn) for m, s_, q, mn, _k, _sym, _kz in bl_eintraege(day_list(buckets, new_state))
+                       if s_.get("metric_key") == "corners" and s_.get("direction") == "über"
+                       and (m.get("kickoff_ts") or 0) > time.time()]
+                _ek.sort(key=lambda x: x[0].get("kickoff_ts") or 0)
+                log["ecken_serie"] = [{"match_id": m.get("id"), "spiel": f"{m['home']} – {m['away']}", "liga": m.get("league"),
+                                       "kickoff_ts": m.get("kickoff_ts"), "linie": s_.get("line"), "q": q, "ab": mn} for m, s_, q, mn in _ek]
+                _z = ["", "🟦 <b>ECKEN GESAMT ÜBER</b> · Serien-Logik · Papier-Phase"]
+                if _ek:
+                    for m, s_, q, mn in _ek:
+                        _z.append(f"{esc(m.get('kickoff', ''))} {esc(m['home'])} – {esc(m['away'])} <i>({esc(m.get('league', ''))})</i>")
+                        _z.append(f"   Ecken über {s_.get('line')} @{q:.2f} · ab {mn:.2f}")
+                else:
+                    _z.append("<i>gerade kein Ecken-über-Tipp mit Quote über „ab“</i>")
+                _txt += "\n" + "\n".join(_z)
+            except Exception as exc:
+                print(f"Ecken-Block: {type(exc).__name__}: {exc}", flush=True)
+            karten_chunks = split_message(_txt)
         except Exception as exc:
             log["karten"] = {"fehler": f"{type(exc).__name__}: {exc}"}
             print(f"Karten-Modell: {type(exc).__name__}: {exc}", flush=True)
