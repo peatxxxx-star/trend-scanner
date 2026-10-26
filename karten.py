@@ -247,9 +247,16 @@ def x_goals(ph, pa):
     return (hf + aa) / 2 + (af + ha) / 2
 
 
+TORE_RESERVE_RE = re.compile(r"\s(2|3|b|c|ii|iii)$")      # Teamname-Endung: Sogndal 2, Celtic B, Brann II
+
+
 def tore_jugend(m, bl_liga=""):
+    """Jugend/Reserve/II/Frauen (Liga- oder Teamname). 26.10.: auch Reserve-Teams wie „Brann 2“ –
+    Backtest ohne sie unverändert +9,5 % (326 Tipps)."""
     txt = " ".join(str(m.get(k) or "") for k in ("league", "home", "away")) + " " + str(bl_liga or "")
-    return bool(TORE_JUGEND_RE.search(txt.lower()))
+    if TORE_JUGEND_RE.search(txt.lower()):
+        return True
+    return any(TORE_RESERVE_RE.search(str(m.get(k) or "").strip().lower()) for k in ("home", "away"))
 
 
 def tore_fuellen(gemischt=frozenset()):
@@ -568,6 +575,8 @@ def selbsttest():
     if x_goals(ph, pa) is None or abs(x_goals(ph, pa) - ((3 + 2) / 2 + (2 + 1) / 2)) > 1e-9 or x_goals(ph[:5], pa) is not None:
         print("Tore 3.5: erwartete Tore falsch"); ok = False
     if not tore_jugend({"league": "Germany Bundesliga U19"}) or tore_jugend({"league": "England Premier League", "home": "Brentford", "away": "Liverpool"}) \
-            or not tore_jugend({"league": "Norway Division 2", "home": "Brann II", "away": "Fana"}):
+            or not tore_jugend({"league": "Norway Division 2", "home": "Brann II", "away": "Fana"}) \
+            or not tore_jugend({"league": "Norway Division 3 Group 3", "home": "Sogndal 2", "away": "Brann 2"}) \
+            or tore_jugend({"league": "Norway Division 2", "home": "Fana", "away": "Brattvag"}):
         print("Tore 3.5: Jugend-Erkennung falsch"); ok = False
     return ok
