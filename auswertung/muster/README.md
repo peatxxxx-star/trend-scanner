@@ -8,3 +8,8 @@ Reihenfolge (im Ordner ausführen, Pfade in den Skripten anpassen):
 
 ## Karten-Modell (26.10.)
 5. `karten_ev.py` → `karten_feat.py` (Merkmale nur aus früheren Spielen: Liga-Schnitt, Team für/gegen, Schiri-Schnitt geschrumpft, Fouls, Pause, Europacup) → `karten_model.py` (Poisson-Regression, trainiert auf Spielen vor 15.10.) → `karten_test.py` (gegen alle BL-Kartenlinien 15.–25.10., je Spiel 1 Tipp)
+
+## Spinnennetz (26.10.)
+6. `netz_feat.py` – je Spiel und Team Mittel für/gegen von Ecken, Gelben, Toren, SaT, Torschüssen, Fouls, Abseits, HZ-Ecken über 3/5/10/15 Spiele (gesamt) und 5/10 (Rolle), nur Spiele vor Anstoß → `netz.parquet`
+7. `netz_stufe1.py` – Zusatzwert jedes Merkmals über das Basismodell (Teamschnitt im selben Markt + Liga + Heim), Korrelation mit dem Rest bis 30.09. vs. ab 01.10.
+8. `netz_stufe2.py` / `netz_karten.py` – Basis- vs. Spinnennetz-Modell (Poisson, Training vor 15.10.) gegen BL-Linien 15.–25.10.
