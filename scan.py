@@ -6973,6 +6973,26 @@ def _run():
                 _txt += "\n" + "\n".join(_z)
             except Exception as exc:
                 print(f"Ecken-Block: {type(exc).__name__}: {exc}", flush=True)
+            # 26.10. abends (Lucio: "Alle gelben Märkte auch schon mit in den Scan"): Tore über 2.5
+            # aus der Serien-Logik, nur BL-Liste ohne Jugend/Reserve (seit 14.10.: 35 Tipps, 69 %, +9 %).
+            try:
+                _to = [(m, s_, q, mn) for m, s_, q, mn, _k, _sym, _kz in bl_eintraege(day_list(buckets, new_state))
+                       if s_.get("metric_key") == "goals" and s_.get("direction") == "über"
+                       and float(s_.get("line") or 0) == 2.5 and not youth_or_reserve(m)
+                       and (m.get("kickoff_ts") or 0) > time.time()]
+                _to.sort(key=lambda x: x[0].get("kickoff_ts") or 0)
+                log["tore_serie"] = [{"match_id": m.get("id"), "spiel": f"{m['home']} – {m['away']}", "liga": m.get("league"),
+                                      "kickoff_ts": m.get("kickoff_ts"), "linie": 2.5, "q": q, "ab": mn} for m, s_, q, mn in _to]
+                _z = ["", "🟩 <b>TORE ÜBER 2.5</b> · Serien-Logik ohne Jugend · Papier-Phase"]
+                if _to:
+                    for m, s_, q, mn in _to:
+                        _z.append(f"{esc(m.get('kickoff', ''))} {esc(m['home'])} – {esc(m['away'])} <i>({esc(m.get('league', ''))})</i>")
+                        _z.append(f"   Tore über 2.5 @{q:.2f} · ab {mn:.2f}")
+                else:
+                    _z.append("<i>gerade kein Tore-über-2.5-Tipp mit Quote über „ab“</i>")
+                _txt += "\n" + "\n".join(_z)
+            except Exception as exc:
+                print(f"Tore-Block: {type(exc).__name__}: {exc}", flush=True)
             karten_chunks = split_message(_txt)
         except Exception as exc:
             log["karten"] = {"fehler": f"{type(exc).__name__}: {exc}"}
