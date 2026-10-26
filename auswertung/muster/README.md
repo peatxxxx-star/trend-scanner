@@ -25,3 +25,9 @@ Reihenfolge (im Ordner ausführen, Pfade in den Skripten anpassen):
 14. `ecken_stufe1.py` – Zusatzwert je Merkmal + Quintile
 15. `ecken_bl.py` – alle BL-Eckenlinien inkl. ganzzahliger Linien (Push)
 16. `ecken_model.py <varianten> gbr` – Modelle gegen alle 9 Eckenmärkte (NB-Verteilung, Push berücksichtigt)
+
+## Tore (26.10. abends)
+17. `tore_feat.py` – Stärke-Ratings (Angriff/Abwehr, gegnerbereinigt, chronologisch) für Tore, SaT, Schüsse, Ecken + Merkmale aus ecken_voll
+18. `tore_model.py <varianten> gbr` – Basis / Rating / Rating+xG-Ersatz / alles gegen alle BL-Torlinien (x.5)
+19. `tore_tiefer.py` – Modell-vs-BL-Abweichung, Liga-Trend, Länder-Stabilität, Serie × Modell × Trend, Wochentag/Uhrzeit
+20. `serien_tore.py`, `serien_ecken.py` – Serien-Logik mit BL-Quote seit 14.10. (alle Signale / BL-Liste)
