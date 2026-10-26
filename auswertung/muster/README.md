@@ -45,3 +45,4 @@ Reihenfolge (im Ordner ausführen, Pfade in den Skripten anpassen):
 28. `schrumpf.py` – BL-Median je Spiel (Linie bei 50 %) gegen Team-Historie: unterschätzt BL Extreme? (Ecken/Tore/Gelb)
 29. `halbzeit.py` – Ecken-Anteil 1. HZ: BL (fast fest 47 %) vs. Historie
 30. `verschiebung.py` – BL-Leiter um Historie+Liga-Korrektur verschieben, Schätzung/Test über Kreuz
+31. `favorit.py` – Team-Ecken nach Siegchance (BL-1X2): Außenseiter unter / Favorit über bei klaren Favoriten
