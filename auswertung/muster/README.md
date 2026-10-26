@@ -35,3 +35,10 @@ Reihenfolge (im Ordner ausführen, Pfade in den Skripten anpassen):
 ## Abseits (26.10. abends)
 21. `abseits.py` – Abseits gesamt/Heim/Gast gegen BL (Basis/Netz/+Wettbewerb, Boosting/GLM)
 22. `markt_live.py test <metrik>` – generischer Test eines Statistik-Markts (z. B. on_target) mit Live-Merkmalen gegen BL
+
+## Massensuche + Quotenbewegung + bet365 (26.10. abends)
+23. `bulk_feat.py` – jede spielbare BL-Linie (Quote 1,30–2,10) in Ecken/Tore/Abseits/Gelb mit ~26 Vorab-Merkmalen (BL-Preis, Team-Historie, Modellabweichung, Zeit, Wettbewerb) → `bulk.parquet`
+24. `bulk_search.py [min_spiele] [perm]` – alle Einzel- und Paar-Bedingungen je Marktgruppe (173.000 Segmente), Suche 15.–20., Gegenprobe 21.–25.; mit `perm` = Zufallsprobe (Treffer der Gegenprobe gemischt innerhalb Linie × BL-Wahrscheinlichkeit). Ergebnis: echt 1.216 Überlebende, Zufall 925–1.235 → nichts über Zufall.
+25. `bewegung.py` – BL-Quote Archiv (Vormittag) / erste / letzte stündliche Quote vor Anstoß; ROI je Zeitpunkt
+26. `b365_vergleich.py` – BL vs. bet365 (BetsAPI-Quotenhistorie aus den Läufen) auf exakt gleicher x.5-Torlinie
+27. `b365_alle.py`, `b365_asian.py` – dasselbe für Viertel-/Ganzzahl-Linien (Poisson-Umrechnung bzw. konvertierungsfrei als BL-Kombiwette)
