@@ -17,6 +17,7 @@ B = ZoneInfo("Europe/Berlin")
 AB = sys.argv[1] if len(sys.argv) > 1 else "2026-10-26"
 
 tipps = {}
+erste_tipps = {}   # 27.10.: erste Anzeige je Spiel (Sicht „alle angezeigten Tipps“)
 gesehen_ts = {}   # Tipp-Schlüssel -> Zeit des Laufs, in dem er zuletzt stand
 laeufe = []       # Laufzeiten mit diesem Block
 erst_q = {}          # erste angezeigte Quote je Spiel+Tipp (Quotenbewegung bis Anstoß)
@@ -40,6 +41,7 @@ for f in sorted(glob.glob(str(REPO / "runs" / "2026-*_*.json"))):
         if lauf_ts and lauf_ts > ko:
             continue
         tipps[t["match_id"]] = t          # späterer Lauf überschreibt früheren
+        erste_tipps.setdefault(t["match_id"], t)
         gesehen_ts[t["match_id"]] = lauf_ts
         erst_q.setdefault((t["match_id"], "tot", t["richtung"], t["linie"]), t["q"])
 
@@ -113,3 +115,23 @@ if bew:
           f"(gefallen {sum(1 for b in bew if b < 0)}, gleich {sum(1 for b in bew if b == 0)}, gestiegen {sum(1 for b in bew if b > 0)})")
 if fehlt:
     print("\nOhne Ergebnis (Ergebnis-Abruf):", ",".join(fehlt))
+
+# 27.10. (Lucio): zweite Sicht – jeder Tipp, der irgendwann im Block stand, zur Quote der ERSTEN Anzeige
+# (wer früh spielt, setzt genau diesen Tipp). Nur Regeländerungen (Jugend/Reserve, Kontinentalcup) fliegen raus.
+import sys as _sys
+_sys.path.insert(0, str(REPO))
+import karten as _k
+_z = []
+for _key, _t in erste_tipps.items():
+    if not (not _k.tore_jugend({"league": _t.get("liga"), "home": _t["spiel"].split(" – ")[0], "away": _t["spiel"].split(" – ")[-1]}) and not _k.kontinental({"league": _t.get("liga")})):
+        continue
+    _r = (lambda e: (None if (e is None or wert(_t, e) is None) else (wert(_t, e) > _t["linie"])))(erg.get(str(_t["match_id"])))
+    if _r is None:
+        continue
+    _z.append((_t, _r))
+if _z:
+    _n = len(_z); _g = sum(1 for _, h in _z if h)
+    _roi = sum((_t["q"] if h else 0) - 1 for _t, h in _z) / _n
+    print(f"\nALLE ANGEZEIGTEN TIPPS (erste Anzeige, Quote der ersten Anzeige): {_n} Tipps, {_g} Treffer ({_g / _n:.0%}), "
+          f"Ø Quote {sum(_t['q'] for _t, _ in _z) / _n:.2f}, ROI {_roi:+.1%}")
+
