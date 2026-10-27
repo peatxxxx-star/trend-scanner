@@ -17,6 +17,8 @@ B = ZoneInfo("Europe/Berlin")
 AB = sys.argv[1] if len(sys.argv) > 1 else "2026-10-26"
 
 tipps = {}
+gesehen_ts = {}   # Tipp-Schlüssel -> Zeit des Laufs, in dem er zuletzt stand
+laeufe = []       # Laufzeiten mit diesem Block
 erst_q = {}          # erste angezeigte Quote je Spiel+Tipp (Quotenbewegung bis Anstoß)
 for f in sorted(glob.glob(str(REPO / "runs" / "2026-*_*.json"))):
     name = Path(f).name
@@ -27,16 +29,27 @@ for f in sorted(glob.glob(str(REPO / "runs" / "2026-*_*.json"))):
     except Exception:
         continue
     lauf = d.get("run_utc", "")
+    try:
+        lauf_ts = datetime.fromisoformat(lauf).timestamp()
+    except Exception:
+        lauf_ts = 0
+    if isinstance(d.get("karten"), dict) and "tipps" in d["karten"]:
+        laeufe.append(lauf_ts)
     for t in (d.get("karten") or {}).get("tipps") or []:
         ko = t.get("kickoff_ts") or 0
-        try:
-            lauf_ts = datetime.fromisoformat(lauf).timestamp()
-        except Exception:
-            lauf_ts = 0
         if lauf_ts and lauf_ts > ko:
             continue
         tipps[t["match_id"]] = t          # späterer Lauf überschreibt früheren
+        gesehen_ts[t["match_id"]] = lauf_ts
         erst_q.setdefault((t["match_id"], t["seite"], t["richtung"], t["linie"]), t["q"])
+
+# 27.10.: Tipps, die vor Anstoß aus dem Block gefallen sind (z. B. Regel verschärft, Vorteil weg),
+# zählen nicht – maßgeblich ist der letzte Lauf vor Anstoß.
+for _k in list(tipps):
+    _ko = tipps[_k].get("kickoff_ts") or 0
+    _letzter = max((l for l in laeufe if l <= _ko), default=0)
+    if gesehen_ts.get(_k, 0) < _letzter:
+        del tipps[_k]
 
 erg = {}
 for f in glob.glob(str(REPO / "runs" / "archiv" / "bl_*.json.gz")):

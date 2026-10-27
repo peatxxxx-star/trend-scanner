@@ -15,6 +15,8 @@ B = ZoneInfo("Europe/Berlin")
 AB = sys.argv[1] if len(sys.argv) > 1 else "2026-10-26"
 
 tipps = {}
+gesehen_ts = {}   # Tipp-Schlüssel -> Zeit des Laufs, in dem er zuletzt stand
+laeufe = []       # Laufzeiten mit diesem Block
 for f in sorted(glob.glob(str(REPO / "runs" / "2026-*_*.json"))):
     name = Path(f).name
     if any(x in name for x in ("prewarm", "ergeb", "dump", "h2h", "archiv")) or name[:10] < AB:
@@ -24,10 +26,21 @@ for f in sorted(glob.glob(str(REPO / "runs" / "2026-*_*.json"))):
         lauf_ts = datetime.fromisoformat(d.get("run_utc", "")).timestamp()
     except Exception:
         continue
+    if isinstance(d.get("ecken_fav"), dict) and "tipps" in d["ecken_fav"]:
+        laeufe.append(lauf_ts)
     for t in (d.get("ecken_fav") or {}).get("tipps") or []:
         if lauf_ts > (t.get("kickoff_ts") or 0):
             continue
         tipps[str(t["bl_id"])] = t
+        gesehen_ts[str(t["bl_id"])] = lauf_ts
+
+# 27.10.: Tipps, die vor Anstoß aus dem Block gefallen sind (z. B. Regel verschärft, Vorteil weg),
+# zählen nicht – maßgeblich ist der letzte Lauf vor Anstoß.
+for _k in list(tipps):
+    _ko = tipps[_k].get("kickoff_ts") or 0
+    _letzter = max((l for l in laeufe if l <= _ko), default=0)
+    if gesehen_ts.get(_k, 0) < _letzter:
+        del tipps[_k]
 
 erg_bl, swap_bl, erg_ev = {}, {}, {}
 for f in glob.glob(str(REPO / "runs" / "archiv" / "bl_*.json.gz")):
