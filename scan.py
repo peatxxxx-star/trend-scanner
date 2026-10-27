@@ -6601,6 +6601,36 @@ def _run():
         pfad.write_text(json.dumps(out, ensure_ascii=False))
         print("Archiv-Teams:", len(out), "von", len(evs) + len(out))
         return
+    if "Quoten-Test:" in _msg:
+        # 27.10. (Lucio): Liefert BetsAPI Quoten auch für alte, beendete Spiele? Event-IDs hinter
+        # "Quoten-Test:". Schreibt runs/quoten_test_<Zeit>.json (je Markt: Anzahl Einträge, erste/letzte
+        # Zeit, letzter Stand vor Anstoß). Ändert nichts, ~1 Abfrage je ID.
+        _ids = [x.strip() for x in _msg.split("Quoten-Test:", 1)[1].splitlines()[0].split(",") if x.strip()]
+        _out = {}
+        for _eid in _ids:
+            try:
+                v = api_get("/v1/event/view", event_id=_eid)
+                ev = (v.get("results") or [{}])[0]
+                ko = int(ev.get("time") or 0)
+                o = api_get("/v2/event/odds", event_id=_eid)
+                res = (o.get("results") or {}).get("odds") or {}
+                mk = {}
+                for k, lst in res.items():
+                    lst = lst or []
+                    vor = [x for x in lst if int(x.get("add_time") or 0) <= ko]
+                    letzt = max(vor, key=lambda x: int(x.get("add_time") or 0)) if vor else None
+                    mk[k] = {"eintraege": len(lst), "vor_anstoss": len(vor),
+                             "erste": min((int(x.get("add_time") or 0) for x in lst), default=None),
+                             "letzte": max((int(x.get("add_time") or 0) for x in lst), default=None),
+                             "letzter_vor_anstoss": {kk: vv for kk, vv in (letzt or {}).items() if kk != "id"}}
+                _out[_eid] = {"spiel": f"{(ev.get('home') or {}).get('name')} – {(ev.get('away') or {}).get('name')}",
+                              "liga": (ev.get("league") or {}).get("name"), "anstoss": ko,
+                              "status": ev.get("time_status"), "erfolg": o.get("success"), "maerkte": mk}
+            except Exception as exc:
+                _out[_eid] = {"fehler": f"{type(exc).__name__}: {exc}"}
+        (RUNS_DIR / f"quoten_test_{datetime.now():%Y-%m-%d_%H%M}.json").write_text(json.dumps(_out, ensure_ascii=False, indent=1))
+        print("Quoten-Test:", {k: (v.get("fehler") or {m: x["vor_anstoss"] for m, x in v.get("maerkte", {}).items()}) for k, v in _out.items()})
+        return
     if "H2H-Test:" in _msg:
         # 25.10.: Test der H2H-Pflicht für Team-Tipps – Event-IDs hinter "H2H-Test:".
         # Schreibt runs/h2h_test_<Zeit>.json (Rohdaten + Werte je Team), ändert nichts.
