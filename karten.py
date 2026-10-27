@@ -48,6 +48,12 @@ TORE_LINIE = 3.5
 TORE_Q_MIN, TORE_Q_MAX = 1.30, 2.10
 TORE_JUGEND_RE = re.compile(r"u1\d|u2\d|youth|junior|reserve|primavera|juvenil|\bii\b|women|frauen|femen|\(w\)")
 _TORE = {}          # match_id -> {"x_goals", "match"}
+# 27.10. (Lucio: „bei Continental Cups kannst du die Leistung gar nicht aneinander skalieren“): Europa-/
+# Kontinentalcups fliegen aus Tore 3.5 und Außenseiter-Ecken. Backtest 15.–25.10.: Tore 3.5 Kontinentalcup
+# 31 Tipps −11 % (Liga +11 %, nationaler Pokal +24 %); Außenseiter-Ecken Kontinentalcup 26 Tipps +3 % (Liga +25 %).
+# Bewusst eng gefasst – „Championship“ (England, Aruba …) ist eine Liga und bleibt drin.
+KONTINENTAL_RE = re.compile(r"uefa|champions league|europa league|conference league|libertadores|sudamericana|"
+                            r"concacaf|\bafc\b|\bcaf\b|club world cup|recopa|leagues cup")
 
 
 def modell():
@@ -259,6 +265,10 @@ def tore_jugend(m, bl_liga=""):
     return any(TORE_RESERVE_RE.search(str(m.get(k) or "").strip().lower()) for k in ("home", "away"))
 
 
+def kontinental(m, bl_liga=""):
+    return bool(KONTINENTAL_RE.search((str(m.get("league") or "") + " " + str(bl_liga or "")).lower()))
+
+
 def tore_fuellen(gemischt=frozenset()):
     """Nach dem Scan: für Spiele mit erwarteten Toren ≥ TORE_XG_MIN die BL-Torlinie Über 3.5 holen."""
     import betlabel
@@ -274,10 +284,10 @@ def tore_fuellen(gemischt=frozenset()):
     auftr = []
     for mid, r in kand:
         m = r["match"]
-        if mid in gemischt or (m.get("kickoff_ts") or 0) < jetzt + 300 or tore_jugend(m):
+        if mid in gemischt or (m.get("kickoff_ts") or 0) < jetzt + 300 or tore_jugend(m) or kontinental(m):
             continue
         g, swap = betlabel.finde_spiel(spiele, m["home"], m["away"], m.get("kickoff_ts"))
-        if not g or tore_jugend(m, g.get("L")):
+        if not g or tore_jugend(m, g.get("L")) or kontinental(m, g.get("L")):
             continue
         auftr.append((mid, r, g, swap))
 
@@ -351,7 +361,7 @@ def ecken_fuellen(matches, gemischt=frozenset()):
             continue
         gesehen.add(g["I"])
         proto["zugeordnet"] += 1
-        if VIRTUELL_RE.search(str(g.get("L") or "").lower()) or tore_jugend(m, g.get("L")) \
+        if VIRTUELL_RE.search(str(g.get("L") or "").lower()) or tore_jugend(m, g.get("L")) or kontinental(m, g.get("L")) \
                 or tore_jugend({"home": g.get("O1"), "away": g.get("O2")}):
             continue
         p = _p12(g.get("x12") or {})
@@ -687,6 +697,10 @@ def selbsttest():
             or not tore_jugend({"league": "Norway Division 3 Group 3", "home": "Sogndal 2", "away": "Brann 2"}) \
             or tore_jugend({"league": "Norway Division 2", "home": "Fana", "away": "Brattvag"}):
         print("Tore 3.5: Jugend-Erkennung falsch"); ok = False
+    if not kontinental({"league": "AFC Champions League Elite"}) or not kontinental({"league": "UEFA Europa League"}) \
+            or kontinental({"league": "England Championship"}) or kontinental({"league": "Germany DFB Pokal"}) \
+            or kontinental({"league": "Aruba Championship"}):
+        print("Kontinentalcup-Erkennung falsch"); ok = False
     p = _p12({"1": 1.20, "2": 6.0, "3": 13.0})
     if not p or not (0.75 < p[0] < 0.85 and p[1] < 0.1) or _p12({}) is not None:
         print("Außenseiter-Ecken: 1X2 ohne Marge falsch", p); ok = False
