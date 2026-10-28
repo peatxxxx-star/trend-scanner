@@ -13,7 +13,7 @@ gesamt / Heim / Gast fürs ganze Spiel, x.5-Linien, Quote 1,30–2,00, Vorteil
 (Modell-Wahrscheinlichkeit × Quote − 1) > 5 %, je Spiel der Tipp mit dem
 größten Vorteil. Wahrscheinlichkeit = Mittel aus beiden Modellen.
 """
-import json, math, re, time, gzip, glob, threading
+import json, math, os, re, time, gzip, glob, threading
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 
@@ -695,14 +695,58 @@ def _markt(art, t):
     return f"Gelbe Karten {wer} {str(t.get('richtung', '')).capitalize()} {t['linie']:g}"
 
 
-def scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt=None):
-    """Liefert {tag: [(art, [tipp, tipp]) …], …} plus übrige Einzel-Tipps je Tag und Block."""
+SCHEIN_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "state", "scheine.json")
+WETTLOG = os.path.join(os.path.dirname(os.path.abspath(__file__)), "karten_wetten.csv")
+_STOP = {"city", "town", "united", "sporting", "real", "club", "athletic", "atletico", "deportivo", "rangers",
+         "sport", "calcio", "football", "futbol", "united", "borussia", "olympique", "dynamo", "dinamo", "racing"}
+
+
+def _tok(s):
+    import unicodedata
+    s = unicodedata.normalize("NFKD", str(s or "")).encode("ascii", "ignore").decode().lower()
+    return {w for w in re.findall(r"[a-z0-9]+", s) if len(w) >= 4 and w not in _STOP}
+
+
+def gespielt_laden(tage, pfad=None):
+    """28.10.: echte Scheine aus dem Wettlog, deren Spiele an einem der Tage (Berlin, YYYY-MM-DD) liegen."""
+    import csv
+    pfad = pfad or WETTLOG
+    out = {}
+    try:
+        for r in csv.DictReader(open(pfad, encoding="utf-8")):
+            if str(r.get("anstoss", ""))[:10] in tage or r.get("datum") in tage:
+                out.setdefault(r["schein"], []).append(r)
+    except Exception:
+        pass
+    return out
+
+
+def _bein_passt(t, r):
+    import datetime as _dt
+    from zoneinfo import ZoneInfo
+    if r.get("match_id") and str(r["match_id"]) == str(t.get("match_id")):
+        return True
+    ko = _dt.datetime.fromtimestamp(t.get("kickoff_ts") or 0, ZoneInfo("Europe/Berlin")).strftime("%Y-%m-%d %H:%M")
+    if str(r.get("anstoss", ""))[:16] != ko:
+        return False
+    return bool(_tok(t.get("spiel")) & _tok(r.get("spiel")))
+
+
+def scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt=None, state_pfad=None, log_pfad=None, speichern=True):
+    """28.10.: Scheine mit Gedächtnis. Liefert {tag: (scheine, ohne_partner, gespielt)}.
+    - gespielt: echte Scheine aus karten_wetten.csv; deren Spiele kommen in keinen neuen Schein.
+    - eingefroren: ein einmal gezeigter Schein behält Nummer und Spiele, bis das erste Spiel anfängt;
+      fällt ein Tipp vor Anstoß aus dem Block oder wird eines der Spiele gespielt, löst er sich auf.
+    - neue Tipps werden je Block in Anstoß-Reihenfolge zu neuen Scheinen mit neuen Nummern."""
     import datetime as _dt
     from zoneinfo import ZoneInfo
     B = ZoneInfo("Europe/Berlin")
     jetzt = jetzt or time.time()
+    state_pfad = state_pfad or SCHEIN_STATE
+    tag_von = lambda t: _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%Y-%m-%d")
+    heute = _dt.datetime.fromtimestamp(jetzt, B).strftime("%Y-%m-%d")
     quellen = {"ecken": ecken_tipps or [], "tore": tore_tipps or [], "karten": karten_tipps or []}
-    vergeben, je = set(), {}
+    pool, vergeben = {}, set()
     for art in SCHEIN_PRIO:
         for t in sorted(quellen[art], key=lambda t: t.get("kickoff_ts") or 0):
             if (t.get("kickoff_ts") or 0) < jetzt + 120:
@@ -711,38 +755,78 @@ def scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt=None):
             if key in vergeben:
                 continue
             vergeben.add(key)
-            tag = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%Y-%m-%d")
-            je.setdefault(tag, {}).setdefault(art, []).append(t)
-    out = {}
-    for tag in sorted(je):
-        sch, rest = [], []
+            pool[key] = (art, t)
+    tage = sorted({tag_von(t) for _, t in pool.values()} | {heute})
+    gesp = gespielt_laden(set(tage), log_pfad)
+    beine = [r for rs in gesp.values() for r in rs]
+    gespielt_keys = {k for k, (_, t) in pool.items() if any(_bein_passt(t, r) for r in beine)}
+    try:
+        st = json.load(open(state_pfad, encoding="utf-8"))
+    except Exception:
+        st = {}
+    st = {tg: v for tg, v in st.items() if tg >= heute}
+    benutzt, out = set(gespielt_keys), {}
+    for tg in tage:
+        alt = st.get(tg, {"nr": 0, "scheine": []})
+        nr, sch = alt.get("nr", 0), []
+        for s in alt.get("scheine", []):
+            keys = s["keys"]
+            if any(k not in pool or k in benutzt or pool[k][0] != s["art"] for k in keys):
+                continue                                    # Tipp weg / gespielt / angefangen → auflösen
+            sch.append({"nr": s["nr"], "art": s["art"], "keys": keys})
+            benutzt.update(keys)
+        frei = {}
+        for k, (art, t) in pool.items():
+            if k not in benutzt and tag_von(t) == tg:
+                frei.setdefault(art, []).append(k)
+        rest, neu = [], []
         for art in SCHEIN_PRIO:
-            x = sorted(je[tag].get(art, []), key=lambda t: t.get("kickoff_ts") or 0)
+            x = sorted(frei.get(art, []), key=lambda k: pool[k][1].get("kickoff_ts") or 0)
             for i in range(len(x) // 2):
-                sch.append((art, x[2 * i:2 * i + 2]))
+                neu.append((art, x[2 * i:2 * i + 2]))
+                benutzt.update(x[2 * i:2 * i + 2])
             if len(x) % 2:
-                rest.append((art, x[-1]))
-        sch.sort(key=lambda s: s[1][0].get("kickoff_ts") or 0)
-        out[tag] = (sch, rest)
+                rest.append((art, pool[x[-1]][1]))
+        for art, keys in sorted(neu, key=lambda s: (pool[s[1][0]][1].get("kickoff_ts") or 0, SCHEIN_PRIO.index(s[0]))):
+            nr += 1                                         # neue Nummern in Anstoß-Reihenfolge
+            sch.append({"nr": nr, "art": art, "keys": keys})
+        st[tg] = {"nr": nr, "scheine": sch}
+        sch_out = sorted([(s["nr"], s["art"], [pool[k][1] for k in s["keys"]]) for s in sch],
+                         key=lambda s: (s[2][0].get("kickoff_ts") or 0, s[0]))
+        g_out = [(sid, rs) for sid, rs in gesp.items()
+                 if any(str(r.get("anstoss", ""))[:10] == tg for r in rs) or (tg == heute and any(r.get("datum") == tg for r in rs))]
+        out[tg] = (sch_out, rest, g_out)
+    if speichern:
+        try:
+            os.makedirs(os.path.dirname(state_pfad), exist_ok=True)
+            json.dump(st, open(state_pfad, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        except Exception:
+            pass
     return out
 
 
-def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=None):
+def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=None, tage=None):
     import datetime as _dt
     from zoneinfo import ZoneInfo
     B = ZoneInfo("Europe/Berlin")
     name = {"ecken": "🟧 AUSSENSEITER-ECKEN", "tore": "🟥 TORE 3.5", "karten": "🟨 KARTEN"}
-    tage = scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt)
+    tage = tage if tage is not None else scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt)
     z = ["🎫 <b>SCHEINE</b> · 2er je Block nach Anstoß · 10 € je Schein · kein Spiel doppelt",
-         "<i>Backtest 15.–27.10.: 269 Scheine, 46 % gewonnen, +34 %</i>"]
-    if not any(s for s, _ in tage.values()):
-        return "\n".join(z + ["<i>gerade keine zwei Tipps im selben Block</i>"])
-    nr = 0
-    for tag, (sch, rest) in tage.items():
+         "<i>Nummern bleiben fest · gespielte Spiele (Wettlog) kommen nicht mehr vor · Backtest 15.–27.10.: +34 %</i>"]
+    sym = {"gewonnen": "✅", "verloren": "❌", "offen": "⏳"}
+    for tag, (sch, rest, gesp) in tage.items():
         z.append("")
-        z.append(f"<b>{_dt.date.fromisoformat(tag).strftime('%d.%m.')}</b> · {len(sch)} Scheine")
-        for art, paar in sch:
-            nr += 1
+        z.append(f"<b>{_dt.date.fromisoformat(tag).strftime('%d.%m.')}</b> · {len(sch)} offene Scheine"
+                 + (f" · {len(gesp)} gespielt" if gesp else ""))
+        if gesp:
+            z.append("<b>✅ GESPIELT</b>")
+            for sid, rs in gesp:
+                st_ = rs[0].get("schein_status") or "offen"
+                teile = []
+                for r in rs:
+                    teile.append(f"{esc(str(r.get('spiel', '')).split(' – ')[0])} {sym.get(r.get('tipp_status') or 'offen', '⏳')}")
+                z.append(f"   {sym.get(st_, '⏳')} {esc(sid.replace('-' + tag, ''))} @{float(rs[0].get('gesamtquote') or 0):.2f}: " + " + ".join(teile))
+        for nr, art, paar in sch:
             q = paar[0]["q"] * paar[1]["q"]
             z.append(f"<b>{nr}) {name[art]} @{q:.2f}</b> → {10 * q:.2f} €")
             for t in paar:

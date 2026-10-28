@@ -7050,10 +7050,11 @@ def _run():
             # 28.10. (Lucio: „genau diese Logik … im Scanner drin, 1:1“): fertige 2er-Scheine oben.
             try:
                 _sch = karten.scheine(_kt, _t35, _te)
-                log["scheine"] = {tag: {"scheine": [{"art": a_, "tipps": [str(t_.get("match_id")) for t_ in p_]} for a_, p_ in sc_],
-                                        "ohne_partner": [{"art": a_, "tipp": str(t_.get("match_id"))} for a_, t_ in re_]}
-                                  for tag, (sc_, re_) in _sch.items()}
-                _txt = _kopf + karten.scheine_block(_kt, _t35, _te, esc) + "\n\n" + _txt
+                log["scheine"] = {tag: {"scheine": [{"nr": n_, "art": a_, "tipps": [str(t_.get("match_id")) for t_ in p_]} for n_, a_, p_ in sc_],
+                                        "ohne_partner": [{"art": a_, "tipp": str(t_.get("match_id"))} for a_, t_ in re_],
+                                        "gespielt": [sid for sid, _ in gs_]}
+                                  for tag, (sc_, re_, gs_) in _sch.items()}
+                _txt = _kopf + karten.scheine_block(_kt, _t35, _te, esc, tage=_sch) + "\n\n" + _txt
             except Exception as exc:
                 log["scheine"] = {"fehler": f"{type(exc).__name__}: {exc}"}
                 print(f"Scheine-Block: {type(exc).__name__}: {exc}", flush=True)
