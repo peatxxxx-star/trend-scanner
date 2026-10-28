@@ -427,12 +427,7 @@ def ecken_block(tipps, esc=lambda s: s):
         ko = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%H:%M") if t.get("kickoff_ts") else "?"
         z.append(f"{ko} {esc(t['spiel'])} <i>({esc(t.get('liga') or '')})</i>")
         z.append(f"   Ecken {esc(t['team'])} unter {t['linie']:g} @{t['q']:.2f} · {esc(t['favorit'])} Siegchance {t['p_fav']:.0%}")
-    if len(tipps) >= 2:
-        z.append("")
-        z.append("<b>2er nach Anstoß</b>")
-        for i in range(len(tipps) // 2):
-            a, b = tipps[2 * i], tipps[2 * i + 1]
-            z.append(f"{i + 1}) {esc(a['team'])} + {esc(b['team'])} @{a['q'] * b['q']:.2f}")
+    # 28.10. (Lucio): keine eigenen 2er-Listen mehr – Paare nur noch im 🎫 SCHEINE-Block
     return "\n".join(z)
 
 
@@ -452,12 +447,7 @@ def tore_block(tipps, esc=lambda s: s, max_zeilen=15):
         ko = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%H:%M") if t.get("kickoff_ts") else "?"
         z.append(f"{ko} {esc(t['spiel'])} <i>({esc(t.get('liga') or '')})</i>")
         z.append(f"   Tore über 3.5 @{t['q']:.2f} · erwartet {t['x_goals']:.2f} Tore")
-    if len(zeige) >= 2:
-        z.append("")
-        z.append("<b>2er nach Anstoß</b>")
-        for i in range(len(zeige) // 2):
-            a, b = zeige[2 * i], zeige[2 * i + 1]
-            z.append(f"{i + 1}) {esc(a['spiel'].split(' – ')[0])} + {esc(b['spiel'].split(' – ')[0])} @{a['q'] * b['q']:.2f}")
+    # 28.10. (Lucio): keine eigenen 2er-Listen mehr – Paare nur noch im 🎫 SCHEINE-Block
     return "\n".join(z)
 
 
@@ -671,12 +661,7 @@ def block(tipps, stand=None, esc=lambda s: s):
         wer = "gesamt" if t["seite"] == "tot" else esc(t["team"] or t["seite"])
         z.append(f"{ko} {esc(t['spiel'])} <i>({esc(t.get('liga') or '')})</i>")
         z.append(f"   Gelbe {wer} {t['richtung']} {t['linie']:g} @{t['q']:.2f} · Modell {t['p']:.0%} · Vorteil +{t['edge']:.0%}")
-    if len(tipps) >= 2:
-        z.append("")
-        z.append("<b>2er nach Anstoß</b>")
-        for i in range(len(tipps) // 2):
-            a, b = tipps[2 * i], tipps[2 * i + 1]
-            z.append(f"{i + 1}) {esc(a['spiel'].split(' – ')[0])} + {esc(b['spiel'].split(' – ')[0])} @{a['q'] * b['q']:.2f}")
+    # 28.10. (Lucio): keine eigenen 2er-Listen mehr – Paare nur noch im 🎫 SCHEINE-Block
     return "\n".join(z)
 
 
