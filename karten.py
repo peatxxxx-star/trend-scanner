@@ -773,6 +773,14 @@ def scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt=None, state_pfad=None, 
             benutzt.update(keys)
         if len(frei) % 2:
             rest.append((pool[frei[-1]][0], pool[frei[-1]][1]))
+        # 28.10. (Lucio: „Nummerierung durcheinander“): Paare bleiben fest, die Nummern der offenen
+        # Scheine laufen aber immer lückenlos nach Anstoß – direkt hinter der höchsten gespielten Nummer.
+        g_nr = [int(sid.rsplit("-", 1)[-1]) for sid in gesp if sid.startswith(f"SCHEIN-{tg}-") and sid.rsplit("-", 1)[-1].isdigit()]
+        basis = max(g_nr, default=0)
+        sch.sort(key=lambda s: (pool[s["keys"][0]][1].get("kickoff_ts") or 0, s["nr"]))
+        for i, s_ in enumerate(sch):
+            s_["nr"] = basis + i + 1
+        nr = basis + len(sch)
         st[tg] = {"nr": nr, "scheine": sch}
         sch_out = sorted([(s["nr"], s["arts"], [pool[k][1] for k in s["keys"]]) for s in sch],
                          key=lambda s: (s[2][0].get("kickoff_ts") or 0, s[0]))
@@ -808,7 +816,7 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
                 teile = []
                 for r in rs:
                     teile.append(f"{esc(str(r.get('spiel', '')).split(' – ')[0])} {sym.get(r.get('tipp_status') or 'offen', '⏳')}")
-                z.append(f"   {sym.get(st_, '⏳')} {esc(sid.replace('-' + tag, ''))} @{float(rs[0].get('gesamtquote') or 0):.2f}: " + " + ".join(teile))
+                z.append(f"   {sym.get(st_, '⏳')} {esc(sid.replace(f'SCHEIN-{tag}-', 'Nr. ').replace('-' + tag, ''))} @{float(rs[0].get('gesamtquote') or 0):.2f}: " + " + ".join(teile))
         for nr, arts, paar in sch:
             q = paar[0]["q"] * paar[1]["q"]
             z.append(f"<b>{nr}) {''.join(name[a_][:1] for a_ in arts)} @{q:.2f}</b> → {10 * q:.2f} €")

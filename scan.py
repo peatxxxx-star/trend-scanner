@@ -3713,6 +3713,7 @@ def bl_tipps(items):
 # fairer Quote bleiben. Den Agenten können wir später wieder dazunehmen"):
 # Agent AUS. Wieder an: GitHub-Variable AGENT=1 oder hier auf "1" setzen.
 AGENT_AN = os.environ.get("AGENT", "0") == "1"
+SCHEINE_NUR = os.environ.get("SCHEINE_NUR", "1") == "1"   # 28.10.: Telegram nur Scheine-Übersicht
 AGENT_ANZEIGE = AGENT_AN
 
 
@@ -7054,7 +7055,10 @@ def _run():
                                         "ohne_partner": [{"art": a_, "tipp": str(t_.get("match_id"))} for a_, t_ in re_],
                                         "gespielt": [sid for sid, _ in gs_]}
                                   for tag, (sc_, re_, gs_) in _sch.items()}
-                _txt = _kopf + karten.scheine_block(_kt, _t35, _te, esc, tage=_sch) + "\n\n" + _txt
+                _sblock = karten.scheine_block(_kt, _t35, _te, esc, tage=_sch)
+                # 28.10. (Lucio: „mir reicht die aktuelle Scheinübersicht“): Telegram bekommt nur noch
+                # den Scheine-Block; alle Blöcke, Quoten und Protokolle stehen weiter im Lauf-JSON.
+                _txt = _kopf + _sblock if SCHEINE_NUR else _kopf + _sblock + "\n\n" + _txt
             except Exception as exc:
                 log["scheine"] = {"fehler": f"{type(exc).__name__}: {exc}"}
                 print(f"Scheine-Block: {type(exc).__name__}: {exc}", flush=True)
