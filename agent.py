@@ -461,7 +461,7 @@ def laufen(scan, tipps):
         ping = _ping(tipps)
     except Exception as exc:
         ping = None
-        proto.setdefault("fehler", []).append(f"Ping: {exc}")
+        proto.setdefault("fehler", []).append(_sauber(f"Ping: {exc}"))
     proto["ping"] = bool(ping)
     teile = [t for t in (ping, text) if t]
     return ("\n\n".join(teile) if teile else None), proto
