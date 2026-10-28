@@ -756,27 +756,25 @@ def scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt=None, state_pfad=None, 
         nr, sch = alt.get("nr", 0), []
         for s in alt.get("scheine", []):
             keys = s["keys"]
-            if any(k not in pool or k in benutzt or pool[k][0] != s["art"] for k in keys):
+            arts = s.get("arts") or [s.get("art")] * len(keys)
+            if any(k not in pool or k in benutzt or pool[k][0] != a_ for k, a_ in zip(keys, arts)):
                 continue                                    # Tipp weg / gespielt / angefangen → auflösen
-            sch.append({"nr": s["nr"], "art": s["art"], "keys": keys})
+            sch.append({"nr": s["nr"], "arts": arts, "keys": keys})
             benutzt.update(keys)
-        frei = {}
-        for k, (art, t) in pool.items():
-            if k not in benutzt and tag_von(t) == tg:
-                frei.setdefault(art, []).append(k)
-        rest, neu = [], []
-        for art in SCHEIN_PRIO:
-            x = sorted(frei.get(art, []), key=lambda k: pool[k][1].get("kickoff_ts") or 0)
-            for i in range(len(x) // 2):
-                neu.append((art, x[2 * i:2 * i + 2]))
-                benutzt.update(x[2 * i:2 * i + 2])
-            if len(x) % 2:
-                rest.append((art, pool[x[-1]][1]))
-        for art, keys in sorted(neu, key=lambda s: (pool[s[1][0]][1].get("kickoff_ts") or 0, SCHEIN_PRIO.index(s[0]))):
-            nr += 1                                         # neue Nummern in Anstoß-Reihenfolge
-            sch.append({"nr": nr, "art": art, "keys": keys})
+        # 28.10. (Lucio): strikt nach Uhrzeit, nicht nach Märkten getrennt – alle freien Tipps des Tages
+        # nach Anstoß sortiert und der Reihe nach gepaart (Backtest gemischt: 274 Scheine, +31 %).
+        frei = sorted([k for k, (art, t) in pool.items() if k not in benutzt and tag_von(t) == tg],
+                      key=lambda k: (pool[k][1].get("kickoff_ts") or 0, SCHEIN_PRIO.index(pool[k][0])))
+        rest = []
+        for i in range(len(frei) // 2):
+            keys = frei[2 * i:2 * i + 2]
+            nr += 1
+            sch.append({"nr": nr, "arts": [pool[k][0] for k in keys], "keys": keys})
+            benutzt.update(keys)
+        if len(frei) % 2:
+            rest.append((pool[frei[-1]][0], pool[frei[-1]][1]))
         st[tg] = {"nr": nr, "scheine": sch}
-        sch_out = sorted([(s["nr"], s["art"], [pool[k][1] for k in s["keys"]]) for s in sch],
+        sch_out = sorted([(s["nr"], s["arts"], [pool[k][1] for k in s["keys"]]) for s in sch],
                          key=lambda s: (s[2][0].get("kickoff_ts") or 0, s[0]))
         g_out = [(sid, rs) for sid, rs in gesp.items()
                  if any(str(r.get("anstoss", ""))[:10] == tg for r in rs) or (tg == heute and any(r.get("datum") == tg for r in rs))]
@@ -796,8 +794,8 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
     B = ZoneInfo("Europe/Berlin")
     name = {"ecken": "🟧 AUSSENSEITER-ECKEN", "tore": "🟥 TORE 3.5", "karten": "🟨 KARTEN"}
     tage = tage if tage is not None else scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt)
-    z = ["🎫 <b>SCHEINE</b> · 2er je Block nach Anstoß · 10 € je Schein · kein Spiel doppelt",
-         "<i>Nummern bleiben fest · gespielte Spiele (Wettlog) kommen nicht mehr vor · Backtest 15.–27.10.: +34 %</i>"]
+    z = ["🎫 <b>SCHEINE</b> · 2er strikt nach Uhrzeit · 10 € je Schein · kein Spiel doppelt",
+         "<i>🟥 Tore 3.5 · 🟧 Außenseiter-Ecken · 🟨 Karten · Nummern bleiben fest · gespielte Spiele (Wettlog) kommen nicht mehr vor</i>"]
     sym = {"gewonnen": "✅", "verloren": "❌", "offen": "⏳"}
     for tag, (sch, rest, gesp) in tage.items():
         z.append("")
@@ -811,16 +809,16 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
                 for r in rs:
                     teile.append(f"{esc(str(r.get('spiel', '')).split(' – ')[0])} {sym.get(r.get('tipp_status') or 'offen', '⏳')}")
                 z.append(f"   {sym.get(st_, '⏳')} {esc(sid.replace('-' + tag, ''))} @{float(rs[0].get('gesamtquote') or 0):.2f}: " + " + ".join(teile))
-        for nr, art, paar in sch:
+        for nr, arts, paar in sch:
             q = paar[0]["q"] * paar[1]["q"]
-            z.append(f"<b>{nr}) {name[art]} @{q:.2f}</b> → {10 * q:.2f} €")
-            for t in paar:
+            z.append(f"<b>{nr}) {''.join(name[a_][:1] for a_ in arts)} @{q:.2f}</b> → {10 * q:.2f} €")
+            for art, t in zip(arts, paar):
                 ko = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%H:%M")
                 z.append(f"   {ko} {esc(t['spiel'])} <i>({esc(t.get('liga') or '')})</i>")
-                z.append(f"      {esc(_markt(art, t))} @{t['q']:.2f}")
+                z.append(f"      {name[art][:1]} {esc(_markt(art, t))} @{t['q']:.2f}")
         for art, t in rest:
             ko = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%H:%M")
-            z.append(f"   <i>ohne Partner ({name[art][2:].strip().lower()}): {ko} {esc(t['spiel'])} · {esc(_markt(art, t))} @{t['q']:.2f}</i>")
+            z.append(f"   <i>ohne Partner: {ko} {esc(t['spiel'])} · {name[art][:1]} {esc(_markt(art, t))} @{t['q']:.2f}</i>")
     return "\n".join(z)
 
 
