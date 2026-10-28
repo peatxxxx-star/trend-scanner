@@ -680,6 +680,81 @@ def block(tipps, stand=None, esc=lambda s: s):
     return "\n".join(z)
 
 
+# 28.10. (Lucio: „genau diese Logik … im Scanner drin, 1:1“): fertige 2er-Scheine.
+# Regel wie im Strategie-Backtest 15.–27.10. (269 Scheine, +34 %): je Block 2er in Anstoß-Reihenfolge,
+# je Berliner Tag, 10 € je Schein; jedes Spiel nur einmal (Priorität Außenseiter-Ecken > Tore 3.5 > Karten).
+SCHEIN_PRIO = ("ecken", "tore", "karten")
+
+
+def _markt(art, t):
+    if art == "tore":
+        return f"Tore gesamt Über {t['linie']:g}"
+    if art == "ecken":
+        return f"Eckstöße {t.get('team') or t.get('seite')} Unter {t['linie']:g} ({'Auswärts' if t.get('seite') == 'gast' else 'Heim'})"
+    wer = "gesamt" if t.get("seite") == "tot" else f"{t.get('team') or t.get('seite')} ({'Heim' if t.get('seite') == 'heim' else 'Auswärts'})"
+    return f"Gelbe Karten {wer} {str(t.get('richtung', '')).capitalize()} {t['linie']:g}"
+
+
+def scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt=None):
+    """Liefert {tag: [(art, [tipp, tipp]) …], …} plus übrige Einzel-Tipps je Tag und Block."""
+    import datetime as _dt
+    from zoneinfo import ZoneInfo
+    B = ZoneInfo("Europe/Berlin")
+    jetzt = jetzt or time.time()
+    quellen = {"ecken": ecken_tipps or [], "tore": tore_tipps or [], "karten": karten_tipps or []}
+    vergeben, je = set(), {}
+    for art in SCHEIN_PRIO:
+        for t in sorted(quellen[art], key=lambda t: t.get("kickoff_ts") or 0):
+            if (t.get("kickoff_ts") or 0) < jetzt + 120:
+                continue
+            key = str(t.get("match_id") or t.get("spiel"))
+            if key in vergeben:
+                continue
+            vergeben.add(key)
+            tag = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%Y-%m-%d")
+            je.setdefault(tag, {}).setdefault(art, []).append(t)
+    out = {}
+    for tag in sorted(je):
+        sch, rest = [], []
+        for art in SCHEIN_PRIO:
+            x = sorted(je[tag].get(art, []), key=lambda t: t.get("kickoff_ts") or 0)
+            for i in range(len(x) // 2):
+                sch.append((art, x[2 * i:2 * i + 2]))
+            if len(x) % 2:
+                rest.append((art, x[-1]))
+        sch.sort(key=lambda s: s[1][0].get("kickoff_ts") or 0)
+        out[tag] = (sch, rest)
+    return out
+
+
+def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=None):
+    import datetime as _dt
+    from zoneinfo import ZoneInfo
+    B = ZoneInfo("Europe/Berlin")
+    name = {"ecken": "🟧 AUSSENSEITER-ECKEN", "tore": "🟥 TORE 3.5", "karten": "🟨 KARTEN"}
+    tage = scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt)
+    z = ["🎫 <b>SCHEINE</b> · 2er je Block nach Anstoß · 10 € je Schein · kein Spiel doppelt",
+         "<i>Backtest 15.–27.10.: 269 Scheine, 46 % gewonnen, +34 %</i>"]
+    if not any(s for s, _ in tage.values()):
+        return "\n".join(z + ["<i>gerade keine zwei Tipps im selben Block</i>"])
+    nr = 0
+    for tag, (sch, rest) in tage.items():
+        z.append("")
+        z.append(f"<b>{_dt.date.fromisoformat(tag).strftime('%d.%m.')}</b> · {len(sch)} Scheine")
+        for art, paar in sch:
+            nr += 1
+            q = paar[0]["q"] * paar[1]["q"]
+            z.append(f"<b>{nr}) {name[art]} @{q:.2f}</b> → {10 * q:.2f} €")
+            for t in paar:
+                ko = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%H:%M")
+                z.append(f"   {ko} {esc(t['spiel'])} <i>({esc(t.get('liga') or '')})</i>")
+                z.append(f"      {esc(_markt(art, t))} @{t['q']:.2f}")
+        for art, t in rest:
+            ko = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%H:%M")
+            z.append(f"   <i>ohne Partner ({name[art][2:].strip().lower()}): {ko} {esc(t['spiel'])} · {esc(_markt(art, t))} @{t['q']:.2f}</i>")
+    return "\n".join(z)
+
+
 def selbsttest():
     ok = True
     if abs(_nb_over(3.0, 3.5, 1.01) - 0.3528) > 0.01:          # ~Poisson(3): P(X>=4)=0.3528

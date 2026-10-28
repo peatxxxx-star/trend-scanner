@@ -6982,7 +6982,9 @@ def _run():
             log["karten"] = {"protokoll": _kp, "tipps": _kt}
             print(f"Karten-Modell: {_kp.get('tipps', 0)} Tipps ({_kp.get('mit_linien', 0)} Spiele mit BL-Linien, "
                   f"{_kp.get('abgefragt', 0)} abgefragt, {_kp.get('sekunden')} s)", flush=True)
-            _txt = f"🟨🟨🟨 <b>TREND-SCAN {run_label}</b> 🟨🟨🟨\n\n" + karten.block(_kt, now_berlin().strftime("%H:%M"), esc)
+            _kopf = f"🟨🟨🟨 <b>TREND-SCAN {run_label}</b> 🟨🟨🟨\n\n"
+            _t35, _te = [], []
+            _txt = karten.block(_kt, now_berlin().strftime("%H:%M"), esc)
             # 26.10. (Lucio): Ecken gesamt über aus der Serien-Logik bleibt (Papier) – einziger
             # Serien-Markt mit Vorteil: BL-Liste 9 Tipps +20 %, gespielt 10 Beine 9/10 (+37 %);
             # alle Ecken-über-Signale ohne Quoten-Filter dagegen −8 %. Nur Tipps mit Quote ≥ "ab".
@@ -7045,6 +7047,17 @@ def _run():
             except Exception as exc:
                 log["ecken_fav"] = {"fehler": f"{type(exc).__name__}: {exc}"}
                 print(f"Außenseiter-Ecken-Block: {type(exc).__name__}: {exc}", flush=True)
+            # 28.10. (Lucio: „genau diese Logik … im Scanner drin, 1:1“): fertige 2er-Scheine oben.
+            try:
+                _sch = karten.scheine(_kt, _t35, _te)
+                log["scheine"] = {tag: {"scheine": [{"art": a_, "tipps": [str(t_.get("match_id")) for t_ in p_]} for a_, p_ in sc_],
+                                        "ohne_partner": [{"art": a_, "tipp": str(t_.get("match_id"))} for a_, t_ in re_]}
+                                  for tag, (sc_, re_) in _sch.items()}
+                _txt = _kopf + karten.scheine_block(_kt, _t35, _te, esc) + "\n\n" + _txt
+            except Exception as exc:
+                log["scheine"] = {"fehler": f"{type(exc).__name__}: {exc}"}
+                print(f"Scheine-Block: {type(exc).__name__}: {exc}", flush=True)
+                _txt = _kopf + _txt
             karten_chunks = split_message(_txt)
         except Exception as exc:
             log["karten"] = {"fehler": f"{type(exc).__name__}: {exc}"}
