@@ -327,6 +327,10 @@ def tore_fuellen(gemischt=frozenset()):
 # (1,30–2,10): 79 Tipps, 75 % (BL 58 %), Ø 1,61, +19 % (15.–20. +24 %, 21.–25. +13,5 %), 90 %-Spanne +6…+32 %;
 # ohne Jugend/Frauen 67 Tipps +19 %. Stufenweise: Fav 60–70 % ±0, 75–80 % +14 %, 80–85 % +28 %, > 85 % +29 %.
 ECKEN_FAV_MIN = 0.75
+# 28.10. (Lucio): nur Auswärts-Außenseiter. Heim-Außenseiter holen deutlich mehr Ecken:
+# BL-Archiv 15.–25.10. auswärts 33/40 (83 %, +32 %) vs. heim 4/6 (±0 %); live 26.–27.10. auswärts 4/5 (+20 %)
+# vs. heim 5/10 (−22 %); bet365 2000–2026 auswärts 76 % (n 3.530) vs. heim 68 % (n 597).
+ECKEN_NUR_AUSWAERTS = True
 ECKEN_Q_MIN, ECKEN_Q_MAX, ECKEN_Q_ZIEL = 1.30, 2.10, 1.60
 VIRTUELL_RE = re.compile(r"virtual|esoccer|e-?sport|cyber|fifa")
 
@@ -368,6 +372,9 @@ def ecken_fuellen(matches, gemischt=frozenset()):
         if not p or max(p) < ECKEN_FAV_MIN:
             continue
         proto["fav_klar"] += 1
+        if ECKEN_NUR_AUSWAERTS and p[1] > p[0]:      # Favorit auswärts → Außenseiter spielt zu Hause
+            proto["heim_aussenseiter"] = proto.get("heim_aussenseiter", 0) + 1
+            continue
         auftr.append((mid, m, g, p))
 
     def eins(a):
@@ -412,9 +419,9 @@ def ecken_block(tipps, esc=lambda s: s):
     import datetime as _dt
     from zoneinfo import ZoneInfo
     B = ZoneInfo("Europe/Berlin")
-    kopf = "🟧 <b>AUSSENSEITER-ECKEN UNTER</b> · klarer Favorit ≥ 75 % · NEU, Test-Phase"
+    kopf = "🟧 <b>AUSSENSEITER-ECKEN UNTER</b> · klarer Favorit ≥ 75 % · nur Außenseiter auswärts"
     if not tipps:
-        return kopf + "\n<i>gerade kein Spiel mit Favorit ≥ 75 % und Außenseiter-Ecken-Linie 1,30–2,10</i>"
+        return kopf + "\n<i>gerade kein Spiel mit Favorit ≥ 75 % (Heimteam) und Außenseiter-Ecken-Linie 1,30–2,10</i>"
     z = [kopf, f"<i>{len(tipps)} Tipps · Team-Ecken des Außenseiters unter · Siegchance aus der BL-1X2-Quote</i>", ""]
     for t in tipps:
         ko = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%H:%M") if t.get("kickoff_ts") else "?"
@@ -586,6 +593,9 @@ def fuellen(gemischt=frozenset(), api_get=None):
             continue
         g, swap = betlabel.finde_spiel(spiele, m["home"], m["away"], m.get("kickoff_ts"))
         if not g or (ligen and g.get("L") not in ligen):
+            continue
+        if kontinental(m, g.get("L")):              # 28.10. (Lucio): AFC/Kontinental raus (26.–27.10. 2/4, −16 %)
+            proto["kontinental"] = proto.get("kontinental", 0) + 1
             continue
         auftr.append((mid, r, g, swap))
 
