@@ -6602,6 +6602,10 @@ def _run():
         pfad.write_text(json.dumps(out, ensure_ascii=False))
         print("Archiv-Teams:", len(out), "von", len(evs) + len(out))
         return
+    if "Coupon-Partner:" in _msg:
+        import coupon_test
+        coupon_test.partner_suche(RUNS_DIR, _msg.split("Coupon-Partner:", 1)[1].split()[0].strip())
+        return
     if "Coupon-Test" in _msg:
         import coupon_test
         coupon_test.run(RUNS_DIR)

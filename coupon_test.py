@@ -23,3 +23,25 @@ def run(runs_dir):
     p = Path(runs_dir) / f"coupon_test_{time.strftime('%Y-%m-%d_%H%M')}.json"
     p.write_text(json.dumps(out, ensure_ascii=False, indent=1))
     print("Coupon-Test:", out["scheine"])
+
+
+def partner_suche(runs_dir, code):
+    """29.10.: BL-Code (von Lucio gespeichert) unter welchen partner-Werten auffindbar? Nur GetCoupon (lesen)."""
+    out = {"code": code, "treffer": [], "proben": {}}
+    for p in [None] + list(range(0, 400)):
+        pl = {"Guid": code, "Lng": "de"}
+        if p is not None:
+            pl["partner"] = p
+        try:
+            j = betlabel._post(betlabel.WEB + "GetCoupon", pl)
+        except Exception as e:
+            j = {"Error": f"{type(e).__name__}: {e}"}
+        key = (j.get("Error") or "")[:60] + ("|OK" if j.get("Success") else "")
+        out["proben"].setdefault(key, []).append(p)
+        if j.get("Success") or (j.get("Value") and not j.get("Error")):
+            out["treffer"].append({"partner": p, "antwort": json.dumps(j, ensure_ascii=False)[:800]})
+            if len(out["treffer"]) >= 3:
+                break
+    p = Path(runs_dir) / f"coupon_partner_{time.strftime('%Y-%m-%d_%H%M')}.json"
+    p.write_text(json.dumps(out, ensure_ascii=False, indent=1))
+    print("Coupon-Partner:", out["treffer"][:1], {k: len(v) for k, v in out["proben"].items()})
