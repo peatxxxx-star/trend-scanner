@@ -1,0 +1,88 @@
+{
+ "zeit": "2026-10-29 10:13",
+ "probes": [
+  {
+   "url": "https://betlabel.com/web-api/LiveUtil/SaveCoupon",
+   "variante": "wrap kind=1",
+   "status": 200,
+   "antwort": "{\"Id\":0,\"Success\":false,\"Error\":\"Технический сбой !\",\"ErrorCode\":98}"
+  },
+  {
+   "url": "https://betlabel.com/web-api/LiveUtil/SaveCoupon",
+   "variante": "flach kind=1",
+   "status": 200,
+   "antwort": "{\"Value\":\"X1UKA\",\"Id\":0,\"Success\":true,\"Error\":\"\",\"ErrorCode\":0}"
+  },
+  {
+   "url": "https://betlabel.com/web-api/LiveUtil/SaveCoupon",
+   "variante": "flach_ohnepartner kind=1",
+   "status": 200,
+   "antwort": "{\"Value\":\"4AUKA\",\"Id\":0,\"Success\":true,\"Error\":\"\",\"ErrorCode\":0}"
+  },
+  {
+   "url": "https://betlabel.com/web-api/LiveUtil/SaveCoupon",
+   "variante": "wrap kind=3",
+   "status": 200,
+   "antwort": "{\"Id\":0,\"Success\":false,\"Error\":\"Технический сбой !\",\"ErrorCode\":98}"
+  },
+  {
+   "url": "https://betlabel.com/web-api/LiveUtil/SaveCoupon",
+   "variante": "flach kind=3",
+   "status": 200,
+   "antwort": "{\"Value\":\"ABUKA\",\"Id\":0,\"Success\":true,\"Error\":\"\",\"ErrorCode\":0}"
+  },
+  {
+   "url": "https://betlabel.com/web-api/LiveUtil/SaveCoupon",
+   "variante": "flach_ohnepartner kind=3",
+   "status": 200,
+   "antwort": "{\"Value\":\"3BUKA\",\"Id\":0,\"Success\":true,\"Error\":\"\",\"ErrorCode\":0}"
+  },
+  {
+   "url": "https://betlabel.com/web-api/LiveUtil/GetCoupon?Guid=X1UKA&lng=de&partner=1",
+   "status": 415,
+   "antwort": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.16\",\"title\":\"Unsupported Media Type\",\"status\":415,\"traceId\":\"00-3c1f4013dbd5e2ab47c4a3fcc16c6416-282cd6f28e5465c5-01\"}"
+  },
+  {
+   "url": "https://betlabel.com/web-api/LiveUtil/GetCoupon?id=X1UKA&lng=de&partner=1",
+   "status": 415,
+   "antwort": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.16\",\"title\":\"Unsupported Media Type\",\"status\":415,\"traceId\":\"00-e02385539b4aa76265f0bd8dab3ff027-4d69ef31d72cf11c-01\"}"
+  },
+  {
+   "url": "https://betlabel.com/web-api/LiveUtil/GetCoupon",
+   "status": 200,
+   "antwort": "{\"Id\":0,\"Success\":false,\"Error\":\"Veranstaltungen im heruntergeladenen Wettschein sind beendet\",\"ErrorCode\":159271}"
+  }
+ ],
+ "js": {
+  "https://betlabel.com": {
+   "status": null,
+   "final": "https://betlabel.com/de",
+   "funde": []
+  },
+  "https://betlbl.com": {
+   "status": 203,
+   "final": "https://betlbl.com/de/block",
+   "funde": []
+  }
+ },
+ "ereignis": {
+  "spiel": "Galatasaray – VfB Stuttgart",
+  "GameId": 763794268,
+  "Type": 1,
+  "Coef": 2.331,
+  "Param": 0,
+  "PlayerId": 0,
+  "Kind": 1,
+  "Expired": 0,
+  "Price": 0,
+  "InstrumentId": 0,
+  "Seconds": 0,
+  "PV": null
+ },
+ "codes": [
+  "X1UKA",
+  "4AUKA",
+  "ABUKA",
+  "3BUKA"
+ ]
+}
