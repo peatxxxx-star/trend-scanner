@@ -796,13 +796,55 @@ def scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt=None, state_pfad=None, 
     return out
 
 
+# 29.10. (Lucio „Ja“ nach Tagesbilanz 28.10.): Einsatz je Schein ans Kapital koppeln, damit ALLE Scheine
+# des Tages gespielt werden können. Regel G: Einsatz = Tageskapital ÷ max(Scheine des Tages, 30), auf 0,10 €
+# abgerundet. Bootstrap 15.–28.10. (Start 80 €): bei Backtest-Treffern Median 566 €, 0 % Verlust; bei
+# +11 % Median 150 €, 18 % Verlust, 0 % pleite – fester 10-€-Einsatz: 13 % bzw. 39 % pleite.
+# Tageskapital steht in state/kapital.json {"datum": "YYYY-MM-DD", "euro": x}; die Scheinzahl wird beim
+# ersten Lauf des Tages festgeschrieben (state/einsatz.json), damit der Einsatz tagsüber gleich bleibt.
+EINSATZ_TEILE = 30
+EINSATZ_MIN = 0.5
+KAPITAL_DATEI = os.path.join(os.path.dirname(os.path.abspath(__file__)), "state", "kapital.json")
+EINSATZ_DATEI = os.path.join(os.path.dirname(os.path.abspath(__file__)), "state", "einsatz.json")
+
+
+def einsatz_heute(tage, jetzt=None):
+    """(Einsatz je Schein, Kapital, Teiler) oder None, wenn kein Kapital hinterlegt ist."""
+    import datetime as _dt
+    from zoneinfo import ZoneInfo
+    heute = _dt.datetime.fromtimestamp(jetzt or time.time(), ZoneInfo("Europe/Berlin")).strftime("%Y-%m-%d")
+    try:
+        k = json.load(open(KAPITAL_DATEI, encoding="utf-8"))
+        kapital = float(k["euro"])
+    except Exception:
+        return None
+    try:
+        st = json.load(open(EINSATZ_DATEI, encoding="utf-8"))
+    except Exception:
+        st = {}
+    if st.get("datum") != heute or st.get("kapital") != kapital:
+        sch, rest, gesp = tage.get(heute, ([], [], []))
+        n = len(sch) + len(gesp)
+        teiler = max(n, EINSATZ_TEILE)
+        e = max(EINSATZ_MIN, math.floor(kapital / teiler * 10) / 10)
+        st = {"datum": heute, "kapital": kapital, "scheine": n, "teiler": teiler, "einsatz": e}
+        try:
+            json.dump(st, open(EINSATZ_DATEI, "w", encoding="utf-8"), indent=1)
+        except Exception:
+            pass
+    return st["einsatz"], st["kapital"], st["teiler"]
+
+
 def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=None, tage=None):
     import datetime as _dt
     from zoneinfo import ZoneInfo
     B = ZoneInfo("Europe/Berlin")
     name = {"ecken": "🟧 AUSSENSEITER-ECKEN", "tore": "🟥 TORE 3.5", "karten": "🟨 KARTEN"}
     tage = tage if tage is not None else scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt)
-    z = ["🎫 <b>SCHEINE</b> · 2er strikt nach Uhrzeit · 10 € je Schein · kein Spiel doppelt",
+    ein = einsatz_heute(tage, jetzt)
+    e_txt = f"<b>{ein[0]:.2f} € je Schein</b>".replace(".", ",") if ein else "10 € je Schein"
+    z = ["🎫 <b>SCHEINE</b> · 2er strikt nach Uhrzeit · " + e_txt + " · kein Spiel doppelt",
+         *([f"<i>Einsatz = Kapital {ein[1]:.2f} € ÷ {ein[2]} · so reicht das Geld für jeden Schein des Tages</i>".replace(".", ",")] if ein else []),
          "<i>🟥 Tore 3.5 · 🟧 Außenseiter-Ecken · 🟨 Karten · Nummern bleiben fest · gespielte Spiele (Wettlog) kommen nicht mehr vor</i>"]
     sym = {"gewonnen": "✅", "verloren": "❌", "offen": "⏳"}
     for tag, (sch, rest, gesp) in tage.items():
@@ -819,7 +861,8 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
                 z.append(f"   {sym.get(st_, '⏳')} {esc(sid.replace(f'SCHEIN-{tag}-', 'Nr. ').replace('-' + tag, ''))} @{float(rs[0].get('gesamtquote') or 0):.2f}: " + " + ".join(teile))
         for nr, arts, paar in sch:
             q = paar[0]["q"] * paar[1]["q"]
-            z.append(f"<b>{nr}) {''.join(name[a_][:1] for a_ in arts)} @{q:.2f}</b> → {10 * q:.2f} €")
+            _e = ein[0] if ein else 10
+            z.append(f"<b>{nr}) {''.join(name[a_][:1] for a_ in arts)} @{q:.2f}</b> → {_e * q:.2f} €")
             for art, t in zip(arts, paar):
                 ko = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%H:%M")
                 z.append(f"   {ko} {esc(t['spiel'])} <i>({esc(t.get('liga') or '')})</i>")
