@@ -875,6 +875,30 @@ def scheine_codes(tage):
     return out
 
 
+_GENERISCH = {"borussia", "bayer", "dynamo", "dinamo", "olympique", "racing", "union", "eintracht", "hertha", "inter",
+              "spartak", "lokomotiv", "torpedo", "slavia", "sparta", "standard", "royal", "stade", "sporting", "vitoria"}
+_KURZ_WEG = {"fc", "sc", "ac", "cf", "if", "is", "aif", "bk", "ff", "fk", "sk", "afc", "cd", "ud", "nfc", "sv", "club",
+             "football", "foundation", "calcio", "athinon"}
+
+
+def _kurz(spiel, n=13):
+    """29.10. (Lucio, Handy): Vereinskürzel weg und je Team höchstens n Zeichen (hintere Wörter fallen zuerst weg),
+    damit eine Zeile aufs Handy passt."""
+    out = []
+    for team in str(spiel or "").split(" – "):
+        w = [x for x in team.split() if x.lower().strip(".") not in _KURZ_WEG] or team.split()
+        voll = list(w)
+        while len(w) > 1 and len(" ".join(w)) > n:
+            w.pop()
+        while len(w) > 1 and w[-1].lower() in ("tel", "de", "la", "del", "di", "da", "do", "al", "el", "san", "st", "and", "und"):
+            w.pop()
+        if len(w) == 1 and len(voll) > 1 and (w[0].lower() in _STOP or w[0].lower() in _GENERISCH):
+            w = [max(voll, key=len)]                      # „Borussia“ allein sagt nichts → „Mönchengladbach“
+        t = " ".join(w)
+        out.append(t if len(t) <= n else t[:n - 1].rstrip() + ".")
+    return " – ".join(out)
+
+
 def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=None, tage=None, codes=None):
     import datetime as _dt
     from zoneinfo import ZoneInfo
@@ -883,10 +907,10 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
     tage = tage if tage is not None else scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt)
     ein = einsatz_heute(tage, jetzt)
     e_txt = f"<b>{ein[0]:.2f} € je Schein</b>".replace(".", ",") if ein else "10 € je Schein"
-    z = ["🎫 <b>SCHEINE</b> · 2er je Block nach Uhrzeit · " + e_txt + " · kein Spiel doppelt",
+    z = ["🎫 <b>SCHEINE</b> · 2er je Block · " + e_txt,
          *([f"<i>Einsatz = Kapital {ein[1]:.2f} € ÷ {ein[2]} · so reicht das Geld für jeden Schein des Tages</i>".replace(".", ",")] if ein else []),
-         "<i>🟥 Tore 3.5 · 🟧 Außenseiter-Ecken · 🟨 Karten · Nummern bleiben fest · gespielte Spiele (Wettlog) kommen nicht mehr vor</i>",
-         "<i>Code antippen = kopieren → BL Wettschein → „Laden“ → Einsatz 10 € prüfen → platzieren</i>"]
+         "<i>🟥 Tore 3.5 · 🟧 Außenseiter-Ecken · 🟨 Karten</i>",
+         "<i>Code antippen → BL „Laden“ → 10 € prüfen</i>"]
     sym = {"gewonnen": "✅", "verloren": "❌", "offen": "⏳"}
     for tag, (sch, rest, gesp) in tage.items():
         z.append("")
@@ -935,7 +959,7 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
                         _vorn = f"{sym.get(r.get('tipp_status') or 'offen', '⏳')} {_ko}"
                     # 29.10. (Lucio, schmale Ansicht): ein Spiel je Zeile, Status VORN – sonst rutscht das Symbol
                     # beim Umbruch in die nächste Zeile.
-                    teile.append(f"   {_vorn} {esc(str(r.get('spiel', '')))}")
+                    teile.append(f"   {_vorn} {esc(_kurz(r.get('spiel', '')))}")
                 z.append(f"{sym.get(st_, '⏳')} <b>{esc(sid.replace(f'SCHEIN-{tag}-', 'Nr. ').replace('-' + tag, ''))}</b> @{float(rs[0].get('gesamtquote') or 0):.2f}")
                 z.extend(teile)
         for nr, arts, paar in sch:
@@ -953,8 +977,8 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
             z.append("<i>ohne Partner:</i>")
         for art, t in rest:
             ko = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%H:%M")
-            z.append(f"   {ko} {esc(t['spiel'])}")
-            z.append(f"      {name[art][:1]} {esc(_markt(art, t))} @{t['q']:.2f}")
+            z.append(f"   {ko} {esc(_kurz(t['spiel']))}")
+            z.append(f"   {name[art][:1]} {esc(_markt(art, t)).replace(' (Auswärts)', '').replace(' (Heim)', '')} @{t['q']:.2f}")
     return "\n".join(z)
 
 
