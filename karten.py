@@ -935,8 +935,8 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
                         _vorn = f"{sym.get(r.get('tipp_status') or 'offen', '⏳')} {_ko}"
                     # 29.10. (Lucio, schmale Ansicht): ein Spiel je Zeile, Status VORN – sonst rutscht das Symbol
                     # beim Umbruch in die nächste Zeile.
-                    teile.append(f"      {_vorn} {esc(str(r.get('spiel', '')))}")
-                z.append(f"   {sym.get(st_, '⏳')} <b>{esc(sid.replace(f'SCHEIN-{tag}-', 'Nr. ').replace('-' + tag, ''))}</b> @{float(rs[0].get('gesamtquote') or 0):.2f}")
+                    teile.append(f"   {_vorn} {esc(str(r.get('spiel', '')))}")
+                z.append(f"{sym.get(st_, '⏳')} <b>{esc(sid.replace(f'SCHEIN-{tag}-', 'Nr. ').replace('-' + tag, ''))}</b> @{float(rs[0].get('gesamtquote') or 0):.2f}")
                 z.extend(teile)
         for nr, arts, paar in sch:
             q = paar[0]["q"] * paar[1]["q"]
@@ -948,9 +948,13 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
                 ko = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%H:%M")
                 z.append(f"   {ko} {esc(t['spiel'])} <i>({esc(t.get('liga') or '')})</i>")
                 z.append(f"      {name[art][:1]} {esc(_markt(art, t))} @{t['q']:.2f}")
+        # 29.10. (Lucio, Handy): „ohne Partner“ wie die Scheine – Spiel und Markt je eine Zeile.
+        if rest:
+            z.append("<i>ohne Partner:</i>")
         for art, t in rest:
             ko = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%H:%M")
-            z.append(f"   <i>ohne Partner: {ko} {esc(t['spiel'])} · {name[art][:1]} {esc(_markt(art, t))} @{t['q']:.2f}</i>")
+            z.append(f"   {ko} {esc(t['spiel'])}")
+            z.append(f"      {name[art][:1]} {esc(_markt(art, t))} @{t['q']:.2f}")
     return "\n".join(z)
 
 
