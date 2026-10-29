@@ -930,12 +930,14 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
                 for r in sorted(rs, key=lambda r: ((_phase(r) if st_ == "offen" else 0), str(r.get("anstoss", "")))):
                     _ko, _ph = str(r.get("anstoss", ""))[11:16], _phase(r)
                     if _ph == 1:
-                        _zus = " (▶️ läuft)" if _jetzt - _ts(r) < 2.25 * 3600 else " (wartet auf Ergebnis)"
+                        _vorn = "⚽ läuft ·" if _jetzt - _ts(r) < 2.25 * 3600 else "⏱ wartet auf Ergebnis ·"
                     else:
-                        _zus = f" ({_ko})" if _ko else ""
-                    teile.append(f"{esc(str(r.get('spiel', '')).split(' – ')[0])}" + _zus
-                                 + f" {sym.get(r.get('tipp_status') or 'offen', '⏳')}")
-                z.append(f"   {sym.get(st_, '⏳')} {esc(sid.replace(f'SCHEIN-{tag}-', 'Nr. ').replace('-' + tag, ''))} @{float(rs[0].get('gesamtquote') or 0):.2f}: " + " + ".join(teile))
+                        _vorn = f"{sym.get(r.get('tipp_status') or 'offen', '⏳')} {_ko}"
+                    # 29.10. (Lucio, schmale Ansicht): ein Spiel je Zeile, Status VORN – sonst rutscht das Symbol
+                    # beim Umbruch in die nächste Zeile.
+                    teile.append(f"      {_vorn} {esc(str(r.get('spiel', '')))}")
+                z.append(f"   {sym.get(st_, '⏳')} <b>{esc(sid.replace(f'SCHEIN-{tag}-', 'Nr. ').replace('-' + tag, ''))}</b> @{float(rs[0].get('gesamtquote') or 0):.2f}")
+                z.extend(teile)
         for nr, arts, paar in sch:
             q = paar[0]["q"] * paar[1]["q"]
             _e = ein[0] if ein else 10
