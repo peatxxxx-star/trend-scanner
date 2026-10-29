@@ -766,7 +766,7 @@ def scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt=None, state_pfad=None, 
             arts = s.get("arts") or [s.get("art")] * len(keys)
             if any(k not in pool or k in benutzt or pool[k][0] != a_ for k, a_ in zip(keys, arts)):
                 continue                                    # Tipp weg / gespielt / angefangen → auflösen
-            sch.append({"nr": s["nr"], "arts": arts, "keys": keys})
+            sch.append({"nr": s["nr"], "arts": arts, "keys": keys, "alt": True})
             benutzt.update(keys)
         # 29.10. (Lucio: „das, was besser funktioniert“): 2er wieder JE BLOCK, innerhalb des Blocks nach
         # Anstoß gepaart. Backtest 15.–28.10. (10 € je Schein): je Block +1.179 € (+40 %), gemischt +995 € (+33 %).
@@ -784,14 +784,17 @@ def scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt=None, state_pfad=None, 
                 benutzt.update(keys)
             if len(x) % 2:
                 rest.append((art, pool[x[-1]][1]))
-        # 28.10. (Lucio: „Nummerierung durcheinander“): Paare bleiben fest, die Nummern der offenen
-        # Scheine laufen aber immer lückenlos nach Anstoß – direkt hinter der höchsten gespielten Nummer.
+        # 29.10.: Nummern NIE umbenennen (ein neuer früherer Schein hatte Nr. 2 verdrängt). Neue Scheine bekommen
+        # die nächste freie Nummer hinter allen gezeigten und gespielten; Anzeige bleibt nach Anstoß sortiert.
         g_nr = [int(sid.rsplit("-", 1)[-1]) for sid in gesp if sid.startswith(f"SCHEIN-{tg}-") and sid.rsplit("-", 1)[-1].isdigit()]
-        basis = max(g_nr, default=0)
-        sch.sort(key=lambda s: (pool[s["keys"][0]][1].get("kickoff_ts") or 0, s["nr"]))
-        for i, s_ in enumerate(sch):
-            s_["nr"] = basis + i + 1
-        nr = basis + len(sch)
+        alt_nr = {s_["nr"] for s_ in sch if s_.get("alt")}
+        frei_nr = max([alt.get("nr", 0)] + g_nr + list(alt_nr))
+        for s_ in sch:
+            if not s_.get("alt"):
+                frei_nr += 1
+                s_["nr"] = frei_nr
+            s_.pop("alt", None)
+        nr = frei_nr
         st[tg] = {"nr": nr, "scheine": sch}
         sch_out = sorted([(s["nr"], s["arts"], [pool[k][1] for k in s["keys"]]) for s in sch],
                          key=lambda s: (s[2][0].get("kickoff_ts") or 0, s[0]))
