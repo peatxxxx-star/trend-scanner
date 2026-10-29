@@ -962,7 +962,9 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
                     # 29.10. (Lucio, schmale Ansicht): ein Spiel je Zeile, Status VORN – sonst rutscht das Symbol
                     # beim Umbruch in die nächste Zeile.
                     teile.append(f"   {_vorn} {esc(_kurz(r.get('spiel', '')))}")
-                z.append(f"{sym.get(st_, '⏳')} <b>{esc(sid.replace(f'SCHEIN-{tag}-', 'Nr. ').replace('-' + tag, ''))}</b> @{float(rs[0].get('gesamtquote') or 0):.2f}")
+                # 29.10. (Lucio): Symbole nur bei den Spielen; der Schein selbst bekommt den Status als Wort.
+                z.append(f"<b>{esc(sid.replace(f'SCHEIN-{tag}-', 'Nr. ').replace('-' + tag, ''))}</b> @{float(rs[0].get('gesamtquote') or 0):.2f}"
+                         + {"verloren": " · <i>verloren</i>", "gewonnen": " · <b>gewonnen</b>"}.get(st_, ""))
                 z.extend(teile)
         for nr, arts, paar in sch:
             q = paar[0]["q"] * paar[1]["q"]
