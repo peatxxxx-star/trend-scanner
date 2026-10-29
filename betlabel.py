@@ -789,8 +789,10 @@ def _ereignis(art, t):
         for col in g.get("E") or []:
             for e in col:
                 if e.get("T") == typ and e.get("P") is not None and abs(float(e["P"]) - float(t["linie"])) < 1e-9:
-                    return {"GameId": val.get("I"), "Type": typ, "Coef": e.get("C"), "Param": e.get("P"),
-                            "PlayerId": 0, "Kind": 1, "Expired": 0, "Price": 0, "InstrumentId": 0, "Seconds": 0, "PV": None}
+                    # 29.10.: Format wie ein von BL selbst gespeicherter Schein (S3JLA): Kind 3, MainGameId = Hauptspiel
+                    return {"GameId": val.get("I"), "MainGameId": haupt.get("I"), "Type": typ, "Coef": e.get("C"),
+                            "Param": e.get("P"), "PlayerId": 0, "Kind": 3, "Expired": 0, "Price": 0, "InstrumentId": 0,
+                            "Seconds": 0, "PV": None, "CV": None}
     return None
 
 
