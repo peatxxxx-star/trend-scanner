@@ -746,3 +746,62 @@ def archiv_sammeln(scanner_spiele, pfad, deadline_ts, pause=0.0, max_fehler=25, 
     with _gz.open(pfad, "wt", encoding="utf-8") as f:
         json.dump({"info": info, "spiele": ergebnis}, f, ensure_ascii=False, separators=(",", ":"))
     return info
+
+
+# ---------------------------------------------------------------- Wettschein-Code (29.10.)
+# Lucio: „das mit diesen Codes müsstest du prüfen“. BetLabel (1xBet-Plattform) legt über
+# /web-api/LiveUtil/SaveCoupon einen Wettschein-Code an (z. B. "X1UKA"), ohne Login und ohne Wette.
+# Den Code lädt man in der BL-App/Web über „Wettschein laden“. Märkte: Gruppe 17 = gesamt (T 9 über /
+# 10 unter), 15 = Heim (11/12), 62 = Auswärts (13/14); Karten/Ecken liegen in eigenen Unterspielen.
+WEB = "https://betlabel.com/web-api/LiveUtil/"
+_GRP = {"tot": (17, 9, 10), "heim": (15, 11, 12), "gast": (62, 13, 14)}
+_UNTER = {"karten": "Gelbe Karten", "ecken": "Eckstöße"}
+
+
+def _post(url, payload, timeout=20):
+    req = urllib.request.Request(url, data=json.dumps(payload).encode(), method="POST", headers={
+        "User-Agent": UA, "Accept": "application/json", "Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return json.loads(r.read().decode("utf-8", "replace"))
+
+
+def _ereignis(art, t):
+    """BL-Ereignis (GameId, Type, Coef, Param) für einen Scanner-Tipp oder None."""
+    haupt = _spiel_detail(t["bl_id"])
+    val = haupt
+    if art in _UNTER:
+        val = None
+        for sg in haupt.get("SG") or []:
+            if (sg.get("TG") or "").strip() == _UNTER[art] and (sg.get("PN") or "").strip() == "":
+                val = _spiel_detail(sg.get("CI") or sg.get("I"))
+                break
+        if not val:
+            return None
+    seite = t.get("seite") or "tot"
+    if art == "tore":
+        seite = "tot"
+    gruppe, t_o, t_u = _GRP[seite]
+    typ = t_o if t.get("richtung", "über") == "über" else t_u
+    for g in val.get("GE") or []:
+        if g.get("G") != gruppe:
+            continue
+        for col in g.get("E") or []:
+            for e in col:
+                if e.get("T") == typ and e.get("P") is not None and abs(float(e["P"]) - float(t["linie"])) < 1e-9:
+                    return {"GameId": val.get("I"), "Type": typ, "Coef": e.get("C"), "Param": e.get("P"),
+                            "PlayerId": 0, "Kind": 1, "Expired": 0, "Price": 0, "InstrumentId": 0, "Seconds": 0, "PV": None}
+    return None
+
+
+def wettschein_code(legs):
+    """legs: [(art, tipp), …] → (Code, [aktuelle BL-Quoten]) oder (None, Grund)."""
+    evs = []
+    for art, t in legs:
+        e = _ereignis(art, t)
+        if not e:
+            return None, f"Markt fehlt: {t.get('spiel')}"
+        evs.append(e)
+    j = _post(WEB + "SaveCoupon", {"Events": evs, "Lng": "de", "Vid": 0, "partner": 1, "Summ": 0, "CfView": 0})
+    if j.get("Success") and j.get("Value"):
+        return j["Value"], [e["Coef"] for e in evs]
+    return None, j.get("Error") or "unbekannt"
