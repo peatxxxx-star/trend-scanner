@@ -7063,7 +7063,13 @@ def _run():
                                         "ohne_partner": [{"art": a_, "tipp": str(t_.get("match_id"))} for a_, t_ in re_],
                                         "gespielt": [sid for sid, _ in gs_]}
                                   for tag, (sc_, re_, gs_) in _sch.items()}
-                _sblock = karten.scheine_block(_kt, _t35, _te, esc, tage=_sch)
+                try:
+                    _codes = karten.scheine_codes(_sch)
+                except Exception as exc:
+                    _codes = {}
+                    print(f"Wettschein-Codes: {type(exc).__name__}: {exc}", flush=True)
+                log["scheine_codes"] = {f"{k[0]}#{k[1]}": v for k, v in _codes.items()}
+                _sblock = karten.scheine_block(_kt, _t35, _te, esc, tage=_sch, codes=_codes)
                 # 28.10. (Lucio: „mir reicht die aktuelle Scheinübersicht“): Telegram bekommt nur noch
                 # den Scheine-Block; alle Blöcke, Quoten und Protokolle stehen weiter im Lauf-JSON.
                 _txt = _kopf + _sblock if SCHEINE_NUR else _kopf + _sblock + "\n\n" + _txt

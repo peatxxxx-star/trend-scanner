@@ -851,7 +851,30 @@ def einsatz_heute(tage, jetzt=None):
     return st["einsatz"], st["kapital"], st["teiler"]
 
 
-def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=None, tage=None):
+def scheine_codes(tage):
+    """29.10. (Lucio: „Jetzt hast du es“): BL-Wettschein-Code je offenem Schein ({(tag, nr): code}).
+    In der BL-App unter Wettschein → „Laden“ eingeben; legt beide Wetten mit richtigem Markt in den Schein."""
+    import betlabel
+    auftr = []
+    for tag, (sch, rest, gesp) in tage.items():
+        for nr, arts, paar in sch:
+            auftr.append(((tag, nr), list(zip(arts, paar))))
+
+    def eins(a):
+        try:
+            code, _ = betlabel.wettschein_code(a[1])
+            return a[0], code
+        except Exception:
+            return a[0], None
+    out = {}
+    with ThreadPoolExecutor(4) as ex:
+        for k, code in ex.map(eins, auftr):
+            if code:
+                out[k] = code
+    return out
+
+
+def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=None, tage=None, codes=None):
     import datetime as _dt
     from zoneinfo import ZoneInfo
     B = ZoneInfo("Europe/Berlin")
@@ -861,7 +884,8 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
     e_txt = f"<b>{ein[0]:.2f} € je Schein</b>".replace(".", ",") if ein else "10 € je Schein"
     z = ["🎫 <b>SCHEINE</b> · 2er je Block nach Uhrzeit · " + e_txt + " · kein Spiel doppelt",
          *([f"<i>Einsatz = Kapital {ein[1]:.2f} € ÷ {ein[2]} · so reicht das Geld für jeden Schein des Tages</i>".replace(".", ",")] if ein else []),
-         "<i>🟥 Tore 3.5 · 🟧 Außenseiter-Ecken · 🟨 Karten · Nummern bleiben fest · gespielte Spiele (Wettlog) kommen nicht mehr vor</i>"]
+         "<i>🟥 Tore 3.5 · 🟧 Außenseiter-Ecken · 🟨 Karten · Nummern bleiben fest · gespielte Spiele (Wettlog) kommen nicht mehr vor</i>",
+         "<i>Code antippen = kopieren → BL Wettschein → „Laden“ → Einsatz 10 € prüfen → platzieren</i>"]
     sym = {"gewonnen": "✅", "verloren": "❌", "offen": "⏳"}
     for tag, (sch, rest, gesp) in tage.items():
         z.append("")
@@ -878,7 +902,9 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
         for nr, arts, paar in sch:
             q = paar[0]["q"] * paar[1]["q"]
             _e = ein[0] if ein else 10
-            z.append(f"<b>{nr}) {''.join(name[a_][:1] for a_ in arts)} @{q:.2f}</b> → {_e * q:.2f} €")
+            _c = (codes or {}).get((tag, nr))
+            z.append(f"<b>{nr}) {''.join(name[a_][:1] for a_ in arts)} @{q:.2f}</b> → {_e * q:.2f} €"
+                     + (f" · Code <code>{_c}</code>" if _c else ""))
             for art, t in zip(arts, paar):
                 ko = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%H:%M")
                 z.append(f"   {ko} {esc(t['spiel'])} <i>({esc(t.get('liga') or '')})</i>")
