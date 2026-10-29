@@ -761,18 +761,22 @@ def scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt=None, state_pfad=None, 
                 continue                                    # Tipp weg / gespielt / angefangen → auflösen
             sch.append({"nr": s["nr"], "arts": arts, "keys": keys})
             benutzt.update(keys)
-        # 28.10. (Lucio): strikt nach Uhrzeit, nicht nach Märkten getrennt – alle freien Tipps des Tages
-        # nach Anstoß sortiert und der Reihe nach gepaart (Backtest gemischt: 274 Scheine, +31 %).
-        frei = sorted([k for k, (art, t) in pool.items() if k not in benutzt and tag_von(t) == tg],
-                      key=lambda k: (pool[k][1].get("kickoff_ts") or 0, SCHEIN_PRIO.index(pool[k][0])))
+        # 29.10. (Lucio: „das, was besser funktioniert“): 2er wieder JE BLOCK, innerhalb des Blocks nach
+        # Anstoß gepaart. Backtest 15.–28.10. (10 € je Schein): je Block +1.179 € (+40 %), gemischt +995 € (+33 %).
+        frei = {}
+        for k, (art, t) in pool.items():
+            if k not in benutzt and tag_von(t) == tg:
+                frei.setdefault(art, []).append(k)
         rest = []
-        for i in range(len(frei) // 2):
-            keys = frei[2 * i:2 * i + 2]
-            nr += 1
-            sch.append({"nr": nr, "arts": [pool[k][0] for k in keys], "keys": keys})
-            benutzt.update(keys)
-        if len(frei) % 2:
-            rest.append((pool[frei[-1]][0], pool[frei[-1]][1]))
+        for art in SCHEIN_PRIO:
+            x = sorted(frei.get(art, []), key=lambda k: pool[k][1].get("kickoff_ts") or 0)
+            for i in range(len(x) // 2):
+                keys = x[2 * i:2 * i + 2]
+                nr += 1
+                sch.append({"nr": nr, "arts": [art, art], "keys": keys})
+                benutzt.update(keys)
+            if len(x) % 2:
+                rest.append((art, pool[x[-1]][1]))
         # 28.10. (Lucio: „Nummerierung durcheinander“): Paare bleiben fest, die Nummern der offenen
         # Scheine laufen aber immer lückenlos nach Anstoß – direkt hinter der höchsten gespielten Nummer.
         g_nr = [int(sid.rsplit("-", 1)[-1]) for sid in gesp if sid.startswith(f"SCHEIN-{tg}-") and sid.rsplit("-", 1)[-1].isdigit()]
@@ -843,7 +847,7 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
     tage = tage if tage is not None else scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt)
     ein = einsatz_heute(tage, jetzt)
     e_txt = f"<b>{ein[0]:.2f} € je Schein</b>".replace(".", ",") if ein else "10 € je Schein"
-    z = ["🎫 <b>SCHEINE</b> · 2er strikt nach Uhrzeit · " + e_txt + " · kein Spiel doppelt",
+    z = ["🎫 <b>SCHEINE</b> · 2er je Block nach Uhrzeit · " + e_txt + " · kein Spiel doppelt",
          *([f"<i>Einsatz = Kapital {ein[1]:.2f} € ÷ {ein[2]} · so reicht das Geld für jeden Schein des Tages</i>".replace(".", ",")] if ein else []),
          "<i>🟥 Tore 3.5 · 🟧 Außenseiter-Ecken · 🟨 Karten · Nummern bleiben fest · gespielte Spiele (Wettlog) kommen nicht mehr vor</i>"]
     sym = {"gewonnen": "✅", "verloren": "❌", "offen": "⏳"}
