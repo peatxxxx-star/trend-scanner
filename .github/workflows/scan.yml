@@ -95,9 +95,12 @@ jobs:
           BETSAPI_TOKEN_B365_RAW: ${{ secrets.BETSAPI_TOKEN_B365 }}
           # FORCE=1 = Mindestabstand ignorieren: bei jedem Start von Hand und per
           # scan_now. Stundentakt (quelle=uhr) und Rückfall-Zeitplan: FORCE=0.
-          # Mindestabstand zum letzten Lauf: Stundentakt 40 min, GitHub-Zeitplan
+          # Mindestabstand zum letzten Lauf: Stundentakt 20 min, GitHub-Zeitplan
           # 75 min (springt nur ein, wenn eine Stunde wirklich ausgefallen ist).
-          MIN_ABSTAND_MIN: ${{ github.event_name == 'schedule' && '75' || '40' }}
+          # 29.10.: 40 -> 20. Ein Handlauf um 12:47 hat den Stundenlauf 13:13 geschluckt
+          # (26 min < 40) → Lucio 1,5 h ohne Scan. Ein Handlauf blockiert jetzt nur noch,
+          # wenn er weniger als 20 min zurückliegt (dann sind die Quoten ohnehin frisch).
+          MIN_ABSTAND_MIN: ${{ github.event_name == 'schedule' && '75' || '20' }}
           FORCE: ${{ (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.quelle != 'uhr')) && '1' || '0' }}
         run: python scan.py
 
