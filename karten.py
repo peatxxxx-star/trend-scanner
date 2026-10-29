@@ -894,11 +894,28 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
                  + (f" · {len(gesp)} gespielt" if gesp else ""))
         if gesp:
             z.append("<b>✅ GESPIELT</b>")
-            for sid, rs in gesp:
+            # 29.10. (Lucio): entschiedene Scheine (gewonnen/verloren) oben, danach die offenen nach dem
+            # nächsten noch offenen Anstoß; hinter jedem Team die Anstoßzeit.
+            def _status(rs):
                 st_ = rs[0].get("schein_status") or "offen"
+                ts = [r.get("tipp_status") or "offen" for r in rs]
+                if st_ == "offen" and "verloren" in ts:
+                    st_ = "verloren"
+                elif st_ == "offen" and all(x == "gewonnen" for x in ts):
+                    st_ = "gewonnen"
+                return st_
+
+            def _sortkey(e):
+                rs = e[1]
+                offen = [str(r.get("anstoss", "")) for r in rs if (r.get("tipp_status") or "offen") == "offen"]
+                return (0, min(str(r.get("anstoss", "")) for r in rs)) if _status(rs) != "offen" else (1, min(offen or ["~"]))
+            for sid, rs in sorted(gesp, key=_sortkey):
+                st_ = _status(rs)
                 teile = []
-                for r in rs:
-                    teile.append(f"{esc(str(r.get('spiel', '')).split(' – ')[0])} {sym.get(r.get('tipp_status') or 'offen', '⏳')}")
+                for r in sorted(rs, key=lambda r: str(r.get("anstoss", ""))):
+                    _ko = str(r.get("anstoss", ""))[11:16]
+                    teile.append(f"{esc(str(r.get('spiel', '')).split(' – ')[0])}" + (f" ({_ko})" if _ko else "")
+                                 + f" {sym.get(r.get('tipp_status') or 'offen', '⏳')}")
                 z.append(f"   {sym.get(st_, '⏳')} {esc(sid.replace(f'SCHEIN-{tag}-', 'Nr. ').replace('-' + tag, ''))} @{float(rs[0].get('gesamtquote') or 0):.2f}: " + " + ".join(teile))
         for nr, arts, paar in sch:
             q = paar[0]["q"] * paar[1]["q"]

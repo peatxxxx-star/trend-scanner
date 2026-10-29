@@ -801,3 +801,4 @@ Lucio: „nur noch das spielen und den Rest jetzt erstmal so lange rausnehmen, b
 - 29.10. (Lucio: „13-Uhr-Scan kam nicht“): Mindestabstand des Stundenlaufs von 40 auf 20 min gesenkt. Mein Handlauf um 12:47 hatte den Lauf um 13:13 blockiert. Der Rückfall-Zeitplan bleibt bei 75 min.
 - 29.10. (Lucio: „Sperre rauspacken, jede Stunde“): Der Stundenlauf hat keinen Mindestabstand mehr und läuft immer, auch direkt nach einem Handlauf. Nur der Rückfall-Zeitplan behält 75 min, damit er nicht zusätzlich jede Stunde läuft.
 - 29.10. (Lucio: Code lädt mit 5 € statt 10 €): SaveCoupon bekommt jetzt Summ = 10. Ob BL den Einsatz aus dem Code übernimmt, prüft Lucio beim nächsten Laden.
+- 29.10. (Lucio): In GESPIELT steht hinter jedem Team die Anstoßzeit. Sortierung: entschiedene Scheine (gewonnen/verloren) oben, danach die offenen nach dem nächsten noch offenen Anstoß. Ein Schein mit einem verlorenen Bein gilt als verloren, auch wenn der Scheinstatus noch offen ist.
