@@ -669,6 +669,11 @@ def block(tipps, stand=None, esc=lambda s: s):
 # Regel wie im Strategie-Backtest 15.–27.10. (269 Scheine, +34 %): je Block 2er in Anstoß-Reihenfolge,
 # je Berliner Tag, 10 € je Schein; jedes Spiel nur einmal (Priorität Außenseiter-Ecken > Tore 3.5 > Karten).
 SCHEIN_PRIO = ("ecken", "tore", "karten")
+# 29.10. (Lucio: „3.5 schon bissle dünn für unsere 2er“ → „Ja bitte 1,3–1,7, Rest auf Papier vorerst“):
+# in die Scheine kommen nur Tore-3.5-Tipps mit Quote bis 1,70. 15.–28.10.: Quote 1,30–1,70 138 Tipps, 75 %,
+# 2er 55 % gewonnen, ROI +28 %; Quote 1,70–2,10 258 Tipps, 55 %, 2er 27 % gewonnen, ROI ±0 %.
+# Die übrigen Tore-Tipps bleiben im Lauf-Protokoll (tore35) und werden auf Papier ausgewertet.
+SCHEIN_TORE_Q_MAX = 1.70
 
 
 def _markt(art, t):
@@ -736,6 +741,8 @@ def scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt=None, state_pfad=None, 
         for t in sorted(quellen[art], key=lambda t: t.get("kickoff_ts") or 0):
             if (t.get("kickoff_ts") or 0) < jetzt + 120:
                 continue
+            if art == "tore" and (t.get("q") or 0) > SCHEIN_TORE_Q_MAX:
+                continue                                    # nur Papier (29.10.)
             key = str(t.get("match_id") or t.get("spiel"))
             if key in vergeben:
                 continue
