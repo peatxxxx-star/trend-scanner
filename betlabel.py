@@ -804,7 +804,7 @@ def wettschein_code(legs):
         if not e:
             return None, f"Markt fehlt: {t.get('spiel')}"
         evs.append(e)
-    j = _post(WEB + "SaveCoupon", {"Events": evs, "Lng": "de", "Vid": 0, "partner": BL_PARTNER, "Summ": 0, "CfView": 0})
+    j = _post(WEB + "SaveCoupon", {"Events": evs, "Lng": "de", "Vid": 0, "partner": BL_PARTNER, "Summ": WETTSCHEIN_EINSATZ, "CfView": 0})
     if j.get("Success") and j.get("Value"):
         return j["Value"], [e["Coef"] for e in evs]
     return None, j.get("Error") or "unbekannt"
