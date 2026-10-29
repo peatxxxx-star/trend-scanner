@@ -26,30 +26,48 @@ def _req(url, data=None, ctype="application/json", timeout=20):
 
 def run(runs_dir):
     out = {"zeit": time.strftime("%Y-%m-%d %H:%M"), "probes": [], "js": {}}
-    # ein echtes Ereignis (1X2 Heimsieg) aus einem laufenden Fußballspiel
+    # ein echtes Ereignis (1X2 Heimsieg) aus einem anstehenden Fußballspiel
     ev = None
     try:
         spiele = betlabel.lade_spiele()
-        g = next(x for x in spiele if x.get("I"))
-        d = betlabel._spiel_detail(g["I"])
-        e0 = (d.get("E") or [{}])[0]
-        ev = {"GameId": d.get("I"), "Type": e0.get("T"), "Coef": e0.get("C"), "Param": e0.get("P", 0),
-              "PlayerId": 0, "Kind": 3, "Expired": 0, "Price": 0, "InstrumentId": 0, "Seconds": 0}
-        out["ereignis"] = {"spiel": f"{g.get('O1')} – {g.get('O2')}", **ev}
+        for g in spiele:
+            d = betlabel._spiel_detail(g["I"])
+            for grp in d.get("GE") or []:
+                if grp.get("G") == 1 and grp.get("E") and grp["E"][0]:
+                    e0 = grp["E"][0][0]
+                    ev = {"GameId": d.get("I"), "Type": e0.get("T"), "Coef": e0.get("C"), "Param": e0.get("P", 0),
+                          "PlayerId": 0, "Kind": 1, "Expired": 0, "Price": 0, "InstrumentId": 0, "Seconds": 0, "PV": None}
+                    out["ereignis"] = {"spiel": f"{g.get('O1')} – {g.get('O2')}", **ev}
+                    break
+            if ev:
+                break
     except Exception as e:
         out["ereignis_fehler"] = f"{type(e).__name__}: {e}"
-    pfade_post = ["/LiveUtil/SaveCoupon", "/service-api/LiveUtil/SaveCoupon", "/datalinelive/SaveCoupon",
-                  "/web-api/LiveUtil/SaveCoupon", "/LiveUtil/SaveBetslip"]
-    pfade_get = ["/LiveUtil/GetCoupon?code=TEST123", "/service-api/LiveUtil/GetCoupon?code=TEST123",
-                 "/LiveUtil/GetCoupon?id=TEST123"]
-    body = json.dumps({"Coupon": {"Events": [ev] if ev else [], "Lng": "de", "Vid": 0, "partner": 0}}).encode()
-    for h in HOSTS:
-        for p in pfade_post:
-            st, txt, u = _req(h + p, data=body)
-            out["probes"].append({"url": h + p, "methode": "POST", "status": st, "antwort": (txt or "")[:300]})
-        for p in pfade_get:
-            st, txt, u = _req(h + p)
-            out["probes"].append({"url": h + p, "methode": "GET", "status": st, "antwort": (txt or "")[:300]})
+    codes = []
+    varianten = []
+    for kind in (1, 3):
+        e = dict(ev or {}, Kind=kind)
+        varianten += [("wrap", {"Coupon": {"Events": [e], "Lng": "de", "Vid": 0, "partner": 1}}),
+                      ("flach", {"Events": [e], "Lng": "de", "Vid": 0, "partner": 1, "Summ": 0, "CfView": 0}),
+                      ("flach_ohnepartner", {"Events": [e], "Lng": "de", "Vid": 0})]
+    for h in HOSTS[:1]:
+        for name, pl in varianten:
+            st, txt, u = _req(h + "/web-api/LiveUtil/SaveCoupon", data=json.dumps(pl).encode())
+            out["probes"].append({"url": h + "/web-api/LiveUtil/SaveCoupon", "variante": f"{name} kind={pl.get('Events', pl.get('Coupon', {}).get('Events'))[0].get('Kind')}", "status": st, "antwort": (txt or "")[:400]})
+            try:
+                j = json.loads(txt)
+                if j.get("Success") and (j.get("Value") or j.get("Id")):
+                    codes.append(j.get("Value") or j.get("Id"))
+            except Exception:
+                pass
+        for c in codes[:1]:
+            c2 = c.get("Id") if isinstance(c, dict) else c
+            for p, data in ((f"/web-api/LiveUtil/GetCoupon?Guid={c2}&lng=de&partner=1", None),
+                            (f"/web-api/LiveUtil/GetCoupon?id={c2}&lng=de&partner=1", None),
+                            ("/web-api/LiveUtil/GetCoupon", json.dumps({"Guid": c2, "Lng": "de", "partner": 1}).encode())):
+                st, txt, u = _req(h + p, data=data)
+                out["probes"].append({"url": h + p, "status": st, "antwort": (txt or "")[:600]})
+    out["codes"] = codes
     # Startseite + JS-Bundles nach Coupon-/Share-Begriffen durchsuchen
     muster = re.compile(r"[\w/\-\.]*(?:SaveCoupon|GetCoupon|LoadCoupon|couponCode|coupon_code|bookingCode|bet_slip|betslip|shareCoupon|\bbs=)[\w/\-\.=?]*", re.I)
     for h in HOSTS:
