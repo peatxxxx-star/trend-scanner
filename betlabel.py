@@ -754,6 +754,7 @@ def archiv_sammeln(scanner_spiele, pfad, deadline_ts, pause=0.0, max_fehler=25, 
 # Den Code lädt man in der BL-App/Web über „Wettschein laden“. Märkte: Gruppe 17 = gesamt (T 9 über /
 # 10 unter), 15 = Heim (11/12), 62 = Auswärts (13/14); Karten/Ecken liegen in eigenen Unterspielen.
 WEB = "https://betlabel.com/web-api/LiveUtil/"
+BL_PARTNER = 320          # 29.10.: BetLabel-Kennung auf der 1xBet-Plattform (Code S3JLA nur unter partner=320 auffindbar)
 _GRP = {"tot": (17, 9, 10), "heim": (15, 11, 12), "gast": (62, 13, 14)}
 _UNTER = {"karten": "Gelbe Karten", "ecken": "Eckstöße"}
 
@@ -801,7 +802,7 @@ def wettschein_code(legs):
         if not e:
             return None, f"Markt fehlt: {t.get('spiel')}"
         evs.append(e)
-    j = _post(WEB + "SaveCoupon", {"Events": evs, "Lng": "de", "Vid": 0, "partner": 1, "Summ": 0, "CfView": 0})
+    j = _post(WEB + "SaveCoupon", {"Events": evs, "Lng": "de", "Vid": 0, "partner": BL_PARTNER, "Summ": 0, "CfView": 0})
     if j.get("Success") and j.get("Value"):
         return j["Value"], [e["Coef"] for e in evs]
     return None, j.get("Error") or "unbekannt"

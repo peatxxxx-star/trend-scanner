@@ -39,7 +39,7 @@ def partner_suche(runs_dir, code):
         key = (j.get("Error") or "")[:60] + ("|OK" if j.get("Success") else "")
         out["proben"].setdefault(key, []).append(p)
         if j.get("Success") or (j.get("Value") and not j.get("Error")):
-            out["treffer"].append({"partner": p, "antwort": json.dumps(j, ensure_ascii=False)[:800]})
+            out["treffer"].append({"partner": p})          # keine Antwort speichern: enthält die BL-Kundennummer
             if len(out["treffer"]) >= 3:
                 break
     p = Path(runs_dir) / f"coupon_partner_{time.strftime('%Y-%m-%d_%H%M')}.json"
