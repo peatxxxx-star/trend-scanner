@@ -755,6 +755,7 @@ def archiv_sammeln(scanner_spiele, pfad, deadline_ts, pause=0.0, max_fehler=25, 
 # 10 unter), 15 = Heim (11/12), 62 = Auswärts (13/14); Karten/Ecken liegen in eigenen Unterspielen.
 WEB = "https://betlabel.com/web-api/LiveUtil/"
 BL_PARTNER = 320          # 29.10.: BetLabel-Kennung auf der 1xBet-Plattform (Code S3JLA nur unter partner=320 auffindbar)
+WETTSCHEIN_EINSATZ = 10   # 29.10.: Einsatz im Code mitgeben (BL zeigte beim Laden 5 € statt 10 €)
 _GRP = {"tot": (17, 9, 10), "heim": (15, 11, 12), "gast": (62, 13, 14)}
 _UNTER = {"karten": "Gelbe Karten", "ecken": "Eckstöße"}
 
