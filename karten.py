@@ -876,7 +876,7 @@ def scheine_codes(tage):
 
 
 _GENERISCH = {"borussia", "bayer", "dynamo", "dinamo", "olympique", "racing", "union", "eintracht", "hertha", "inter",
-              "spartak", "lokomotiv", "torpedo", "slavia", "sparta", "standard", "royal", "stade", "sporting", "vitoria"}
+              "standard", "royal", "stade", "sporting", "vitoria"}
 _KURZ_WEG = {"fc", "sc", "ac", "cf", "if", "is", "aif", "bk", "ff", "fk", "sk", "afc", "cd", "ud", "nfc", "sv", "club",
              "football", "foundation", "calcio", "athinon"}
 
@@ -885,7 +885,9 @@ def _kurz(spiel, n=13):
     """29.10. (Lucio, Handy): Vereinskürzel weg und je Team höchstens n Zeichen (hintere Wörter fallen zuerst weg),
     damit eine Zeile aufs Handy passt."""
     out = []
-    for team in str(spiel or "").split(" – "):
+    teams = str(spiel or "").split(" – ")
+    for i_, team in enumerate(teams):
+        gegner = {x.lower() for j_, tm in enumerate(teams) if j_ != i_ for x in tm.split()}
         w = [x for x in team.split() if x.lower().strip(".") not in _KURZ_WEG] or team.split()
         voll = list(w)
         while len(w) > 1 and len(" ".join(w)) > n:
@@ -893,7 +895,7 @@ def _kurz(spiel, n=13):
         while len(w) > 1 and w[-1].lower() in ("tel", "de", "la", "del", "di", "da", "do", "al", "el", "san", "st", "and", "und"):
             w.pop()
         if len(w) == 1 and len(voll) > 1 and (w[0].lower() in _STOP or w[0].lower() in _GENERISCH):
-            w = [max(voll, key=lambda x: (x.lower() not in _STOP and x.lower() not in _GENERISCH, len(x)))]                      # „Borussia“ allein sagt nichts → „Mönchengladbach“
+            w = [max(voll, key=lambda x: (x.lower() not in gegner, x.lower() not in _STOP and x.lower() not in _GENERISCH, len(x)))]                      # „Borussia“ allein sagt nichts → „Mönchengladbach“
         t = " ".join(w)
         out.append(t if len(t) <= n else t[:n - 1].rstrip() + ".")
     return " – ".join(out)
