@@ -982,7 +982,7 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
         for art, t in rest:
             ko = _dt.datetime.fromtimestamp(t["kickoff_ts"], B).strftime("%H:%M")
             z.append(f"   {ko} {esc(_kurz(t['spiel']))}")
-            z.append(f"   {name[art][:1]} {esc(_markt(art, t)).replace(' (Auswärts)', '').replace(' (Heim)', '')} @{t['q']:.2f}")
+            z.append(f"      {name[art][:1]} {esc(_markt(art, t)).replace(' (Auswärts)', '').replace(' (Heim)', '')} @{t['q']:.2f}")
     return "\n".join(z)
 
 
