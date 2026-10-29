@@ -6602,6 +6602,10 @@ def _run():
         pfad.write_text(json.dumps(out, ensure_ascii=False))
         print("Archiv-Teams:", len(out), "von", len(evs) + len(out))
         return
+    if "Coupon-Test" in _msg:
+        import coupon_test
+        coupon_test.run(RUNS_DIR)
+        return
     if "Quoten-Test:" in _msg:
         # 27.10. (Lucio): Liefert BetsAPI Quoten auch für alte, beendete Spiele? Event-IDs hinter
         # "Quoten-Test:". Schreibt runs/quoten_test_<Zeit>.json (je Markt: Anzahl Einträge, erste/letzte
