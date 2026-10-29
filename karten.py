@@ -912,9 +912,28 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
             for sid, rs in sorted(gesp, key=_sortkey):
                 st_ = _status(rs)
                 teile = []
-                for r in sorted(rs, key=lambda r: str(r.get("anstoss", ""))):
-                    _ko = str(r.get("anstoss", ""))[11:16]
-                    teile.append(f"{esc(str(r.get('spiel', '')).split(' – ')[0])}" + (f" ({_ko})" if _ko else "")
+                # 29.10. (Lucio): im offenen Schein links das nächste Spiel, laufende und entschiedene
+                # Spiele nach rechts; laufende ohne Uhrzeit, stattdessen „läuft“ (bzw. „wartet auf Ergebnis“).
+                _jetzt = jetzt or time.time()
+
+                def _ts(r):
+                    try:
+                        return _dt.datetime.strptime(str(r.get("anstoss", ""))[:16], "%Y-%m-%d %H:%M").replace(tzinfo=B).timestamp()
+                    except Exception:
+                        return None
+
+                def _phase(r):
+                    if (r.get("tipp_status") or "offen") != "offen":
+                        return 2
+                    t_ = _ts(r)
+                    return 1 if t_ is not None and t_ <= _jetzt else 0
+                for r in sorted(rs, key=lambda r: ((_phase(r) if st_ == "offen" else 0), str(r.get("anstoss", "")))):
+                    _ko, _ph = str(r.get("anstoss", ""))[11:16], _phase(r)
+                    if _ph == 1:
+                        _zus = " (▶️ läuft)" if _jetzt - _ts(r) < 2.25 * 3600 else " (wartet auf Ergebnis)"
+                    else:
+                        _zus = f" ({_ko})" if _ko else ""
+                    teile.append(f"{esc(str(r.get('spiel', '')).split(' – ')[0])}" + _zus
                                  + f" {sym.get(r.get('tipp_status') or 'offen', '⏳')}")
                 z.append(f"   {sym.get(st_, '⏳')} {esc(sid.replace(f'SCHEIN-{tag}-', 'Nr. ').replace('-' + tag, ''))} @{float(rs[0].get('gesamtquote') or 0):.2f}: " + " + ".join(teile))
         for nr, arts, paar in sch:
