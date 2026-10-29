@@ -893,7 +893,7 @@ def _kurz(spiel, n=13):
         while len(w) > 1 and w[-1].lower() in ("tel", "de", "la", "del", "di", "da", "do", "al", "el", "san", "st", "and", "und"):
             w.pop()
         if len(w) == 1 and len(voll) > 1 and (w[0].lower() in _STOP or w[0].lower() in _GENERISCH):
-            w = [max(voll, key=len)]                      # „Borussia“ allein sagt nichts → „Mönchengladbach“
+            w = [max(voll, key=lambda x: (x.lower() not in _STOP and x.lower() not in _GENERISCH, len(x)))]                      # „Borussia“ allein sagt nichts → „Mönchengladbach“
         t = " ".join(w)
         out.append(t if len(t) <= n else t[:n - 1].rstrip() + ".")
     return " – ".join(out)
