@@ -791,10 +791,11 @@ def scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt=None, state_pfad=None, 
         g_nr = [int(sid.rsplit("-", 1)[-1]) for sid in gesp if sid.startswith(f"SCHEIN-{tg}-") and sid.rsplit("-", 1)[-1].isdigit()]
         alt_nr = {s_["nr"] for s_ in sch if s_.get("alt")}
         frei_nr = max([alt.get("nr", 0)] + g_nr + list(alt_nr))
+        # 29.10. (Lucio: „8, 9, 10, 7 … schön wäre richtig sortiert“): neue Scheine in Anstoß-Reihenfolge nummerieren.
+        for s_ in sorted((x_ for x_ in sch if not x_.get("alt")), key=lambda x_: pool[x_["keys"][0]][1].get("kickoff_ts") or 0):
+            frei_nr += 1
+            s_["nr"] = frei_nr
         for s_ in sch:
-            if not s_.get("alt"):
-                frei_nr += 1
-                s_["nr"] = frei_nr
             s_.pop("alt", None)
         nr = frei_nr
         st[tg] = {"nr": nr, "scheine": sch}
