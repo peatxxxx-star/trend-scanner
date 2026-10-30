@@ -3236,7 +3236,15 @@ def split_message(text: str, limit: int = 3500):
     return parts
 
 
+TG_PAUSE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "state", "telegram_pause")
+
+
 def send_telegram(text: str) -> bool:
+    # 30.10. (Lucio: „Telegram kannst du ausschalten erstmal“): solange state/telegram_pause existiert,
+    # wird nichts gesendet; der Scan läuft und protokolliert weiter (Papier). True, damit nichts nachgesendet wird.
+    if os.path.exists(TG_PAUSE):
+        print("Telegram pausiert (state/telegram_pause) – nicht gesendet.", flush=True)
+        return True
     if not (TG_TOKEN and TG_CHAT):
         return False
     url = f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage"
