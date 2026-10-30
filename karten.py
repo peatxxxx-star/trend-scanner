@@ -676,6 +676,10 @@ SCHEIN_PRIO = ("ecken", "tore", "karten")
 # der Außenseiter mauert (3:0, 2:1). Ohne sie: 299 Tipps, 64 %, Einzel +14,5 %, 2er 43 % gewonnen, ROI +39 %
 # (Quote ≤ 1,70 nur 142 Tipps, 2er +18 %). Tipps mit klarem Favoriten bleiben im Protokoll tore35 (Papier).
 SCHEIN_TORE_FAV_MAX = 0.70
+# 30.10. (Lucio: „muss raus“): Tore 3.5 live 26.–29.10. 66 Tipps 55 %, ROI −3 % (Backtest 63 %, +10 %) –
+# keine Filtervariante hält live. Nur noch Papier; Wiederaufnahme nur, wenn die Variante Quote < 1,80 +
+# Favorit ≤ 70 % auf dem Papier ~2 Wochen ≥ 70 % trifft.
+SCHEIN_TORE_AKTIV = False
 
 
 def _markt(art, t):
@@ -743,6 +747,8 @@ def scheine(karten_tipps, tore_tipps, ecken_tipps, jetzt=None, state_pfad=None, 
         for t in sorted(quellen[art], key=lambda t: t.get("kickoff_ts") or 0):
             if (t.get("kickoff_ts") or 0) < jetzt + 120:
                 continue
+            if art == "tore" and not SCHEIN_TORE_AKTIV:
+                continue                                    # Tore 3.5 nur Papier (30.10.)
             if art == "tore" and (t.get("p_fav") or 0) > SCHEIN_TORE_FAV_MAX:
                 continue                                    # klarer Favorit: nur Papier (29.10.)
             key = str(t.get("match_id") or t.get("spiel"))
@@ -911,7 +917,7 @@ def scheine_block(karten_tipps, tore_tipps, ecken_tipps, esc=lambda s: s, jetzt=
     e_txt = f"<b>{ein[0]:.2f} € je Schein</b>".replace(".", ",") if ein else "10 € je Schein"
     z = ["🎫 <b>SCHEINE</b> · 2er je Block · " + e_txt,
          *([f"<i>Einsatz = Kapital {ein[1]:.2f} € ÷ {ein[2]} · so reicht das Geld für jeden Schein des Tages</i>".replace(".", ",")] if ein else []),
-         "<i>🟥 Tore 3.5 · 🟧 Außenseiter-Ecken · 🟨 Karten</i>",
+         "<i>🟧 Außenseiter-Ecken · 🟨 Karten (Tore 3.5 nur Papier)</i>",
          "<i>Code antippen → BL „Laden“ → 10 € prüfen</i>"]
     sym = {"gewonnen": "✅", "verloren": "❌", "offen": "⏳"}
     for tag, (sch, rest, gesp) in tage.items():
