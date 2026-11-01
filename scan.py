@@ -3239,10 +3239,11 @@ def split_message(text: str, limit: int = 3500):
 TG_PAUSE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "state", "telegram_pause")
 
 
-def send_telegram(text: str) -> bool:
+def send_telegram(text: str, trotz_pause: bool = False) -> bool:
     # 30.10. (Lucio: „Telegram kannst du ausschalten erstmal“): solange state/telegram_pause existiert,
     # wird nichts gesendet; der Scan läuft und protokolliert weiter (Papier). True, damit nichts nachgesendet wird.
-    if os.path.exists(TG_PAUSE):
+    # 01.11.: trotz_pause=True für den Torschützen-Scan (soll trotz Pause kommen).
+    if os.path.exists(TG_PAUSE) and not trotz_pause:
         print("Telegram pausiert (state/telegram_pause) – nicht gesendet.", flush=True)
         return True
     if not (TG_TOKEN and TG_CHAT):
@@ -6614,6 +6615,11 @@ def _run():
         import coupon_test
         coupon_test.partner_suche(RUNS_DIR, _msg.split("Coupon-Partner:", 1)[1].split()[0].strip())
         return
+    if "Torschützen-Telegram" in _msg:
+        # 01.11.: Torschützen-Scan sofort per Telegram (Fenster wie der 21-Uhr-Lauf: bis morgen 07:00).
+        import torschuetzen
+        torschuetzen.stundenlauf(sys.modules[__name__], zwingen=21)
+        return
     if "Torschützen-Scan" in _msg:
         # 01.11. (Lucio): welche BL-Spiele von morgen haben einen Torschützen-Markt?
         import torschuetzen
@@ -6701,6 +6707,13 @@ def _run():
             print(f"Letzter Lauf vor {int(seit)} min – Mindestabstand {MIN_ABSTAND_MIN} min "
                   f"noch nicht erreicht, Lauf übersprungen.")
             return
+    # 01.11. (Lucio): Torschützen-Scan zu festen Uhrzeiten (06/12/15/18/19/21 Uhr) per Telegram, trotz Pause.
+    if not is_prewarm_run():
+        try:
+            import torschuetzen
+            torschuetzen.stundenlauf(sys.modules[__name__])
+        except Exception as exc:
+            print(f"Torschützen-Scan: {type(exc).__name__}: {exc}", flush=True)
     _t_run = time.time()                  # 19.09.: Gesamtdauer fürs Protokoll
     load_league_mem()
     cache = load_cache()
