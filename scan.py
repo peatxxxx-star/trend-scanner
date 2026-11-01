@@ -6614,6 +6614,11 @@ def _run():
         import coupon_test
         coupon_test.partner_suche(RUNS_DIR, _msg.split("Coupon-Partner:", 1)[1].split()[0].strip())
         return
+    if "Torschützen-Scan" in _msg:
+        # 01.11. (Lucio): welche BL-Spiele von morgen haben einen Torschützen-Markt?
+        import torschuetzen
+        torschuetzen.run(RUNS_DIR)
+        return
     if "Coupon-Test" in _msg:
         import coupon_test
         coupon_test.run(RUNS_DIR)
