@@ -57,19 +57,33 @@ def scan(von, bis):
 
 
 def text(out, n_alle, von, bis, esc=lambda s: s):
+    """01.11. (Lucio): nach Liga gruppiert. Ligen in der Reihenfolge ihres ersten Anstoßes, darunter alle
+    Spiele dieser Liga im Zeitfenster (auch spätere)."""
     ts = [x for x in out if x["torschuetze"]]
     st = [x for x in out if not x["torschuetze"]]
     z = [f"⚽ <b>TORSCHÜTZEN bei BL</b> · {_wt(von)} bis {_wt(bis)}",
          f"<i>{len(ts)} Spiele mit Torschützen-Markt · {n_alle} Spiele geprüft</i>"]
     if not ts:
         z.append("Keine Spiele mit Torschützen-Markt im Zeitraum.")
-    for x in ts:
-        z.append(f"{x['zeit'][-5:]} {esc(x['spiel'])} <i>({esc(x['liga'])})</i>")
+
+    def gruppen(liste):
+        g = {}
+        for x in liste:
+            g.setdefault(x["liga"], []).append(x)
+        return sorted(g.items(), key=lambda kv: min(y["ts"] for y in kv[1]))
+    tag0 = von.strftime("%d.%m.")
+    for liga, xs in gruppen(ts):
+        z.append("")
+        z.append(f"<b>{esc(liga)}</b>")
+        for x in sorted(xs, key=lambda y: y["ts"]):
+            d = datetime.fromtimestamp(x["ts"], B)
+            zeit = d.strftime("%H:%M") if d.strftime("%d.%m.") == tag0 else f"{WT[d.weekday()]} {d:%H:%M}"
+            z.append(f"   {zeit} {esc(x['spiel'])}")
     if st:
         z.append("")
         z.append("<i>nur Spielerstatistik (kein Torschützen-Markt erkannt):</i>")
-        for x in st:
-            z.append(f"<i>{x['zeit'][-5:]} {esc(x['spiel'])}</i>")
+        for liga, xs in gruppen(st):
+            z.append(f"<i>{esc(liga)}: " + ", ".join(f"{datetime.fromtimestamp(x['ts'], B):%H:%M} {esc(x['spiel'])}" for x in xs) + "</i>")
     return "\n".join(z)
 
 
