@@ -59,8 +59,9 @@ def scan(von, bis):
 def text(out, n_alle, von, bis, esc=lambda s: s):
     """01.11. (Lucio): nach Liga gruppiert. Ligen in der Reihenfolge ihres ersten Anstoßes, darunter alle
     Spiele dieser Liga im Zeitfenster (auch spätere)."""
-    ts = [x for x in out if x["torschuetze"]]
-    st = [x for x in out if not x["torschuetze"]]
+    # 01.11. (Lucio): „Spielerstatistik“ enthält bei BL ebenfalls den Torschützen-Markt → zählt mit.
+    ts = [x for x in out if x["torschuetze"] or x["spielerstatistik"]]
+    st = []
     z = [f"⚽ <b>TORSCHÜTZEN bei BL</b> · {_wt(von)} bis {_wt(bis)}",
          f"<i>{len(ts)} Spiele mit Torschützen-Markt · {n_alle} Spiele geprüft</i>"]
     if not ts:
@@ -128,7 +129,7 @@ def stundenlauf(scan_mod, jetzt=None, zwingen=None):
         (scan_mod.RUNS_DIR / f"torschuetzen_{jetzt:%Y-%m-%d_%H%M}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
     except Exception:
         pass
-    print(f"Torschützen-Scan {std} Uhr: {sum(x['torschuetze'] for x in out)} mit Markt von {n_alle}", flush=True)
+    print(f"Torschützen-Scan {std} Uhr: {len(out)} mit Markt von {n_alle}", flush=True)
     return out
 
 
