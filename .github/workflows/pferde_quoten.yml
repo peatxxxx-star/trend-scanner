@@ -1,0 +1,42 @@
+name: Pferde-Quoten
+
+# 03.11. (Lucio): Pferde-Quoten über BetLabel holen. Claudes Cloud kommt an
+# betlabel.com nicht heran, GitHub Actions schon. Claude pusht die Datei
+# "pferde_now" (Inhalt egal), dieser Workflow legt die Quoten unter
+# state/pferde_quoten_<Datum>.json ab.
+
+on:
+  push:
+    branches: [main]
+    paths: ["pferde_now"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  quoten:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Quoten holen
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: python pferde_quoten.py
+      - name: Sichern
+        if: always()
+        run: |
+          git config user.name "trend-scanner"
+          git config user.email "actions@users.noreply.github.com"
+          git add state/pferde_quoten_*.json 2>/dev/null || true
+          if git diff --cached --quiet; then echo "nichts zu sichern"; exit 0; fi
+          git commit -q -m "Pferde-Quoten $(date -u +'%Y-%m-%d %H:%M') UTC"
+          for i in 1 2 3 4; do
+            git pull -q --rebase -X theirs origin main && git push -q origin HEAD:main && exit 0
+            sleep $((i * 10))
+          done
+          exit 1
