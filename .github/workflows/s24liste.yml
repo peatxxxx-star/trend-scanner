@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   liste:
@@ -26,8 +26,17 @@ jobs:
           PYTHONUNBUFFERED: "1"
           S24_BIS: "20"
         run: python s24liste.py
-      - uses: actions/upload-artifact@v4
-        with:
-          name: s24-liste
-          path: out/
-          retention-days: 7
+      - name: Sichern
+        if: always()
+        run: |
+          mkdir -p runs/s24 && cp out/*.json.gz runs/s24/ 2>/dev/null || true
+          git config user.name "trend-scanner"
+          git config user.email "actions@users.noreply.github.com"
+          git add runs/s24/ 2>/dev/null || true
+          if git diff --cached --quiet; then echo "nichts zu sichern"; exit 0; fi
+          git commit -q -m "scores24-Liste $(date -u +'%Y-%m-%d %H:%M') UTC"
+          for i in 1 2 3 4; do
+            git pull -q --rebase -X theirs origin main && git push -q origin HEAD:main && exit 0
+            sleep $((i * 10))
+          done
+          exit 1
