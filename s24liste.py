@@ -78,7 +78,7 @@ def main():
             rec["names"] = lg[:12]
         except Exception as e:
             rec["html_err"] = str(e)[:120]
-        for key, url in (("trends", f"https://scores24.live/rapi/localized/matches/soccer/{slug}/trends?lang=de&audience=de")):
+        for key, url in (("trends", f"https://scores24.live/rapi/localized/matches/soccer/{slug}/trends?lang=de&audience=de"),):
             for a in range(2):
                 try:
                     rec[key] = json.loads(get(url)); break
