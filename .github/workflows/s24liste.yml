@@ -1,0 +1,33 @@
+name: scores24-Liste
+
+# 05.11.2026 (Lucio): scores24 auslesen (Spiele, Serien, Quoten) ohne BetsAPI.
+# Claude pusht die Datei "s24_now"; der Lauf legt die Rohdaten als Artefakt ab.
+
+on:
+  push:
+    branches: [main]
+    paths: ["s24_now"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  liste:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: scores24 abrufen
+        env:
+          PYTHONUNBUFFERED: "1"
+          S24_BIS: "20"
+        run: python s24liste.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: s24-liste
+          path: out/
+          retention-days: 7
