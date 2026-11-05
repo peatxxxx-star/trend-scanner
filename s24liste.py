@@ -41,6 +41,17 @@ def main():
     if bis_h > 24:
         tage.add((now + timedelta(days=1)).strftime("%d-%m-%Y"))
     links = []
+    # 05.11.: Tagesseiten zuerst (Sitemap "upcoming" ist unvollständig, z. B. ohne Europa League)
+    for tag in sorted(tage):
+        dd = datetime.strptime(tag, "%d-%m-%Y").strftime("%Y-%m-%d")
+        for url in (f"https://scores24.live/de/soccer/{dd}", f"https://scores24.live/de/soccer?date={dd}"):
+            try:
+                html = get(url)
+                f = re.findall(r"/de/soccer/(m-\d{2}-\d{2}-\d{4}-[^\"?#<>\s]+)", html)
+                print("Tagesseite", url, len(set(f)))
+                links += f
+            except Exception as e:
+                print("Tagesseite", url, e)
     for i in range(20):
         try:
             xml = get(f"https://scores24.live/sitemaps/sitemap-de-soccer-upcoming-matches-{i}.xml")
@@ -57,8 +68,17 @@ def main():
     def one(link):
         slug = link[2:]
         rec = {"slug": slug}
-        for key, url in (("match", f"https://scores24.live/rapi/localized/matches/soccer/{slug}?lang=de&audience=de"),
-                         ("trends", f"https://scores24.live/rapi/localized/matches/soccer/{slug}/trends?lang=de&audience=de")):
+        try:
+            html = get(f"https://scores24.live/de/soccer/m-{slug}")
+            m = re.search(r'"startDate"\s*:\s*"([^"]+)"', html)
+            rec["start"] = m.group(1) if m else None
+            t = re.search(r"<title>(.*?)</title>", html, re.S)
+            rec["title"] = t.group(1).strip()[:200] if t else None
+            lg = re.findall(r'"name"\s*:\s*"([^"]{3,80})"', html)
+            rec["names"] = lg[:12]
+        except Exception as e:
+            rec["html_err"] = str(e)[:120]
+        for key, url in (("trends", f"https://scores24.live/rapi/localized/matches/soccer/{slug}/trends?lang=de&audience=de")):
             for a in range(2):
                 try:
                     rec[key] = json.loads(get(url)); break
