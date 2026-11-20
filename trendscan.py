@@ -45,6 +45,7 @@ GESENDET = ROOT / "state" / "trendscan_gesendet.json"
 LOGDIR = ROOT / "runs" / "trendscan"
 
 FENSTER_H = float(os.environ.get("TS_FENSTER_H", "14"))
+TABV = 2                         # Version des Tabellen-Parsers (neu laden bei Änderung)
 TAB_MIN_SP = 8                   # 20.11.: weniger Tabellenspiele -> raus
 Q_MIN, Q_MAX = 1.20, 1.50
 TREND_MAX_ALTER = 6 * 3600    # Trends je Spiel höchstens 6 h wiederverwenden
@@ -165,6 +166,7 @@ def _spiel_s24(slug):
             rec["liga"] = None
         try:
             rec["tab"] = _tabelle(h, rec.get("home"), rec.get("away"), slug)
+            rec["tabv"] = TABV
             if not rec["tab"]:
                 rec["tab_teams"] = getattr(_tabelle, "zuletzt", None)
         except Exception as e:
@@ -209,7 +211,7 @@ def s24_laden(jetzt):
         r = cache.get(slug)
         if r and r.get("start") and (r["start"] < jetzt or r["start"] > bis):
             continue                                   # außerhalb des Fensters, Anstoß bekannt
-        if r and "trends" in r and "tab" in r and jetzt - r.get("t", 0) < TREND_MAX_ALTER:
+        if r and "trends" in r and r.get("tabv") == TABV and jetzt - r.get("t", 0) < TREND_MAX_ALTER:
             continue
         neu.append(slug)
     print(f"scores24: {len(links)} Spiele heute/morgen, {len(neu)} neu abzurufen", flush=True)
