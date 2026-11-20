@@ -9,8 +9,8 @@ name: Trend-Scan Spaßscheine
 # nach ~5,5 Stunden selbst neu (workflow_dispatch über GITHUB_TOKEN ist erlaubt).
 # Der Zeitplan unten bleibt nur als Wiederbeleber, falls die Kette einmal abreißt.
 # Öffentliches Repo = Actions-Minuten kostenlos.
-# Einzelner Lauf: Push auf trendscan_now (Inhalt "trocken ..." = ohne Telegram,
-# "schleife ..." = startet die Stundenschleife von Hand).
+# Einzelner Lauf: Push auf trendscan_now (Inhalt "trocken ..." = ohne Telegram).
+# Die Schleife startet nur über Zeitplan oder workflow_dispatch (eigene Concurrency-Gruppe).
 
 on:
   schedule:
@@ -80,7 +80,6 @@ jobs:
               echo "$(TZ=Europe/Berlin date +%H:%M) – Nachtpause"
             fi
           }
-          if [ -z "$SCHLEIFE" ] && grep -q '^schleife' trendscan_now 2>/dev/null; then SCHLEIFE=1; fi
           echo "schleife=$SCHLEIFE" >> "$GITHUB_OUTPUT"
           if [ -z "$SCHLEIFE" ]; then einmal; exit 0; fi
           ende=$(( $(date +%s) + 5*3600 + 1800 ))
