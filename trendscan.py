@@ -55,7 +55,7 @@ TROCKEN = os.environ.get("TS_TROCKEN", "") == "1"   # 1 = nichts senden, nur Log
 if not (ROOT / "state" / "trendscan_live").exists():
     TROCKEN = True
 try:   # Start per Push auf trendscan_now mit Inhalt "trocken" = Probelauf ohne Telegram
-    if os.environ.get("GITHUB_EVENT_NAME") == "push" and (ROOT / "trendscan_now").read_text().strip() == "trocken":
+    if os.environ.get("GITHUB_EVENT_NAME") == "push" and (ROOT / "trendscan_now").read_text().strip().startswith("trocken"):
         TROCKEN = True
 except OSError:
     pass
