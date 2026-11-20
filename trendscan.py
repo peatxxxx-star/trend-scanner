@@ -45,7 +45,7 @@ GESENDET = ROOT / "state" / "trendscan_gesendet.json"
 LOGDIR = ROOT / "runs" / "trendscan"
 
 FENSTER_H = float(os.environ.get("TS_FENSTER_H", "14"))
-TABV = 2                         # Version des Tabellen-Parsers (neu laden bei Änderung)
+TABV = 3                         # Version des Tabellen-Parsers (neu laden bei Änderung)
 TAB_MIN_SP = 8                   # 20.11.: weniger Tabellenspiele -> raus
 Q_MIN, Q_MAX = 1.20, 1.50
 TREND_MAX_ALTER = 6 * 3600    # Trends je Spiel höchstens 6 h wiederverwenden
@@ -142,8 +142,18 @@ def _tabelle(h, home, away, slug):
     _tabelle.zuletzt = [z["team"] for z in zeilen][:8]
     hz = [z for z in zeilen if z["sp"] is not None and passt(z, home, "h")]
     gz = [z for z in zeilen if z["sp"] is not None and passt(z, away, "g")]
+    if not zeilen:
+        return {}                                              # gar keine Tabelle auf der Seite
+    if bool(hz) != bool(gz):                                   # eine Seite gefunden: ähnlichsten Namen
+        from difflib import SequenceMatcher                    # aus derselben Tabelle nehmen
+        fest = (hz or gz)[0]
+        name = away if hz else home
+        kand = [z for z in zeilen if z["tid"] == fest["tid"] and z is not fest and z["sp"] is not None]
+        best = max(kand, key=lambda z: SequenceMatcher(None, _norm(z["team"]), _norm(name)).ratio(), default=None)
+        if best and SequenceMatcher(None, _norm(best["team"]), _norm(name)).ratio() >= 0.5:
+            (gz if hz else hz).append(best)
     if not hz or not gz:
-        return {}
+        return {"unklar": True}                                # Tabelle da, Teams nicht zugeordnet
     paar = next(((a, b) for a in hz for b in gz if a["tid"] and a["tid"] == b["tid"]), None)
     if not paar:
         return {"fremd": True, "heim": hz[0], "gast": gz[0]}     # verschiedene Tabellen
@@ -564,7 +574,7 @@ def _q(x):
 # ------------------------------------------------------------------ Hauptlauf
 def _tab_zeile(tab, spiel):
     """📊 Heim 15. · 16 Sp. · 13:28 (0,8:1,8) | Gast …"""
-    if not tab or tab.get("fremd"):
+    if not tab or tab.get("fremd") or tab.get("unklar"):
         return ""
     teile = []
     for z, name in ((tab["heim"], spiel.split(" – ")[0]), (tab["gast"], spiel.split(" – ")[-1])):
@@ -605,10 +615,10 @@ def main():
            "raus": [], "nicht_bei_bl": [], "gruppen_test": None}
     # 20.11. (Lucio): Tabelle direkt als Filter – ohne Ligatabelle (Pokal/K.-o./Turnier) oder mit
     # weniger als TAB_MIN_SP Spielen (Saisonstart, Play-off-Gruppen) raus.
-    mit_tab = [sp for sp, _ in kand if sp.get("tab")]
+    mit_tab = [sp for sp, _ in kand if sp.get("tab") and not sp["tab"].get("unklar")]
     log["tabelle"] = {"spiele": len(kand), "mit_tabelle": len(mit_tab),
                       "ohne_beispiele": [{"spiel": f"{sp['home']} – {sp['away']}", "gefunden": sp.get("tab_teams")}
-                                         for sp, _ in kand if sp.get("tab") == {}][:15]}
+                                         for sp, _ in kand if sp.get("tab") == {} or (sp.get("tab") or {}).get("unklar")][:20]}
     if kand and len(mit_tab) < 0.2 * len(kand):
         log["tabelle"]["warnung"] = "Tabellen-Parser liefert kaum Treffer – Filter ausgesetzt"
         print("WARNUNG: Tabellen kaum gefunden – Tabellenfilter ausgesetzt", flush=True)
@@ -619,6 +629,8 @@ def main():
             grund = None
             if tab is None:
                 pass                                   # noch nicht geladen – kein Urteil
+            elif tab.get("unklar"):
+                pass                                   # Teams nicht zugeordnet – kein Urteil
             elif not tab:
                 grund = "keine Ligatabelle (Pokal/K.-o./Turnier?)"
             elif tab.get("fremd"):
