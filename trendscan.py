@@ -45,6 +45,7 @@ GESENDET = ROOT / "state" / "trendscan_gesendet.json"
 LOGDIR = ROOT / "runs" / "trendscan"
 
 FENSTER_H = float(os.environ.get("TS_FENSTER_H", "14"))
+TAB_MIN_SP = 8                   # 20.11.: weniger Tabellenspiele -> raus
 Q_MIN, Q_MAX = 1.20, 1.50
 TREND_MAX_ALTER = 6 * 3600    # Trends je Spiel höchstens 6 h wiederverwenden
 
@@ -83,6 +84,61 @@ def _links_fuer_tage(tage):
     return sorted({l[2:] for l in links if l[2:12] in tage})
 
 
+def _norm(t):
+    return re.sub(r"[^a-z0-9]", "", (t or "").lower()
+                  .replace("ä", "a").replace("ö", "o").replace("ü", "u").replace("ß", "ss"))
+
+
+def _tabelle(h, home, away, slug):
+    """Ligatabelle aus dem eingebetteten JSON der Spielseite: Zeilen der beiden Teams.
+    {} = keine Tabelle gefunden (Pokal/K.-o./Turnier ohne Tabelle)."""
+    h = h.replace('\\"', '"')
+    zeilen = []
+    for m in re.finditer(r'"leagueTableRound":', h):
+        ende = h.find('"promotionIdLive"', m.start())
+        if ende < 0 or ende - m.start() > 200000:
+            continue
+        seg = h[m.start():ende]
+        w = seg.find('"winTotal"')
+        if w < 0:
+            continue
+        kopf = seg[:w]
+        c = kopf.rfind('"country":{')
+        vor = kopf[:c] if c > 0 else kopf
+        namen = re.findall(r'"name":"([^"]+)"', vor)
+        slugs = re.findall(r'"slug":"([^"]+)"', vor)
+
+        def zahl(k):
+            mm = re.search(r'"%s":(\d+)' % k, seg)
+            return int(mm.group(1)) if mm else None
+        rnd = re.match(r'"leagueTableRound":(null|"([^"]*)")', seg)
+        tid = re.search(r'"leagueTableId":"([^"]+)"', seg)
+        tname = re.search(r'"leagueTableName":"([^"]+)"', seg)
+        zeilen.append({"team": namen[-1] if namen else None, "slug": slugs[-1] if slugs else None,
+                       "tid": tid.group(1) if tid else None, "tab": tname.group(1) if tname else None,
+                       "runde": rnd.group(2) if rnd and rnd.group(2) else None,
+                       "pos": zahl("sortPositionTotal"), "sp": zahl("matchesTotal"), "s": zahl("winTotal"),
+                       "u": zahl("drawTotal"), "n": zahl("lossTotal"), "tore": zahl("goalsForTotal"),
+                       "gegen": zahl("goalsAgainstTotal"), "pkt": zahl("pointsTotal")})
+
+    def passt(z, name):
+        a, b = _norm(z["team"]), _norm(name)
+        if a and b and (a == b or (len(a) > 3 and a in b) or (len(b) > 3 and b in a)):
+            return True
+        return False
+
+    _tabelle.zuletzt = [z["team"] for z in zeilen][:8]
+    hz = [z for z in zeilen if z["sp"] is not None and passt(z, home)]
+    gz = [z for z in zeilen if z["sp"] is not None and passt(z, away)]
+    if not hz or not gz:
+        return {}
+    paar = next(((a, b) for a in hz for b in gz if a["tid"] and a["tid"] == b["tid"]), None)
+    if not paar:
+        return {"fremd": True, "heim": hz[0], "gast": gz[0]}     # verschiedene Tabellen
+    a, b = paar
+    return {"name": a["tab"], "runde": a["runde"], "heim": a, "gast": b}
+
+
 def _spiel_s24(slug):
     rec = {"slug": slug, "t": time.time()}
     try:
@@ -96,6 +152,12 @@ def _spiel_s24(slug):
             rec["liga"] = names[i + 2] if len(names) > i + 2 else None
         except ValueError:
             rec["liga"] = None
+        try:
+            rec["tab"] = _tabelle(h, rec.get("home"), rec.get("away"), slug)
+            if not rec["tab"]:
+                rec["tab_teams"] = getattr(_tabelle, "zuletzt", None)
+        except Exception as e:
+            rec["tab_fehler"] = str(e)[:80]
         tag = datetime.strptime(slug[:10], "%d-%m-%Y").date()
         for sd in re.findall(r'"startDate"\s*:\s*"([^"]+)"', h):
             try:
@@ -136,7 +198,7 @@ def s24_laden(jetzt):
         r = cache.get(slug)
         if r and r.get("start") and (r["start"] < jetzt or r["start"] > bis):
             continue                                   # außerhalb des Fensters, Anstoß bekannt
-        if r and "trends" in r and jetzt - r.get("t", 0) < TREND_MAX_ALTER:
+        if r and "trends" in r and "tab" in r and jetzt - r.get("t", 0) < TREND_MAX_ALTER:
             continue
         neu.append(slug)
     print(f"scores24: {len(links)} Spiele heute/morgen, {len(neu)} neu abzurufen", flush=True)
@@ -487,6 +549,23 @@ def _q(x):
 
 
 # ------------------------------------------------------------------ Hauptlauf
+def _tab_zeile(tab, spiel):
+    """📊 Heim 15. · 16 Sp. · 13:28 (0,8:1,8) | Gast …"""
+    if not tab or tab.get("fremd"):
+        return ""
+    teile = []
+    for z, name in ((tab["heim"], spiel.split(" – ")[0]), (tab["gast"], spiel.split(" – ")[-1])):
+        sp_ = z.get("sp") or 0
+        if not sp_:
+            return ""
+        a, b = (z.get("tore") or 0) / sp_, (z.get("gegen") or 0) / sp_
+        schnitt = f"{a:.1f}:{b:.1f}".replace(".", ",")
+        teile.append(f"{htmlmod.escape(name)} {z.get('pos') or '?'}. · {sp_} Sp. · "
+                     f"{z.get('tore')}:{z.get('gegen')} ({schnitt})")
+    r = f" [{htmlmod.escape(tab['runde'])}]" if tab.get("runde") else ""
+    return "📊 " + " | ".join(teile) + r
+
+
 def main():
     jetzt = time.time()
     t0 = time.time()
@@ -511,6 +590,40 @@ def main():
     log = {"stand": datetime.fromtimestamp(jetzt, TZ).isoformat(), "spiele_s24": len(spiele), "signale": [],
            "geloescht": geloescht,
            "raus": [], "nicht_bei_bl": [], "gruppen_test": None}
+    # 20.11. (Lucio): Tabelle direkt als Filter – ohne Ligatabelle (Pokal/K.-o./Turnier) oder mit
+    # weniger als TAB_MIN_SP Spielen (Saisonstart, Play-off-Gruppen) raus.
+    mit_tab = [sp for sp, _ in kand if sp.get("tab")]
+    log["tabelle"] = {"spiele": len(kand), "mit_tabelle": len(mit_tab),
+                      "ohne_beispiele": [{"spiel": f"{sp['home']} – {sp['away']}", "gefunden": sp.get("tab_teams")}
+                                         for sp, _ in kand if sp.get("tab") == {}][:15]}
+    if kand and len(mit_tab) < 0.2 * len(kand):
+        log["tabelle"]["warnung"] = "Tabellen-Parser liefert kaum Treffer – Filter ausgesetzt"
+        print("WARNUNG: Tabellen kaum gefunden – Tabellenfilter ausgesetzt", flush=True)
+    else:
+        bleibt = []
+        for sp, ks in kand:
+            tab = sp.get("tab")
+            grund = None
+            if tab is None:
+                pass                                   # noch nicht geladen – kein Urteil
+            elif not tab:
+                grund = "keine Ligatabelle (Pokal/K.-o./Turnier?)"
+            elif tab.get("fremd"):
+                grund = "Teams in verschiedenen Tabellen (Turnier/Play-off?)"
+            else:
+                n = min(tab["heim"]["sp"] or 0, tab["gast"]["sp"] or 0)
+                if n < TAB_MIN_SP:
+                    grund = f"nur {n} Spiele in der Tabelle ({tab.get('runde') or tab.get('name') or ''})".strip()
+            if grund:
+                for k in ks:
+                    log["raus"].append({"spiel": f"{sp['home']} – {sp['away']}", "liga": sp.get("liga"),
+                                        "markt": label(k, sp["home"], sp["away"]), "key": k["key"],
+                                        "hinweis": grund})
+            else:
+                bleibt.append((sp, ks))
+        log["tabelle"]["raus_spiele"] = len(kand) - len(bleibt)
+        kand = bleibt
+    print(f"Nach Tabellenfilter: {len(kand)} Spiele", flush=True)
     if not kand:
         _speichern(gesendet, log, t0)
         return
@@ -552,7 +665,7 @@ def main():
                 ok, hinweis = regeln(k, x12, q) if not fehler else (False, fehler)
                 eintrag = {"spiel": f"{sp['home']} – {sp['away']}", "liga": g.get("L") or sp.get("liga"),
                            "anstoss": g["S"], "markt": label(k, sp["home"], sp["away"]), "quote": q,
-                           "x12": x12, "hinweis": hinweis, "key": k["key"],
+                           "x12": x12, "hinweis": hinweis, "key": k["key"], "tab": sp.get("tab"),
                            "serie": [f["text"] for f in k["fakten"]],
                            "h2h": [f["text"] for f in k["h2h"]]}
                 if ok:
@@ -602,6 +715,9 @@ def main():
             kopf = (f"<b>{datetime.fromtimestamp(ko, TZ):%a %H:%M}</b> {htmlmod.escape(spiel)}\n"
                     f"<i>{htmlmod.escape(ts[0]['liga'] or '')}</i>"
                     + (f" · 1X2 {_q(x12[0])} / {_q(x12[1])} / {_q(x12[2])}" if x12 else ""))
+            tz = _tab_zeile(ts[0].get("tab"), spiel)
+            if tz:
+                kopf += "\n" + tz
             zeilen = []
             for t in ts:
                 z = f"{'🆕' if t['key'] in neu_keys else '•'} {htmlmod.escape(t['markt'])} @ <b>{_q(t['quote'])}</b>"
