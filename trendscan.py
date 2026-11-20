@@ -45,7 +45,7 @@ GESENDET = ROOT / "state" / "trendscan_gesendet.json"
 LOGDIR = ROOT / "runs" / "trendscan"
 
 FENSTER_H = float(os.environ.get("TS_FENSTER_H", "14"))
-TABV = 3                         # Version des Tabellen-Parsers (neu laden bei Änderung)
+TABV = 4                         # Version des Tabellen-Parsers (neu laden bei Änderung)
 TAB_MIN_SP = 8                   # 20.11.: weniger Tabellenspiele -> raus
 Q_MIN, Q_MAX = 1.20, 1.50
 TREND_MAX_ALTER = 6 * 3600    # Trends je Spiel höchstens 6 h wiederverwenden
@@ -154,11 +154,20 @@ def _tabelle(h, home, away, slug):
             (gz if hz else hz).append(best)
     if not hz or not gz:
         return {"unklar": True}                                # Tabelle da, Teams nicht zugeordnet
-    paar = next(((a, b) for a in hz for b in gz if a["tid"] and a["tid"] == b["tid"]), None)
-    if not paar:
+    # Beide Teams können in mehreren Tabellen stehen (z. B. Hauptrunde + 4er-Play-off-Gruppe).
+    # Die kleinste gemeinsame Tabelle ist die aktuelle Phase (Kolumbien: Cuadrangular statt Liga).
+    groesse = {}
+    for z in zeilen:
+        groesse[z["tid"]] = groesse.get(z["tid"], 0) + 1
+    paare = [(a, b) for a in hz for b in gz if a["tid"] and a["tid"] == b["tid"]]
+    if not paare:
         return {"fremd": True, "heim": hz[0], "gast": gz[0]}     # verschiedene Tabellen
-    a, b = paar
-    return {"name": a["tab"], "runde": a["runde"], "heim": a, "gast": b}
+    paare.sort(key=lambda p: groesse.get(p[0]["tid"], 99))
+    a, b = paare[0]
+    alle = [{"name": x["tab"], "runde": x["runde"], "teams": groesse.get(x["tid"]), "sp": [x["sp"], y["sp"]]}
+            for x, y in paare]
+    return {"name": a["tab"], "runde": a["runde"], "teams": groesse.get(a["tid"]), "heim": a, "gast": b,
+            "alle": alle if len(alle) > 1 else None}
 
 
 def _spiel_s24(slug):
@@ -632,9 +641,9 @@ def main():
             elif tab.get("unklar"):
                 pass                                   # Teams nicht zugeordnet – kein Urteil
             elif not tab:
-                grund = "keine Ligatabelle (Pokal/K.-o./Turnier?)"
+                sp["tab_hinweis"] = "keine Tabelle bei scores24 – Pokal/K.-o.? selbst prüfen"
             elif tab.get("fremd"):
-                grund = "Teams in verschiedenen Tabellen (Turnier/Play-off?)"
+                sp["tab_hinweis"] = "Teams in verschiedenen Tabellen – Turnier/Play-off? selbst prüfen"
             else:
                 n = min(tab["heim"]["sp"] or 0, tab["gast"]["sp"] or 0)
                 if n < TAB_MIN_SP:
@@ -693,6 +702,8 @@ def main():
                            "x12": x12, "hinweis": hinweis, "key": k["key"], "tab": sp.get("tab"),
                            "serie": [f["text"] for f in k["fakten"]],
                            "h2h": [f["text"] for f in k["h2h"]]}
+                if sp.get("tab_hinweis"):
+                    eintrag["hinweis"] = "; ".join(x for x in (hinweis, sp["tab_hinweis"]) if x)
                 if ok:
                     treffer.append(eintrag)
                 else:
