@@ -114,22 +114,33 @@ def _tabelle(h, home, away, slug):
         rnd = re.match(r'"leagueTableRound":(null|"([^"]*)")', seg)
         tid = re.search(r'"leagueTableId":"([^"]+)"', seg)
         tname = re.search(r'"leagueTableName":"([^"]+)"', seg)
-        zeilen.append({"team": namen[-1] if namen else None, "slug": slugs[-1] if slugs else None,
-                       "tid": tid.group(1) if tid else None, "tab": tname.group(1) if tname else None,
-                       "runde": rnd.group(2) if rnd and rnd.group(2) else None,
+        def dek(t):
+            try:
+                return json.loads('"%s"' % t) if t and "\\u" in t else t
+            except Exception:
+                return t
+        zeilen.append({"team": dek(namen[-1]) if namen else None, "slug": slugs[-1] if slugs else None,
+                       "tid": tid.group(1) if tid else None, "tab": dek(tname.group(1)) if tname else None,
+                       "runde": dek(rnd.group(2)) if rnd and rnd.group(2) else None,
                        "pos": zahl("sortPositionTotal"), "sp": zahl("matchesTotal"), "s": zahl("winTotal"),
                        "u": zahl("drawTotal"), "n": zahl("lossTotal"), "tore": zahl("goalsForTotal"),
                        "gegen": zahl("goalsAgainstTotal"), "pkt": zahl("pointsTotal")})
 
-    def passt(z, name):
+    rest = slug[11:] if slug and len(slug) > 11 else ""
+
+    def passt(z, name, seite):
+        zs = z.get("slug") or ""
+        if zs and rest and ((seite == "h" and rest.startswith(zs + "-"))
+                            or (seite == "g" and rest.endswith("-" + zs))):
+            return True
         a, b = _norm(z["team"]), _norm(name)
         if a and b and (a == b or (len(a) > 3 and a in b) or (len(b) > 3 and b in a)):
             return True
         return False
 
     _tabelle.zuletzt = [z["team"] for z in zeilen][:8]
-    hz = [z for z in zeilen if z["sp"] is not None and passt(z, home)]
-    gz = [z for z in zeilen if z["sp"] is not None and passt(z, away)]
+    hz = [z for z in zeilen if z["sp"] is not None and passt(z, home, "h")]
+    gz = [z for z in zeilen if z["sp"] is not None and passt(z, away, "g")]
     if not hz or not gz:
         return {}
     paar = next(((a, b) for a in hz for b in gz if a["tid"] and a["tid"] == b["tid"]), None)
