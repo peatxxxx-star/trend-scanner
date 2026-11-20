@@ -18,6 +18,10 @@ for slug in slugs[:2]:
         f["html_len"] = len(h)
         f["rapi"] = sorted(set(re.findall(r'/rapi/[A-Za-z0-9_/\-\.\?=&]+', h)))[:60]
         f["keys"] = sorted(set(re.findall(r'"(standings?[A-Za-z_]*|table[A-Za-z_]*|tournament[A-Za-z_]*|season[A-Za-z_]*|stage[A-Za-z_]*)"', h)))[:60]
+        for kw in ("lastMatches", "LastMatches", "homeScore", "scoreHome", "teamAMatches", "previousMatches", "\\"score\\"", "\"score\""):
+            j = h.find(kw)
+            f[f"m_{kw}"] = h[max(0, j-300): j+1500] if j >= 0 else None
+        f["cnt_score"] = h.count('score')
         i = h.find('data-anchor="standings"')
         f["standings_html"] = h[i:i+25000] if i >= 0 else None
         f["json_keys"] = sorted(set(re.findall(r'\\?"(goals[A-Za-z]*|matches[A-Za-z]*|played|points|wins|draws|losses|rows|position|homeStat[A-Za-z]*|awayStat[A-Za-z]*|scored|conceded|gamesPlayed|form)\\?"\s*:', h)))[:80]
