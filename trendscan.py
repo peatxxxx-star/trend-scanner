@@ -571,9 +571,18 @@ def main():
     except Exception:
         alte_liste = {}
     liste = {t["key"]: t for t in treffer}
+    # Alte Einträge, die im aktuellen Lauf an einer Regel scheitern, fliegen raus
+    # (sonst bleiben Signale von vor einer Regeländerung bis zum Anpfiff stehen).
+    jetzt_raus = {t["key"] for t in log["raus"]}
+    entfernt = 0
     for key, t in alte_liste.items():
-        if key not in liste and t.get("anstoss", 0) > jetzt:
-            liste[key] = t
+        if key in liste or t.get("anstoss", 0) <= jetzt:
+            continue
+        if key in jetzt_raus:
+            entfernt += 1
+            continue
+        liste[key] = t
+    log["entfernt"] = entfernt
     neu_keys = {k for k in liste if k not in gesendet}
     try:
         alte_ids = [int(i) for i in json.loads(MSG_DATEI.read_text()) if i]
@@ -582,7 +591,7 @@ def main():
     log["liste"] = len(liste)
     log["neu"] = len(neu_keys)
     erzwingen = (ROOT / "state" / "trendscan_liste_senden").exists()
-    senden = bool(liste) and (bool(neu_keys) or not alte_ids or erzwingen)
+    senden = bool(liste) and (bool(neu_keys) or not alte_ids or erzwingen or entfernt > 0)
     if senden:
         nach_spiel = {}
         for t in sorted(liste.values(), key=lambda t: (t["anstoss"], t["spiel"], t["markt"])):
