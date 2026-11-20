@@ -1,0 +1,73 @@
+name: Trend-Scan Spaßscheine
+
+# 20.11.2026 (Lucio): stündlich scores24 (nächste 14 h) -> BetLabel-Quote + 1X2 ->
+# Regeln aus dem Spaßschein-Check -> nur neue Signale ins Telegram.
+# Winterzeit: 07-22 UTC = 08-23 Uhr deutscher Zeit (Sommerzeit ab 28.03.2027: "7 6-21 * * *").
+# GitHub startet geplante Läufe oft verspätet; Start von Hand: "Run workflow" oder Push auf trendscan_now.
+
+on:
+  schedule:
+    - cron: "7 7-22 * * *"
+  push:
+    branches: [main]
+    paths: ["trendscan_now"]
+  workflow_dispatch:
+    inputs:
+      trocken:
+        description: "1 = nichts ins Telegram senden, nur Protokoll"
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: trendscan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Zwischenspeicher laden
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            .tscache
+            cache/bl_spiele.json.gz
+          key: trendscan-${{ github.run_id }}
+          restore-keys: trendscan-
+      - name: Scan
+        env:
+          PYTHONUNBUFFERED: "1"
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TS_TROCKEN: ${{ github.event.inputs.trocken }}
+        run: python trendscan.py
+      - name: Zwischenspeicher sichern
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            .tscache
+            cache/bl_spiele.json.gz
+          key: trendscan-${{ github.run_id }}
+      - name: Stand sichern
+        if: always()
+        run: |
+          git checkout -- cache/ 2>/dev/null || true
+          git config user.name "trend-scanner"
+          git config user.email "actions@users.noreply.github.com"
+          git add state/trendscan_gesendet.json runs/trendscan/ 2>/dev/null || true
+          if git diff --cached --quiet; then echo "nichts zu sichern"; exit 0; fi
+          git commit -q -m "Trend-Scan $(date -u +'%Y-%m-%d %H:%M') UTC"
+          for i in 1 2 3 4; do
+            git pull -q --rebase -X theirs origin main && git push -q origin HEAD:main && exit 0
+            sleep $((i * 10))
+          done
+          exit 1
