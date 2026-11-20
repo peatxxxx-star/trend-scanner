@@ -397,6 +397,48 @@ def label(k, home, away):
 
 
 # ------------------------------------------------------------------ Telegram
+_MSG_IDS = []
+MSG_DATEI = ROOT / "state" / "trendscan_nachrichten.json"
+LOESCHEN = ROOT / "state" / "trendscan_loeschen"
+
+
+def _tg_api(methode, **daten):
+    body = urllib.parse.urlencode(daten).encode()
+    with urllib.request.urlopen(urllib.request.Request(
+            f"https://api.telegram.org/bot{TG_TOKEN}/{methode}", data=body), timeout=30) as r:
+        return json.loads(r.read().decode())
+
+
+def alte_nachrichten_loeschen():
+    """20.11. (Lucio): bisherige Scanner-Nachrichten löschen, danach nur noch die finalen Signale.
+    Gespeicherte IDs zuerst; für den Lauf vom 20.11. früh (IDs nicht gespeichert) die letzten
+    20 IDs vor einer Probe-Nachricht. Telegram lässt Bots nur Nachrichten der letzten 48 h löschen."""
+    if not LOESCHEN.exists() or TROCKEN or not (TG_TOKEN and TG_CHAT):
+        return None
+    ids = set()
+    try:
+        ids |= {int(i) for i in json.loads(MSG_DATEI.read_text()) if i}
+    except Exception:
+        pass
+    try:
+        probe = _tg_api("sendMessage", chat_id=TG_CHAT, text="…")
+        n = probe["result"]["message_id"]
+        ids |= set(range(n - 20, n + 1))
+    except Exception as e:
+        print("Probe fehlgeschlagen:", e)
+    geloescht = 0
+    for i in sorted(ids):
+        try:
+            if _tg_api("deleteMessage", chat_id=TG_CHAT, message_id=i).get("ok"):
+                geloescht += 1
+        except Exception:
+            pass
+    LOESCHEN.unlink()
+    MSG_DATEI.write_text("[]")
+    print("alte Nachrichten gelöscht:", geloescht)
+    return geloescht
+
+
 def tg(text):
     if TROCKEN or not (TG_TOKEN and TG_CHAT):
         print("— Telegram (nicht gesendet) —\n" + text, flush=True)
@@ -407,7 +449,9 @@ def tg(text):
         try:
             with urllib.request.urlopen(urllib.request.Request(
                     f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage", data=body), timeout=30) as r:
-                if json.loads(r.read().decode()).get("ok"):
+                antwort = json.loads(r.read().decode())
+                if antwort.get("ok"):
+                    _MSG_IDS.append((antwort.get("result") or {}).get("message_id"))
                     return True
         except Exception as e:
             print("Telegram-Fehler:", e, file=sys.stderr)
@@ -429,6 +473,9 @@ def main():
     except Exception:
         pass
     gesendet = {k: v for k, v in gesendet.items() if jetzt - v < 48 * 3600}
+    geloescht = alte_nachrichten_loeschen()
+    if geloescht is not None:
+        gesendet = {}          # nach dem Aufräumen alles Gültige im Fenster neu schicken
 
     spiele = s24_laden(jetzt)
     kand = []
@@ -439,6 +486,7 @@ def main():
     print(f"Spiele mit neuen starken Serien: {len(kand)} ({sum(len(k) for _, k in kand)} Trends)", flush=True)
 
     log = {"stand": datetime.fromtimestamp(jetzt, TZ).isoformat(), "spiele_s24": len(spiele), "signale": [],
+           "geloescht": geloescht,
            "raus": [], "nicht_bei_bl": [], "gruppen_test": None}
     if not kand:
         _speichern(gesendet, log, t0)
@@ -528,6 +576,12 @@ def main():
 
 def _speichern(gesendet, log, t0):
     GESENDET.parent.mkdir(exist_ok=True)
+    if _MSG_IDS:
+        try:
+            alt = json.loads(MSG_DATEI.read_text())
+        except Exception:
+            alt = []
+        MSG_DATEI.write_text(json.dumps((alt + [i for i in _MSG_IDS if i])[-200:]))
     GESENDET.write_text(json.dumps(gesendet, ensure_ascii=False, indent=0))
     LOGDIR.mkdir(parents=True, exist_ok=True)
     log["sekunden"] = round(time.time() - t0, 1)
