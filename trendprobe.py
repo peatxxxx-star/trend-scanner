@@ -1,46 +1,20 @@
-"""20.11.2026: Erkundung – liefert scores24 Tabellen (Spielzahl, Tore, Heim/Auswärts) pro Spiel?
-Schreibt Rohfunde nach runs/trendscan/probe.json. Ändert nichts am Scanner."""
-import json, re, time
+"""Erkundung: wo stehen die letzten Spiele (mit Ergebnis) im HTML von scores24?"""
+import json, re
 from pathlib import Path
 from s24liste import get
 
-log = json.load(open("runs/trendscan/letzter_lauf.json"))
-slugs = []
-for s in log["signale"]:
-    sl = s["key"].split("|")[0]
-    if sl not in slugs:
-        slugs.append(sl)
-out = {"slugs": slugs[:2], "funde": []}
-for slug in slugs[:2]:
-    f = {"slug": slug}
-    try:
-        h = get(f"https://scores24.live/de/soccer/m-{slug}")
-        f["html_len"] = len(h)
-        f["rapi"] = sorted(set(re.findall(r'/rapi/[A-Za-z0-9_/\-\.\?=&]+', h)))[:60]
-        f["keys"] = sorted(set(re.findall(r'"(standings?[A-Za-z_]*|table[A-Za-z_]*|tournament[A-Za-z_]*|season[A-Za-z_]*|stage[A-Za-z_]*)"', h)))[:60]
-        for kw in ("lastMatches", "LastMatches", "homeScore", "scoreHome", "teamAMatches", "previousMatches", "score"):
-            j = h.find(kw)
-            f[f"m_{kw}"] = h[max(0, j-300): j+1500] if j >= 0 else None
-        f["cnt_score"] = h.count('score')
-        i = h.find('data-anchor="standings"')
-        f["standings_html"] = h[i:i+25000] if i >= 0 else None
-        f["json_keys"] = sorted(set(re.findall(r'\\?"(goals[A-Za-z]*|matches[A-Za-z]*|played|points|wins|draws|losses|rows|position|homeStat[A-Za-z]*|awayStat[A-Za-z]*|scored|conceded|gamesPlayed|form)\\?"\s*:', h)))[:80]
-        for kw in ("goalsFor", "scored", "matchesPlayed", "points"):
-            j = h.find(kw)
-            f[f"jctx_{kw}"] = h[max(0, j-400): j+800] if j >= 0 else None
-        for kw in ("standing", "Tabelle", "table"):
-            i = h.find(kw)
-            f[f"ctx_{kw}"] = h[max(0, i-300): i+600] if i >= 0 else None
-    except Exception as e:
-        f["fehler"] = str(e)[:200]
-    for ep in ("standings", "table", "tournament-table", "standing"):
-        url = f"https://scores24.live/rapi/localized/matches/soccer/{slug}/{ep}?lang=de&audience=de"
-        try:
-            t = get(url)
-            f[f"ep_{ep}"] = t[:3000]
-        except Exception as e:
-            f[f"ep_{ep}"] = "ERR " + str(e)[:120]
-        time.sleep(0.5)
-    out["funde"].append(f)
+slug = "20-11-2026-annecy-clermont"
+h = get(f"https://scores24.live/de/soccer/m-{slug}")
+out = {"len": len(h)}
+# Match-Links der Seite
+links = re.findall(r'/de/soccer/m-(\d{2}-\d{2}-\d{4}-[a-z0-9\-]+)', h)
+out["links"] = list(dict.fromkeys(links))[:80]
+# JSON-Fundstellen mit Ergebnissen
+for kw in ['"homeScore"', '"awayScore"', '"scores"', '"score":', '"result"', '"winner"', '"teamAScore"', '"ft"', '"fullTime"', '"matchResult"', '"finished"']:
+    idx = [m.start() for m in re.finditer(re.escape(kw), h)][:3]
+    out[kw] = [h[max(0, i-500): i+700] for i in idx]
+# Script-Tags mit State
+st = re.findall(r'<script[^>]*>(.{0,200})', h)
+out["scripts"] = st[:30]
 Path("runs/trendscan/probe.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
 print("ok")
