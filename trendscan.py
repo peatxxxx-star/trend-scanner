@@ -400,6 +400,7 @@ def label(k, home, away):
 _MSG_IDS = []
 MSG_DATEI = ROOT / "state" / "trendscan_nachrichten.json"
 LOESCHEN = ROOT / "state" / "trendscan_loeschen"
+LISTE = ROOT / "state" / "trendscan_liste.json"
 
 
 def _tg_api(methode, **daten):
@@ -439,12 +440,13 @@ def alte_nachrichten_loeschen():
     return geloescht
 
 
-def tg(text):
+def tg(text, leise=False):
     if TROCKEN or not (TG_TOKEN and TG_CHAT):
         print("— Telegram (nicht gesendet) —\n" + text, flush=True)
         return True
     body = urllib.parse.urlencode({"chat_id": TG_CHAT, "text": text, "parse_mode": "HTML",
-                                   "disable_web_page_preview": "true"}).encode()
+                                   "disable_web_page_preview": "true",
+                                   "disable_notification": "true" if leise else "false"}).encode()
     for _ in range(3):
         try:
             with urllib.request.urlopen(urllib.request.Request(
@@ -480,10 +482,10 @@ def main():
     spiele = s24_laden(jetzt)
     kand = []
     for sp in spiele:
-        ks = [k for k in kandidaten(sp) if k["key"] not in gesendet]
+        ks = kandidaten(sp)        # 20.11.: jedes Mal alles neu bewerten (vollständige Liste)
         if ks:
             kand.append((sp, ks))
-    print(f"Spiele mit neuen starken Serien: {len(kand)} ({sum(len(k) for _, k in kand)} Trends)", flush=True)
+    print(f"Spiele mit starken Serien: {len(kand)} ({sum(len(k) for _, k in kand)} Trends)", flush=True)
 
     log = {"stand": datetime.fromtimestamp(jetzt, TZ).isoformat(), "spiele_s24": len(spiele), "signale": [],
            "geloescht": geloescht,
@@ -540,9 +542,29 @@ def main():
     print(f"Signale nach BetLabel und Regeln: {len(treffer)}, raus: {len(log['raus'])}, "
           f"nicht bei BL: {len(log['nicht_bei_bl'])}", flush=True)
 
-    if treffer:
+    # 20.11. (Lucio): immer EINE vollständige, aktuelle Liste statt nur neuer Signale.
+    # Gestartete Spiele fliegen raus, neue Signale bekommen 🆕. Was einmal drin war, bleibt
+    # bis zum Anpfiff drin (mit der zuletzt bekannten Quote). Die vorige Liste wird gelöscht.
+    try:
+        alte_liste = json.loads(LISTE.read_text())
+    except Exception:
+        alte_liste = {}
+    liste = {t["key"]: t for t in treffer}
+    for key, t in alte_liste.items():
+        if key not in liste and t.get("anstoss", 0) > jetzt:
+            liste[key] = t
+    neu_keys = {k for k in liste if k not in gesendet}
+    try:
+        alte_ids = [int(i) for i in json.loads(MSG_DATEI.read_text()) if i]
+    except Exception:
+        alte_ids = []
+    log["liste"] = len(liste)
+    log["neu"] = len(neu_keys)
+    erzwingen = (ROOT / "state" / "trendscan_liste_senden").exists()
+    senden = bool(liste) and (bool(neu_keys) or not alte_ids or erzwingen)
+    if senden:
         nach_spiel = {}
-        for t in sorted(treffer, key=lambda t: (t["anstoss"], t["spiel"])):
+        for t in sorted(liste.values(), key=lambda t: (t["anstoss"], t["spiel"], t["markt"])):
             nach_spiel.setdefault((t["anstoss"], t["spiel"]), []).append(t)
         bloecke = []
         for (ko, spiel), ts in nach_spiel.items():
@@ -552,36 +574,45 @@ def main():
                     + (f" · 1X2 {_q(x12[0])} / {_q(x12[1])} / {_q(x12[2])}" if x12 else ""))
             zeilen = []
             for t in ts:
-                z = f"• {htmlmod.escape(t['markt'])} @ <b>{_q(t['quote'])}</b>"
+                z = f"{'🆕' if t['key'] in neu_keys else '•'} {htmlmod.escape(t['markt'])} @ <b>{_q(t['quote'])}</b>"
                 for sz in t["serie"][:2]:
                     z += f"\n   {htmlmod.escape(sz)}"
                 if t["hinweis"]:
                     z += f"\n   ⚠️ {htmlmod.escape(t['hinweis'])}"
                 zeilen.append(z)
             bloecke.append(kopf + "\n" + "\n".join(zeilen))
-        kopfzeile = f"🔎 <b>Neue Serien</b> (bis {datetime.fromtimestamp(jetzt + FENSTER_H * 3600, TZ):%H:%M})\n\n"
-        teil, ok_alle = kopfzeile, True
+        kopfzeile = (f"📋 <b>Aktuelle Liste</b> · Stand {datetime.fromtimestamp(jetzt, TZ):%H:%M} · "
+                     f"{len(liste)} Signale aus {len(nach_spiel)} Spielen"
+                     + (f" · 🆕 {len(neu_keys)} neu" if neu_keys and len(neu_keys) < len(liste) else "") + "\n\n")
+        if not TROCKEN:
+            for i in alte_ids:                    # vorige Liste löschen
+                try:
+                    _tg_api("deleteMessage", chat_id=TG_CHAT, message_id=i)
+                except Exception:
+                    pass
+        teil, ok_alle, erste = kopfzeile, True, True
         for b in bloecke:
             if len(teil) + len(b) > 3800:
-                ok_alle &= tg(teil.rstrip())
+                ok_alle &= tg(teil.rstrip(), leise=not erste)
+                erste = False
                 teil = ""
             teil += b + "\n\n"
-        ok_alle &= tg(teil.rstrip())
+        ok_alle &= tg(teil.rstrip(), leise=not erste)
         log["telegram"] = "trocken" if TROCKEN else ("ok" if ok_alle else "FEHLER")
-        if ok_alle and not TROCKEN:
-            for t in treffer:
-                gesendet[t["key"]] = jetzt
+        if not TROCKEN:
+            MSG_DATEI.write_text(json.dumps([i for i in _MSG_IDS if i]))
+            if erzwingen:
+                (ROOT / "state" / "trendscan_liste_senden").unlink()
+            if ok_alle:
+                for key in liste:
+                    gesendet.setdefault(key, jetzt)
+    if not TROCKEN:
+        LISTE.write_text(json.dumps(liste, ensure_ascii=False))
     _speichern(gesendet, log, t0)
 
 
 def _speichern(gesendet, log, t0):
     GESENDET.parent.mkdir(exist_ok=True)
-    if _MSG_IDS:
-        try:
-            alt = json.loads(MSG_DATEI.read_text())
-        except Exception:
-            alt = []
-        MSG_DATEI.write_text(json.dumps((alt + [i for i in _MSG_IDS if i])[-200:]))
     GESENDET.write_text(json.dumps(gesendet, ensure_ascii=False, indent=0))
     LOGDIR.mkdir(parents=True, exist_ok=True)
     log["sekunden"] = round(time.time() - t0, 1)
