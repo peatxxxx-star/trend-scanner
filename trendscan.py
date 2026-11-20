@@ -360,21 +360,38 @@ def regeln(k, x12, q):
         return False, f"Quote {q:.2f} außerhalb 1,20–1,50"
     if not x12:
         return True, "1X2 fehlt – Favoritenrolle selbst prüfen"
-    h, _, a = x12
-    if k["art"] == "ou" and k["seite"] and k["richtung"] == "unter":
+    h, x, a = x12
+    fav = min(h, a)
+    # 20.11. (Lucio): 1X2-Filter greifen direkt (statt nur Hinweis), damit nur noch Kandidaten kommen,
+    # die nach dem Spaßschein-Check überhaupt Grün werden können.
+    if k["art"] == "dc":
+        s_ = 1 / h + 1 / x + 1 / a
+        fair = {"x1": (1 / h + 1 / x), "x2": (1 / x + 1 / a), "12": (1 / h + 1 / a)}[k["wahl"]] / s_
+        if fair < 1 / q:
+            return False, f"DC laut 1X2 nur {fair:.0%}, nötig {1 / q:.0%}"
+        return True, ""
+    if k["seite"]:
         eigen, gegner = (h, a) if k["seite"] == "heim" else (a, h)
-        if k["seite"] == "gast" or eigen > gegner:
+    if k["art"] == "hc":
+        if k["linie"] > 0 and gegner < 1.60:
+            return False, f"Handicap beim Außenseiter, Gegner Favorit {gegner:.2f}"
+        return True, ""
+    if k["art"] == "ou" and k["seite"] and k["richtung"] == "unter":
+        if eigen >= gegner:                               # Außenseiter oder ausgeglichen
             return True, ""
         if q <= 1.30:
-            return True, "Heim-Favorit – Gegner hinten prüfen"
-        return False, "Team-Unter beim Heim-Favoriten"
+            return True, "Favorit – Gegner hinten prüfen"
+        return False, "Team-Unter beim Favoriten"
+    if (k["art"] == "ou" and k["seite"] and k["richtung"] == "über"
+            and k["metric"] in ("goals", "ht_goals", "h2_goals") and gegner < 1.60):
+        return False, f"Team-Tor beim Außenseiter, Gegner Favorit {gegner:.2f}"
     if k["art"] == "ou" and k["metric"] == "corners" and not k["seite"]:
         if k["richtung"] == "unter" and not (h >= 2.0 and a >= 2.0):
             return False, "Ecken unter, aber Favorit im Spiel"
-        if k["richtung"] == "über" and min(h, a) > 1.5:
+        if k["richtung"] == "über" and fav > 1.5:
             return False, "Ecken über ohne Favorit <= 1,5"
-    if k["art"] == "ou" and k["metric"] == "goals" and not k["seite"] and k["richtung"] == "unter" and min(h, a) < 1.60:
-        return True, f"Favorit {min(h, a):.2f} – Unter mit Vorsicht"
+    if k["art"] == "ou" and k["metric"] == "goals" and not k["seite"] and k["richtung"] == "unter" and fav < 1.60:
+        return False, f"Tore unter mit Favorit {fav:.2f}"
     return True, ""
 
 
