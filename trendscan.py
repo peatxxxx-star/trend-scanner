@@ -46,8 +46,6 @@ LOGDIR = ROOT / "runs" / "trendscan"
 
 FENSTER_H = float(os.environ.get("TS_FENSTER_H", "14"))
 Q_MIN, Q_MAX = 1.20, 1.50
-SERIE_MIN_QUOTE = 0.80        # schwache Serie: bester Team-Fakt unter 80 % ...
-SERIE_MIN_SPIELE = 6          # ... oder weniger als 6 Spiele
 TREND_MAX_ALTER = 6 * 3600    # Trends je Spiel höchstens 6 h wiederverwenden
 
 TG_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
@@ -212,6 +210,17 @@ def serie(fakt):
     return None
 
 
+def _luecken_ok(f):
+    fehl = f["n"] - f["x"]
+    return fehl <= 1 or (f["x"] > 20 and fehl <= 2)
+
+
+def _anker(f):
+    t = (f.get("text") or "").lower()
+    zyklus = "zu hause" not in t and "auswärts" not in t
+    return zyklus and f["x"] >= 10 and _luecken_ok(f)
+
+
 def kandidaten(spiel):
     out = []
     for grp in spiel.get("trends") or []:
@@ -228,14 +237,31 @@ def kandidaten(spiel):
                     if s:
                         fakten.append({"typ": f.get("type"), "x": s[0], "n": s[1],
                                        "text": (f.get("text") or f.get("fact") or "").strip(),
-                                       "team": ((f.get("team") or {}).get("name"))})
-            # Head-to-Head zählt nur als Bestätigung, entscheidend ist die Team-Serie mit >= 6 Spielen
-            team = [f for f in fakten if f["typ"] != "h2h" and f["n"] >= SERIE_MIN_SPIELE]
-            if not team:
+                                       "team": ((f.get("team") or {}).get("name")),
+                                       "tid": ((f.get("team") or {}).get("id"))})
+            # 20.11. (Lucio, Serienregeln wie damals, vorerst ohne Head-to-Head):
+            # Anker = Serie im normalen Spielzyklus (ohne Heim/Auswärts), >= 10 Treffer,
+            # höchstens 1 Lücke (10/11 ja, 9/10 nein, 12/14 nein); 2 Lücken erst ab über 20 (22/24 ja, 19/21 nein).
+            # Gesamtmärkte: beide Teams brauchen eine Serie, mindestens eine davon Anker;
+            # das zweite Team >= 5 Treffer mit derselben Lückenregel (Heim/Auswärts erlaubt).
+            # Teammärkte: ein Anker genügt.
+            team = [f for f in fakten if f["typ"] != "h2h"]
+            anker = [f for f in team if _anker(f)]
+            if not anker:
                 continue
-            team.sort(key=lambda f: (-(f["x"] / f["n"]), -f["n"]))
-            if team[0]["x"] / team[0]["n"] < SERIE_MIN_QUOTE:
-                continue
+            if mk["art"] == "ou" and not mk["seite"]:
+                ids = {f["tid"] for f in team if f["tid"]}
+                ok = False
+                for a in anker:
+                    if any(f["tid"] and f["tid"] != a["tid"] and f["x"] >= 5 and _luecken_ok(f) for f in team):
+                        ok = True
+                        break
+                if not ok or len(ids) < 2:
+                    continue
+            team.sort(key=lambda f: (not _anker(f), -(f["x"] / f["n"]), -f["n"]))
+            if mk["art"] == "ou" and not mk["seite"]:     # Gesamtmarkt: je Team eine Serie zeigen
+                zweit = next((f for f in team[1:] if f["tid"] != team[0]["tid"]), None)
+                team = [team[0]] + ([zweit] if zweit else [])
             titel = ((tr.get("grouped_facts") or [{}])[0]).get("title") or ""
             out.append({**mk, "titel": titel, "fakten": team[:2],
                         "h2h": [f for f in fakten if f["typ"] == "h2h"][:1],
@@ -466,8 +492,8 @@ def main():
             zeilen = []
             for t in ts:
                 z = f"• {htmlmod.escape(t['markt'])} @ <b>{_q(t['quote'])}</b>"
-                if t["serie"]:
-                    z += f"\n   {htmlmod.escape(t['serie'][0])}"
+                for sz in t["serie"][:2]:
+                    z += f"\n   {htmlmod.escape(sz)}"
                 if t["hinweis"]:
                     z += f"\n   ⚠️ {htmlmod.escape(t['hinweis'])}"
                 zeilen.append(z)
