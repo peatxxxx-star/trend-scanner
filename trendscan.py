@@ -53,6 +53,9 @@ TREND_MAX_ALTER = 6 * 3600    # Trends je Spiel höchstens 6 h wiederverwenden
 TG_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TG_CHAT = os.environ.get("TELEGRAM_CHAT_ID", "")
 TROCKEN = os.environ.get("TS_TROCKEN", "") == "1"   # 1 = nichts senden, nur Log
+# 20.11.: Telegram erst scharf, wenn Lucio die Serien-Schwelle bestätigt hat (Datei state/trendscan_live)
+if not (ROOT / "state" / "trendscan_live").exists():
+    TROCKEN = True
 try:   # Start per Push auf trendscan_now mit Inhalt "trocken" = Probelauf ohne Telegram
     if os.environ.get("GITHUB_EVENT_NAME") == "push" and (ROOT / "trendscan_now").read_text().strip() == "trocken":
         TROCKEN = True
