@@ -227,7 +227,7 @@ def kandidaten(spiel):
                     s = serie(f.get("fact"))
                     if s:
                         fakten.append({"typ": f.get("type"), "x": s[0], "n": s[1],
-                                       "text": (f.get("fact") or "").strip(),
+                                       "text": (f.get("text") or f.get("fact") or "").strip(),
                                        "team": ((f.get("team") or {}).get("name"))})
             # Head-to-Head zählt nur als Bestätigung, entscheidend ist die Team-Serie mit >= 6 Spielen
             team = [f for f in fakten if f["typ"] != "h2h" and f["n"] >= SERIE_MIN_SPIELE]
@@ -443,7 +443,7 @@ def main():
                 eintrag = {"spiel": f"{sp['home']} – {sp['away']}", "liga": g.get("L") or sp.get("liga"),
                            "anstoss": g["S"], "markt": label(k, sp["home"], sp["away"]), "quote": q,
                            "x12": x12, "hinweis": hinweis, "key": k["key"],
-                           "serie": [f"{f['team']}: {f['text']}" for f in k["fakten"]],
+                           "serie": [f["text"] for f in k["fakten"]],
                            "h2h": [f["text"] for f in k["h2h"]]}
                 if ok:
                     treffer.append(eintrag)
