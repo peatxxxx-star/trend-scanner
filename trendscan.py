@@ -221,6 +221,19 @@ def _anker(f):
     return zyklus and f["x"] >= 10 and _luecken_ok(f)
 
 
+def _zweiseitig(mk):
+    """20.11. (Lucio): Märkte, bei denen scores24 Serien beider Teams liefert -> beide Pflicht:
+    Gesamtmärkte, „trifft“ (auch 1./2. HZ: A trifft / B kassiert) und Doppelte Chance
+    (A nicht verloren / B nicht gewonnen). Übrige Teammärkte: ein Anker genügt."""
+    if mk["art"] == "dc":
+        return True
+    if mk["art"] != "ou":
+        return False
+    if not mk["seite"]:
+        return True
+    return mk["metric"] in ("goals", "ht_goals", "h2_goals") and mk["richtung"] == "über" and mk["linie"] == 0.5
+
+
 def kandidaten(spiel):
     out = []
     for grp in spiel.get("trends") or []:
@@ -244,12 +257,12 @@ def kandidaten(spiel):
             # höchstens 1 Lücke (10/11 ja, 9/10 nein, 12/14 nein); 2 Lücken erst ab über 20 (22/24 ja, 19/21 nein).
             # Gesamtmärkte: beide Teams brauchen eine Serie, mindestens eine davon Anker;
             # das zweite Team >= 5 Treffer mit derselben Lückenregel (Heim/Auswärts erlaubt).
-            # Teammärkte: ein Anker genügt.
+            # „trifft“ und Doppelte Chance wie Gesamtmärkte (beide Teams). Übrige Teammärkte: ein Anker genügt.
             team = [f for f in fakten if f["typ"] != "h2h"]
             anker = [f for f in team if _anker(f)]
             if not anker:
                 continue
-            if mk["art"] == "ou" and not mk["seite"]:
+            if _zweiseitig(mk):
                 ids = {f["tid"] for f in team if f["tid"]}
                 ok = False
                 for a in anker:
@@ -259,7 +272,7 @@ def kandidaten(spiel):
                 if not ok or len(ids) < 2:
                     continue
             team.sort(key=lambda f: (not _anker(f), -(f["x"] / f["n"]), -f["n"]))
-            if mk["art"] == "ou" and not mk["seite"]:     # Gesamtmarkt: je Team eine Serie zeigen
+            if _zweiseitig(mk):     # je Team eine Serie zeigen
                 zweit = next((f for f in team[1:] if f["tid"] != team[0]["tid"]), None)
                 team = [team[0]] + ([zweit] if zweit else [])
             titel = ((tr.get("grouped_facts") or [{}])[0]).get("title") or ""
