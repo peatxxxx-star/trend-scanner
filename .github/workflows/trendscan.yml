@@ -30,7 +30,7 @@ permissions:
   actions: write
 
 concurrency:
-  group: trendscan-${{ github.event_name == 'push' && 'einzeln' || 'schleife' }}
+  group: trendscan-${{ github.event_name == 'push' && format('einzeln-{0}', github.run_id) || 'schleife' }}
   cancel-in-progress: false
 
 jobs:
