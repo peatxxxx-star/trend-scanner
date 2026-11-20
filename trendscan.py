@@ -506,7 +506,7 @@ def main():
                 teil = ""
             teil += b + "\n\n"
         ok_alle &= tg(teil.rstrip())
-        if ok_alle:
+        if ok_alle and not TROCKEN:
             for t in treffer:
                 gesendet[t["key"]] = jetzt
     _speichern(gesendet, log, t0)
