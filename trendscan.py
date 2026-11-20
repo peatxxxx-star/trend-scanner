@@ -382,6 +382,10 @@ def regeln(k, x12, q):
         if q <= 1.30:
             return True, "Favorit – Gegner hinten prüfen"
         return False, "Team-Unter beim Favoriten"
+    # 20.11. (Lucio): „trifft“ (auch 1./2. HZ) nur bis einschließlich 1,30 – darüber zu heiß
+    if (k["art"] == "ou" and k["seite"] and k["richtung"] == "über"
+            and k["metric"] in ("goals", "ht_goals", "h2_goals") and k["linie"] == 0.5 and q > 1.30):
+        return False, f"trifft über 1,30 ({q:.2f})"
     if (k["art"] == "ou" and k["seite"] and k["richtung"] == "über"
             and k["metric"] in ("goals", "ht_goals", "h2_goals") and gegner < 1.60):
         return False, f"Team-Tor beim Außenseiter, Gegner Favorit {gegner:.2f}"
