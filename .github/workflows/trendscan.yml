@@ -2,12 +2,19 @@ name: Trend-Scan Spaßscheine
 
 # 20.11.2026 (Lucio): stündlich scores24 (nächste 14 h) -> BetLabel-Quote + 1X2 ->
 # Regeln aus dem Spaßschein-Check -> nur neue Signale ins Telegram.
-# Winterzeit: 07-22 UTC = 08-23 Uhr deutscher Zeit (Sommerzeit ab 28.03.2027: "7 6-21 * * *").
-# GitHub startet geplante Läufe oft verspätet; Start von Hand: "Run workflow" oder Push auf trendscan_now.
+#
+# GitHubs Zeitplan ist in diesem Repo unzuverlässig (am 20.11. lief um 9, 10 und 11 Uhr
+# kein einziger geplanter Lauf). Deshalb läuft der Scan als Schleife in EINEM Job:
+# scannt jeweils um hh:07 (08–23 Uhr deutscher Zeit), schläft dazwischen und startet sich
+# nach ~5,5 Stunden selbst neu (workflow_dispatch über GITHUB_TOKEN ist erlaubt).
+# Der Zeitplan unten bleibt nur als Wiederbeleber, falls die Kette einmal abreißt.
+# Öffentliches Repo = Actions-Minuten kostenlos.
+# Einzelner Lauf: Push auf trendscan_now (Inhalt "trocken ..." = ohne Telegram,
+# "schleife ..." = startet die Stundenschleife von Hand).
 
 on:
   schedule:
-    - cron: "7 7-22 * * *"
+    - cron: "17 */3 * * *"
   push:
     branches: [main]
     paths: ["trendscan_now"]
@@ -20,15 +27,16 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
-  group: trendscan
+  group: trendscan-${{ github.event_name == 'push' && 'einzeln' || 'schleife' }}
   cancel-in-progress: false
 
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 355
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -43,12 +51,49 @@ jobs:
           key: trendscan-${{ github.run_id }}
           restore-keys: trendscan-
       - name: Scan
+        id: scan
         env:
           PYTHONUNBUFFERED: "1"
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TS_TROCKEN: ${{ github.event.inputs.trocken }}
-        run: python trendscan.py
+          SCHLEIFE: ${{ github.event_name != 'push' && '1' || '' }}
+        run: |
+          git config user.name "trend-scanner"
+          git config user.email "actions@users.noreply.github.com"
+          sichern() {
+            git checkout -- cache/ 2>/dev/null || true
+            git add -A state/ runs/trendscan/ 2>/dev/null || true
+            if git diff --cached --quiet; then return 0; fi
+            git commit -q -m "Trend-Scan $(date -u +'%Y-%m-%d %H:%M') UTC"
+            for i in 1 2 3 4; do
+              git pull -q --rebase -X theirs origin main && git push -q origin HEAD:main && return 0
+              sleep $((i * 10))
+            done
+          }
+          einmal() {
+            h=$(TZ=Europe/Berlin date +%-H)
+            if [ "$h" -ge 8 ] && [ "$h" -le 23 ]; then
+              timeout 25m python trendscan.py || echo "Scan-Fehler (weiter)"
+              sichern
+            else
+              echo "$(TZ=Europe/Berlin date +%H:%M) – Nachtpause"
+            fi
+          }
+          if [ -z "$SCHLEIFE" ] && grep -q '^schleife' trendscan_now 2>/dev/null; then SCHLEIFE=1; fi
+          echo "schleife=$SCHLEIFE" >> "$GITHUB_OUTPUT"
+          if [ -z "$SCHLEIFE" ]; then einmal; exit 0; fi
+          ende=$(( $(date +%s) + 5*3600 + 1800 ))
+          einmal
+          while true; do
+            jetzt=$(date +%s)
+            naechst=$(( (jetzt / 3600 + 1) * 3600 + 420 ))
+            if [ $(( jetzt - jetzt / 3600 * 3600 )) -lt 420 ]; then naechst=$(( jetzt / 3600 * 3600 + 420 )); fi
+            [ "$naechst" -gt "$ende" ] && break
+            sleep $(( naechst - jetzt ))
+            git pull -q --rebase origin main 2>/dev/null || true
+            einmal
+          done
       - name: Zwischenspeicher sichern
         if: always()
         uses: actions/cache/save@v4
@@ -57,17 +102,8 @@ jobs:
             .tscache
             cache/bl_spiele.json.gz
           key: trendscan-${{ github.run_id }}
-      - name: Stand sichern
-        if: always()
-        run: |
-          git checkout -- cache/ 2>/dev/null || true
-          git config user.name "trend-scanner"
-          git config user.email "actions@users.noreply.github.com"
-          git add -A state/ runs/trendscan/ 2>/dev/null || true
-          if git diff --cached --quiet; then echo "nichts zu sichern"; exit 0; fi
-          git commit -q -m "Trend-Scan $(date -u +'%Y-%m-%d %H:%M') UTC"
-          for i in 1 2 3 4; do
-            git pull -q --rebase -X theirs origin main && git push -q origin HEAD:main && exit 0
-            sleep $((i * 10))
-          done
-          exit 1
+      - name: Nächste Schleife starten
+        if: always() && steps.scan.outputs.schleife == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run trendscan.yml --ref main
