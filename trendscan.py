@@ -506,6 +506,7 @@ def main():
                 teil = ""
             teil += b + "\n\n"
         ok_alle &= tg(teil.rstrip())
+        log["telegram"] = "trocken" if TROCKEN else ("ok" if ok_alle else "FEHLER")
         if ok_alle and not TROCKEN:
             for t in treffer:
                 gesendet[t["key"]] = jetzt
