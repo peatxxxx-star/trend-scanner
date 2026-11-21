@@ -728,7 +728,9 @@ def main():
         bleibt, n_check = [], 0
         for e, k, sp in paare:
             st = stats.get(e["key"].split("|")[0]) or {}
-            g = teamstats.gegencheck(k, st, sp["home"], sp["away"], e["quote"])
+            tb = sp.get("tab")
+            mit_tab = isinstance(tb, dict) and bool(tb) and not tb.get("unklar") and not tb.get("fremd")
+            g = teamstats.gegencheck(k, st, sp["home"], sp["away"], e["quote"], mit_tab)
             if g:
                 n_check += 1
                 e["check"] = g["zeilen"]

@@ -104,7 +104,7 @@ def _saison(spiele, n_tab):
             return (jetzt - datetime.fromisoformat(s["d"].replace("Z", "+00:00"))).days
         except Exception:
             return 999
-    return [s for s in ls if alt(s) <= 270]
+    return [s for s in ls if alt(s) <= 200]
 
 
 def laden(eintraege, cache_datei):
@@ -203,7 +203,20 @@ def bedingungen(k):
     return (lambda s: cmp(_wert(s, m, "f"))), (lambda s: cmp(_wert(s, m, "g"))), k["seite"]
 
 
-def gegencheck(k, st, heim_name, gast_name, quote):
+_GENERISCH = {"fc", "fk", "sc", "sv", "ud", "us", "ss", "cd", "cf", "ca", "ac", "as", "afc", "csc", "cs", "fsv",
+              "vfb", "vfl", "tsv", "sk", "nk", "ks", "gks", "mks", "club", "real", "atletico", "sporting",
+              "deportivo", "union", "st.", "san", "the", "royal", "kv", "kfc", "rsc", "if", "bk", "ik", "aik"}
+
+
+def kurzname(n):
+    ts = [t for t in (n or "").replace("(", " ").replace(")", " ").split() if t]
+    for t in ts:
+        if t.lower() not in _GENERISCH and len(t) > 2:
+            return t[:13]
+    return (" ".join(ts[:2]) or "?")[:13]
+
+
+def gegencheck(k, st, heim_name, gast_name, quote, mit_tabelle=True):
     """Zeilen für Telegram + Vorcheck-Symbol. st = {"heim": [...], "gast": [...]}"""
     b = bedingungen(k)
     if not b or not st or not st.get("heim") or not st.get("gast"):
@@ -232,7 +245,11 @@ def gegencheck(k, st, heim_name, gast_name, quote):
         sym = "🟢"
     else:
         sym = "🟡"
-    hn, gn = heim_name.split(" ")[0][:14], gast_name.split(" ")[0][:14]
+    if sym == "🟢" and not mit_tabelle:
+        sym = "🟡"                                   # Spiel ohne Tabelle: Ligawerte evtl. fremder Wettbewerb
+    hn, gn = kurzname(heim_name), kurzname(gast_name)
+    if hn == gn:
+        hn, gn = heim_name[:13], gast_name[:13]
     z1 = f"{sym} Alle: {hn} {p(ah)} · {gn} {p(ag)}" + (f" · BE {be:.0%}" if be else "")
     z2 = f"   Rolle: {hn} heim {p(rh)} · {gn} ausw. {p(rg)}"
     return {"sym": sym, "zeilen": [z1, z2], "alle": [ah, ag], "rolle": [rh, rg]}
