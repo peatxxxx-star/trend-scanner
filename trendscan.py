@@ -791,10 +791,7 @@ def main():
         bleibt, n_check = [], 0
         for e, k, sp in paare:
             st = stats.get(e["key"].split("|")[0]) or {}
-            if st.get("po_heim") and st.get("po_gast"):
-                e["hinweis"] = "Play-off/K.-o.: beide Teams mehr Ligaspiele als Tabellenspiele"
-                log["raus"].append(e)
-                continue
+            po = bool(st.get("po_heim") and st.get("po_gast"))
             tb = sp.get("tab")
             mit_tab = isinstance(tb, dict) and bool(tb) and not tb.get("unklar") and not tb.get("fremd")
             # ohne Tabelle bei scores24: echte Liga, wenn beide Teams in derselben Liga spielen
@@ -803,6 +800,12 @@ def main():
                 if "keine Tabelle" in (e.get("hinweis") or ""):
                     e["hinweis"] = "; ".join(x for x in e["hinweis"].split("; ") if "keine Tabelle" not in x)
             g = teamstats.gegencheck(k, st, sp["home"], sp["away"], e["quote"], mit_tab, e.get("x12"))
+            if g and po:
+                # 21.11.: Saison laut Tabelle vorbei -> Play-off/Meisterrunde, höchstens 🟡
+                if g["sym"] == "🟢":
+                    g["sym"] = "🟡"
+                    g["zeilen"][0] = "🟡" + g["zeilen"][0][1:] + " · 🟡 weil: Play-off/Meisterrunde?"
+                e["hinweis"] = "; ".join(x for x in (e.get("hinweis"), "Saison laut Tabelle vorbei – Play-off/Meisterrunde selbst prüfen") if x)
             if g:
                 n_check += 1
                 e["check"] = g["zeilen"]
