@@ -911,6 +911,13 @@ def main():
         log["scheine"] = [[f"{t['spiel']}: {t['markt']} @ {t['quote']}" for t in legs] for legs in sch]
         if sch:
             ok_alle &= tg(schein_text(sch), leise=False)
+        else:
+            gsp = _gespielt()
+            offen = sum(1 for t in liste.values() if t.get("sym") == "🟢" and t.get("anstoss", 0) > jetzt + 300
+                        and not _ist_gespielt(t, gsp))
+            ok_alle &= tg("🎫 Keine Scheinvorschläge – "
+                          + ("alle 🟢 schon gespielt." if offen == 0 else "nur 1 🟢 offen, für einen Schein braucht es 2."),
+                          leise=True)
         log["telegram"] = "trocken" if TROCKEN else ("ok" if ok_alle else "FEHLER")
         if not TROCKEN:
             MSG_DATEI.write_text(json.dumps([i for i in _MSG_IDS if i]))
