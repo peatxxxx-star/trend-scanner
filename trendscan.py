@@ -638,8 +638,10 @@ def schein_text(sch):
         bis = datetime.fromtimestamp(min(t["anstoss"] for t in legs), TZ)
         z.append(f"\n<b>Schein {nr}</b> · abgeben bis {bis:%a %H:%M} · Quote ≈ {_q(q)}")
         for t in legs:
-            z.append(f"  {datetime.fromtimestamp(t['anstoss'], TZ):%H:%M} {htmlmod.escape(t['spiel'])}: "
-                     f"{htmlmod.escape(t['markt'])} @ {_q(t['quote'])}")
+            bl = t.get("bl")
+            z.append(f"  {datetime.fromtimestamp(t['anstoss'], TZ):%H:%M} <b>{htmlmod.escape(t['spiel'])}</b>"
+                     + (f" (BetLabel: {htmlmod.escape(bl)})" if bl and bl != t["spiel"] else "")
+                     + f"\n     {htmlmod.escape(t['markt'])} @ {_q(t['quote'])}")
     z.append("\nQuote bei BetLabel vor Abgabe prüfen (Liste bis zu 1 h alt).")
     return "\n".join(z)
 
@@ -763,6 +765,7 @@ def main():
                 eintrag = {"spiel": f"{sp['home']} – {sp['away']}", "liga": g.get("L") or sp.get("liga"),
                            "anstoss": g["S"], "markt": label(k, sp["home"], sp["away"]), "quote": q,
                            "x12": x12, "hinweis": hinweis, "key": k["key"], "tab": sp.get("tab"),
+                           "bl": f"{g.get('O1')} – {g.get('O2')}" if g.get("O1") else None,
                            "serie": [f["text"] for f in k["fakten"]],
                            "h2h": [f["text"] for f in k["h2h"]]}
                 if sp.get("tab_hinweis"):
