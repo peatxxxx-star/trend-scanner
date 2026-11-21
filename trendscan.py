@@ -587,6 +587,17 @@ def _q(x):
 
 
 # ------------------------------------------------------------------ Hauptlauf
+def _gespielt():
+    try:
+        return json.loads((ROOT / "state" / "trendscan_gespielt.json").read_text())
+    except Exception:
+        return []
+
+
+def _ist_gespielt(t, gespielt):
+    return any(g in t["key"].split("|")[0] for g in gespielt)
+
+
 def scheine(liste, jetzt):
     """21.11. (Lucio): Scheinvorschläge aus allen 🟢 – nach Anstoß sortiert, ein Leg pro Spiel,
     je 3 Legs pro Schein (Rest als 2er; ein einzelnes übriges Leg -> letzte beiden Scheine 2+2)."""
@@ -869,7 +880,8 @@ def main():
             zeilen = []
             for t in ts:
                 z = (f"{'🆕' if t['key'] in neu_keys else '•'} {t.get('sym', '') + ' ' if t.get('sym') else ''}"
-                     f"{htmlmod.escape(t['markt'])} @ <b>{_q(t['quote'])}</b>")
+                     f"{htmlmod.escape(t['markt'])} @ <b>{_q(t['quote'])}</b>"
+                     + (" · 🎫 gespielt" if _ist_gespielt(t, _gespielt()) else ""))
                 for sz in t["serie"][:2]:
                     z += f"\n   {htmlmod.escape(sz)}"
                 for cz in t.get("check") or []:
@@ -910,9 +922,11 @@ def main():
     elif liste:
         # 21.11. (Lucio): jede Stunde ein Lebenszeichen – leise Kurznachricht, die vorige wird ersetzt
         status_datei = ROOT / "state" / "trendscan_status.json"
-        n_gruen = sum(1 for t in liste.values() if t.get("sym") == "🟢" and t.get("anstoss", 0) > jetzt)
-        text = (f"⏱ Lauf {datetime.fromtimestamp(jetzt, TZ):%H:%M} · keine neuen Signale · "
-                f"{len(liste)} in der Liste, davon {n_gruen} 🟢 offen")
+        gsp = _gespielt()
+        n_gruen = sum(1 for t in liste.values() if t.get("sym") == "🟢" and t.get("anstoss", 0) > jetzt + 300
+                      and not _ist_gespielt(t, gsp))
+        text = (f"⏱ Lauf {datetime.fromtimestamp(jetzt, TZ):%H:%M} · nichts Neues · "
+                + (f"{n_gruen} 🟢 noch nicht gespielt – siehe Liste oben" if n_gruen else "kein offenes 🟢"))
         if not TROCKEN and TG_TOKEN and TG_CHAT:
             try:
                 for i in json.loads(status_datei.read_text()):
