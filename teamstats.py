@@ -1,0 +1,239 @@
+"""Eigene Teamwerte aus den letzten Spielen bei scores24 (statt FootyStats).
+
+21.11. (Lucio): FootyStats zeigt auf der Spielseite nur Heim- bzw. Auswärtswerte, ohne die
+Spielzahl zu nennen. Hier rechnen wir selbst – nur Ligaspiele der laufenden Saison, einmal über
+alle Spiele und einmal in der Rolle (Gastgeber zu Hause, Gast auswärts), immer mit Spielzahl.
+
+Quelle: /rapi/matches/soccer/{slug}/team-matches?teamType=home|away (bis 20 Spiele pro Seite,
+alle Wettbewerbe, mit Ergebnis, Halbzeit, Ecken und Gelben Karten).
+"""
+import gzip
+import json
+import time
+from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
+
+from s24liste import get as s24_get
+
+TTL = 12 * 3600
+URL = ("https://scores24.live/rapi/matches/soccer/{slug}/team-matches?teamType={tt}&first=20"
+       "&lang=de&sort=desc&status=finished&withStatistics=true")
+
+
+def _paar(s):
+    try:
+        a, b = str(s).split(":")
+        return int(a), int(b)
+    except Exception:
+        return None
+
+
+def _abrufen(slug, tt):
+    nodes, url = [], URL.format(slug=slug, tt=tt)
+    for seite in range(2):                       # höchstens 2 Seiten (40 Spiele)
+        d = (json.loads(s24_get(url)) or {}).get("data") or {}
+        nodes += [e["node"] for e in d.get("edges") or [] if e.get("node")]
+        pi = d.get("pageInfo") or {}
+        if seite == 0 and pi.get("hasNextPage") and pi.get("endCursor") and len(nodes) >= 20:
+            url = URL.format(slug=slug, tt=tt) + "&after=" + pi["endCursor"]
+        else:
+            break
+    return nodes
+
+
+def _spiele(nodes):
+    """Knoten -> Spiele aus Sicht des Teams (das in allen Knoten vorkommt)."""
+    c = Counter(t.get("slug") for n in nodes for t in (n.get("teams") or [])[:2])
+    if not c:
+        return None, []
+    team = c.most_common(1)[0][0]
+    out = []
+    for n in nodes:
+        ts = n.get("teams") or []
+        if len(ts) < 2 or team not in (ts[0].get("slug"), ts[1].get("slug")):
+            continue
+        heim = ts[0].get("slug") == team
+        rs = {r.get("type"): _paar(r.get("value")) for r in n.get("result_scores") or []}
+        ft = rs.get("FT") or _paar(n.get("result_score"))
+        if not ft:
+            continue
+        ht = rs.get("HT")
+        st = {i.get("type"): (i.get("team1_value"), i.get("team2_value"))
+              for i in ((n.get("statistic") or {}).get("items") or [])}
+
+        def wert(typ):
+            v = st.get(typ)
+            try:
+                a, b = int(v[0]), int(v[1])
+            except Exception:
+                return None
+            return (a, b) if heim else (b, a)
+        tf, tg = ft if heim else (ft[1], ft[0])
+        h = (ht if heim else (ht[1], ht[0])) if ht else None
+        liga = n.get("league_slug") or (n.get("unique_tournament") or {}).get("slug") or ""
+        out.append({"d": n.get("match_date") or "", "ort": "H" if heim else "A", "tf": tf, "tg": tg,
+                    "hf": h[0] if h else None, "hg": h[1] if h else None,
+                    "ecken": wert("corner_kicks"), "gelb": wert("yellow_cards"),
+                    "liga": liga, "tab": bool(n.get("has_standings")),
+                    "freund": "friendly" in liga})
+    out.sort(key=lambda s: s["d"], reverse=True)
+    return team, out
+
+
+def _saison(spiele, n_tab):
+    """Nur Ligaspiele: häufigste Liga mit Tabelle, die letzten n_tab Spiele (= laufende Saison)."""
+    liga = Counter(s["liga"] for s in spiele if s["tab"] and not s["freund"]).most_common(1)
+    if not liga:
+        return []
+    ls = [s for s in spiele if s["liga"] == liga[0][0]]
+    if n_tab:
+        return ls[:n_tab]
+    jetzt = datetime.now(timezone.utc)
+    def alt(s):
+        try:
+            return (jetzt - datetime.fromisoformat(s["d"].replace("Z", "+00:00"))).days
+        except Exception:
+            return 999
+    return [s for s in ls if alt(s) <= 270]
+
+
+def laden(eintraege, cache_datei):
+    """eintraege: [(slug, n_heim, n_gast)] -> {slug: {"heim": [...], "gast": [...]}}"""
+    try:
+        with gzip.open(cache_datei, "rt", encoding="utf-8") as f:
+            cache = json.load(f)
+    except Exception:
+        cache = {}
+    jetzt = time.time()
+    fehlt = [(s, tt) for s, _, _ in eintraege for tt in ("home", "away")
+             if jetzt - (cache.get(f"{s}|{tt}") or {}).get("t", 0) > TTL]
+
+    def eins(a):
+        s, tt = a
+        try:
+            return a, _abrufen(s, tt)
+        except Exception:
+            return a, None
+    with ThreadPoolExecutor(8) as ex:
+        for (s, tt), nodes in ex.map(eins, fehlt):
+            if nodes is not None:
+                cache[f"{s}|{tt}"] = {"t": jetzt, "nodes": nodes}
+    cache = {k: v for k, v in cache.items() if jetzt - v.get("t", 0) < 2 * 86400}
+    cache_datei.parent.mkdir(exist_ok=True)
+    with gzip.open(cache_datei, "wt", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, separators=(",", ":"))
+    out = {}
+    for s, nh, ng in eintraege:
+        r = {}
+        for tt, seite, n in (("home", "heim", nh), ("away", "gast", ng)):
+            nodes = (cache.get(f"{s}|{tt}") or {}).get("nodes")
+            if nodes:
+                _, sp = _spiele(nodes)
+                r[seite] = _saison(sp, n)
+        out[s] = r
+    return out
+
+
+# ------------------------------------------------------------------ Markt-Gegencheck
+def _quote(spiele, bed):
+    ok = n = 0
+    for s in spiele:
+        v = bed(s)
+        if v is None:
+            continue
+        n += 1
+        ok += bool(v)
+    return ok, n
+
+
+def _wert(s, metric, wer):
+    """wer: 'f' (für das Team), 'g' (gegen), 's' (Summe)."""
+    if metric == "goals":
+        f, g = s["tf"], s["tg"]
+    elif metric == "ht_goals":
+        if s["hf"] is None:
+            return None
+        f, g = s["hf"], s["hg"]
+    elif metric == "h2_goals":
+        if s["hf"] is None:
+            return None
+        f, g = s["tf"] - s["hf"], s["tg"] - s["hg"]
+    elif metric in ("corners", "yellowcards"):
+        v = s["ecken"] if metric == "corners" else s["gelb"]
+        if not v:
+            return None
+        f, g = v
+    else:
+        return None
+    return {"f": f, "g": g, "s": f + g}[wer]
+
+
+def bedingungen(k):
+    """-> (Bedingung fürs eigene Team, Bedingung für den Gegner) oder None, wenn keine Daten."""
+    art = k["art"]
+    if art == "dc":
+        w = k["wahl"]
+        heim = {"x1": lambda s: s["tf"] >= s["tg"], "x2": lambda s: s["tf"] <= s["tg"],
+                "12": lambda s: s["tf"] != s["tg"]}[w]
+        gast = {"x1": lambda s: s["tf"] <= s["tg"], "x2": lambda s: s["tf"] >= s["tg"],
+                "12": lambda s: s["tf"] != s["tg"]}[w]
+        return heim, gast, "heim"
+    if art == "hc":
+        L = k["linie"]
+        return (lambda s: s["tf"] - s["tg"] + L > 0), (lambda s: s["tg"] - s["tf"] + L > 0), k["seite"]
+    m, L, ueber = k["metric"], k["linie"], k["richtung"] == "über"
+    if m not in ("goals", "ht_goals", "h2_goals", "corners", "yellowcards"):
+        return None
+
+    def cmp(v):
+        return None if v is None else (v > L if ueber else v < L)
+    if not k["seite"]:
+        b = lambda s: cmp(_wert(s, m, "s"))
+        return b, b, "heim"
+    return (lambda s: cmp(_wert(s, m, "f"))), (lambda s: cmp(_wert(s, m, "g"))), k["seite"]
+
+
+def gegencheck(k, st, heim_name, gast_name, quote):
+    """Zeilen für Telegram + Vorcheck-Symbol. st = {"heim": [...], "gast": [...]}"""
+    b = bedingungen(k)
+    if not b or not st or not st.get("heim") or not st.get("gast"):
+        return None
+    b_eigen, b_gegner, seite = b
+    if seite == "heim":
+        bh, bg = b_eigen, b_gegner
+    else:
+        bh, bg = b_gegner, b_eigen
+    H, G = st["heim"], st["gast"]
+    ah, ag = _quote(H, bh), _quote(G, bg)
+    rh = _quote([s for s in H if s["ort"] == "H"], bh)
+    rg = _quote([s for s in G if s["ort"] == "A"], bg)
+    if not ah[1] or not ag[1]:
+        return None
+    be = 1 / quote if quote else None
+    p = lambda x: f"{x[0]}/{x[1]}" + (f" ({x[0] / x[1]:.0%})" if x[1] else "")
+    # Vorcheck: Rot, wenn eine Gesamtquote unter Break-even; Grün nur mit Puffer und Stichprobe
+    alle = [x[0] / x[1] for x in (ah, ag)]
+    rolle = [x[0] / x[1] for x in (rh, rg) if x[1] >= 4]
+    if be is None:
+        sym = "⚪"
+    elif min(alle) < be:
+        sym = "🔴"
+    elif min(alle) >= be + 0.05 and min(ah[1], ag[1]) >= 8 and all(r >= be for r in rolle):
+        sym = "🟢"
+    else:
+        sym = "🟡"
+    hn, gn = heim_name.split(" ")[0][:14], gast_name.split(" ")[0][:14]
+    z1 = f"{sym} Alle: {hn} {p(ah)} · {gn} {p(ag)}" + (f" · BE {be:.0%}" if be else "")
+    z2 = f"   Rolle: {hn} heim {p(rh)} · {gn} ausw. {p(rg)}"
+    return {"sym": sym, "zeilen": [z1, z2], "alle": [ah, ag], "rolle": [rh, rg]}
+
+
+def schnitt(st):
+    """Kurzer Torschnitt pro Team aus den Ligaspielen (für die Kopfzeile)."""
+    out = {}
+    for seite in ("heim", "gast"):
+        sp = st.get(seite) or []
+        if sp:
+            out[seite] = (len(sp), sum(s["tf"] for s in sp) / len(sp), sum(s["tg"] for s in sp) / len(sp))
+    return out

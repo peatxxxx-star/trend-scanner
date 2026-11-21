@@ -35,12 +35,15 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import betlabel
+import teamstats
 from s24liste import get as s24_get
 
 TZ = ZoneInfo("Europe/Berlin")
 ROOT = Path(__file__).parent
 CACHE = ROOT / ".tscache"                       # über actions/cache, nicht im Repo
 S24_CACHE = CACHE / "s24.json.gz"
+TM_CACHE = CACHE / "tm.json.gz"          # 21.11.: letzte Spiele für eigene Teamwerte
+DATEN_FILTER = os.environ.get("TS_DATENFILTER", "1") == "1"   # 🔴 im Gegencheck -> raus
 GESENDET = ROOT / "state" / "trendscan_gesendet.json"
 LOGDIR = ROOT / "runs" / "trendscan"
 
@@ -687,7 +690,7 @@ def main():
                           for col in gr.get("E") or [] for e in col})
         return sp, g, swap, x12, res, gruppen
 
-    treffer = []
+    treffer, paare = [], []
     with ThreadPoolExecutor(betlabel.THREADS) as ex:
         for sp, g, swap, x12, res, gruppen in ex.map(eins, kand):
             if gruppen and log["gruppen_test"] is None:
@@ -706,8 +709,40 @@ def main():
                     eintrag["hinweis"] = "; ".join(x for x in (hinweis, sp["tab_hinweis"]) if x)
                 if ok:
                     treffer.append(eintrag)
+                    paare.append((eintrag, k, sp))
                 else:
                     log["raus"].append(eintrag)
+
+    # 21.11. (Lucio): eigene Teamwerte aus den letzten Ligaspielen (scores24) statt FootyStats.
+    # Pro Signal: Trefferquote beider Teams über alle Ligaspiele der Saison und in der Rolle,
+    # mit Spielzahl und Break-even. 🔴 (eine Seite unter Break-even) fliegt raus.
+    try:
+        ein = {}
+        for e, k, sp in paare:
+            slug = e["key"].split("|")[0]
+            tab = sp.get("tab") or {}
+            nh = (tab.get("heim") or {}).get("sp") if tab and not tab.get("unklar") else None
+            ng = (tab.get("gast") or {}).get("sp") if tab and not tab.get("unklar") else None
+            ein[slug] = (slug, nh, ng)
+        stats = teamstats.laden(list(ein.values()), TM_CACHE)
+        bleibt, n_check = [], 0
+        for e, k, sp in paare:
+            st = stats.get(e["key"].split("|")[0]) or {}
+            g = teamstats.gegencheck(k, st, sp["home"], sp["away"], e["quote"])
+            if g:
+                n_check += 1
+                e["check"] = g["zeilen"]
+                e["sym"] = g["sym"]
+                if g["sym"] == "🔴" and DATEN_FILTER:
+                    e["hinweis"] = "Daten: eine Seite unter Break-even"
+                    log["raus"].append(e)
+                    continue
+            bleibt.append(e)
+        log["gegencheck"] = {"signale": len(paare), "mit_daten": n_check, "rot_raus": len(paare) - len(bleibt)}
+        treffer = bleibt
+    except Exception as ex:
+        log["gegencheck"] = {"fehler": f"{type(ex).__name__}: {str(ex)[:200]}"}
+        print("Gegencheck-Fehler:", ex, flush=True)
     log["signale"] = treffer
     print(f"Signale nach BetLabel und Regeln: {len(treffer)}, raus: {len(log['raus'])}, "
           f"nicht bei BL: {len(log['nicht_bei_bl'])}", flush=True)
@@ -756,9 +791,12 @@ def main():
                 kopf += "\n" + tz
             zeilen = []
             for t in ts:
-                z = f"{'🆕' if t['key'] in neu_keys else '•'} {htmlmod.escape(t['markt'])} @ <b>{_q(t['quote'])}</b>"
+                z = (f"{'🆕' if t['key'] in neu_keys else '•'} {t.get('sym', '') + ' ' if t.get('sym') else ''}"
+                     f"{htmlmod.escape(t['markt'])} @ <b>{_q(t['quote'])}</b>")
                 for sz in t["serie"][:2]:
                     z += f"\n   {htmlmod.escape(sz)}"
+                for cz in t.get("check") or []:
+                    z += f"\n   {htmlmod.escape(cz.strip())}" if cz.startswith(" ") else f"\n   📈 {htmlmod.escape(cz[2:])}"
                 if t["hinweis"]:
                     z += f"\n   ⚠️ {htmlmod.escape(t['hinweis'])}"
                 zeilen.append(z)
