@@ -257,11 +257,11 @@ def deckel(k, st, x12):
             eigen, gegner = (x12[0], x12[2]) if k["seite"] == "heim" else (x12[2], x12[0])
             andere = "gast" if k["seite"] == "heim" else "heim"
             if eigen < gegner and ga[andere] is not None and ga[andere] >= 1.5:
-                gruende.append(f"Favorit, Gegner kassiert {ga[andere]:.1f}/Sp.".replace(".", ","))
+                gruende.append(f"Favorit, Gegner kassiert {ga[andere]:.1f}".replace(".", ",") + " pro Spiel")
         if not k["seite"] and k["richtung"] == "unter":
             for sd in ("heim", "gast"):
                 if tot[sd] is not None and tot[sd] > L - 1.0:
-                    gruende.append(f"Ø {tot[sd]:.1f} Tore/Sp., <1 unter Linie".replace(".", ","))
+                    gruende.append(f"Ø {tot[sd]:.1f}".replace(".", ",") + " Tore pro Spiel, weniger als 1 unter der Linie")
                     break
         if not k["seite"] and k["richtung"] == "über":
             if L == 1.5:
@@ -271,11 +271,11 @@ def deckel(k, st, x12):
                         gruende.append(f"über 1,5 nur {ok / n:.0%} (<85 %)")
                         break
                 if any(v is not None and v < 1.0 for v in ga.values()):
-                    gruende.append("starke Abwehr (<1,0 Gegentore/Sp.)")
+                    gruende.append("starke Abwehr (unter 1,0 Gegentore pro Spiel)")
             else:
                 for sd in ("heim", "gast"):
                     if tot[sd] is not None and tot[sd] < L + 1.0:
-                        gruende.append(f"Ø {tot[sd]:.1f} Tore/Sp., <1 über Linie".replace(".", ","))
+                        gruende.append(f"Ø {tot[sd]:.1f}".replace(".", ",") + " Tore pro Spiel, weniger als 1 über der Linie")
                         break
     return gruende
 
