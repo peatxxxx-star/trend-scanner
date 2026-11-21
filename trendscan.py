@@ -901,6 +901,27 @@ def main():
             if ok_alle:
                 for key in liste:
                     gesendet.setdefault(key, jetzt)
+    elif liste:
+        # 21.11. (Lucio): jede Stunde ein Lebenszeichen – leise Kurznachricht, die vorige wird ersetzt
+        status_datei = ROOT / "state" / "trendscan_status.json"
+        n_gruen = sum(1 for t in liste.values() if t.get("sym") == "🟢" and t.get("anstoss", 0) > jetzt)
+        text = (f"⏱ Lauf {datetime.fromtimestamp(jetzt, TZ):%H:%M} · keine neuen Signale · "
+                f"{len(liste)} in der Liste, davon {n_gruen} 🟢 offen")
+        if not TROCKEN and TG_TOKEN and TG_CHAT:
+            try:
+                for i in json.loads(status_datei.read_text()):
+                    try:
+                        _tg_api("deleteMessage", chat_id=TG_CHAT, message_id=i)
+                    except Exception:
+                        pass
+            except Exception:
+                pass
+            vorher = len(_MSG_IDS)
+            ok = tg(text, leise=True)
+            status_datei.write_text(json.dumps([i for i in _MSG_IDS[vorher:] if i]))
+            log["telegram"] = "status" if ok else "FEHLER"
+        else:
+            print(text, flush=True)
     if not TROCKEN:
         LISTE.write_text(json.dumps(liste, ensure_ascii=False))
     _speichern(gesendet, log, t0)
