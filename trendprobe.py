@@ -3,7 +3,7 @@ import json, re
 from pathlib import Path
 from s24liste import get
 out = {}
-url = "https://scores24.live/de/soccer/m-21-11-2026-orenburg-baltika-h2h"
+url = "https://scores24.live/de/soccer/m-21-11-2026-radnicki-nis-zemun-h2h"
 try:
     h = get(url)
 except Exception as e:
