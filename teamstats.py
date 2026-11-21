@@ -129,6 +129,14 @@ def _saison(spiele, n_tab):
     return out
 
 
+def playoff_verdacht(spiele, n_tab):
+    """21.11. (Morelia–La Paz): Liguilla/Play-off-Spiele laufen bei scores24 unter derselben Liga.
+    Mehr Ligaspiele in der laufenden Saison als laut Tabelle (+1 Puffer) -> Saison vorbei, K.-o.-Phase."""
+    if not n_tab:
+        return False
+    return len(_saison(spiele, None)) > n_tab + 1
+
+
 def laden(eintraege, cache_datei):
     """eintraege: [(slug, n_heim, n_gast)] -> {slug: {"heim": [...], "gast": [...]}}"""
     try:
@@ -162,6 +170,7 @@ def laden(eintraege, cache_datei):
             if nodes:
                 _, sp = _spiele(nodes)
                 r[seite] = _saison(sp, n)
+                r["po_" + seite] = playoff_verdacht(sp, n)
                 r["liga_" + seite] = r[seite][0]["liga"] if r[seite] else None
         out[s] = r
     return out

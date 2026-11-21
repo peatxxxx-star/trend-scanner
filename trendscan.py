@@ -791,6 +791,10 @@ def main():
         bleibt, n_check = [], 0
         for e, k, sp in paare:
             st = stats.get(e["key"].split("|")[0]) or {}
+            if st.get("po_heim") and st.get("po_gast"):
+                e["hinweis"] = "Play-off/K.-o.: beide Teams mehr Ligaspiele als Tabellenspiele"
+                log["raus"].append(e)
+                continue
             tb = sp.get("tab")
             mit_tab = isinstance(tb, dict) and bool(tb) and not tb.get("unklar") and not tb.get("fremd")
             # ohne Tabelle bei scores24: echte Liga, wenn beide Teams in derselben Liga spielen
