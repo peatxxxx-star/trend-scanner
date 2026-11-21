@@ -162,6 +162,7 @@ def laden(eintraege, cache_datei):
             if nodes:
                 _, sp = _spiele(nodes)
                 r[seite] = _saison(sp, n)
+                r["liga_" + seite] = r[seite][0]["liga"] if r[seite] else None
         out[s] = r
     return out
 

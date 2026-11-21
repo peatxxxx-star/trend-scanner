@@ -733,6 +733,11 @@ def main():
             st = stats.get(e["key"].split("|")[0]) or {}
             tb = sp.get("tab")
             mit_tab = isinstance(tb, dict) and bool(tb) and not tb.get("unklar") and not tb.get("fremd")
+            # ohne Tabelle bei scores24: echte Liga, wenn beide Teams in derselben Liga spielen
+            if not mit_tab and st.get("liga_heim") and st.get("liga_heim") == st.get("liga_gast"):
+                mit_tab = True
+                if "keine Tabelle" in (e.get("hinweis") or ""):
+                    e["hinweis"] = "; ".join(x for x in e["hinweis"].split("; ") if "keine Tabelle" not in x)
             g = teamstats.gegencheck(k, st, sp["home"], sp["away"], e["quote"], mit_tab)
             if g:
                 n_check += 1
