@@ -21,6 +21,14 @@ URL = ("https://scores24.live/rapi/matches/soccer/{slug}/team-matches?teamType={
        "&lang=de&sort=desc&status=finished&withStatistics=true")
 
 
+def _d(x):
+    return x if isinstance(x, dict) else {}
+
+
+def _l(x):
+    return x if isinstance(x, list) else []
+
+
 def _paar(s):
     try:
         a, b = str(s).split(":")
@@ -32,9 +40,9 @@ def _paar(s):
 def _abrufen(slug, tt):
     nodes, url = [], URL.format(slug=slug, tt=tt)
     for seite in range(2):                       # höchstens 2 Seiten (40 Spiele)
-        d = (json.loads(s24_get(url)) or {}).get("data") or {}
-        nodes += [e["node"] for e in d.get("edges") or [] if e.get("node")]
-        pi = d.get("pageInfo") or {}
+        d = _d(_d(json.loads(s24_get(url))).get("data"))
+        nodes += [_d(e).get("node") for e in _l(d.get("edges")) if _d(_d(e).get("node"))]
+        pi = _d(d.get("pageInfo"))
         if seite == 0 and pi.get("hasNextPage") and pi.get("endCursor") and len(nodes) >= 20:
             url = URL.format(slug=slug, tt=tt) + "&after=" + pi["endCursor"]
         else:
@@ -44,23 +52,24 @@ def _abrufen(slug, tt):
 
 def _spiele(nodes):
     """Knoten -> Spiele aus Sicht des Teams (das in allen Knoten vorkommt)."""
-    c = Counter(t.get("slug") for n in nodes for t in (n.get("teams") or [])[:2])
+    nodes = [n for n in _l(nodes) if isinstance(n, dict)]
+    c = Counter(_d(t).get("slug") for n in nodes for t in _l(n.get("teams"))[:2])
     if not c:
         return None, []
     team = c.most_common(1)[0][0]
     out = []
     for n in nodes:
-        ts = n.get("teams") or []
+        ts = [_d(t) for t in _l(n.get("teams"))]
         if len(ts) < 2 or team not in (ts[0].get("slug"), ts[1].get("slug")):
             continue
         heim = ts[0].get("slug") == team
-        rs = {r.get("type"): _paar(r.get("value")) for r in n.get("result_scores") or []}
+        rs = {_d(r).get("type"): _paar(_d(r).get("value")) for r in _l(n.get("result_scores"))}
         ft = rs.get("FT") or _paar(n.get("result_score"))
         if not ft:
             continue
         ht = rs.get("HT")
-        st = {i.get("type"): (i.get("team1_value"), i.get("team2_value"))
-              for i in ((n.get("statistic") or {}).get("items") or [])}
+        st = {_d(i).get("type"): (_d(i).get("team1_value"), _d(i).get("team2_value"))
+              for i in _l(_d(n.get("statistic")).get("items"))}
 
         def wert(typ):
             v = st.get(typ)
@@ -71,7 +80,7 @@ def _spiele(nodes):
             return (a, b) if heim else (b, a)
         tf, tg = ft if heim else (ft[1], ft[0])
         h = (ht if heim else (ht[1], ht[0])) if ht else None
-        liga = n.get("league_slug") or (n.get("unique_tournament") or {}).get("slug") or ""
+        liga = n.get("league_slug") or _d(n.get("unique_tournament")).get("slug") or ""
         out.append({"d": n.get("match_date") or "", "ort": "H" if heim else "A", "tf": tf, "tg": tg,
                     "hf": h[0] if h else None, "hg": h[1] if h else None,
                     "ecken": wert("corner_kicks"), "gelb": wert("yellow_cards"),
@@ -107,7 +116,7 @@ def laden(eintraege, cache_datei):
         cache = {}
     jetzt = time.time()
     fehlt = [(s, tt) for s, _, _ in eintraege for tt in ("home", "away")
-             if jetzt - (cache.get(f"{s}|{tt}") or {}).get("t", 0) > TTL]
+             if jetzt - _d(cache.get(f"{s}|{tt}")).get("t", 0) > TTL]
 
     def eins(a):
         s, tt = a
@@ -127,7 +136,7 @@ def laden(eintraege, cache_datei):
     for s, nh, ng in eintraege:
         r = {}
         for tt, seite, n in (("home", "heim", nh), ("away", "gast", ng)):
-            nodes = (cache.get(f"{s}|{tt}") or {}).get("nodes")
+            nodes = _d(cache.get(f"{s}|{tt}")).get("nodes")
             if nodes:
                 _, sp = _spiele(nodes)
                 r[seite] = _saison(sp, n)

@@ -720,7 +720,7 @@ def main():
         ein = {}
         for e, k, sp in paare:
             slug = e["key"].split("|")[0]
-            tab = sp.get("tab") or {}
+            tab = sp.get("tab") if isinstance(sp.get("tab"), dict) else {}
             nh = (tab.get("heim") or {}).get("sp") if tab and not tab.get("unklar") else None
             ng = (tab.get("gast") or {}).get("sp") if tab and not tab.get("unklar") else None
             ein[slug] = (slug, nh, ng)
@@ -741,7 +741,8 @@ def main():
         log["gegencheck"] = {"signale": len(paare), "mit_daten": n_check, "rot_raus": len(paare) - len(bleibt)}
         treffer = bleibt
     except Exception as ex:
-        log["gegencheck"] = {"fehler": f"{type(ex).__name__}: {str(ex)[:200]}"}
+        import traceback
+        log["gegencheck"] = {"fehler": f"{type(ex).__name__}: {str(ex)[:200]}", "tb": traceback.format_exc()[-1500:]}
         print("Gegencheck-Fehler:", ex, flush=True)
     log["signale"] = treffer
     print(f"Signale nach BetLabel und Regeln: {len(treffer)}, raus: {len(log['raus'])}, "
