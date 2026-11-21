@@ -1,22 +1,18 @@
-"""Erkundung: JSON der letzten Spiele auf der scores24-H2H-Seite (ändert nichts am Scanner)."""
+"""Erkundung: queryKeys der H2H-Seite (Endpunkte für letzte Spiele)."""
 import json, re
 from pathlib import Path
 from s24liste import get
 out = {}
 url = "https://scores24.live/de/soccer/m-21-11-2026-radnicki-nis-zemun-h2h"
-try:
-    h = get(url)
-except Exception as e:
-    h = ""
-    out["err"] = str(e)[:200]
+h = get(url)
 u = h.replace('\\"', '"')
-out["len"] = len(h)
-keys = {}
-for k in re.findall(r'"([A-Za-z_]{3,40})":', u):
-    keys[k] = keys.get(k, 0) + 1
-out["keys"] = sorted(keys.items(), key=lambda x: -x[1])[:250]
-for kw in ['"resultScore"', '"corners"', '"yellowCards"', '"statistic', '"lastMatches"', '"teamLastMatches"', '"stats"']:
-    idx = [m.start() for m in re.finditer(re.escape(kw), u)][:2]
-    out[kw] = [u[max(0, i - 1500): i + 2500] for i in idx]
+qk = []
+for m in re.finditer(r'"queryKey":(\[\{.*?\}\])\s*,\s*"queryHash"', u):
+    qk.append(m.group(1)[:600])
+out["queryKeys"] = qk
+# Kandidaten-Endpunkte mit mehr Spielen ausprobieren
+for q in qk:
+    if "atches" in q and ("first" in q or "cursor" in q or "team" in q.lower()):
+        out.setdefault("kand", []).append(q)
 Path("runs/trendscan/probe.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
-print("ok", len(h))
+print("ok")
