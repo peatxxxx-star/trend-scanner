@@ -1,17 +1,17 @@
-"""Erkundung: team-matches komplett sichern (Parser-Entwicklung)."""
-import json, gzip
+"""Nachrechnung Machida – V-Varen (Gelbe V-Varen unter 2,5) mit Teamwerten, ohne das Spiel selbst."""
+import json
 from pathlib import Path
-from s24liste import get
+import teamstats as T
+slug = "21-11-2026-machida-zelvia-v-varen-nagasaki"
 out = {}
-for slug in ["21-11-2026-radnicki-nis-zemun", "21-11-2026-ostersunds-fk-varbergs-bois-fc"]:
-    for tt in ("home", "away"):
-        u = (f"https://scores24.live/rapi/matches/soccer/{slug}/team-matches?teamType={tt}&first=40"
-             f"&lang=de&sort=desc&status=finished&withStatistics=true")
-        try:
-            out[f"{slug}|{tt}"] = json.loads(get(u))
-        except Exception as e:
-            out[f"{slug}|{tt}"] = {"err": str(e)[:200]}
-with gzip.open("runs/trendscan/probe_tm.json.gz", "wt") as f:
-    json.dump(out, f, ensure_ascii=False)
-Path("runs/trendscan/probe.json").write_text(json.dumps({k: (len(v.get("data", {}).get("edges", [])) if "data" in v else v) for k, v in out.items()}))
+st = {}
+for tt, seite in (("home", "heim"), ("away", "gast")):
+    nodes = T._abrufen(slug, tt)
+    _, sp = T._spiele(nodes)
+    sp = [s for s in sp if s["d"] < "2026-11-21"]
+    st[seite] = T._saison(sp, 14)
+    out[seite] = [(s["d"][:10], s["ort"], s["tf"], s["tg"], s["gelb"], s["liga"]) for s in st[seite]]
+k = {"art": "ou", "metric": "yellowcards", "seite": "gast", "richtung": "unter", "linie": 2.5}
+out["check"] = T.gegencheck(k, st, "Machida Zelvia", "V-Varen Nagasaki", 1.28, True, [1.6, 3.6, 5.5])
+Path("runs/trendscan/probe.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
 print("ok")
