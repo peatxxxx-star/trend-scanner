@@ -268,7 +268,7 @@ def deckel(k, st, x12):
                 for sd, sp in (("heim", H), ("gast", G)):
                     ok, n = _quote(sp, lambda s: s["tf"] + s["tg"] > 1.5)
                     if n and ok / n < 0.85:
-                        gruende.append(f"über 1,5 nur {ok / n:.0%} (<85 %)")
+                        gruende.append(f"über 1,5 nur {ok}/{n}, unter 85 %")
                         break
                 if any(v is not None and v < 1.0 for v in ga.values()):
                     gruende.append("starke Abwehr (unter 1,0 Gegentore pro Spiel)")
