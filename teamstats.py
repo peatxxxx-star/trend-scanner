@@ -90,21 +90,43 @@ def _spiele(nodes):
     return team, out
 
 
+_POKAL = ("cup", "pokal", "copa", "coupe", "trophy", "taca", "taça", "beker", "kupa", "puchar", "coppa",
+          "supercup", "super-cup", "playoff", "play-off", "friendly", "qualification")
+
+
+def _datum(s):
+    try:
+        return datetime.fromisoformat(s["d"].replace("Z", "+00:00"))
+    except Exception:
+        return None
+
+
 def _saison(spiele, n_tab):
-    """Nur Ligaspiele: häufigste Liga mit Tabelle, die letzten n_tab Spiele (= laufende Saison)."""
+    """Nur Ligaspiele der laufenden Saison.
+    Liga = häufigster Wettbewerb mit Tabelle; hat scores24 für die Liga keine Tabelle (z. B. 3. Liga
+    Polen, U19 Slowakei), dann der häufigste Wettbewerb, der nicht nach Pokal/Testspiel aussieht.
+    Saison = die letzten n_tab Spiele laut Tabelle, sonst bis zur ersten Pause > 60 Tage."""
     liga = Counter(s["liga"] for s in spiele if s["tab"] and not s["freund"]).most_common(1)
+    if not liga:
+        liga = Counter(s["liga"] for s in spiele
+                       if s["liga"] and not any(w in s["liga"].lower() for w in _POKAL)).most_common(1)
     if not liga:
         return []
     ls = [s for s in spiele if s["liga"] == liga[0][0]]
     if n_tab:
         return ls[:n_tab]
-    jetzt = datetime.now(timezone.utc)
-    def alt(s):
-        try:
-            return (jetzt - datetime.fromisoformat(s["d"].replace("Z", "+00:00"))).days
-        except Exception:
-            return 999
-    return [s for s in ls if alt(s) <= 200]
+    out, vorher = [], None
+    for s in ls:                                   # neueste zuerst
+        d = _datum(s)
+        if d is None:
+            continue
+        if vorher is not None and (vorher - d).days > 60:
+            break
+        if not out and (datetime.now(timezone.utc) - d).days > 60:
+            break                                  # letzte Ligaspiele zu alt -> Saison vorbei
+        out.append(s)
+        vorher = d
+    return out
 
 
 def laden(eintraege, cache_datei):
