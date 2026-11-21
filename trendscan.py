@@ -455,9 +455,9 @@ def regeln(k, x12, q):
         return False, "keine BL-Quote"
     if not (Q_MIN <= q <= Q_MAX):
         return False, f"Quote {q:.2f} außerhalb 1,20–1,50"
-    # 21.11. (Lucio): Abseits und Schüsse aufs Tor nur noch „unter“
-    if k["art"] == "ou" and k["metric"] in ("offsides", "on_target") and k["richtung"] == "über":
-        return False, "Abseits/Schüsse aufs Tor nur unter"
+    # 21.11. (Lucio): Abseits und Schüsse aufs Tor komplett raus (keine Spieldaten zum Gegencheck)
+    if k["art"] == "ou" and k["metric"] in ("offsides", "on_target"):
+        return False, "Abseits/Schüsse aufs Tor gestrichen"
     if not x12:
         return True, "1X2 fehlt – Favoritenrolle selbst prüfen"
     h, x, a = x12

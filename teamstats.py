@@ -83,7 +83,7 @@ def _spiele(nodes):
         liga = n.get("league_slug") or _d(n.get("unique_tournament")).get("slug") or ""
         out.append({"d": n.get("match_date") or "", "ort": "H" if heim else "A", "tf": tf, "tg": tg,
                     "hf": h[0] if h else None, "hg": h[1] if h else None,
-                    "ecken": wert("corner_kicks"), "gelb": wert("yellow_cards"),
+                    "ecken": wert("corner_kicks"), "gelb": wert("yellow_cards"), "fouls": wert("fouls"),
                     "liga": liga, "tab": bool(n.get("has_standings")),
                     "freund": "friendly" in liga})
     out.sort(key=lambda s: s["d"], reverse=True)
@@ -191,10 +191,12 @@ def _wert(s, metric, wer):
         if s["hf"] is None:
             return None
         f, g = s["tf"] - s["hf"], s["tg"] - s["hg"]
-    elif metric in ("corners", "yellowcards"):
-        v = s["ecken"] if metric == "corners" else s["gelb"]
+    elif metric in ("corners", "yellowcards", "fouls"):
+        v = {"corners": s["ecken"], "yellowcards": s["gelb"], "fouls": s.get("fouls")}[metric]
         if not v:
             return None
+        if metric == "fouls" and v[0] + v[1] < 8:
+            return None                               # unplausibel (scores24 liefert teils 1:0)
         f, g = v
     else:
         return None
@@ -215,7 +217,7 @@ def bedingungen(k):
         L = k["linie"]
         return (lambda s: s["tf"] - s["tg"] + L > 0), (lambda s: s["tg"] - s["tf"] + L > 0), k["seite"]
     m, L, ueber = k["metric"], k["linie"], k["richtung"] == "über"
-    if m not in ("goals", "ht_goals", "h2_goals", "corners", "yellowcards"):
+    if m not in ("goals", "ht_goals", "h2_goals", "corners", "yellowcards", "fouls"):
         return None
 
     def cmp(v):
