@@ -239,7 +239,48 @@ def kurzname(n):
     return (" ".join(ts[:2]) or "?")[:13]
 
 
-def gegencheck(k, st, heim_name, gast_name, quote, mit_tabelle=True):
+def _schnitt(sp, f):
+    w = [f(x) for x in sp]
+    w = [x for x in w if x is not None]
+    return sum(w) / len(w) if w else None
+
+
+def deckel(k, st, x12):
+    """21.11. Spaßschein-Regeln, die über die reine Trefferquote hinausgehen -> Gründe für höchstens 🟡."""
+    H, G = st.get("heim") or [], st.get("gast") or []
+    gruende = []
+    ga = {"heim": _schnitt(H, lambda s: s["tg"]), "gast": _schnitt(G, lambda s: s["tg"])}
+    tot = {"heim": _schnitt(H, lambda s: s["tf"] + s["tg"]), "gast": _schnitt(G, lambda s: s["tf"] + s["tg"])}
+    if k["art"] == "ou" and k["metric"] == "goals":
+        L = k["linie"]
+        if k["seite"] and k["richtung"] == "unter" and x12:
+            eigen, gegner = (x12[0], x12[2]) if k["seite"] == "heim" else (x12[2], x12[0])
+            andere = "gast" if k["seite"] == "heim" else "heim"
+            if eigen < gegner and ga[andere] is not None and ga[andere] >= 1.5:
+                gruende.append(f"Favorit, Gegner kassiert {ga[andere]:.1f}/Sp.".replace(".", ","))
+        if not k["seite"] and k["richtung"] == "unter":
+            for sd in ("heim", "gast"):
+                if tot[sd] is not None and tot[sd] > L - 1.0:
+                    gruende.append(f"Ø {tot[sd]:.1f} Tore/Sp., <1 unter Linie".replace(".", ","))
+                    break
+        if not k["seite"] and k["richtung"] == "über":
+            if L == 1.5:
+                for sd, sp in (("heim", H), ("gast", G)):
+                    ok, n = _quote(sp, lambda s: s["tf"] + s["tg"] > 1.5)
+                    if n and ok / n < 0.85:
+                        gruende.append(f"über 1,5 nur {ok / n:.0%} (<85 %)")
+                        break
+                if any(v is not None and v < 1.0 for v in ga.values()):
+                    gruende.append("starke Abwehr (<1,0 Gegentore/Sp.)")
+            else:
+                for sd in ("heim", "gast"):
+                    if tot[sd] is not None and tot[sd] < L + 1.0:
+                        gruende.append(f"Ø {tot[sd]:.1f} Tore/Sp., <1 über Linie".replace(".", ","))
+                        break
+    return gruende
+
+
+def gegencheck(k, st, heim_name, gast_name, quote, mit_tabelle=True, x12=None):
     """Zeilen für Telegram + Vorcheck-Symbol. st = {"heim": [...], "gast": [...]}"""
     b = bedingungen(k)
     if not b or not st or not st.get("heim") or not st.get("gast"):
@@ -268,12 +309,18 @@ def gegencheck(k, st, heim_name, gast_name, quote, mit_tabelle=True):
         sym = "🟢"
     else:
         sym = "🟡"
+    grund = ""
     if sym == "🟢" and not mit_tabelle:
-        sym = "🟡"                                   # Spiel ohne Tabelle: Ligawerte evtl. fremder Wettbewerb
+        sym, grund = "🟡", "evtl. kein Ligaspiel"      # Ligawerte evtl. fremder Wettbewerb
+    if sym == "🟢":
+        g = deckel(k, st, x12)
+        if g:
+            sym, grund = "🟡", g[0]
     hn, gn = kurzname(heim_name), kurzname(gast_name)
     if hn == gn:
         hn, gn = heim_name[:13], gast_name[:13]
-    z1 = f"{sym} Alle: {hn} {p(ah)} · {gn} {p(ag)}" + (f" · BE {be:.0%}" if be else "")
+    z1 = (f"{sym} Alle: {hn} {p(ah)} · {gn} {p(ag)}" + (f" · BE {be:.0%}" if be else "")
+          + (f" · 🟡 weil: {grund}" if grund else ""))
     z2 = f"   Rolle: {hn} heim {p(rh)} · {gn} ausw. {p(rg)}"
     return {"sym": sym, "zeilen": [z1, z2], "alle": [ah, ag], "rolle": [rh, rg]}
 

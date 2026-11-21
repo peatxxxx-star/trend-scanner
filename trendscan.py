@@ -738,7 +738,7 @@ def main():
                 mit_tab = True
                 if "keine Tabelle" in (e.get("hinweis") or ""):
                     e["hinweis"] = "; ".join(x for x in e["hinweis"].split("; ") if "keine Tabelle" not in x)
-            g = teamstats.gegencheck(k, st, sp["home"], sp["away"], e["quote"], mit_tab)
+            g = teamstats.gegencheck(k, st, sp["home"], sp["away"], e["quote"], mit_tab, e.get("x12"))
             if g:
                 n_check += 1
                 e["check"] = g["zeilen"]
