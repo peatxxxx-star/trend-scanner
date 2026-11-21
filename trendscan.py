@@ -824,6 +824,21 @@ def main():
                     e["hinweis"] = "Daten: eine Seite unter Break-even"
                     log["raus"].append(e)
                     continue
+                # 21.11. (Lucio, Preston bei West Ham): Lücken-Regel – Team-über (Tore/Ecken) eines
+                # Außenseiters gegen Favorit <= 1,40 und Daten > 15 Punkte über Break-even -> raus
+                x12 = e.get("x12")
+                if (x12 and k["art"] == "ou" and k["seite"] and k["richtung"] == "über"
+                        and k["metric"] in ("goals", "corners")):
+                    gegner = x12[2] if k["seite"] == "heim" else x12[0]
+                    try:
+                        quote_min = min(a / b for a, b in g["alle"] if b)
+                    except ValueError:
+                        quote_min = 0
+                    if gegner <= 1.40 and quote_min - 1 / e["quote"] > 0.15:
+                        e["hinweis"] = (f"Lücke: Daten {quote_min:.0%} vs. BE {1 / e['quote']:.0%}, "
+                                        f"Gegner Favorit {gegner:.2f}".replace(".", ","))
+                        log["raus"].append(e)
+                        continue
             bleibt.append(e)
         log["gegencheck"] = {"signale": len(paare), "mit_daten": n_check, "rot_raus": len(paare) - len(bleibt)}
         treffer = bleibt
