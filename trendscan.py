@@ -587,6 +587,63 @@ def _q(x):
 
 
 # ------------------------------------------------------------------ Hauptlauf
+def scheine(liste, jetzt):
+    """21.11. (Lucio): Scheinvorschläge aus allen 🟢 – nach Anstoß sortiert, ein Leg pro Spiel,
+    je 3 Legs pro Schein (Rest als 2er; ein einzelnes übriges Leg -> letzte beiden Scheine 2+2)."""
+    def puffer(t):
+        try:
+            import re as _re
+            w = [int(a) / int(b) for a, b in _re.findall(r"(\d+)/(\d+)", (t.get("check") or [""])[0])[:2]]
+            return min(w) - 1 / t["quote"]
+        except Exception:
+            return 0
+    try:   # bereits gespielte Spiele (Slug-Teile), von Hand gepflegt
+        gespielt = json.loads((ROOT / "state" / "trendscan_gespielt.json").read_text())
+    except Exception:
+        gespielt = []
+    gruen = {}
+    for t in liste.values():
+        if t.get("sym") != "🟢" or t.get("anstoss", 0) <= jetzt + 300:
+            continue
+        if any(g in t["key"].split("|")[0] for g in gespielt):
+            continue
+        sp = t["key"].split("|")[0]
+        if sp not in gruen or puffer(t) > puffer(gruen[sp]):
+            gruen[sp] = t
+    legs = sorted(gruen.values(), key=lambda t: (t["anstoss"], t["spiel"]))
+    n = len(legs)
+    if n < 2:
+        return []
+    groessen = [3] * (n // 3)
+    rest = n % 3
+    if rest == 2:
+        groessen.append(2)
+    elif rest == 1:
+        groessen = groessen[:-1] + [2, 2]
+    out, i = [], 0
+    for g in groessen:
+        out.append(legs[i:i + g])
+        i += g
+    return out
+
+
+def schein_text(sch):
+    if not sch:
+        return ""
+    z = ["🎫 <b>Scheinvorschläge</b> (alle 🟢, ein Leg pro Spiel)"]
+    for nr, legs in enumerate(sch, 1):
+        q = 1.0
+        for t in legs:
+            q *= t["quote"]
+        bis = datetime.fromtimestamp(min(t["anstoss"] for t in legs), TZ)
+        z.append(f"\n<b>Schein {nr}</b> · abgeben bis {bis:%a %H:%M} · Quote ≈ {_q(q)}")
+        for t in legs:
+            z.append(f"  {datetime.fromtimestamp(t['anstoss'], TZ):%H:%M} {htmlmod.escape(t['spiel'])}: "
+                     f"{htmlmod.escape(t['markt'])} @ {_q(t['quote'])}")
+    z.append("\nQuote bei BetLabel vor Abgabe prüfen (Liste bis zu 1 h alt).")
+    return "\n".join(z)
+
+
 def _tab_zeile(tab, spiel):
     """📊 Heim 15. · 16 Sp. · 13:28 (0,8:1,8) | Gast …"""
     if not tab or tab.get("fremd") or tab.get("unklar"):
@@ -829,6 +886,10 @@ def main():
                 teil = ""
             teil += b + "\n\n"
         ok_alle &= tg(teil.rstrip(), leise=not erste)
+        sch = scheine(liste, jetzt)
+        log["scheine"] = [[f"{t['spiel']}: {t['markt']} @ {t['quote']}" for t in legs] for legs in sch]
+        if sch:
+            ok_alle &= tg(schein_text(sch), leise=False)
         log["telegram"] = "trocken" if TROCKEN else ("ok" if ok_alle else "FEHLER")
         if not TROCKEN:
             MSG_DATEI.write_text(json.dumps([i for i in _MSG_IDS if i]))
