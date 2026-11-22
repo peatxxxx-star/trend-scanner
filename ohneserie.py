@@ -74,6 +74,10 @@ def main():
                 paare.append((g, s))
                 break
     print(len(paare), "mit scores24-Slug (geprüft)", flush=True)
+    debug = [{"bl": f"{g['O1']} – {g['O2']}", "L": g.get("L"), "kand": kand[g["I"]],
+              "recs": [(recs.get(s) or {}).get("home") for s in kand[g["I"]]] } for g in bl]
+    Path("runs/trendscan/probe.json").write_text(json.dumps({"links": len(links), "tage": sorted(tage),
+              "bsp": [l for l in links if "bremen" in l or "hamburg" in l][:10], "debug": debug}, ensure_ascii=False, indent=1))
     ein = []
     for g, s in paare:
         tab = recs.get(s, {}).get("tab") or {}
