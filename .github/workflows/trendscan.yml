@@ -74,6 +74,8 @@ jobs:
           einmal() {
             h=$(TZ=Europe/Berlin date +%-H)
             if [ "$h" -ge 8 ] && [ "$h" -le 23 ]; then
+              # 22.11.: vorher holen, damit von Hand gepflegte state-Dateien (gespielt, live …) gelten
+              git pull -q --rebase -X theirs || echo "pull vor Lauf fehlgeschlagen (weiter)"
               timeout 25m python trendscan.py || echo "Scan-Fehler (weiter)"
               sichern
             else
