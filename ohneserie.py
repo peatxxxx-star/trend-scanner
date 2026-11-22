@@ -42,26 +42,38 @@ def main():
     tage = {datetime.fromtimestamp(g["S"], T.TZ).strftime("%d-%m-%Y") for g in bl}
     links = T._links_fuer_tage(tage)
 
-    def slug_fuer(g):
-        best, sc = None, 0
+    def kandidaten_slugs(g):
+        tag = datetime.fromtimestamp(g["S"], T.TZ).strftime("%d-%m-%Y")
+        frau = bool(re.search(r"women|\(w\)|frauen", (g.get("L") or "") + g["O1"], re.I))
+        n1 = [w for w in re.split(r"[^a-z0-9]+", T._norm(g["O1"]) or g["O1"].lower()) if len(w) > 2]
+        n1 = [w for w in re.split(r"[^a-z0-9]+", g["O1"].lower()) if len(w) > 2]
+        n2 = [w for w in re.split(r"[^a-z0-9]+", g["O2"].lower()) if len(w) > 2]
+        out = []
         for s in links:
-            if s[:10] != datetime.fromtimestamp(g["S"], T.TZ).strftime("%d-%m-%Y"):
+            if s[:10] != tag or "srl" in s.split("-"):
+                continue
+            if frau != bool(re.search(r"women|-w-|-w$|frauen", s)):
                 continue
             rest = s[11:]
-            n1 = [w for w in re.split(r"[^a-z0-9]+", g["O1"].lower()) if len(w) > 2]
-            n2 = [w for w in re.split(r"[^a-z0-9]+", g["O2"].lower()) if len(w) > 2]
-            p = sum(1 for w in n1 if w in rest) + sum(1 for w in n2 if w in rest)
-            if p > sc:
-                best, sc = s, p
-        return best if sc >= 2 else None
+            a, b = sum(w in rest for w in n1), sum(w in rest for w in n2)
+            if a and b:
+                out.append((a + b, s))
+        return [s for _, s in sorted(out, reverse=True)[:3]]
 
-    paare = [(g, slug_fuer(g)) for g in bl]
-    paare = [(g, s) for g, s in paare if s]
-    print(len(paare), "mit scores24-Slug", flush=True)
+    kand = {g["I"]: kandidaten_slugs(g) for g in bl}
+    alle_slugs = sorted({s for v in kand.values() for s in v})
     recs = {}
     with ThreadPoolExecutor(8) as ex:
-        for r in ex.map(T._spiel_s24, [s for _, s in paare]):
+        for r in ex.map(T._spiel_s24, alle_slugs):
             recs[r["slug"]] = r
+    paare = []
+    for g in bl:
+        for s in kand[g["I"]]:
+            r = recs.get(s) or {}
+            if r.get("home") and betlabel.finde_spiel([g], r["home"], r["away"], r.get("start") or g["S"])[0]:
+                paare.append((g, s))
+                break
+    print(len(paare), "mit scores24-Slug (geprüft)", flush=True)
     ein = []
     for g, s in paare:
         tab = recs.get(s, {}).get("tab") or {}
