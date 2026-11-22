@@ -10,7 +10,7 @@ for u in ["https://scores24.live/de/soccer/2026-11-22", "https://scores24.live/d
           "https://scores24.live/de/soccer/m-22-11-2026-fc-augsburg-1-fsv-mainz-05"]:
     try:
         h = get(u)
-        out[u] = {"len": len(h), "m": sorted(set(re.findall(r"m-22-11-2026-[a-z0-9-]+", h)))[:60]}
+        out[u] = {"len": len(h), "m": sorted(set(re.findall(r"/m-[0-9]{2}-[0-9]{2}-[0-9]{4}-[a-z0-9-]+", h)))[:80]}
     except Exception as e:
         out[u] = {"err": str(e)[:120]}
 Path("runs/trendscan/probe.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
