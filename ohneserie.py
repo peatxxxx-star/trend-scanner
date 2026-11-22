@@ -50,7 +50,11 @@ def main():
         n2 = [w for w in re.split(r"[^a-z0-9]+", g["O2"].lower()) if len(w) > 2]
         out = []
         for s in links:
-            if s[:10] != tag or "srl" in s.split("-"):
+            try:
+                diff = (datetime.strptime(tag, "%d-%m-%Y") - datetime.strptime(s[:10], "%d-%m-%Y")).days
+            except ValueError:
+                continue
+            if not 0 <= diff <= 3 or "srl" in s.split("-"):
                 continue
             if frau != bool(re.search(r"women|-w-|-w$|frauen", s)):
                 continue
