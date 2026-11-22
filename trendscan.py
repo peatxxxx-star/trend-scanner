@@ -482,10 +482,10 @@ def regeln(k, x12, q):
         if q <= 1.30:
             return True, "Favorit – Gegner hinten prüfen"
         return False, "Team-Unter beim Favoriten"
-    # 21.11. (Lucio): „trifft“ (auch 1./2. HZ) komplett gestrichen – 3 von 6 bei den Grün
+    # 22.11. (Lucio, trifft-Analyse): trifft nur volle Spielzeit; 1./2. HZ bleibt gestrichen
     if (k["art"] == "ou" and k["seite"] and k["richtung"] == "über"
-            and k["metric"] in ("goals", "ht_goals", "h2_goals") and k["linie"] == 0.5):
-        return False, "trifft gestrichen"
+            and k["metric"] in ("ht_goals", "h2_goals") and k["linie"] == 0.5):
+        return False, "trifft in Halbzeit gestrichen"
     if (k["art"] == "ou" and k["seite"] and k["richtung"] == "über"
             and k["metric"] in ("goals", "ht_goals", "h2_goals") and gegner < 1.60):
         return False, f"Team-Tor beim Außenseiter, Gegner Favorit {gegner:.2f}"

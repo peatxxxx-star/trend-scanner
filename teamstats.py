@@ -262,6 +262,12 @@ def deckel(k, st, x12):
     gruende = []
     ga = {"heim": _schnitt(H, lambda s: s["tg"]), "gast": _schnitt(G, lambda s: s["tg"])}
     tot = {"heim": _schnitt(H, lambda s: s["tf"] + s["tg"]), "gast": _schnitt(G, lambda s: s["tf"] + s["tg"])}
+    # 22.11. (trifft-Analyse): trifft gegen Favorit <= 1,85 nur 75 % statt 94 % -> höchstens 🟡
+    if (k["art"] == "ou" and k["metric"] == "goals" and k["seite"] and k["richtung"] == "über"
+            and k["linie"] == 0.5 and x12):
+        gegner = x12[2] if k["seite"] == "heim" else x12[0]
+        if gegner <= 1.85:
+            gruende.append(f"trifft gegen Favorit {gegner:.2f}".replace(".", ","))
     if k["art"] == "ou" and k["metric"] == "goals":
         L = k["linie"]
         if k["seite"] and k["richtung"] == "unter" and x12:
