@@ -634,18 +634,18 @@ def scheine(liste, jetzt):
             gruen[sp] = t
     legs = sorted(gruen.values(), key=lambda t: (t["anstoss"], t["spiel"]))
     n = len(legs)
+    scheine.uebrig = []
     if n < 2:
         return []
+    # 22.11. (Lucio): Mantra 3er. Rest 2 -> 2er; Rest 1 bleibt offen (wartet auf weitere 🟢).
     groessen = [3] * (n // 3)
-    rest = n % 3
-    if rest == 2:
+    if n % 3 == 2:
         groessen.append(2)
-    elif rest == 1:
-        groessen = groessen[:-1] + [2, 2]
     out, i = [], 0
     for g in groessen:
         out.append(legs[i:i + g])
         i += g
+    scheine.uebrig = legs[i:]
     return out
 
 
@@ -664,6 +664,9 @@ def schein_text(sch):
             z.append(f"  {datetime.fromtimestamp(t['anstoss'], TZ):%H:%M} <b>{htmlmod.escape(t['spiel'])}</b>"
                      + (f" (BetLabel: {htmlmod.escape(bl)})" if bl and bl != t["spiel"] else "")
                      + f"\n     {htmlmod.escape(t['markt'])} @ {_q(t['quote'])}")
+    for t in getattr(scheine, "uebrig", []) or []:
+        z.append(f"\n⏳ Wartet auf ein weiteres 🟢: {htmlmod.escape(t['spiel'])}: {htmlmod.escape(t['markt'])} "
+                 f"@ {_q(t['quote'])} ({datetime.fromtimestamp(t['anstoss'], TZ):%H:%M})")
     z.append("\nQuote bei BetLabel vor Abgabe prüfen (Liste bis zu 1 h alt).")
     return "\n".join(z)
 
