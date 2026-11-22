@@ -595,7 +595,18 @@ def _gespielt():
 
 
 def _ist_gespielt(t, gespielt):
-    return any(g in t["key"].split("|")[0] for g in gespielt)
+    """22.11.: scores24 führt dasselbe Spiel teils unter anderem Slug (21-11-…-rks-rakow-… statt
+    22-11-…-rakow-…). Treffer, wenn der Eintrag im Slug steht oder alle seine Namensteile vorkommen."""
+    slug = t["key"].split("|")[0]
+    text = slug + "-" + re.sub(r"[^a-z0-9]+", "-", (t.get("spiel") or "").lower())
+    teile = set(text.split("-"))
+    for g in gespielt:
+        if g in slug:
+            return True
+        w = [x for x in g.split("-") if len(x) > 2]
+        if w and all(x in teile for x in w):
+            return True
+    return False
 
 
 def scheine(liste, jetzt):
@@ -616,7 +627,7 @@ def scheine(liste, jetzt):
     for t in liste.values():
         if t.get("sym") != "🟢" or t.get("anstoss", 0) <= jetzt + 300:
             continue
-        if any(g in t["key"].split("|")[0] for g in gespielt):
+        if _ist_gespielt(t, gespielt):
             continue
         sp = t["key"].split("|")[0]
         if sp not in gruen or puffer(t) > puffer(gruen[sp]):
