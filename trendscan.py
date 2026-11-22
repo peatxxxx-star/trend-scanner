@@ -48,7 +48,7 @@ GESENDET = ROOT / "state" / "trendscan_gesendet.json"
 LOGDIR = ROOT / "runs" / "trendscan"
 
 FENSTER_H = float(os.environ.get("TS_FENSTER_H", "14"))
-TABV = 4                         # Version des Tabellen-Parsers (neu laden bei Änderung)
+TABV = 5                         # Version des Tabellen-Parsers (neu laden bei Änderung)
 TAB_MIN_SP = 8                   # 20.11.: weniger Tabellenspiele -> raus
 Q_MIN, Q_MAX = 1.20, 1.50
 TREND_MAX_ALTER = 6 * 3600    # Trends je Spiel höchstens 6 h wiederverwenden
@@ -85,7 +85,13 @@ def _links_fuer_tage(tage):
         if not f:
             break
         links += f
-    return sorted({l[2:] for l in links if l[2:12] in tage})
+    # 22.11.: scores24 vergibt das Slug-Datum nach Spieltagsbeginn (Werder–HSV am 22.11. = m-20-11-2026-…).
+    # Daher auch Slugs mit Datum bis 3 Tage vor dem frühesten Tag annehmen; das Anstoß-Fenster filtert später.
+    erw = set(tage)
+    for tag in tage:
+        d0 = datetime.strptime(tag, "%d-%m-%Y")
+        erw |= {(d0 - timedelta(days=i)).strftime("%d-%m-%Y") for i in range(1, 4)}
+    return sorted({l[2:] for l in links if l[2:12] in erw and not l.endswith("-prediction")})
 
 
 def _norm(t):
@@ -199,7 +205,7 @@ def _spiel_s24(slug):
                 dt = datetime.fromisoformat(sd.replace("Z", "+00:00"))
             except ValueError:
                 continue
-            if abs((dt.astimezone(TZ).date() - tag).days) <= 1:
+            if -1 <= (dt.astimezone(TZ).date() - tag).days <= 4:     # Slug-Datum = Spieltagsbeginn
                 rec["start"] = int(dt.timestamp())
                 break
     except Exception as e:
@@ -244,7 +250,8 @@ def s24_laden(jetzt):
                 rec["trends"] = alt["trends"]
             cache[rec["slug"]] = {**alt, **rec}
     # aufräumen: nur heute/morgen behalten
-    cache = {k: v for k, v in cache.items() if k[:10] in tage}
+    alt_ok = {(heute - timedelta(days=i)).strftime("%d-%m-%Y") for i in range(0, 5)}
+    cache = {k: v for k, v in cache.items() if k[:10] in tage or k[:10] in alt_ok}
     CACHE.mkdir(exist_ok=True)
     with gzip.open(S24_CACHE, "wt", encoding="utf-8") as f:
         json.dump(cache, f, ensure_ascii=False, separators=(",", ":"))
