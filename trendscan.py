@@ -36,6 +36,7 @@ from zoneinfo import ZoneInfo
 
 import betlabel
 import teamstats
+import auswertung
 from s24liste import get as s24_get
 
 TZ = ZoneInfo("Europe/Berlin")
@@ -456,6 +457,13 @@ def bl_quote(haupt, k, swap, sub_cache):
 
 
 # ------------------------------------------------------------------ Regeln
+def spielbar(k):
+    """26.11. (Lucio, Wochencheck): nur Team-Tore unter und Gelbe Team unter werden gespielt.
+    Alle anderen Märkte laufen als Papier mit (tägliche Auswertung)."""
+    return (k["art"] == "ou" and k["seite"] and k["richtung"] == "unter"
+            and k["metric"] in ("goals", "yellowcards"))
+
+
 def regeln(k, x12, q):
     """(behalten, hinweis)"""
     if q is None:
@@ -632,7 +640,7 @@ def scheine(liste, jetzt):
         gespielt = []
     gruen = {}
     for t in liste.values():
-        if t.get("sym") != "🟢" or t.get("anstoss", 0) <= jetzt + 300:
+        if t.get("sym") not in ("🟢", "🟡") or t.get("anstoss", 0) <= jetzt + 300:
             continue
         if _ist_gespielt(t, gespielt):
             continue
@@ -659,7 +667,7 @@ def scheine(liste, jetzt):
 def schein_text(sch):
     if not sch:
         return ""
-    z = ["🎫 <b>Scheinvorschläge</b> (alle 🟢, ein Leg pro Spiel)"]
+    z = ["🎫 <b>Scheinvorschläge</b> (alle 🟢/🟡 aus Team-Tore/Gelbe unter, ein Leg pro Spiel)"]
     for nr, legs in enumerate(sch, 1):
         q = 1.0
         for t in legs:
@@ -672,7 +680,7 @@ def schein_text(sch):
                      + (f" (BetLabel: {htmlmod.escape(bl)})" if bl and bl != t["spiel"] else "")
                      + f"\n     {htmlmod.escape(t['markt'])} @ {_q(t['quote'])}")
     for t in getattr(scheine, "uebrig", []) or []:
-        z.append(f"\n⏳ Wartet auf ein weiteres 🟢: {htmlmod.escape(t['spiel'])}: {htmlmod.escape(t['markt'])} "
+        z.append(f"\n⏳ Wartet auf ein weiteres Signal: {htmlmod.escape(t['spiel'])}: {htmlmod.escape(t['markt'])} "
                  f"@ {_q(t['quote'])} ({datetime.fromtimestamp(t['anstoss'], TZ):%H:%M})")
     z.append("\nQuote bei BetLabel vor Abgabe prüfen (Liste bis zu 1 h alt).")
     return "\n".join(z)
@@ -695,9 +703,32 @@ def _tab_zeile(tab, spiel):
     return "📊 " + " | ".join(teile) + r
 
 
+def morgen_auswertung(jetzt):
+    """26.11.: einmal täglich ab 08 Uhr Auswertung des Vortags an Telegram."""
+    jetzt_b = datetime.fromtimestamp(jetzt, TZ)
+    gestern = (jetzt_b - timedelta(days=1)).date()
+    try:
+        if auswertung.LETZTE.read_text().strip() == gestern.isoformat():
+            return
+    except Exception:
+        pass
+    if jetzt_b.hour < 8:
+        return
+    text, _ = auswertung.tagesauswertung(gestern, TZ, markt_aus_typ)
+    if not TROCKEN:
+        tg(text, leise=False)
+        auswertung.LETZTE.write_text(gestern.isoformat())
+    else:
+        print(text, flush=True)
+
+
 def main():
     jetzt = time.time()
     t0 = time.time()
+    try:
+        morgen_auswertung(jetzt)
+    except Exception as ex:
+        print("Auswertung-Fehler:", ex, flush=True)
     gesendet = {}
     try:
         gesendet = json.loads(GESENDET.read_text())
@@ -784,7 +815,7 @@ def main():
                           for col in gr.get("E") or [] for e in col})
         return sp, g, swap, x12, res, gruppen
 
-    treffer, paare = [], []
+    treffer, paare, papier = [], [], []
     with ThreadPoolExecutor(betlabel.THREADS) as ex:
         for sp, g, swap, x12, res, gruppen in ex.map(eins, kand):
             if gruppen and log["gruppen_test"] is None:
@@ -837,6 +868,14 @@ def main():
                 e["hinweis"] = "Play-off/Meisterrunde: reguläre Saison laut Tabelle beendet"
                 log["raus"].append(e)
                 continue
+            if not spielbar(k):
+                if g:
+                    e["check"], e["sym"], e["papier"] = g["zeilen"], g["sym"], True
+                    papier.append(e)
+                else:
+                    e["hinweis"] = "Markt pausiert (Papier), keine Daten"
+                    log["raus"].append(e)
+                continue
             if g:
                 n_check += 1
                 e["check"] = g["zeilen"]
@@ -861,13 +900,20 @@ def main():
                         log["raus"].append(e)
                         continue
             bleibt.append(e)
-        log["gegencheck"] = {"signale": len(paare), "mit_daten": n_check, "rot_raus": len(paare) - len(bleibt)}
+        log["gegencheck"] = {"signale": len(paare), "mit_daten": n_check, "papier": len(papier),
+                             "rot_raus": len(paare) - len(bleibt) - len(papier)}
         treffer = bleibt
     except Exception as ex:
         import traceback
         log["gegencheck"] = {"fehler": f"{type(ex).__name__}: {str(ex)[:200]}", "tb": traceback.format_exc()[-1500:]}
         print("Gegencheck-Fehler:", ex, flush=True)
     log["signale"] = treffer
+    log["papier"] = papier
+    if not TROCKEN:
+        try:
+            auswertung.archiv_aktualisieren(treffer + papier, jetzt)
+        except Exception as ex:
+            print("Archiv-Fehler:", ex, flush=True)
     print(f"Signale nach BetLabel und Regeln: {len(treffer)}, raus: {len(log['raus'])}, "
           f"nicht bei BL: {len(log['nicht_bei_bl'])}", flush=True)
 
@@ -881,7 +927,7 @@ def main():
     liste = {t["key"]: t for t in treffer}
     # Alte Einträge, die im aktuellen Lauf an einer Regel scheitern, fliegen raus
     # (sonst bleiben Signale von vor einer Regeländerung bis zum Anpfiff stehen).
-    jetzt_raus = {t["key"] for t in log["raus"]}
+    jetzt_raus = {t["key"] for t in log["raus"]} | {t["key"] for t in log.get("papier", [])}
     entfernt = 0
     for key, t in alte_liste.items():
         if key in liste or t.get("anstoss", 0) <= jetzt:
@@ -949,10 +995,10 @@ def main():
             ok_alle &= tg(schein_text(sch), leise=False)
         else:
             gsp = _gespielt()
-            offen = sum(1 for t in liste.values() if t.get("sym") == "🟢" and t.get("anstoss", 0) > jetzt + 300
+            offen = sum(1 for t in liste.values() if t.get("sym") in ("🟢", "🟡") and t.get("anstoss", 0) > jetzt + 300
                         and not _ist_gespielt(t, gsp))
             ok_alle &= tg("🎫 Keine Scheinvorschläge – "
-                          + ("alle 🟢 schon gespielt." if offen == 0 else "nur 1 🟢 offen, für einen Schein braucht es 2."),
+                          + ("alle spielbaren Signale schon gespielt." if offen == 0 else "nur 1 Signal offen, für einen Schein braucht es 2."),
                           leise=True)
         log["telegram"] = "trocken" if TROCKEN else ("ok" if ok_alle else "FEHLER")
         if not TROCKEN:
@@ -966,10 +1012,10 @@ def main():
         # 21.11. (Lucio): jede Stunde ein Lebenszeichen – leise Kurznachricht, die vorige wird ersetzt
         status_datei = ROOT / "state" / "trendscan_status.json"
         gsp = _gespielt()
-        n_gruen = sum(1 for t in liste.values() if t.get("sym") == "🟢" and t.get("anstoss", 0) > jetzt + 300
+        n_gruen = sum(1 for t in liste.values() if t.get("sym") in ("🟢", "🟡") and t.get("anstoss", 0) > jetzt + 300
                       and not _ist_gespielt(t, gsp))
         text = (f"⏱ Lauf {datetime.fromtimestamp(jetzt, TZ):%H:%M} · nichts Neues · "
-                + (f"{n_gruen} 🟢 noch nicht gespielt – siehe Liste oben" if n_gruen else "kein offenes 🟢"))
+                + (f"{n_gruen} spielbare Signale noch nicht gespielt – siehe Liste oben" if n_gruen else "kein offenes Signal"))
         if not TROCKEN and TG_TOKEN and TG_CHAT:
             try:
                 for i in json.loads(status_datei.read_text()):
