@@ -1,242 +1,1277 @@
 {
- "24-11-2026-mickleover-sports-bedworth-united|home": {
-  "team": "mickleover-sports",
-  "alt_liga": "england-amateur-northern-league-pr-div",
-  "neu_liga": "english-northern-league-division-one-39",
-  "neu_n": 8
+ "key_da": true,
+ "key_prefix_ok": true,
+ "health": [
+  200,
+  "{\"status\":\"ok\",\"lag_ms\":12}"
+ ],
+ "/v1/odds?sport=soccer&main=true": {
+  "status": 200,
+  "headers": {
+   "X-Content-Type-Options": "nosniff",
+   "X-Data-Delay-Seconds": "30",
+   "X-Frame-Options": "DENY",
+   "X-Pinnfeed-Notice": "Real-time WebSocket push: Builder, 3 days free, USD 0 today: https://pinnfeed.io/start/builder?src=api-first-call&utm_source=api&utm_medium=header&utm_campaign=api-first-call",
+   "X-Plan": "free",
+   "X-Ratelimit-Limit": "1000",
+   "X-Ratelimit-Remaining": "999",
+   "X-Ratelimit-Reset": "1795737600"
+  },
+  "keys": [
+   "asOf",
+   "count",
+   "offset",
+   "limit",
+   "events"
+  ],
+  "count": 925,
+  "n_events": 200,
+  "ev_keys": [
+   "away",
+   "clock",
+   "home",
+   "id",
+   "league",
+   "live",
+   "markets",
+   "parentId",
+   "score",
+   "special",
+   "sport",
+   "sportId",
+   "startTime",
+   "status",
+   "units"
+  ],
+  "n_ligen": 97,
+  "ligen_top": [
+   [
+    "{'id': 214101, 'name': 'UEFA - Conference League', 'group': 'UEFA'}",
+    18
+   ],
+   [
+    "{'id': 2630, 'name': 'UEFA - Europa League', 'group': 'UEFA'}",
+    18
+   ],
+   [
+    "{'id': 210213, 'name': 'Egypt - 2nd Division A', 'group': 'Egypt'}",
+    10
+   ],
+   [
+    "{'id': 10419, 'name': 'Saudi Arabia - Pro League', 'group': 'Saudi Arabia'}",
+    6
+   ],
+   [
+    "{'id': 2133, 'name': 'Israel - Ligat Leumit', 'group': 'Israel'}",
+    5
+   ],
+   [
+    "{'id': 198331, 'name': 'Israel - Liga Bet', 'group': 'Israel'}",
+    4
+   ],
+   [
+    "{'id': 187707, 'name': 'Kenya - Premier League', 'group': 'Kenya'}",
+    3
+   ],
+   [
+    "{'id': 1709, 'name': 'AFC - Champions League 2', 'group': 'AFC'}",
+    3
+   ],
+   [
+    "{'id': 201147, 'name': 'Jordan - 1st Division', 'group': 'Jordan'}",
+    3
+   ],
+   [
+    "{'id': 211601, 'name': 'Zambia - Super League', 'group': 'Zambia'}",
+    3
+   ],
+   [
+    "{'id': 280231, 'name': 'Zanzibar - Premier League', 'group': 'Zanzibar'}",
+    3
+   ],
+   [
+    "{'id': 35174, 'name': 'Russia - First League', 'group': 'Russia'}",
+    3
+   ],
+   [
+    "{'id': 295316, 'name': 'Qatar - U20 League', 'group': 'Qatar'}",
+    3
+   ],
+   [
+    "{'id': 202606, 'name': 'Qatar - Stars League 2', 'group': 'Qatar'}",
+    3
+   ],
+   [
+    "{'id': 9902, 'name': 'Jordan - Pro League', 'group': 'Jordan'}",
+    3
+   ],
+   [
+    "{'id': 1904, 'name': 'Denmark - Division 1', 'group': 'Denmark'}",
+    3
+   ],
+   [
+    "{'id': 9441, 'name': 'Czech Republic - FNL', 'group': 'Czech Republic'}",
+    3
+   ],
+   [
+    "{'id': 1887, 'name': 'Cyprus - 1st Division', 'group': 'Cyprus'}",
+    3
+   ],
+   [
+    "{'id': 200748, 'name': 'Thailand - League 2', 'group': 'Thailand'}",
+    2
+   ],
+   [
+    "{'id': 201857, 'name': 'Georgia - Erovnuli Liga 2', 'group': 'Georgia'}",
+    2
+   ],
+   [
+    "{'id': 294022, 'name': 'Kosovo - Superliga U19', 'group': 'Kosovo'}",
+    2
+   ],
+   [
+    "{'id': 211166, 'name': 'Uganda - Premier League', 'group': 'Uganda'}",
+    2
+   ],
+   [
+    "{'id': 2409, 'name': 'Russia - Cup', 'group': 'Russia'}",
+    2
+   ],
+   [
+    "{'id': 194698, 'name': 'Kuwait - Emir Cup', 'group': 'Kuwait'}",
+    2
+   ],
+   [
+    "{'id': 10604, 'name': 'Israel - Liga Alef', 'group': 'Israel'}",
+    2
+   ],
+   [
+    "{'id': 226450, 'name': 'Argentina - Liga Pro Reserves', 'group': 'Argentina'}",
+    2
+   ],
+   [
+    "{'id': 197584, 'name': 'Nicaragua - Primera Division', 'group': 'Nicaragua'}",
+    2
+   ],
+   [
+    "{'id': 2242, 'name': 'Mexico - Liga MX', 'group': 'Mexico'}",
+    2
+   ],
+   [
+    "{'id': 7167, 'name': 'Azerbaijan - Premier League', 'group': 'Azerbaijan'}",
+    2
+   ],
+   [
+    "{'id': 9154, 'name': 'Vietnam - V League', 'group': 'Vietnam'}",
+    2
+   ],
+   [
+    "{'id': 202026, 'name': 'Uzbekistan - Super League', 'group': 'Uzbekistan'}",
+    2
+   ],
+   [
+    "{'id': 2352, 'name': 'Oman - Cup', 'group': 'Oman'}",
+    2
+   ],
+   [
+    "{'id': 2625, 'name': 'UAE - Division 1', 'group': 'UAE'}",
+    2
+   ],
+   [
+    "{'id': 8128, 'name': 'Qatar - Stars League', 'group': 'Qatar'}",
+    2
+   ],
+   [
+    "{'id': 1797, 'name': 'Bahrain - Premier League', 'group': 'Bahrain'}",
+    2
+   ],
+   [
+    "{'id': 2395, 'name': 'Romania - Liga 1', 'group': 'Romania'}",
+    2
+   ],
+   [
+    "{'id': 2368, 'name': 'Poland - 2nd Liga', 'group': 'Poland'}",
+    2
+   ],
+   [
+    "{'id': 2578, 'name': 'Turkey - 1st League', 'group': 'Turkey'}",
+    2
+   ],
+   [
+    "{'id': 2592, 'name': 'Turkey - Super League', 'group': 'Turkey'}",
+    2
+   ],
+   [
+    "{'id': 1843, 'name': 'Germany - Bundesliga 2', 'group': 'Germany'}",
+    2
+   ]
+  ],
+  "markttypen": [
+   [
+    "spread",
+    396
+   ],
+   [
+    "total",
+    395
+   ],
+   [
+    "moneyline",
+    292
+   ]
+  ],
+  "live_anteil": 0.105,
+  "beispiel": [
+   {
+    "id": 1641174055,
+    "sportId": 1,
+    "sport": "soccer",
+    "league": {
+     "id": 280467,
+     "name": "Thailand - U21 League",
+     "group": "Thailand"
+    },
+    "home": "Kanchanaburi Power FC",
+    "away": "Buriram United",
+    "startTime": "2026-11-26T11:00:00Z",
+    "status": "started",
+    "live": true,
+    "parentId": 1640697510,
+    "units": "Regular",
+    "special": null,
+    "score": {
+     "home": 1,
+     "away": 1
+    },
+    "clock": 33,
+    "markets": [
+     {
+      "id": "1641174055:s;0;s;0.5",
+      "eventId": 1641174055,
+      "key": "s;0;s;0.5",
+      "type": "spread",
+      "period": 0,
+      "side": null,
+      "line": 0.5,
+      "alternate": false,
+      "main": true,
+      "live": true,
+      "maxStake": 200,
+      "cutoffAt": null,
+      "margin": 0.09904,
+      "outcomes": [
+       {
+        "name": "home",
+        "american": -154,
+        "decimal": 1.649,
+        "points": 0.5,
+        "fair": 1.8123,
+        "fairProb": 0.55178
+       },
+       {
+        "name": "away",
+        "american": 103,
+        "decimal": 2.03,
+        "points": -0.5,
+        "fair": 2.231,
+        "fairProb": 0.44822
+       }
+      ],
+      "updatedAt": "2026-11-26T12:35:01.296Z"
+     },
+     {
+      "id": "1641174055:s;0;ou;2.5",
+      "eventId": 1641174055,
+      "key": "s;0;ou;2.5",
+      "type": "total",
+      "period": 0,
+      "side": null,
+      "line": 2.5,
+      "alternate": false,
+      "main": true,
+      "live": true,
+      "maxStake": 200,
+      "cutoffAt": null,
+      "margin": 0.09585,
+      "outcomes": [
+       {
+        "name": "over",
+        "american": -136,
+        "decimal": 1.735,
+        "points": 2.5,
+        "fair": 1.9013,
+        "fairProb": 0.52596
+       },
+       {
+        "name": "under",
+        "american": -108,
+        "decimal": 1.925,
+        "points": 2.5,
+        "fair": 2.1095,
+        "fairProb": 0.47404
+       }
+      ],
+      "updatedAt": "2026-11-26T12:35:01.296Z"
+     }
+    ]
+   },
+   {
+    "id": 1641174053,
+    "sportId": 1,
+    "sport": "soccer",
+    "league": {
+     "id": 277090,
+     "name": "Philippines - UAAP Championship",
+     "group": "Philippines"
+    },
+    "home": "UST Growling Tigers",
+    "away": "UP Fighting Maroons",
+    "startTime": "2026-11-26T11:00:00Z",
+    "status": "started",
+    "live": true,
+    "parentId": 1640982378,
+    "units": "Regular",
+    "special": null,
+    "score": {
+     "home": 1,
+     "away": 0
+    },
+    "clock": 28,
+    "markets": [
+     {
+      "id": "1641174053:s;0;s;0.25",
+      "eventId": 1641174053,
+      "key": "s;0;s;0.25",
+      "type": "spread",
+      "period": 0,
+      "side": null,
+      "line": 0.25,
+      "alternate": false,
+      "main": true,
+      "live": true,
+      "maxStake": 200,
+      "cutoffAt": null,
+      "margin": 0.06982,
+      "outcomes": [
+       {
+        "name": "home",
+        "american": -116,
+        "decimal": 1.862,
+        "points": 0.25,
+        "fair": 1.992,
+        "fairProb": 0.50201
+       },
+       {
+        "name": "away",
+        "american": -114,
+        "decimal": 1.877,
+        "points": -0.25,
+        "fair": 2.0081,
+        "fairProb": 0.49799
+       }
+      ],
+      "updatedAt": "2026-11-26T12:35:04.256Z"
+     },
+     {
+      "id": "1641174053:s;0;ou;1.75",
+      "eventId": 1641174053,
+      "key": "s;0;ou;1.75",
+      "type": "total",
+      "period": 0,
+      "side": null,
+      "line": 1.75,
+      "alternate": false,
+      "main": true,
+      "live": true,
+      "maxStake": 200,
+      "cutoffAt": null,
+      "margin": 0.07239,
+      "outcomes": [
+       {
+        "name": "over",
+        "american": -106,
+        "decimal": 1.943,
+        "points": 1.75,
+        "fair": 2.0837,
+        "fairProb": 0.47993
+       },
+       {
+        "name": "under",
+        "american": -126,
+        "decimal": 1.793,
+        "points": 1.75,
+        "fair": 1.9228,
+        "fairProb": 0.52007
+       }
+      ],
+      "updatedAt": "2026-11-26T12:35:04.256Z"
+     }
+    ]
+   }
+  ]
  },
- "24-11-2026-mickleover-sports-bedworth-united|away": {
-  "team": "bedworth-united",
-  "alt_liga": "english-northern-league-division-one-39",
-  "neu_liga": "english-northern-league-division-one-39",
-  "neu_n": 10
+ "/v1/odds?sport=soccer&main=true&live=false": {
+  "status": 200,
+  "headers": {
+   "X-Content-Type-Options": "nosniff",
+   "X-Data-Delay-Seconds": "30",
+   "X-Frame-Options": "DENY",
+   "X-Pinnfeed-Notice": "Real-time WebSocket push: Builder, 3 days free, USD 0 today: https://pinnfeed.io/start/builder?src=api-first-call&utm_source=api&utm_medium=header&utm_campaign=api-first-call",
+   "X-Plan": "free",
+   "X-Ratelimit-Limit": "1000",
+   "X-Ratelimit-Remaining": "998",
+   "X-Ratelimit-Reset": "1795737600"
+  },
+  "keys": [
+   "asOf",
+   "count",
+   "offset",
+   "limit",
+   "events"
+  ],
+  "count": 904,
+  "n_events": 200,
+  "ev_keys": [
+   "away",
+   "clock",
+   "home",
+   "id",
+   "league",
+   "live",
+   "markets",
+   "parentId",
+   "score",
+   "special",
+   "sport",
+   "sportId",
+   "startTime",
+   "status",
+   "units"
+  ],
+  "n_ligen": 97,
+  "ligen_top": [
+   [
+    "{'id': 214101, 'name': 'UEFA - Conference League', 'group': 'UEFA'}",
+    18
+   ],
+   [
+    "{'id': 2630, 'name': 'UEFA - Europa League', 'group': 'UEFA'}",
+    18
+   ],
+   [
+    "{'id': 1929, 'name': 'Netherlands - Eerste Divisie', 'group': 'Netherlands'}",
+    7
+   ],
+   [
+    "{'id': 10419, 'name': 'Saudi Arabia - Pro League', 'group': 'Saudi Arabia'}",
+    6
+   ],
+   [
+    "{'id': 210213, 'name': 'Egypt - 2nd Division A', 'group': 'Egypt'}",
+    5
+   ],
+   [
+    "{'id': 2133, 'name': 'Israel - Ligat Leumit', 'group': 'Israel'}",
+    5
+   ],
+   [
+    "{'id': 198331, 'name': 'Israel - Liga Bet', 'group': 'Israel'}",
+    4
+   ],
+   [
+    "{'id': 211601, 'name': 'Zambia - Super League', 'group': 'Zambia'}",
+    3
+   ],
+   [
+    "{'id': 280231, 'name': 'Zanzibar - Premier League', 'group': 'Zanzibar'}",
+    3
+   ],
+   [
+    "{'id': 35174, 'name': 'Russia - First League', 'group': 'Russia'}",
+    3
+   ],
+   [
+    "{'id': 295316, 'name': 'Qatar - U20 League', 'group': 'Qatar'}",
+    3
+   ],
+   [
+    "{'id': 202606, 'name': 'Qatar - Stars League 2', 'group': 'Qatar'}",
+    3
+   ],
+   [
+    "{'id': 9902, 'name': 'Jordan - Pro League', 'group': 'Jordan'}",
+    3
+   ],
+   [
+    "{'id': 1904, 'name': 'Denmark - Division 1', 'group': 'Denmark'}",
+    3
+   ],
+   [
+    "{'id': 9441, 'name': 'Czech Republic - FNL', 'group': 'Czech Republic'}",
+    3
+   ],
+   [
+    "{'id': 1887, 'name': 'Cyprus - 1st Division', 'group': 'Cyprus'}",
+    3
+   ],
+   [
+    "{'id': 2032, 'name': 'France - Cup', 'group': 'France'}",
+    3
+   ],
+   [
+    "{'id': 2518, 'name': 'Switzerland - Challenge League', 'group': 'Switzerland'}",
+    3
+   ],
+   [
+    "{'id': 211166, 'name': 'Uganda - Premier League', 'group': 'Uganda'}",
+    2
+   ],
+   [
+    "{'id': 2409, 'name': 'Russia - Cup', 'group': 'Russia'}",
+    2
+   ],
+   [
+    "{'id': 194698, 'name': 'Kuwait - Emir Cup', 'group': 'Kuwait'}",
+    2
+   ],
+   [
+    "{'id': 10604, 'name': 'Israel - Liga Alef', 'group': 'Israel'}",
+    2
+   ],
+   [
+    "{'id': 200047, 'name': 'England - Premier League Cup U21', 'group': 'England'}",
+    2
+   ],
+   [
+    "{'id': 226450, 'name': 'Argentina - Liga Pro Reserves', 'group': 'Argentina'}",
+    2
+   ],
+   [
+    "{'id': 197584, 'name': 'Nicaragua - Primera Division', 'group': 'Nicaragua'}",
+    2
+   ],
+   [
+    "{'id': 2242, 'name': 'Mexico - Liga MX', 'group': 'Mexico'}",
+    2
+   ],
+   [
+    "{'id': 7167, 'name': 'Azerbaijan - Premier League', 'group': 'Azerbaijan'}",
+    2
+   ],
+   [
+    "{'id': 9154, 'name': 'Vietnam - V League', 'group': 'Vietnam'}",
+    2
+   ],
+   [
+    "{'id': 202026, 'name': 'Uzbekistan - Super League', 'group': 'Uzbekistan'}",
+    2
+   ],
+   [
+    "{'id': 2352, 'name': 'Oman - Cup', 'group': 'Oman'}",
+    2
+   ],
+   [
+    "{'id': 2625, 'name': 'UAE - Division 1', 'group': 'UAE'}",
+    2
+   ],
+   [
+    "{'id': 8128, 'name': 'Qatar - Stars League', 'group': 'Qatar'}",
+    2
+   ],
+   [
+    "{'id': 1797, 'name': 'Bahrain - Premier League', 'group': 'Bahrain'}",
+    2
+   ],
+   [
+    "{'id': 2395, 'name': 'Romania - Liga 1', 'group': 'Romania'}",
+    2
+   ],
+   [
+    "{'id': 2368, 'name': 'Poland - 2nd Liga', 'group': 'Poland'}",
+    2
+   ],
+   [
+    "{'id': 2578, 'name': 'Turkey - 1st League', 'group': 'Turkey'}",
+    2
+   ],
+   [
+    "{'id': 2374, 'name': 'Poland - Ekstraklasa', 'group': 'Poland'}",
+    2
+   ],
+   [
+    "{'id': 2592, 'name': 'Turkey - Super League', 'group': 'Turkey'}",
+    2
+   ],
+   [
+    "{'id': 6633, 'name': 'Poland - 1st Liga', 'group': 'Poland'}",
+    2
+   ],
+   [
+    "{'id': 1773, 'name': 'Austria - 2. Liga', 'group': 'Austria'}",
+    2
+   ]
+  ],
+  "markttypen": [
+   [
+    "spread",
+    400
+   ],
+   [
+    "total",
+    400
+   ],
+   [
+    "moneyline",
+    302
+   ]
+  ],
+  "live_anteil": 0.0,
+  "beispiel": [
+   {
+    "id": 1640767361,
+    "sportId": 1,
+    "sport": "soccer",
+    "league": {
+     "id": 211601,
+     "name": "Zambia - Super League",
+     "group": "Zambia"
+    },
+    "home": "Mutondo Stars FC",
+    "away": "Green Eagles",
+    "startTime": "2026-11-26T13:00:00Z",
+    "status": "pending",
+    "live": false,
+    "parentId": null,
+    "units": "Regular",
+    "special": null,
+    "score": null,
+    "clock": null,
+    "markets": [
+     {
+      "id": "1640767361:s;0;m",
+      "eventId": 1640767361,
+      "key": "s;0;m",
+      "type": "moneyline",
+      "period": 0,
+      "side": null,
+      "line": null,
+      "alternate": false,
+      "main": true,
+      "live": false,
+      "maxStake": 200,
+      "cutoffAt": "2026-11-26T13:00:00Z",
+      "margin": 0.10538,
+      "outcomes": [
+       {
+        "name": "home",
+        "american": 368,
+        "decimal": 4.68,
+        "fair": 5.1732,
+        "fairProb": 0.1933
+       },
+       {
+        "name": "away",
+        "american": -123,
+        "decimal": 1.813,
+        "fair": 2.0041,
+        "fairProb": 0.49899
+       },
+       {
+        "name": "draw",
+        "american": 194,
+        "decimal": 2.94,
+        "fair": 3.2498,
+        "fairProb": 0.30771
+       }
+      ],
+      "updatedAt": "2026-11-26T11:00:26.263Z"
+     },
+     {
+      "id": "1640767361:s;0;s;0.5",
+      "eventId": 1640767361,
+      "key": "s;0;s;0.5",
+      "type": "spread",
+      "period": 0,
+      "side": null,
+      "line": 0.5,
+      "alternate": false,
+      "main": true,
+      "live": false,
+      "maxStake": 400,
+      "cutoffAt": "2026-11-26T13:00:00Z",
+      "margin": 0.06864,
+      "outcomes": [
+       {
+        "name": "home",
+        "american": -107,
+        "decimal": 1.934,
+        "points": 0.5,
+        "fair": 2.0667,
+        "fairProb": 0.48385
+       },
+       {
+        "name": "away",
+        "american": -123,
+        "decimal": 1.813,
+        "points": -0.5,
+        "fair": 1.9374,
+        "fairProb": 0.51615
+       }
+      ],
+      "updatedAt": "2026-11-26T12:32:40.837Z"
+     },
+     {
+      "id": "1640767361:s;0;ou;1.75",
+      "eventId": 1640767361,
+      "key": "s;0;ou;1.75",
+      "type": "total",
+      "period": 0,
+      "side": null,
+      "line": 1.75,
+      "alternate": false,
+      "main": true,
+      "live": false,
+      "maxStake": 400,
+      "cutoffAt": "2026-11-26T13:00:00Z",
+      "margin": 0.07034,
+      "outcomes": [
+       {
+        "name": "over",
+        "american": -130,
+        "decimal": 1.769,
+        "points": 1.75,
+        "fair": 1.8934,
+        "fairProb": 0.52814
+       },
+       {
+        "name": "under",
+        "american": -102,
+        "decimal": 1.98,
+        "points": 1.75,
+        "fair": 2.1193,
+        "fairProb": 0.47186
+       }
+      ],
+      "updatedAt": "2026-11-26T12:32:40.837Z"
+     },
+     {
+      "id": "1640767361:s;1;s;0.25",
+      "eventId": 1640767361,
+      "key": "s;1;s;0.25",
+      "type": "spread",
+      "period": 1,
+      "side": null,
+      "line": 0.25,
+      "alternate": false,
+      "main": true,
+      "live": false,
+      "maxStake": 150,
+      "cutoffAt": "2026-11-26T13:00:00Z",
+      "margin": 0.07479,
+      "outcomes": [
+       {
+        "name": "home",
+        "american": -126,
+        "decimal": 1.793,
+        "points": 0.25,
+        "fair": 1.9271,
+        "fairProb": 0.51892
+       },
+       {
+        "name": "away",
+        "american": -107,
+        "decimal": 1.934,
+        "points": -0.25,
+        "fair": 2.0786,
+        "fairProb": 0.48108
+       }
+      ],
+      "updatedAt": "2026-11-26T12:32:40.837Z"
+     },
+     {
+      "id": "1640767361:s;1;ou;0.75",
+      "eventId": 1640767361,
+      "key": "s;1;ou;0.75",
+      "type": "total",
+      "period": 1,
+      "side": null,
+      "line": 0.75,
+      "alternate": false,
+      "main": true,
+      "live": false,
+      "maxStake": 150,
+      "cutoffAt": "2026-11-26T13:00:00Z",
+      "margin": 0.07396,
+      "outcomes": [
+       {
+        "name": "over",
+        "american": -111,
+        "decimal": 1.9,
+        "points": 0.75,
+        "fair": 2.0405,
+        "fairProb": 0.49007
+       },
+       {
+        "name": "under",
+        "american": -121,
+        "decimal": 1.826,
+        "points": 0.75,
+        "fair": 1.9611,
+        "fairProb": 0.50993
+       }
+      ],
+      "updatedAt": "2026-11-26T12:32:40.837Z"
+     }
+    ]
+   },
+   {
+    "id": 1640982365,
+    "sportId": 1,
+    "sport": "soccer",
+    "league": {
+     "id": 211601,
+     "name": "Zambia - Super League",
+     "group": "Zambia"
+    },
+    "home": "Makeni All Stars",
+    "away": "Power Dynamos",
+    "startTime": "2026-11-26T13:00:00Z",
+    "status": "pending",
+    "live": false,
+    "parentId": null,
+    "units": "Regular",
+    "special": null,
+    "score": null,
+    "clock": null,
+    "markets": [
+     {
+      "id": "1640982365:s;0;m",
+      "eventId": 1640982365,
+      "key": "s;0;m",
+      "type": "moneyline",
+      "period": 0,
+      "side": null,
+      "line": null,
+      "alternate": false,
+      "main": true,
+      "live": false,
+      "maxStake": 200,
+      "cutoffAt": "2026-11-26T13:00:00Z",
+      "margin": 0.10478,
+      "outcomes": [
+       {
+        "name": "home",
+        "american": 672,
+        "decimal": 7.72,
+        "fair": 8.5289,
+        "fairProb": 0.11725
+       },
+       {
+        "name": "away",
+        "american": -253,
+        "decimal": 1.395,
+        "fair": 1.5412,
+        "fairProb": 0.64886
+       },
+       {
+        "name": "draw",
+        "american": 287,
+        "decimal": 3.87,
+        "fair": 4.2755,
+        "fairProb": 0.23389
+       }
+      ],
+      "updatedAt": "2026-11-26T12:16:07.652Z"
+     },
+     {
+      "id": "1640982365:s;0;s;1.25",
+      "eventId": 1640982365,
+      "key": "s;0;s;1.25",
+      "type": "spread",
+      "period": 0,
+      "side": null,
+      "line": 1.25,
+      "alternate": false,
+      "main": true,
+      "live": false,
+      "maxStake": 400,
+      "cutoffAt": "2026-11-26T13:00:00Z",
+      "margin": 0.07105,
+      "outcomes": [
+       {
+        "name": "home",
+        "american": -123,
+        "decimal": 1.813,
+        "points": 1.25,
+        "fair": 1.9418,
+        "fairProb": 0.51498
+       },
+       {
+        "name": "away",
+        "american": -108,
+        "decimal": 1.925,
+        "points": -1.25,
+        "fair": 2.0618,
+        "fairProb": 0.48502
+       }
+      ],
+      "updatedAt": "2026-11-26T12:32:40.837Z"
+     },
+     {
+      "id": "1640982365:s;0;ou;2.25",
+      "eventId": 1640982365,
+      "key": "s;0;ou;2.25",
+      "type": "total",
+      "period": 0,
+      "side": null,
+      "line": 2.25,
+      "alternate": false,
+      "main": true,
+      "live": false,
+      "maxStake": 400,
+      "cutoffAt": "2026-11-26T13:00:00Z",
+      "margin": 0.07009,
+      "outcomes": [
+       {
+        "name": "over",
+        "american": -115,
+        "decimal": 1.869,
+        "points": 2.25,
+        "fair": 2,
+        "fairProb": 0.5
+       },
+       {
+        "name": "under",
+        "american": -115,
+        "decimal": 1.869,
+        "points": 2.25,
+        "fair": 2,
+        "fairProb": 0.5
+       }
+      ],
+      "updatedAt": "2026-11-26T12:32:40.837Z"
+     },
+     {
+      "id": "1640982365:s;1;s;0.5",
+      "eventId": 1640982365,
+      "key": "s;1;s;0.5",
+      "type": "spread",
+      "period": 1,
+      "side": null,
+      "line": 0.5,
+      "alternate": false,
+      "main": true,
+      "live": false,
+      "maxStake": 150,
+      "cutoffAt": "2026-11-26T13:00:00Z",
+      "margin": 0.07396,
+      "outcomes": [
+       {
+        "name": "home",
+        "american": -121,
+        "decimal": 1.826,
+        "points": 0.5,
+        "fair": 1.9611,
+        "fairProb": 0.50993
+       },
+       {
+        "name": "away",
+        "american": -111,
+        "decimal": 1.9,
+        "points": -0.5,
+        "fair": 2.0405,
+        "fairProb": 0.49007
+       }
+      ],
+      "updatedAt": "2026-11-26T12:32:40.837Z"
+     },
+     {
+      "id": "1640982365:s;1;ou;1.0",
+      "eventId": 1640982365,
+      "key": "s;1;ou;1.0",
+      "type": "total",
+      "period": 1,
+      "side": null,
+      "line": 1,
+      "alternate": false,
+      "main": true,
+      "live": false,
+      "maxStake": 150,
+      "cutoffAt": "2026-11-26T13:00:00Z",
+      "margin": 0.07434,
+      "outcomes": [
+       {
+        "name": "over",
+        "american": 103,
+        "decimal": 2.03,
+        "points": 1,
+        "fair": 2.1809,
+        "fairProb": 0.45852
+       },
+       {
+        "name": "under",
+        "american": -139,
+        "decimal": 1.719,
+        "points": 1,
+        "fair": 1.8468,
+        "fairProb": 0.54148
+       }
+      ],
+      "updatedAt": "2026-11-26T12:32:40.837Z"
+     }
+    ]
+   }
+  ]
  },
- "21-11-2026-stocksbridge-park-steels-consett-a-f-c-|home": {
-  "team": "stocksbridge-ps",
-  "alt_liga": "england-amateur-northern-league-pr-div",
-  "neu_liga": "english-northern-league-division-one-39",
-  "neu_n": 11
- },
- "21-11-2026-stocksbridge-park-steels-consett-a-f-c-|away": {
-  "team": "consett",
-  "alt_liga": "english-northern-league-division-one-39",
-  "neu_liga": "english-northern-league-division-one-39",
-  "neu_n": 7
- },
- "25-11-2026-southall-fc-newmarket-town|home": {
-  "team": "southall-fc",
-  "alt_liga": "lm-english-isthmian-league-one",
-  "neu_liga": "lm-english-isthmian-league-one",
-  "neu_n": 3
- },
- "25-11-2026-southall-fc-newmarket-town|away": {
-  "team": "newmarket-town",
-  "alt_liga": "lm-english-isthmian-league-one",
-  "neu_liga": "lm-english-isthmian-league-one",
-  "neu_n": 5
- },
- "25-11-2026-guisborough-town-beverley-town|home": {
-  "team": "guisborough-town",
-  "alt_liga": "english-northern-league-division-one-39",
-  "neu_liga": "english-northern-league-division-one-39",
-  "neu_n": 8
- },
- "25-11-2026-guisborough-town-beverley-town|away": {
-  "team": "bewdley-town",
-  "alt_liga": "english-northern-league-division-one-39",
-  "neu_liga": "english-northern-league-division-one-39",
-  "neu_n": 10
- },
- "25-11-2026-bolton-wanderers-west-bromwich-albion|home": {
-  "team": "bolton-wanderers",
-  "alt_liga": "england-championship",
-  "neu_liga": "england-championship",
-  "neu_n": 17
- },
- "25-11-2026-bolton-wanderers-west-bromwich-albion|away": {
-  "team": "west-bromwich-albion",
-  "alt_liga": "england-championship",
-  "neu_liga": "england-championship",
-  "neu_n": 17
- },
- "25-11-2026-stoke-city-millwall|home": {
-  "team": "stoke-city",
-  "alt_liga": "england-championship",
-  "neu_liga": "england-championship",
-  "neu_n": 17
- },
- "25-11-2026-stoke-city-millwall|away": {
-  "team": "millwall-fc",
-  "alt_liga": "england-championship",
-  "neu_liga": "england-championship",
-  "neu_n": 17
- },
- "25-11-2026-hartlepool-solihull-moors|home": {
-  "team": "hartlepool-united",
-  "alt_liga": "england-national-league",
-  "neu_liga": "england-national-league",
-  "neu_n": 19
- },
- "25-11-2026-hartlepool-solihull-moors|away": {
-  "team": "solihull-moors-fc",
-  "alt_liga": "england-national-league",
-  "neu_liga": "england-national-league",
-  "neu_n": 19
- },
- "25-11-2026-harrogate-town-kidderminster-harriers|home": {
-  "team": "harrogate-town",
-  "alt_liga": "england-national-league",
-  "neu_liga": "england-national-league",
-  "neu_n": 19
- },
- "25-11-2026-harrogate-town-kidderminster-harriers|away": {
-  "team": "kidderminster-harriers",
-  "alt_liga": "england-national-league",
-  "neu_liga": "england-national-league",
-  "neu_n": 19
- },
- "24-11-2026-padova-sampdoria|home": {
-  "team": "calcio-padova",
-  "alt_liga": "italy-serie-b",
-  "neu_liga": "italy-serie-b",
-  "neu_n": 13
- },
- "24-11-2026-padova-sampdoria|away": {
-  "team": "sampdoria-genoa-1",
-  "alt_liga": "italy-serie-b",
-  "neu_liga": "italy-serie-b",
-  "neu_n": 13
- },
- "22-11-2026-sparta-az-alkmaar|home": {
-  "team": "sparta-rotterdam-1",
-  "alt_liga": "netherlands-eredivisie",
-  "neu_liga": "netherlands-eredivisie",
-  "neu_n": 13
- },
- "22-11-2026-sparta-az-alkmaar|away": {
-  "team": "az-alkmaar",
-  "alt_liga": "netherlands-eredivisie",
-  "neu_liga": "netherlands-eredivisie",
-  "neu_n": 13
- },
- "22-11-2026-atletico-mineiro-corinthians|home": {
-  "team": "atletico-mineiro-mg-1",
-  "alt_liga": "brazil-brasileiro-serie-a",
-  "neu_liga": "brazil-brasileiro-serie-a",
-  "neu_n": 23
- },
- "22-11-2026-atletico-mineiro-corinthians|away": {
-  "team": "corinthians-sp-2",
-  "alt_liga": "brazil-brasileiro-serie-a",
-  "neu_liga": "brazil-brasileiro-serie-a",
-  "neu_n": 26
- },
- "25-11-2026-enppi-club-ceramica-cleopatra|home": {
-  "team": "enppi-club",
-  "alt_liga": "egypt-premier-league",
-  "neu_liga": "egypt-premier-league",
-  "neu_n": 9
- },
- "25-11-2026-enppi-club-ceramica-cleopatra|away": {
-  "team": "ceramica-cleopatra-1",
-  "alt_liga": "egypt-premier-league",
-  "neu_liga": "egypt-premier-league",
-  "neu_n": 9
- },
- "22-11-2026-soroksar-szeged-csanad-grosics-akademia|home": {
-  "team": "soroksar",
-  "alt_liga": "hungary-nb-ii",
-  "neu_liga": "hungary-nb-ii",
-  "neu_n": 14
- },
- "22-11-2026-soroksar-szeged-csanad-grosics-akademia|away": {
-  "team": "szeged-2011-",
-  "alt_liga": "hungary-nb-ii",
-  "neu_liga": "hungary-nb-ii",
-  "neu_n": 14
- },
- "26-11-2026-persika-karanganyar-persipa-pati|home": {
-  "team": "persika",
-  "alt_liga": "indo-d4",
-  "neu_liga": null,
-  "neu_n": 0
- },
- "26-11-2026-persika-karanganyar-persipa-pati|away": {
-  "team": "persipa-pati",
-  "alt_liga": "indonesian-liga-2-",
-  "neu_liga": null,
-  "neu_n": 0
- },
- "25-11-2026-cascada-banha|home": {
-  "team": "lm-cascada-sc",
-  "alt_liga": "2nd-division-20",
-  "neu_liga": "2nd-division-20",
-  "neu_n": 6
- },
- "25-11-2026-cascada-banha|away": {
-  "team": "banha",
-  "alt_liga": "2nd-division-20",
-  "neu_liga": "2nd-division-20",
-  "neu_n": 6
- },
- "25-11-2026-apr-fc-musanze-fc|home": {
-  "team": "apr-fc-1",
-  "alt_liga": "national-football-league-26",
-  "neu_liga": "national-football-league-26",
-  "neu_n": 5
- },
- "25-11-2026-apr-fc-musanze-fc|away": {
-  "team": "musanze-2",
-  "alt_liga": "national-football-league-26",
-  "neu_liga": "national-football-league-26",
-  "neu_n": 9
- },
- "24-11-2026-blacks-power-entebbe-uppc|home": {
-  "team": "blacks-power-fc-2",
-  "alt_liga": "uganda-division-2-",
-  "neu_liga": "uganda-premier-league",
-  "neu_n": 11
- },
- "24-11-2026-blacks-power-entebbe-uppc|away": {
-  "team": "entebbe-uppc",
-  "alt_liga": "uganda-premier-league",
-  "neu_liga": "uganda-premier-league",
-  "neu_n": 12
- },
- "22-11-2026-lks-lodz-ii-wigry-suwalki|home": {
-  "team": "lks-lodz-ii",
-  "alt_liga": "poland-ii-liga",
-  "neu_liga": "lm-3rd-league",
-  "neu_n": 18
- },
- "22-11-2026-lks-lodz-ii-wigry-suwalki|away": {
-  "team": "wigry-suwalki",
-  "alt_liga": "lm-3rd-league",
-  "neu_liga": "lm-3rd-league",
-  "neu_n": 18
- },
- "22-11-2026-alessandria-acsd-saluzzo|home": {
-  "team": "alessandria-calcio",
-  "alt_liga": "italy-lega-pro",
-  "neu_liga": "lm-italian-serie-d",
-  "neu_n": 13
- },
- "22-11-2026-alessandria-acsd-saluzzo|away": {
-  "team": "ac-saluzzo-calcio",
-  "alt_liga": "lm-italian-serie-d",
-  "neu_liga": "lm-italian-serie-d",
-  "neu_n": 13
- },
- "22-11-2026-udi-19-fc-lisse|home": {
-  "team": "udi-19-",
-  "alt_liga": "netherlands-derde-divisie-43",
-  "neu_liga": "netherlands-derde-divisie-43",
-  "neu_n": 14
- },
- "22-11-2026-udi-19-fc-lisse|away": {
-  "team": "fc-lisse",
-  "alt_liga": "tweede-divisie",
-  "neu_liga": "netherlands-derde-divisie-43",
-  "neu_n": 14
+ "/v1/events?sport=soccer": {
+  "status": 200,
+  "headers": {
+   "X-Content-Type-Options": "nosniff",
+   "X-Data-Delay-Seconds": "30",
+   "X-Frame-Options": "DENY",
+   "X-Pinnfeed-Notice": "Real-time WebSocket push: Builder, 3 days free, USD 0 today: https://pinnfeed.io/start/builder?src=api-first-call&utm_source=api&utm_medium=header&utm_campaign=api-first-call",
+   "X-Plan": "free",
+   "X-Ratelimit-Limit": "1000",
+   "X-Ratelimit-Remaining": "997",
+   "X-Ratelimit-Reset": "1795737600"
+  },
+  "keys": [
+   "asOf",
+   "count",
+   "offset",
+   "limit",
+   "events"
+  ],
+  "count": 928,
+  "n_events": 500,
+  "ev_keys": [
+   "away",
+   "clock",
+   "home",
+   "id",
+   "league",
+   "live",
+   "parentId",
+   "score",
+   "special",
+   "sport",
+   "sportId",
+   "startTime",
+   "status",
+   "units"
+  ],
+  "n_ligen": 146,
+  "ligen_top": [
+   [
+    "{'id': 214101, 'name': 'UEFA - Conference League', 'group': 'UEFA'}",
+    18
+   ],
+   [
+    "{'id': 2630, 'name': 'UEFA - Europa League', 'group': 'UEFA'}",
+    18
+   ],
+   [
+    "{'id': 215547, 'name': 'Spain - Segunda Federacion', 'group': 'Spain'}",
+    15
+   ],
+   [
+    "{'id': 1957, 'name': 'England - League 1', 'group': 'England'}",
+    12
+   ],
+   [
+    "{'id': 1958, 'name': 'England - League 2', 'group': 'England'}",
+    12
+   ],
+   [
+    "{'id': 1951, 'name': 'England - National League North', 'group': 'England'}",
+    12
+   ],
+   [
+    "{'id': 1952, 'name': 'England - National League South', 'group': 'England'}",
+    12
+   ],
+   [
+    "{'id': 1978, 'name': 'England - National League', 'group': 'England'}",
+    11
+   ],
+   [
+    "{'id': 1977, 'name': 'England - Championship', 'group': 'England'}",
+    11
+   ],
+   [
+    "{'id': 210213, 'name': 'Egypt - 2nd Division A', 'group': 'Egypt'}",
+    10
+   ],
+   [
+    "{'id': 10419, 'name': 'Saudi Arabia - Pro League', 'group': 'Saudi Arabia'}",
+    8
+   ],
+   [
+    "{'id': 1929, 'name': 'Netherlands - Eerste Divisie', 'group': 'Netherlands'}",
+    8
+   ],
+   [
+    "{'id': 1773, 'name': 'Austria - 2. Liga', 'group': 'Austria'}",
+    7
+   ],
+   [
+    "{'id': 1844, 'name': 'Germany - 3. Liga', 'group': 'Germany'}",
+    7
+   ],
+   [
+    "{'id': 220076, 'name': 'Spain - Primera Federacion', 'group': 'Spain'}",
+    7
+   ],
+   [
+    "{'id': 2678, 'name': 'Wales - Premier League', 'group': 'Wales'}",
+    7
+   ],
+   [
+    "{'id': 2578, 'name': 'Turkey - 1st League', 'group': 'Turkey'}",
+    6
+   ],
+   [
+    "{'id': 6633, 'name': 'Poland - 1st Liga', 'group': 'Poland'}",
+    6
+   ],
+   [
+    "{'id': 199211, 'name': 'Indonesia - Super League', 'group': 'Indonesia'}",
+    6
+   ],
+   [
+    "{'id': 1904, 'name': 'Denmark - Division 1', 'group': 'Denmark'}",
+    5
+   ],
+   [
+    "{'id': 2136, 'name': 'Israel - Premier League', 'group': 'Israel'}",
+    5
+   ],
+   [
+    "{'id': 2133, 'name': 'Israel - Ligat Leumit', 'group': 'Israel'}",
+    5
+   ],
+   [
+    "{'id': 2368, 'name': 'Poland - 2nd Liga', 'group': 'Poland'}",
+    5
+   ],
+   [
+    "{'id': 1887, 'name': 'Cyprus - 1st Division', 'group': 'Cyprus'}",
+    5
+   ],
+   [
+    "{'id': 1843, 'name': 'Germany - Bundesliga 2', 'group': 'Germany'}",
+    5
+   ],
+   [
+    "{'id': 1842, 'name': 'Germany - Bundesliga', 'group': 'Germany'}",
+    5
+   ],
+   [
+    "{'id': 2259, 'name': 'Northern Ireland - Premiership', 'group': 'Northern Ireland'}",
+    5
+   ],
+   [
+    "{'id': 2157, 'name': 'Japan - J League', 'group': 'Japan'}",
+    5
+   ],
+   [
+    "{'id': 217401, 'name': 'Italy - Serie C Group A', 'group': 'Italy'}",
+    5
+   ],
+   [
+    "{'id': 201147, 'name': 'Jordan - 1st Division', 'group': 'Jordan'}",
+    4
+   ],
+   [
+    "{'id': 198331, 'name': 'Israel - Liga Bet', 'group': 'Israel'}",
+    4
+   ],
+   [
+    "{'id': 7167, 'name': 'Azerbaijan - Premier League', 'group': 'Azerbaijan'}",
+    4
+   ],
+   [
+    "{'id': 6419, 'name': 'Thailand - League 1', 'group': 'Thailand'}",
+    4
+   ],
+   [
+    "{'id': 8128, 'name': 'Qatar - Stars League', 'group': 'Qatar'}",
+    4
+   ],
+   [
+    "{'id': 9441, 'name': 'Czech Republic - FNL', 'group': 'Czech Republic'}",
+    4
+   ],
+   [
+    "{'id': 1797, 'name': 'Bahrain - Premier League', 'group': 'Bahrain'}",
+    4
+   ],
+   [
+    "{'id': 2395, 'name': 'Romania - Liga 1', 'group': 'Romania'}",
+    4
+   ],
+   [
+    "{'id': 2434, 'name': 'Serbia - Super Liga', 'group': 'Serbia'}",
+    4
+   ],
+   [
+    "{'id': 9320, 'name': 'Bulgaria - First League', 'group': 'Bulgaria'}",
+    4
+   ],
+   [
+    "{'id': 2374, 'name': 'Poland - Ekstraklasa', 'group': 'Poland'}",
+    4
+   ]
+  ],
+  "markttypen": [],
+  "live_anteil": 0.048,
+  "beispiel": [
+   {
+    "id": 1641174055,
+    "sportId": 1,
+    "sport": "soccer",
+    "league": {
+     "id": 280467,
+     "name": "Thailand - U21 League",
+     "group": "Thailand"
+    },
+    "home": "Kanchanaburi Power FC",
+    "away": "Buriram United",
+    "startTime": "2026-11-26T11:00:00Z",
+    "status": "started",
+    "live": true,
+    "parentId": 1640697510,
+    "units": "Regular",
+    "special": null,
+    "score": {
+     "home": 1,
+     "away": 1
+    },
+    "clock": 33
+   },
+   {
+    "id": 1641174053,
+    "sportId": 1,
+    "sport": "soccer",
+    "league": {
+     "id": 277090,
+     "name": "Philippines - UAAP Championship",
+     "group": "Philippines"
+    },
+    "home": "UST Growling Tigers",
+    "away": "UP Fighting Maroons",
+    "startTime": "2026-11-26T11:00:00Z",
+    "status": "started",
+    "live": true,
+    "parentId": 1640982378,
+    "units": "Regular",
+    "special": null,
+    "score": {
+     "home": 1,
+     "away": 0
+    },
+    "clock": 28
+   }
+  ]
  }
 }
