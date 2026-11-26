@@ -1021,14 +1021,16 @@ def main():
             if ok_alle:
                 for key in liste:
                     gesendet.setdefault(key, jetzt)
-    elif liste:
+    else:
         # 21.11. (Lucio): jede Stunde ein Lebenszeichen – leise Kurznachricht, die vorige wird ersetzt
+        # 26.11. (Lucio: "seit 13 Uhr kam kein Scan mehr"): auch bei leerer Liste senden
         status_datei = ROOT / "state" / "trendscan_status.json"
         gsp = _gespielt()
         n_gruen = sum(1 for t in liste.values() if t.get("sym") in ("🟢", "🟡") and t.get("anstoss", 0) > jetzt + 300
                       and not _ist_gespielt(t, gsp))
         text = (f"⏱ Lauf {datetime.fromtimestamp(jetzt, TZ):%H:%M} · nichts Neues · "
-                + (f"{n_gruen} spielbare Signale noch nicht gespielt – siehe Liste oben" if n_gruen else "kein offenes Signal"))
+                + (f"{n_gruen} spielbare Signale noch nicht gespielt – siehe Liste oben" if n_gruen
+                   else "kein offenes Signal" if liste else "keine spielbaren Signale (Team-Tore/Gelbe Team unter)"))
         if not TROCKEN and TG_TOKEN and TG_CHAT:
             try:
                 for i in json.loads(status_datei.read_text()):
