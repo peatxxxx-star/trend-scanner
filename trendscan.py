@@ -863,6 +863,13 @@ def main():
                 if "keine Tabelle" in (e.get("hinweis") or ""):
                     e["hinweis"] = "; ".join(x for x in e["hinweis"].split("; ") if "keine Tabelle" not in x)
             g = teamstats.gegencheck(k, st, sp["home"], sp["away"], e["quote"], mit_tab, e.get("x12"))
+            vs = next((v for v in (teamstats.serie_vorsaison(f, st, sp["home"], sp["away"])
+                                   for f in k["fakten"]) if v), None)
+            if vs:
+                # 26.11. (Lucio): Serie überwiegend aus der Vorsaison (alter Kader/andere Liga) = raus
+                e["hinweis"] = f"Serie aus Vorsaison: {vs[0]} von {vs[1]} Spielen ({vs[2]}) vor Saisonstart"
+                log["raus"].append(e)
+                continue
             if po:
                 # 21.11. (Lucio): reguläre Runde laut Tabelle vorbei -> Play-off/Meisterrunde/Finalphase = raus
                 e["hinweis"] = "Play-off/Meisterrunde: reguläre Saison laut Tabelle beendet"

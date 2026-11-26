@@ -208,8 +208,39 @@ def laden(eintraege, cache_datei):
                 r[seite] = _saison(sp, n)
                 r["po_" + seite] = playoff_verdacht(sp, n)
                 r["liga_" + seite] = r[seite][0]["liga"] if r[seite] else None
+                r["alle_" + seite] = [{"d": g["d"], "ort": g["ort"]} for g in sp if not g["freund"]]
+                r["start_" + seite] = r[seite][-1]["d"] if r[seite] else None
         out[s] = r
     return out
+
+
+def serie_vorsaison(fakt, st, home, away):
+    """26.11. (Lucio): scores24-Serien zählen über Saison- und Ligagrenzen hinweg. Liegt mehr als die
+    Hälfte der Serienspiele des Teams vor seinem ersten Ligaspiel dieser Saison (alter Kader, evtl.
+    andere Liga), ist die Serie nichts wert. Pokalspiele der laufenden Saison zählen normal.
+    -> (alt, n, teamname) wenn raus, sonst None."""
+    import difflib
+    name = (fakt.get("team") or "").lower()
+    if not name:
+        return None
+    r = {s: difflib.SequenceMatcher(None, name, (t or "").lower()).ratio() for s, t in (("heim", home), ("gast", away))}
+    seite = max(r, key=r.get)
+    if r[seite] < 0.5:
+        return None
+    start, alle = st.get("start_" + seite), st.get("alle_" + seite)
+    if not start or not alle:
+        return None
+    t = (fakt.get("text") or "").lower()
+    if "zu hause" in t or "heimspiel" in t:
+        alle = [g for g in alle if g["ort"] == "H"]
+    elif "auswärts" in t:
+        alle = [g for g in alle if g["ort"] == "A"]
+    n = fakt.get("n") or 0
+    fenster = alle[:n]
+    if not n or len(fenster) < n:
+        return None
+    alt = sum(1 for g in fenster if g["d"] < start)
+    return (alt, n, fakt.get("team")) if alt * 2 > n else None
 
 
 # ------------------------------------------------------------------ Markt-Gegencheck
