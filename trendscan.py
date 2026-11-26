@@ -899,6 +899,11 @@ def main():
                                         f"Gegner Favorit {gegner:.2f}".replace(".", ","))
                         log["raus"].append(e)
                         continue
+            if not g:
+                # 26.11. (Lucio): ohne eigene Teamwerte keine Ampel -> nicht spielbar, nicht in die Liste
+                e["hinweis"] = "keine Teamdaten (keine Ampel)"
+                log["raus"].append(e)
+                continue
             bleibt.append(e)
         log["gegencheck"] = {"signale": len(paare), "mit_daten": n_check, "papier": len(papier),
                              "rot_raus": len(paare) - len(bleibt) - len(papier)}
