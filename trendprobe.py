@@ -1,35 +1,42 @@
-"""Regressionstest _saison alt vs. neu (Liga aus den letzten 120 Tagen)."""
-import json
+"""Probe: PinnFeed (Pinnacle) – Erreichbarkeit, Struktur, Abdeckung. Key nur aus Secret, nie ausgeben."""
+import json, os, time, urllib.request, urllib.error
 from collections import Counter
 from pathlib import Path
-import teamstats as T
-
-def alt(spiele, n_tab):
-    liga = Counter(s["liga"] for s in spiele if s["tab"] and not s["freund"]).most_common(1)
-    if not liga:
-        liga = Counter(s["liga"] for s in spiele if s["liga"] and not any(w in s["liga"].lower() for w in T._POKAL)).most_common(1)
-    if not liga:
-        return []
-    ls = [s for s in spiele if s["liga"] == liga[0][0]]
-    return ls[:n_tab] if n_tab else ls  # nur Liga-Vergleich
-
-slugs = ["24-11-2026-mickleover-sports-bedworth-united", "21-11-2026-stocksbridge-park-steels-consett-a-f-c-",
-         "25-11-2026-southall-fc-newmarket-town", "25-11-2026-guisborough-town-beverley-town",
-         "25-11-2026-bolton-wanderers-west-bromwich-albion", "25-11-2026-stoke-city-millwall",
-         "25-11-2026-hartlepool-solihull-moors", "25-11-2026-harrogate-town-kidderminster-harriers",
-         "24-11-2026-padova-sampdoria", "22-11-2026-sparta-az-alkmaar", "22-11-2026-atletico-mineiro-corinthians",
-         "25-11-2026-enppi-club-ceramica-cleopatra", "22-11-2026-soroksar-szeged-csanad-grosics-akademia",
-         "26-11-2026-persika-karanganyar-persipa-pati", "25-11-2026-cascada-banha", "25-11-2026-apr-fc-musanze-fc",
-         "24-11-2026-blacks-power-entebbe-uppc", "22-11-2026-lks-lodz-ii-wigry-suwalki",
-         "22-11-2026-alessandria-acsd-saluzzo", "22-11-2026-udi-19-fc-lisse"]
-out = {}
-for s in slugs:
-    for tt in ("home", "away"):
-        try:
-            team, sp = T._spiele(T._abrufen(s, tt))
-        except Exception as e:
-            out[f"{s}|{tt}"] = str(e)[:100]; continue
-        a, n = alt(sp, None), T._saison(sp, None)
-        out[f"{s}|{tt}"] = {"team": team, "alt_liga": a[0]["liga"] if a else None,
-                            "neu_liga": n[0]["liga"] if n else None, "neu_n": len(n)}
-Path("runs/trendscan/probe.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
+KEY = os.environ.get("PINNFEED_KEY", "")
+out = {"key_da": bool(KEY), "key_prefix_ok": KEY.startswith("ps_")}
+def get(path):
+    req = urllib.request.Request("https://pinnfeed.io" + path, headers={"x-api-key": KEY, "Accept": "application/json",
+                                                                       "User-Agent": "trend-scanner"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return r.status, dict(r.headers), r.read().decode("utf-8", "ignore")
+    except urllib.error.HTTPError as e:
+        return e.code, dict(e.headers), e.read().decode("utf-8", "ignore")[:500]
+    except Exception as e:
+        return None, {}, str(e)[:300]
+st, h, b = get("/health"); out["health"] = [st, b[:200]]
+for path in ("/v1/odds?sport=soccer&main=true", "/v1/odds?sport=soccer&main=true&live=false",
+             "/v1/events?sport=soccer"):
+    time.sleep(1.5)
+    st, h, b = get(path)
+    r = {"status": st, "headers": {k: v for k, v in h.items() if k.lower().startswith(("x-", "retry", "ratelimit"))}}
+    try:
+        d = json.loads(b)
+    except Exception:
+        r["body"] = b[:400]; out[path] = r; continue
+    ev = d.get("events") if isinstance(d, dict) else d
+    r["keys"] = list(d.keys())[:20] if isinstance(d, dict) else None
+    r["count"] = d.get("count") if isinstance(d, dict) else None
+    if isinstance(ev, list):
+        r["n_events"] = len(ev)
+        r["ev_keys"] = sorted({k for e in ev[:50] for k in e})[:40]
+        lg = Counter(str(e.get("league") or e.get("leagueName") or e.get("league_name")) for e in ev)
+        r["n_ligen"] = len(lg); r["ligen_top"] = lg.most_common(40)
+        mt = Counter(m.get("type") for e in ev for m in (e.get("markets") or []))
+        r["markttypen"] = mt.most_common(20)
+        r["live_anteil"] = sum(1 for e in ev if e.get("live") or e.get("isLive") or e.get("status") == "live") / max(1, len(ev))
+        r["beispiel"] = ev[:2]
+    else:
+        r["body"] = str(d)[:400]
+    out[path] = r
+Path("runs/trendscan/probe.json").write_text(json.dumps(out, ensure_ascii=False, indent=1, default=str)[:400000])
