@@ -101,12 +101,32 @@ def _datum(s):
         return None
 
 
+def _liga_frisch(spiele, tage=120):
+    """26.11. (Lucio: englische Amateurspiele ohne Teamdaten): Liga nur aus den Spielen der letzten
+    120 Tage bestimmen. Sonst gewinnt bei Auf-/Absteigern die alte Liga mit Tabelle (z. B. Mickleover:
+    Northern League Premier Division 25/26 statt Division One ohne Tabelle) -> 0 Saisonspiele."""
+    ds = [(s, _datum(s)) for s in spiele if s["liga"] and not s["freund"]]
+    ds = [(s, d) for s, d in ds if d is not None]
+    if not ds:
+        return []
+    neu = max(d for _, d in ds)
+    frisch = [s for s, d in ds if (neu - d).days <= tage]
+    for liga in (Counter(s["liga"] for s in frisch if s["tab"]).most_common(1),
+                 Counter(s["liga"] for s in frisch
+                         if not any(w in s["liga"].lower() for w in _POKAL)).most_common(1)):
+        if liga and liga[0][1] >= 3:
+            return liga
+    return []
+
+
 def _saison(spiele, n_tab):
     """Nur Ligaspiele der laufenden Saison.
     Liga = häufigster Wettbewerb mit Tabelle; hat scores24 für die Liga keine Tabelle (z. B. 3. Liga
     Polen, U19 Slowakei), dann der häufigste Wettbewerb, der nicht nach Pokal/Testspiel aussieht.
     Saison = die letzten n_tab Spiele laut Tabelle, sonst bis zur ersten Pause > 60 Tage."""
-    liga = Counter(s["liga"] for s in spiele if s["tab"] and not s["freund"]).most_common(1)
+    liga = _liga_frisch(spiele)
+    if not liga:
+        liga = Counter(s["liga"] for s in spiele if s["tab"] and not s["freund"]).most_common(1)
     if not liga:
         liga = Counter(s["liga"] for s in spiele
                        if s["liga"] and not any(w in s["liga"].lower() for w in _POKAL)).most_common(1)
