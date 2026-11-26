@@ -906,7 +906,8 @@ def main():
                 continue
             bleibt.append(e)
         log["gegencheck"] = {"signale": len(paare), "mit_daten": n_check, "papier": len(papier),
-                             "rot_raus": len(paare) - len(bleibt) - len(papier)}
+                             "rot_raus": len(paare) - len(bleibt) - len(papier),
+                             "abruf_fehler": teamstats.ABRUF_FEHLER}
         treffer = bleibt
     except Exception as ex:
         import traceback

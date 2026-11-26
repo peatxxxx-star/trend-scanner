@@ -137,6 +137,9 @@ def playoff_verdacht(spiele, n_tab):
     return len(_saison(spiele, None)) > n_tab + 1
 
 
+ABRUF_FEHLER = []
+
+
 def laden(eintraege, cache_datei):
     """eintraege: [(slug, n_heim, n_gast)] -> {slug: {"heim": [...], "gast": [...]}}"""
     try:
@@ -151,13 +154,26 @@ def laden(eintraege, cache_datei):
     def eins(a):
         s, tt = a
         try:
-            return a, _abrufen(s, tt)
+            return a, _abrufen(s, tt) or None    # 26.11.: leere Antwort = Fehlschlag, nicht cachen
         except Exception:
             return a, None
+    global ABRUF_FEHLER
+    nochmal = []
     with ThreadPoolExecutor(8) as ex:
         for (s, tt), nodes in ex.map(eins, fehlt):
-            if nodes is not None:
+            if nodes:
                 cache[f"{s}|{tt}"] = {"t": jetzt, "nodes": nodes}
+            else:
+                nochmal.append((s, tt))
+    # 26.11. (Lucio: englische Spiele ohne Teamdaten): Fehlschläge einmal langsam nachladen
+    ABRUF_FEHLER = []
+    for a in nochmal:
+        time.sleep(1.5)
+        (s, tt), nodes = eins(a)
+        if nodes:
+            cache[f"{s}|{tt}"] = {"t": jetzt, "nodes": nodes}
+        else:
+            ABRUF_FEHLER.append(f"{s}|{tt}")
     cache = {k: v for k, v in cache.items() if jetzt - v.get("t", 0) < 2 * 86400}
     cache_datei.parent.mkdir(exist_ok=True)
     with gzip.open(cache_datei, "wt", encoding="utf-8") as f:
