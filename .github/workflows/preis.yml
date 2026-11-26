@@ -1,0 +1,32 @@
+name: Preisvergleich BL vs Pinnacle (Testwoche)
+on:
+  schedule:
+    - cron: "23 5-21/2 * * *"
+  push:
+    branches: [main]
+    paths: ["preis_now"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: preis
+  cancel-in-progress: false
+jobs:
+  preis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q numpy
+      - run: python preis.py
+        env:
+          PINNFEED_KEY: ${{ secrets.PINNFEED_KEY }}
+      - run: |
+          git config user.name "trend-scanner"
+          git config user.email "actions@users.noreply.github.com"
+          git add runs/preis
+          git commit -q -m "Preisvergleich" || exit 0
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash -X theirs origin main && git push -q origin HEAD:main && exit 0; sleep 15; done
