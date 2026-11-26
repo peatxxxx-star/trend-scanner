@@ -141,7 +141,9 @@ def main():
                 ev.append([mkey, lk[0], L, float(q), round(p, 4), round(p * float(q) - 1, 4)])
         rows.append({"pin": e["id"], "bl": g["I"], "liga": e["league"]["name"], "bl_liga": g.get("L"),
                      "spiel": f"{g['O1']} – {g['O2']}", "pin_spiel": f"{e['home']} – {e['away']}", "swap": swap,
-                     "ko": int(ko), "p": [p1, px, p2], "marge_1x2": mk[("moneyline", 0)].get("margin"),
+                     "ko": int(ko), "p": [p1, px, p2],
+                     "roh": [o["home"]["decimal"], o["draw"]["decimal"], o["away"]["decimal"]],
+                     "tot_roh": [x["decimal"] for x in tm["outcomes"]] if tm else None, "marge_1x2": mk[("moneyline", 0)].get("margin"),
                      "tot": [tl, tof], "lam": [round(float(bh), 3), round(float(ba), 3)], "fitfehler": round(ferr, 4),
                      "max": mk[("moneyline", 0)].get("maxStake"), "ev": ev})
     ts = datetime.now(timezone.utc)
