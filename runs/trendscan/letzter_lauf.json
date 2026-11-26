@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-26T21:07:01.168039+01:00",
+ "stand": "2026-11-26T21:10:23.902932+01:00",
  "spiele_s24": 33,
  "signale": [],
  "geloescht": null,
@@ -145,23 +145,58 @@
    "h2h": []
   },
   {
-   "spiel": "Ac Colina – General Velasquez",
-   "liga": "Chile. Segunda",
-   "anstoss": 1795726800,
-   "markt": "Ac Colina Tore unter 2,5",
+   "spiel": "Club Leon – Cruz Azul",
+   "liga": "Mexico. Liga MX",
+   "anstoss": 1795749000,
+   "markt": "Cruz Azul Ecken über 3,5",
    "quote": null,
    "x12": [
-    1.74,
-    3.58,
-    3.92
+    3.12,
+    3.45,
+    2.13
    ],
-   "hinweis": "keine BL-Quote; keine Tabelle bei scores24 – Pokal/K.-o.? selbst prüfen",
-   "key": "26-11-2026-ac-colina-general-velasquez|total_t1_under|2_5",
-   "tab": {},
-   "bl": "Deportes Colina – General Velasquez",
+   "hinweis": "keine BL-Quote",
+   "key": "25-11-2026-club-leon-cruz-azul|corners_total_t2_over|3_5",
+   "tab": {
+    "name": "Primera Division 26/27",
+    "runde": null,
+    "teams": 6,
+    "heim": {
+     "team": "Club Leon",
+     "slug": "leon-1",
+     "tid": "zp5rzgh75jgq82w",
+     "tab": "Primera Division 26/27",
+     "runde": null,
+     "pos": 7,
+     "sp": 17,
+     "s": 7,
+     "u": 5,
+     "n": 5,
+     "tore": 25,
+     "gegen": 22,
+     "pkt": 26
+    },
+    "gast": {
+     "team": "Cruz Azul",
+     "slug": "cruz-azul",
+     "tid": "zp5rzgh75jgq82w",
+     "tab": "Primera Division 26/27",
+     "runde": null,
+     "pos": 2,
+     "sp": 17,
+     "s": 10,
+     "u": 2,
+     "n": 5,
+     "tore": 37,
+     "gegen": 27,
+     "pkt": 32
+    },
+    "alle": null
+   },
+   "bl": "Leon – Cruz Azul",
    "serie": [
-    "Ac Colina hat unter 2.5 Tore erzielt in 10 der letzten 11 Spiele (Segunda Division).",
-    "Ac Colina hat unter 2.5 Tore erzielt in 11 der letzten 12 Spiele zu Hause."
+    "Cruz Azul hat über 3.5 Ecken erhalten in 31 der letzten 32 Spiele (Liga MX).",
+    "Cruz Azul hat über 3.5 Ecken erhalten in 16 der letzten 17 Spiele."
    ],
    "h2h": []
   },
@@ -1136,9 +1171,9 @@
   "raus_spiele": 2
  },
  "gegencheck": {
-  "signale": 10,
+  "signale": 9,
   "mit_daten": 2,
-  "papier": 4,
+  "papier": 3,
   "rot_raus": 6,
   "abruf_fehler": []
  },
@@ -1206,77 +1241,15 @@
    "papier": true
   },
   {
-   "spiel": "Club Leon – Cruz Azul",
-   "liga": "Mexico. Liga MX",
-   "anstoss": 1795749000,
-   "markt": "Cruz Azul Ecken über 3,5",
-   "quote": 1.26,
-   "x12": [
-    3.12,
-    3.45,
-    2.13
-   ],
-   "hinweis": "",
-   "key": "25-11-2026-club-leon-cruz-azul|corners_total_t2_over|3_5",
-   "tab": {
-    "name": "Primera Division 26/27",
-    "runde": null,
-    "teams": 6,
-    "heim": {
-     "team": "Club Leon",
-     "slug": "leon-1",
-     "tid": "zp5rzgh75jgq82w",
-     "tab": "Primera Division 26/27",
-     "runde": null,
-     "pos": 7,
-     "sp": 17,
-     "s": 7,
-     "u": 5,
-     "n": 5,
-     "tore": 25,
-     "gegen": 22,
-     "pkt": 26
-    },
-    "gast": {
-     "team": "Cruz Azul",
-     "slug": "cruz-azul",
-     "tid": "zp5rzgh75jgq82w",
-     "tab": "Primera Division 26/27",
-     "runde": null,
-     "pos": 2,
-     "sp": 17,
-     "s": 10,
-     "u": 2,
-     "n": 5,
-     "tore": 37,
-     "gegen": 27,
-     "pkt": 32
-    },
-    "alle": null
-   },
-   "bl": "Leon – Cruz Azul",
-   "serie": [
-    "Cruz Azul hat über 3.5 Ecken erhalten in 31 der letzten 32 Spiele (Liga MX).",
-    "Cruz Azul hat über 3.5 Ecken erhalten in 16 der letzten 17 Spiele."
-   ],
-   "h2h": [],
-   "check": [
-    "🔴 Alle: Leon 12/17 (71%) · Cruz 16/17 (94%) · BE 79%",
-    "   Rolle: Leon heim 5/8 (62%) · Cruz ausw. 9/9 (100%)"
-   ],
-   "sym": "🔴",
-   "papier": true
-  },
-  {
    "spiel": "Ac Colina – General Velasquez",
    "liga": "Chile. Segunda",
    "anstoss": 1795726800,
    "markt": "General Velasquez +1,5",
-   "quote": 1.3,
+   "quote": 1.29,
    "x12": [
-    1.74,
-    3.58,
-    3.92
+    1.76,
+    3.56,
+    3.845
    ],
    "hinweis": "",
    "key": "26-11-2026-ac-colina-general-velasquez|handicap2|1_5",
@@ -1287,7 +1260,7 @@
    ],
    "h2h": [],
    "check": [
-    "🟡 Alle: Colina 20/23 (87%) · General 21/25 (84%) · BE 77%",
+    "🟡 Alle: Colina 20/23 (87%) · General 21/25 (84%) · BE 78%",
     "   Rolle: Colina heim 9/11 (82%) · General ausw. 8/12 (67%)"
    ],
    "sym": "🟡",
@@ -1329,6 +1302,6 @@
  "liste": 0,
  "neu": 0,
  "telegram": "status",
- "sekunden": 82.4,
- "bl_anfragen": 376
+ "sekunden": 82.6,
+ "bl_anfragen": 391
 }
