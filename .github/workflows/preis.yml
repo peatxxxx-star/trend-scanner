@@ -1,7 +1,5 @@
 name: Preisvergleich BL vs Pinnacle (Testwoche)
 on:
-  schedule:
-    - cron: "23 5-21/2 * * *"
   push:
     branches: [main]
     paths: ["preis_now"]

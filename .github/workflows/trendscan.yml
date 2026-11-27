@@ -42,6 +42,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - run: pip install -q numpy
       - name: Zwischenspeicher laden
         uses: actions/cache/restore@v4
         with:
@@ -57,13 +58,14 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TS_TROCKEN: ${{ github.event.inputs.trocken }}
+          PINNFEED_KEY: ${{ secrets.PINNFEED_KEY }}
           SCHLEIFE: ${{ github.event_name != 'push' && '1' || '' }}
         run: |
           git config user.name "trend-scanner"
           git config user.email "actions@users.noreply.github.com"
           sichern() {
             git checkout -- cache/ 2>/dev/null || true
-            git add -A state/ runs/trendscan/ 2>/dev/null || true
+            git add -A state/ runs/trendscan/ runs/preis/ 2>/dev/null || true
             if git diff --cached --quiet; then return 0; fi
             git commit -q -m "Trend-Scan $(date -u +'%Y-%m-%d %H:%M') UTC"
             for i in 1 2 3 4; do
@@ -77,6 +79,8 @@ jobs:
               # 22.11.: vorher holen, damit von Hand gepflegte state-Dateien (gespielt, live …) gelten
               git pull -q --rebase -X theirs || echo "pull vor Lauf fehlgeschlagen (weiter)"
               timeout 25m python trendscan.py || echo "Scan-Fehler (weiter)"
+              # 27.11.: Preisvergleich BL vs Pinnacle (Testwoche) jede Stunde mit – eigener Zeitplan war unzuverlässig
+              if [ -n "$PINNFEED_KEY" ] && [ -z "$TS_TROCKEN" ]; then timeout 12m python preis.py || echo "Preisvergleich-Fehler (weiter)"; fi
               sichern
             else
               echo "$(TZ=Europe/Berlin date +%H:%M) – Nachtpause"

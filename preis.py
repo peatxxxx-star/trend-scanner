@@ -82,7 +82,7 @@ def main():
     t0 = time.time()
     jetzt = time.time()
     pe = [e for e in pinnacle() if not e.get("live") and e.get("status") in (None, "pending")]
-    bl = betlabel.lade_spiele(frisch=True)
+    bl = betlabel.lade_spiele()          # 27.11.: Liste aus dem Scanner-Cache (max. 3 h alt)
     paare = []
     for e in pe:
         try:
