@@ -577,6 +577,11 @@ def alte_nachrichten_loeschen():
 
 
 def tg(text, leise=False):
+    # 27.11. (Lucio: "lass erst mal im Hintergrund weiterlaufen ... live nicht spielen"): stumm, solange
+    # state/trendscan_stumm existiert – Scan, Archiv und Auswertung laufen normal weiter
+    if (ROOT / "state" / "trendscan_stumm").exists():
+        print("— Telegram stumm —\n" + text, flush=True)
+        return True
     if TROCKEN or not (TG_TOKEN and TG_CHAT):
         print("— Telegram (nicht gesendet) —\n" + text, flush=True)
         return True
