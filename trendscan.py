@@ -870,6 +870,13 @@ def main():
                 e["hinweis"] = f"Serie aus Vorsaison: {vs[0]} von {vs[1]} Spielen ({vs[2]}) vor Saisonstart"
                 log["raus"].append(e)
                 continue
+            if not mit_tab:
+                # 27.11. (Lucio, Largs Thistle – Ayr United, Schottland-Pokal: "Wäre wieder echtes Geld gewesen"):
+                # keine Tabelle UND Teams aus verschiedenen Ligen = Pokal/kein Ligaspiel -> raus (Regel seit 18.11.:
+                # nur reine Ligaspiele). Kleine Ligen ohne Tabelle mit beiden Teams in derselben Liga bleiben drin.
+                e["hinweis"] = "kein Ligaspiel: keine Tabelle und Teams aus verschiedenen Ligen (Pokal?)"
+                log["raus"].append(e)
+                continue
             if po:
                 # 21.11. (Lucio): reguläre Runde laut Tabelle vorbei -> Play-off/Meisterrunde/Finalphase = raus
                 e["hinweis"] = "Play-off/Meisterrunde: reguläre Saison laut Tabelle beendet"
